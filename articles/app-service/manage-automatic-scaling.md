@@ -38,14 +38,14 @@ When you enable automatic scaling, you can define maximum number of instances yo
 
 ![Automatic scaling in Azure portal](./media/manage-automatic-scaling/azure-portal-automatic-scaling.png)
 
-2. Select **Automatic (preview)** and then select the **Save** button.
+2. Select **Automatic (preview)**, update the __maximum burst__ value, and select the **Save** button.
 
 #### [Azure CLI](#tab/azure-cli)
 
 The following command enables automatic scaling for your existing App Service Plan and web apps within this plan:
 
 ```azurecli-interactive
-az appservice plan update --name <AppServicePlan> --resource-group <RESOURCE_GROUP> --elastic-scale true --max-elastic-worker-count <YOUR_MAX_BURST> 
+az appservice plan update --name <APP_SERVICE_PLAN> --resource-group <RESOURCE_GROUP> --elastic-scale true --max-elastic-worker-count <YOUR_MAX_BURST> 
 ```
 
 - `--elastic-scale true` enables automatic scaling.
@@ -128,12 +128,8 @@ You can't change the maximum scale limit in Azure CLI, you must instead use the 
 The following command disables automatic scaling for your existing App Service Plan and all web apps within this plan:
 
 ```azurecli-interactive
-az appservice plan update --resource-group <ResourceGroup> --name <AppServicePlan> --elastic-scale false 
+az appservice plan update --resource-group <RESOURCE_GROUP> --name <APP_SERVICE_PLAN> --elastic-scale false 
 ```
-
-- Replace `<ResourceGroup>` with the Resource Group name.
-- Replace `<AppServicePlan>` with the App Service Plan name.
-- Set the `--elastic-scale` argument to false to disable automatic scaling.
 
 --- 
 
@@ -166,7 +162,7 @@ A quick comparison of various scale out and scale in options available for App S
 Once automatic scaling for web apps is configured, existing Azure autoscale rules and schedules will not work. Applications can use either automatic scaling, or autoscale, but not both.
 
 ### Does automatic scaling support Azure Function apps?
-No. You can only have Azure App Service web apps in the App Service Plan where you wish to enable automatic scaling. If you have existing Azure Functions apps in the same App Service Plan, or if you create new Azure Functions apps, then automatic scaling is disabled. For Functions, it's recommended to use the Azure Functions Premium plan instead.
+No, you can only have Azure App Service web apps in the App Service Plan where you wish to enable automatic scaling. If you have existing Azure Functions apps in the same App Service Plan, or if you create new Azure Functions apps, then automatic scaling is disabled. For Functions, it's recommended to use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
 
 ### How to monitor the current instance count and instance history?
 Use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check the current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to check the instance count history.
