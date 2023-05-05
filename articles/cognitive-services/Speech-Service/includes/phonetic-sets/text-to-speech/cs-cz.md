@@ -1,4 +1,4 @@
---
+---
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
