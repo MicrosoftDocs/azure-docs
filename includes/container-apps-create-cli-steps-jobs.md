@@ -2,8 +2,9 @@
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: include
-ms.date: 01/26/2022
+ms.date: 05/04/2023
 ms.author: cshoe
+ms.custom: references_regions
 ---
 
 ## Prerequisites
