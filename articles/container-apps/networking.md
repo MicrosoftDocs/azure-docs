@@ -185,7 +185,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 | Scenarios | Service Tag | Description |
 |--|--|--|
-| **REQUIRED** Microsoft Container Registry (MCR) | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps infrastructure and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| **REQUIRED** Microsoft Container Registry (MCR) | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps infrastructure and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | ACR | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
 | Azure Key Vault | *AzureKeyVault* | This service tag is required in addition to the FQDN for the application rule for Azure Key Vault. |
 
