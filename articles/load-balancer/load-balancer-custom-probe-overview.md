@@ -36,14 +36,11 @@ Health probe configuration consists of the following elements:
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
 | Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
 
->[!NOTE]
->A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
-
 ## Application signal, detection of the signal, and Load Balancer reaction
 
 The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. On the next healthy probe up, the health probe marks your backend pool instances as healthy.
 
-For example, a health probe set to five seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
+For example, a health probe set to 5 seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
 
 1. If your application produces a time-out response just before the next probe arrives, the detection of the events will take 5 seconds plus the duration of the application time-out when the probe arrives. You can assume the detection to take slightly over 5 seconds.
 
@@ -85,9 +82,6 @@ A TCP probe fails when:
 * The probe receives a TCP reset from the instance.
 
 ### HTTP/HTTPS probe
-
->[!NOTE]
->HTTPS probe is only available for [Standard Load Balancer](./load-balancer-overview.md).
 
 HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS). The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. The health probe attempts to check the configured health probe port every 15 seconds by default. 
 
@@ -175,6 +169,8 @@ In addition to load balancer health probes, the [following operations use this I
 * If you have multiple interfaces configured in your virtual machine, ensure you respond to the probe on the interface you received it on. You may need to source network address translate this address in the VM on a per interface basis.
 
 * Don't enable [TCP timestamps](https://tools.ietf.org/html/rfc1323). TCP timestamps can cause health probes to fail due to the VM's guest OS TCP stack dropping TCP packets. The dropped packets can cause the load balancer to mark the endpoint as down. TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
+
+* Note that a probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
 
 ## Monitoring
 
