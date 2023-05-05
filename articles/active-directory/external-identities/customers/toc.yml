@@ -32,7 +32,7 @@ items:
     - name: Custom authentication extensions
       href: concept-custom-extensions.md
     - name: Security and governance
-      href: concept-security-customers.md  	  	  
+      href: concept-security-customers.md  	   	  
 - name: How-to guides
   expanded: true
   items:
@@ -45,12 +45,12 @@ items:
               items:
                 - name: JavaScript
                   items:
-                    - name: Sign in users and call an API
-                      href: how-to-single-page-app-vanillajs-sample-sign-in.md  
+                    - name: Sign in users
+                      href: how-to-single-page-app-vanillajs-sample-sign-in.md
                 - name: React
                   items:
-                    - name: Sign in users and call an API
-                      href: ../../develop/web-api-quickstart.md
+                    - name: Sign in users
+                      href: how-to-single-page-application-react-sample.md
             - name: Web app
               items:
                 - name: Node.js
@@ -96,16 +96,11 @@ items:
                         - name: Overview
                           href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
-                          href: ../../develop/web-api-quickstart.md
+                          href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
-                          href: ../../develop/web-api-quickstart.md
-                        - name: Configure app for authentication
-                          href: ../../develop/web-api-quickstart.md
+                          href: how-to-single-page-application-react-prepare-app.md
                         - name: Sign in and sign out
-                          href: ../../develop/web-api-quickstart.md
-                - name: Angular JS - Sign in users and call an API
-                  href: ../../develop/tutorial-v2-angular-auth-code.md
-
+                          href: how-to-single-page-application-react-prepare-app.md
             - name: Web app
               items: 
                 - name: Node/Express.js

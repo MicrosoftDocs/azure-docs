@@ -10,11 +10,12 @@ ms.date: 09/10/2021
 
 # Bicep operators
 
-This article describes the Bicep operators. Operators are used to calculate values, compare values, or evaluate conditions. There are four types of Bicep operators:
+This article describes the Bicep operators. Operators are used to calculate values, compare values, or evaluate conditions. There are five types of Bicep operators:
 
 - [accessor](#accessor)
 - [comparison](#comparison)
 - [logical](#logical)
+- [null-forgiving](#null-forgiving)
 - [numeric](#numeric)
 
 ## Operator precedence and associativity
@@ -75,6 +76,14 @@ The logical operators evaluate boolean values, return non-null values, or evalua
 | `!` | [Not](./operators-logical.md#not-) | Negates a boolean value. Takes one operand. |
 | `??` | [Coalesce](./operators-logical.md#coalesce-) | Returns the first non-null value. |
 | `?` `:` | [Conditional expression](./operators-logical.md#conditional-expression--) | Evaluates a condition for true or false and returns a value. |
+
+## Null-forgiving
+
+The null-forgiving operator suppresses all nullable warnings for the preceding expression.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `!` | [Null-forgiving](./operator-null-forgiving.md#null-forgiving) | Suppresses all nullable warnings for the preceding expression. |
 
 ## Numeric
 
