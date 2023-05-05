@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (V4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* [Python](https://www.python.org/downloads/) (v3.6 ~ v3.9). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
+* [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (V4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
