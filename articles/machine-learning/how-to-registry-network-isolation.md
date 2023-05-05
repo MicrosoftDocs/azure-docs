@@ -43,7 +43,7 @@ The following diagram shows a basic network configuration and how the Azure Mach
 If you don't have a secure workspace configuration, you can create it using the [Create a secure workspace in Azure portal](tutorial-create-secure-workspace.md) or [Create a secure workspace with a template](tutorial-create-secure-workspace-template.md) articles.
 
 
-:::image type="content" source="./media/how-to-registry-network-isolation/basic-netwrok-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
+:::image type="content" source="./media/how-to-registry-network-isolation/basic-network-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
 
 ## Scenario: workspace configuration is secure and Azure Machine Learning registry is public
@@ -93,7 +93,7 @@ The storage account and ACR used by your Azure Machine Learning registry are cre
 
 In the Azure portal, you can find this resource group by searching for `azureml_rg-<name-of-your-registry>`. All the storage and ACR resources for your registry are available under this resource group.
 
-### Create assets in Registry from local files     
+### Create assets in registry from local files     
 
  
 > [!NOTE]
