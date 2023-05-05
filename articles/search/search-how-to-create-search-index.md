@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 05/05/2023
 ---
 
 # Create an index in Azure Cognitive Search
