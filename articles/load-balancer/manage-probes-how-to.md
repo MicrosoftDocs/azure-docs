@@ -27,7 +27,7 @@ Health probes have the following properties:
 | Name | Name of the health probe. This is a name you get to define for your health probe |
 | Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Available options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
-| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attemps to the virtual machine |
 | Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
 | Path | The URI used for requesting health status from the virtual machine instance by the health probe (only applicable for HTTP(s) probes).
 
