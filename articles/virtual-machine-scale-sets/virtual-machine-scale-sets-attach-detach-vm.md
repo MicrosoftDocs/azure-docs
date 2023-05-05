@@ -1,12 +1,8 @@
 ---
-# Required metadata
-		# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-		# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-		title:       # Add a title for the browser tab
-description: # Add a meaningful description for search results
-author:      fitzgeraldsteele # GitHub alias
-ms.author:   fisteele # Microsoft alias
+title:       Attach virtual machine to a virtual machine scale set# Add a title for the browser tab
+description: How to attach a virtual machine to a virtual machine scale set 
+author:      fitzgeraldsteele 
+ms.author:   fisteele 
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.date:     05/05/2023
@@ -15,10 +11,10 @@ ms.reviewer: jushiman
 
 # Attach VM to a scale set
 
-> [!NOTE]
-> You can only attach VMs to a scale set in **Flexible orchestration mode**.  Learn more about [Orchestration modes](./virtual-machine-scale-sets-orchestrationmodes.md).
+You can attach a standalone virtual machine to a scale set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over how instances naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify operating system, VM size, networking configuration, on-demand or Spot priority, etc.
 
-You can attach a standalone virtual machine to a scale set. Attaching a standalone virtual machine when you want to use need a different configuration than the scaling profile, you want full control over how instances are named, or want to place the instance in a specific availability zone or fault domain. A standalone virtual machine can be attached to a virtual machine scale set with or without a virtual machine scaling profile. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify operating system, VM size, networking configuration, on-demand or Spot priority, etc.
+> [!IMPORTANT]
+> You can only attach VMs to a scale set in **Flexible orchestration mode**.  Learn more about [Orchestration modes](./virtual-machine-scale-sets-orchestration-modes.md).
 
 ## Attach a new VM to a scale set
 

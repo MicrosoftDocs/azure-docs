@@ -1,16 +1,12 @@
 ---
-# Required metadata
-		# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-		# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-		title:       # Add a title for the browser tab
-description: # Add a meaningful description for search results
+title:       Virtual machine scaling profile for virtual machine scale sets 
+description: The virtual machine scaling profile for virtual machine scale sets define the vm configuration you want to use when adding instances to the scale set via autoscaling 
 author:      fitzgeraldsteele # GitHub alias
-ms.author:    # Microsoft alias
-ms.service:  # Add the ms.service or ms.prod value
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # Add the ms.topic value
+ms.author:    fisteele# Microsoft alias
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
 ms.date:     05/05/2023
+ms.reviewer: jushiman
 ---
 
 # Virtual machine scaling profile
