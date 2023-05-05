@@ -34,7 +34,7 @@ __Maximum burst__ is the highest number of instances that your App Service Plan 
 
 #### [Azure portal](#tab/azure-portal)
 
-To enable automatic scaling in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu. Select **Automatic (preview)**, update the __maximum burst__ value, and select the **Save** button.
+To enable automatic scaling in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu. Select **Automatic (preview)**, update the __Maximum burst__ value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-automatic-scaling.png" alt-text="Automatic scaling in Azure portal" :::
 
@@ -75,7 +75,7 @@ The __maximum scale limit__ sets the maximum number of instances a web app can s
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the maximum number of web app instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Enforce scale out limit**, update the **maximum scale limit**, and select the **Save** button.
+To set the maximum number of web app instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Enforce scale out limit**, update the **Maximum scale limit**, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Maximum scale limit in Azure app Service" :::
 
