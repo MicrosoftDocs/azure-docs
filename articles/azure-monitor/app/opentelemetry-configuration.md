@@ -69,30 +69,19 @@ Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://githu
 
 ```javascript
 ...
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 const { Resource } = require("@opentelemetry/resources");
 const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
-const { MeterProvider } = require("@opentelemetry/sdk-metrics")
-
 // ----------------------------------------
 // Setting role name and role instance
 // ----------------------------------------
-const testResource = new Resource({
+const config = new ApplicationInsightsConfig();
+config.resource = new Resource({
     [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
     [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
     [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
 });
-
-// ----------------------------------------
-// Done setting role name and role instance
-// ----------------------------------------
-const tracerProvider = new NodeTracerProvider({
-	resource: testResource
-});
-
-const meterProvider = new MeterProvider({
-	resource: testResource
-});
+const appInsights = new ApplicationInsightsClient(config);
 ```
 
 ### [Python](#tab/python)
@@ -147,23 +136,10 @@ Starting from 3.4.0, rate-limited sampling is available and is now the default. 
 #### [Node.js](#tab/nodejs)
 
 ```javascript
-const { BasicTracerProvider, SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
-const { ApplicationInsightsSampler, AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-
-// Sampler expects a sample rate of between 0 and 1 inclusive
-// A rate of 0.1 means approximately 10% of your traces are sent
-const aiSampler = new ApplicationInsightsSampler(0.75);
-
-const provider = new BasicTracerProvider({
-  sampler: aiSampler
-});
-
-const exporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
-
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.register();
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+const config = new ApplicationInsightsConfig();
+config.samplingRatio = 0.75;
+const appInsights = new ApplicationInsightsClient(config);
 ```
 
 #### [Python](#tab/python)
@@ -233,11 +209,14 @@ To override the default directory, you should set `storageDirectory`.
 
 For example:
 ```javascript
-const exporter = new AzureMonitorTraceExporter({
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+const config = new ApplicationInsightsConfig();
+config.azureMonitorExporterConfig = {
     connectionString: "<Your Connection String>",
     storageDirectory: "C:\\SomeDirectory",
     disableOfflineStorage: false
-});
+};
+const appInsights = new ApplicationInsightsClient(config);
 ```
 
 To disable this feature, you should set `disableOfflineStorage = true`.
@@ -307,28 +286,22 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 #### [Node.js](#tab/nodejs)
 
-1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with the [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
+1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package in your project.
 
     ```sh
         npm install @opentelemetry/exporter-otlp-http
-        npm install @azure/monitor-opentelemetry-exporter
     ```
 
 2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```javascript
-    const { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-otlp-http');
-    const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
     
-    const provider = new BasicTracerProvider();
-    const azureMonitorExporter = new AzureMonitorTraceExporter({
-      connectionString: "<Your Connection String>",
-    });
+    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const otlpExporter = new OTLPTraceExporter();
-    provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
-    provider.addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
-    provider.register();
+    appInsights.getTraceHandler().getTracerProvider().addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
     ```
 
 #### [Python](#tab/python)
