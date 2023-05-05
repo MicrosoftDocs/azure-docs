@@ -27,7 +27,7 @@ The steps in this article detail the process to:
 > [!IMPORTANT]
 > Onboarded custom IPv6 address prefixes are have several unique attributes which make them different than custom IPv4 address prefixes.
 
-* Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Note that global ranges must be /48 in size, while regional ranges must always be /64 size.
+* Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Global ranges must be /48 in size, while regional ranges must always be /64 size.
 
 * Only the global range needs to be validated using the steps detailed in the [Create Custom IP Address Prefix](create-custom-ip-address-prefix-portal.md) articles.  The regional ranges are derived from the global range in a similar manner to the way public IP prefixes are derived from custom IP prefixes.
 
@@ -43,7 +43,7 @@ The steps in this article detail the process to:
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-portal.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Refer to the [IPv4 instructions](create-custom-ip-address-prefix-portal.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
@@ -54,7 +54,7 @@ The following steps display the modified steps for provisioning a sample global 
 
 ### Provision a global custom IPv6 address prefix
 
-The following flow creates a custom IP prefix in the specified region and resource group.  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
+The following flow creates a custom IP prefix in the specified region and resource group.  No zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
 
 ### Sign in to Azure
 

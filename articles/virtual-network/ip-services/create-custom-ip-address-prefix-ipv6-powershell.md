@@ -28,7 +28,7 @@ The steps in this article detail the process to:
 > [!IMPORTANT]
 > Onboarded custom IPv6 address prefixes are have several unique attributes which make them different than custom IPv4 address prefixes.
 
-* Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Note that global ranges must be /48 in size, while regional ranges must always be /64 size.
+* Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Global ranges must be /48 in size, while regional ranges must always be /64 size.
 
 * Only the global range needs to be validated using the steps detailed in the [Create Custom IP Address Prefix](create-custom-ip-address-prefix-portal.md) articles.  The regional ranges are derived from the global range in a similar manner to the way public IP prefixes are derived from custom IP prefixes.
 
@@ -49,7 +49,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-powershell.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Refer to the [IPv4 instructions](create-custom-ip-address-prefix-powershell.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
@@ -72,7 +72,7 @@ New-AzResourceGroup @rg
 
 ### Provision a global custom IPv6 address prefix
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-AuthorizationMessage` and `-SignedMessage` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - PowerShell](create-custom-ip-address-prefix-powershell.md).)  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
+The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-AuthorizationMessage` and `-SignedMessage` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - PowerShell](create-custom-ip-address-prefix-powershell.md).)  No zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
 
  ```azurepowershell-interactive
 $prefix =@{
