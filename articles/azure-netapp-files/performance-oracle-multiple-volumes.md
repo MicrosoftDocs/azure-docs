@@ -99,7 +99,7 @@ This section details the criteria to be considered in selecting [VMs](../virtual
 
 #### Chipsets 
 
-The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 GBps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. Further, the four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affects the performance characteristics of the machine. Read the [Azure Compute documentation](/architecture/guide/technology-choices/compute-decision-tree) carefully paying attention to chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
+The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 GBps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. The four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affect the performance characteristics of the machine. Read the [Azure Compute documentation](/architecture/guide/technology-choices/compute-decision-tree) carefully paying attention to chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
 
 #### Available network bandwidth 
 
@@ -107,7 +107,7 @@ It's important to understand the difference between the available bandwidth of t
 
 As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 GBps NIC with the egress limit set at 100 GBps as well. By comparison, the E96_v5, with its 100 GBps NIC has an egress limit of 35 GBps with ingress unfettered at 100 GBps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits. 
 
-Egress limits are VM-wide and are applied as such against all network-based workloads. When using Oracle Data Guard, all writes are doubled to archive logs and must be factored to egress limit considerations. This is also true for archive log with multi-destination and RMAN, if used. When selecting VMs, familiarize yourselves with such command line tools as `ethtool` which expose the configuration of the NIC as Azure does not document network interface configurations. 
+Egress limits are VM-wide and are applied as such against all network-based workloads. When using Oracle Data Guard, all writes are doubled to archive logs and must be factored to egress limit considerations. This is also true for archive log with multi-destination and RMAN, if used. When selecting VMs, familiarize yourselves with such command line tools as `ethtool`, which expose the configuration of the NIC as Azure does not document network interface configurations. 
 
 #### Network concurrency 
 
@@ -309,7 +309,7 @@ When identifying Oracle Exadata workloads to migrate to the cloud, consider the 
     1. the amount directed to the DB node to balance CPU. 
     1. identifying the number of bytes returned by smart scan. These values can be subtracted in IO for the percentage of cell single block physical reads once it migrates off Exadata. 
 1. Note the number of logical reads from cache, determine if flash cache will be required in a cloud IaaS solution for the workload. 
-1. Compare the physical read and write total bytes to the amount performed total in cache. Can memory be raised to eliminate physical read requirements (it's common for some to shrink down SGA to force offloading for Exadata.) 
+1. Compare the physical read and write total bytes to the amount performed total in cache. Can memory be raised to eliminate physical read requirements (it's common for some to shrink down SGA to force offloading for Exadata)? 
 1. In **System Statistics**, identify what objects are impacted by what statistic and if tuning SQL, additional indexing, partitioning or other physical tuning may optimize the workload dramatically. 
 1. Inspect **Initialization Parameters** for underscore (_) or deprecated parameters which should be justified due to database level impact they may be causing on performance.
 
