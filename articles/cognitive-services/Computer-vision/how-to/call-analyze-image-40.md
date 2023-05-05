@@ -32,7 +32,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
 
 
-The SDK examples below all assume that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
+The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 #### [C#](#tab/csharp)
 
@@ -105,7 +105,7 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 ### Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two. 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The example in the this section adds all of the available visual features, but for practical usage you likely need fewer. 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 #### [C#](#tab/csharp)
 
@@ -226,7 +226,7 @@ A populated URL might look like this:
 
 ### Select Smart Cropping Aspect Ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect rations, the service returns one crop suggestion with an aspect ratio it sees fit between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect rations, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ration will be between 0.5 and 2.0 (inclusive).
 
 #### [C#](#tab/csharp)
 
@@ -471,7 +471,7 @@ In general, if you run into an issue, have a look at the [Image Analysis Samples
 
 #### [REST](#tab/rest)
 
-On error the Image Analysis service response contains a JSON payload that includes an error code and error message. It may also include additional details in the form of and inner error code and message. For example:
+On error, the Image Analysis service response contains a JSON payload that includes an error code and error message. It may also include other details in the form of and inner error code and message. For example:
 
 ```json
 {
@@ -500,7 +500,7 @@ List of common errors:
   * `InvalidRequest - Image URL is badly formatted or not accessible`. Make sure the image URL is valid and publicly accessible.
   * `InvalidRequest - The image size is not allowed to be zero or larger than 20971520 bytes`. Reduce the size of the image by compressing it and/or resizing, and resubmit your request.
   * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only support in specific Azure regions. See [Quickstart prerequisites](../quickstarts-sdk/image-analysis-client-library-40.md#prerequisites) for the list of supported Azure regions.
-  * `InvalidRequest - The provided image content type ... is not supported`. The HTTP header **Content-Type** in the request is not an allowed type:
+  * `InvalidRequest - The provided image content type ... is not supported`. The HTTP header **Content-Type** in the request isn't an allowed type:
     * For an image URL, **Content-Type** should be `application/json`
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
   * `InvalidRequest - Either 'features' or 'model-name' needs to be specified in the query parameter`. 
