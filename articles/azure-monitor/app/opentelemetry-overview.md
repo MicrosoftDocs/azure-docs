@@ -62,7 +62,7 @@ A direct exporter sends telemetry in-process (from the application's code) direc
 Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry-supported language to send to Azure Monitor via [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). Receiving OTLP will enable customers to observe applications written in languages beyond our [supported languages](platforms.md).
 
 > [!NOTE]
-> For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](/azure/azure-monitor/faq#can-i-use-the-opentelemetry-collector-).
+> For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](../faq.yml#can-i-use-the-opentelemetry-collector-).
 
 ## Terms
 
