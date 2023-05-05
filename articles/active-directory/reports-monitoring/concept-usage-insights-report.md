@@ -108,21 +108,21 @@ Looking for the status of an authentication registration or reset event of a use
 
 ### Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last service principal sign-in activity for an application. Service principal activities for the last month are provided in this report.
+The Service principal sign-in activity (preview) report provides the last service principal sign-in activity for an application. Service principal activities for the last month are provided in this report. This report supports the [expiring service principal credential recommendation](recommendation-renew-expiring-service-principal-credential.md). 
 
 The `servicePrincipalSignInActivity` reports can be viewed using Microsoft Graph in Graph Explorer.
 
 Add the following query to retrieve the service principal sign-in activity, then select the **Run query** button.
 
-    ```http
-    GET https://graph.microsoft.com/beta/reports/servicePrincipalSignInActivities/{id}
-    ```
+```http
+GET https://graph.microsoft.com/beta/reports/servicePrincipalSignInActivities/{id}
+```
 
 For more information, see [Service principal activity in Microsoft Graph](/graph/api/resources/serviceprincipalsigninactivity?view=graph-rest-beta&preserve-view=true).
 
 ### Application credential activity (preview)
 
-The Application credential activity (preview) report helps ensure your application credentials are current. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place.
+The Application credential activity (preview) report helps ensure your application credentials are current. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place. This report supports the [expiring application credential recommendation](recommendation-renew-expiring-application-credential.md) and [remove unused credentials from apps recommendation](recommendation-remove-unused-credential-from-apps.md). 
 
 Application credential activity can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can get the application credential sign-in activity by entity `id`, `keyId`, and `appId` .
 
