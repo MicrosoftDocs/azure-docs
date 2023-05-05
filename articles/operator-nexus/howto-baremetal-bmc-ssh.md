@@ -18,7 +18,7 @@ There are rare situations where a user needs to investigate & resolve issues wit
 
 When the command runs, it executes on each bare metal machine in the Cluster. If a bare metal machine is unavailable or powered off at the time of command execution, the status of the command reflects which bare metal machines couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
-There's a maximum number of 12 users defined per Cluster. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
+The BMCs support a maximum number of 12 users. Users are defined on a per Cluster basis and applied to each bare metal machine. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
 
 ## Prerequisites
 
