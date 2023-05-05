@@ -296,7 +296,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
 1. Your deployment is ready for use.
 
-### Test the deployment
+## Test the deployment
 
 Once the deployment is created, it's ready to receive jobs. Follow these steps to test it:
 

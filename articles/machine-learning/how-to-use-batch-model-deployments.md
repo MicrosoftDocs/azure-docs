@@ -280,24 +280,28 @@ A model deployment is a set of resources required for hosting the model that doe
     
     [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=configure_deployment)]
     
-    This class allows user to configure the following key aspects.
-    * `name` - Name of the deployment.
-    * `endpoint_name` - Name of the endpoint to create the deployment under.
-    * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
-    * `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
-    * `code_path`- Path to the source code directory for scoring the model
-    * `scoring_script` - Relative path to the scoring file in the source code directory
-    * `compute` - Name of the compute target to execute the batch scoring jobs on
-    * `instance_count`- The number of nodes to use for each batch scoring job.
-    * `settings` - The model deployment inference configuration:
-        * `max_concurrency_per_instance`- The maximum number of parallel scoring_script runs per instance.
-        * `mini_batch_size` - The number of files the code_configuration.scoring_script can process in one `run`() call.
-        * `retry_settings`- Retry settings for scoring each mini batch.
-            * `max_retries`- The maximum number of retries for a failed or timed-out mini batch (default is 3)
-            * `timeout`- The timeout in seconds for scoring a mini batch (default is 30)
-        * `output_action`- Indicates how the output should be organized in the output file. Allowed values are `append_row` or `summary_only`. Default is `append_row`
-    * `logging_level`- The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`.
-    * `environment_variables`- Dictionary of environment variable name-value pairs to set for each batch scoring job.
+    This class allows user to configure the following key aspects:
+
+    | Key | Description |
+    | --- | ----------- |
+    | `name` | Name of the deployment. |
+    | `endpoint_name` | Name of the endpoint to create the deployment under. |
+    | `model` | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. |
+    | `environment` | The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification  (optional for MLflow models).  |
+    | `code_configuration` | The configuration about how to run inference for the model (optional for MLflow models).  | 
+    | `code_configuration.code` | Path to the source code directory for scoring the model  | 
+    | `code_configuration.scoring_script` | Relative path to the scoring file in the source code directory |
+    | `compute` | Name of the compute target to execute the batch scoring jobs on |
+    | `instance_count` | The number of nodes to use for each batch scoring job. |
+    | `settings` | The model deployment inference configuration |
+    | `settings.max_concurrency_per_instance` | The maximum number of parallel scoring_script runs per instance.
+    | `settings.mini_batch_size` | The number of files the code_configuration.scoring_script can process in one `run`() call.
+    | `settings.retry_settings` | Retry settings for scoring each mini batch. |
+    | `settings.retry_settingsmax_retries` | The maximum number of retries for a failed or timed-out mini batch (default is 3) |
+    | `settings.retry_settingstimeout` | The timeout in seconds for scoring a mini batch (default is 30) |
+    | `settings.output_action` | Indicates how the output should be organized in the output file. Allowed values are `append_row` or `summary_only`. Default is `append_row` |
+    | `settings.logging_level` | The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`. |
+    | `environment_variables` | Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
 
     # [Studio](#tab/studio)
    

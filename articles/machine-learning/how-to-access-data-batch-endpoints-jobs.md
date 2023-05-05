@@ -173,7 +173,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $DATASET_ID
     ```
 
-    If your endpoint serves a model deployment, you can use the short form:
+    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
@@ -193,6 +193,17 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     ```
 
     # [Python](#tab/sdk)
+
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+        endpoint_name=endpoint.name,
+        inputs={
+            "heart_dataset": input,
+        }
+    )
+    ```
+
+    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
    
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -302,7 +313,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_PATH
     ```
 
-    If your endpoint serves a model deployment, you can use the short form:
+    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
@@ -326,6 +337,17 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     If your data is a file, use `uri_file` as type instead. 
    
     # [Python](#tab/sdk)
+
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+        endpoint_name=endpoint.name,
+        inputs={
+            "heart_dataset": input,
+        }
+    )
+    ```
+
+    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
    
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -429,7 +451,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_DATA
     ```
 
-    If your endpoint serves a model deployment, you can use the short form:
+    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
@@ -453,6 +475,17 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
     If your data is a file, use `uri_file` as type instead. 
 
     # [Python](#tab/sdk)
+
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+        endpoint_name=endpoint.name,
+        inputs={
+            "heart_dataset": input,
+        }
+    )
+    ```
+
+    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
    
     ```python
     job = ml_client.batch_endpoints.invoke(

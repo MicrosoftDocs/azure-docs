@@ -168,7 +168,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
 1. Your deployment is ready for use.
 
-### Test the deployment
+## Test the deployment
 
 Once the deployment is created, it's ready to receive jobs. You can invoke the default deployment as follows:
 
@@ -181,6 +181,9 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=invoke_deployment_inline)]
 
 ---
+
+> [!TIP]
+> In this example, the pipeline doesn't have inputs or outputs. However, they can be indicated at invocation time if any. To learn more about how to indicate inputs and outputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
 
 You can monitor the progress of the show and stream the logs using:
 
