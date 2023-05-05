@@ -31,6 +31,8 @@ In this article, learn how to:
 * Lower your compute cluster cost with low priority VMs
 * Set up a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the cluster
 
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
@@ -64,6 +66,9 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 * Azure allows you to place _locks_ on resources, so that they can't be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure Machine Learning compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
 
 ## Create
+
+> [!NOTE]
+> If you use serverless compute, you don't need to create a compute cluster.
 
 **Time estimate**: Approximately 5 minutes.
 
@@ -176,6 +181,7 @@ Use any of these ways to specify a low-priority VM:
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
+
     
 # [Azure CLI](#tab/azure-cli)
 
@@ -190,6 +196,9 @@ az ml compute create -f create-cluster.yml
 Where the file *create-cluster.yml* is:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
+
+> [!NOTE]
+> When you use [serverless compute](./how-to-use-serverless-compute.md), you don't need to create a compute cluster. To specify a low-priority serverless compute, set the `job_tier` to `Spot` in the [queue settings](./how-to-use-serverless-compute.md#configure-properties).
 
 # [Studio](#tab/azure-studio)
 
