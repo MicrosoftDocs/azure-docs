@@ -76,14 +76,17 @@ Providing your own container registry separates `build command` and `deploy comm
 Use the following command to build an image:
 
 ```azurecli
-
 az spring build-service build <create|update> \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --name <app-name> \ 
     --builder <builder-name> \
     --artifact-path <path-to-your-JAR-file>
+```
 
 Use the following command to deploy with a container image, using `--env` to configure runtime environment.
 
+```azurelci
 az spring app deploy \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
@@ -95,11 +98,11 @@ az spring app deploy \
     --env NEW_RELIC_APP_NAME=<your-app-name> NEW_RELIC_LICENSE_KEY=<your-license-key>
 ```
 
-### Supported APM resources - Build Service enabled
+### Supported APM resources with Build Service enabled
 
 This section describes the APM providers and tools you can use for your integrations.
 
-#### Use Application Insights - Build Service enabled
+#### Use Application Insights
 
 The following languages are supported:
 
@@ -117,7 +120,7 @@ The following list shows the required environment variables for deploy an app wi
 
 For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
 
-#### Use Dynatrace - Build Service enabled
+#### Use Dynatrace
 
 The following languages are supported:
 
@@ -143,7 +146,7 @@ The following list shows the required environment variables for deploy an app wi
 
 For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
 
-#### Use New Relic - Build Service enabled
+#### Use New Relic
 
 The following languages are supported:
 
@@ -162,7 +165,7 @@ The following list shows the required environment variables for deploy an app wi
 
 For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-#### Use ElasticAPM - Build Service enabled
+#### Use ElasticAPM
 
 The following languages are supported:
 
@@ -183,7 +186,7 @@ The following list shows the required environment variables for deploy an app wi
 
 For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-#### Use AppDynamics - Build Service enabled
+#### Use AppDynamics
 
 The following languages are supported:
 
@@ -252,87 +255,87 @@ az spring app deploy \
    --env NEW_RELIC_APP_NAME=<your-app-name> NEW_RELIC_LICENSE_KEY=<your-license-key>
 ```
 
-### Supported APM resources - Build Service disabled
+### Supported APM resources with Build Service disabled
 
 This section describes the APM providers and tools you can use for your integrations.
+ 
+- Use Application Insights
 
-#### Use Application Insights - Build Service disabled
+  The following languages are supported:
 
-The following languages are supported:
+  - Java
 
-- Java
+  The following list shows the required runtime environment variables:
 
-The following list shows the required runtime environment variables:
+  - `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-- `APPLICATIONINSIGHTS_CONNECTION_STRING`
+  For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
 
-For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
+- Use Dynatrace
 
-#### Use Dynatrace - Build Service disabled
+  The following languages are supported:
 
-The following languages are supported:
+  - Java
+  - .NET
+  - Go
+  - Node.js
+  - WebServers
 
-- Java
-- .NET
-- Go
-- Node.js
-- WebServers
+  The following list shows the required runtime environment variables:
+  - `DT_TENANT`
+  - `DT_TENANTTOKEN`
+  - `DT_CONNECTION_POINT`
 
-The following list shows the required runtime environment variables:
-- `DT_TENANT`
-- `DT_TENANTTOKEN`
-- `DT_CONNECTION_POINT`
+  For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
 
-For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
+- Use New Relic
 
-#### Use New Relic - Build Service disabled
+  The following languages are supported:
 
-The following languages are supported:
+  - Java
+  - Node.js
 
-- Java
-- Node.js
+  The following list shows the required runtime environment variables:
 
-The following list shows the required runtime environment variables:
+  - `NEW_RELIC_LICENSE_KEY`
+  - `NEW_RELIC_APP_NAME`
 
-- `NEW_RELIC_LICENSE_KEY`
-- `NEW_RELIC_APP_NAME`
+  For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+- Use ElasticAPM
 
-#### Use ElasticAPM - Build Service disabled
+  The following languages are supported:
 
-The following languages are supported:
+  - Java
+  - Node.js
 
-- Java
-- Node.js
+   The following list shows the required runtime environment variables:
 
-The following list shows the required runtime environment variables:
+  - `ELASTIC_APM_SERVICE_NAME`
+  - `ELASTIC_APM_APPLICATION_PACKAGES`
+  - `ELASTIC_APM_SERVER_URL`
 
-- `ELASTIC_APM_SERVICE_NAME`
-- `ELASTIC_APM_APPLICATION_PACKAGES`
-- `ELASTIC_APM_SERVER_URL`
+  For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
+- Use AppDynamics
 
-#### Use AppDynamics - Build Service disabled
+  The following languages are supported:
 
-The following languages are supported:
+  - Java
+  - Node.js
 
-- Java
-- Node.js
+  The following list shows the required runtime environment variables:
 
-The following list shows the required runtime environment variables:
+  - `APPDYNAMICS_AGENT_APPLICATION_NAME`
+  - `APPDYNAMICS_AGENT_TIER_NAME`
+  - `APPDYNAMICS_AGENT_NODE_NAME`
+  - `APPDYNAMICS_AGENT_ACCOUNT_NAME`
+  - `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
+  - `APPDYNAMICS_CONTROLLER_HOST_NAME`
+  - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
+  - `APPDYNAMICS_CONTROLLER_PORT`
 
-- `APPDYNAMICS_AGENT_APPLICATION_NAME`
-- `APPDYNAMICS_AGENT_TIER_NAME`
-- `APPDYNAMICS_AGENT_NODE_NAME`
-- `APPDYNAMICS_AGENT_ACCOUNT_NAME`
-- `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
-- `APPDYNAMICS_CONTROLLER_HOST_NAME`
-- `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
-- `APPDYNAMICS_CONTROLLER_PORT`
-
-For other supported environment variables, see [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
+  For other supported environment variables, see [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
 
 ---
 
