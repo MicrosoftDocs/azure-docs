@@ -147,7 +147,7 @@ app.Run();
 
 ##### [Java](#tab/java)
 
-Java auto-instrumentation is enabled through configuration changes; no code changes are required.
+Java autoinstrumentation is enabled through configuration changes; no code changes are required.
 
 Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` to your application's JVM args.
 
@@ -310,7 +310,7 @@ Requests
 * Spring scheduling
 
   > [!NOTE]
-  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+  > Servlet and Netty autoinstrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 Dependencies (plus downstream distributed trace propagation):
 * Apache HttpClient
@@ -437,7 +437,7 @@ Examples of using the Python logging library can be found on [GitHub](https://gi
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
 - <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
-- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#autocollected-logging).
 - <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 > [!NOTE]
@@ -1849,7 +1849,7 @@ Get the request trace ID and the span ID in your code:
 - For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
-- For a list of open issues related to Azure Monitor Java Auto-Instrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
+- For a list of open issues related to Azure Monitor Java Autoinstrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
 
 ### [Node.js](#tab/nodejs)
 
