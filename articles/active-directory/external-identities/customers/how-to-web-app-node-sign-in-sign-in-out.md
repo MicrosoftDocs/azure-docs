@@ -27,7 +27,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
 ```javascript
     require('dotenv').config();
     
-    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Subdomain_Here';
     const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
     const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
@@ -39,7 +39,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
+            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, // replace "Enter_the_Tenant_Subdomain_Here" with your tenant name
             clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         system: {
@@ -79,13 +79,13 @@ If you use the *.env* file to store your configuration information:
 
     ```
         CLIENT_ID=Enter_the_Application_Id_Here
-        TENANT_NAME=Enter_the_Tenant_Name_Here
+        TENANT_NAME=Enter_the_Tenant_Subdomain_Here
         CLIENT_SECRET=Enter_the_Client_Secret_Here
         REDIRECT_URI=http://localhost:3000/auth/redirect
         POST_LOGOUT_REDIRECT_URI=http://localhost:3000
     ```
 
-1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Name_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
+1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Subdomain_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
 
 You export `msalConfig`, `REDIRECT_URI`, `TENANT_NAME` and `POST_LOGOUT_REDIRECT_URI` variables in the *authConfig.js* file. This makes them accessible wherever you require the file.
 

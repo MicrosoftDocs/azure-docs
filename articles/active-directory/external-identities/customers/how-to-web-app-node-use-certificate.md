@@ -99,7 +99,7 @@ Once you associate your app registration with the certificate, you need to updat
     require('dotenv').config();
     const fs = require('fs'); //// import the fs module for reading the key file
     const crypto = require('crypto');
-    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Subdomain_Here';
     const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
     const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
@@ -151,7 +151,7 @@ Once you associate your app registration with the certificate, you need to updat
     
     -  `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
     
-    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
     We encrypted the key (we recommend that you do so), so we've to decrypt it before we pass it to MSAL configuration object.
 

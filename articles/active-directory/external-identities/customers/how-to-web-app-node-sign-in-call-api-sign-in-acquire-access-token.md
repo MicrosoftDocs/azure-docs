@@ -25,7 +25,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
 ```javascript
     require('dotenv').config();
     
-    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Subdomain_Here';
     const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
     const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
