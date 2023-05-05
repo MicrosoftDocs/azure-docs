@@ -125,13 +125,13 @@ To use your app registration in the web API sample:
 
 1. Open a console window, then run the web API by using the following commands:
 
-    ```powershell
+    ```console
     cd 2-Authorization\3-call-api-node-daemon\API\ToDoListAPI
     dotnet run
     ``` 
 1. Run the web app client by using the following commands:
 
-    ```powershell
+    ```console
         2-Authorization\3-call-api-node-daemon\App
          node . --op getToDos
     ```
@@ -139,23 +139,21 @@ To use your app registration in the web API sample:
 If your daemon app and wep API successfully run, you should see something similar to the following JSON array in your console window
 
     ```json
-    [
-      {
-        id: 1,
-        owner: '3e8....-db63-43a2-a767-5d7db...',
-        description: 'Pick up grocerie'
-      },
-      {
-        id: 2,
-        owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
-        description: 'Finish invoice report'
-      },
-      {
-        id: 3,
-        owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
-        description: 'Water plants'
-      }
-    ]
+          {
+            id: 1,
+            owner: '3e8....-db63-43a2-a767-5d7db...',
+            description: 'Pick up grocerie'
+          },
+          {
+            id: 2,
+            owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
+            description: 'Finish invoice report'
+          },
+          {
+            id: 3,
+            owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
+            description: 'Water plants'
+          }
     ```
 
 ### How it works
