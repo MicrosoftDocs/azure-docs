@@ -1,5 +1,5 @@
 ---
-title: DCesv5 and ECesv5 series confidential VMs 
+title: Preview of DCesv5 & ECesv5 confidential VMs 
 description: Learn about Azure DCesv5 and ECesv5 series confidential virtual machines (confidential VMs). These series are for tenants with high security and confidentiality requirements.
 author: michamcr
 ms.author: michamcr
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 4/25/2023
 ---
 
-# DCesv5 and ECesv5 series confidential VMs 
+# Preview of DCesv5 & ECesv5 confidential VMs 
 
 Starting with the 4th Gen Intel® Xeon® Scalable processors, Azure has begun supporting VMs backed by an all-new hardware-based Trusted Execution Environment called [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html#inpage-nav-2). Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to their applications.
 
@@ -27,7 +27,7 @@ Some of the benefits of Confidential VMs with Intel TDX include:
 - Ability to retrieve raw hardware evidence and submit for judgment to attestation provider, including open-sourcing our client application.
 - Support for [Microsoft Azure Attestation](https://learn.microsoft.com/azure/attestation) (coming soon) backed by high availability zonal capabilities and disaster recovery capabilities.
 - Support for operator-independent remote attestation with [Intel Project Amber](http://projectamber.intel.com/).
-- Support for Ubuntu 22.04, SUSE Linux Enterprise Server 15 SP5 and SUSE Linux Enterprise Server for SAP 15 SP5.
+- Support for Ubuntu 22.04, SUSE Linux Enterprise Server 15 SP5 and SAP 15 SP5.
 
 ## See also
 

@@ -306,6 +306,7 @@ Requests
 * Kafka consumers
 * Netty
 * Quartz
+* RabbitMQ
 * Servlets
 * Spring scheduling
 
@@ -326,6 +327,7 @@ Dependencies (plus downstream distributed trace propagation):
 * Kafka
 * Netty client
 * OkHttp
+* RabbitMQ
 
 Dependencies (without downstream distributed trace propagation):
 * Cassandra

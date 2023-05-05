@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 6/2/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: kr2b-contr-experiment, contperf-fy22q4
+ms.custom: kr2b-contr-experiment, contperf-fy22q4, enterprise-apps-article
 ---
 
 # Submit a request to publish your application in Azure Active Directory application gallery
