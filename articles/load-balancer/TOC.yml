@@ -279,7 +279,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.network#load-balancer
   - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET
