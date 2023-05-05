@@ -172,25 +172,25 @@ UDR is only supported on the workload profiles architecture. The following appli
 
 Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules are required based on scenario.
 
-| Scenarios | FQDNs | Description |
-|--|--|--|
-| **REQUIRED** Microsoft Container Registry (MCR) | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
-| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
-| Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
-| Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
+| Scenarios | FQDNs | Description | 
+|--|--|--|--|
+| All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
+| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
+| Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
+| Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. | 
 
 ##### Azure Firewall - Network Rules
 
 Network rules allow or deny traffic based on the network and transport layer. The following outbound firewall network rules are required based on scenario.
 
-| Scenarios | Service Tag | Description |
-|--|--|--|
-| **REQUIRED** Microsoft Container Registry (MCR) | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
-| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
-| Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. |
+| Scenarios | Service Tag | Description | 
+|--|--|--|--|
+| All scenarios | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | No |
+| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. | No |
+| Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. | No |
 
 > [!Note]
-> For Azure resources you are using with Azure Firewall that are not listed above, please refer to the [service tags documentation](../virtual-network/service-tags-overview).
+> For Azure resources you are using with Azure Firewall not listed above, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
 
 ### NAT gateway integration - preview
 
@@ -207,7 +207,7 @@ With the workload profiles architecture (preview), you can fully secure your ing
 
 ## DNS
 
--	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, do not block the `168.63.129.16` address. Otherwise, your Container Apps environment won't function.
+-	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, do not block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
 
 -	**VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal Container Apps environment, configure your domains in one of the following ways:
 
