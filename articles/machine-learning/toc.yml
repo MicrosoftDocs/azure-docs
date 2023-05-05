@@ -66,11 +66,29 @@
         - name: "Upgrade from ACI web services to managed online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-managed-online-endpoints.md
-- name: Setup
+- name: Set up
   expanded: true
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: Set up dev environments
+      href: how-to-configure-environment.md
+    - name: Intall and setup the CLI(v2)
+      href: how-to-configure-cli.md
+    - name: Set up studio environment
+      items:
+        - name: Create and manage files
+          href: how-to-manage-files.md
+        - name: Run Jupyter notebooks
+          href: how-to-run-jupyter-notebooks.md
+        - name: Use a terminal
+          href: how-to-access-terminal.md
+        - name: Manage compute sessions
+          href: how-to-manage-compute-sessions.md
+    - name: Set up VS Code extension
+      href: how-to-setup-vs-code.md
+    - name: Connect to compute instance with VSCode
+      href: how-to-setup-vs-code-remote.md
 - name: Quickstart
   expanded: true
   items:
@@ -133,6 +151,34 @@
         - name: "Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
+- name: Interact with AzureML
+  items: 
+  - name: Workspace
+    href: 
+  - name: AzureML CLI and Python SDK
+    href: concept-v2.md
+  - name: AzureML UI
+    items: 
+      - name: Searching for Assets and Resources
+        href: how-to-search-assets.md
+  - name: Compute Instance
+    href: concept-compute-instance.md
+  - name: VS Code
+    href: 
+  - name: MLFlow
+    href: 
+  - name: Use R with Azure Machine Learning
+    items:
+    - name: Bring R workloads
+      href: how-to-r-overview-r-capabilities.md
+    - name: Interactive R development
+      href: how-to-r-interactive-development.md
+    - name: Adapt R scripts for production
+      href: how-to-r-modify-script-for-production.md
+    - name: Train R model
+      href: how-to-r-train-model.md
+    - name: Deploy R model
+      href: how-to-r-deploy-r-model.md
 - name: Concepts
   items:
     - name: What is v2?
@@ -436,24 +482,12 @@
       href:
   - name: Import Data from external sources
     items:
-    - name: Overview
-      displayName:
-      href:
     - name: Create connections to external data sources
       displayName: 
       href: how-to-connection.md
     - name: Import data
       displayName:
       href: how-to-import-data-assets.md
-    - name: Manage import schedules
-      displayName:
-      href:
-    - name: Manage lifecycle settings
-      displayName:
-      href:
-    - name: Common data import issues and FAQ
-      displayName:
-      href:
   - name: Access and explore your data
     items:
     - name: Overview
@@ -471,12 +505,6 @@
     - name: Working with Tables (mltable)
       displayName: Working with Tables (mltable)
       href: how-to-mltable.md
-    - name: Tuning data loading performance
-      displayName:
-      href:
-    - name: Common data access issues and FAQ
-      displayName:
-      href:
     # v1
     - name: Data access
       href: ./v1/concept-data.md
@@ -525,9 +553,6 @@
     # end v1
   - name: Label data
     items:
-    - name: Overview
-      displayName:
-      href:
     - name: Setup
       items:
       - name: Image labeling
@@ -539,45 +564,24 @@
       - name: Add users
         displayName: data, dataset, labeling
         href: how-to-add-users.md
-    - name: End-to-end tutorial
-      displayName:
-      href:
     - name: Label images and text
       displayName: data, dataset, labeling
       href: how-to-label-data.md
     - name: Outsource labeling tasks
       displayName: data, dataset, labeling
       href: how-to-outsource-data-labeling.md
-    - name: Common data labelling issues and FAQ
-      displayName: data, dataset, labeling, FAQ
-      href:
   - name: Prepare data with Apache Spark
     items:
     - name: Overview
       href: apache-spark-azure-ml-concepts.md
-    - name: End-to-end tutorial
-      displayName:
-      href:
     - name: Submit Spark Jobs
       displayName: Submit Spark jobs in Azure Machine Learning
       href: how-to-submit-spark-jobs.md
     - name: Interactive development with Apache Spark
       displayName: Interactive Data Wrangling with Apache Spark
       href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-    - name: Tuning Apache Spark performance
-      displayName:
-      href:
-    - name: Common Spark issues and FAQ
-      displayName:
-      href:
   - name: Productionizing data
     items:
-    - name: Versioning data
-      displayName:
-      href:
-    - name: Sharing data across your organization
-      displayName:
-      href:
     - name: Managed Feature Store
       items:
       - name: TBD
@@ -737,6 +741,20 @@
   - name: Schedule jobs
     href: how-to-schedule-pipeline-job.md
   - name: Common issues and FAQ
+- name: Evaluate your models (RAI)
+  items: 
+  - name: Configure RAI model evaluation dashboard
+    href: how-to-responsible-ai-insights-ui.md
+  - name: Customize RAI components
+    href: how-to-responsible-ai-insights-sdk-cli.md
+  - name: Create RAI dashboard
+    href: how-to-responsible-ai-dashboard.md
+  - name: Generate and configure an RAI scorecard
+    items:
+      - name: Generate Responsible AI insights
+        href: how-to-responsible-ai-insights.md#how-to-generate-responsible-ai-scorecard-preview
+      - name: Using the Responsible AI scorecard in studio
+        href: how-to-responsible-ai-scorecard.md
 - name: Orchestrate workflows using pipelines
   items:
   - name: Overview
@@ -765,18 +783,11 @@
     items:
     - name: How to use pipeline components in pipeline 
       href: how-to-use-pipeline-component.md
-    - name: Control flow 
-  - name: Debug pipeline jobs
     items:
     - name: Build and debug pipelines (UI)
       href: how-to-use-pipeline-ui.md
-    - name: Debug job performance
   - name: Schedule a pipeline job
     href: how-to-schedule-pipeline-job.md
-  - name: Deploy a pipeline as a batch endpoint
-  - name: Use pipeline inputs for versatile pipeline
-    href: how-to-use-pipeline-parameter.md
-  - name: Manage components
 - name: Deploy with Inferencing
   items:
     - name: Online endpoints (real-time)
