@@ -443,10 +443,6 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
-        - name: Messaging with Visual Studio Code
-          href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-        - name: Device management with Visual Studio Code
-          href: iot-hub-device-management-iot-toolkit.md
         - name: Device management with IoT extension for Azure CLI
           href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
         - name: Data visualization in a web app

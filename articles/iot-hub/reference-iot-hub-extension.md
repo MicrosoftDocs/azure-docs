@@ -15,7 +15,9 @@ ms.custom: [mvc, 'Role: Cloud Development']
 
 # Azure IoT Hub extension for Visual Studio Code
 
-Visual Studio Code (VS Code) lets you add extensions, such as languages, debuggers, and tools, to your VS Code installation to support your development workflow. The Azure IoT Hub extension for Visual Studio Code lets you add Azure IoT Hub support to your VS Code installation, so you can manage and interact with your IoT hubs, devices, and modules during development. The Azure IoT Hub extension is available from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
+Visual Studio Code (VS Code) lets you add *extensions*, such as languages, debuggers, and tools, to your VS Code installation to support your development workflow. The [Azure IoT Hub extension for Visual Studio Code](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki) lets you add Azure IoT Hub support to your VS Code installation, so you can manage and interact with your IoT hubs, devices, and modules during development. The Azure IoT Hub extension is available from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
+
+[!INCLUDE [basic-partial](../../includes/iot-hub-basic-partial.md)]
 
 ## Install the extension
 
@@ -51,7 +53,7 @@ To find and install the extension from the VS Code Marketplace, perform the foll
 
 1. In VS Code, select the **Install** button from the Extension details page to install the extension.
 
-Installing the Azure IoT Hub extension for Visual Studio Code also installs the Azure Account extension for Visual Studio Code, which provides a single Azure sign in and subscription filtering experience for all other Azure extensions. The Azure Account extension also makes the Azure Cloud Shell service available in VS Code's integrated terminal.
+Installing the Azure IoT Hub extension for Visual Studio Code also installs the [Azure Account extension for Visual Studio Code](https://github.com/microsoft/vscode-azure-account#readme), which provides a single Azure sign in and subscription filtering experience for all other Azure extensions. The Azure Account extension also makes the Azure Cloud Shell service available in VS Code's integrated terminal.
 
 > [!NOTE]
 > The Azure IoT Hub extension depends on the Azure Account extension for connectivity. You cannot uninstall the Azure Account extension without uninstalling the Azure IoT Hub extension.
@@ -65,9 +67,22 @@ Before the extension can interact with Azure IoT Hub, you must sign in to your A
 - Filter the Azure subscriptions available to the Azure IoT Hub extension from your Azure account
 - Upload a file to your Azure Cloud Shell storage account
 
-For more information about interacting with the Azure Account extension, see the [GitHub documentation](https://github.com/microsoft/vscode-azure-account#readme) for the extension.
+Follow these steps to sign into Azure and select your IoT hub from your Azure subscription:
 
-You can use the **Azure: Sign In** command in the Command Palette to sign in to your Azure account and select the Azure subscription with which the Azure IoT Hub extension interacts. If you don't sign in to your Azure account, a notification is displayed in VS Code when you try to interact with the Azure IoT Hub extension. You can select the **Sign In** button from that notification to sign in to your Azure account.
+1. In the **Explorer** view of VS Code, expand the **Azure IoT Hub** section in the side bar.
+
+1. Select the ellipsis (…) button of the **Azure IoT Hub** section to display the action menu, and then select **Select IoT Hub** from the action menu.
+
+1. If you're not signed into Azure, a pop-up notification is shown in the bottom right corner to let you sign in to Azure. Select **Sign In** and follow the instructions to sign into Azure.
+
+1. Select your Azure subscription from the **Select Subscription** dropdown list.
+
+1. Select your IoT hub from the **Select IoT Hub** dropdown list.
+
+1. The devices for your IoT hub are retrieved from IoT Hub and shown under the **Devices** node in the **Azure IoT Hub** section of the side bar.
+
+   > [!NOTE]
+   > You can also use a connection string to access your IoT hub, by selecting **Set IoT Hub Connection String** from the action menu and entering the **iothubowner** policy connection string for your IoT hub in the **IoT Hub Connection String** input box. 
 
 Once signed in, you can interact with your hubs, devices, and modules from either the Command Palette or the action menu in the Explorer view of VS Code.
 
