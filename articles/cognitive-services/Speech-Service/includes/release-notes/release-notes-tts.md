@@ -116,7 +116,7 @@ The following voices are now available in public preview. See the [full language
 
 Released new voices in public preview:
 * Voices for English (United States): `en-US-AIGenerate1Neural` and `en-US-AIGenerate2Neural`.
-* Voices for Chinese dialects: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
+* Voices for Chinese regional languages: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
 
 For more information, see the [language and voice list](../../language-support.md?tabs=tts).
 
