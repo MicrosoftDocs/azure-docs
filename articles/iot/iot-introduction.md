@@ -33,6 +33,8 @@ Platform services provide all the building blocks for customized and flexible Io
 | Customize branding, dashboards, user roles, devices, and telemetry. However, you can't customize the underlying IoT services. | Fully customize and control your IoT solution. |
 | Has a simple, predictable pricing structure. | Let you fine-tune services to control overall costs. |
 
+To learn more, see [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md).
+
 ## IoT devices
 
 An IoT device is typically made up of a circuit board with sensors attached that uses WiFi to connect to the internet. For example:
@@ -95,12 +97,19 @@ For example, in a remote monitoring solution for an oil pumping station, the ser
 
 Some cloud services, such as IoT Hub and the Device Provisioning Service, are IoT specific. Other cloud services, such as storage and visualization, provide generic services to your solution.
 
+To learn more, see:
+
+- [Device management and control](iot-overview-device-management.md)
+- [Message processing in an IoT solution](iot-overview-message-processing.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)
+- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
+
 ## Solution-wide concerns
 
 Any IoT solution must address the following solution-wide concerns:
 
 * [Security](iot-security-best-practices.md) including physical security, authentication, authorization, and encryption
-* Solution management including deployment and monitoring.
+* [Solution management](iot-overview-solution-management) including deployment and monitoring.
 * High availability and disaster recovery for all the components in your solution.
 * Scalability for all the services in your solution.
 

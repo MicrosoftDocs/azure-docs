@@ -1,29 +1,36 @@
 - name: Azure Internet of Things documentation
   href: index.yml
+
 - name: Overview
   items:
   - name: Introduction
     href: iot-introduction.md
-  - name: Device development
-    href: iot-overview-device-development.md
-  - name: Device connectivity
-    href: iot-overview-device-connectivity.md
-  - name: Device management and control
-    href: iot-overview-device-management.md
-  - name: Process and route messages
-    href: iot-overview-message-processing.md
-  - name: Extend your IoT solution
-    href: iot-overview-solution-extensibility.md
-  - name: Analyze and visualize your IoT data
-    href: iot-overview-analyze-visualize.md
+  - name: IoT solution components
+    items:
+    - name: Device development
+      href: iot-overview-device-development.md
+    - name: Device connectivity
+      href: iot-overview-device-connectivity.md
+    - name: Device management and control
+      href: iot-overview-device-management.md
+    - name: Process and route messages
+      href: iot-overview-message-processing.md
+    - name: Extend your IoT solution
+      href: iot-overview-solution-extensibility.md
+    - name: Analyze and visualize your IoT data
+      href: iot-overview-analyze-visualize.md
+    - name: Manage your solution
+      href: iot-overview-solution-management.md
   - name: Azure IoT services and technologies
     href: iot-services-and-technologies.md
+
 - name: How-to guides
   items:
     - name: Use smartphone device app
       href: iot-phone-app-how-to.md
     - name: Use IoT Explorer
       href: howto-use-iot-explorer.md
+
 - name: Concepts
   items:
     - name: MQTT support
@@ -45,11 +52,12 @@
     href: iot-security-best-practices.md    
   - name: Security architecture
     href: iot-security-architecture.md
+
 - name: Resources
   items:
   - name: Support and help options
     href: iot-support-help.md  
-  - name: IoT Glossary
+  - name: IoT glossary
     href: iot-glossary.md
   - name: Azure IoT services
     items:
