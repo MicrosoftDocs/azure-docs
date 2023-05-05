@@ -206,27 +206,25 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+There's not cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
 
-Here's a more detailed breakdown of all costs associated with enabling and using object replication. For the price of each of these cost components, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-#### Cost to configure object replication
+| Cost to update a blob in the source account | Cost to replicate data in the destination account |
+|---|---|
+|Transaction cost of a write operation|Transaction cost to read a change feed record|
+|Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
+|Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
+||Storage cost of the blob and each blob version<sup>1</sup>|
+||Cost of network egress<sup>2</sup>|
 
-To configure object replication, you must enable the change feed, enable versioning, and then add an object replication policy. All of these tasks incur zero cost.
 
-#### Cost to update a blob in the source account
+<sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
 
-- Transaction cost of the write operation.
-- Storage cost of the blob and its versions in the source account. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
-- Cost to add a change feed record. 
+<sup>2</sup>    This includes only blob versions created since the last replication completed.
 
-#### Cost to replicate data in the destination account
+<sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-- Transaction cost to read a change feed record.
-- Transaction cost to read the blob and any new versions created since the last replication completed.
-- Transaction cost to write the blob and any blob versions that were read from the source account.
-- Cost to store the blob and its versions in the destination account. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
-- Cost of network egress. See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Next steps
 
