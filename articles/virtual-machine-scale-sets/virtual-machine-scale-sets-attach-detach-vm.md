@@ -18,7 +18,7 @@ ms.reviewer: jushiman
 > [!NOTE]
 > You can only attach VMs to a scale set in **Flexible orchestration mode**.  Learn more about [Orchestration modes](./virtual-machine-scale-sets-orchestrationmodes.md).
 
-You can attach a standalone virtual machine to a scale set. This can be useful if you need a different configuration than the scaling profile, want full control over the instance naming conventions or want to place the instance in a specific availability zone or fault domain. A standalone virtual machine can be attached to a virtual machine scale set with or without a virtual machine scaling profile. The virtual machine does not have to match the configuration in the virtual machine scaling profile, so you can specify operating system, VM size, networking configuration, on-demand or Spot priority, etc.
+You can attach a standalone virtual machine to a scale set. Attaching a standalone virtual machine when you want to use need a different configuration than the scaling profile, you want full control over how instances are named, or want to place the instance in a specific availability zone or fault domain. A standalone virtual machine can be attached to a virtual machine scale set with or without a virtual machine scaling profile. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify operating system, VM size, networking configuration, on-demand or Spot priority, etc.
 
 ## Attach a new VM to a scale set
 
@@ -27,7 +27,7 @@ Attach a virtual machine to a virtual machine scale set at the time of VM creati
 ### Azure portal
 
 1. Start the Create Virtual Machine wizard.
-1. On the **Basics** tab, open the **Availabilty options** dropdown and select **Virtual machine scale set**
+1. On the **Basics** tab, open the **Availability options** dropdown and select **Virtual machine scale set**
 1. On the **Virtual machine scale set** dropdown, select the scale set to which you want to add this virtual machine.
 1. Optionally, specify the Availability zone or Fault domain to place the VM.
 
@@ -60,9 +60,9 @@ New-AzVm `
 ### Limits to attaching to a virtual machine scale set
 
 - The VM must be in the same resource group as the scale set.
-- If the scale set is regional (no availability zones specified), the virtual machine must also be regional. If the scale set is zonal or spans multiple zones (1 or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you cannot create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
+- If the scale set is regional (no availability zones specified), the virtual machine must also be regional. If the scale set is zonal or spans multiple zones (one or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you can't create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
 - The scale set must be in Flexible orchestration mode, and the singlePlacementGroup property must be false.
-- You must attach the VM at the time of VM creation. You cannot attach an existing VM to a scale set
-- You cannot detach a VM from a scale set.
+- You must attach the VM at the time of VM creation. You can't attach an existing VM to a scale set
+- You can't detach a VM from a scale set.
 
 
