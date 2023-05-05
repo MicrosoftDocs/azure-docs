@@ -48,21 +48,21 @@ Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.
 
 #### [C++](#tab/cpp)
 
-At the start of your code, use one of the static constructor methods [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions) to create a *VisionServiceOptions* object. For example:
+At the start of your code, use one of the static constructor methods [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions#fromendpoint-1) to create a *VisionServiceOptions* object. For example:
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=vision_service_options)]
 
 Where we used this helper function to read the value of an environment variable:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=get-env-var)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=get_env_var)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
-The HTTP request header **Ocp-Apim-Subscription-Key** should be set to your vision key.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:analyze&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. You will add query strings based on your analysis options.
 
 ---
 
-## Submit data to the service
+## Select the image to analyze
 
 The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
 
@@ -73,7 +73,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image. See [VisionSource::FromFile](/dotnet/api/azure.ai.vision.core.input.visionsource.fromfile).
+> You can also analyze a local image by passing in the full-path image file name. See [VisionSource.FromFile](/dotnet/api/azure.ai.vision.core.input.visionsource.fromfile).
 
 #### [Python](#tab/python)
 
@@ -86,14 +86,14 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 
 #### [C++](#tab/cpp)
 
-Create a new [VisionSource](/cpp/cognitive-services/vision/input-visionsource) object from the URL of the image you want to analyze, using the static constructor **VisionSource::FromUrl**.**
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource::FromUrl]((/cpp/cognitive-services/vision/input-visionsource#fromurl-1))
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
+> You can also analyze a local image by passing in the full-path image file name. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
 
@@ -101,33 +101,35 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 ---
 
-## Determine how to process the data using the standard model
+## Select analysis options (using standard model)
 
 ### Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The example in the this section adds all of the available visual features, but for practical usage you likely need fewer. 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The example in the this section adds all of the available visual features, but for practical usage you likely need fewer. 
+
+Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 #### [C#](#tab/csharp)
 
-Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property.
+Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property. [ImageAnalysisFeature](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=visual_features)]
 
 #### [Python](#tab/python)
 
-Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property.
+Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property. [ImageAnalysisFeature](/python/api/azure-ai-vision/azure.ai.vision.enums.imageanalysisfeature) enum defines the supported values.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=visual_features)]
 
 #### [C++](#tab/cpp)
 
-Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and specify the visual features you'd like to extract, by calling the [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) method.
+Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object. Then specify an `std::vector` of visual features you'd like to extract, by calling the [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) method. [ImageAnalysisFeature](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imageanalysisfeature) enum defines the supported values.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=visual_features)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
-You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify requires more computation time, so only specify what you need.
+You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas.
 
 |URL parameter | Value | Description|
 |---|---|--|
@@ -150,7 +152,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people`
 
 ---
 
@@ -172,11 +174,11 @@ Use the [language](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisopti
 
 #### [C++](#tab/cpp)
 
-Use the [SetLanguage](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setlanguage) method of your **ImageAnalysisOptions** object to specify a language.
+Call the [SetLanguage](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setlanguage) method on your **ImageAnalysisOptions** object to specify a language.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=language)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 The following URL query parameter specifies the language. The default value is `en`.
 
@@ -190,7 +192,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&language=en`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&language=en`
 
 ---
 
@@ -200,13 +202,15 @@ If you're extracting captions or dense captions, you can ask for gender neutral 
 
 #### [C#](#tab/csharp)
 
-Use the [GenderNeutralCaption](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.genderneutralcaption) property of your **ImageAnalysisOptions** object and set it to true to enable gender neutral captions.
+Set the [GenderNeutralCaption](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.genderneutralcaption) property of your **ImageAnalysisOptions** object to true to enable gender neutral captions.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=gender_neutral_caption)]
 
 #### [Python](#tab/python)
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=gender_neutral_caption)]
+Set the [gender_neutral_caption](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-gender-neutral-caption) property of your **ImageAnalysisOptions** object to true to enable gender neutral captions.
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=gender_neutral_caption)]
 
 #### [C++](#tab/cpp)
 
@@ -214,75 +218,99 @@ Call the [SetGenderNeutralCaption](/cpp/cognitive-services/vision/imageanalysis-
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=gender_neutral_caption)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 Add the optional query string `gender-neutral-caption` with values `true` or `false` (the default).
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&gender-neutral-caption=true`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&gender-neutral-caption=true`
 
 ---
 
 ### Select Smart Cropping Aspect Ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect rations, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ration will be between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio will be between 0.5 and 2.0 (inclusive).
 
 #### [C#](#tab/csharp)
 
-Use the [CroppingAspectRatios](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) property of your **ImageAnalysisOptions** to set the list of aspect rations. For example, to set aspect rations of 0.9 and 1.33:
+Set the [CroppingAspectRatios](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=cropping_aspect_rations)]
 
 #### [Python](#tab/python)
 
-Use the [cropping_aspect_ratios](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-cropping-aspect-ratios) property of your **ImageAnalysisOptions** to set the list of aspect rations. For example, to set aspect rations of 0.9 and 1.33:
+Set the [cropping_aspect_ratios](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-cropping-aspect-ratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ration of 0.9 and 1.33:
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=cropping_aspect_rations)]
 
 #### [C++](#tab/cpp)
 
-Call the [SetCroppingAspectRatios](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setcroppingaspectratios) method of your **ImageAnalysisOptions** to set the list of aspect rations. For example, to set aspect rations of 0.9 and 1.33:
+Call the [SetCroppingAspectRatios](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setcroppingaspectratios) method of your **ImageAnalysisOptions** with an `std::vector` of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=cropping_aspect_rations)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 Add the optional query string `smartcrops-aspect-ratios`, with one or more aspect ratios separated by a comma.
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
 
 ---
 
-## Get results from the service using standard model
+## Get results from the service (standard model)
 
-This section shows you how to make the API call and parse the results.
+This section shows you how to make an analysis call to the service using the standard model, and get the results.
 
 #### [C#](#tab/csharp)
 
-The following code calls the Image Analysis API and prints the results for all visual features using the standard model.
+1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/dotnet/api/azure.ai.vision.imageanalysis.imageanalyzer) object.
+
+1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. This is a blocking (synchronous) call until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **AnalyzeAsync** method.
+
+1. Check the **Reason** property on the [ImageAnalysisResult](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresult) object, to determine if analysis succeeded or failed.
+
+1. If succeeded, proceed to access the relevant result properties based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object.
+
+1. If failed, you can construct the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object to get information on the failure.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=analyze)]
 
 #### [Python](#tab/python)
 
-The following code calls the Image Analysis API and prints the results for all visual features using the standard model.
+1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/python/api/azure-ai-vision/azure.ai.vision.imageanalyzer) object.
+
+1. Call the **analyze** method on the **ImageAnalyzer** object, as shown here. This is a blocking (synchronous) call until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **analyze_async** method.
+
+1. Check the **reason** property on the [ImageAnalysisResult](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisresult) object, to determine if analysis succeeded or failed.
+
+1. If succeeded, proceed to access the relevant result properties based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisresultdetails) object.
+
+1. If failed, you can construct the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object to get information on the failure.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=analyze)]
 
 #### [C++](#tab/cpp)
 
-The following code calls the Image Analysis API and prints the results for all visual features using the standard model.
+1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/cpp/cognitive-services/vision/imageanalysis-imageanalyzer) object.
+
+1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. This is a blocking (synchronous) call until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **AnalyzeAsync** method.
+
+1. Call **GetReason** method on the [ImageAnalysisResult](/cpp/cognitive-services/vision/imageanalysis-imageanalysisresult) object, to determine if analysis succeeded or failed.
+
+1. If succeeded, proceed to call the relevant **Get** methods on the result based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysisresultdetails) object.
+
+1. If failed, you can construct the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object to get information on the failure.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=analyze)]
 
 The code uses the following helper method to display the coordinates of a bounding polygon:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=polygon-to-string)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=polygon_to_string)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following text is an example of a JSON response.
 
@@ -363,7 +391,7 @@ The service returns a `200` HTTP response, and the body contains the returned da
 
 ---
 
-## Determine how to process the data using a custom model
+## Select analysis options (using custom model)
 
 ### Set the name of the custom model
 
@@ -387,15 +415,15 @@ To use a custom model, create the [ImageAnalysisOptions](/cpp/cognitive-services
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/3/3.cpp?name=model_name)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 To use a custom model, don't use the features query parameter. Set the model-name parameter to the name of your model.
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&model-name=MyCustomModelName`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&model-name=MyCustomModelName`
 
 ---
 
-## Get results from the service using custom model
+## Get results from the service (custom model)
 
 This section shows you how to make the API call and parse the results.
 
@@ -417,7 +445,7 @@ The following code calls the Image Analysis API and prints the results for the v
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/3/3.cpp?name=analyze)]
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 
 ---
@@ -469,7 +497,7 @@ Make sure the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysi
 
 In general, if you run into an issue, have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
 
-#### [REST](#tab/rest)
+#### [REST API](#tab/rest)
 
 On error, the Image Analysis service response contains a JSON payload that includes an error code and error message. It may also include other details in the form of and inner error code and message. For example:
 

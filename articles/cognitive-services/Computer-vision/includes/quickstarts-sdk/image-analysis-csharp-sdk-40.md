@@ -198,4 +198,4 @@ In this quickstart, you learned how to install the Image Analysis client library
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/csharp/image-analysis/dotnetcore).
+* Sample source code can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).

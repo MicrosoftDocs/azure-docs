@@ -59,7 +59,7 @@ At the start of your code, use one of the static constructor methods [VisionServ
 
 Where we used this helper function to read the value of an environment variable:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=get-env-var)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=get_env_var)]
 
 #### [REST](#tab/rest)
 
@@ -149,7 +149,7 @@ Set the query string *mode** to one of these two values. This query string is ma
 | `mode`       | `backgroundRemoval` | Outputs an image of the detected foreground object with a transparent background. |
 | `mode`       | `foregroundMatting` | Outputs a gray-scale alpha matte image showing the opacity of the detected foreground object. |
 
-A populated URL for backgroundRemoval would look like this: `https://{endpoint}/computervision/imageanalysis:segment?api-version=2023-02-01-preview&mode=backgroundRemoval`
+A populated URL for backgroundRemoval would look like this: `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview&mode=backgroundRemoval`
 
 ---
 
