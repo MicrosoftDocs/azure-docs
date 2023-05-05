@@ -88,8 +88,6 @@ The available protocols depend on the load balancer SKU used:
 
 TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port. TCP probes terminate a connection with a four-way close TCP handshake.
 
-The minimum probe interval is 5 seconds and can’t exceed 120 seconds.
-
 A TCP probe fails when:
 
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.
@@ -101,7 +99,7 @@ A TCP probe fails when:
 >[!NOTE]
 >HTTPS probe is only available for [Standard Load Balancer](./load-balancer-overview.md).
 
-HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS). The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds and can’t exceed 120 seconds.
+HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS). The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. The health probe attempts to check the configured health probe port every 15 seconds by default. 
 
 HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
