@@ -3,11 +3,11 @@ title: Handling an Azure service disruption that impacts Azure Cloud Services (c
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services (classic)
@@ -43,7 +43,7 @@ For more detail about how to create and deploy a cloud service application, see 
 Depending on your application data sources, you may need to check the recovery procedures for your application data source.
 
 * For Azure Storage data sources, see [Azure Storage redundancy](../storage/common/storage-redundancy.md) to check on the options that are available based on the chosen redundancy model for your application.
-* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) to check on the options that are available based on the chosen replication model for your application.
+* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview) to check on the options that are available based on the chosen replication model for your application.
 
 
 ## Option 3: Wait for recovery

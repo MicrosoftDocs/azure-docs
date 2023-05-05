@@ -1,10 +1,10 @@
 ---
 title: Manage Azure HPC Cache storage targets
 description: How to suspend, remove, force delete, and flush Azure HPC Cache storage targets, and how to understand the storage target state
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 06/29/2022
 ms.author: rohogue
 ---
 
@@ -12,10 +12,14 @@ ms.author: rohogue
 
 The storage targets settings page shows information about each storage target for your HPC Cache, and gives options to manage individual storage targets.
 
+This page also has a utility for customizing the amount of cache space allocated to each individual storage target. Read [Allocate cache storage](#allocate-cache-storage) for details.
+
 > [!TIP]
 > Instructions for listing storage targets using Azure CLI are included in the [Add storage targets](hpc-cache-add-storage.md#view-storage-targets) article. Other actions listed here might not yet be available in Azure CLI.
 
 ![Screenshot of the Settings > Storage targets page in the Azure portal. There are multiple storage targets in the list, and column headings show Name, Type, State, Provisioning state, Address/Container, and Usage model for each one.](media/storage-targets-list-states.png)
+
+<!-- to do: update all storage target list screenshots -->
 
 ## Manage storage targets
 
@@ -50,6 +54,10 @@ The cache won't accept requests from clients for files on this storage target un
 You could use this option to make sure that the back-end storage is populated before doing a backup, or for any situation where you want to make sure the back-end storage has recent updates.
 
 This option mainly applies to usage models that include write caching. Read [Understand cache usage models](cache-usage-models.md) to learn more about read and write caching.
+
+> [!TIP]
+> If you need to write specific individual files back to a storage target without writing its entire cache contents, consider the flush_file.py script contained in the HPC Cache NFSv3 client library distribution. Learn more in [Customize file write-back in Azure HPC Cache](custom-flush-script.md).
+
 
 ### Suspend a storage target
 
@@ -152,6 +160,24 @@ The **State** value affects which management options you can use. Here's a short
 * **Busy** - The storage target is processing another operation. You can delete or force remove the storage target.
 * **Suspended** - The storage target has been taken offline. You can still flush, delete, or force remove this storage target. Choose **Resume** to put the target back in service.
 * **Flushing** - The storage target is writing data to the back-end storage. The target can't process client requests while flushing, but it will automatically go back to its previous state after it finishes writing data.
+
+## Allocate cache storage
+
+Optionally, you can configure the amount of cache storage that can be used by each storage target. This feature lets you plan ahead so that space is available to store a particular storage system's files.
+
+If you do not customize the storage allocation, each storage target receives an equal share of the available cache space.
+
+Click the **Allocate storage** button to customize the cache allocation.
+
+![Screenshot of the storage targets page in the Azure portal. The mouse pointer is over the 'Allocate storage' button.](media/allocate-storage-button.png)
+
+On the **Allocate storage** blade, enter the percentage of cache space you want to assign to each storage target. The storage allocations must total 100%.
+
+Remember that some cache space is used for overhead, so the total amount of space available for cached files is not exactly the same as the capacity you chose when you created your HPC Cache.
+
+![Screenshot of the 'Allocate storage' panel at the right side of the storage targets list. Text fields next to each storage target name allow you to enter a new percent value for each target. The screenshot has target 'blob01' set to 75% and target 'blob02' set to 50%. The total is calculated underneath as 125% and an error message explains that the total must be 100%. The Save button is inactive; the Discard button is active.](media/allocate-storage-blade.png)
+
+Click **Save** to complete the allocation.
 
 ## Next steps
 

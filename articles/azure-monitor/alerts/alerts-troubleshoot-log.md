@@ -1,12 +1,9 @@
 ---
 title: Troubleshoot log alerts in Azure Monitor | Microsoft Docs
 description: Common issues, errors, and resolutions for log alert rules in Azure.
-author: yanivlavi
-ms.author: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
-ms.custom: devx-track-azurepowershell
-
+ms.reviewer: yalavi
 ---
 # Troubleshoot log alerts in Azure Monitor  
 
@@ -43,7 +40,7 @@ When you author an alert rule, Log Analytics creates a permission snapshot for y
 
 [Metric measurement](alerts-unified-log.md#calculation-of-a-value) is a type of log alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
 
-You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API]](../alerts/alerts-log-api-switch.md).
+You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API]](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
 
 ## Log alert fired unnecessarily
 
@@ -75,7 +72,7 @@ When a log alert rule is created, the query is validated for correct syntax. But
 
 - Rules were created via the API, and validation was skipped by the user.
 - The query [runs on multiple resources](../logs/cross-workspace-query.md), and one or more of the resources was deleted or moved.
-- The [query fails](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because:
+- The [query fails](../logs/api/errors.md) because:
     - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
     - Data stopped flowing to a table in the query for more than 30 days.
     - [Custom logs tables](../agents/data-sources-custom-logs.md) aren't yet created, because the data flow hasn't started.
@@ -193,7 +190,7 @@ Try the following steps to resolve the problem:
 1. Try running the query in Azure Monitor Logs, and fix any syntax issues.
 2. If your query syntax is valid, check the connection to the service.
   - Flush the DNS cache on your local machine, by opening a command prompt and running the following command: `ipconfig /flushdns`, and then check again. If you still get the same error message, try the next step.
-  - Copy and paste this URL into the browser: [https://api.loganalytics.io/v1/version](https://api.loganalytics.io/v1/version). If you get an error, contact your IT administrator to allow  the IP addresses associated with **api.loganalytics.io** listed [here](../app/ip-addresses.md#application-insights--log-analytics-apis).
+  - Copy and paste this URL into the browser: [https://api.loganalytics.io/v1/version](https://api.loganalytics.io/v1/version). If you get an error, contact your IT administrator to allow  the IP addresses associated with **api.loganalytics.io** listed [here](../app/ip-addresses.md#application-insights-and-log-analytics-apis).
 
 
 ## Next steps

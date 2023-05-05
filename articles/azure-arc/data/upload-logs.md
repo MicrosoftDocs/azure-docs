@@ -4,16 +4,17 @@ description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+ms.custom: devx-track-azurecli
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
 # Upload logs to Azure Monitor
 
-Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL server resources in Azure.
 
 ## Before you begin
 
@@ -149,9 +150,9 @@ echo $WORKSPACE_SHARED_KEY
 
 With the environment variables set, you can upload logs to the log workspace. 
 
-## Upload logs to Azure Log Analytics Workspace in direct mode
+## Configure automatic upload of logs to Azure Log Analytics Workspace in direct mode using `az` CLI
 
-In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
+In the **direct** connected mode, Logs upload can only be set up in **automatic** mode. This automatic upload of metrics can be set up either during deployment or post deployment of Azure Arc data controller.
 
 ### Enable automatic upload of logs to Azure Log Analytics Workspace
 
@@ -163,7 +164,7 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
 ```
 
-### Disable automatic upload of logs to Azure Log Analytics Workspace
+### Enable automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was enabled during Azure Arc data controller deployment, run the below command to disable automatic upload of logs.
 ```
@@ -172,9 +173,56 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
 ```
 
-## Upload logs to Azure Monitor in indirect mode
+## Configure automatic upload of logs to Azure Log Analytics Workspace in **direct** mode using `kubectl` CLI
 
- To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run the following CLI commands-
+### Enable automatic upload of logs to Azure Log Analytics Workspace
+
+To configure automatic upload of logs using ```kubectl```:
+
+- ensure the Log Analytics Workspace is created as described in the earlier section
+- create a Kubernetes secret for the Log Analytics workspace using the ```WorkspaceID``` and `SharedAccessKey` as follows:
+
+```
+apiVersion: v1
+data:
+  primaryKey: <base64 encoding of Azure Log Analytics workspace primary key>
+  workspaceId: <base64 encoding of Azure Log Analytics workspace Id>
+kind: Secret
+metadata:
+  name: log-workspace-secret
+  namespace: <your datacontroller namespace>
+type: Opaque
+```
+
+- To create the secret, run:
+
+   ```console
+   kubectl apply -f <myLogAnalyticssecret.yaml> --namespace <mynamespace>
+   ```
+
+- To open the settings as a yaml file in the default editor, run:
+
+   ```console
+   kubectl edit datacontroller <DC name> --name <namespace>
+   ```
+
+- update the autoUploadLogs property to ```"true"```, and save the file
+
+
+
+### Enable automatic upload of logs to Azure Log Analytics Workspace
+
+To disable automatic upload of logs, run:
+
+```console
+kubectl edit datacontroller <DC name> --name <namespace>
+```
+
+- update the autoUploadLogs property to `"false"`, and save the file
+
+## Upload logs to Azure Monitor in **indirect** mode
+
+ To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run the following CLI commands-
 
 1. Export all logs to the specified file:
 
@@ -200,7 +248,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 2. Select Logs in the left panel.
 3. Select Get Started (or select the links on the Getting Started page to learn more about Log Analytics if you are new to it).
 4. Follow the tutorial to learn more about Log Analytics if this is your first time using Log Analytics.
-5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
+5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL' or 'postgresInstances_postgresql_logs_CL'.
 6. Select the 'eye' icon next to the table name.
 7. Select the 'View in query editor' button.
 8. You'll now have a query in the query editor that will show the most recent 10 events in the log.
@@ -210,7 +258,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 
 If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
-In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
+In your favorite text/code editor, add the following script to the file and save as a script executable file - such as `.sh` (Linux/Mac), `.cmd`, `.bat`, or `.ps1` (Windows).
 
 ```azurecli
 az arcdata dc export --type logs --path logs.json --force --k8s-namespace arc

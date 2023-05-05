@@ -55,23 +55,28 @@ For device developers, if the volume of errors is a concern, switch to the C SDK
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 * The SAS or other security token you use isn't expired.
-* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Set up X.509 security in your Azure IoT hub](tutorial-x509-scripts.md).
+* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](tutorial-x509-test-certs.md).
 * For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 * The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 * The authorization rule used has the permission for the operation requested.
 * For the last error messages beginning with "principal...", this error can be resolved by assigning the correct level of Azure RBAC permission to the user. For example, an Owner on the IoT Hub can assign the "IoT Hub Data Owner" role, which gives all permissions. Try this role to resolve the lack of permission issue.
 
+> [!NOTE]
+> Some devices may experience a time drift issue when the device time has a greater than five minute difference from the server. This error can occur when a device has been connecting to an IoT hub without issues for weeks or even months but then starts to continually have its connection refused. The error can also be specific to a subset of devices connected to the IoT hub, since the time drift can happen at different rates depending upon when a device is first connected or turned on.
+>
+> Often, performing a time sync using NTP or rebooting the device (which can automatically perform a time sync during the boot sequence) fixes the issue and allows the device to connect again. To avoid this error, configure the device to perform a periodic time sync using NTP. You can schedule the sync for daily, weekly or monthly depending on the amount of drift the device experiences. If you can't configure a periodic NTP sync on your device, then schedule a periodic reboot.
+
 ## 403002 IoTHubQuotaExceeded
 
 You may see requests to IoT Hub fail with the error  **403002 IoTHubQuotaExceeded**. And in Azure portal, the IoT hub device list doesn't load.
 
-This error occurs when the daily message quota for the IoT hub is exceeded.
-
-To resolve this error:
+This error typically occurs when the daily message quota for the IoT hub is exceeded. To resolve this error:
 
 * [Upgrade or increase the number of units on the IoT hub](iot-hub-upgrade.md) or wait for the next UTC day for the daily quota to refresh.
 * To understand how operations are counted toward the quota, such as twin queries and direct methods, see [Understand IoT Hub pricing](iot-hub-devguide-pricing.md#charges-per-operation).
 * To set up monitoring for daily quota usage, set up an alert with the metric *Total number of messages used*. For step-by-step instructions, see [Set up metrics and alerts with IoT Hub](tutorial-use-metrics-and-diags.md#set-up-metrics).
+
+This error may also be returned by a bulk import job when the number of devices registered to your IoT hub approaches or exceeds the quota limit for an IoT Hub. To learn more, see [Troubleshoot import jobs](iot-hub-bulk-identity-mgmt.md#import-troubleshooting).
 
 ## 403004 DeviceMaximumQueueDepthExceeded
 
@@ -85,7 +90,7 @@ The supported pattern for cloud-to-device messages with HTTPS is intermittently 
 
 Alternatively, enhance device side logic to complete, reject, or abandon queued messages quickly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Lastly, consider using the [Purge Queue API](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) to periodically clean up pending messages before the limit is reached.
+Lastly, consider using the [Purge Queue API](/rest/api/iothub/service/cloud-to-device-messages/purge-cloud-to-device-message-queue) to periodically clean up pending messages before the limit is reached.
 
 ## 403006 DeviceMaximumActiveFileUploadLimitExceeded
 
@@ -119,11 +124,11 @@ Or, devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemo
 
 Or, many devices disconnect at once, you see a dip in the [Connected devices (connectedDeviceCount) metric](monitor-iot-hub-reference.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](#500xxx-internal-errors) in Azure Monitor Logs than usual.
 
-This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#security-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects. To learn more, see [401003 IoTHubUnauthorized](#401003-iothubunauthorized).
+This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#sas-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects. To learn more, see [401003 IoTHubUnauthorized](#401003-iothubunauthorized).
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-hub-mqtt-support.md#default-keep-alive-timeout), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](../iot/iot-mqtt-connect-to-iot-hub.md#default-keep-alive-timeout), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
 * The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, this issue is caused by bugs in older versions of the Azure IoT SDK.
 * The device side application crashed.
 
@@ -136,7 +141,7 @@ To resolve this error:
 * Use the latest versions of the [IoT SDKs](iot-hub-devguide-sdks.md).
 * See the guidance for [IoT Hub internal server errors](#500xxx-internal-errors).
 
-We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md)
+We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-develop/concepts-manage-device-reconnections.md)
 
 ## 409001 DeviceAlreadyExists
 
@@ -194,9 +199,9 @@ You may see that your request to IoT Hub fails with an error that begins with 50
 
 There can be a number of causes for a 500xxx error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
 
-To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](../iot-develop/concepts-manage-device-reconnections.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) and [Azure Status](https://status.azure.com/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
+If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-iot-hub-health-with-azure-resource-health) and [Azure Status](https://azure.status.microsoft/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
 
 If there are no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation.
 

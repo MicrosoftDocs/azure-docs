@@ -1,12 +1,10 @@
 ---
 title: Dv5 and Dsv5-series - Azure Virtual Machines
 description: Specifications for the Dv5 and Dsv5-series VMs.
-author: joelpelley
-ms.author: joelpell
-ms.reviewer: joelpell
-ms.custom: mimckitt
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---
@@ -31,14 +29,14 @@ Dv5-series virtual machines do not have any temporary storage thus lowering the 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_D2_v5<sup>1, 2</sup> | 2  | 8   | Remote Storage Only | 4  | 2 | 12500 |
+| Standard_D2_v5 | 2  | 8   | Remote Storage Only | 4  | 2 | 12500 |
 | Standard_D4_v5                | 4  | 16  | Remote Storage Only | 8  | 2 | 12500 |
 | Standard_D8_v5                | 8  | 32  | Remote Storage Only | 16 | 4 | 12500 |
 | Standard_D16_v5               | 16 | 64  | Remote Storage Only | 32 | 8 | 12500 |
@@ -48,7 +46,6 @@ Dv5-series virtual machines do not have any temporary storage thus lowering the 
 | Standard_D96_v5               | 96 | 384 | Remote Storage Only | 32 | 8 | 35000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Dv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.
 
 ## Dsv5-series
 
@@ -61,14 +58,14 @@ Dsv5-series virtual machines do not have any temporary storage thus lowering the
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>2</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | Remote Storage Only | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
+| Standard_D2s_v5 | 2  | 8   | Remote Storage Only | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
 | Standard_D4s_v5               | 4  | 16  | Remote Storage Only | 8  | 6400/145   | 20000/1200 | 2 | 12500 |
 | Standard_D8s_v5               | 8  | 32  | Remote Storage Only | 16 | 12800/290  | 20000/1200 | 4 | 12500 |
 | Standard_D16s_v5              | 16 | 64  | Remote Storage Only | 32 | 25600/600  | 40000/1200 | 8 | 12500 |
@@ -78,8 +75,7 @@ Dsv5-series virtual machines do not have any temporary storage thus lowering the
 | Standard_D96s_v5              | 96 | 384 | Remote Storage Only | 32 | 80000/2600 | 80000/4000 | 8 | 35000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Dsv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Dsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>2</sup> Dsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

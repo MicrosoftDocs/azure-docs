@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT for device builders frequently asked questions
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT agent.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
 # Microsoft Defender for IoT for device builders frequently asked questions
@@ -11,7 +11,7 @@ This article provides a list of frequently asked questions and answers about the
 
 ## Do I have to install an embedded security agent?
 
-Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following two options There are four different levels of security monitoring, and management capabilities which will provide different levels of protection:
+Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following two options There are four different levels of security monitoring, and management capabilities, which will provide different levels of protection:
 
 - Install the Defender for IoT embedded security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
 
@@ -69,7 +69,7 @@ If the agent stops communicating or fails to send security messages, a **Device 
 
 ## Can I create my own alerts?
 
-Yes, you can create custom alerts based on multiple parameters including IP/MAC address, protocol type, class, service, function, command, etc. as well as values of custom tags contained in the payloads. See [Create custom alerts](quickstart-create-custom-alerts.md) to learn more about custom alerts and how to create them.
+Yes, you can create custom alerts based on multiple parameters including IP/MAC address, protocol type, class, service, function, command, and so on, as well as values of custom tags contained in the payloads. See [Create custom alerts](quickstart-create-custom-alerts.md) to learn more about custom alerts and how to create them.
 
 ## Next steps
 

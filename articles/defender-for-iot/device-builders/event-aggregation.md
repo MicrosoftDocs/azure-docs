@@ -7,11 +7,6 @@ ms.date: 03/28/2022
 
 # Defender-IoT-micro-agent legacy event aggregation
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
->
-
-
 Defender for IoT security agents collects data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages the security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
 
 To reduce the extra quota, and costs while keeping your devices protected, Defender for IoT Agents aggregates these types of events.

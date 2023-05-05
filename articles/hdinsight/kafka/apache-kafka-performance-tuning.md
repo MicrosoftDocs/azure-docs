@@ -3,7 +3,7 @@ title: Performance optimization for Apache Kafka HDInsight clusters
 description: Provides an overview of techniques for optimizing Apache Kafka workloads on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 08/21/2022
 ---
 
 # Performance optimization for Apache Kafka HDInsight clusters
@@ -62,7 +62,7 @@ Each Kafka partition is a log file on the system, and producer threads can write
 
 Increasing the partition density (the number of partitions per broker) adds an overhead related to metadata operations and per partition request/response between the partition leader and its followers. Even in the absence of data flowing through, partition replicas still fetch data from leaders, which results in extra processing for send and receive requests over the network.
 
-For Apache Kafka clusters 1.1 and above in HDInsight, we recommend you to have a maximum of 1000 partitions per broker, including replicas. Increasing the number of partitions per broker decreases throughput and may also cause topic unavailability. For more information on Kafka partition support, see [the official Apache Kafka blog post on the increase in the number of supported partitions in version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). For details on modifying topics, see [Apache Kafka: modifying topics](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
+For Apache Kafka clusters 2.1 and 2.4 and above in HDInsight, we recommend you to have a maximum of 2000 partitions per broker, including replicas. Increasing the number of partitions per broker decreases throughput and may also cause topic unavailability. For more information on Kafka partition support, see [the official Apache Kafka blog post on the increase in the number of supported partitions in version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). For details on modifying topics, see [Apache Kafka: modifying topics](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
 
 ### Number of replicas
 
@@ -74,7 +74,7 @@ For more information on replication, see [Apache Kafka: replication](https://kaf
 
 ## Consumer configurations
 
-The following section will highlight some of the important generic configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
+The following section will highlight some important generic configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
 
 ### Number of consumers
 

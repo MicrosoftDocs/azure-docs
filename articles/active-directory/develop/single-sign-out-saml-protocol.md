@@ -2,16 +2,16 @@
 title: Azure Single Sign Out SAML Protocol
 description: This article describes the Single Sign-Out SAML Protocol in Azure Active Directory
 services: active-directory
-author: kenwith
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.author: kenwith
-ms.custom: aaddev
-ms.reviewer: paulgarn
+ms.date: 11/25/2022
+ms.author: owenrichards
+ms.reviewer: kenwith
+ms.custom: aaddev, engagement-fy23
 ---
 
 # Single Sign-Out SAML Protocol
@@ -25,6 +25,7 @@ The following diagram shows the workflow of the Azure AD single sign-out process
 ![Azure AD Single Sign Out Workflow](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
 
 ## LogoutRequest
+
 The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.
 
 ```
@@ -34,18 +35,25 @@ The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a
 </samlp:LogoutRequest>
 ```
 
-### LogoutRequest
 The `LogoutRequest` element sent to Azure AD requires the following attributes:
 
-* `ID` - This identifies the sign-out request. The value of `ID` should not begin with a number. The typical practice is to append **id** to the string representation of a GUID.
+* `ID` - This identifies the sign-out request. The value of `ID` shouldn't begin with a number. The typical practice is to append **id** to the string representation of a GUID.
 * `Version` - Set the value of this element to **2.0**. This value is required.
 * `IssueInstant` - This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a value of this type, but doesn't enforce it.
 
+Per section 3.7 of the [SAML 2.0 core specification](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf), there can be multiple participants (other applications) in a session besides your application. If one of the other participants sends a `LogoutRequest` to the Microsoft identity platform (the session authority), it will send a `LogoutRequest` back to all the session participants except the participant who sent the initial `LogoutRequest`. If another participant simultaneously initiated sign-out, there would be a race to see which `LogoutRequest` reaches Microsoft identity platform first. Therefore, an application should always be prepared to handle a `LogoutRequest`.
+
 ### Issuer
+
 The `Issuer` element in a `LogoutRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.
 
 ### NameID
-The value of the `NameID` element must exactly match the `NameID` of the user that is being signed out.
+The value of the `NameID` element must exactly match the `NameID` of the user that is being signed out. 
+
+> [!NOTE]
+> During SAML logout request, the `NameID` value is not considered by Azure Active Directory.  
+> If a single user session is active, Azure Active Directory will automatically select that session and the SAML logout will proceed.  
+> If multiple user sessions are active, Azure Active Directory will enumerate the active sessions for user selection. After user selection, the SAML logout will proceed.
 
 ## LogoutResponse
 Azure AD sends a `LogoutResponse` in response to a `LogoutRequest` element. The following excerpt shows a sample `LogoutResponse`.
@@ -59,7 +67,6 @@ Azure AD sends a `LogoutResponse` in response to a `LogoutRequest` element. The 
 </samlp:LogoutResponse>
 ```
 
-### LogoutResponse
 Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `LogoutResponse` element. It also sets the `InResponseTo` element to the value of the `ID` attribute of the `LogoutRequest` that elicited the response.
 
 ### Issuer

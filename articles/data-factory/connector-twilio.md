@@ -22,9 +22,15 @@ This article outlines how to use Data Flow to transform data in Twilio (Preview)
 
 ## Supported capabilities
 
-This Twilio connector is supported for the following activities:
+This Twilio connector is supported for the following capabilities:
 
-- [Mapping data flow](concepts-data-flow-overview.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312; |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 ## Create a Twilio linked service using UI
 
@@ -80,11 +86,12 @@ The following properties are supported for the Twilio linked service:
 }
 ```
 
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read resources from Twilio. For more information, see the [source transformation](data-flow-source.md) in mapping data flows. You can only use an [inline dataset](data-flow-source.md#inline-datasets) as source type.
 
 
 ### Source transformation
-
-When transforming data in mapping data flow, you can read resources from Twilio. For more information, see the [source transformation](data-flow-source.md) in mapping data flows. You can only use an [inline dataset](data-flow-source.md#inline-datasets) as source type.
 
 The below table lists the properties supported by Twilio source. You can edit these properties in the **Source options** tab.
 

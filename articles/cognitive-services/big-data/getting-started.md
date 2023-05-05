@@ -1,12 +1,12 @@
 ---
-title: "Get started with Cognitive Services for Big Data"
-description: Set up your MMLSpark pipeline with Cognitive Services in Azure Databricks and run a sample.
+title: "Get started with Cognitive Services for big data"
+description: Set up your SynapseML or MMLSpark pipeline with Cognitive Services in Azure Databricks and run a sample.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 08/16/2022
 ms.author: marhamil
 ms.devlang: python
 ms.custom: mode-other
@@ -16,15 +16,16 @@ ms.custom: mode-other
 
 Setting up your environment is the first step to building a pipeline for your data. After your environment is ready, running a sample is quick and easy.
 
-In this article, we'll perform these steps to get you started:
+In this article, you'll perform these steps to get started:
 
-1. [Create a Cognitive Services resource](#create-a-cognitive-services-resource)
-1. [Create an Apache Spark Cluster](#create-an-apache-spark-cluster)
-1. [Try a sample](#try-a-sample)
+> [!div class="checklist"]
+> * [Create a Cognitive Services resource](#create-a-cognitive-services-resource)
+> * [Create an Apache Spark cluster](#create-an-apache-spark-cluster)
+> * [Try a sample](#try-a-sample)
 
 ## Create a Cognitive Services resource
 
-To use the Big Data Cognitive Services, you must first create a Cognitive Service for your workflow. There are two main types of Cognitive Services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Cognitive Services.
+To work with big data in Cognitive Services, first create a Cognitive Services resource for your workflow. There are two main types of Cognitive Services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Cognitive Services.
 
 ### Cloud services
 
@@ -46,21 +47,30 @@ Follow [this guide](../cognitive-services-container-support.md?tabs=luis) to cre
 
 ## Create an Apache Spark cluster
 
-[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the Big Data Cognitive Services, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
+[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the big data Cognitive Services, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
 
 ### Azure Databricks
 
-Azure Databricks is an Apache Spark-based analytics platform with a one-click setup, streamlined workflows, and an interactive workspace. It's often used to collaborate between data scientists, engineers, and business analysts. To use the Big Data Cognitive Services on Azure Databricks, follow these steps:
+Azure Databricks is an Apache Spark-based analytics platform with a one-click setup, streamlined workflows, and an interactive workspace. It's often used to collaborate between data scientists, engineers, and business analysts. To use the big data Cognitive Services on Azure Databricks, follow these steps:
 
 1. [Create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
+
 1. [Create a Spark cluster in Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
-1. Install the Big Data Cognitive Services
+
+1. Install the SynapseML open-source library (or MMLSpark library if you're supporting a legacy application):
+
     * Create a new library in your databricks workspace  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
-    * Input the following maven coordinates
+
+    * For SynapseML: input the following maven coordinates
+      Coordinates:  `com.microsoft.azure:synapseml_2.12:0.10.0`
+      Repository: default
+
+    * For MMLSpark (legacy): input the following maven coordinates
       Coordinates:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc3`
       Repository: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
+
     * Install the library onto a cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
@@ -69,9 +79,10 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
 Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synapse Analytics brings together enterprise data warehousing and big data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources at scale. To get started using Azure Synapse Analytics, follow these steps:
 
 1. [Create a Synapse Workspace (preview)](../../synapse-analytics/quickstart-create-workspace.md).
+
 1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-In Azure Synapse Analytics, Big Data for Cognitive Services is installed by default.
+In Azure Synapse Analytics, big data for Cognitive Services is installed by default.
 
 ### Azure Kubernetes Service
 
@@ -79,13 +90,15 @@ If you're using containerized Cognitive Services, one popular option for deployi
 
 To get started on Azure Kubernetes Service, follow these steps:
 
-1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/kubernetes-walkthrough-portal.md)
+1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
+
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
+
 1. [Install a cognitive service container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## Try a sample
 
-After you set up your Spark cluster and environment, you can run a short sample. This section demonstrates how to use the Big Data for Cognitive Services in Azure Databricks.
+After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package. For an example using `synapseml.cognitive`, see [Add search to AI-enriched data from Apache Spark using SynapseML](../../search/search-synapseml-cognitive-services.md).
 
 First, you can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 
@@ -93,7 +106,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
-1. In the **Create Notebook** dialog box, enter a name, select **Python** as the language, and select the Spark cluster that you created earlier.
+1. In the **Create Notebook**, enter a name, select **Python** as the language, and select the Spark cluster that you created earlier.
 
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
@@ -101,36 +114,39 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
 1. Paste this code snippet into your new notebook.
 
-```python
-from mmlspark.cognitive import *
-from pyspark.sql.functions import col
+    ```python
+    from mmlspark.cognitive import *
+    from pyspark.sql.functions import col
+    
+    # Add your region and subscription key from the Language service (or a general Cognitive Service key)
+    # If using a multi-region Cognitive Services resource, delete the placeholder text: service_region = ""
+    service_key = "ADD-SUBSCRIPTION-KEY-HERE"
+    service_region = "ADD-SERVICE-REGION-HERE"
+    
+    df = spark.createDataFrame([
+      ("I am so happy today, its sunny!", "en-US"),
+      ("I am frustrated by this rush hour traffic", "en-US"),
+      ("The cognitive services on spark aint bad", "en-US"),
+    ], ["text", "language"])
+    
+    sentiment = (TextSentiment()
+        .setTextCol("text")
+        .setLocation(service_region)
+        .setSubscriptionKey(service_key)
+        .setOutputCol("sentiment")
+        .setErrorCol("error")
+        .setLanguageCol("language"))
+    
+    results = sentiment.transform(df)
+    
+    # Show the results in a table
+    display(results.select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+    ```
 
-# Add your subscription key from the Language service (or a general Cognitive Service key)
-service_key = "ADD-SUBSCRIPTION-KEY-HERE"
+1. Get your region and subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
 
-df = spark.createDataFrame([
-  ("I am so happy today, its sunny!", "en-US"),
-  ("I am frustrated by this rush hour traffic", "en-US"),
-  ("The cognitive services on spark aint bad", "en-US"),
-], ["text", "language"])
+1. Replace the region and subscription key placeholders in your Databricks notebook code with values that are valid for your resource.
 
-sentiment = (TextSentiment()
-    .setTextCol("text")
-    .setLocation("eastus")
-    .setSubscriptionKey(service_key)
-    .setOutputCol("sentiment")
-    .setErrorCol("error")
-    .setLanguageCol("language"))
-
-results = sentiment.transform(df)
-
-# Show the results in a table
-display(results.select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
-
-```
-
-1. Get your subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
-1. Replace the subscription key placeholder in your Databricks notebook code with your subscription key.
 1. Select the play, or triangle, symbol in the upper right of your notebook cell to run the sample. Optionally, select **Run All** at the top of your notebook to run all cells. The answers will display below the cell in a table.
 
 ### Expected results

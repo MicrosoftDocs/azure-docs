@@ -2,8 +2,8 @@
 title: Azure Kubernetes Service plugin for confidential VMs
 description: How to use the Intel SGX device plugin and Intel SGX quote helper daemon sets for confidential VMs with Azure Kubernetes Service.
 author: agowdamsft
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines 
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: article
 ms.date: 11/01/2021
@@ -21,7 +21,7 @@ The SGX Device plugin implements the Kubernetes device plugin interface for Encl
 
 ## PSW with SGX quote helper
 
-Enclave applications that do remote attestation need to generate a quote. The quote provides cryptographic proof of the identity and the state of the application, along with the enclave's host environment. Quote generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. You can use the PSW when requesting attestation quote from enclave apps. Using the AKS provided service helps better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
+Enclave applications that do remote attestation need to generate a quote. The quote provides cryptographic proof of the identity and the state of the application, along with the enclave's host environment. Quote generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. You can use PSW when requesting attestation quote from enclave apps. Using the AKS provided service helps better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
 
 [Enclave applications](confidential-computing-enclaves.md) that do remote attestation require a generated quote. This quote provides cryptographic proof of the application's identity, state, and running environment. The generation requires trusted software components that are part of Intel's PSW.
 
@@ -30,13 +30,13 @@ Enclave applications that do remote attestation need to generate a quote. The qu
 > [!NOTE]
 > This feature is only required for DCsv2/DCsv3 VMs that use specialized Intel SGX hardware. 
  
-Intel supports two attestation modes to run the quote generation. For how to choose which type, see the [attestation type differences](#attestation-type-differences).
+Intel supports two attestation modes to run the quote generation. For how to choose which type, see the [attestation type differences] (#attestation-type-differences).
 
 - **in-proc**: hosts the trusted software components inside the enclave application process. This method is useful when you are performing local attestation (between 2 enclave apps in a single VM node)
 
 - **out-of-proc**: hosts the trusted software components outside of the enclave application. This is a preferred method when performing remote attestation.
  
-SGX applications built using Open Enclave SDK by default use in-proc attestation mode. SGX-based applications allow out-of-proc and require extra hosting. These applications expose the required components such as Architectural Enclave Service Manager (AESM), external to the application.
+SGX applications are built using Open Enclave SDK by default use in-proc attestation mode. SGX-based applications allow out-of-proc and require extra hosting. These applications expose the required components such as Architectural Enclave Service Manager (AESM), external to the application.
 
 It's highly recommended to use this feature. This feature enhances uptime for your enclave apps during Intel Platform updates or DCAP driver updates.
 
@@ -44,9 +44,9 @@ It's highly recommended to use this feature. This feature enhances uptime for yo
 
 No updates are required for quote generation components of PSW for each containerized application.
 
-With out-of-proc, container owners don’t need to manage updates within their container. Container owners instead rely on the provided interface that invokes the centralized service outside of the container. The provider update sand manages this service.
+With out-of-proc, container owners don’t need to manage updates within their container. Container owners instead rely on the provided interface that invokes the centralized service outside of the container. 
 
-For out-of-proc, there's not a concern of failures because of out-of-date PSW components. The quote generation involves the trusted SW components - Quoting Enclave (QE) & Provisioning Certificate Enclave (PCE), which are part of the trusted computing base (TCB). These SW components must be up to date to maintain the attestation requirements. The provider manages the updates to these components. Customers never have to deal with attestation failures because of out-of-date trusted SW components within their container.
+For out-of-proc, there's no concern of failures because of out-of-date PSW components. The quote generation involves the trusted SW components - Quoting Enclave (QE) & Provisioning Certificate Enclave (PCE), which are part of the trusted computing base (TCB). These SW components must be up to date to maintain the attestation requirements. The provider manages the updates to these components. Customers never have to deal with attestation failures because of out-of-date trusted SW components within their container.
 
 Out-of-proc better uses EPC memory. In in-proc attestation mode, each enclave application instantiates the copy of QE and PCE for remote attestation. With out-of-proc, the container doesn't host those enclaves, and doesn’t consume enclave memory from the container quota.
 
@@ -60,21 +60,26 @@ The out-of-proc attestation model works for confidential workloads. The quote re
 
 ![Diagram of quote requestor and quote generation interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
-The abstract model applies to confidential workload scenarios. This model uses already available AESM service. AESM is containerized and deployed as a daemon set across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a pod, to be deployed on each agent node. The new SGX Quote daemon set has a dependency on the `sgx-device-plugin` daemon set, since the AESM service container would request EPC memory from `sgx-device-plugin` for launching QE and PCE enclaves.
+The abstract model applies to confidential workload scenarios. This model uses the already available AESM service. AESM is containerized and deployed as a daemon set across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a pod, to be deployed on each agent node. The new SGX Quote daemon set has a dependency on the `sgx-device-plugin` daemon set, since the AESM service container would request EPC memory from `sgx-device-plugin` for launching QE and PCE enclaves.
 
 Each container needs to opt in to use out-of-proc quote generation by setting the environment variable `SGX_AESM_ADDR=1` during creation. The container also must include the package `libsgx-quote-ex`, which directs the request to default Unix domain socket
 
 An application can still use the in-proc attestation as before. However, you can't simultaneously use both in-proc and out-of-proc within an application. The out-of-proc infrastructure is available by default and consumes resources.
 
 > [!NOTE]
-> If you are using a Intel SGX wrapper software(OSS/ISV) to run you unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
+> If you are using a Intel SGX wrapper software (OSS/ISV) to run your unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
 
 ### Sample implementation
 
-The below docker file is a sample for an Open Enclave-based application. Set the `SGX_AESM_ADDR=1` environment variable in the Docker file. Or, set the variable in the deployment file. Follow this sample for the Docker file and deployment YAML details. 
+By default, this service is not enabled for your AKS Cluster with "confcom" addon. Please update the addon with the below command 
+
+```azurecli
+az aks addon update --addon confcom --name " YourAKSClusterName " --resource-group "YourResourceGroup " --enable-sgxquotehelper
+```
+Once the service is up, use the below docker sample for an Open Enclave-based application to validate the flow. Set the `SGX_AESM_ADDR=1` environment variable in the Docker file. Or, set the variable in the deployment file. Follow this sample for the Docker file and deployment YAML details. 
 
 > [!Note] 
-> The **libsgx-quote-ex** package from Intel needs to be packaged in the application container for out-of-proc attestation to work properly.
+> The **libsgx-quote-ex** package from Intel needs to be packaged in the application container for out-of-proc attestation to work properly. The instructions below have the details.
     
 ```yaml
 # Refer to Intel_SGX_Installation_Guide_Linux for detail
@@ -101,10 +106,10 @@ RUN apt-get update && apt-get install -y \
     libsgx-quote-ex \
     az-dcap-client \
     open-enclave
-WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
+WORKDIR /opt/openenclave/share/openenclave/samples/attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
-# this sets the flag for out of proc attestation mode. alternatively you can set this flag on the deployment files
+# this sets the flag for out of proc attestation mode, alternatively you can set this flag on the deployment files
 ENV SGX_AESM_ADDR=1 
 
 CMD make run
@@ -137,6 +142,9 @@ spec:
         hostPath:
           path: /var/run/aesmd
 ```
+
+The deployment should succeed and allow your apps to perform remote attestation using the SGX Quote Helper service.
+
 
 ## Next Steps
 

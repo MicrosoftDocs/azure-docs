@@ -13,7 +13,7 @@ You can enable Azure Arc-enabled servers for one or more Windows machines in you
 
 * Azure Arc-enabled servers - Review the [prerequisites](prerequisites.md) and verify that your subscription, your Azure account, and resources meet the requirements.
 
-* Windows Admin Center - Review the requirements to [prepare your environment](/windows-server/manage/windows-admin-center/deploy/prepare-environment) to deploy and [configure Azure integration ](/windows-server/manage/windows-admin-center/azure/azure-integration).
+* Windows Admin Center - Review the requirements to [prepare your environment](/windows-server/manage/windows-admin-center/deploy/prepare-environment) to deploy and [configure Azure integration](/windows-server/manage/windows-admin-center/azure/azure-integration).
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -64,4 +64,4 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

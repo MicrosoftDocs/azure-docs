@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to Bizagi Studio for Digital Process Automation.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 2fbff65a-5345-4c08-a6c7-60b80d867a3e
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

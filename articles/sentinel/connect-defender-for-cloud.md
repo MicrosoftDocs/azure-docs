@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## Background
 
 > [!NOTE]
@@ -22,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 This connector allows you to stream [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
 
-As [Microsoft Defender for Cloud's enhanced security features](../defender-for-cloud/enhanced-security-features-overview.md) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
+As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-for-cloud-introduction.md#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

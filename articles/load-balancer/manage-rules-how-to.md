@@ -1,12 +1,12 @@
 ---
 title: Manage rules for Azure Load Balancer - Azure portal
-description: In this article, learn how to manage rules for Azure Load Balancer using the Azure portal
-author: asudbring
-ms.author: allensu
+description: In this article, learn how to manage rules for Azure Load Balancer using the Azure portal.
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
-ms.date: 08/23/2021
-ms.custom: template-how-to
+ms.date: 12/13/2022
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Manage rules for Azure Load Balancer using the Azure portal
@@ -15,9 +15,9 @@ Azure Load Balancer supports rules to configure traffic to the backend pool.  In
 
 There are four types of rules:
 
-* **Load-balancing rules** - A load balancer rule is used to define how incoming traffic is distributed to the **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. An example would be a rule created on port 80 to load balance web traffic.
+* **Load-balancing rules** - A load balancer rule is used to define how incoming traffic is distributed to **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. An example would be a rule created on port 80 to load balance web traffic.
 
-* **High availability ports** - A load balancer rule configured with **protocol - all** and **port - 0**. These rules enable a single rule to load-balance all TCP and UDP traffic that arrive on all ports of an internal standard load balancer. The HA ports load-balancing rules help you with scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load-balanced.
+* **High availability ports** - A load balancer rule configured with **protocol - all** and **port - 0**. These rules enable a single rule to load-balance all TCP and UDP traffic that arrive on all ports of an internal standard load balancer. The HA ports load-balancing rules help with scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load-balanced.
 
 * **Inbound NAT rule** - An inbound NAT rule forwards incoming traffic sent to frontend IP address and port combination. The traffic is sent to a **specific** virtual machine or instance in the backend pool. Port forwarding is done by the same hash-based distribution as load balancing.
 
@@ -182,6 +182,7 @@ In this example, you'll create an outbound rule.
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myOutboundRule**. |
+    | IP Version | Select **IPv4** or **IPv6**. |
     | Frontend IP address | Select the frontend IP address of the load balancer. <br> In this example, it's **myFrontendIP**. | 
     | Protocol | Leave the default of **All**. |
     | Idle timeout (minutes) | Leave the default of **4** or move the slider to meet your requirements. |

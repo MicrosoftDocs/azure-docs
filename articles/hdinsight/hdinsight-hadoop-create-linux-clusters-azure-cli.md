@@ -4,20 +4,20 @@ description: Learn how to create Azure HDInsight clusters using the cross-platfo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 02/03/2020
+ms.date: 10/19/2022
 ---
 
 # Create HDInsight clusters using the Azure CLI
 
 [!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-The steps in this document walk-through creating a HDInsight 3.6 cluster using the Azure CLI.
+The steps in this document walk-through creating a HDInsight 4.0 cluster using the Azure CLI.
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a cluster
 
@@ -36,7 +36,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
     |---|---|
     |`--workernode-count`| The number of worker nodes in the cluster. This article uses the variable `clusterSizeInNodes` as the value passed to `--workernode-count`. |
     |`--version`| The HDInsight cluster version. This article uses the variable `clusterVersion` as the value passed to `--version`. See also: [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Type of HDInsight cluster, like: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
+    |`--type`| Type of HDInsight cluster, like: hadoop, interactivehive, hbase, kafka, spark, rserver, mlservices.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
     |`--component-version`|The versions of various Hadoop components, in space-separated versions in 'component=version' format. This article uses the variable `componentVersion` as the value passed to `--component-version`. See also: [Hadoop components](./hdinsight-component-versioning.md).|
 
     Replace `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`, and `PASSWORD` with the desired values. Change values for the other variables as desired. Then enter the CLI commands.
@@ -51,9 +51,9 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
 
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
-    export clusterVersion=3.6
+    export clusterVersion=4.0
     export clusterType=hadoop
-    export componentVersion=Hadoop=2.7
+    export componentVersion=Hadoop=3.1
     ```
 
 3. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
@@ -118,7 +118,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
     ```
 
     > [!IMPORTANT]  
-    > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
+    > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as HBase on one cluster.
 
     It may take several minutes for the cluster creation process to complete. Usually around 15.
 
@@ -166,9 +166,3 @@ Now that you've successfully created an HDInsight cluster using the Azure CLI, u
 
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### Apache Storm clusters
-
-* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

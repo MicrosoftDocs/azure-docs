@@ -3,7 +3,7 @@ title: 'Quickstart: Apache Spark clusters with Azure CLI - Azure HDInsight'
 description: This quickstart shows how to use Azure CLI to create an Apache Spark cluster in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 10/19/2022
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster.
 ---
@@ -16,7 +16,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create an Apache Spark cluster
 
@@ -41,7 +41,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
     
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
-    export clusterVersion=3.6
+    export clusterVersion=4.0
     export clusterType=spark
     export componentVersion=Spark=2.3
     ```

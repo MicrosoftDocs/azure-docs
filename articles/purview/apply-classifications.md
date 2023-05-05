@@ -1,101 +1,74 @@
 ---
-title: Apply classifications on assets
-description: This document describes how to apply classifications on assets.
-author: SunetraVirdi
-ms.author: suvirdi
+title: Automatically apply classifications on assets
+description: This document describes how to automatically apply classifications on assets.
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/30/2022
 ---
-# Apply classifications on assets in Azure Purview
+# Automatically apply classifications on assets in Microsoft Purview
 
-This article discusses how to apply classifications on assets.
+After data sources are [registered](manage-data-sources.md#register-a-new-source) in the Microsoft Purview Data Map, the next step is to [scan](concept-scans-and-ingestion.md) the data sources. The scanning process establishes a connection to the data source, captures technical metadata, and can automatically classify data using either the [supported system classifications](supported-classifications.md) or [rules for your custom classifications](create-a-custom-classification-and-classification-rule.md#custom-classification-rules). For example, if you have a file named *multiple.docx* and it has a National ID number in its content, during the scanning process Microsoft Purview adds the classification **EU National Identification Number** to the file asset's detail page.
 
-## Introduction
+These [classifications](concept-classification.md) help you and your team identify the kinds of data you have across your data estate. For example: if files or tables contain credit card numbers, or addresses. Then you can more easily search for certain kinds of information, like customer IDs, or prioritize security for sensitive data types.
 
-Classifications can be system or custom types. System classifications are present in Azure Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
+Classifications can be automatically applied on file and column assets during scanning.
 
-This document explains how to apply classifications to your data.
+In this article we'll discuss:
 
-## Prerequisites
+- [How Microsoft Purview classifies data](#how-microsoft-purview-classifies-assets)
+- [The steps to automatically apply classifications](#automatically-apply-classifications)
 
-- Create custom classifications based on your need.
-- Set up scan on your data sources.
+## How Microsoft Purview classifies assets
 
-## Apply classifications
-In Azure Purview, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
+When a data source is scanned, Microsoft Purview compares data in the asset to a list of possible classifications called a [scan rule set](create-a-scan-rule-set.md).
 
-### Apply classification to a file asset
-Azure Purview can scan and automatically classify documentation files. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Azure Purview adds the classification **EU National Identification Number** to the file asset's detail page.
+There are [system scan rule sets](create-a-scan-rule-set.md#system-scan-rule-sets) already available for each data source that contains every currently available system classification for that data source. Or, you can [create a custom scan rule set](create-a-scan-rule-set.md) to make a list of classifications tailored to your data set.
 
-In some scenarios, you might want to manually add classifications to your file asset. If you have multiple files that are grouped into a resource set, add classifications at the resource set level.
+Making a custom rule sets for your data can be a good idea if your data is limited to specific kinds of information, or regions, as comparing your data to fewer classification types will speed up the scanning process. For example, if your dataset only contains European data, you could create a custom scan rule set that excludes identification for other regions.
 
-Follow these steps to add a custom or system classification to a partition resource set:
+You might also make a custom rule set if you've created [custom classifications](create-a-custom-classification-and-classification-rule.md#steps-to-create-a-custom-classification) and [classification rules](create-a-custom-classification-and-classification-rule.md#custom-classification-rules), so that your custom classifications can be automatically applied during scanning.
 
-1. Search or browse the partition and navigate to the asset detail page.
+For more information about the available system classifications and how your data is classified, see the [system classifications page.](supported-classifications.md)
 
-    :::image type="content" source="./media/apply-classifications/asset-detail-page.png" alt-text="Screenshot showing the asset detail page.":::
+## Automatically apply classifications
 
-1. On the **Overview** tab, view the **Classifications** section to see if there are any existing classifications. Select **Edit**.
+>[!NOTE]
+>Table assets are not automatically assigned classifications, because the classifications are assigned to their columns, but you can [manually apply classifications to table assets](manually-apply-classifications.md#manually-apply-classification-to-a-table-asset).
 
-1. From the **Classifications** drop-down list, select the specific classifications you're interested in. For example, **Credit Card Number**, which is a system classification and **CustomerAccountID**, which is a custom classification.
+After data sources are [registered](manage-data-sources.md#register-a-new-source), you can automatically classify data in that source's data assets by running a [scan](concept-scans-and-ingestion.md).
 
-    :::image type="content" source="./media/apply-classifications/select-classifications.png" alt-text="Screenshot showing how to select classifications to add to an asset.":::
+1. Check the **Scan** section of the [source article](microsoft-purview-connector-overview.md) for your data source to confirm any prerequisites or authentication are set up and ready for a scan.
 
-1. Select **Save**
+1. Search the Microsoft Purview Data Map the registered source that has the data assets (files and columns), you want to classify.
 
-1. On the **Overview** tab, confirm that the classifications you selected appear under the **Classifications** section.
+1. Select the **New Scan** icon under the resource.
 
-    :::image type="content" source="./media/apply-classifications/confirm-classifications.png" alt-text="Screenshot showing how to confirm classifications were added to an asset.":::
+    :::image type="content" source="./media/apply-classifications/new-scan.png" alt-text="Screenshot of the Microsoft Purview Data Map, with the new scan button selected under a registered source.":::
 
-### Apply classification to a table asset
+    >[!TIP]
+    >If you don't see the New Scan button, you may not have correct permissions. To run a scan, you'll need at least [data source administrator permissions](catalog-permissions.md) on the collection where the source is registered.
 
-When Azure Purview scans your data sources, it doesn't automatically assign classifications to table assets. If you want your table asset to have a classification, you must add it manually.
+1. Select your credential and authenticate with your source. (For more information about authenticating with your source, see the **prerequisite** and **scan** sections of your specific source [source article](microsoft-purview-connector-overview.md).) Select **Continue**.
 
-To add a classification to a table asset:
+1. If necessary, select the assets in the source you want to scan. You can scan all assets, or a subset of folders, files, or tables depending on the source.
 
-1. Find a table asset that you're interested in. For example, **Customer** table.
+1. Select your scan rule set. You'll see a list of available scan rule sets and can select one, or you can choose to create a new scan rule set using the **New scan rule set** button at the top. The scan rule set will determine which classifications will be compared and applied to your data. For more information, see [how Microsoft Purview classifies assets](#how-microsoft-purview-classifies-assets).
 
-1. Confirm that no classifications are assigned to the table. Select **Edit**
+    :::image type="content" source="./media/apply-classifications/select-scan-rule-set.png" alt-text="Screenshot of the scan rule set page of the scan menu, with the new scan rule set and existing scan rule set buttons highlighted.":::
 
-    :::image type="content" source="./media/apply-classifications/select-edit-from-table-asset.png" alt-text="Screenshot showing how to view and edit the classifications of a table asset.":::
+    >[!TIP]
+    >For more information about the options available when creating a scan rule set, start at step 4 of these [steps to create a scan rule set](create-a-scan-rule-set.md#steps-to-create-a-scan-rule-set).
 
-1. From the **Classifications** drop-down list, select one or more classifications. This example uses a custom classification named **CustomerInfo**, but you can select any classifications for this step.
+1. Schedule your scan.
 
-    :::image type="content" source="./media/apply-classifications/select-classifications-in-table.png" alt-text="Screenshot showing how to select classifications to add to a table asset.":::
+1. Save and run your scan. Applicable classifications in your scan rule set will be automatically applied to the assets you scan. You'll be able to view and manage them once the scan is complete.
 
-1. Select **Save** to save the classifications.
-
-1. On the **Overview** page, verify that Azure Purview added your new classifications.
-
-    :::image type="content" source="./media/apply-classifications/verify-classifications-added-to-table.png" alt-text="Screenshot showing how to verify that classifications were added to a table asset.":::
-
-### Add classification to a column asset
-
-Azure Purview automatically scans and adds classifications to all column assets. However, if you want to change the classification, you can do so at the column level.
-
-To add a classification to a column:
-
-1. Find and select the column asset, and then select **Edit** from the **Overview** tab.
-
-1. Select the **Schema** tab
-
-    :::image type="content" source="./media/apply-classifications/edit-column-schema.png" alt-text="Screenshot showing how to edit the schema of a column.":::
-
-1. Identify the columns you're interested in and select **Add a classification**. This example adds a **Common Passwords** classification to the **PasswordHash** column.
-
-    :::image type="content" source="./media/apply-classifications/add-classification-to-column.png" alt-text="Screenshot showing how to add a classification to a column.":::
-
-1. Select **Save**
-
-1. Select the **Schema** tab and confirm that the classification has been added to the column.
-
-    :::image type="content" source="./media/apply-classifications/confirm-classification-added.png" alt-text="Screenshot showing how to confirm that a classification was added to a column schema.":::
-
-## Impact of rescanning on existing classifications
-
-Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column, and must be removed manually.
+[!INCLUDE [classification-details](includes/classification-details.md)]
 
 ## Next steps
-To learn how to create a custom classification, see [Create a custom classification](create-a-custom-classification-and-classification-rule.md).
+
+- To learn how to create a custom classification, see [create a custom classification](create-a-custom-classification-and-classification-rule.md).
+- To learn about how to manually apply classifications, see [manually apply classifications](manually-apply-classifications.md).

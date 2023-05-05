@@ -13,6 +13,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 # Quickstart: Handle voice and video calling events
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services voice and video calling events.
 

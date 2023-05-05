@@ -5,7 +5,7 @@ author: tamram
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 12/06/2022
 ms.author: tamram
 ---
 
@@ -17,16 +17,19 @@ For more information about Azure Blob storage and Azure Data Lake storage Gen 2 
 For information about Azure Blob storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For information about Azure Files storage reservation pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files).
 
 ## How the reservation discount is applied
+
 The reserved capacity discount is applied to supported storage resources on an hourly basis.
 
 The reserved capacity discount is a "use-it-or-lose-it" discount. If you don't have any block blobs, Azure file shares, or Azure Data Lake Storage Gen2 resources that meet the terms of the reservation for a given hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you delete a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+
 ## Discount examples
 The following examples show how the reserved capacity discount applies, depending on the deployments.
 
-Suppose that you have purchased 100 TiB of reserved capacity in the in US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
+Suppose that you have purchased 100 TiB of reserved capacity in the US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
 
 Assume that the cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next twelve months.
 

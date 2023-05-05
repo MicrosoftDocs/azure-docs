@@ -1,13 +1,13 @@
 ---
 title: Error codes for Azure Spot Virtual Machines and scale sets instances 
 description: Learn about error codes that you could possibly see when using Azure Spot Virtual Machines and scale set instances.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 03/25/2020
-ms.author: cynthn
+ms.date: 02/28/2023
+ms.author: jushiman
 #pmcontact: jagaveer
 ---
 
@@ -35,8 +35,8 @@ Here are some possible error codes you could receive when using Azure Spot Virtu
 | MoveResourcesWithAzureSpotVMNotSupported  |  The Move resources request contains an Azure Spot Virtual Machine. Not supported. Check the error details for virtual machine Ids. | You cannot move Azure Spot Virtual Machines. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  The Move resources request contains an Azure Spot virtual machine scale set. Not supported. Check the error details for virtual machine scale set Ids. | You cannot move Azure Spot virtual machine scale set instances. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Azure Spot Virtual Machine is not supported in Virtual machine scale set with VM Orchestration mode. | Set the orchestration mode to virtual machine scale set in order to use Azure Spot Virtual Machine instances. |
-| SpotRestorationIsNotSupportedForThisAPIVersion | Spot restoration feature is not supported for this API version. |  For an existing scaleset, perform a PATCH using using API version 2021-07-01 or later. <br><br> For new scale set deployments, add the following property to the Azure Resource Manager template using API version 2021-07-01 or later: <br><br> :::image type="content" source="media/spot/spot-try-restore-error-codes-1.png" alt-text="Error code sample to use the correct API version.":::| 
-| SpotRestorationIsSupportedOnlyForAzureSpotScaleSets | Spot restoration feature is supported only for Azure Spot Virtual Machine scale sets. | Spot restoration feature is only supported for Azure Spot Virtual Machine scale sets. To use this feature, deploy Azure Spot using Virtual Machine scale sets. | 
+| SpotRestorationIsNotSupportedForThisAPIVersion | Spot restoration feature is not supported for this API version. |  For an existing scaleset, perform a PATCH using API version 2021-07-01 or later. <br><br> For new scale set deployments, add the following property to the Azure Resource Manager template using API version 2021-07-01 or later: <br><br> :::image type="content" source="media/spot/spot-try-restore-error-codes-1.png" alt-text="Error code sample to use the correct API version.":::| 
+| SpotRestorationIsSupportedOnlyForAzureSpotScaleSets | Spot restoration feature is supported only for Azure Spot virtual machine scale sets. | Spot restoration feature is only supported for Azure Spot virtual machine scale sets. To use this feature, deploy Azure Spot using virtual machine scale sets. | 
 
 
 **Next steps**

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/05/2021
+ms.date: 10/01/2022
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
@@ -17,7 +17,7 @@ Starting **May 1, 2020**, changes due to Google's [data security and privacy pol
 
 ## Affected workflows
 
-If you have logic app workflows that use the Gmail connector, you'll receive an email about potentially-affected logic apps. However, starting **June 15, 2020**, any non-compliant workflows will be disabled. You can take either of these actions:
+If you have logic app workflows that use the Gmail connector, you'll receive an email about potentially affected logic apps. However, starting **June 15, 2020**, any non-compliant workflows will be disabled. You can take either of these actions:
 
 * Update the affected logic apps by [following the steps in this topic](#update-affected-workflows). You need to create a Google client app, which provides a client ID and client secret that you use for authentication in your Gmail trigger or action.
 

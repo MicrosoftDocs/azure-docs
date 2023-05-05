@@ -4,6 +4,7 @@ description: Upload resource inventory, usage data, metrics, and logs to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -13,7 +14,7 @@ ms.topic: how-to
 
 # Upload usage data, metrics, and logs to Azure
 
-Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, and SQL managed instance resources in Azure.
 
 Before you can upload usage data, metrics, or logs you need to:
 
@@ -160,7 +161,7 @@ Example output:
 ## Verify service principal role
 
 ```azurecli
-az role assignment list -o table
+az role assignment list --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup> -o table
 ```
 
 With the service principal assigned to the appropriate role, you can proceed to upload metrics, or user data. 

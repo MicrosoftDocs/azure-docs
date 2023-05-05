@@ -3,14 +3,13 @@ title: Traffic View in Azure Traffic Manager
 description: In this introduction, learn how Traffic manager Traffic view works.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: 
+ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 01/22/2021
-ms.author: allensu
-ms.custom: 
+ms.date: 03/22/2023
+ms.author: greglin
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Traffic Manager Traffic View
@@ -27,11 +26,11 @@ For example, you can use Traffic View to understand which regions have a large a
 
 ## How Traffic View works
 
-Traffic View works by look at the incoming queries received over the last seven days for a profile. From the incoming queries information, Traffic View extracts the source IP of the DNS resolver used to represent the location of the users. This information gets grouped together at a DNS resolver level to create user-base regions. Traffic Manager maintains the geographic information of IP addresses. Traffic Manager then looks at the Azure regions to which the query gets routed and constructs a traffic flow map for users from those regions.
+Traffic View works by look at the incoming queries received over the last seven days for a profile. From the incoming queries information, Traffic View extracts the subnet address for the DNS resolver used to represent the location of the users. This information gets grouped together at a DNS resolver level to create user-base regions. Traffic Manager maintains the geographic information of IP addresses. Traffic Manager then looks at the Azure regions to which the query gets routed and constructs a traffic flow map for users from those regions.
  
 In the next step, Traffic Manager correlates the user base region to Azure region mapping with the network intelligence latency tables. This table is maintained for different end-user networks to understand the average latency experienced by users from those regions when connecting to Azure regions. All these calculations are then combined at a per local DNS resolver IP level before it's presented to you. You can consume the information in various ways.
 
-The frequency of Traffic view data update depends on multiple internal service variables. However, the data is updated once every 24 hours.
+The frequency of Traffic view data update depends on multiple internal service variables. However, the data is updated once every 48 hours.
 
 >[!NOTE]
 >The latency described in Traffic View is a representative latency between the end user and the Azure regions to which they had connected to, and is not the DNS lookup latency. Traffic View makes a best effort estimate of the latency between the local DNS resolver and the Azure region the query was routed to, if there is insufficient data available then the latency returned will be null. 
@@ -47,7 +46,7 @@ When you navigate to the **Traffic View** section in your Traffic Manager page, 
 For those local DNS resolvers for which location information is available, they're shown in the map. The color of the DNS resolver denotes the average latency experienced by end users who used that DNS resolver for their Traffic Manager queries.
 
 If you hover over a DNS resolver location in the map, it shows:
-- the IP address of the DNS resolver
+- the subnet of the DNS resolver (labeled as: DNS query source IP)
 - the volume of DNS query traffic seen by Traffic Manager from it
 - the endpoints to which traffic from the DNS resolver was routed, as a line between the endpoint and the DNS resolver 
 - the average latency from that location to the endpoint, represented as the color of the line connecting them
@@ -61,11 +60,11 @@ The Azure regions in which the endpoints are located are shown as blue dots in t
 
 You can view the Traffic View data in a tabular format in Azure portal. There's an entry for each DNS resolver IP / endpoint pair that shows:
 
-* The IP address of the DNS resolver.
-* The name.
-* The geographical location of the Azure region in which the endpoint is located (if available).
-* The volume of requests associated with that DNS resolver to that endpoint.
-* The representative latency associated with end users using that DNS (where available). 
+* The subnet of the DNS resolver (labeled as: DNS query source IP)
+* The name
+* The geographical location of the Azure region in which the endpoint is located (if available)
+* The volume of requests associated with that DNS resolver to that endpoint
+* The representative latency associated with end users using that DNS (where available)
 
 You can also download the Traffic View data as a CSV file that can be used as a part of an analytics workflow of your choice.
 

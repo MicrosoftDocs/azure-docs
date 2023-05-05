@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a desktop app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users and call Microsoft Graph in a desktop app"
 description: In this quickstart, learn how a desktop application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
 author: Dickson-Mwendia
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/14/2022
+ms.date: 01/27/2023
 ms.author: dmwendia
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", mode-api
 zone_pivot_groups: desktop-app-quickstart

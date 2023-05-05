@@ -4,6 +4,7 @@ description: Upload Azure Arc-enabled data services metrics to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -13,7 +14,7 @@ ms.topic: how-to
 
 # Upload metrics to Azure Monitor
 
-Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL server resources in Azure.
 
 With Azure Arc data services, you can optionally upload your metrics to Azure Monitor so you can aggregate and analyze metrics, raise alerts, send notifications, or trigger automated actions. 
 
@@ -23,7 +24,7 @@ If you have multiple sites that have Azure Arc data services, you can use Azure 
 
 ## Upload metrics for Azure Arc data controller in **direct** mode
 
-In the **direct** connected mode, metrics upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment of Azure Arc data controller or post deployment.
+In the **direct** connected mode, metrics upload can only be set up in **automatic** mode. This automatic upload of metrics can be set up either during deployment of Azure Arc data controller or post deployment.
 The Arc data services extension managed identity is used for uploading metrics. The managed identity needs to have the **Monitoring Metrics Publisher** role assigned to it. 
 
 > [!NOTE]
@@ -155,7 +156,7 @@ echo %SPN_AUTHORITY%
 
 ### Upload metrics to Azure Monitor
 
-To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
+To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run, the following CLI commands:
 
  
 1. Export all metrics to the specified file:
@@ -204,16 +205,15 @@ Once your metrics are uploaded, you can view them from the Azure portal.
 > Please note that it can take a couple of minutes for the uploaded data to be processed before you can view the metrics in the portal.
 
 
-To view your metrics in the portal, use this link to open the portal: <https://portal.azure.com>
-Then, search for your database instance by name in the search bar:
+To view your metrics, navigate to the [Azure portal](https://portal.azure.com). Then, search for your database instance by name in the search bar:
 
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navigation panel
 
-Choose sql server as the metric namespace:
+Choose sql server or postgres as the metric namespace.
 
-Select the metric you want to visualize (you can also select multiple):
+Select the metric you want to visualize (you can also select multiple).
 
-Change the frequency to last 30 minutes:
+Change the frequency to last 30 minutes.
 
 > [!NOTE]
 > You can only upload metrics only for the last 30 minutes. Azure Monitor rejects metrics older than 30 minutes.
@@ -222,7 +222,7 @@ Change the frequency to last 30 minutes:
 
 If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
-In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
+In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac), `.cmd`, `.bat`, or `.ps1`.
 
 ```azurecli
 az arcdata dc export --type metrics --path metrics.json --force  --k8s-namespace arc

@@ -2,13 +2,13 @@
 title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 services: azure-resource-manager
-documentationcenter: ''
 author: mumian
 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
-ms.date: 07/02/2021
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.date: 09/28/2022
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -29,7 +29,7 @@ This tutorial covers the following tasks:
 > * Debug the failed script
 > * Clean up resources
 
-For a Microsoft Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+For a Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/).
 
 ## Prerequisites
 
@@ -45,11 +45,24 @@ To complete this article, you need:
 
   Use the following CLI script to get the ID by providing the resource group name and the identity name.
 
-  ```azurecli-interactive
-  echo "Enter the Resource Group name:" &&
-  read resourceGroupName &&
-  az identity list -g $resourceGroupName
-  ```
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    az identity list -g $resourceGroupName
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```powershell-interactive
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    (Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroupname).id
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    ---
 
 ## Open a Quickstart template
 
@@ -286,7 +299,27 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
 1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot.  Select the file you saved in the previous section. After uploading the file, you can use the `ls` command and the `cat` command to verify the file was uploaded successfully.
 
-1. Run the following PowerShell script to deploy the template.
+1. Run the following Azure CLI or Azure PowerShell script to deploy the template.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    echo "Enter a project name that is used to generate resource names:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter your email address used to sign in to Azure:" &&
+    read upn &&
+    echo "Enter the user-assigned managed identity ID:" &&
+    read identityId &&
+    adUserId=$((az ad user show --id ${upn}) | jq -r '.id') &&
+    resourceGroupName="${projectName}rg" &&
+    keyVaultName="${projectName}kv" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters identityId=$identityId keyVaultName=$keyVaultName objectId=$adUserId
+    ```
+
+    # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
@@ -304,6 +337,8 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     Write-Host "Press [ENTER] to continue ..."
     ```
+
+    ---
 
     The deployment script service needs to create additional deployment script resources for script execution. The preparation and the cleanup process can take up to one minute to complete in addition to the actual script execution time.
 
@@ -341,7 +376,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You will see a total of six resources in the resource group.
+3. Select the resource group name.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps

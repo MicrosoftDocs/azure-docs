@@ -1,21 +1,23 @@
 ---
 title: Manage historical data with retention policy - Azure SQL Edge
 description: Learn how to manage historical data with retention policy in Azure SQL Edge
-keywords: SQL Edge, data retention
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/04/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/04/2020
+keywords:
+  - SQL Edge
+  - data retention
+services: sql-edge
 ---
 
 # Manage historical data with retention policy
 
 Data Retention can enabled on the database and any of the underlying tables individually, allowing users to create flexible aging policies for their tables and databases. Applying data retention is simple: it requires only one parameter to be set during table creation or as part of an alter table operation. 
 
-After data retention policy is defiend for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy either of the following condition: 
+After data retention policy is defined for a database and the underlying table, a background timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy either of the following condition: 
 
 - If the filter column uses DATETIMEOFFSET data type then the condition is `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
 - Else then the condition is `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
@@ -26,7 +28,7 @@ Data retention cleanup operation comprises of two phases.
 - Discovery Phase - In this phase the cleanup operation identifies all the tables within the user databases to build a list for cleanup. Discovery runs once a day.
 - Cleanup Phase - In this phase, cleanup is run against all tables with finite data retention, identified in the discovery phase. If the cleanup operation cannot be performed on a table, then that table is skipped in the current run and will be retried in the next iteration. The following principles are used during cleanup
     - If an obsolete row is locked by another transaction, that row is skipped. 
-    - Clean up runs with a default 5 seconds lock timeout setting. If the locks cannot be acquired on the tables within the timeout window, the table is skipped in the current run and will be retried in the next iteration.
+    - Cleanup runs with a default 5 seconds lock timeout setting. If the locks cannot be acquired on the tables within the timeout window, the table is skipped in the current run and will be retried in the next iteration.
     - If there is an error during cleanup of a table, that table is skipped and will be picked up in the next iteration.
 
 ## Manual cleanup

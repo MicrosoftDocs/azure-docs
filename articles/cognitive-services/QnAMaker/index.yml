@@ -6,8 +6,8 @@ summary: Learn about the QnA Maker service and how this service's knowledge base
 metadata:
   ms.topic: landing-page
   ms.date: 01/11/2022
-  ms.author: mbullwin
-  author: mrbullwinkle
+  ms.author: jboback
+  author: jboback
   ms.service: cognitive-services
   ms.subservice: qna-maker
   services: cognitive-services
@@ -113,7 +113,7 @@ landingContent:
             url: /rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
             url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
-          - text: .Net SDK reference documentation
+          - text: .NET SDK reference documentation
             url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services

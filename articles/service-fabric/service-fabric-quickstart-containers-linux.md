@@ -2,9 +2,13 @@
 title: Create a Linux container app on Service Fabric in Azure
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
 ms.topic: quickstart
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Quickstart: Deploy Linux containers to Service Fabric
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers.
@@ -42,6 +46,11 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault and downloads the certificate locally. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
+If you wish, you can modify the variable values to your preference. For example, westus instead of eastus for the location.
+
+> [!NOTE]
+> Key vault names should be universally unique, as they are accessed as https://{vault-name}.vault.azure.net.
+>
 ```azurecli
 #!/bin/bash
 
@@ -66,7 +75,7 @@ az group create --name $ResourceGroupName --location $Location
 # Create secure five node Linux cluster. Creates a key vault in a resource group
 # and creates a certificate in the key vault. The certificate's subject name must match 
 # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
-az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
+az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1804 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
 > [!Note]
@@ -78,12 +87,12 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
 - Service Fabric Explorer, a browser-based tool.
-- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI. 
+- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI.
 - PowerShell commands.
 
 In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer (a web based tool). To use Service Fabric Explorer, you need to import the certificate PFX file into the browser. By default, the PFX file has no password.
 
-Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
+Mozilla Firefox is the default browser in Ubuntu 18.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
 
    ![Install certificate on Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 

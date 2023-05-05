@@ -1,35 +1,54 @@
 ---
 title: Autoscale feature for Azure Health Data Services FHIR service
 description: This article describes the Autoscale feature for Azure Health Data Services FHIR service.
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/01/2022
-ms.author: dseven
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
-# FHIR service autoscale
+# Autoscaling
 
-FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint. The FHIR service provides the built-in autoscale capability to meet various workloads.  
+Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. 
 
-## What is FHIR service autoscale?   
+Autoscaling is a capability to dynamically scale FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscaling capability and the process is automated. This capability provides elasticity and enables provisioning of more instances for FHIR service customers on demand.
 
-The autoscale feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported. Keep in mind that the autoscale feature is subject to the resources available in Azure regions.   
+The autoscaling feature for FHIR service is available in all regions where the FHIR service is supported.
+> [!NOTE]
+> Autoscaling feature is subject to the resources availability in Azure regions.
 
-## How does FHIR service autoscale work?  
+The autoscaling feature adjusts computing resources automatically to optimize service scalability. There's no action required from customers.
 
-The autoscale feature adjusts computing resources automatically to optimize the overall service scalability. It requires no action from customers. 
+## Autoscale at Compute level
 
-When transaction workloads are high, the autoscale feature increases computing resources automatically. When transaction workloads are low, it decreases computing resources accordingly. Whether you're performing read requests that include simple queries like getting patient information using a patient ID, and advanced queries like getting all DiagnosticReport resources for patients whose name is "Sarah", or you're creating or updating FHIR resources, the autoscale feature manages the dynamics and complexity of resource allocation to ensure high scalability.
+* Scaling Trigger
 
-### What is the cost of the FHIR service autoscale?  
+Scaling Trigger describes when scaling of the service is performed. Conditions that are defined in the trigger are checked periodically to determine if a service should be scaled or not. All triggers that are currently supported are Average CPU, Max Worker Thread, Average LogWrite, Average data IO.
+    
+* Scaling mechanism
 
-The autoscale feature incurs no extra costs to customers based on the new API billing model.
+The scaling mechanism is applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger won't be evaluated again until the scaling interval has expired, which is set to one minute for FHIR service.
+
+To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
+
+## FAQ
+
+### What is the cost to enable autoscaling for FHIR service?  
+
+The autoscaling feature incurs no extra costs to customers.
+
+### What should customers do if there is high volume of HTTP 429 errors?
+
+We recommend customers to gradually increase the request rate to see if brings reduction in HTTP 429 errors. For consistent 429 errors, we ask customer(s) to create a support ticket through Azure portal on issue observed. Support team will engage to understand scaling trigger needs.
 
 ## Next steps
 
-In this article, you've learned about the FHIR service autoscale feature in Azure Health Data Services, for more information about the FHIR service supported features, see
+In this article, you've learned about the FHIR service autoscaling feature in Azure Health Data Services.
+For more information about the FHIR service supported features, see
 
 >[!div class="nextstepaction"]
 >[Supported FHIR Features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

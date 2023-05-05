@@ -8,15 +8,14 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, ignite-2022, devx-track-arm-template
 ---
 
 # Security Frame: Authorization | Mitigations 
@@ -122,7 +121,7 @@ SELECT data
 FROM personaldata 
 WHERE userID=:id < - session var 
 ```
-Now an possible attacker can not tamper and change the application operation since the identifier for retrieving the data is handled server-side.
+Now a possible attacker can't tamper and change the application operation since the identifier for retrieving the data is handled server-side.
 
 ## <a id="enumerable-browsing"></a>Ensure that content and resources are not enumerable or accessible via forceful browsing
 
@@ -214,7 +213,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **References**              | [Event Hubs authentication and security model overview](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steps** | Provide least privilege permissions to various back-end applications that connect to the Event Hub. Generate separate SAS keys for each back-end application and only provide the required permissions - Send, Receive or Manage to them.|
 
-## <a id="resource-docdb"></a>Use resource tokens to connect to Cosmos DB whenever possible
+## <a id="resource-docdb"></a>Use resource tokens to connect to Azure Cosmos DB whenever possible
 
 | Title                   | Details      |
 | ----------------------- | ------------ |

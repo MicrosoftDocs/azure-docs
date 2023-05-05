@@ -1,12 +1,12 @@
 ---
 title: References for DICOM service - Azure Health Data Services
 description: This reference provides related resources for the DICOM service.
-author: aersoy
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/21/2022
-ms.author: aersoy
+ms.date: 06/03/2022
+ms.author: mmitrik
 ---
 
 # DICOM service open-source projects
@@ -33,7 +33,11 @@ This article describes our open-source projects on GitHub that provide source co
 
 ### Convert imaging study data to hierarchical parquet files
 
-* [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md): After you provision a DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use FHIR to Synapse Sync Agent to perform Analytics and Machine Learning on imaging study data by moving FHIR data to Azure Data Lake in near real time and making it available to a Synapse workspace.
+* [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md): After you provision a DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use FHIR to Synapse Sync Agent to perform Analytics and Machine Learning on imaging study data by moving FHIR data to Azure Data Lake in near real time and making it available to a Synapse workspace.
+
+### Health Data Services workshop
+
+* [Azure Health Data Services Workshop](https://github.com/microsoft/azure-health-data-services-workshop): This workshop presents a series of hands-on activities to help users gain new skills working with Azure Health Data Services capabilities.  The DICOM service challenge includes deployment of the service, exploration of the core API capabilities, a Postman collection to simplify exploration, and instructions for configuring a ZFP DICOM viewer.  
 
 ## Next steps
 
@@ -46,3 +50,5 @@ For more information about DICOM cast, see
 
 >[!div class="nextstepaction"]
 >[DICOM cast overview](dicom-cast-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -3,15 +3,15 @@ title: Quickstart -  Azure Key Vault key client library for JavaScript (version 
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/13/2021
+ms.date: 02/02/2023
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
-# Quickstart: Azure Key Vault key client library for JavaScript (version 4)
+# Quickstart: Azure Key Vault key client library for JavaScript
 
 Get started with the Azure Key Vault key client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for cryptographic keys. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete keys from an Azure key vault using the JavaScript key client library
 
@@ -33,13 +33,13 @@ For more information about Key Vault and keys, see:
     - [Azure portal](../general/quick-create-portal.md) 
     - [Azure PowerShell](../general/quick-create-powershell.md)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli).
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sign in to Azure
 
 1. Run the `login` command.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
@@ -68,13 +68,13 @@ Create a Node.js application that uses your key vault.
 
 ## Install Key Vault packages
 
-1. Using the terminal, install the Azure Key Vault secrets library, [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) for Node.js.
+1. Using the terminal, install the Azure Key Vault secrets client library, [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) for Node.js.
 
     ```terminal
     npm install @azure/keyvault-keys
     ```
 
-1. Install the Azure Identity library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
+1. Install the Azure Identity client library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
 
     ```terminal
     npm install @azure/identity
@@ -86,31 +86,58 @@ Create a Node.js application that uses your key vault.
 Create an access policy for your key vault that grants key permissions to your user account
 
 ```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create update purge
 ```
 
 ## Set environment variables
 
 This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-Windows
+### [Windows](#tab/windows)
+
 ```cmd
 set KEY_VAULT_NAME=<your-key-vault-name>
 ````
+
+### [PowerShell](#tab/powershell)
 
 Windows PowerShell
 ```powershell
 $Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
-macOS or Linux
+### [macOS or Linux](#tab/linux)
+
 ```cmd
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
+---
+
+## Authenticate and create a client
+
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
+
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+
+In this code, the name of your key vault is used to create the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ## Code example
 
-The code sample below will show you how to create a client, set a key, retrieve a key, and delete a key. 
+The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret. 
+
+This code uses the following [Key Vault Secret classes and methods](/javascript/api/overview/azure/keyvault-keys-readme):
+    
+* [DefaultAzureCredential class](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
+* [KeyClient class](/javascript/api/@azure/keyvault-keys/keyclient)
+    * [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey)
+    * [createEcKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createeckey)
+    * [createRsaKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-creatersakey)
+    * [getKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getkey)
+    * [listPropertiesOfKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeys)
+    * [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties)
+    * [beginDeleteKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-begindeletekey)
+    * [getDeletedKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getdeletedkey)
+    * [purgeDeletedKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-purgedeletedkey)
 
 ### Set up the app framework
 
@@ -129,6 +156,7 @@ The code sample below will show you how to create a client, set a key, retrieve 
         const credential = new DefaultAzureCredential();
         
         const keyVaultName = process.env["KEY_VAULT_NAME"];
+        if(!keyVaultName) throw new Error("KEY_VAULT_NAME is empty");
         const url = "https://" + keyVaultName + ".vault.azure.net";
 
         const client = new KeyClient(url, credential);
@@ -232,7 +260,7 @@ The Azure SDK provides a helper method, [parseKeyVaultKeyIdentifier](/javascript
 
 ## Next steps
 
-In this quickstart, you created a key vault, stored a key, and retrieved that key. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a key, and retrieved that key. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Keys](about-keys.md)

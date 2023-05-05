@@ -4,10 +4,12 @@ description: Handle large messages using chunking in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 08/01/2022
 ---
 
 # Handle large messages in workflows using chunking in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Azure Logic Apps has different maximum limits on the message content size that triggers and actions can handle in logic app workflows, based on the logic app resource type and the environment where that logic app workflow runs. These limits help reduce any overhead that results from storing and processing [large messages](#what-is-large-message). For more information about message size limits, review [Message limits in Azure Logic Apps](logic-apps-limits-and-config.md#messages).
 
@@ -32,7 +34,7 @@ Both Logic Apps and connectors can't directly consume large messages,
 which must be chunked. For the Logic Apps message size limit, 
 see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md).
 For each connector's message size limit, see the 
-[connector's specific technical details](../connectors/apis-list.md).
+[connector's reference documentation](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ### Chunked message handling for Logic Apps
 

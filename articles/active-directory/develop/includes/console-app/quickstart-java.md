@@ -1,16 +1,15 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Java daemon | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call Microsoft Graph from a Java daemon"
 description: In this quickstart, you learn how a Java app can get an access token and call an API protected by Microsoft identity platform endpoint, using the app's own identity
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
 ms.date: 01/10/2022
-ms.author: marsma
+ms.author: dmwendia
 ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-other
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
 ---

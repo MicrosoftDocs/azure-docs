@@ -3,9 +3,9 @@ title: Enable Update Management using Azure Resource Manager template
 description: This article tells how to use an Azure Resource Manager template to enable Update Management.
 services:  automation
 ms.subservice: update-management
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 09/18/2020 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Update Management using Azure Resource Manager template
@@ -62,7 +62,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 * Review [workspace mappings](../how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/logs/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/logs/workspace-design.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 

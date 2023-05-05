@@ -2,7 +2,9 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 08/11/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Troubleshoot registry login
@@ -17,7 +19,7 @@ May include one or more of the following:
 * Unable to login to registry and you receive error `unauthorized: authentication required` or `unauthorized: Application not registered with AAD`
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
-* Unable to access a registry using `az acr login` and you receive error `CONNECTIVITY_REFRESH_TOKEN_ERROR. Access to registry was denied. Response code: 403.Unable to get admin user credentials with message: Admin user is disabled.Unable to authenticate using AAD or admin login credentials.`
+* Unable to access a registry using `az acr login` and you receive error `CONNECTIVITY_REFRESH_TOKEN_ERROR. Access to registry was denied. Response code: 403. Unable to get admin user credentials with message: Admin user is disabled. Unable to authenticate using AAD or admin login credentials.`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
 * Unable to access registry and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden` - See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
@@ -27,7 +29,7 @@ May include one or more of the following:
 * Docker isn't configured properly in your environment - [solution](#check-docker-configuration)
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
 * The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
-* The registry public access is disabled.Public network access rules on the registry prevent access - [solution](container-registry-troubleshoot-access.md#configure-public-access-to-registry)
+* The registry public access is disabled. Public network access rules on the registry prevent access - [solution](container-registry-troubleshoot-access.md#configure-public-access-to-registry)
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
@@ -37,7 +39,7 @@ Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
-If you're experiencing problems using the registry with Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
+Follow the instructions from the [AKS support doc](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) if you fail to pull images from ACR to the AKS cluster.
 
 > [!NOTE]
 > Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).

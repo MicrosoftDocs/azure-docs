@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 ## Speech synchronization 
 
-You might want to synchronize transcriptions with an audio track, whether it's done in real time or with a prerecording. 
+You might want to synchronize transcriptions with an audio track, whether it's done in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 
@@ -24,6 +24,16 @@ The end of a single utterance is determined by listening for silence at the end.
 ### Recognizing offset and duration
 
 With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
+
+This code snippet shows how to get the offset and duration from a `Recognizing` event. 
+
+```python
+def recognizing_handler(e : speechsdk.SpeechRecognitionEventArgs) :
+    if speechsdk.ResultReason.RecognizingSpeech == e.result.reason and len(e.result.text) > 0 :
+        print("Recognized: {}".format(result.text))
+        print("Offset in Ticks: {}".format(result.offset))
+        print("Duration in Ticks: {}".format(result.duration))
+```
 
 ### Recognized offset and duration
 Once an utterance has been recognized, you can get the offset and duration of the recognized speech. With the `Recognized` event, you can also get the offset and duration per word. To request the offset and duration per word, first you must set the corresponding `SpeechConfig` property as shown here:

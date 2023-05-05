@@ -1,10 +1,10 @@
 ---
 title: Configure Azure HPC Cache settings
 description: Explains how to configure additional settings for the cache like MTU, custom NTP and DNS configuration, and how to access the express snapshots from Azure Blob storage targets.
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 05/16/2022
 ms.author: rohogue
 ---
 
@@ -17,9 +17,6 @@ This article also describes how to use the snapshot feature for Azure Blob stora
 To see the settings, open the cache's **Networking** page in the Azure portal.
 
 ![screenshot of networking page in Azure portal](media/networking-page.png)
-
-> [!NOTE]
-> A previous version of this page included a cache-level root squash setting, but this setting has moved to [client access policies](access-policies.md).
 
 <!-- >> [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->

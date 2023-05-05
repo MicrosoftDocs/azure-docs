@@ -4,7 +4,8 @@ description: Demonstrates how to deploy Azure Arc-enabled data services from beg
 author: MikeRayMSFT
 ms.author: mikeray
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
+ms.subservice: azure-arc-data-sqlmi
 ms.topic: quickstart 
 ms.date: 12/09/2021
 ms.custom: template-quickstart 
@@ -23,7 +24,7 @@ When you complete the steps in this article, you will have:
 - An instance of Azure Arc-enabled SQL Managed Instance.
 - A connection to the instance with Azure Data Studio.
 
-Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL Hyperscale data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
+Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL server (preview) data services  with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
 
 ## Install client tools
 
@@ -42,7 +43,7 @@ In addition, you need the following additional extensions to connect the cluster
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create a Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
@@ -116,7 +117,7 @@ After creating the cluster, connect to the cluster through the Azure CLI.
 
 ### Arc enable the Kubernetes cluster
 
-Now that the cluster is running, connect the cluster to Azure. When you connect a cluster to Azure, you Arc enable it. Arc enabling your cluster allow you to view and manage the cluster, and deploy and manage additional services such as Arc-enabled data services on the cluster directly from Azure portal. 
+Now that the cluster is running, connect the cluster to Azure. When you connect a cluster to Azure, you enable it for Azure Arc. Connecting the cluster to Azure allows you to view and manage the cluster. In addition, you can deploy and manage additional services such as Arc-enabled data services on the cluster directly from Azure portal. 
 
 Use `az connectedk8s connect` to connect the cluster to Azure: 
 
@@ -129,7 +130,7 @@ After the connect command completes successfully, you can view the shadow object
 1. In the Azure portal, locate the resource group. One way to find the resource group is to type the resource group name in search on the portal. The portal displays a link to the resource group below the search box. Click the resource group link.
 1. In the resource group, under **Overview** you can see the Kubernetes cluster, and the shadow object. See the following image:
 
-   :::image type="content" source="media/create-complete-managed-instance-directly-connected/azure-arc-resources.png" alt-text="The Kubernetes - Azure Arc item item type is the shadow resource." lightbox="media/create-complete-managed-instance-directly-connected/azure-arc-resources-expanded.png":::
+   :::image type="content" source="media/create-complete-managed-instance-directly-connected/azure-arc-resources.png" alt-text="The Kubernetes - Azure Arc item type is the shadow resource." lightbox="media/create-complete-managed-instance-directly-connected/azure-arc-resources-expanded.png":::
 
    The shadow resource is the resource type **Kubernetes - Azure Arc** in the image above. The other resource is the **Kubernetes service** cluster. Both resources have the same name. 
 
@@ -181,7 +182,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create Azure Arc-enabled SQL Managed Instance 
+## Create an instance of Azure Arc-enabled SQL Managed Instance 
 
 1. In the portal, locate the resource group.
 1. In the resource group, select **Create**.

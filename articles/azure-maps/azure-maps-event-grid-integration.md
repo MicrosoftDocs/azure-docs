@@ -1,8 +1,8 @@
 ---
 title: React to Azure Maps events by using Event Grid 
 description: Find out how to react to Azure Maps events involving geofences. See how to listen to map events and how to use Event Grid to reroute events to event handlers.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -24,7 +24,7 @@ Azure Event Grid is a fully managed event routing service, which uses a publish-
 
 ## Azure Maps events types
 
-Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. An Azure Maps account emits the following event types:
+Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. An Azure Maps account emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -75,6 +75,7 @@ Applications that handle Azure Maps geofence events should follow a few recommen
 * When a GET or a POST request in the Geofence API is called with the mode parameter set to `EnterAndExit`, then an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.
 
 ## Next steps
+For details about all the events supported by Azure Maps and the schema, see [Azure Maps as an Event Grid source](../event-grid/event-schema-azure-maps.md).
 
 To learn more about how to use geofencing to control operations at a construction site, see:
 

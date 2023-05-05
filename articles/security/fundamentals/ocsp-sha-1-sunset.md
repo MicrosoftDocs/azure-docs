@@ -6,14 +6,17 @@ services: azure
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 03/17/2022
+ms.date: 04/11/2023
 
 ms.author: sarahlipsey
 author: shlipsey3
-manager: rachelkarlin
+manager: amycolannino
 ms.reviewer: quentinb
 ---
 # Sunset for SHA-1 Online Certificate Standard Protocol signing
+
+> [!IMPORTANT]
+> This article was published concurrent with the change described, and is not being updated. For up-to-date information about CAs, see [Azure Certificate Authority details](azure-ca-details.md).
 
 Microsoft is updating the Online Certificate Standard Protocol (OCSP) service to comply with a recent change to the [Certificate Authority / Browser Forum (CA/B Forum)](https://cabforum.org/) Baseline Requirements. This change requires that all publicly-trusted Public Key Infrastructures (PKIs) end usage of the SHA-1 hash algorithms for OCSP responses by May 31, 2022.
 

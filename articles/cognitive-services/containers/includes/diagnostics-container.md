@@ -21,7 +21,7 @@ Then run the container. Replace `{ENDPOINT_URI}` with your endpoint, and replace
 
 ```bash
 docker run --rm mcr.microsoft.com/azure-cognitive-services/diagnostic \
-Eula=accept \
+eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```

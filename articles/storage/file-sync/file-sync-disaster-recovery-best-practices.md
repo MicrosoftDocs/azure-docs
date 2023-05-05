@@ -1,10 +1,10 @@
 ---
 title: Best practices for disaster recovery with Azure File Sync
-description: Learn about best practices for disaster recovery with Azure File Sync. Specifically, high availability, data protection, and data redundancy.
+description: Learn about best practices for disaster recovery with Azure File Sync, including high availability, data protection, and data redundancy.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 04/18/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -18,13 +18,13 @@ In an Azure File Sync deployment, the cloud endpoint always contains a full copy
 Due to its hybrid nature, some traditional server backup and disaster recovery strategies won't work with Azure File Sync. For any registered server, Azure File Sync doesn't support:
 
 > [!WARNING]
-> Taking any of these actions may lead to issues with sync or broken tiered files that result in eventual data loss. If you have taken one of these actions, contact Azure support to ensure your deployment is healthy.
+> Taking any of these actions may lead to issues with sync or broken tiered files that result in eventual data loss. If you've taken one of these actions, contact Azure support to ensure your deployment is healthy.
 
-- Transferring disk drives from one server to another
+- Transferring/cloning disk drives (volume) from one server to another while the server endpoint is still active
 - Restoring from an operating system backup
 - Cloning a server's operating system to another server
 - Reverting to a previous virtual machine checkpoint
-- Restoring files from on-premises backup if cloud tiering is enabled
+- Restoring tiered files from on-premises (third party) backup to the server endpoint
 
 ## High availability
 
@@ -40,7 +40,7 @@ Protecting your actual data is a key component of a disaster recovery solution. 
 
 ### Back up your data in the cloud
 
-You should use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json) as your cloud backup solution. Azure Backup handles backup scheduling, retention, and restores, amongst other things. If you prefer, you could manually take [share snapshots](../files/storage-snapshots-files.md?toc=/azure/storage/file-sync/toc.json) and configure your own scheduling and retention solution but, this isn't ideal. Alternatively, you can use third-party solutions to directly back up your Azure file shares.
+You should use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/file-sync/toc.json) as your cloud backup solution. Azure Backup handles backup scheduling, retention, and restores, amongst other things. If you prefer, you could manually take [share snapshots](../files/storage-snapshots-files.md?toc=/azure/storage/file-sync/toc.json) and configure your own scheduling and retention solution but, this isn't ideal. Alternatively, you can use third-party solutions to directly back up your Azure file shares.
 
 If a disaster happens, you can restore from a share snapshot, which is a point in time, read-only copy of your file share. Since these snapshots are read-only, they won't be affected by ransomware. For large datasets, in which full share restore operations take a long time, you can enable direct user access to the snapshot so that users can copy the data they need to their local drive, while the restore completes.
 
@@ -54,7 +54,7 @@ If you enable cloud tiering, don't implement an on-premises backup solution. Wit
 
 If you decide to use an on-premises backup solution, backups should be performed on a server in the sync group with cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will sync to all endpoints in the sync group and existing files will be replaced with the version restored from backup. Volume-level restores won't replace newer file versions in the cloud endpoint or other server endpoints.
 
-In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+[Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data redundancy
 
@@ -76,8 +76,8 @@ Although you can manually request a failover of your Storage Sync Service to you
 > [!WARNING]
 > You must contact support to request your Storage Sync Service be failed over if you are initiating this process manually. If you attempt to create a new Storage Sync Service using the same server endpoints in the secondary region may result in extra data staying in your storage account since the previous installation of Azure File Sync won't be cleaned up.
 
-Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This may result in file conflicts as the data in the secondary region may not be caught up to the primary.
+Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This might result in file conflicts as the data in the secondary region might not be caught up to the primary.
 
 ## Next steps
 
-[Learn about Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json)
+[Learn about Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/file-sync/toc.json)

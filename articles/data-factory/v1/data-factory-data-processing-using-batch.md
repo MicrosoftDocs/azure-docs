@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.custom: devx-track-csharp
 ---
 
@@ -31,7 +31,7 @@ With the Batch service, you define Azure compute resources to execute your appli
 
  If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Basics of Batch](/azure/azure-sql/database/sql-database-paas-overview)
 * [Batch feature overview](../../batch/batch-service-workflow-features.md)
 
 Optionally, to learn more about Batch, see [the Batch documentation](../../batch/index.yml).
@@ -956,14 +956,14 @@ After you process data, you can consume it with online tools such as Power BI. H
 * [Azure and Power BI: Basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## References
-* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](../index.yml)
 
   * [Introduction to the Data Factory service](data-factory-introduction.md)
   * [Get started with Data Factory](data-factory-build-your-first-pipeline.md)
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
-* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Azure Batch](../../batch/index.yml)
 
-  * [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Basics of Batch](/azure/azure-sql/database/sql-database-paas-overview)
   * [Overview of Batch features](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)

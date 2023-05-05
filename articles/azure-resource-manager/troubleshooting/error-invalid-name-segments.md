@@ -2,15 +2,16 @@
 title: Invalid resource name and type segments
 description: Describes how to resolve an error when the resource name and type don't have the same number of segments.
 ms.topic: troubleshooting
-ms.date: 11/12/2021
+ms.date: 04/05/2023
 ---
+
 # Resolve errors for resource name and type mismatch
 
 This article describes how to resolve the error when the format of the resource name doesn't match the format of the resource type.
 
 ## Symptom
 
-When deploying a template, you receive an error with the error code **InvalidTemplate**. The message indicates the resource type and name don't match. It suggests fixing the number of segments in the name.
+When deploying a template, you receive an error with the error code `InvalidTemplate`. The message indicates the resource type and name don't match. It suggests fixing the number of segments in the name.
 
 ## Cause
 
@@ -41,7 +42,7 @@ The following example shows a valid format for the resource name.
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource kv 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: 'examplevault123'
   ...
 }
@@ -52,7 +53,7 @@ resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "examplevault123",
   ...
 }
@@ -65,7 +66,7 @@ You would see an **error** if you provided a name with more than one segment.
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource kv 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: 'contoso/examplevault123'
   ...
 }
@@ -76,7 +77,7 @@ resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "contoso/examplevault123",
   ...
 }
@@ -89,7 +90,7 @@ When you nest a child resource within the parent resource, provide just the extr
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource kv 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: 'examplevault123'
   ...
   resource kvsecret 'secrets' = {
@@ -106,13 +107,13 @@ resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "examplevault123",
   ...
   "resources": [
     {
       "type": "secrets",
-      "apiVersion": "2019-09-01",
+      "apiVersion": "2022-07-01",
       "name": "examplesecret",
       "properties": {
         "value": "[parameters('secretValue')]"
@@ -134,7 +135,7 @@ For Bicep, use the `parent` property and provide the symbolic name of the parent
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kvsecret 'Microsoft.KeyVault/vaults/secrets@2021-06-01-preview' = {
+resource kvsecret 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
   name: 'examplesecret'
   parent: kv
   properties: {
@@ -142,7 +143,7 @@ resource kvsecret 'Microsoft.KeyVault/vaults/secrets@2021-06-01-preview' = {
   }
 }
 
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource kv 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: 'examplevault123'
   ...
 }
@@ -153,7 +154,7 @@ resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
 ```json
 {
   "type": "Microsoft.KeyVault/vaults/secrets",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "examplevault123/examplesecret",
   "properties": {
     "value": "[parameters('secretValue')]"
@@ -164,7 +165,7 @@ resource kv 'Microsoft.KeyVault/vaults@2019-09-01' = {
 },
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "examplevault123",
 ```
 

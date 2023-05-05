@@ -1,13 +1,10 @@
 ---
 title: Create UI definition logical functions
 description: Describes the functions to perform logical operations.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition logical functions
 
 These functions can be used in conditional expressions. Some functions may not support all JSON data types.

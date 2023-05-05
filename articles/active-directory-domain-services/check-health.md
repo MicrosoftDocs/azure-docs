@@ -3,14 +3,14 @@ title: Check the health of Azure Active Directory Domain Services | Microsoft Do
 description: Learn how to check the health of an Azure Active Directory Domain Services (Azure AD DS) managed domain and understand status messages using the Azure portal.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 01/29/2023
 ms.author: justinha
 
 ---

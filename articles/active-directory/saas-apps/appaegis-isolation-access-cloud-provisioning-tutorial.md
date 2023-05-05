@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Appaegis Isolation Access Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Appaegis Isolation Access Cloud for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Appaegis Isolation Access Cloud.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: c845e98a-6fcd-4285-94b7-a72a2175ca7e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An [Appaegis Cloud](https://www.appaegis.com) account with Professional level of subscription. 
-* An Appaegis Cloud user account with **Global Admin** permissions.
+* An Appaegis Cloud user account with **Global Administrator** permissions.
 
 
 ## Step 1. Plan your provisioning deployment

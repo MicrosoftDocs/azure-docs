@@ -1,11 +1,11 @@
 ---
-title: Defender for IoT micro agent troubleshooting (Preview)
+title: Defender for IoT micro agent troubleshooting 
 description: Learn how to handle unexpected or unexplained errors.
 ms.date: 11/09/2021
 ms.topic: reference
 ---
 
-# Defender for IoT micro agent troubleshooting (Preview)
+# Defender for IoT micro agent troubleshooting
 
 If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 
@@ -19,9 +19,9 @@ To view the status of the service:
     systemctl status defender-iot-micro-agent.service 
     ```
 
-1. Check that the service is stable by making sure it is `active`, and that the uptime in the process is appropriate.
+1. Check that the service is stable by making sure it's `active`, and that the uptime in the process is appropriate.
 
-    :::image type="content" source="media/troubleshooting/active-running.png" alt-text="Ensure your service is stable by checking to see that it is active and the uptime is appropriate.":::
+    :::image type="content" source="media/troubleshooting/active-running.png" alt-text="Ensure your service is stable by checking to see that it's active and the uptime is appropriate.":::
 
 If the service is listed as `inactive`, use the following command to start the service:
 
@@ -38,6 +38,7 @@ Use the following command to verify that the Defender for IoT micro agent servic
 ```bash
 ps -aux | grep " defender-iot-micro-agent"
 ```
+The following sample result shows that the folder 'defender_iot_micro_agent' has root privileges due to the word 'root' appearing as shown by the red box.
 
 :::image type="content" source="media/troubleshooting/root-privileges.png" alt-text="Verify the Defender for IoT micro agent service is running with root privileges.":::
 ## Review the logs 

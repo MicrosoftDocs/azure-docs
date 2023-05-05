@@ -33,7 +33,7 @@ You can use this library in your app server side to manage the WebSocket client 
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
-[API reference documentation](/javascript/api/overview/azure/webpubsub) |
+[API reference documentation](/javascript/api/overview/azure/web-pubsub) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
@@ -200,7 +200,7 @@ await serviceClient.sendToAll({ message: "Hello world!" }, { onResponse });
 
 You can set the following environment variable to get the debug logs when using this library.
 
-- Getting debug logs from the SignalR client library
+- Getting debug logs from the Azure Web PubSub client library
 
 ```bash
 export AZURE_LOG_LEVEL=verbose
@@ -222,7 +222,7 @@ When a WebSocket connection connects, the Web PubSub service transforms the conn
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub-express) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub-express) |
-[API reference documentation](/javascript/api/overview/azure/web-pubsub-express-readme?view=azure-node-latest) |
+[API reference documentation](/javascript/api/overview/azure/web-pubsub-express-readme?view=azure-node-latest&preserve-view=true) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
@@ -367,7 +367,7 @@ app.listen(3000, () =>
 
 You can set the following environment variable to get the debug logs when using this library.
 
-- Getting debug logs from the SignalR client library
+- Getting debug logs from the Azure Web PubSub client library
 
 ```bash
 export AZURE_LOG_LEVEL=verbose
@@ -379,6 +379,7 @@ For more detailed instructions on how to enable logs, see [@azure/logger package
 
 Use **Live Trace** from the Web PubSub service portal to view the live traffic.
 
+[aad_doc]: howto-authorize-from-application.md
 [azure_sub]: https://azure.microsoft.com/free/
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/
 

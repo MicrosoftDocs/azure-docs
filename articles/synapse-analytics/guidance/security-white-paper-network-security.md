@@ -1,8 +1,8 @@
 ---
 title: "Azure Synapse Analytics security white paper: Network security"
 description: Manage secure network access with Azure Synapse Analytics.
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -35,9 +35,9 @@ These endpoints are automatically created when the Synapse workspace is created.
 
 ### Synapse Studio
 
-[*Synapse Studio*](/learn/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Azure Synapse. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
+[*Synapse Studio*](/training/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Azure Synapse. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
 
-Use Synapse Studio to performing various data and management operations in Azure Synapse, such as:
+Use Synapse Studio to perform various data and management operations in Azure Synapse, such as:
 
 - Connecting to dedicated SQL pools, serverless SQL pools, and running SQL scripts.
 - Developing and running notebooks on Apache Spark pools.
@@ -161,7 +161,7 @@ Dedicated SQL pool and serverless SQL pool don't use managed private endpoints f
 
 ## Private link hubs for Synapse Studio
 
-[Azure Private Link Hubs](../security/synapse-private-link-hubs.md) allows securely connecting to Synapse Studio from the customer's VNet using Azure Private Link. This feature is useful for customers who want to access the Synapse workspace using the Synapse Studio from a controlled and restricted environment, where the outbound internet traffic is restricted to a limited set of Azure services.
+[Synapse Private Link Hubs](../security/synapse-private-link-hubs.md) allows securely connecting to Synapse Studio from the customer's VNet using Azure Private Link. This feature is useful for customers who want to access the Synapse workspace using the Synapse Studio from a controlled and restricted environment, where the outbound internet traffic is restricted to a limited set of Azure services.
 
 It's achieved by creating a private link hub resource and a private endpoint to this hub from the VNet. This private endpoint is then used to access the studio using its fully qualified domain name (FQDN), *web.azuresynapse.net*, with a private IP address from the VNet. The private link hub resource downloads the static contents of Synapse Studio over Azure Private Link to the user's workstation. In addition, separate private endpoints must be created for the individual workspace endpoints to ensure that communication to the workspace endpoints is private.
 

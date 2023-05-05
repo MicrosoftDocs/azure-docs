@@ -3,8 +3,9 @@ title: 'Tutorial: Create Azure Database for PostgreSQL - Flexible Server and Azu
 description: Quickstart guide to create Azure Database for PostgreSQL - Flexible Server with Web App in a virtual network
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/30/2021
@@ -13,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Create an Azure Database for PostgreSQL - Flexible Server with App Services Web App in Virtual network
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server  inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 

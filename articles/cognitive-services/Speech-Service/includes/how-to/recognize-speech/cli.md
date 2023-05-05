@@ -8,14 +8,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-## Download and install
-
-[!INCLUDE [SPX Setup](../../spx-setup.md)]
-
 ## Speech-to-text from a microphone
 
 Plug in and turn on your PC microphone. Turn off any apps that might also use the microphone. Some computers have a built-in microphone, whereas others require configuration of a Bluetooth device.
@@ -27,9 +19,9 @@ spx recognize --microphone
 ```
 
 > [!NOTE]
-> The Speech CLI defaults to English. You can choose a different language [from the speech-to-text table](../../../../language-support.md). For example, add `--source de-DE` to recognize German speech.
+> The Speech CLI defaults to English. You can choose a different language [from the speech-to-text table](../../../../language-support.md?tabs=stt). For example, add `--source de-DE` to recognize German speech.
 
-Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, or when you select Ctrl+C.
+Speak into the microphone, and you see transcription of your words into text in real-time. The Speech CLI stops after a period of silence, or when you select Ctrl+C.
 
 ## Speech-to-text from an audio file
 
@@ -42,6 +34,13 @@ spx recognize --file whatstheweatherlike.wav
 ```
 
 > [!NOTE]
-> The Speech CLI defaults to English. You can choose a different language [from the speech-to-text table](../../../../language-support.md). For example, add `--source de-DE` to recognize German speech.
+> The Speech CLI defaults to English. You can choose a different language [from the speech-to-text table](../../../../language-support.md?tabs=stt). For example, add `--source de-DE` to recognize German speech.
 
 The Speech CLI shows a text transcription of the speech on the screen.
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

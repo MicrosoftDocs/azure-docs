@@ -1,18 +1,18 @@
 ---
 title: Overview of admin consent workflow
-titleSuffix: Azure AD
 description: Learn about the admin consent workflow in Azure Active Directory 
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
-ms.date: 03/30/2022
-ms.author: ergreenl
-ms.reviewer: davidmu
+ms.topic: conceptual
+ms.date: 11/02/2022
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to learn about the admin consent workflow and how it affects end-user and admin consent experience
 ---

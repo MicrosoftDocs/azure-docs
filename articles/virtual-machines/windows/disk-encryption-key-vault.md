@@ -7,8 +7,8 @@ ms.collection: windows
 ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 08/06/2019
-ms.custom: seodec18, devx-track-azurecli
+ms.date: 01/04/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create and configure a key vault for Azure Disk Encryption on a Windows VM

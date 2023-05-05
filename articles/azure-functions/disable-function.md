@@ -2,15 +2,15 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 03/15/2021 
-ms.custom: "devx-track-csharp, devx-track-azurepowershell"
+ms.date: 12/01/2022 
+ms.custom: devx-track-csharp
 ---
 
 # How to disable functions in Azure Functions
 
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
-The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
+The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in several ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
 
 ## Disable a function
 
@@ -23,11 +23,11 @@ Use the **Enable** and **Disable** buttons on the function's **Overview** page. 
 Even when you publish to your function app from a local project, you can still use the portal to disable functions in the function app. 
 
 > [!NOTE]  
-> The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
+> Disabled functions can still be run by calling the REST endpoint using a master key. To learn more, see [Run a disabled function](#run-a-disabled-function). This means that a disabled function still runs when started from the **Test/Run** window in the portal using the **master (Host key)**. 
 
 # [Azure CLI](#tab/azurecli)
 
-In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`.  
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -92,6 +92,14 @@ Azure PowerShell currently doesn't support this functionality.
 ---
 
 To learn more, see [Azure Functions Deployment slots](functions-deployment-slots.md).
+
+## Run a disabled function
+
+You can still cause a disabled function to run by supplying the [master key](functions-bindings-http-webhook-trigger.md#master-key-admin-level) in a REST request to the endpoint URL of the disabled function. In this way, you can develop and validate functions in Azure in a disabled state while preventing them from being accessed by others. Using any other type of key in the request returns an HTTP 404 response. 
+
+[!INCLUDE [functions-master-key-caution](../../includes/functions-master-key-caution.md)]
+
+To learn more about the master key, see [Obtaining keys](functions-bindings-http-webhook-trigger.md#obtaining-keys). To learn more about calling non-HTTP triggered functions, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
 
 ## local.settings.json
 
@@ -161,7 +169,7 @@ or
     "disabled": "IS_DISABLED"
 ```
 
-In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
+In the second example, the function is disabled when there's an app setting that is named IS_DISABLED and is set to `true` or 1.
 
 >[!IMPORTANT]  
 >The portal uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
@@ -170,7 +178,7 @@ In the second example, the function is disabled when there is an app setting tha
 
 Keep the following considerations in mind when you disable functions:
 
-+ When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
++ When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer and [in the portal](#run-a-disabled-function).  
 
 + At this time, function names that contain a hyphen (`-`) can't be disabled when running on Linux plan. If you need to disable your functions when running on Linux plan, don't use hyphens in your function names.
 

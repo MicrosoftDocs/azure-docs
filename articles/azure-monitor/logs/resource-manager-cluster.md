@@ -2,26 +2,69 @@
 title: Resource Manager template samples for Log Analytics clusters
 description: Sample Azure Resource Manager templates to deploy Log Analytics clusters.
 ms.topic: sample
-author: yossiy
-ms.author: yossiy
-ms.date: 09/12/2021
-
+ms.custom: devx-track-arm-template
+ms.reviewer: yossiy
+ms.date: 06/13/2022
 ---
 
 # Resource Manager template samples for Log Analytics clusters in Azure Monitor
+
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure Log Analytics clusters in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-
 ## Template references
 
-- [Microsoft.OperationalInsights clusters](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/clusters) 
+- [Microsoft.OperationalInsights clusters](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/clusters)
 
 ## Create a Log Analytics cluster
+
 The following sample creates a new empty Log Analytics cluster.
 
 ### Template file
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Specify the name of the Log Analytics cluster.')
+param clusterName string
+
+@description('Specify the location of the resources.')
+param location string = resourceGroup().location
+
+@description('Specify the capacity reservation value.')
+@allowed([
+  500
+  1000
+  2000
+  5000
+])
+param CommitmentTier int
+
+@description('Specify the billing type settings. Can be \'Cluster\' (default) or \'Workspaces\' for proportional billing on workspaces.')
+@allowed([
+  'Cluster'
+  'Workspaces'
+])
+param billingType string
+
+resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
+  name: clusterName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  sku: {
+    name: 'CapacityReservation'
+    capacity: CommitmentTier
+  }
+  properties: {
+    billingType: billingType
+  }
+}
+```
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -31,7 +74,14 @@ The following sample creates a new empty Log Analytics cluster.
     "clusterName": {
       "type": "string",
       "metadata": {
-        "description": "The name of the Log Analytics cluster."
+        "description": "Specify the name of the Log Analytics cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify the location of the resources."
       }
     },
     "CommitmentTier": {
@@ -42,29 +92,27 @@ The following sample creates a new empty Log Analytics cluster.
         2000,
         5000
       ],
-      "defaultValue": 500,
       "metadata": {
-        "description": "The Capacity Reservation value."
+        "description": "Specify the capacity reservation value."
       }
-  },
-  "billingType": {
+    },
+    "billingType": {
       "type": "string",
       "allowedValues": [
         "Cluster",
         "Workspaces"
       ],
-      "defaultValue": "Cluster",
       "metadata": {
-          "description": "The billing type settings. Can be 'Cluster' (default) or 'Workspaces' for proportional billing on workspaces."
+        "description": "Specify the billing type settings. Can be 'Cluster' (default) or 'Workspaces' for proportional billing on workspaces."
       }
     }
   },
   "resources": [
     {
-      "name": "[parameters('clusterName')]",
       "type": "Microsoft.OperationalInsights/clusters",
       "apiVersion": "2021-06-01",
-      "location": "[resourceGroup().location]",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
       "identity": {
         "type": "SystemAssigned"
       },
@@ -72,13 +120,15 @@ The following sample creates a new empty Log Analytics cluster.
         "name": "CapacityReservation",
         "capacity": "[parameters('CommitmentTier')]"
       },
-      "properties":  {
+      "properties": {
         "billingType": "[parameters('billingType')]"
       }
     }
   ]
 }
 ```
+
+---
 
 ### Parameter file
 
@@ -101,9 +151,48 @@ The following sample creates a new empty Log Analytics cluster.
 ```
 
 ## Update a Log Analytics cluster
+
 The following sample updates a Log Analytics cluster to use customer-managed key.
 
 ### Template file
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Specify the name of the Log Analytics cluster.')
+param clusterName string
+
+@description('Specify the location of the resources')
+param location string = resourceGroup().location
+
+@description('Specify the key vault name.')
+param keyVaultName string
+
+@description('Specify the key name.')
+param keyName string
+
+@description('Specify the key version. When empty, latest key version is used.')
+param keyVersion string
+
+var keyVaultUri = format('{0}{1}', keyVaultName, environment().suffixes.keyvaultDns)
+
+resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
+  name: clusterName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    keyVaultProperties: {
+      keyVaultUri: keyVaultUri
+      keyName: keyName
+      keyVersion: keyVersion
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -113,48 +202,60 @@ The following sample updates a Log Analytics cluster to use customer-managed key
     "clusterName": {
       "type": "string",
       "metadata": {
-        "description": "The name of the Log Analytics cluster."
+        "description": "Specify the name of the Log Analytics cluster."
       }
     },
-    "keyVaultUri": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify the location of the resources"
+      }
+    },
+    "keyVaultName": {
       "type": "string",
       "metadata": {
-        "description": "The key identifier URI."
+        "description": "Specify the key vault name."
       }
     },
     "keyName": {
       "type": "string",
       "metadata": {
-        "description": "The key name."
+        "description": "Specify the key name."
       }
     },
     "keyVersion": {
       "type": "string",
       "metadata": {
-        "description": "The key version. When empty, latest key version is used."
+        "description": "Specify the key version. When empty, latest key version is used."
       }
     }
   },
+  "variables": {
+    "keyVaultUri": "[format('{0}{1}', parameters('keyVaultName'), environment().suffixes.keyvaultDns)]"
+  },
   "resources": [
     {
-      "name": "[parameters('clusterName')]",
       "type": "Microsoft.OperationalInsights/clusters",
       "apiVersion": "2021-06-01",
-      "location": "[resourceGroup().location]",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
       "identity": {
         "type": "SystemAssigned"
       },
-      "properties":  {
+      "properties": {
         "keyVaultProperties": {
-        "keyVaultUri": "https://key-vault-name.vault.azure.net",
-        "keyName": "key-name",
-        "keyVersion": "current-version"
+          "keyVaultUri": "[variables('keyVaultUri')]",
+          "keyName": "[parameters('keyName')]",
+          "keyVersion": "[parameters('keyVersion')]"
         }
-      }  
+      }
     }
   ]
 }
 ```
+
+---
 
 ### Parameter file
 
@@ -181,6 +282,6 @@ The following sample updates a Log Analytics cluster to use customer-managed key
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about Log Analytics dedicated clusters](./logs-dedicated-clusters.md).
-* [Learn more about agent data sources](../agents/agent-data-sources.md).
+- [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
+- [Learn more about Log Analytics dedicated clusters](./logs-dedicated-clusters.md).
+- [Learn more about agent data sources](../agents/agent-data-sources.md).

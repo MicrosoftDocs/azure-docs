@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2022
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -83,7 +83,7 @@ Here's how values in the overview tiles are calculated.
 - The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
 - The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
 
-The EA portal doesn't the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
+The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
  
 The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
 

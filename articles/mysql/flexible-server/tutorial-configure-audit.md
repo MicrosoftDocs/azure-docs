@@ -1,24 +1,26 @@
 ---
-title: 'Tutorial: Configure audit logs by using Azure Database for MySQL Flexible Server'
-description: 'This tutorial shows you how to configure audit logs by using Azure Database for MySQL Flexible Server.'
-author: SudheeshGH
-ms.author: sunaray
+title: 'Tutorial: Configure audit logs by using Azure Database for MySQL - Flexible Server'
+description: 'This tutorial shows you how to configure audit logs by using Azure Database for MySQL - Flexible Server.'
 ms.service: mysql
+ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 
-# Tutorial: Configure audit logs by using Azure Database for MySQL Flexible Server
+# Tutorial: Configure audit logs by using Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-You can use Azure Database for MySQL Flexible Server to configure audit logs. Audit logs can be used to track database-level activity, including connection, administration, data definition language (DDL), and data manipulation language (DML) events. These types of logs are commonly used for compliance purposes. You ordinarily use database auditing to:
+You can use Azure Database for MySQL - Flexible Server to configure audit logs. Audit logs can be used to track database-level activity, including connection, administration, data definition language (DDL), and data manipulation language (DML) events. These types of logs are commonly used for compliance purposes. You ordinarily use database auditing to:
 * Account for all actions that happen within a particular schema, table, or row, or that affect specific content.
 * Prevent users (or others) from inappropriate actions based on their accountability.
 * Investigate suspicious activity.
 * Monitor and gather data about specific database activities.
  
-This article discusses how to use MySQL audit logs, Log Analytics tools, or a workbook template to visualize auditing information for Azure Database for MySQL Flexible Server.
+This article discusses how to use MySQL audit logs, Log Analytics tools, or a workbook template to visualize auditing information for Azure Database for MySQL - Flexible Server.
 
 In this tutorial, you'll learn how to:
 >[!div class="checklist"]
@@ -29,7 +31,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- [Create an Azure Database for MySQL Flexible Server instance](./quickstart-create-server-portal.md).
+- [Create an Azure Database for MySQL - Flexible Server instance](./quickstart-create-server-portal.md).
 - [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
 ## Configure auditing by using the Azure portal 
@@ -139,7 +141,7 @@ The workbook template that you use for auditing requires you to create diagnosti
     > [!Note]
     > You can access the slow query logs in the data sinks (Log Analytics workspace, storage account, or event hub) that you've already configured. It can take up to 10 minutes for the logs to appear.
 
-1. In the Azure portal, on the left pane, under **Monitoring** for your Azure Database for MySQL Flexible Server instance, select **Workbooks**.
+1. In the Azure portal, on the left pane, under **Monitoring** for your Azure Database for MySQL - Flexible Server instance, select **Workbooks**.
 1. Select the **Auditing** workbook. 
 
     :::image type="content" source="./media/tutorial-configure-audit/monitor-workbooks.png" alt-text="Screenshot showing all workbooks in the workbook gallery.":::
@@ -159,7 +161,7 @@ In the workbook, you can view the following visualizations:
 :::image type="content" source="./media/tutorial-configure-audit/audit-summary.png" alt-text="Screenshot of workbook template 'Audit Connection Events'.":::
 
 >[!Note]
-> * You can also edit these templates and customize them according to your requirements. For more information, see the "Editing mode" section of the [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+> * You can also edit these templates and customize them according to your requirements. For more information, see the "Editing mode" section of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 > * For a quick view, you can also pin the workbooks or Log Analytics query to your dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
 
 The *Administrative Actions on the service* view gives you details on activity performed on the service. It helps to determine the *what, who, and when* for any write operations (PUT, POST, DELETE) that are performed on the resources in your subscription. 

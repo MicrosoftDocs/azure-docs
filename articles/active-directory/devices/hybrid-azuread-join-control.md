@@ -6,18 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 02/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
 # Hybrid Azure AD join targeted deployment
 
-You can validate your [planning and prerequisites](hybrid-azuread-join-plan.md) for hybrid Azure AD joining devices using a targeted deployment before enabling it across the entire organization. This article will explain how to accomplish a targeted deployment of hybrid Azure AD join.
+You can validate your [planning and prerequisites](hybrid-azuread-join-plan.md) for hybrid Azure AD joining devices using a targeted deployment before enabling it across the entire organization. This article explains how to accomplish a targeted deployment of hybrid Azure AD join.
 
 ## Targeted deployment of hybrid Azure AD join on Windows current devices
 
@@ -72,16 +72,16 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
 
 ### Configure AD FS settings
 
-If you're using AD FS, you first need to configure client-side SCP using the instructions mentioned earlier by linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When client-side SCP is configured for AD FS, the source for device objects is established as Azure AD.
+If your Azure AD is federated with AD FS, you first need to configure client-side SCP using the instructions mentioned earlier by linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When client-side SCP is configured for AD FS, the source for device objects is established as Azure AD.
 
 > [!NOTE]
-> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises. ADFS will then start deleting device objects from on-premises directory after the stipulated period defined in the ADFS Device Registration's attribute "MaximumInactiveDays". ADFS Device Registration objects can be found using the [Get-AdfsDeviceRegistration cmdlet](/powershell/module/adfs/get-adfsdeviceregistration).
+> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises. AD FS will then start deleting device objects from on-premises directory after the stipulated period defined in the AD FS Device Registration's attribute "MaximumInactiveDays". AD FS Device Registration objects can be found using the [Get-AdfsDeviceRegistration cmdlet](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## Supporting down-level devices
 
 To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) available on the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](/configmgr/). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/configmgr/). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating with Azure AD.
 
@@ -92,15 +92,14 @@ To control the device registration, you should deploy the Windows Installer pack
 
 ## Why a device might be in a pending state
 
-When you configure a **Hybrid Azure AD join** task in the Azure AD Connect Sync for your on-premises devices, the task will sync the device objects to Azure AD, and temporarily set the registered state of the devices to "pending" before the device completes the device registration. This is because the device must be added to the Azure AD directory before it can be registered. For more information about the device registration process, see [How it works: Device registration](device-registration-how-it-works.md#hybrid-azure-ad-joined-in-managed-environments).
+When you configure a **Hybrid Azure AD join** task in the Azure AD Connect Sync for your on-premises devices, the task syncs device objects to Azure AD, and temporarily set the registered state of the devices to "pending" before the device completes the device registration. This pending state is because the device must be added to the Azure AD directory before it can be registered. For more information about the device registration process, see [How it works: Device registration](device-registration-how-it-works.md#hybrid-azure-ad-joined-in-managed-environments).
 
 ## Post validation
 
-After you verify that everything works as expected, you can automatically register the rest of your Windows current and down-level devices with Azure AD by [configuring the SCP using Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+After you verify that everything works as expected, you can automatically register the rest of your Windows current and down-level devices with Azure AD. Automate hybrid Azure AD join by [configuring the SCP using Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## Next steps
 
 - [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 - [Configure hybrid Azure AD join](howto-hybrid-azure-ad-join.md)
 - [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
-- [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)

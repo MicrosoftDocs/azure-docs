@@ -6,12 +6,14 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/24/2021
+ms.date: 08/20/2022
 ---
 
 # Tutorial: Create automated approval-based workflows by using Azure Logic Apps
 
-This tutorial shows how to build an example [logic app](../logic-apps/logic-apps-overview.md) that automates an approval-based workflow. Specifically, this example logic app processes subscription requests for a mailing list that's managed by the [MailChimp](https://mailchimp.com/) service. This logic app includes various steps, which start by monitoring an email account for requests, sends these requests for approval, checks whether or not the request gets approval, adds approved members to the mailing list, and confirms whether or not new members get added to the list.
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+This tutorial shows how to build an example [logic app workflow](../logic-apps/logic-apps-overview.md) that automates an approval-based tasks. Specifically, this example workflow app processes subscription requests for a mailing list that's managed by the [MailChimp](https://mailchimp.com/) service. This workflow includes various steps, which start by monitoring an email account for requests, sends these requests for approval, checks whether or not the request gets approval, adds approved members to the mailing list, and confirms whether or not new members get added to the list.
 
 In this tutorial, you learn how to:
 
@@ -25,7 +27,7 @@ In this tutorial, you learn how to:
 > * Add a condition that checks whether these members successfully joined the list.
 > * Add an action that sends emails confirming whether these members successfully joined the list.
 
-When you're done, your logic app looks like this workflow at a high level:
+When you're done, your workflow looks like this version at a high level:
 
 ![High-level finished logic app overview](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
@@ -35,13 +37,13 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * A MailChimp account where you previously created a list named "test-members-ML" where your logic app can add email addresses for approved members. If you don't have an account, [sign up for a free account](https://login.mailchimp.com/signup/), and then learn [how to create a MailChimp list](https://us17.admin.mailchimp.com/lists/#).
 
-* An email account from an email provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
+* An email account from an email provider that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
 
 * An email account in Office 365 Outlook or Outlook.com, which supports approval workflows. This tutorial uses Office 365 Outlook. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
-* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
+* If your logic app workflow needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where your logic app resource exists. If your logic app also uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
 
-## Create your logic app
+## Create your logic app resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials. On the Azure home page, select **Create a resource**.
 
@@ -49,7 +51,7 @@ When you're done, your logic app looks like this workflow at a high level:
 
    ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
-1. On the **Logic App** pane, provide the information described here about the logic app that you want to create.
+1. On the **Logic App** pane, provide the information described here about the logic app resource that you want to create.
 
    ![Screenshot that shows the Logic App creation pane and the info to provide for the new logic app.](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
@@ -59,24 +61,24 @@ When you're done, your logic app looks like this workflow at a high level:
    | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example creates a new resource group named `LA-MailingList-RG`. |
    | **Name** | LA-MailingList | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses `LA-MailingList`. |
    | **Location** | West US | The region where to store your logic app information. This example uses `West US`. |
+   | **Plan type** | Consumption |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
-   ||||
 
 1. When you're done, select **Review + create**. After Azure validates the information about your logic app, select **Create**.
 
 1. After Azure deploys your app, select **Go to resource**.
 
-   Azure opens the Logic Apps template selection pane, which shows an introduction video, commonly used triggers, and logic app template patterns.
+   Azure opens the template selection pane, which shows an introduction video, commonly used triggers, and logic app template patterns.
 
 1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
 
    ![Screenshot that shows the Logic Apps template selection pane with "Blank Logic App" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/select-logic-app-template.png)
 
-Next, add an Outlook [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that listens for incoming emails with subscription requests. Each logic app must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Next, add an Outlook [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that listens for incoming emails with subscription requests. Each logic app must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ## Add trigger to monitor emails
 
-1. In the Logic Apps Designer search box, enter `when email arrives`, and select the trigger named **When a new email arrives**.
+1. In the workflow designer search box, enter `when email arrives`, and select the trigger named **When a new email arrives**.
 
    * For Azure work or school accounts, select **Office 365 Outlook**.
    * For personal Microsoft accounts, select **Outlook.com**.
@@ -109,7 +111,7 @@ Next, add an Outlook [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Screenshot that shows the collapsed trigger shape.](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your logic app workflow. On the designer toolbar, select **Save**.
 
 Your logic app is now live but doesn't do anything other than check your incoming email. So, add an action that responds when the trigger fires.
 
@@ -117,7 +119,7 @@ Your logic app is now live but doesn't do anything other than check your incomin
 
 Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that sends an email to approve or reject the request.
 
-1. In the Logic Apps Designer, under the **When a new email arrives** trigger, select **New step**.
+1. In the workflow designer, under the **When a new email arrives** trigger, select **New step**.
 
 1. Under **Choose an operation**, in the search box, enter `send approval`, and select the action named **Send approval email**.
 
@@ -139,7 +141,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
    > This list shows the outputs from previous actions that are available for you to select as inputs to 
    > subsequent actions in your workflow.
  
-1. Save your logic app.
+1. Save your logic app workflow.
 
 Next, add a condition that checks the approver's selected response.
 
@@ -171,7 +173,7 @@ Next, add a condition that checks the approver's selected response.
 
       ![Screenshot that shows the finished condition for the approved request example](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
-1. Save your logic app.
+1. Save your logic app workflow.
 
 Next, specify the action that your logic app performs when the reviewer approves the request. 
 
@@ -200,7 +202,7 @@ Now add an action that adds the approved member to your mailing list.
 
    For more information about the **Add member to list** action properties, see the [MailChimp connector reference](/connectors/mailchimp/).
 
-1. Save your logic app.
+1. Save your logic app workflow.
 
 Next, add a condition so that you can check whether the new member successfully joined your mailing list. That way, your logic app can notify you whether this operation succeeded or failed.
 
@@ -253,7 +255,7 @@ Next, set up the emails to send when the approved member either succeeds or fail
    | **To** | Yes | <*your-email-address*> | The email address for where to send the success email. For testing purposes, you can use your own email address. |
    |||||
 
-1. Save your logic app.
+1. Save your logic app workflow.
 
 ## Send email if member not added
 
@@ -278,27 +280,27 @@ Next, set up the emails to send when the approved member either succeeds or fail
    | **To** | Yes | <*your-email-address*> | The email address for where to send the failure email. For testing purposes, you can use your own email address. |
    |||||
 
-1. Save your logic app. 
+1. Save your logic app workflow.
 
-Next, test your logic app, which now looks similar to this example:
+Next, test your workflow, which now looks similar to this example:
 
 ![Screenshot that shows the example finished logic app workflow.](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
-## Run your logic app
+## Run your logic app workflow
 
 1. Send yourself an email request to join your mailing list. Wait for the request to appear in your inbox.
 
-1. To manually start your logic app, on the designer toolbar, select **Run**. 
+1. To manually start your workflow, on the designer toolbar, select **Run Trigger** > **Run**.
 
-   If your email has a subject that matches the trigger's subject filter, your logic app sends you email to approve the subscription request.
+   If your email has a subject that matches the trigger's subject filter, your workflow sends you email to approve the subscription request.
 
 1. In the approval email that you receive, select **Approve**.
 
-1. If the subscriber's email address doesn't exist on your mailing list, your logic app adds that person's email address and sends you an email like this example:
+1. If the subscriber's email address doesn't exist on your mailing list, your workflow adds that person's email address and sends you an email like this example:
 
    ![Screenshot that shows the example email for a successful subscription.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
-   If your logic app can't add the subscriber, you get an email like this example:
+   If your workflow can't add the subscriber, you get an email like this example:
 
    ![Screenshot that shows the example email for a failed subscription.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
@@ -307,11 +309,11 @@ Next, test your logic app, which now looks similar to this example:
   > redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, 
   > see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
-Congratulations, you've now created and run a logic app that integrates information across Azure, Microsoft services, and other SaaS apps.
+Congratulations, you've now created and run a logic app workflow that integrates information across Azure, Microsoft services, and other SaaS apps.
 
 ## Clean up resources
 
-Your logic app continues running until you disable or delete the app. When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources.
+Your logic app continues running until you disable or delete the logic app resource. When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources.
 
 1. In the Azure portal's search box, enter the name for the resource group that you created. From the results, under **Resource Groups**, select the resource group.
 
@@ -331,7 +333,7 @@ Your logic app continues running until you disable or delete the app. When you n
 
 ## Next steps
 
-In this tutorial, you created a logic app that handles approvals for mailing list requests. Now, learn how to build a logic app that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions.
+In this tutorial, you created a logic app workflow that handles approvals for mailing list requests. Now, learn how to build a logic app workflow that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Process email attachments](../logic-apps/tutorial-process-email-attachments-workflow.md)

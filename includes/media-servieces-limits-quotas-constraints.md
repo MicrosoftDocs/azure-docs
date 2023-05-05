@@ -53,9 +53,9 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | --- | --- |
 | Live Events <sup>(4)</sup> per Media Services account |5|
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
-| Max Live Output duration | [Size of the DVR window](/media-services/latest/live-event-cloud-dvr-time-how-to) |
+| Max Live Output duration | [Size of the DVR window](/azure/media-services/latest/live-event-cloud-dvr-time-how-to) |
 
-<sup>4</sup> For detailed information about Live Event limitations, see [Live Event types comparison and limitations](/media-services/latest/live-event-types-comparison-reference).
+<sup>4</sup> For detailed information about Live Event limitations, see [Live Event types comparison and limitations](/azure/media-services/latest/live-event-types-comparison-reference).
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 

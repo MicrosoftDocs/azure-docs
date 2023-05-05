@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Bring a Linux custom image from an Azure virtual machine
 
-The steps in this article show how to import a custom image that starts from an [Azure virtual machine (VM)](https://azure.microsoft.com/services/virtual-machines/). With this approach, you set up an image on an Azure VM and import the image into a shared image gallery so that it can be used within Azure Lab Services. Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide the best approach for your scenario.
+The steps in this article show how to import a custom image that starts from an [Azure virtual machine (VM)](https://azure.microsoft.com/services/virtual-machines/). With this approach, you set up an image on an Azure VM and import the image into a compute gallery so that it can be used within Azure Lab Services. Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide the best approach for your scenario.
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ You'll need permission to create an Azure VM in your school's Azure subscription
 
     Create a specialized image if you want to maintain machine-specific information and user profiles. For more information about the differences between generalized and specialized images, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 
-## Import the custom image into a shared image gallery
+## Import the custom image into a compute gallery
 
-1. In a shared image gallery, [create an image definition](../virtual-machines/image-version.md) or choose an existing image definition.
+1. In a compute gallery, [create an image definition](../virtual-machines/image-version.md) or choose an existing image definition.
      - Choose **Gen 1** for the **VM generation**.
      - Choose whether you're creating a **specialized** or **generalized** image for the **Operating system state**.
 
@@ -38,18 +38,16 @@ You'll need permission to create an Azure VM in your school's Azure subscription
     You can also choose to use an existing image definition and create a new version for your custom image.
     
 1. [Create an image version](../virtual-machines/image-version.md).
-    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*. 
+    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.
     - For the **Source**, select **Disks and/or snapshots** from the dropdown list.
     - For the **OS disk** property, choose your Azure VM's disk that you created in previous steps.
 
-You can also automate the preceding steps by using PowerShell. For more information, see the script and ReadMe in [Bring image to a shared image gallery script](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/BringImageToSharedImageGallery/).
-
 ## Create a lab
 
-[Create the lab](tutorial-setup-classroom-lab.md) in Lab Services, and select the custom image from the shared image gallery.
+[Create the lab](tutorial-setup-lab.md) in Lab Services, and select the custom image from the compute gallery.
 
 ## Next steps
 
-* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
-* [Use a shared image gallery](how-to-use-shared-image-gallery.md)
+- [Azure Compute Gallery overview](../virtual-machines/shared-image-galleries.md)
+- [Attach or detach a compute gallery](how-to-attach-detach-shared-image-gallery.md)
+- [Use a compute gallery](how-to-use-shared-image-gallery.md)

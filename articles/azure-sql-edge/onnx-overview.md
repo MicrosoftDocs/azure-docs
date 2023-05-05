@@ -1,14 +1,15 @@
 ---
 title: Machine learning and AI with ONNX in Azure SQL Edge
 description: Machine learning in Azure SQL Edge supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
-keywords: deploy SQL Edge
-services: sql-edge
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: hudequei, randolphwest
+ms.date: 06/21/2022
 ms.service: sql-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: dphansen
-ms.author: davidph
-ms.date: 05/19/2020
+keywords: deploy SQL Edge
+services: sql-edge
 ---
 
 # Machine learning and AI with ONNX in SQL Edge
@@ -25,7 +26,7 @@ To obtain a model in the ONNX format:
 
 - **Model Building Services**: Services such as the [automated Machine Learning feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) support directly exporting the trained model in the ONNX format.
 
-- [**Convert and/or export existing models**](https://github.com/onnx/tutorials#converting-to-onnx-format): Several training frameworks (e.g. [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2) support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format. For frameworks that do not support native export, there are standalone ONNX Converter installable packages that enable you to convert models trained from different machine learning frameworks to the ONNX format.
+- [**Convert and/or export existing models**](https://github.com/onnx/tutorials#converting-to-onnx-format): Several training frameworks (for example, [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2) support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format. For frameworks that do not support native export, there are standalone ONNX Converter installable packages that enable you to convert models trained from different machine learning frameworks to the ONNX format.
 
      **Supported frameworks**
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)

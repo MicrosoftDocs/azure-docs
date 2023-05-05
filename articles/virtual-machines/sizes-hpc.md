@@ -2,10 +2,10 @@
 title: Azure VM sizes - HPC | Microsoft Docs
 description: Lists the different sizes available for high performance computing virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/19/2021
+ms.date: 02/27/2023
 ms.reviewer: jushiman
 ---
 
@@ -16,9 +16,11 @@ ms.reviewer: jushiman
 > [!TIP]
 > Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
-Azure H-series virtual machines (VMs) are designed to deliver leadership-class performance, scalability, and cost efficiency for various real-world HPC workloads.
+[HBv4-series](hbv4-series.md) VMs are optimized for various HPC workloads such as computational fluid dynamics, finite element analysis, frontend and backend EDA, rendering, molecular dynamics, computational geoscience, weather simulation, and financial risk analysis. HBv4 VMs will feature up to 176 AMD EPYC™ 9004-series (Genoa) CPU cores, 688 GB of RAM, and no simultaneous multithreading. HBv4-series VMs also provide 800 GB/s of DDR5 memory bandwidth and 768MB L3 cache per VM, up to 12 GB/s (reads) and 7 GB/s (writes) of block device SSD performance, and clock frequencies up to 3.7 GHz.
 
-[HBv3-series](hbv3-series.md) VMs are optimized for HPC applications such as fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation. HBv3 VMs feature up to 120 AMD EPYC™ 7003-series (Milan) CPU cores, 448 GB of RAM, and no hyperthreading. HBv3-series VMs also provide 350 GB/sec of memory bandwidth, up to 32 MB of L3 cache per core, up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.675 GHz. 
+All HBv4-series VMs feature 400 Gb/s NDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. NDR continues to support features like Adaptive Routing and the Dynamically Connected Transport (DCT). This newest generation of InfiniBand also brings greater support for offload of MPI collectives, optimized real-world latencies due to congestion control intelligence, and enhanced adaptive routing capabilities. These features enhance application performance, scalability, and consistency, and their usage is recommended.
+
+[HBv3-series](hbv3-series.md) VMs are optimized for HPC applications such as fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation. HBv3 VMs feature up to 120 AMD EPYC™ 7003-series (Milan) CPU cores, 448 GB of RAM, and no hyperthreading. HBv3-series VMs also provide 350 GB/sec of memory bandwidth, up to 32 MB of L3 cache per core, up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.5 GHz. 
 
 All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. The HDR InfiniBand fabric also supports Adaptive Routing and the Dynamic Connected Transport (DCT, in addition to standard RC and UD transports). These features enhance application performance, scalability, and consistency, and their usage is strongly recommended.
 
@@ -30,13 +32,10 @@ HBv2 VMs feature 200 Gb/sec Mellanox HDR InfiniBand, while both HB and HC-series
 
 [HC-series](hc-series.md) VMs are optimized for applications driven by dense computation, such as implicit finite element analysis, molecular dynamics, and computational chemistry. HC VMs feature 44 Intel Xeon Platinum 8168 processor cores, 8 GB of RAM per CPU core, and no hyperthreading. The Intel Xeon Platinum platform supports Intel’s rich ecosystem of software tools such as the Intel Math Kernel Library.
 
-[H-series](h-series.md) VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, 7 or 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs support Intel MPI 5.x and MS-MPI.
+[HX-series](hx-series.md) VMs are optimized for workloads that require significant memory capacity with twice the memory capacity as HBv4. For example, workloads such as silicon design can use HX-series VMs to enable EDA customers targeting the most advanced manufacturing processes to run their most memory-intensive workloads. HX VMs feature up to 176 AMD EPYC 9004-series (Genoa) CPU cores, 1408 GB of RAM, and no simultaneous multithreading. HX-series VMs also provide 800 GB/s of DDR5 memory bandwidth and 768 MB L3 cache per VM, up to 12 GB/s (reads) and 7 GB/s (writes) of block device SSD performance, and clock frequencies up to 3.7 GHz.
 
 > [!NOTE]
-> All HBv3, HBv2, HB, and HC-series VMs have exclusive access to the physical servers. There is only 1 VM per physical server and there is no shared multi-tenancy with any other VMs for these VM sizes.
-
-> [!NOTE]
-> The [A8 – A11 VMs](./sizes-previous-gen.md#a-series---compute-intensive-instances) are retired as of 3/2021. No new VM deployments of these sizes are now possible. If you have existing VMs, refer to emailed notifications for next steps including migrating to other VM sizes in [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> All HBv4, HBv3, HBv2, HB, HC and HX-series VMs have exclusive access to the physical servers. There is only 1 VM per physical server and there is no shared multi-tenancy with any other VMs for these VM sizes.
 
 ## RDMA-capable instances
 
@@ -50,11 +49,11 @@ This secondary interface allows the RDMA-capable instances to communicate over a
 > IP over IB is only supported on the SR-IOV enabled VMs.
 > RDMA is not enabled over the Ethernet network.
 
-- **Operating System** - Linux distributions such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Windows Server 2016 and newer versions are supported on all the HPC series VMs. Windows Server 2012 R2 and Windows Server 2012 are also supported on the non-SR-IOV enabled VMs. Note that [Windows Server 2012 R2 is not supported on HBv2 onwards as VM sizes with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately. The respective VM size pages also list out the software stack support.
+- **Operating System** - Linux distributions such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Windows Server 2016 and newer versions are supported on all the HPC series VMs. Note that [Windows Server 2012 R2 is not supported on HBv2 onwards as VM sizes with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately. The respective VM size pages also list out the software stack support.
 
 - **InfiniBand and Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately. Also see [enabling InfiniBand](./workloads/hpc/enable-infiniband.md) to learn about VM extensions or manual installation of InfiniBand drivers.
 
-- **MPI** - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED. On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Intel MPI 5.x and Microsoft MPI (MS-MPI) 2012 R2 or later versions are supported. Later versions of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers. See [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) for more details on setting up MPI on HPC VMs on Azure.
+- **MPI** - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED. See [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) for more details on setting up MPI on HPC VMs on Azure.
 
   > [!NOTE]
   > **RDMA network address space**: The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
@@ -87,7 +86,7 @@ Azure provides several options to create clusters of HPC VMs that can communicat
   > [!NOTE]
   > Contact Azure Support if you have large-scale capacity needs. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you are only charged for cores that you use.
   
-- **Virtual network** – An Azure [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) is not required to use the compute-intensive instances. However, for many deployments you need at least a cloud-based Azure virtual network, or a site-to-site connection if you need to access on-premises resources. When needed, create a new virtual network to deploy the instances. Adding compute-intensive VMs to a virtual network in an affinity group is not supported.
+- **Virtual network** – An Azure [virtual network](../virtual-network/index.yml) is not required to use the compute-intensive instances. However, for many deployments you need at least a cloud-based Azure virtual network, or a site-to-site connection if you need to access on-premises resources. When needed, create a new virtual network to deploy the instances. Adding compute-intensive VMs to a virtual network in an affinity group is not supported.
 
 - **Resizing** – Because of their specialized hardware, you can only resize compute-intensive instances within the same size family (H-series or N-series). For example, you can only resize an H-series VM from one H-series size to another. Additional considerations around InfiniBand driver support and NVMe disks may need to be considered for certain VMs.
 
@@ -104,6 +103,6 @@ Azure provides several options to create clusters of HPC VMs that can communicat
 ## Next steps
 
 - Learn more about [configuring your VMs](./workloads/hpc/configure.md), [enabling InfiniBand](./workloads/hpc/enable-infiniband.md), [setting up MPI](./workloads/hpc/setup-mpi.md) and optimizing HPC applications for Azure at [HPC Workloads](./workloads/hpc/overview.md).
-- Review the [HBv3-series overview](./workloads/hpc/hbv3-series-overview.md) and [HC-series overview](./workloads/hpc/hc-series-overview.md).
+- Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

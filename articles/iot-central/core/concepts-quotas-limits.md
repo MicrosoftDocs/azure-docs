@@ -3,7 +3,7 @@ title: Azure IoT Central quotas and limits | Microsoft Docs
 description: This article lists the key quotas and limits that apply to an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/15/2021
+ms.date: 06/07/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -22,6 +22,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Number of devices in an application | 1,000,000 | Contact support to discuss increasing this quota for your application. |
+| Number of IoT Central simulated devices in an application | 100 | Contact support to discuss increasing this quota for your application. |
 
 ## Telemetry
 
@@ -36,7 +37,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
-| Maximum size of a property | 32 KB | This value is set by the IoT Hub service. |
+| Properties | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. Maximum size of each individual property in every section is 4 KB. | These values are set by the IoT Hub service. |
 
 ## Commands
 
@@ -104,7 +105,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | ---- | -------------- | ----- |
 | Number of concurrent job executions | 5 | For performance reasons, you shouldn't exceed this limit. |
 
-## Organizations
+## Users, roles, and organizations
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |

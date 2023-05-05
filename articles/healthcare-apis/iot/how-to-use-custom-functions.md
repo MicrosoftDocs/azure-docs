@@ -1,49 +1,47 @@
 ---
-title: Custom Functions in the MedTech service - Azure Health Data Services
-description: This article describes how to use Custom Functions with MedTech service Device mappings templates.
+title: How to use custom functions with the MedTech service device mapping - Azure Health Data Services
+description: Learn how to use custom functions with MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 05/04/2023
 ms.author: jasteppe
 ---
 
-# How to use Custom Functions
+# How to use custom functions with the MedTech service device mapping
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](overview-of-device-mapping.md) during the device data [normalization](overview-of-device-data-processing-stages.md#normalize) processing stage.
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
-
-This article describes how to use the MedTech service Customer Functions.
-
-Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many custom functions may also be used. This article describes MedTech service-specific custom functions for use with the Device mappings template during the normalization process.
-
-> [!TIP]
-> For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
+> For more information on JMESPath functions, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
 
 ## Function signature
 
-Each function has a signature that follows the JmesPath specification. This signature can be represented as:
+Each function has a signature that follows the JMESPath specification. This signature can be represented as:
 
 ```jmespath
 return_type function_name(type $argname)
 ```
 
-The signature indicates the valid types for the arguments. If an invalid type is passed in for an argument, an error will occur.
+The signature indicates the valid types for the arguments. If an invalid type is passed in for an argument, an error occurs.
 
-> [!NOTE]
-> When math-related functions are done, the end result **must** be able to fit within a C# [long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result in unable to fit within a C# long value, then a mathematical error will occur.
+> [!IMPORTANT]
+> When math-related functions are done, the end result must be able to fit within a [C# long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result is unable to fit within a C# long value, then a mathematical error will occur.
 
 ## Exception handling
 
-Exceptions may occur at various points within the event processing lifecycle. Here are the various points where they can occur:
+Exceptions may occur at various points within the device data processing lifecycle. Here are the various points where exceptions can occur:
 
-|Action|When|Exceptions that may occur during template parsing|Outcome|
-|------|----|-------------------------------------------------|-------|
-|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse the template.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
-|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse any expressions.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
-|**Function Execution**|Each time a function is executed against data within a message.|Input data doesn't match that of the function signature.|System stops processing that message. The message isn't retried.|
-|**Function execution**|Each time a function is executed against data within a message.|Any other exceptions listed in the description of the function.|System stops processing that message. The message isn't retried.|
+|Action|When|Exceptions that may occur during parsing of the device mapping templates|Outcome|
+|------|----|------------------------------------------------------------------------|-------|
+|**Device mapping templates parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse the device mapping.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
+|**Device mapping templates parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse any expressions.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
+|**Function execution**|Each time a function is executed against device data within a device message.|Input device data doesn't match that of the function signature.|System stops processing that device message. The device message isn't retried.|
+|**Function execution**|Each time a function is executed against device data within a device message.|Any other exceptions listed in the description of the function.|System stops processing that device message. The device message isn't retried.|
 
 ## Mathematical functions
 
@@ -53,7 +51,7 @@ Exceptions may occur at various points within the event processing lifecycle. He
 number add(number $left, number $right)
 ```
 
-Returns the result of adding the left argument to the right.
+Returns the result of adding the left argument to the right argument.
 
 Examples:
 
@@ -69,7 +67,7 @@ Examples:
 number divide(number $left, number $right)
 ```
 
-Returns the result of dividing the left argument by the right.
+Returns the result of dividing the left argument by the right argument.
 
 Examples:
 
@@ -86,7 +84,7 @@ Examples:
 number multiply(number $left, number $right)
 ```
 
-Returns the result of multiplying the left argument with the right.
+Returns the result of multiplying the left argument with the right argument.
 
 Examples:
 
@@ -102,7 +100,7 @@ Examples:
 number pow(number $left, number $right)
 ```
 
-Returns the result of raising the left argument to the power of the right.
+Returns the result of raising the left argument to the power of the right argument.
 
 Examples:
 
@@ -119,7 +117,7 @@ Examples:
 number subtract(number $left, number $right)
 ```
 
-Returns the result of subtracting the right argument from the left.
+Returns the result of subtracting the right argument from the left argument.
 
 Examples:
 
@@ -137,11 +135,11 @@ Examples:
 string insertString(string $original, string $toInsert, number pos)
 ```
 
-Produces a new string by inserting the value of *toInsert* into the string *original*. The string will be inserted at position *pos* within the string *original*.
+Produces a new string by inserting the value of `toInsert` into the string `original`. The string is inserted at position `pos` within the string `original`.
 
 If the positional argument is zero based, the position of zero refers to the first character within the string. 
 
-If the positional argument provided is out of range of the length of *original*, then an error will occur.
+If the positional argument provided is out of range of the length of `original`, then an error occurs.
 
 Examples:
 
@@ -187,13 +185,15 @@ Examples:
 | {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md) for assistance fixing errors using the MedTech service logs. 
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service Custom Functions. To learn how to use Custom Functions with Device mappings, see
+In this article, you learned how to use the MedTech service custom functions within the device mapping.
 
->[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mappings.md)
+For an overview of the MedTech service device mapping, see
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

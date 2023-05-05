@@ -2,9 +2,9 @@
 title: 'Quickstart: Create a basic internal load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer using Azure PowerShell
-author: asudbring
-ms.author: allensu
-ms.date: 03/22/2022
+author: mbender-ms
+ms.author: mbender
+ms.date: 04/10/2023
 ms.topic: quickstart
 ms.service: load-balancer
 ms.custom: devx-track-azurepowershell, mode-api
@@ -106,6 +106,7 @@ $lbrule = @{
     IdleTimeoutInMinutes = '15'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
+    Probe = $probe
 }
 $rule = New-AzLoadBalancerRuleConfig @lbrule
 
@@ -156,7 +157,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.1.1.0/27'
+    AddressPrefix = '10.1.1.0/26'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 

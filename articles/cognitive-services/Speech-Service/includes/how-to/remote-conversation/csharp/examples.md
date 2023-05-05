@@ -1,9 +1,9 @@
 ---
-author: amitkumarshukla
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/09/2020
-ms.author: amishu
+ms.date: 07/26/2022
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 
 The first step for asynchronous transcription is to send the audio to the Conversation Transcription Service using the Speech SDK.
 
-This example code shows how to create a `ConversationTranscriber` for asynchronous-only mode. In order to stream audio to the transcriber, you add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). 
+This example code shows how to create a `ConversationTranscriber` for asynchronous-only mode. In order to stream audio to the transcriber, you add audio streaming code derived from [Transcribe conversations in real-time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). 
 
 ```csharp
 async Task CompleteContinuousRecognition(ConversationTranscriber recognizer, string conversationId)
@@ -22,18 +22,26 @@ async Task CompleteContinuousRecognition(ConversationTranscriber recognizer, str
     {
         finishedTaskCompletionSource.TrySetResult(0);
     };
-    string canceled = string.Empty;
 
-    recognizer.Canceled += (s, e) => {
-        canceled = e.ErrorDetails;
+    recognizer.Canceled += (s, e) => 
+    {
+        Console.WriteLine($"CANCELED: Reason={e.Reason}");
         if (e.Reason == CancellationReason.Error)
         {
-            finishedTaskCompletionSource.TrySetResult(0);
+            Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+            Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+            throw new System.ApplicationException("${e.ErrorDetails}");
         }
+        finishedTaskCompletionSource.TrySetResult(0);
     };
 
     await recognizer.StartTranscribingAsync().ConfigureAwait(false);
-    await Task.WhenAny(finishedTaskCompletionSource.Task, Task.Delay(TimeSpan.FromSeconds(10)));
+    
+    // Waits for completion.
+    // Use Task.WaitAny to keep the task rooted.
+    Task.WaitAny(new[] { finishedTaskCompletionSource.Task });
+    
     await recognizer.StopTranscribingAsync().ConfigureAwait(false);
 }
 
@@ -84,7 +92,7 @@ async Task UploadAudio()
         using (var conversationTranscriber = new ConversationTranscriber(AudioConfig.FromStreamInput(audioStream)))
         {
             await conversationTranscriber.JoinConversationAsync(conversation);
-            // Helper function to get the real time transcription results
+            // Helper function to get the real-time transcription results
             var result = await GetRecognizerResult(conversationTranscriber, conversationId);
         }
     }

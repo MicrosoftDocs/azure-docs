@@ -1,5 +1,5 @@
 ---
-title: Azure services that support Azure AD authentication - Azure AD
+title: Azure services that support Azure AD authentication
 description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
@@ -8,7 +8,7 @@ ms.date: 02/01/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenhoran
+manager: amycolannino
 ---
 
 # Azure services that support Azure AD authentication
@@ -24,6 +24,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
 | Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../cognitive-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
 | Azure Communication Services    | [Authenticate to Azure Communication Services](../../communication-services/concepts/authentication.md)   |
+| Azure Cosmos DB                 | [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](../../cosmos-db/how-to-setup-rbac.md) |
 | Azure Databricks                | [Authenticate using Azure Active Directory tokens](/azure/databricks/dev-tools/api/latest/aad/)
 | Azure Data Explorer             | [How-To Authenticate with Azure Active Directory for Azure Data Explorer Access](/azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad)                                                                                                     |
 | Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |
@@ -41,8 +42,8 @@ The following services support Azure AD authentication. New services are added t
 | Azure Service Fabric            | [Set up Azure Active Directory for client authentication](../../service-fabric/service-fabric-cluster-creation-setup-aad.md)                                                                                                        |
 | Azure Service Bus               | [Service Bus authentication and authorization](../../service-bus-messaging/service-bus-authentication-and-authorization.md)
 | Azure SignalR Service           | [Authorize access with Azure Active Directory for Azure SignalR Service](../../azure-signalr/signalr-concept-authorize-azure-active-directory.md)                                                                                                     |
-| Azure SQL                       | [Use Azure Active Directory authentication](../../azure-sql/database/authentication-aad-overview.md)                                                                                     |
-| Azure SQL Managed Instance      | [What is Azure SQL Managed Instance?](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration)                                                                                       |
+| Azure SQL                       | [Use Azure Active Directory authentication](/azure/azure-sql/database/authentication-aad-overview)                                                                                     |
+| Azure SQL Managed Instance      | [What is Azure SQL Managed Instance?](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview#azure-active-directory-integration)                                                                                       |
 | Azure Static Web Apps           | [Authentication and authorization for Azure Static Web Apps](../../static-web-apps/authentication-authorization.md?tabs=invitations)
 | Azure Storage                   | [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md) |
 | Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../devices/howto-vm-sign-in-azure-ad-windows.md)   |

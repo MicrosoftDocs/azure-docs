@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
-ms.date: 09/09/2021
+ms.date: 10/23/2022
 ---
 
 # Append Variable activity in Azure Data Factory and Synapse Analytics
@@ -30,6 +30,9 @@ To use a Append Variable activity in a pipeline, complete the following steps:
 1. Enter an expression for the value, which will be appended to the array in the variable.  This can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
    :::image type="content" source="media/control-flow-append-variable-activity/append-variable.png" alt-text="Shows the UI for an Append Variable activity.":::
+
+> [!NOTE]
+> The appended variable value does not appear in debug output unless you use a [Set Variable activity](control-flow-set-variable-activity.md) to explicitly set a new variable with its value.
 
 ## Type properties
 

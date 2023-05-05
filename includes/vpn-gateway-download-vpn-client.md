@@ -1,13 +1,16 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 04/11/2022
+ms.date: 08/24/2022
 ms.service: vpn-gateway
 ms.topic: include
 
 #This include is used in multiple articles, both for Virtual WAN and VPN Gateway. Before modifying, verify that any changes apply to all articles that use this include.
 ---
-1. Download the latest version of the Azure VPN Client install files from the [App Center](https://install.appcenter.ms/users/user-microsoft/apps/azure-vpn-client-1/distribution_groups/publicgroup/releases/7).
+1. Download the latest version of the Azure VPN Client install files using one of the following links:
+   
+   * Install using Client Install files: [https://aka.ms/azvpnclientdownload](https://aka.ms/azvpnclientdownload).
+   * Install directly, when signed in on a client computer: [Microsoft Store](https://go.microsoft.com/fwlink/?linkid=2117554).
 
 1. Install the Azure VPN Client to each computer.
 

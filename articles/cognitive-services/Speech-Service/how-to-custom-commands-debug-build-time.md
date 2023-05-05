@@ -10,9 +10,12 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Debug errors when authoring a Custom Commands application
+
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
 This article describes how to debug when you see errors while building Custom Commands application. 
 

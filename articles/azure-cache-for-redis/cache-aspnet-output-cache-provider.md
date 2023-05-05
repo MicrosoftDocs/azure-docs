@@ -7,7 +7,8 @@ ms.service: cache
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 04/22/2018
+ms.date: 05/18/2021
+
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 
@@ -82,7 +83,7 @@ In `web.config`, use above key as parameter value instead of actual value.
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
     <providers>
-        <add type = "Microsoft.Web.Redis.RedisSessionStateProvide"
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvider"
              name = "MySessionStateStore"
              connectionString = "MyRedisConnectionString"/>
     </providers>
@@ -102,7 +103,7 @@ In `web.config`, use above key as parameter value instead of actual value.
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
     <providers>
-        <add type = "Microsoft.Web.Redis.RedisSessionStateProvide"
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvider"
              name = "MySessionStateStore"
              connectionString = "MyRedisConnectionString"/>
     </providers>
@@ -114,7 +115,7 @@ In `web.config`, use above key as parameter value instead of actual value.
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
     <providers>
-        <add type = "Microsoft.Web.Redis.RedisSessionStateProvide"
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvider"
              name = "MySessionStateStore"
              connectionString = "mycache.redis.cache.windows.net:6380,password=actual access key,ssl=True,abortConnect=False"/>
     </providers>

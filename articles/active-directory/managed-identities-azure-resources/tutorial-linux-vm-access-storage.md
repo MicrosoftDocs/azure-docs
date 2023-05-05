@@ -1,10 +1,10 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Storage - Linux - Azure AD
+title: Tutorial`:` Use a managed identity to access Azure Storage - Linux
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.custom: subject-rbac-steps
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 03/30/2023
 ms.author: barclayn
 
 ms.collection: M365-identity-device-management
@@ -42,12 +42,12 @@ To run the CLI script examples in this tutorial, you have two options:
 
 In this section, you create a storage account. 
 
-1. Click the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
-2. Click **Storage**, then **Storage account - blob, file, table, queue**.
+1. Select the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
+2. Select **Storage**, then **Storage account - blob, file, table, queue**.
 3. Under **Name**, enter a name for the storage account.  
 4. **Deployment model** and **Account kind** should be set to **Resource manager** and **Storage (general purpose v1)**. 
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
-6. Click **Create**.
+6. Select **Create**.
 
     ![Create new storage account](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -56,8 +56,8 @@ In this section, you create a storage account.
 Files require blob storage so you need to create a blob container in which to store the file. You then upload  a file to the blob container in the new storage account.
 
 1. Navigate back to your newly created storage account.
-2. Under **Blob Service**, click **Containers**.
-3. Click **+ Container** on the top of the page.
+2. Under **Blob Service**, select **Containers**.
+3. Select **+ Container** on the top of the page.
 4. Under **New container**, enter a name for the container and under **Public access level** keep the default value.
 
     ![Create storage container](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
@@ -65,7 +65,7 @@ Files require blob storage so you need to create a blob container in which to st
 5. Using an editor of your choice, create a file titled *hello world.txt* on your local machine.  Open the file and add the text (without the quotes) "Hello world! :)" and then save it. 
 
 6. Upload the file to the newly created container by clicking on the container name, then **Upload**
-7. In the **Upload blob** pane, under **Files**, click the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then click **Upload**.
+7. In the **Upload blob** pane, under **Files**, select the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then select **Upload**.
 
     ![Upload text file](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
@@ -83,7 +83,7 @@ Azure Storage natively supports Azure AD authentication, so it can directly acce
 
 To complete the following steps, you need to work from the VM created earlier and you need an SSH client to connect to it. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect**. Copy the string to connect to your VM.
+1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page select **Connect**. Copy the string to connect to your VM.
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, use CURL to make a request to the local Managed Identity endpoint to get an access token for Azure Storage.
     
@@ -101,6 +101,20 @@ To complete the following steps, you need to work from the VM created earlier an
    ```bash
    Hello world! :)
    ```
+
+Alternatively, you could also store the token in a variable and pass it to the second command as shown:
+
+```bash
+# Run the first curl command and capture its output in a variable
+access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com%2F' -H Metadata:true | jq -r '.access_token')
+
+# Run the second curl command with the access token
+curl "https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>" \
+  -H "x-ms-version: 2017-11-09" \
+  -H "Authorization: Bearer $access_token"
+
+```
+
 
 ## Next steps
 
