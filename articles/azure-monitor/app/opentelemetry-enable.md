@@ -282,9 +282,6 @@ If you have any issues, see the troubleshooting page for [ASP.NET Core](/trouble
 
 The distros automatically collect data by bundling OpenTelemetry "instrumentation libraries".
 
-> [!WARNING]
-> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](opentelemetry-enable.md#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
-
 ### Included instrumentation libraries
 
 #### [ASP.NET Core](#tab/aspnetcore)
@@ -434,6 +431,9 @@ You can collect more data automatically when you include instrumentation librari
 
 > [!NOTE] 
 >  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
+
+> [!CAUTION]
+> Some instrumentation libraries are based on experimental OpenTelemetry semantic specifications. Adding them may leave you vulnerable to future breaking changes.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
