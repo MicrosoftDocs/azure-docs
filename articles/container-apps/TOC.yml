@@ -25,6 +25,8 @@
       href: deploy-visual-studio.md
     - name: Visual Studio Code
       href: deploy-visual-studio-code.md
+  - name: Run a job
+    href: jobs-get-started-cli.md
 - name: Concepts
   items:
     - name: Plans
@@ -37,6 +39,8 @@
       href: revisions.md
     - name: Application lifecycle management
       href: application-lifecycle-management.md
+    - name: Jobs
+      href: jobs.md
     - name: Microservices
       href: microservices.md
     - name: Networking and ingress

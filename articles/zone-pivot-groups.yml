@@ -1961,6 +1961,15 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: cshoe
+- id: container-apps-job-types
+  title: Job types
+  prompt: Select the type of Container Apps job you want run
+  pivots:
+  - id: container-apps-job-manual
+    title: Manual (on demand)
+  - id: container-apps-job-scheduled
+    title: Scheduled
 # Owner: v-ksreedevan
 - id: migrate-agentlessvmware-hyperv-agentbased
   title: Migration methods
