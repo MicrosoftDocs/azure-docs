@@ -154,7 +154,7 @@ directories_and_files = list(
 
 ## Get file from share snapshot
 
-Related article: [Develop for Azure Files with Python](storage-python-how-to-use-file-storage.md#get-file-from-share-snapshote)
+Related article: [Develop for Azure Files with Python](storage-python-how-to-use-file-storage.md#get-file-from-share-snapshot)
 
 You can download a file from a share snapshot. This enables you to restore a previous version of a file.
 
