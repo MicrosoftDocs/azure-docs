@@ -68,7 +68,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
 4. Make sure to update the storage account name in the URI of your `QueueClient` object. You can find the storage account name on the overview page of the Azure portal.
 
-   :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
+   :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name." lightbox="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png":::
 
 ### Run the app locally
 
