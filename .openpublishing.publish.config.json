@@ -436,8 +436,8 @@
     },
     {
       "path_to_root": "azureml-examples-featurestore",
-      "url": "https://github.com/Azure/featurestore-prp",
-      "branch": "pup-docs",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "featurestore/pup",
       "branch_mapping": {}
     },
     {
