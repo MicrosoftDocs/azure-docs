@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 05/05/2023
 ---
 
 # Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service
@@ -34,7 +34,15 @@ In this tutorial, you learn how to:
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
-# [C#](#tab/csharp)
+# [C# in-process](#tab/csharp-in-process)
+
+* A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+
+* The [Azure CLI](/cli/azure) to manage Azure resources.
+
+# [C# isolated process](#tab/csharp-isolated-process)
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -67,9 +75,14 @@ In this tutorial, you learn how to:
     func init --worker-runtime javascript
     ```
 
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
     ```bash
     func init --worker-runtime dotnet
+    ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    ```bash
+    func init --worker-runtime dotnet-isolated
     ```
 
     # [Python](#tab/python)
@@ -91,10 +104,16 @@ In this tutorial, you learn how to:
     }
     ```
     
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
     ```bash
     dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSub
     ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    ```bash
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --prerelease
+    ```
+
 
     # [Python](#tab/python)
     Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
@@ -112,8 +131,8 @@ In this tutorial, you learn how to:
     ```bash
     func new -n index -t HttpTrigger
     ```
-   # [JavaScript](#tab/javascript)
-   - Update `index/function.json` and copy following json codes.
+    # [JavaScript](#tab/javascript)
+    - Update `index/function.json` and copy following json codes.
         ```json
         {
           "bindings": [
@@ -135,7 +154,7 @@ In this tutorial, you learn how to:
           ]
         }
         ```
-   - Update `index/index.js` and copy following codes.
+    - Update `index/index.js` and copy following codes.
         ```js
         var fs = require('fs');
         var path = require('path');
@@ -159,9 +178,9 @@ In this tutorial, you learn how to:
             });
         }
         ```
-
-   # [C#](#tab/csharp)
-   - Update `index.cs` and replace `Run` function with following codes.
+ 
+    # [C# in-process](#tab/csharp-in-process)
+    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ExecutionContext context, ILogger log)
@@ -175,9 +194,25 @@ In this tutorial, you learn how to:
             };
         }
         ```
+ 
+    # [C# isolated process](#tab/csharp-isolated-process)
+   - Update `index.cs` and replace `Run` function with following codes.
+        ```c#
+        [Function("index")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req, FunctionContext context)
+        {
+            var path = Path.Combine(context.FunctionDefinition.PathToAssembly, "../index.html");
+            _logger.LogInformation($"index.html path: {path}.");
 
-   # [Python](#tab/python)
-   - Update `index/function.json` and copy following json codes.
+            var response = req.CreateResponse();
+            response.WriteString(File.ReadAllText(path));
+            response.Headers.Add("Content-Type", "text/html");
+            return response;
+        }
+        ```
+ 
+    # [Python](#tab/python)
+    - Update `index/function.json` and copy following json codes.
         ```json
         {
           "scriptFile": "__init__.py",
@@ -200,7 +235,7 @@ In this tutorial, you learn how to:
           ]
         }
         ```
-   - Update `index/__init__.py` and copy following codes.
+    - Update `index/__init__.py` and copy following codes.
         ```py
         import os
 
@@ -247,8 +282,9 @@ In this tutorial, you learn how to:
             context.done();
         };
         ```
-   # [C#](#tab/csharp)
-   - Update `negotiate.cs` and replace `Run` function with following codes.
+
+    # [C# in-process](#tab/csharp-in-process)
+    - Update `negotiate.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
@@ -261,46 +297,60 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
-   - Add below `using` statements in header to resolve required dependencies.
+    - Add below `using` statements in header to resolve required dependencies.
+         ```c#
+         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+         ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    - Update `negotiate.cs` and replace `Run` function with following codes.
         ```c#
-        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
-        ```
-    # [Python](#tab/python)
-   - Update `negotiate/function.json` and copy following json codes.
-        ```json
+        [Function("negotiate")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
+            [WebPubSubConnectionInput(Hub = "notification")] WebPubSubConnection connectionInfo)
         {
-          "scriptFile": "__init__.py",
-          "bindings": [
-            {
-              "authLevel": "anonymous",
-              "type": "httpTrigger",
-              "direction": "in",
-              "name": "req"
-            },
-            {
-              "type": "http",
-              "direction": "out",
-              "name": "$return"
-            },
-            {
-              "type": "webPubSubConnection",
-              "name": "connection",
-              "hub": "notification",
-              "direction": "in"
-            }
-          ]
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.WriteAsJsonAsync(connectionInfo);
+            return response;
         }
         ```
-   - Update `negotiate/__init__.py` and copy following codes.
-        ```py
-        import logging
 
-        import azure.functions as func
-
-
-        def main(req: func.HttpRequest, connection) -> func.HttpResponse:
-            return func.HttpResponse(connection)
-        ```
+    # [Python](#tab/python)
+    - Update `negotiate/function.json` and copy following json codes.
+         ```json
+         {
+           "scriptFile": "__init__.py",
+           "bindings": [
+             {
+               "authLevel": "anonymous",
+               "type": "httpTrigger",
+               "direction": "in",
+               "name": "req"
+             },
+             {
+               "type": "http",
+               "direction": "out",
+               "name": "$return"
+             },
+             {
+               "type": "webPubSubConnection",
+               "name": "connection",
+               "hub": "notification",
+               "direction": "in"
+             }
+           ]
+         }
+         ```
+    - Update `negotiate/__init__.py` and copy following codes.
+         ```py
+         import logging
+ 
+         import azure.functions as func
+ 
+ 
+         def main(req: func.HttpRequest, connection) -> func.HttpResponse:
+             return func.HttpResponse(connection)
+         ```
 
 5. Create a `notification` function to generate notifications with `TimerTrigger`.
     ```bash
@@ -341,7 +391,7 @@ In this tutorial, you learn how to:
             return (baseNum + 2 * floatNum * (Math.random() - 0.5)).toFixed(3);
         }
         ```
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
     - Update `notification.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("notification")]
@@ -367,6 +417,29 @@ In this tutorial, you learn how to:
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
         ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    - Update `notification.cs` and replace `Run` function with following codes.
+        ```c#
+        [Function("notification")]
+        [WebPubSubOutput(Hub = "notification")]
+        public SendToAllAction Run([TimerTrigger("*/10 * * * * *")] MyInfo myTimer)
+        {
+            return new SendToAllAction
+            {
+                Data = BinaryData.FromString($"[DateTime: {DateTime.Now}] Temperature: {GetValue(23, 1)}{'\xB0'}C, Humidity: {GetValue(40, 2)}%"),
+                DataType = WebPubSubDataType.Text
+            };
+        }
+
+        private static string GetValue(double baseNum, double floatNum)
+        {
+            var rng = new Random();
+            var value = baseNum + floatNum * 2 * (rng.NextDouble() - 0.5);
+            return value.ToString("0.000");
+        }
+        ``` 
+    
     # [Python](#tab/python)
     - Update `notification/function.json` and copy following json codes.
         ```json
@@ -432,7 +505,17 @@ In this tutorial, you learn how to:
     
     # [JavaScript](#tab/javascript)
 
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
+    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    ```xml
+    <ItemGroup>
+        <None Update="index.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
     Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
     <ItemGroup>
@@ -463,7 +546,7 @@ In this tutorial, you learn how to:
     Now you're able to run your local function by command below.
 
     ```bash
-    func start
+    func start --port 7071
     ```
 
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
@@ -508,10 +591,15 @@ Use the following commands to create these item.
     > [!NOTE]
     > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
 
     ```azurecli
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```
+
+     [C# isolated process](#tab/csharp-isolated-process)
+    ```azurecli
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
     # [Python](#tab/python)
