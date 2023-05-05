@@ -341,7 +341,7 @@
       href: operators-comparison.md
     - name: Logical operators
       href: operators-logical.md
-    - name: Null forgiveness operators
+    - name: Null forgiving operator
       href: operator-null-forgiving.md
     - name: Numeric operators
       href: operators-numeric.md
