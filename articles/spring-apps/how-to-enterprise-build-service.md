@@ -34,21 +34,26 @@ A [Builder](https://docs.vmware.com/en/Tanzu-Build-Service/1.6/vmware-tanzu-buil
 
 Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
 
-The following table shows the build agent pool scale set sizes available:
+The following table shows the sizes available for build agent pool scale sets:
 
-| Scale Set | CPU/Gi          |
+| Scale Set | CPU/GB          |
 |-----------|-----------------|
-| S1        | 2 vCPU, 4 Gi    |
-| S2        | 3 vCPU, 6 Gi    |
-| S3        | 4 vCPU, 8 Gi    |
-| S4        | 5 vCPU, 10 Gi   |
-| S5        | 6 vCPU, 12 Gi   |
-| S6        | 8 vCPU, 16 Gi   |
-| S7        | 16 vCPU, 32 Gi  |
-| S8        | 32 vCPU, 64 Gi  |
-| S9        | 64 vCPU, 128 Gi |
+| S1        | 2 vCPU, 4 GB    |
+| S2        | 3 vCPU, 6 GB    |
+| S3        | 4 vCPU, 8 GB    |
+| S4        | 5 vCPU, 10 GB   |
+| S5        | 6 vCPU, 12 GB   |
+| S6        | 8 vCPU, 16 GB   |
+| S7        | 16 vCPU, 32 GB  |
+| S8        | 32 vCPU, 64 GB  |
+| S9        | 64 vCPU, 128 GB |
 
-Tanzu Build Service allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue. If the quota of the agent pool is insufficient for the build task, the request for this build gets the following error: `The usage of build results in Building or Queuing status are (cpu: xxx, memory: xxxMi) and the remained quota is insufficient for this build. please retry with smaller size of build resourceRequests, retry after the previous build process completed or increased your build agent pool size`.
+Tanzu Build Service allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue.
+
+If the quota of the agent pool is insufficient for the build task, the build request receives an error message with the queue and build status and related information. The following suggestions are included:
+
+- Try smaller sizes of build resource requests.
+- Try larger build agent pool sizes.
 
 ## Configure the build agent pool
 
@@ -62,7 +67,7 @@ The following image shows the resources given to the Tanzu Build Service Agent P
 
 ## Build Service on demand
 
-You can enable or disable Tanzu Build Service when you provision an Azure Spring Apps Enterprise tier instance.
+You can enable or disable Tanzu Build Service when you create an Azure Spring Apps Enterprise tier instance.
 
 ### Build and deployment characteristics
 
