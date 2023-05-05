@@ -266,3 +266,4 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 ## Next steps
 
 * [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Network isolation with registries (preview)](./how-to-registry-network-isolation.md)
