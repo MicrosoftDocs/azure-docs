@@ -265,9 +265,9 @@ For sequential testing, seven SLOB2 executions were performed. The thread count 
 
 All performance metrics were reported through the Oracle Automatic Workload Repository (AWR). The following are the metrics presented in the results: 
 
-* Throughput which is the sum of the average read throughput and write throughput from the AWR Load Profile section. 
-* Average read IO requests from the AWR Load Profile section. 
-* db file sequential read wait event average wait time from the AWR Foreground Wait Events section. 
+* Throughput: the sum of the average read throughput and write throughput from the AWR Load Profile section
+* Average read IO requests from the AWR Load Profile section
+* db file sequential read wait event average wait time from the AWR Foreground Wait Events section
 
 ## Migrating from purpose-built, engineered systems to the cloud 
 
@@ -340,7 +340,7 @@ In Oracle version 12.2 and above, an Exadata specific addition will be included 
 
 ### Top database by IO throughput 
 
-Although sizing assessments can be performed, there are some questions about the averages and the simulated peaks that are built into these values for large workloads. This section, found at the end of an AWR report, is exceptionally valuable as it shows both the average flash and disk usage of the top 10 databases on Exadata. Although many may assume they want to size databases for peak performance in the cloud, this doesn’t make sense for most deployments when most of the work (over 95% is in the average range and with a simulated peak calculated in, can be upwards of 98% or more). It's important to pay for what is needed, even for the highest of Oracle’s demand workloads and inspecting the **Top Databases by IO Throughput** can be enlightening for understanding the resource needs for the database. 
+Although sizing assessments can be performed, there are some questions about the averages and the simulated peaks that are built into these values for large workloads. This section, found at the end of an AWR report, is exceptionally valuable as it shows both the average flash and disk usage of the top 10 databases on Exadata. Although many may assume they want to size databases for peak performance in the cloud, this doesn’t make sense for most deployments (over 95% is in the average range; with a simulated peak calculated in, the average range be greater than 98%). It's important to pay for what is needed, even for the highest of Oracle’s demand workloads and inspecting the **Top Databases by IO Throughput** can be enlightening for understanding the resource needs for the database. 
 
 ### Right-size Oracle using the AWR on Exadata   
 
