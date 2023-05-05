@@ -28,7 +28,7 @@ In April 2023, we published the following changes:
 In March 2023, we published the following changes:
 
 - A new article for the public preview of [Uniform Resource Identifier (URI) schemes with the Remote Desktop client](uri-scheme.md).
-- An update showing you how to [give session hosts in a personal host pool a friendly name](configure-host-pool-personal-desktop-assignment-type.md#give-session-hosts-in-a-personal-host-pool-a-friendly-name).
+- An update showing you how to [Give session hosts in a personal host pool a friendly name](configure-host-pool-personal-desktop-assignment-type.md#give-session-hosts-in-a-personal-host-pool-a-friendly-name).
 
 ## February 2023
 
@@ -50,4 +50,4 @@ In January 2023, we published the following change:
 
 ## Next steps
 
-- Learn [what's new for Azure Virtual Desktop](whats-new.md).
+- Learn [What's new for Azure Virtual Desktop](whats-new.md).
