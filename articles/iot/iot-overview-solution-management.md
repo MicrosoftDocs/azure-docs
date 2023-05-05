@@ -59,7 +59,7 @@ For ARM templates and Bicep reference documentation, see:
 - [IoT Hub](/azure/templates/microsoft.devices/iothubs)
 - [DPS](/azure/templates/microsoft.devices/provisioningservices)
 - [Device update for IoT Hub](/azure/templates/microsoft.deviceupdate/accounts)
-- [IoT Central](/azure/templates/microsoft.iotcentral/iotapp)
+- [IoT Central](/azure/templates/microsoft.iotcentral/iotapps)
 
 ## PowerShell
 
@@ -67,8 +67,8 @@ Use PowerShell to automate the management of your IoT solution. For example, you
 
 | Action | Links |
 |--------|-------|
-| Deploy service instances in your Azure subscription | [Create an IoT hub using the New-AzIotHub cmdlet](../iot-hub/iot-hub-create-using-powershell.md) </br> [Create an IoT Central application](/iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-powershell#create-an-application) |
-| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-powershell.md) </br> [Manage an IoT Central application](/iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-powershell#modify-an-application) |
+| Deploy service instances in your Azure subscription | [Create an IoT hub using the New-AzIotHub cmdlet](../iot-hub/iot-hub-create-using-powershell.md) </br> [Create an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-powershell#create-an-application) |
+| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-powershell.md) </br> [Manage an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-powershell#modify-an-application) |
 
 For PowerShell reference documentation, see:
 
@@ -82,8 +82,8 @@ Use the Azure CLI to automate the management of your IoT solution. For example, 
 
 | Action | Links |
 |--------|-------|
-| Deploy service instances in your Azure subscription | [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md) </br> [Create an IoT Central application](/iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-cli#create-an-application) </br> [Set up an Azure Digital Twins instance](../digital-twins/how-to-set-up-instance-cli.md) </br> [Set up DPS](../iot-dps/quick-setup-auto-provision-cli.md) |
-| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-azure-cli.md) </br> [Deploy and monitor IoT Edge modules at scale](../iot-edge/how-to-deploy-cli-at-scale.md) </br> [Manage an IoT Central application](/iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-cli#modify-an-application) </br> [Create an Azure Digital Twins graph](../digital-twins/tutorial-command-line-cli.md) |
+| Deploy service instances in your Azure subscription | [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md) </br> [Create an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-cli#create-an-application) </br> [Set up an Azure Digital Twins instance](../digital-twins/how-to-set-up-instance-cli.md) </br> [Set up DPS](../iot-dps/quick-setup-auto-provision-cli.md) |
+| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-azure-cli.md) </br> [Deploy and monitor IoT Edge modules at scale](../iot-edge/how-to-deploy-cli-at-scale.md) </br> [Manage an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-cli#modify-an-application) </br> [Create an Azure Digital Twins graph](../digital-twins/tutorial-command-line-cli.md) |
 
 For Azure CLI reference documentation, see:
 
