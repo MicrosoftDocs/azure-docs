@@ -877,15 +877,35 @@ sections:
       - question: |
           What's the status of OpenTelemetry?
         answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry Community released stable [distributed tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) in February 2021. Stable [metrics](https://opentelemetry.io/blog/2022/metrics-announcement/) was released in March 2022. The Azure Monitor OpenTelemetry-based offering includes these two pillars. The OpenTelemetry Community is actively working to stabilize the [Logging](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) API/SDK specification. We plan to add logging to our OpenTelemetry-based offerings in a subsequent milestone.
-
+          See the [OpenTelemetry Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/main/spec-compliance-matrix.md).
+      
       - question: |
-          How can I test out OpenTelemetry?
+          What is the "Azure Monitor OpenTelemetry Distro"?
         answer: |
-          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md). Sign up to join our [OpenTelemetry Early Adopter Community on Azure](https://aka.ms/AzMonOtel) to receive notifications about major releases.
-
+          You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure.
+      
       - question: |
-          What's the current release state of features within each OpenTelemetry offering?
+          Why should I use the "Azure Monitor OpenTelemetry Distro"?
+        answer: |
+          There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
+          - Reduces enablement effort
+          - Brings in Azure Specific features such as:
+           - Azure Active Directory (AAD) Authentication
+           - Offline Storage and Automatic Retries
+           - Preserves traces with service components using Application Insights SDKs
+           - Live Metrics (future)
+          In the spirit of OpenTelemetry, we've designed the distro with openness and extensibility in mind.
+          For example, you can add:
+           - an OTLP exporter and send to a second destination simultaneously
+           - community instrumentations beyond what's bundled in with the package
+          
+      - question: |
+          How can I test out the Azure Monitor OpenTelemetry Distro?
+        answer: |
+          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md).
+          
+      - question: |
+          What's the current release state of features within the Azure Monitor OpenTelemetry Distro?
         answer: |
           The following chart breaks out OpenTelemetry feature support for each language.
 
