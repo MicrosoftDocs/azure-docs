@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 05/02/2023
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or it admin, I want to learn about how to register an app on the Azure portal.
+#Customer intent: As a dev, devops, or it admin, I want to learn about how to register an app on the Microsoft Entra admin center.
 ---
 # Register your app in the customer tenant
 

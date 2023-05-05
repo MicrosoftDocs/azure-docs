@@ -81,35 +81,27 @@ Following are some planning considerations for integrating a user flow:
 - Each application can have just one sign-up and sign-in user flow.
 - If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows.
 - When you create a new sign-in user flow, the sign in pages reflect a default design with neutral company branding.
-- You can customize the default company branding anytime, either before or after you integrate an app with a user flow. In step 3, we describe integrating a sign-in flow with your app, and then coming back and configuring company branding and language customizations in step 4.
+- In the user flow settings, you can select from a set of built-in attributes you want to collect from customers on the sign-up page, for example, display name, given name, and surname. These attributes are stored with the customer's profile in your directory. If you need to collect more information, you can create custom attributes to add to your user flow.
+- In this setup flow, we describe integrating the user flow with your app in Step 3, and then updating the company branding and language customizations in step 4. But you can customize your user flow and company branding anytime, either before or after you integrate an app with a user flow.
 - You can enrich the token with claims from external systems using a custom extension, as described in the Extensibility options section in Step 4.
 
+- For each application, you might have different requirements for the information you want to collect during sign-up from your customers. Learn more about [custom authentication extensions](concept-custom-extensions.md).
 
 **To integrate a sign-in flow with your app**:
 
-- Refer to [create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
+- [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
 
-- Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD for customers, you can select the built-in attributes you want to collect from customers when they sign up for your app. These attributes are stored with the customer's profile in your directory.
-- For each application, you might have different requirements for the information you want to collect during sign-up from your customers. Learn more about [custom authentication extensions](concept-custom-extensions.md).
-- You can [create custom attributes](how-to-define-custom-attributes.md) in the Azure portal and use them in your self-service sign-up user flows.
+- [Create custom attributes](how-to-define-custom-attributes.md) if you want to collect information from customer beyond the built-in attributes, and select them in your user flow.
 
 ## Step 4: Customize and secure your sign-in
 
-<<<<<<< HEAD
-## Collecting attributes from users during sign-up
-=======
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-step-4.png" alt-text="Diagram showing step 4 in the setup flow." border="false":::
 
 Following are planning considerations for configuring company branding, language customizations, and custom extensions:
->>>>>>> 766d537da5c61847ed9276b476e99807234a1bde
 
 - **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding will appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
 
-<<<<<<< HEAD
-### Built-in attributes
-=======
-- **Custom extensions**. Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define additional actions for events at various points within the authentication flow. For example, you can use custom authentication extensions to add claims from external systems to the application token just before the token is issued to the application. Learn more about [custom authentication extensions](concept-custom-extensions.md).
->>>>>>> 766d537da5c61847ed9276b476e99807234a1bde
+- **Extending the authentication token claims**. Azure AD for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [custom authentication extensions](concept-custom-extensions.md).
 
 - **Multifactor authentication (MFA)**. You can also enable application access security by enforcing MFA, which adds a critical second layer of security to user sign-ins by requiring verification via email one-time passcode. Learn more about [MFA for customers](concept-security-customers.md#multifactor-authentication).
 
