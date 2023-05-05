@@ -24,8 +24,6 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
-Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
-
 ## May-2023
 
 ### AzAcSnap 8 (Build: 1AC073A)
@@ -44,6 +42,8 @@ AzAcSnap 8 is being released with the following fixes and improvements:
     - Extra logging output to syslog (e.g., /var/log/messages) on failure.
     - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
   - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
+
+Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
 
 ## Feb-2023
 
