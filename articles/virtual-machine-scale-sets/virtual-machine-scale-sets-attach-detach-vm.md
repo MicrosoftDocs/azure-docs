@@ -15,7 +15,6 @@ ms.reviewer: jushiman
 
 # Attach VM to a scale set
 
-
 > [!NOTE]
 > You can only attach VMs to a scale set in **Flexible orchestration mode**.  Learn more about [Orchestration modes](./virtual-machine-scale-sets-orchestrationmodes.md).
 
@@ -34,7 +33,6 @@ Attach a virtual machine to a virtual machine scale set at the time of VM creati
 
 ### Azure CLI
 
-
 ```azurecli
 az vm create 
   --name myVM \
@@ -44,8 +42,7 @@ az vm create
   --platform-fault-domain 1
 ```
 
-### Azure Powershell
-
+### Azure PowerShell
 
 ```
 New-AzVm `
