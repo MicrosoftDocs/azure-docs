@@ -32,9 +32,17 @@ When you create your own compute cluster, you use its name in the command job, s
   * AutoML
 
 * For CLI or SDK pipelines, specify `azureml:serverless` as your default compute.  See [Pipeline job](#pipeline-job) for an example.
-* When you [submit a training job in Studio (preview)](how-to-train-with-ui.md), select "Serverless" as your compute cluster.
-* When using [Azure Machine Learning designer](concept-designer.md), select "Serverless" as your compute cluster.
-* In order for serverless compute to work with private endpoints, use [workspace managed network isolation (preview)]().
+* To use serverless in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
+
+    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
+
+* When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as your compute cluster.
+* When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as your compute cluster.
+
+> [!IMPORTANT]
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed virtual network (preview). For more information see [workspace managed network isolation]().
+<!--how-to-managed-network.md  -->
+
 
 ## Performance considerations
 
@@ -46,7 +54,7 @@ Serverless compute can help speed up your training in the following ways:
 
 **Cluster busy optimization:** when a job is running on a compute cluster and another job is submitted, your job is queued behind the currently running job. With serverless compute, you get another node/another cluster to start running the job (assuming you have quota).
 
-## Quota 
+## Quota
 
 When submitting the job, you still need sufficient quota to proceed (both workspace and subscription level quota).  The default VM size/family is selected based on this quota.  If you specify your own VM size/family:
 
@@ -129,7 +137,6 @@ identity:
   type:  user_identity # can be managed too
 queue_settings:
    job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
-   #job_priority: in the future
 ```
 
 ## Sweep job

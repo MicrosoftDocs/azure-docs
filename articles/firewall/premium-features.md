@@ -73,7 +73,7 @@ The Azure Firewall signatures/rulesets include:
 - 20 to 40+ new rules are released each day.
 - Low false positive rating by using state-of-the-art malware detection techniques such as global sensor network feedback loop.
 
-IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
+IDPS allows you to detect attacks in all ports and protocols for nonencrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
 
@@ -150,7 +150,7 @@ You can view traffic that has been filtered by **Web categories** in the Applica
 
 ### Category exceptions
 
-You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
+You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the predefined **Social networking** web category.
 
 ### Web category search
 
@@ -174,6 +174,18 @@ Under the **Web Categories** tab in **Firewall Policy Settings**, you can reques
  Once you submit a category change report, you're given a token in the notifications that indicate that we've received the request for processing. You can check whether the request is in progress, denied, or approved by entering the token in the search bar.  Be sure to save your token ID to do so.
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
+
+### Web categories that don't support TLS termination
+
+Due to privacy and compliance reasons, certain web traffic that is encrypted can't be decrypted using TLS termination. For example, employee health data transmitted through web traffic over a corporate network shouldn't be TLS terminated due to privacy reasons.
+
+As a result, the following Web Categories don't support TLS termination: 
+- Education
+- Finance
+- Government
+- Health and medicine
+
+As a workaround, if you want a specific URL to support TLS termination, you can manually add the URL(s) with TLS termination in application rules. For example, you can add `www.princeton.edu` to application rules to allow this website. 
 
 ## Supported regions
 
