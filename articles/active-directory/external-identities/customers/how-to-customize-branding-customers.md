@@ -152,18 +152,18 @@ For your customer tenant, you might have different requirements for the informat
 1.	On the **Text** tab select **Add Custom Text**.
 1.	Select any of the options:
 
-   - Select **Attributes** to override the default values. 
-   - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
-   - Select **Sign in** to add custom text for the sign-in page.
-   - Select **Sign up** to add custom text for the sign-in page.
-   - Select **Sign-in/up one time code (SISU OTC)** to add a custom title.
+      - Select **Attributes** to override the default values. 
+      - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
+      - Select **Sign in** to add custom text for the sign-in page.
+      - Select **Sign up** to add custom text for the sign-in page.
+      - Select **Sign-in/up one time code (SISU OTC)** to add a custom title.
 
       :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab." lightbox="media/how-to-customize-branding-customers/custom-text.png":::
 
 1. Select **Add** once you finished with your changes. You can edit the existing custom text by selecting the **Text name** and select Save. 
 
 > [!IMPORTANT] 
-> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience.  The function is available under each user flow during language customization and also under Company branding. Although we have to ways to customize strings (via Company Branding and via User Flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding  will always override the previous one.
+> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience.  The function is available under each user flow during language customization and also under Company branding. Although we have two ways to customize strings (via Company Branding and via User Flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding  will always override the previous one.
 
 ## How to customize the tenant name
 
