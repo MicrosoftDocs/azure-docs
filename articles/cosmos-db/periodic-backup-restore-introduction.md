@@ -11,7 +11,7 @@ ms.date: 04/02/2023
 ms.custom: ignite-2022
 ---
 
-# Periodic backup and restore in Azure Cosmos DB
+-- # Periodic backup and restore in Azure Cosmos DB
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
@@ -32,6 +32,30 @@ The following steps show how Azure Cosmos DB performs data backup:
   :::image type="content" source="./media/periodic-backup-restore-introduction/automatic-backup.png" alt-text="Diagram of periodic full backups taken of multiple Azure Cosmos DB entities in geo-redundant Azure Storage." lightbox="./media/periodic-backup-restore-introduction/automatic-backup.png" border="false":::
 
 - The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database.
+
+With the periodic backup mode, the backups are taken only in the write region of your Azure Cosmos DB account. The restore action always restores data into a new account which is located in the write region of the source account. 
+
+## What is restored into new account? 
+
+-You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. 
+-The restore action restores all data and its index properties into a new account.  
+-The duration of restore will depend on the amount of data that needs to be restored.  
+-The newly restored database account’s consistency setting will be same as the source database account’s consistency settings. 
+
+## What isn't restored? 
+
+The following configurations aren't restored after the point-in-time recovery.
+- A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole. 
+- Database account keys. The restored account will be generated with new database account keys. 
+-Firewall, VNET, Data plane RBAC or private endpoint settings. Enabling/Disabling public network access can be provided as an input to the restore request. 
+-Regions. The restored account will only be a single region account, which is the write region of the source account. 
+-Stored procedures, triggers, UDFs. 
+-Role-based access control assignments. These will need to be re-assigned. 
+-Documents that were deleted because of expired TTL. 
+-Analytical data when synapse link is enabled. 
+-Materialized views 
+
+Some of these configurations can be added to the restored account after the restore is completed. 
 
 ## Azure Cosmos DB Backup with Azure Synapse Link
 
@@ -63,3 +87,4 @@ Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for 
 
 > [!div class="nextstepaction"]
 > [Periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
+
