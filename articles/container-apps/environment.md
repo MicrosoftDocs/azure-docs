@@ -26,12 +26,14 @@ Reasons to deploy container apps to the same environment include situations when
 - Have applications to share the same Dapr configuration
 - Have applications share the same log analytics workspace
 
+Also, you may provide an [existing virtual network](vnet-custom.md) when you create an environment.
+
 Reasons to deploy container apps to different environments include situations when you want to ensure:
 
 - Two applications never share the same compute resources
 - Two Dapr applications can't communicate via the Dapr service invocation API
 
-Also, you may provide an [existing virtual network](vnet-custom.md) when you create an environment.
+You can add [**Azure Functions**](https://aka.ms/release-func) and [**Azure Spring Apps**](https://aka.ms/release-spring) to your Azure Container Apps environment.
 
 ## Logs
 
