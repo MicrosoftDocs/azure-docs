@@ -4,12 +4,12 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 03/16/2023
+ms.date: 05/05/2023
 ms.custom: references_regions
 ---
 
 #### Configure the subscription where the Azure Storage account resides for policies from Microsoft Purview
-To enable Microsoft Purview to manage policies for one or more Azure Storage accounts, execute the following PowerShell commands in the subscription where you'll deploy your Azure Storage account. These PowerShell commands will enable Microsoft Purview to manage policies on all **newly created** Azure Storage accounts in that subscription.
+To enable Microsoft Purview to manage policies for one or more Azure Storage accounts, execute the following PowerShell commands in the subscription where you'll deploy your Azure Storage account. These PowerShell commands will enable Microsoft Purview to manage policies on all **newly created** Azure Storage accounts in that subscription. Accounts that were created before runnning the commands are also supported, depending on their region (see region support section).
 
 If you’re executing these commands locally, be sure to run PowerShell as an administrator.
 Alternatively, you can use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal: [https://shell.azure.com](https://shell.azure.com).
