@@ -417,13 +417,13 @@ az cosmosdb restore \
  --restore-timestamp 2020-07-13T16:03:41+0000 \
  --resource-group MyResourceGroup \
  --location "West US"
- --public-network-access Disabled
+ --public-network-access False
 
 ```
-If `public-network-access` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `public-network-access` option to disable public network access for restored account.
+If `public-network-access` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `public-network-access` option to `False` public network access for restored account.
 
-> [NOTE]
-> For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
+ > [!NOTE]
+ > For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
 
 
 
