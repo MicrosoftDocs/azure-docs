@@ -71,15 +71,91 @@ This API needs to expose permissions, which a client (in this case a daemon app)
 
 ##  Clone or download sample daemon application and web API
 
+To get the web app sample code, you can do either of the following tasks:
+
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
+
+    ```console
+        git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
+    ```
+If you choose to download the *.zip* file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
 ##  Install project dependencies
 
+1. Open a console window, and change to the directory that contains the Node.js sample app:
+
+    ```console
+        cd 2-Authorization\3-call-api-node-daemon\App
+    ```
+1. Run the following commands to install app dependencies:
+
+    ```console
+        npm install && npm update
+    ```
 
 ## Configure the sample daemon app and API
 
+To use your app registration in the client web app sample:
+
+1. In your code editor, open `App\authConfig.js` file.
+
+1. Find the placeholder:
+
+    - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the daemon app you registered earlier.
+     
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details). 
+    
+    - `Enter_the_Client_Secret_Here` and replace it with the daemon app secret value you copied earlier.
+    
+    - `Enter_the_Web_Api_Application_Id_Here` and replace it with the Application (client) ID of the web API you copied earlier.
+
+To use your app registration in the web API sample: 
+
+1. In your code editor, open `API\ToDoListAPI\appsettings.json` file.
+
+1. Find the placeholder:
+    
+    - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the web API you copied. 
+    
+    - `Enter_the_Tenant_Id_Here` and replace it with the Directory (tenant) ID you copied earlier.
+    
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 ##  Run and test sample daemon app and API 
 
+1. Open a console window, then run the web API by using the following commands:
+
+    ```powershell
+    cd 2-Authorization\3-call-api-node-daemon\API\ToDoListAPI
+    dotnet run
+    ``` 
+1. Run the web app client by using the following commands:
+
+    ```powershell
+        2-Authorization\3-call-api-node-daemon\App
+         node . --op getToDos
+    ```
+
+If your daemon app and wep API successfully run, you should see something similar to the following JSON array in your console window
+
+    ```json
+    [
+      {
+        id: 1,
+        owner: '3e8....-db63-43a2-a767-5d7db...',
+        description: 'Pick up grocerie'
+      },
+      {
+        id: 2,
+        owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
+        description: 'Finish invoice report'
+      },
+      {
+        id: 3,
+        owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
+        description: 'Water plants'
+      }
+    ]
+    ```
 
 ### How it works
-

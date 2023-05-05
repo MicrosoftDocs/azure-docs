@@ -118,7 +118,7 @@ To use your app registration in the client web app sample:
 
     - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
     
     - `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
     
@@ -126,7 +126,7 @@ To use your app registration in the client web app sample:
 
 To use your app registration in the web API sample: 
 
-1. In your code editor, open `API\ToDoListAPI\appsettings` file.
+1. In your code editor, open `API\ToDoListAPI\appsettings.json` file.
 
 1. Find the placeholder:
     
@@ -134,7 +134,7 @@ To use your app registration in the web API sample:
     
     - `Enter_the_Tenant_Id_Here` and replace it with the Directory (tenant) ID you copied earlier.
     
-    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 
 ##  Run and test sample web app and API 
