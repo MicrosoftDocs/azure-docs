@@ -134,8 +134,6 @@ The default token validation code is configured to use an Azure AD token and req
 
 ## Next steps
 
-To develop a SCIM-compliant user and group endpoint with interoperability for a client, see [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
-
 - [Tutorial: Validate a SCIM endpoint](scim-validator-tutorial.md)
 - [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)
 - [Tutorial: Configure provisioning for a gallery app](configure-automatic-user-provisioning-portal.md)
