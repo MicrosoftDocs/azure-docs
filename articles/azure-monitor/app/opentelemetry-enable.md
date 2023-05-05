@@ -288,14 +288,16 @@ The distros automatically collect data by bundling OpenTelemetry "instrumentatio
 
 Requests
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.14)
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
 Dependencies
-- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.14)
-- [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.14)
+- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup>
+
+Logging
+* OpenTelemetry uses .NET's ILogger. 
+  For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging).
+  Examples can be found on [GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [Java](#tab/java)
 
@@ -335,6 +337,18 @@ Autocollected dependencies (without downstream distributed trace propagation):
 * JDBC
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
+
+Autocollected metrics
+
+* Micrometer Metrics, including Spring Boot Actuator metrics
+* JMX Metrics
+
+Autocollected logs
+
+* Logback (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
+* Log4j (including MDC/Thread Context properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
+* JBoss Logging (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
+* java.util.logging [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
 
 Telemetry emitted by these Azure SDKs is automatically collected by default:
 
@@ -389,9 +403,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 The following OpenTelemetry Instrumentation libraries are included as part of Azure Monitor Application Insights Distro.
 
-> *Warning:* Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
-
-  - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http)
+  - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
   - [MongoDB](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mongodb)
   - [MySQL](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql)
   - [Postgres](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-pg)
@@ -399,31 +411,45 @@ The following OpenTelemetry Instrumentation libraries are included as part of Az
   - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
   - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
+Currently OpenTelemetry doesn't support Logs in Javascript, we do support auto collection of logs by using Application Insights code and will migrate to OpenTelemetry solution whenever is ready.
+
+Autocollected logs
+- [Node.js console](https://nodejs.org/api/console.html)
+- [Bunyan](https://github.com/trentm/node-bunyan#readme)
+- [Winston](https://github.com/winstonjs/winston#readme)
+
 
 #### [Python](#tab/python)
 
 Requests
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.36b0/)
-- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-fastapi/0.36b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.36b0/)
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
 Dependencies
-- [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.36b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.36b0/)
-- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib/0.36b0/)
-- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib3/0.36b0/)
+- [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2)
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+
+Logs
+
+- [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[4](#FOOTNOTEFOUR)</sup>
+
+Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
 
 ---
+**Footnotes**
+- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
+- <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
+- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 > [!NOTE]
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
+
+> [!TIP]
+> The OpenTelemetry-based offerings currently emit all OpenTelemetry metrics as [Custom Metrics](opentelemetry-enable.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
 
 ### Add a community instrumentation library
 
@@ -453,7 +479,7 @@ app.Run();
 ```
 
 ### [Java](#tab/java)
-
+You extend the Java Distro with a community instrumentation libraries. To request that we include another instrumentation library, please open an issue on our Github page. You can find a link to our Github page in [Next Steps](#next-steps).
 
 ### [Node.js](#tab/nodejs)
 
@@ -471,84 +497,6 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
 ### [Python](#tab/python)
 
 ---
-
-### Metrics
-
-#### [ASP.NET Core](#tab/aspnetcore)
-
-- [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
-  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.14)
-- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) version:
-  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.14)
-
-#### [Java](#tab/java)
-
-Autocollected metrics
-
-* Micrometer Metrics, including Spring Boot Actuator metrics
-* JMX Metrics
-
-#### [Node.js](#tab/nodejs)
-
-- [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) 
-
-#### [Python](#tab/python)
-
-Autocollected metrics
-
-- [Django](https://pypi.org/project/Django/)
-- [FastApi](https://pypi.org/project/requests/)
-- [Flask](https://pypi.org/project/Flask/)
-- [Requests](https://pypi.org/project/requests/)
-- [Urllib](https://docs.python.org/3/library/urllib.html)
-- [Urllib3](https://pypi.org/project/urllib3/)
-
----
-
-> [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](opentelemetry-enable.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
-
-### Logs
-
-#### [ASP.NET Core](#tab/aspnetcore)
-
-* OpenTelemetry uses .NET's ILogger. 
-  For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging).
-  Examples can be found on [GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
-
-#### [Java](#tab/java)
-
-Autocollected logs
-
-* Logback (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-* Log4j (including MDC/Thread Context properties) [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-* JBoss Logging (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-* java.util.logging [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-
-#### [Node.js](#tab/nodejs)
-
-Currently OpenTelemetry doesn't support Logs in Javascript, we do support auto collection of logs by using Application Insights code and will migrate to OpenTelemetry solution whenever is ready.
-
-Autocollected logs
-* [Node.js console](https://nodejs.org/api/console.html)
-* [Bunyan](https://github.com/trentm/node-bunyan#readme)
-* [Winston](https://github.com/winstonjs/winston#readme)
-
-#### [Python](#tab/python)
-
-Autocollected logs
-
-* [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[3](#FOOTNOTETHREE)</sup>
-
-Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
-
----
-
-**Footnotes**
-- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
-- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
-- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 ## Collect custom telemetry
 
