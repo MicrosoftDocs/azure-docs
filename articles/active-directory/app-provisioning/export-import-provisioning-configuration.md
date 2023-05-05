@@ -37,7 +37,7 @@ Exporting and saving your configuration allows you to roll back to a previous ve
 
 Some things to consider when rolling back to a previous configuration:
 
-- Users are evaluated again to determine if they should be in scope. If the scoping filters have changed a user isn't in scope anymore they're disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
+- Users are evaluated again to determine if they should be in scope. If the scoping filters have changed, a user isn't in scope anymore because they're disabled. While the behavior is the desired in most cases, there are times where you may want to prevent it. To prevent the behavior, use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
 - Changing your provisioning configuration restarts the service and triggers an [initial cycle](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## Export and import your provisioning configuration by using the Microsoft Graph API
