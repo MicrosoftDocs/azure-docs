@@ -119,10 +119,6 @@ The following table lists the recommended performance counters and time interval
 |RemoteFX Network(\*)\\Current TCP RTT|30 seconds|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 seconds|
 
-To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
-
-To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
-
 ## Potential connectivity issues
 
 Potential connectivity issues shows the hosts, users, published resources, and clients with a high connection failure rate. Once you choose a "report by" filter, you can evaluate the issue's severity by checking the values in these columns:
@@ -230,8 +226,6 @@ The following table lists the required Windows Event Logs for Azure Virtual Desk
 |System|Error and Warning|
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
-
-To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
 
 ## Next steps
 
