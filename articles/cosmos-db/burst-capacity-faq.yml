@@ -39,7 +39,7 @@ sections:
       - question: |
           How can I monitor burst capacity?
         answer: |
-          [Azure Monitor metrics](monitor.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits (preview)** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
+          [Azure Monitor metrics](monitor.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
       - question: |
           How can I see which resources have less than 3000 RU/s per physical partition?
         answer: |
