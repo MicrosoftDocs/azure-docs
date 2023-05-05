@@ -96,11 +96,11 @@ items:
                         - name: Overview
                           href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
-                          href: how-to-spa-react-prepare-tenant.md
+                          href: how-to-single-page-app-react-prepare-tenant.md
                         - name: Prepare app
-                          href: how-to-spa-react-prepare-app.md
+                          href: how-to-single-page-app-react-prepare-app.md
                         - name: Sign in and sign out
-                          href: how-to-spa-react-prepare-app.md
+                          href: how-to-single-page-app-react-prepare-app.md
             - name: Web app
               items: 
                 - name: Node/Express.js
