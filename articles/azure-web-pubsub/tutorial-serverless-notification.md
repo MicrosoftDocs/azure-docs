@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (V4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (V4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
@@ -56,7 +56,7 @@ In this tutorial, you learn how to:
 
 * [Python](https://www.python.org/downloads/) (v3.6 ~ v3.9). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (V4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
@@ -586,10 +586,10 @@ Use the following commands to create these item.
     # [JavaScript](#tab/javascript)
 
     ```azurecli
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
     > [!NOTE]
-    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
+    > Check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
     # [C# in-process](#tab/csharp-in-process)
 
@@ -597,7 +597,7 @@ Use the following commands to create these item.
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-     [C# isolated process](#tab/csharp-isolated-process)
+    # [C# isolated process](#tab/csharp-isolated-process)
     ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
@@ -605,7 +605,7 @@ Use the following commands to create these item.
     # [Python](#tab/python)
 
     ```azurecli
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime python --runtime-version 3.9 --functions-version 3 --name <FUNCIONAPP_NAME> --os-type linux --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime python --runtime-version 3.9 --functions-version 4 --name <FUNCIONAPP_NAME> --os-type linux --storage-account <STORAGE_NAME>
     ```
 
 1. Deploy the function project to Azure:

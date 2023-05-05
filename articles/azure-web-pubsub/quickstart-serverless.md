@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Build a serverless real-time chat app with client authentication
 description: A tutorial to walk through how to using Azure Web PubSub service and Azure Functions to build a serverless chat app with client authentication.
-author: yjin81
-ms.author: yajin1
+author: JialinXin
+ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/08/2021
+ms.date: 05/05/2023
 ---
 
 # Tutorial: Create a serverless real-time chat app with Azure Functions and Azure Web PubSub service
@@ -30,21 +30,25 @@ In this tutorial, you learn how to:
 * [Node.js](https://nodejs.org/en/download/), version 10.x.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
-* (Optional)[ngrok](https://ngrok.com/download) to expose local function as event handler for Web PubSub service. This is optional only for running the function app locally.
-
-# [C#](#tab/csharp)
+# [C# in-process](#tab/csharp-in-process)
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
-* (Optional)[ngrok](https://ngrok.com/download) to expose local function as event handler for Web PubSub service. This is optional only for running the function app locally.
+# [C# isolated process](#tab/csharp-isolated-process)
+
+* A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 ---
 
@@ -61,9 +65,14 @@ In this tutorial, you learn how to:
     func init --worker-runtime javascript
     ```
 
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
     ```bash
     func init --worker-runtime dotnet
+    ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    ```bash
+    func init --worker-runtime dotnet-isolated
     ```
 
 2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
@@ -80,9 +89,14 @@ In this tutorial, you learn how to:
     }
     ```
     
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
     ```bash
     dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSub
+    ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    ```bash
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --prerelease
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -137,7 +151,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-   # [C#](#tab/csharp)
+   # [C# in-process](#tab/csharp-in-process)
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
@@ -152,6 +166,22 @@ In this tutorial, you learn how to:
             };
         }
         ```
+    
+    # [C# isolated process](#tab/csharp-isolated-process)
+   - Update `index.cs` and replace `Run` function with following codes.
+        ```c#
+        [Function("index")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req, FunctionContext context)
+        {
+            var path = Path.Combine(context.FunctionDefinition.PathToAssembly, "../index.html");
+            _logger.LogInformation($"index.html path: {path}.");
+
+            var response = req.CreateResponse();
+            response.WriteString(File.ReadAllText(path));
+            response.Headers.Add("Content-Type", "text/html");
+            return response;
+        }
+        ```
 
 4. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
@@ -161,7 +191,7 @@ In this tutorial, you learn how to:
     > In this sample, we use [AAD](../app-service/configure-authentication-user-identities.md) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
     
     # [JavaScript](#tab/javascript)
-   - Update `negotiate/function.json` and copy following json codes.
+    - Update `negotiate/function.json` and copy following json  codes.
         ```json
         {
             "bindings": [
@@ -186,15 +216,16 @@ In this tutorial, you learn how to:
             ]
         }
         ```
-   - Update `negotiate/index.js` and copy following codes.
+    - Update `negotiate/index.js` and copy following codes.
         ```js
         module.exports = function (context, req, connection) {
             context.res = { body: connection };
             context.done();
         };
         ```
-   # [C#](#tab/csharp)
-   - Update `negotiate.cs` and replace `Run` function with following codes.
+
+    # [C# in-process](#tab/csharp-in-process)
+    - Update `negotiate.cs` and replace `Run` function with  following codes.
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
@@ -206,9 +237,22 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
-   - Add below `using` statements in header to resolve required dependencies.
+    - Add below `using` statements in header to resolve required  dependencies.
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    - Update `negotiate.cs` and replace `Run` function with following codes.
+        ```c#
+        [Function("negotiate")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
+            [WebPubSubConnectionInput(Hub = "simplechat", UserId = "{headers.x-ms-client-principal-name}")] WebPubSubConnection connectionInfo)
+        {
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.WriteAsJsonAsync(connectionInfo);
+            return response;
+        }
         ```
 
 5. Create a `message` function to broadcast client messages through service.
@@ -258,8 +302,8 @@ In this tutorial, you learn how to:
         };
         ```
 
-   # [C#](#tab/csharp)
-   - Update `message.cs` and replace `Run` function with following codes.
+    # [C# in-process](#tab/csharp-in-process)
+    - Update `message.cs` and replace `Run` function with  following codes.
         ```c#
         [FunctionName("message")]
         public static async Task<UserEventResponse> Run(
@@ -278,10 +322,26 @@ In this tutorial, you learn how to:
             };
         }
         ```
-   - Add below `using` statements in header to resolve required dependencies.
+    - Add below `using` statements in header to resolve required  dependencies.
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
+        ```
+    
+    # [C# isolated process](#tab/csharp-isolated-process)
+    - Update `message.cs` and replace `Run` function with  following codes.
+        ```c#
+        [Function("message")]
+        [WebPubSubOutput(Hub = "simplechat")]
+        public SendToAllAction Run(
+            [WebPubSubTrigger("simplechat", WebPubSubEventType.User, "message")] UserEventRequest request)
+        {
+            return new SendToAllAction
+            {
+                Data = BinaryData.FromString($"[{request.ConnectionContext.UserId}] {request.Data.ToString()}"),
+                DataType = request.DataType
+            };
+        }
         ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
@@ -334,7 +394,7 @@ In this tutorial, you learn how to:
 
     # [JavaScript](#tab/javascript)
 
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
     Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
     <ItemGroup>
@@ -342,7 +402,17 @@ In this tutorial, you learn how to:
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-    ``
+    ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    ```xml
+    <ItemGroup>
+        <None Update="index.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    ```
 
 ## Create and Deploy the Azure Function App
 
@@ -376,15 +446,21 @@ Use the following commands to create these items.
     # [JavaScript](#tab/javascript)
 
     ```azurecli
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
     > [!NOTE]
-    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
+    > Check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
-    # [C#](#tab/csharp)
+    # [C# in-process](#tab/csharp-in-process)
 
     ```azurecli
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```
+
+    # [C# isolated process](#tab/csharp-isolated-process)
+
+    ```azurecli
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
 1. Deploy the function project to Azure:
@@ -414,9 +490,6 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
    - System Events: -(No need to configure in this sample)
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
-
-> [!NOTE]
-> If you're running the functions in local. You can expose the function url with [ngrok](https://ngrok.com/download) by command `ngrok http 7071` after function start. And configure the Web PubSub service `Event Handler` with url: `https://<NGROK_ID>.ngrok.io/runtime/webhooks/webpubsub`. 
 
 ## Configure to enable client authentication
 
