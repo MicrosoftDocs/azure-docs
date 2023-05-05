@@ -15,10 +15,10 @@ items:
         href: supported-product-on-azure.md
       - name: Checklist for deploying SAP workloads on Azure
         href: deployment-checklist.md
-      - name: Deploy SAP NetWeaver applications
-        href: deployment-guide.md
       - name: Plan and implement SAP NetWeaver on Azure
         href: planning-guide.md
+      - name: Deploy SAP NetWeaver applications
+        href: deployment-guide.md
       - name: SAP Business One on Azure VMs
         href: business-one-azure.md
       - name: Connect to SAP LaMa
@@ -61,6 +61,8 @@ items:
         href: hana-vm-ultra-disk.md
       - name: SAP HANA with Azure NetApp Files
         href: hana-vm-operations-netapp.md
+      - name: Azure Files NFS/SMB for SAP
+        href: planning-guide-storage-azure-files.md
     - name: High availability (HA)
       items:
       - name: About HA for Azure VMs

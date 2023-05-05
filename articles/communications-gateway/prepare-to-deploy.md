@@ -19,7 +19,12 @@ You must have signed an Operator Connect agreement with Microsoft. For more info
 
 You need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you need to arrange an onboarding partner yourself.
 
-You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team needs these numbers to configure test lines.
+You must own globally routable numbers that you can use for testing, as follows.
+
+|Type of testing|Numbers required |
+|---------|---------|
+|Automated validation testing by Microsoft Teams test suites|Minimum: 3. Recommended: 6 (to run tests simultaneously).|
+|Manual test calls made by you and/or Microsoft staff during integration testing |Minimum: 1|
 
 We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
@@ -34,15 +39,25 @@ We recommend that you use an existing Azure Active Directory tenant for Azure Co
 
 To add the Project Synergy application:
 
+1. Check whether the Azure Active Directory (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+    1. Open PowerShell.
+    1. Run the following command and check whether `AzureAD` appears in the output.
+       ```azurepowershell
+       Get-Module -ListAvailable
+       ```
+    1. If `AzureAD` doesn't appear in the output, install the module:
+        1. Close your current PowerShell window.
+        1. Open PowerShell as an admin.
+        1. Run the following command.
+            ```azurepowershell
+            Install-Module AzureAD
+            ```
+        1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
-1. If you don't have the Azure Active Directory module installed, install it:
-    ```azurepowershell
-    Install-Module AzureAD
-    ```
 1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
     ```azurepowershell
     Connect-AzureAD -TenantId "<AADTenantID>"
@@ -100,13 +115,16 @@ Collect all of the values in the following table for both service regions in whi
 
 ## 6. Collect Test Lines configuration values
 
-Collect all of the values in the following table for all test lines you want to configure for Azure Communications Gateway. You must configure at least one test line.
+Collect all of the values in the following table for all the test lines that you want to configure for Azure Communications Gateway.
 
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
  |The name of the test line. |**Name**|
- |The phone number of the test line. |**Phone Number**|
- |Whether the test line is manual or automated: **Manual** test lines will be used by you and Microsoft staff to make test calls during integration testing. **Automated** test lines will be assigned to Microsoft Teams test suites for validation testing. |**Testing purpose**|
+ |The phone number of the test line, in E.164 format and including the country code. |**Phone Number**|
+ |The purpose of the test line: **Manual** (for manual test calls by you and/or Microsoft staff during integration testing) or **Automated** (for automated validation with Microsoft Teams test suites).|**Testing purpose**|
+
+> [!IMPORTANT]
+> You must configure at least three automated test lines. We recommend six automated test lines (to allow simultaneous tests).
 
 ## 7. Decide if you want tags
 
@@ -138,15 +156,25 @@ Azure Communications Gateway contains services that need to access the Operator 
 
 Do the following steps in the tenant that contains your Project Synergy application.
 
+1. Check whether the Azure Active Directory (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+    1. Open PowerShell.
+    1. Run the following command and check whether `AzureAD` appears in the output.
+       ```azurepowershell
+       Get-Module -ListAvailable
+       ```
+    1. If `AzureAD` doesn't appear in the output, install the module:
+        1. Close your current PowerShell window.
+        1. Open PowerShell as an admin.
+        1. Run the following command.
+            ```azurepowershell
+            Install-Module AzureAD
+            ```
+        1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
-1. If you didn't install the Azure Active Directory module as part of [1. Add the Project Synergy application to your Azure tenancy](#1-add-the-project-synergy-application-to-your-azure-tenancy), install it:
-    ```azurepowershell
-    Install-Module AzureAD
-    ```
 1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
     ```azurepowershell
     Connect-AzureAD -TenantId "<AADTenantID>"

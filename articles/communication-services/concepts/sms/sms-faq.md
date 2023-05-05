@@ -11,6 +11,7 @@ ms.date: 3/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: references_regions
 ---
 
 # SMS FAQ
@@ -20,6 +21,13 @@ This article answers commonly asked questions about the SMS serv
 ### How can I receive messages using Azure Communication Services?
 
 Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/sms/handle-sms-events.md) to set up your event-grid to receive messages.
+
+### Can I receive messages from any country/region on toll-free numbers?
+
+Toll-free numbers are not capable of sending or receiving messages to/from countries/regions outside of US, CA, and PR.
+
+### Can I receive messages from any country/region on short codes?
+Short codes are domestic numbers and are not capable of sending or receiving messages to/from outside of the country/region it was registered for. *Example: US short code can only send and receive messages to/from US recipients.*
 
 ### How are messages sent to landline numbers treated?
 
@@ -59,14 +67,18 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 ### How does Azure Communication Services handle opt-outs for short codes?
-Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you are asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service automatically uses your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you are asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword. 
 
 *Example:* 
 - **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
 - **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
-Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+
+### How does Azure Communication Services handle opt outs for alphanumeric sender ID?
+
+Alphanumeric sender ID is not capable of receiving inbound messages or STOP messages. Azure Communication Services does not enforce or manage opt-out lists for alphanumeric sender ID. You must provide customers with instructions to opt out using other channels such as, calling support, providing an opt-out link in the message, or emailing support. See [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms) for further details.
 
 ## Short codes
 ### What is the eligibility to apply for a short code?
@@ -81,6 +93,27 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 ### How long does it take to get a short code? What happens after a short code program brief application is submitted?
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
+## Alphanumeric sender ID
+### How should an alphanumeric sender ID be formatted?
+**Formatting guidelines**:
+- Must contain at least one letter
+- Upto 11 characters
+- Characters can include    
+    - Upper case letters: A - Z
+    - Lower case letters: a - z
+    - Numbers: 0-9
+    - Spaces
+    - Special characters: *+* , *-* ,  _ , &
+
+### Is a number purchase required to use alphanumeric sender ID?
+The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md) for instructions.
+
+### Can I send SMS immediately after enabling alphanumeric sender ID?
+We recommend waiting for 10 minutes before you start sending messages for best results.
+
+### Why is my alphanumeric sender ID getting replaced by a number?
+Alphanumeric sender ID replacement with a number may occur when a certain wireless carrier does not support alphanumeric sender ID. This is done to ensure high delivery rate.  
+
 ## Toll-Free Verification
 ### What is toll free verification?
 The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
@@ -92,8 +125,8 @@ This verification is **required** for best SMS delivery experience.
 #### SMS to US phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to the following: 
 
-1. **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
-2. **SMS volume thresholds**:
+- **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
+- **SMS volume thresholds**:
 Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for restricted and pending toll-free numbers. Messaging that exceeds a limit returns Error Code 795/ 4795: tfn-not-verified.
 
 New limits are as follows:
@@ -129,8 +162,6 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 
 ### What happens after I submit the toll-free verification form?
 :::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses." lightbox="./media/tf-status-blue.png":::
-
-
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 

@@ -4,6 +4,7 @@ description: Send guest OS metrics to the Azure Monitor metric store by using a 
 services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 09/09/2019
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set

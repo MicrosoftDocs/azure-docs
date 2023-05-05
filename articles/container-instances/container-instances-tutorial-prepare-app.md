@@ -35,7 +35,7 @@ The sample application in this tutorial is a simple web app built in [Node.js][n
 
 Use Git to clone the sample application's repository:
 
-```bash
+```git
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
@@ -62,8 +62,10 @@ docker build ./aci-helloworld -t aci-tutorial-app
 
 Output from the [docker build][docker-build] command is similar to the following (truncated for readability):
 
-```console
-$ docker build ./aci-helloworld -t aci-tutorial-app
+```bash
+docker build ./aci-helloworld -t aci-tutorial-app
+```
+```output
 Sending build context to Docker daemon  119.3kB
 Step 1/6 : FROM node:8.9.3-alpine
 8.9.3-alpine: Pulling from library/node
@@ -90,8 +92,10 @@ docker images
 
 Your newly built image should appear in the list:
 
-```console
-$ docker images
+```bash
+docker images
+```
+```output
 REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 ```
@@ -106,8 +110,9 @@ docker run -d -p 8080:80 aci-tutorial-app
 
 Output from the `docker run` command displays the running container's ID if the command was successful:
 
-```console
-$ docker run -d -p 8080:80 aci-tutorial-app
+```bash
+docker run -d -p 8080:80 aci-tutorial-app
+```output
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 

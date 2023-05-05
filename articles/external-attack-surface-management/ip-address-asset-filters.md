@@ -4,7 +4,7 @@ titleSuffix: Defender EASM IP address asset filters
 description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for IP address assets specifically, includiung operators and applicable field values.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 12/14/2022
 ms.topic: how-to
 ---

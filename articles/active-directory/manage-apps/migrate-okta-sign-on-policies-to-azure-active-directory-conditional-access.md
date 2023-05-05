@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/13/2023
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access

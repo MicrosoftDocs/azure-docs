@@ -20,6 +20,13 @@ ms.custom: ignite-fall-2021
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
+## Setting up
+
+[!INCLUDE [Create environment variables](../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ## Query a project
 
 ### Generate an answer from a project
@@ -36,9 +43,9 @@ To [query a question answering project](/rest/api/cognitiveservices/questionansw
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
 
 ```bash
-curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
+curl -X POST -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" -H "Content-Type: application/json" -d '{
   "question": "How much battery life do I have left?"
-  }'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com/language/:query-knowledgebases?projectName={YOUR_PROJECT_NAME}&api-version=2021-10-01&deploymentName={DEPLOYMENT_NAME}'
+  }'  '$LANGUAGE_ENDPOINT.api.cognitive.microsoft.com/language/:query-knowledgebases?projectName={YOUR_PROJECT_NAME}&api-version=2021-10-01&deploymentName={DEPLOYMENT_NAME}'
 ```
 
 When you run the code above, if you are using the data source from the prerequisites you will get an answer that looks as follows:
@@ -69,10 +76,10 @@ The `confidenceScore` returns a value between 0 and 1. You can think of this lik
 If you want to exclude answers where the confidence score falls below a certain threshold, you can add the `confidenceScoreThreshold` parameter.
 
 ```bash
-curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
+curl -X POST -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" -H "Content-Type: application/json" -d '{
   "question": "How much battery life do I have left?",
   "confidenceScoreThreshold": "0.95",
-  }'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com//language/:query-knowledgebases?projectName=Sample-project&api-version=2021-10-01&deploymentName={DEPLOYMENT_NAME}'
+  }'  '$LANGUAGE_ENDPOINT.api.cognitive.microsoft.com//language/:query-knowledgebases?projectName=Sample-project&api-version=2021-10-01&deploymentName={DEPLOYMENT_NAME}'
 ```
 
 Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
@@ -101,14 +108,14 @@ You can also [use question answering without a project](/rest/api/cognitiveservi
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
 ```bash
-curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
+curl -X POST -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" -H "Content-Type: application/json" -d '{
 "question":"How long does it takes to charge a surface?",
 "records":[
 {"id":"doc1","text":"Power and charging.It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. It can take longer if you\u0027re using your Surface for power-intensive activities like gaming or video streaming while you\u0027re charging it"},
 {"id":"doc2","text":"You can use the USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. The USB port on the power supply is only for charging, not for data transfer. If you want to use a USB device, plug it into the USB port on your Surface."}],
 "language":"en",
 "stringIndexType":"Utf16CodeUnit"
-}'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com/language/:query-text?&api-version=2021-10-01'
+}'  '$LANGUAGE_ENDPOINT.api.cognitive.microsoft.com/language/:query-text?&api-version=2021-10-01'
 ```
 
 This example will return a result of:

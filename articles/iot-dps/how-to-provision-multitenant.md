@@ -196,7 +196,7 @@ For each VM:
 
 2. Find and copy the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
-3. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) on both VMs.  Use the tag you found in the previous step as the value for the `-b` parameter:
+3. Clone the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) on both VMs. Use the tag you found in the previous step as the value for the `-b` parameter, for example: `lts_01_2023`.
 
     ```bash
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git

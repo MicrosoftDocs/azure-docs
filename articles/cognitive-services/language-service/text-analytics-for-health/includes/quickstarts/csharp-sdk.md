@@ -29,6 +29,11 @@ Use this quickstart to create a Text Analytics for health application with the c
 
 ## Setting up
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ### Create a new .NET Core application
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
@@ -38,10 +43,9 @@ Install the client library by right-clicking on the solution in the **Solution E
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
-
 ## Code example
 
-Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Copy the following code into your *program.cs* file. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -56,8 +60,9 @@ namespace Example
 {
     class Program
     {
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
-        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+        // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+        private static readonly AzureKeyCredential credentials = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
+        private static readonly Uri endpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
         
         // Example method for extracting information from healthcare-related text 
         static async Task healthExample(TextAnalyticsClient client)

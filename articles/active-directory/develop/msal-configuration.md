@@ -114,7 +114,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 | Property | Data Type  | Required | Notes |
 |-----------|-------------|------------|-------|
 | `type` | String | Yes | Specifies the audience your app wants to target. Possible values: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46` |
 
 ### authorization_user_agent
 

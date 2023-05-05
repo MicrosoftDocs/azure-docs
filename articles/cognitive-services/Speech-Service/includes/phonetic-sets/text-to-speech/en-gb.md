@@ -1,4 +1,4 @@
-### Vowels
+### Vowels for en-GB
 
 | `ipa` | `viseme` | Example 1     | Example 2       | Example 3   |
 |-------|----------|---------------|-----------------|-------------|
@@ -23,7 +23,7 @@
 | `ʊə`  | 4,1      |               |                 | t**our**    |
 | `uː`  | 7        |               | f**oo**d        | t**wo**     |
 
-### Consonant
+### Consonant for en-GB
 
 | `ipa` | `viseme` | Example 1     | Example 2       | Example 3   |
 |-------|----------|---------------|-----------------|-------------|

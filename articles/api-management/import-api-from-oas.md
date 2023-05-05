@@ -8,8 +8,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: danlep
-ms.custom: engagement-fy23
-
+ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Import an OpenAPI specification
 

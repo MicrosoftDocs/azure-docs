@@ -2,6 +2,7 @@
 title: ASE deployment with DISA CAP
 description: This article explains the baseline App Service Environment configuration for customers who use DISA CAP to connect to Azure Government.
 ms.service: azure-government
+ms.custom: devx-track-arm-template
 ms.topic: article
 recommendations: false
 ms.date: 06/27/2022

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create an Azure App Configuration store"
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 description: "In this quickstart, learn how to create an App Configuration store."
 ms.service: azure-app-configuration
 ms.devlang: csharp

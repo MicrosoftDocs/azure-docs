@@ -12,6 +12,8 @@
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
+    - name: Azure availability zone migration baseline
+      href: availability-zones-baseline.md
     - name: Migration guides by service
       items:
       - name: Azure API Management
@@ -40,6 +42,8 @@
         href: migrate-monitor-log-analytics.md
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
+      - name: Azure Service Fabric
+        href: migrate-service-fabric.md
       - name: Azure Storage accounts
         href: migrate-storage.md
       - name: Azure Virtual Machines and virtual machine scale sets
@@ -196,7 +200,7 @@
       - name: Azure Functions 
         href: reliability-functions.md
       - name: Azure HDInsight
-        href: ../hdinsight/hdinsight-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-hdinsight.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Image Builder
@@ -214,7 +218,7 @@
       - name: Azure Network Watcher
         href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
       - name: Azure Notification Hubs
-        href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../notification-hubs/notification-hubs-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Private Link
         href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
@@ -229,6 +233,8 @@
         href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Blob Storage
         href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Storage Mover
+        href: reliability-azure-storage-mover.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
       - name: Azure SQL
         href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual WAN
@@ -243,26 +249,16 @@
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
         href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-- name: Service availability
-  items:
-  - name: Service availability by category
-    href: availability-service-by-category.md
-  - name: Service availability by sovereign cloud
-    items:
-    - name: US Government
-      href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
-    - name: Azure in China
-      href: sovereign-cloud-china.md     
-  - name: Service availability by region
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: ASM Retirement
-    items:
-    - name: Overview
-      href: asm-retirement.md 
-    - name: Migration guides by service
+    - name:  Azure Service Manager retirement
       items:
+      - name: Overview
+        href: asm-retirement.md 
+      - name: Migration guides by service
+        items:
         - name: VM (classic)
           href: /azure/virtual-machines/classic-vm-deprecation?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Azure Active Directory Domain Services 
+          href: /azure/active-directory-domain-services/migrate-from-classic-vnet?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Azure Batch Cloud Service Pools  
           href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Cloud Services (classic)
@@ -278,11 +274,11 @@
         - name: Integration Services Environment 
           href: /azure/logic-apps/export-from-ise-to-standard-logic-app?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Microsoft HPC Pack  
-          href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide
+          href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Virtual WAN  
           href: /azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router
         - name: Classic Storage  
-          href: /azure/storage/common/storage-account-migrate-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Virtual Network  
           href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Application Gateway  
@@ -293,6 +289,18 @@
           href: /azure/expressroute/expressroute-migration-classic-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic VPN gateway 
           href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+- name: Service availability
+  items:
+  - name: Service availability by category
+    href: availability-service-by-category.md
+  - name: Service availability by sovereign cloud
+    items:
+    - name: US Government
+      href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
+    - name: Azure in China
+      href: sovereign-cloud-china.md     
+  - name: Service availability by region
+    href: https://azure.microsoft.com/global-infrastructure/services/
 - name: Resources
   items:
   - name: Azure Reliability feature page

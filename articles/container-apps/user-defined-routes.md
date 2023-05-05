@@ -26,7 +26,7 @@ For more information on networking concepts in Container Apps, see [Networking A
 
 * **Internal environment**: An internal container app environment on the workload profiles architecture that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles architecture](./workload-profiles-manage-cli.md).
 
-* **`curl` support**: Your container app must have a container that supports `curl` commands. You use `curl` to verify the container app is deployed correctly. The *helloworld* container from the sample container image already supports `curl` commands.
+* **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 
 ## Create the firewall subnet
 
@@ -121,6 +121,9 @@ Your virtual networks in Azure have default route tables in place when you creat
 
 ## Configure firewall policies
 
+> [!NOTE]
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to determine which service tags you need.
+
 Now, all outbound traffic from your container app is routed to the firewall. Currently, the firewall still allows all outbound traffic through. In order to manage what outbound traffic is allowed or denied, you need to configure firewall policies.
 
 1. In your *Azure Firewall* resource on the *Overview* page, select **Firewall policy**
@@ -162,7 +165,7 @@ To verify your firewall configuration is set up correctly, you can use the `curl
 
 1. Navigate to your Container App that is configured with Azure Firewall.
 
-1. From the menu on the left, select **Console**, then select your container that supports the `curl` command. If you're using the *helloworld* container from the sample container image quickstart, you can run the `curl` command.
+1. From the menu on the left, select **Console**, then select your container that supports the `curl` command.
 
 1. In the **Choose start up command** menu, select **/bin/sh**, and select **Connect**.
 
