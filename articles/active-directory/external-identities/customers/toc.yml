@@ -32,7 +32,7 @@ items:
     - name: Custom authentication extensions
       href: concept-custom-extensions.md
     - name: Security and governance
-      href: concept-security-customers.md  	  	  
+      href: concept-security-customers.md  	   	  
 - name: How-to guides
   expanded: true
   items:
