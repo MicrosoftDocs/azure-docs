@@ -18,11 +18,11 @@ App Service offers automatic scaling that adjusts the number of instances based 
 
 It's common to deploy multiple web apps to a single App Service Plan. You can enable automatic scaling for an App Service Plan and configure a range of instances for each of the web apps. As your web app starts receiving incoming HTTP traffic, App Service monitors the load and adds instances. Resources may be shared when multiple web apps within an App Service Plan are required to scale out simultaneously.
 
-Here are a few scenarios where you should use scale automatically:
+Here are a few scenarios where you should use scale out automatically:
 
 - You don't want to set up autoscale rules based on resource metrics.
 - You want your web apps within the same App Service Plan to scale differently and independently of each other.
-- A web app is connected to backend data sources like databases or legacy systems, which may not be able to scale as fast as the web app. Scaling automatically allows you to set the maximum number of instances your App Service Plan can scale to. This setting helps the web app to not overwhelm the backend.
+- Your web app is connected to a databases or legacy system, which may not scale as fast as the web app. Scaling automatically allows you to set the maximum number of instances your App Service Plan can scale to. This setting helps the web app to not overwhelm the backend.
 
 > [!IMPORTANT]
 > [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
@@ -58,7 +58,7 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the minimum number of instances (always ready instances) in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, update the **Always ready instances** value, and select the **Save** button.
+To set the minimum number of instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, update the **Always ready instances** value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Always ready instances in Automatic scaling" :::
 
@@ -75,7 +75,7 @@ The __maximum scale limit__ sets the maximum number of instances a web app can s
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the maximum number of web app instances (maximum scale limit) in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Enforce scale out limit**, update the **maximum scale limit**, and select the **Save** button.
+To set the maximum number of web app instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Enforce scale out limit**, update the **maximum scale limit**, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Maximum scale limit in Azure app Service" :::
 
