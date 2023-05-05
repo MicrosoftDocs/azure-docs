@@ -506,7 +506,7 @@ sections:
         answer: |
           Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development and publishing an app for a few users. You can set a cap to prevent more than a specified amount of data from being processed.
           
-          Larger volumes of telemetry are charged by the gigabyte. We provide some tips on how to [limit your charges](best-practices-cost.md#data-collection).
+          Larger volumes of telemetry are charged by the gigabyte. We provide some tips on how to [limit your charges](best-practices-cost.md#application-insights).
           
           The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It's suitable if you want to use Continuous Export on a large scale.
           
@@ -600,7 +600,7 @@ sections:
           * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
           * Telemetry Initializer to add properties to all items of telemetry.
           
-          Learn more about [ASP.NET](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
+          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
           
       - question: |
           How is city, country/region, and other geolocation data calculated?
@@ -678,7 +678,14 @@ sections:
           The browser passes the User Agent string in the HTTP header of the request. The Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
           
           Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+      
+      - question: |
+          How would I measure the impact of a monitoring campaign?
+        answer: |
+          PageView Telemetry includes URL and you could parse the UTM parameter using a [regex function](/azure/data-explorer/kusto/query/re2.md) in Kusto.
           
+          Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+                    
       - question:  Have I enabled everything in Application Insights?
         answer: |
           | What you should see | How to get it | Why you want it |
@@ -891,7 +898,7 @@ sections:
 
           |Feature                                                                                                  | .NET      | Node.js   | Python    | Java               |
           |---------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
-          | [Distributed tracing](app/distributed-tracing.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                        | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
@@ -899,7 +906,7 @@ sections:
           | [Exception reporting](app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Logs collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Azure Active Directory authentication](app/azure-ad-authentication.md)                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Autopopulate cloud role name/role instance on Azure](app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Autopopulate cloud role name/role instance on Azure](app/distributed-tracing-telemetry-correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
           | Autopopulation of user ID, authenticated user ID, and user IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
           | Manually override/set operation name, user ID, or authenticated user ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
@@ -1101,9 +1108,9 @@ sections:
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Currently, Container insights don't support multi-line logging, but workarounds are available. You can configure all the services to write in JSON format, and then Docker/Moby writes them as a single line.
+          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
           
-          For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application:
+          As an alternative you can also configure all the services to write in JSON format, and then Docker/Moby writes them as a single line. For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application
           
           ```
           console.log(json.stringify({ 

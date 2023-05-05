@@ -87,14 +87,14 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 > Previous preview releases of Scheduled Events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Enabling and disabling Scheduled Events
-Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
-
-Scheduled Events is disabled for your service if it doesn't make a request for 24 hours.
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes. Scheduled Events is disabled for your service if it doesn't make a request to the endpoint for 24 hours.	
 
 ### User-initiated maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. This will prevent delays in recovering your application back to a good state.  
+	
+Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
 
 ## Use the API
 
@@ -172,7 +172,6 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
-| Preempt | 30 seconds |
 | Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
 
 Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be cancelled by Azure before it starts. In that case the event will be removed from the Events array, and the impact will not occur as previously scheduled. 

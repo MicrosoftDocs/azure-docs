@@ -41,6 +41,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/quickstart-run-notebooks.md",
+        "redirect_url": "/azure/machine-learning/tutorial-cloud-workstation",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/reference-checkpoint-performance-with-Nebula.md",
         "redirect_url": "/azure/machine-learning/reference-checkpoint-performance-for-large-models",
         "redirect_document_id": true

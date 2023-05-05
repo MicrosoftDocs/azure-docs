@@ -1,9 +1,9 @@
 ---
 title: How to connect on-premises Defender for IoT resources to Microsoft Sentinel
 description: Learn how to stream data into Microsoft Sentinel from an on-premises and locally-managed Microsoft Defender for IoT OT network sensor or an on-premises management console.
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 12/26/2022
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+ms.custom: template-how-to-pattern
 ---
 
 # Connect on-premises OT network sensors to Microsoft Sentinel

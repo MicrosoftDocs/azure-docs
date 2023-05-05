@@ -94,7 +94,7 @@ The following table is intended to highlight the key actions for the following l
 
 The following table is intended to highlight the key actions for the following license subscriptions:
 
-- Azure Active Directory Premium P2 (Azure AD P2)
+- Azure Active Directory Premium P2
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (E5, A5)
 

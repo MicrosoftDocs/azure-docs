@@ -5,7 +5,7 @@ services: active-directory
 author: gargi-sinha
 ms.author: gasinh
 manager: martinco
-ms.date: 03/28/2023
+ms.date: 05/02/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -27,8 +27,10 @@ To learn more, see, [What is self-service sign-up for Azure AD?](./directory-sel
 
 Use the following guidance to remove unmanaged Azure AD accounts from Azure AD tenants. Tool features help identify viral users in the Azure AD tenant. You can reset the user redemption status.
 
-* Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests)
-* Use PowerShell cmdlets in [AzureAD/MSIdentityTools](https://github.com/AzureAD/MSIdentityTools/wiki/)  
+* Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests).
+* Use PowerShell cmdlets in [AzureAD/MSIdentityTools](https://github.com/AzureAD/MSIdentityTools/wiki/).  
+
+### Redeem invitations
 
 After you run a tool, users with unmanaged Azure AD accounts access the tenant, and re-redeem their invitations. However, Azure AD prevents users from redeeming with an unmanaged Azure AD account. They can redeem with another account type. Google Federation and SAML/WS-Federation aren't enabled by default. Therefore, users redeem with a Microsoft account (MSA) or email one-time password (OTP). MSA is recommended. 
 
@@ -62,7 +64,7 @@ Run the following cmdlets:
 
 To identify unmanaged Azure AD accounts, run:
 
-* `Connect-MgGraph -Scope User.ReadAll`
+* `Connect-MgGraph -Scope User.Read.All`
 * `Get-MsIdUnmanagedExternalUser`
 
 To reset unmanaged Azure AD account redemption status, run:
@@ -75,6 +77,6 @@ To delete unmanaged Azure AD accounts, run:
 * `Connect-MgGraph -Scopes User.ReadWriteAll`
 * `Get-MsIdUnmanagedExternalUser | Remove-MgUser`
 
-## Resources
+## Resource
 
-See, [Get-MSIdUnmanagedExternalUser](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MsIdUnmanagedExternalUser). The tool returns a list of external unmanaged users, or viral users, in the tenant.
+The following tool returns a list of external unmanaged users, or viral users, in the tenant. </br> See, [Get-MSIdUnmanagedExternalUser](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MsIdUnmanagedExternalUser). 

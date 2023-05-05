@@ -18,6 +18,8 @@ In this article, you'll learn how to read data from a comma-separated value (CSV
 
 Use data from an external CSV file to make your JMeter test script configurable. For example, you might invoke an API for each entry in a customers CSV file.
 
+Get started by [cloning or downloading the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-read-csv).
+
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -62,21 +64,11 @@ To edit your JMeter script by using Visual Studio Code or your editor of prefere
 
       1. Update the `filename` element and remove any file path reference.
 
+        :::code language="xml" source="~/azure-load-testing-samples/jmeter-read-csv/read-from-csv.jmx" range="30-41" highlight="4":::
+
       1. Add the CSV field names as a comma-separated list in `variableNames`.
 
-        ```xml
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Search parameters" enabled="true">
-          <stringProp name="delimiter">,</stringProp>
-          <stringProp name="fileEncoding">UTF-8</stringProp>
-          <stringProp name="filename">search-params.csv</stringProp>
-          <boolProp name="ignoreFirstLine">true</boolProp>
-          <boolProp name="quotedData">false</boolProp>
-          <boolProp name="recycle">true</boolProp>
-          <stringProp name="shareMode">shareMode.all</stringProp>
-          <boolProp name="stopThread">false</boolProp>
-          <stringProp name="variableNames">username,query</stringProp>
-        </CSVDataSet>
-        ```
+        :::code language="xml" source="~/azure-load-testing-samples/jmeter-read-csv/read-from-csv.jmx" range="30-41" highlight="10":::
 
   1. Save the JMeter script and add it to your [test plan](./how-to-create-manage-test.md#test-plan).
 

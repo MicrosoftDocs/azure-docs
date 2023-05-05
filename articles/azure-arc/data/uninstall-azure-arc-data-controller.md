@@ -193,10 +193,10 @@ kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-$mynam
 
 Optionally, also delete the namespace as follows:
 ```
-kubectl delete --namespace <name of namespace>
+kubectl delete namespace <name of namespace>
 
 ## Example:
-kubectl delete --namespace arc
+kubectl delete namespace arc
 ```
 
 ## Verify all objects are deleted

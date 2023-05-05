@@ -6,7 +6,7 @@ author: guywi-ms
 ms.author: guywild
 ms.date: 4/07/2023
 ms.reviewer: jeffwo
-
+ 
 #customer-intent: As a deployment engineer, I can scope the resources required to scale my gateway data colletors the use the Azure Monitor Agent. 
 
 ---

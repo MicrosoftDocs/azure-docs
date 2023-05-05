@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 04/11/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -24,6 +24,8 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### April  2023
 
+* General availability: [Representational State Transfer (REST) APIs](/rest/api/postgresqlhsc/) are now fully supported for all cluster management operations.
+* General availability: [Bicep](/azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep) and [ARM templates](/azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template) for Azure Cosmos DB for PostgreSQL's serverGroupsv2 resource type.
 * Public preview: Data Encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) is now supported for all available regions.
    * See [this guide](./how-to-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
 

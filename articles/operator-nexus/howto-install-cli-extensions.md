@@ -1,12 +1,13 @@
 ---
 title: "Azure Operator Nexus: Install CLI extensions"
 description: Learn to install the needed Azure CLI extensions for Operator Nexus
-author: Travisivart #Required
-ms.author: travisneely #Required
-ms.service: azure-operator-nexus #Required
+author: Travisivart
+ms.author: travisneely
+ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 03/06/2023
-# ms.custom: template-include #Required;
+# ms.custom: template-include
 ---
 
 # Prepare to install Azure CLI extensions

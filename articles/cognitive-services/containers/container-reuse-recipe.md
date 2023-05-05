@@ -11,8 +11,6 @@ ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: aahi
 #Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
-
-# SME: Siddhartha Prasad <siprasa@microsoft.com>
 ---
 
 # Create containers for reuse

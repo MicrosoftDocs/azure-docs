@@ -4,7 +4,7 @@ description: Learn about topologies and constraints for NC2 on Azure.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 10/13/2022
+ms.date: 04/01/2023
 ---
 
 # Solution design
@@ -36,12 +36,13 @@ The following table describes the network topologies supported by each network f
 
 The following table describes what’s supported for each network features configuration:
 
-|Features |Supported |
+|Features |Basic network features |
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets|No|
-|Connectivity to [private endpoints](../../../private-link/private-endpoint-overview.md)|No|
+|Connectivity from UVMs on NC2 nodes to Azure resources|Yes|
+|Connectivity to [private endpoints](../../../private-link/private-endpoint-overview.md) from resources on Azure-delegated subnets|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 

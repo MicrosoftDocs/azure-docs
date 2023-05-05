@@ -46,6 +46,10 @@ The following tables summarize current availability:
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
 | USA               | Short-Codes\** | General Availability | General Availability | -        | -          |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
 |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia | Alphanumeric Sender ID\** | Public Preview       | -       | -        | -          |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -57,7 +61,7 @@ The following tables summarize current availability:
 | Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
 | :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
 | UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
-| UK                 | Local          | -        | -        | 
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
 | USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
 | USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
 | Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
@@ -267,6 +271,7 @@ The following tables summarize current availability:
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Slovakia           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Slovakia           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -298,6 +303,7 @@ The following tables summarize current availability:
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Germany           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Germany           | Toll-Free     | -        | -        | Public Preview | Public Preview\* |
 |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.

@@ -2,6 +2,7 @@
 title: Custom topics in Azure Event Grid
 description: Describes custom topics in Azure Event Grid. 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-arm-template, devx-track-azurepowershell
 ms.date: 03/10/2023
 ---
 
