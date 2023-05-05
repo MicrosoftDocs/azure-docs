@@ -12,7 +12,7 @@ ms.date: 04/12/2023
 ms.author: godonnell
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React SPA
+#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React 
 ---
 # Prepare a React Single-page application for authentication
 
@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * Add authentication code to the application
 
 ## Prerequisites
-* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA)](./how-to-spa-react-prepare-tenant.md))
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA)](./how-to-single-page-application-react-prepare-tenant.md))
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
@@ -146,4 +146,4 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add Sign-in and Sign-out functionality to your app.](./how-to-spa-react-sign-in-out.md)
+> [Add Sign-in and Sign-out functionality to your app.](./how-to-single-page-application-react-sign-in-out.md)
