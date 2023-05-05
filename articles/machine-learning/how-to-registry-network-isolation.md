@@ -46,7 +46,7 @@ If you don't have a secure workspace configuration, you can create it using the 
 :::image type="content" source="./media/how-to-registry-network-isolation/basic-netwrok-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
 
-## Scenario: Azure Machine Learning workspace configuration is secure but the Azure Machine Learning registry is public
+## Scenario: workspace configuration is secure and Azure Machine Learning registry is public
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration but using a public registry. 
 
@@ -81,7 +81,7 @@ __Outbound network configuration to access any Azure Machine Learning registry__
 | `AzureContainerRegistry.<region>` | TCP: 443 | Access Docker images for environments. |
 
 
-## Scenario: Azure Machine Learning workspace configuration is secure and Azure Machine Learning registry is connected to virtual networks using private endpoints
+## Scenario: workspace configuration is secure and Azure Machine Learning registry is connected to virtual networks using private endpoints
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration with Azure Machine Learning registries connected using private endpoint to a virtual network. 
 
