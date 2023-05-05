@@ -21,17 +21,17 @@ This article demonstrates how to call the Image Analysis 4.0 API to segment an i
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
-* If you are using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You will modify this quickstart application based on code examples below.
-* If you are using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You will modify the `curl.exe` call based on the examples belows.
+* If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
+* If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
-The quickstart shows you how to extract visual features from an image, however the concepts are similar to background removal, hence you will benefit from starting there and making the modifications below.
+The quickstart shows you how to extract visual features from an image, however, the concepts are similar to background removal. Therefore you benefit from starting from the quickstart and making modifications.
 
 > [!IMPORTANT]
 > These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you will need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
@@ -124,25 +124,25 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 #### [C#](#tab/csharp)
 
-Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the segmentation mode you would like to use, by setting the [SegmentationMode](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property. You must set this property if you want to do segmentation. Supported values are enumerated by [ImageSegmentationMode](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#imagesegmentationmode).
+Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the property [SegmentationMode]/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.segmentationmode). This property must be set if you want to do segmentation. See [ImageSegmentationMode](/dotnet/api/azure.ai.vision.imageanalysis.imagesegmentationmode) for supported values.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=segmentation_mode)]
 
 #### [Python](#tab/python)
 
-Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the segmentation mode you would like to use, by setting the [segmentation_mode](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation_mode) property. You must set this property if you want to do segmentation. Supported values are enumerated by [ImageSegmentationMode](/python/api/azure-ai-vision/azure.ai.vision.enums.imagesegmentationmode).
+Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the property [segmentation_mode](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation-mode). This property must be set if you want to do segmentation. See [ImageSegmentationMode](/python/api/azure-ai-vision/azure.ai.vision.enums.imagesegmentationmode) for supported values.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=segmentation_mode)]
 
 #### [C++](#tab/cpp)
 
-Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and specify the segmentation mode you would like to use, by calling the [SetSegmentationMode](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setsegmentationmode) method. You must call this method if you want to do segmentation. Supported values are numerated by [ImageSegmentationMode](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imagesegmentationmode)
+Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetSegmentationMode](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setsegmentationmode) method. You must call this method if you want to do segmentation. See [ImageSegmentationMode](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imagesegmentationmode) for supported values.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=segmentation_mode)]
 
 #### [REST](#tab/rest)
 
-Set the query string *mode** to one of two values below. This query string is mandatory if you want to do image segmentation.
+Set the query string *mode** to one of these two values. This query string is mandatory if you want to do image segmentation.
 
 |URL parameter | Value               |Description  |
 |--------------|---------------------|-------------|
@@ -177,15 +177,17 @@ The following code calls the Image Analysis API and saves the resulting segmente
 
 #### [REST](#tab/rest)
 
-The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream. The following is an example of the 4-channel PNG image response for the `backgroundRemoval` mode:
+The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream. The following four-channel PNG image is an example of a response for the `backgroundRemoval` mode:
 
 :::image type="content" source="../media/background-removal/building-1-result.png" alt-text="Photo of a city, with the background transparent.":::
 
-The following is an example of the 1-channel PNG image response for the `foregroundMatting` mode:
+The following one-channel PNG image is an example of a response for the `foregroundMatting` mode:
 
 :::image type="content" source="../media/background-removal/building-1-matte.png" alt-text="Alpha matte of the city photograph.":::
 
-The API will return an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
+The API returns an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
+
+---
 
 ## Error codes
 
@@ -195,7 +197,7 @@ The API will return an image the same size as the original for the `foregroundMa
 
 #### [C++](#tab/cpp)
 
-### [REST](#tab/rest)
+#### [REST](#tab/rest)
 
 See the following list of possible errors and their causes:
 

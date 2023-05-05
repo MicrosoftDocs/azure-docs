@@ -21,12 +21,12 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
-* If you are using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You will modify this quickstart application based on code examples below.
-* If you are using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You will modify the `curl.exe` call based on the examples belows.
+* If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
+* If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you will need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
@@ -105,7 +105,7 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 ### Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two. Note that 'Captions' and 'DenseCaptions' are only supported in Azure GPU regions (East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US).
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two. 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 #### [C#](#tab/csharp)
 
@@ -127,7 +127,7 @@ Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis
 
 #### [REST](#tab/rest)
 
-You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
+You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify requires more computation time, so only specify what you need.
 
 |URL parameter | Value | Description|
 |---|---|--|
@@ -156,7 +156,7 @@ A populated URL might look like this:
 
 ### Specify languages
 
-You can specify the language of the returned data. This is optional, and the default language is English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language.
+You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language.
 
 #### [C#](#tab/csharp)
 
@@ -196,7 +196,7 @@ A populated URL might look like this:
 
 ### Select Gender Neutral Captions
 
-If you're extraction captions or dense captions, you can ask for gender neutral captions. This is an optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** will be replaced with **person**, and **boy** or **girl** will be replaced with **child**. 
+If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 
 #### [C#](#tab/csharp)
 
@@ -226,7 +226,7 @@ A populated URL might look like this:
 
 ### Select Smart Cropping Aspect Ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you do not set aspect rations, and you did select smartCrop/CropSuggestions, the service will return one crop suggestion with an aspect ratio it sees fit between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect rations, the service returns one crop suggestion with an aspect ratio it sees fit between 0.5 and 2.0 (inclusive).
 
 #### [C#](#tab/csharp)
 
@@ -278,7 +278,7 @@ The following code calls the Image Analysis API and prints the results for all v
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=analyze)]
 
-The above code uses the following helper method to display the coordinates of a bounding polygon:
+The code uses the following helper method to display the coordinates of a bounding polygon:
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=polygon-to-string)]
 
@@ -361,7 +361,7 @@ The service returns a `200` HTTP response, and the body contains the returned da
 }
 ```
 
---
+---
 
 ## Determine how to process the data using a custom model
 
@@ -371,25 +371,25 @@ You can also do image analysis with a custom trained model. To create and train 
 
 #### [C#](#tab/csharp)
 
-To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the [ModelName](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) property. Do not set the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property as you do with standard model, as the model name already implies the visual features the service will extract. In fact, **ModelName** is the only property you should set.
+To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the [ModelName](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) property. Don't set the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property as you do with standard model, as the model name already implies the visual features the service extracts. In fact, **ModelName** is the only property you should set.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/3/Program.cs?name=model_name)]
 
 #### [Python](#tab/python)
 
-To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the [model_name](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-model-name) property. Do not set the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property as you do with standard model, as the model name already implies the visual features the service will extract.  In fact, **model_name** is the only property you should set.
+To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the [model_name](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-model-name) property. Don't set the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property as you do with standard model, as the model name already implies the visual features the service extracts.  In fact, **model_name** is the only property you should set.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/3/main.py?name=model_name)]
 
 #### [C++](#tab/cpp)
 
-To use a custom model, create the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetModelName](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setmodelname) method. Do not call [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) as you do with standard model, as the model name already implies the visual features the service will extract. In fact, **SetModelName** is the only method you should call.
+To use a custom model, create the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetModelName](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setmodelname) method. Don't call [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) as you do with standard model, as the model name already implies the visual features the service extracts. In fact, **SetModelName** is the only method you should call.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/3/3.cpp?name=model_name)]
 
 #### [REST](#tab/rest)
 
-To use a custom model, do not use the features query parameter. Set the model-name parameter to the name of your model.
+To use a custom model, don't use the features query parameter. Set the model-name parameter to the name of your model.
 
 `https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&model-name=MyCustomModelName`
 
@@ -426,52 +426,52 @@ The following code calls the Image Analysis API and prints the results for the v
 
 #### [C#](#tab/csharp)
 
-The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. This includes:
+The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrorreason).
 * Error code and error message. Click on the [REST tab](./call-analyze-image-40.md?tabs=rest#error-codes) to see a list of some common error codes and messages.
 
-In addition to those errors, the SDK has a few additional error messages, including:
+In addition to those errors, the SDK has a few other error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
   * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
 
-Make sure the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix the above. 
+Make sure the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
 
-In general, if you run into an issue, please first have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
+In general, if you run into an issue, have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
 
 #### [Python](#tab/python)
 
-The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object that contains the error information. This includes:
+The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object that contains the error information. The error information includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/python/api/azure-ai-vision/azure.ai.vision.enums.imageanalysiserrorreason).
 * Error code and error message. Click on the [REST tab](./call-analyze-image-40.md?tabs=rest#error-codes) to see a list of some common error codes and messages.
 
-In addition to those errors, the SDK has a few additional error messages, including:
+In addition to those errors, the SDK has a few other error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
   * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
 
-Make sure the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object is set correctly to fix the above. 
+Make sure the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object is set correctly to fix these errors. 
 
-In general, if you run into an issue, please first have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
+In general, if you run into an issue, have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
 
 #### [C++](#tab/cpp)
 
-The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. This includes:
+The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. The error information includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imageanalysiserrorreason).
 * Error code and error message. Click on the [REST tab](./call-analyze-image-40.md?tabs=rest#error-codes) to see a list of some common error codes and messages.
 
-In addition to those errors, the SDK has a few additional error messages, including:
+In addition to those errors, the SDK has a few other error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
   * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
 
-Make sure the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object is set correctly to fix the above. 
+Make sure the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object is set correctly to fix these errors. 
 
-In general, if you run into an issue, please first have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
+In general, if you run into an issue, have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
 
 #### [REST](#tab/rest)
 
-On error the Image Analysis service response will contain a JSON payload that includes an error code and error message. It may also include additional details in the form of and inner error code and message. For example:
+On error the Image Analysis service response contains a JSON payload that includes an error code and error message. It may also include additional details in the form of and inner error code and message. For example:
 
 ```json
 {
@@ -513,7 +513,7 @@ List of common errors:
 * `401 PermissionDenied`
   * `401 - Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource`.
 * `404 Resource Not Found`
-  * `404 - Resource not found`. The service could not find the custom model based on the name provided by the 'model-name' query string.
+  * `404 - Resource not found`. The service couldn't find the custom model based on the name provided by the 'model-name' query string.
 
 <!-- Add any of those if/when you have a working example:
     * `NotSupportedImage` - Unsupported image, for example child pornography.
