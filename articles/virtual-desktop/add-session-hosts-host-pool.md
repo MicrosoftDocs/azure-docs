@@ -227,11 +227,11 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 
 1. Make sure the virtual machines you want to use as session hosts are joined to Azure Active Directory or an Active Directory domain (AD DS or Azure AD DS).
 
-   1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which will also restart the virtual machines:
+1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which will also restart the virtual machines:
 
-      ```powershell
-      Install-WindowsFeature -Name RDS-RD-Server -Restart
-      ```
+   ```powershell
+   Install-WindowsFeature -Name RDS-RD-Server -Restart
+   ```
 
 1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands:
 
