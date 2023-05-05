@@ -54,4 +54,4 @@ If you haven't already created your own customer tenant, [create one now](https:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Start building your React Single Page Application](./how-to-spa-react-prepare-app.md)
+> [Start building your React Single Page Application](./how-to-single-page-application-react-prepare-app.md)
