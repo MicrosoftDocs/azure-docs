@@ -35,7 +35,6 @@ Attach a virtual machine to a virtual machine scale set at the time of VM creati
 ### Azure CLI
 
 
-
 ```azurecli
 az vm create 
   --name myVM \
@@ -43,6 +42,22 @@ az vm create
   --image Ubuntu2204 \
   --vmss myVMScaleSet \
   --platform-fault-domain 1
+```
+
+### Azure Powershell
+
+
+```
+New-AzVm `
+    -ResourceGroupName 'myResourceGroup' `
+    -Name 'myVM' `
+    -Location 'East US' `
+	-VmssId `myVmss` `
+    -VirtualNetworkName 'myVnet' `
+    -SubnetName 'mySubnet' `
+    -SecurityGroupName 'myNetworkSecurityGroup' `
+    -PublicIpAddressName 'myPublicIpAddress' `
+    -OpenPorts 80,3389
 ```
 
 ### Limits to attaching to a virtual machine scale set
