@@ -121,7 +121,7 @@
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
-    - name: Troubleshoot SSH access to Azure Arc enabled servers
+    - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Troubleshooting
     items:
