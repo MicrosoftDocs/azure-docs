@@ -44,7 +44,7 @@ Bulk migration provides the following key capabilities:
 
 ### Move .NET apps to Azure App Service
 
-Azure App Services is a cloud platform that offers a fast, easy, and cost-effective way to migrate your .NET web apps from on-premises to the cloud. Start learning today about how Azure empowers you to modernize your .NET apps with the following resources.
+Azure App Service is a cloud platform that offers a fast, easy, and cost-effective way to migrate your .NET web apps from on-premises to the cloud. Start learning today about how Azure empowers you to modernize your .NET apps with the following resources.
 
 Ready for a migration assessment? Select one of the following options to get started.
 
