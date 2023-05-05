@@ -191,10 +191,6 @@ input()
 
 ---
 
-> [!TIP]
-> For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](#install-the-client-library) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
-<!-- TODO Correct this misleading statement. Python's distro is a family pack that include various instrumentation libraries. -->
-
 #### Paste your unique Application Insights connection string
 
 You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. If both have been set, the programmatic connection string takes precedence.
