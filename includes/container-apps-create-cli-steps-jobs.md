@@ -11,7 +11,7 @@ ms.author: cshoe
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- See [Jobs preview limitations](jobs.md#jobs-preview-limitations) for a list of limitations.
+- See [Jobs preview limitations](../articles/container-apps/jobs.md#jobs-preview-limitations) for a list of limitations.
 
 ## Setup
 

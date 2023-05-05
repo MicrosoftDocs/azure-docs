@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Deploy an event-driven job with Azure Container Apps'
-description: Learn to create an application that continuously runs in the background with Azure Container Apps
+description: Learn to create a job that processes queue messages with Azure Container Apps
 services: container-apps
 author: jorgearteiro
 ms.service: container-apps
