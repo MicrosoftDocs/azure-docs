@@ -101,6 +101,9 @@ An Azure blob storage (ABS) account contains all of your ABS objects: blobs, fil
 #### user_p
 Role created by user visible on the cluster.
 
+> [!Note]
+> `account_user_add`,`account_add`,`account_remove`,`account_user_remove` functions require setting permissions for each individual nodes in cluster.
+
 ## azure_storage.account_user_remove
 The function allows removing access for a role to a storage account.
 
@@ -209,7 +212,7 @@ azure_storage.blob_get
         )
 RETURNS SETOF record;
 ```
-There is an overloaded version of function, containing rec parameter which allows you to conveniently define the output format record.
+There's an overloaded version of function, containing rec parameter that allows you to conveniently define the output format record.
 ```postgresql
 azure_storage.blob_get
         (account_name text
@@ -245,9 +248,9 @@ Decoder can be set to auto (default) or any of the following values
 | text       | A file containing a single text value (for example, large JSON or XML)                            |
 
 #### compression
-defines the compression format. Available options are `auto`, `gzip` & `none`. The use of the `auto` option (default), guesses the compression based on the file extension (.gz == gzip). The option none forces to ignore the extension and not attempt to decode and gzip forces using the gzip decoder (for when you have a gzipped file with a non-standard extension). We currently don't support any other compression formats for the extension.
+defines the compression format. Available options are `auto`, `gzip` & `none`. The use of the `auto` option (default), guesses the compression based on the file extension (.gz == gzip). The option `none` forces to ignore the extension and not attempt to decode. While gzip forces using the gzip decoder (for when you have a gzipped file with a non-standard extension). We currently don't support any other compression formats for the extension.
 #### options
-for handling custom headers, custom separators, escape characters etc., `options` works in similar fashion to `COPY` command in PostgreSQL, parameter utilises  to blob_get function.
+for handling custom headers, custom separators, escape characters etc., `options` works in similar fashion to `COPY` command in PostgreSQL, parameter utilizes to blob_get function.
 
 ### Return Type
 SETOF Record
@@ -256,7 +259,7 @@ SETOF Record
 > There are four utility functions, called as a parameter within blob_get that help building values for it. Each utility function is designated for the decoder matching its name.
 
 ## azure_storage.options_csv_get
-The function acts as a utility function called as a parameter within blob_get. This is useful for decoding the csv content.
+The function acts as a utility function called as a parameter within blob_get, which is useful for decoding the csv content.
 
 ```postgresql
 azure_storage.options_csv_get
@@ -274,7 +277,7 @@ Returns jsonb;
 
 ### Arguments
 #### delimiter
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. This must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
 
 #### null_string
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
@@ -283,19 +286,19 @@ Specifies the string that represents a null value. The default is \N (backslash-
 Specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
 
 #### quote
-Specifies the quoting character to be used when a data value is quoted. The default is double-quote. This must be a single one-byte character.
+Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single one-byte character.
 
 #### escape
-Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). This must be a single one-byte character.
+Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
 
 #### force_not_null
-Do not match the specified columns' values against the null string. In the default case where the null string is empty, this means that empty values will be read as zero-length strings rather than nulls, even when they are not quoted.
+Don't match the specified columns' values against the null string. In the default case where the null string is empty, it means that empty values are read as zero-length strings rather than nulls, even when they aren't quoted.
 
 #### force_null
-Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, this converts a quoted empty string into NULL.
+Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
 #### content_encoding
-Specifies that the file is encoded in the encoding_name. If this option is omitted, the current client encoding is used.
+Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
 ### Return Type
 jsonb
@@ -320,7 +323,7 @@ Returns jsonb;
 
 ### Arguments
 #### delimiter
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. This must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
 
 #### null_string
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
@@ -329,28 +332,28 @@ Specifies the string that represents a null value. The default is \N (backslash-
 Specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
 
 #### quote
-Specifies the quoting character to be used when a data value is quoted. The default is double-quote. This must be a single one-byte character.
+Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single one-byte character.
 
 #### escape
-Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). This must be a single one-byte character.
+Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
 
 #### force_quote
-Forces quoting to be used for all non-NULL values in each specified column. NULL output is never quoted. If * is specified, non-NULL values will be quoted in all columns.
+Forces quoting to be used for all non-NULL values in each specified column. NULL output is never quoted. If * is specified, non-NULL values are quoted in all columns.
 
 #### force_not_null
-Do not match the specified columns' values against the null string. In the default case where the null string is empty, this means that empty values will be read as zero-length strings rather than nulls, even when they are not quoted.
+Don't match the specified columns' values against the null string. In the default case where the null string is empty, it means that empty values are read as zero-length strings rather than nulls, even when they aren't quoted.
 
 #### force_null
-Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, this converts a quoted empty string into NULL.
+Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
 #### content_encoding
-Specifies that the file is encoded in the encoding_name. If this option is omitted, the current client encoding is used.
+Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
 ### Return Type
 jsonb
 
 ## azure_storage.options_tsv
-The function acts as a utility function called as a parameter within blob_get. This is useful for decoding the tsv content.
+The function acts as a utility function called as a parameter within blob_get. It's useful for decoding the tsv content.
 
 ```postgresql
 azure_storage.options_tsv
@@ -363,19 +366,19 @@ Returns jsonb;
 
 ### Arguments
 #### delimiter
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. This must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
 
 #### null_string
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
 #### content_encoding
-Specifies that the file is encoded in the encoding_name. If this option is omitted, the current client encoding is used.
+Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
 ### Return Type
 jsonb
 
 ## azure_storage.options_binary
-The function acts as a utility function called as a parameter within blob_get. This is useful for decoding the binary content.
+The function acts as a utility function called as a parameter within blob_get. It's useful for decoding the binary content.
 
 ```postgresql
 azure_storage.options_binary
@@ -498,7 +501,7 @@ LIMIT 5;
 ```
 
 ### Use compression with decoder option
-The example below shows how to enforce using the gzip compression on a gzip compressed file without a standard .gz extension..
+The example shows how to enforce using the gzip compression on a gzip compressed file without a standard .gz extension.
 
 ```sql
 SELECT * FROM azure_storage.blob_get

@@ -66,7 +66,7 @@ pg_size_pretty | 5257 kB
 content_type   | application/x-gzip
 ```
 
-You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
+You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter filters the returned rows on the Azure Blob Storage side.
 
 
 > [!NOTE]
@@ -178,7 +178,7 @@ Currently the extension supports the following file formats:
 
 ### Load data with blob_get()
 
-The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
+The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in more complex scenarios.
 
 ```sql
 SELECT *
