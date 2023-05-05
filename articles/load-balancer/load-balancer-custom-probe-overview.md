@@ -4,7 +4,7 @@ description: Learn about the different types of health probes and configuration 
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/04/2023
+ms.date: 05/05/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -30,9 +30,30 @@ Health probe configuration consists of the following elements:
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
 | Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attemps to the virtual machine |
 
-## Application signal, detection of the signal, and Load Balancer reaction
+## Probe protocol
 
-The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. On the next healthy probe up, the health probe marks your backend pool instances as healthy.
+The protocol used by the health probe can be configured to one of the following options: TCP, HTTP, HTTPS.
+
+| Scenario | TCP probe | HTTP/HTTPS probe |
+| --- | --- | --- | 
+| Overview | TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port. TCP probes terminate a connection with a four-way close TCP handshake. | HTTP and HTTPS issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS).   HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. |
+| Probe failure behavior | A TCP probe fails when: 1. The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe. 2. The probe receives a TCP reset from the instance. | An HTTP / HTTPS probe fails when: 1. Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). The probe is marked down immediately. 2.  Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached. 3. Probe endpoint closes the connection via a TCP reset.
+| Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when: 1. The health probe is successful once after the VM boots. 2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when: 1. The health probe is successful once after the VM boots. 2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.
+| Standard SKU | 	Supported &#9989; | 	HTTP: Supported &#9989;  HTTPS: Supportd  &#9989; |
+| Basic SKU  | Supported	&#9989; |  HTTP: Suported	&#9989;   HTTPS: Not supported &#10060; |
+
+> [!NOTE] 
+> The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
+
+## Probe down behavior
+| Scenario | TCP connections | UDP datagrams |
+| --- | --- | --- | 
+| Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   If any backend endpoint's health probe fails, existing UDP flows move to another healthy instance in the backend pool.|
+| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance.  Basic Load Balancer terminates all existing TCP flows to the backend pool. |  If all probes for all instances in a backend pool fail, existing UDP flows terminate. |
+
+## Probe interval
+
+The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. On the next healthy probe up, the health probe marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 15 seconds by default but can be explicitly set to another value.
 
 For example, if a health probe set to 5 seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
 
@@ -47,70 +68,6 @@ For this example, once detection has occurred, the platform takes a small amount
 
 Assume the reaction to a time-out response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change.
 This example is provided to illustrate what is taking place. It's not possible to forecast an exact duration beyond the guidance in the example.
-
-## Probe types
-
-The protocol used by the health probe can be configured to one of the following options:
-
-|| TCP | HTTP | HTTPS |
-| --- | --- | --- | --- |
-| **Standard SKU** | 	&#9989; | 	&#9989; | 	&#9989; |
-| **Basic SKU** | 	&#9989; | 	&#9989; | &#10060; |
-
-### TCP probe
-
-TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port. TCP probes terminate a connection with a four-way close TCP handshake.
-
-A TCP probe fails when:
-
-* The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.
-
-* The probe receives a TCP reset from the instance.
-
-### HTTP/HTTPS probe
-
-HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS). The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. The health probe attempts to check the configured health probe port every 15 seconds by default. 
-
-HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
-
-An HTTP / HTTPS probe fails when:
-
-* Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). The probe is marked down immediately.
-
-* Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
-
-* Probe endpoint closes the connection via a TCP reset.
-
-> [!NOTE] 
-> The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
-
-## Probe up behavior
-
-TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:
-
-* The health probe is successful once after the VM boots.
-
-Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  
-
-## Probe down behavior
-
-### TCP connections
-
-New TCP connections succeed to remaining healthy backend endpoint.
-
-If a backend endpoint's health probe fails, established TCP connections to this backend endpoint continue. However, if a backend pool only contains a single endpoint, then existing flows terminate.
-
-If all probes for all instances in a backend pool fail, no new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend endpoint.  Basic Load Balancer terminates all existing TCP flows to the backend pool.
- 
-Load Balancer is a pass through service. Load Balancer doesn't terminate TCP connections. The flow is always between the client and the VM's guest OS and application. If a pool has all probes down, the frontend doesn't respond to TCP connection open attempts as there's no healthy backend endpoint to receive the flow and respond with an acknowledgment.
-
-### UDP datagrams
-
-UDP datagrams are delivered to healthy backend endpoints.
-
-UDP is connection-less and there's no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows move to another healthy instance in the backend pool.
-
-If all probes for all instances in a backend pool fail, existing UDP flows terminate for basic and standard load balancers.
 
 ## Probe source IP address
 
