@@ -111,12 +111,12 @@ IP addresses are broken down into the following types:
 
 Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which plan you're using in Azure Container Apps. Selecting an appropriately sized subnet for the scale of your Container Apps is important as subnet sizes can't be modified post creation in Azure.
 
-- Consumption only architecture:
+- **Consumption only architecture:**
     - /23 is the minimum subnet size required for virtual network integration. 
     - Container Apps reserves a minimum of 60 IPs for infrastructure in your VNet, and the amount may increase up to 256 addresses as your container environment scales.
     - As your app scales, a new IP address is allocated for each new replica.
 
-- Workload profiles architecture:
+- **Workload profiles architecture:**
     - /27 is the minimum subnet size required for virtual network integration. 
     - The subnet you're integrating your container app with must be delegated to `Microsoft.App/environments`.
     - 11 IP addresses are automatically reserved for integration with the subnet. When your apps are running on workload profiles, the number of IP addresses required for infrastructure integration doesn't vary based on the scale of your container apps. 
@@ -174,8 +174,8 @@ Application rules allow or deny traffic based on the application layer. The foll
 
 | Scenarios | FQDNs | Description |
 |--|--|--|
-| REQUIRED | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps infrastructure and must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
-| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* |These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
+| **REQUIRED** Microsoft Container Registry (MCR) | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps infrastructure and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
 | Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
 
@@ -183,9 +183,9 @@ Application rules allow or deny traffic based on the application layer. The foll
 
 Network rules allow or deny traffic based on the network and transport layer. The following outbound firewall network rules are required based on scenario.
 
-| Scenarios | FQDNs | Description |
+| Scenarios | Service Tag | Description |
 |--|--|--|
-| REQUIRED | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | When using Azure Container Apps with Azure Firewall, you will need to configure these application rules used by Microsoft Container Registry. |
+| **REQUIRED** Microsoft Container Registry (MCR) | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps infrastructure and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | ACR | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
 | Azure Key Vault | *AzureKeyVault* | This service tag is required in addition to the FQDN for the application rule for Azure Key Vault. |
 
