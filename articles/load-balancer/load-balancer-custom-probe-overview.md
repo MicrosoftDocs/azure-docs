@@ -17,7 +17,7 @@ Health probes support multiple protocols. The availability of a specific health 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| **[Probe types](#probe-types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Probe protocol](#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 ## Probe configuration
@@ -39,8 +39,6 @@ The protocol used by the health probe can be configured to one of the following 
 | Overview | TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port. TCP probes terminate a connection with a four-way close TCP handshake. | HTTP and HTTPS issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS).   HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. |
 | Probe failure behavior | A TCP probe fails when: 1. The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe. 2. The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when: 1. Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). 2.  Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached. 3. Probe endpoint closes the connection via a TCP reset.
 | Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when: 1. The health probe is successful once after the VM boots. 2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when: 1. The health probe is successful once after the VM boots. 2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.
-| Standard SKU | 	Supported &#9989; | 	HTTP: Supported &#9989;  HTTPS: Supportd  &#9989; |
-| Basic SKU  | Supported	&#9989; |  HTTP: Suported	&#9989;   HTTPS: Not supported &#10060; |
 
 > [!NOTE] 
 > The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
