@@ -36,7 +36,7 @@ __Maximum burst__ is the highest number of instances that your App Service Plan 
 
 1. In your App Service web app's left menu, select **Scale out (App Service Plan)**.
 
-![Automatic scaling in Azure portal](./media/manage-automatic-scaling/azure-portal-automatic-scaling.png)
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-automatic-scaling.png" alt-text="Automatic scaling in Azure portal" :::
 
 2. Select **Automatic (preview)**, update the __maximum burst__ value, and select the **Save** button.
 
@@ -62,7 +62,7 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 
 1. In your App Service web app's left menu, select **Scale out (App Service Plan)**.
 
-![Always ready instances in Automatic scaling](./media/manage-automatic-scaling/azure-portal-always-ready-instances.png)
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Always ready instances in Automatic scaling" :::
 
 2. Update the **Always ready instances** number and then select the **Save** button.
 
@@ -70,6 +70,26 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 ```azurecli-interactive
  az webapp update --resource-group <RESOURCE_GROUP> --name <APP_NAME> --minimum-elastic-instance-count <ALWAYS_READY_COUNT> 
 ```
+
+---
+
+## Set maximum number of web app instances
+
+The __maximum scale limit__ sets the maximum number of instances a web app can scale to. The maximum scale limit helps when a downstream component like a database has limited throughput. The per-app maximum can be between 1 and the __maximum burst__.
+
+#### [Azure portal](#tab/azure-portal)
+
+1. In your App Service web app's left menu, select **Scale out (App Service Plan)**.
+
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Maximum scale limit in Azure app Service" :::
+
+2. Select **Enforce scale out limit** and update the **maximum scale limit**.
+
+3. Select the **Save** button.
+
+#### [Azure CLI](#tab/azure-cli)
+
+You can't change the maximum scale limit in Azure CLI, you must instead use the Azure portal.
 
 ---
 
@@ -91,33 +111,13 @@ You can modify the number of prewarmed instances for an app using the Azure CLI.
 
 ---
 
-## Set maximum number of web app instances
-
-The __maximum scale limit__ sets the maximum number of instances a web app can scale to. The maximum scale limit helps when a downstream component like a database has limited throughput. The per-app maximum can be between 1 and the __maximum burst__.
-
-#### [Azure portal](#tab/azure-portal)
-
-1. In your App Service web app's left menu, select **Scale out (App Service Plan)**.
-
-![Maximum scale limit in Azure app Service](./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png)
-
-2. Select **Enforce scale out limit** and update the **maximum scale limit**.
-
-3. Select the **Save** button.
-
-#### [Azure CLI](#tab/azure-cli)
-
-You can't change the maximum scale limit in Azure CLI, you must instead use the Azure portal.
-
----
-
 ## Disable automatic scaling
 
 #### [Azure portal](#tab/azure-portal)
 
 1. In your App Service web app's left menu, select **Scale out (App Service Plan)**.
 
-![Manual scaling in Azure app Service](./media/manage-automatic-scaling/azure-portal-manual-scaling.png)
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-manual-scaling.png" alt-text="Manual scaling in Azure app Service" :::
 
 2. Select **Manual** and then select the **Save** button.   
 
