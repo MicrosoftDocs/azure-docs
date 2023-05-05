@@ -37,7 +37,7 @@ By default, scale sets are created with a virtual machine scaling profile. See q
 
 Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. Scale sets without a scaling profile is useful in cases where you need complete control over all VM properties, need to follow your own VM naming conventions, you want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
 
-
+[!div class="mx-tdBreakAll"]
 | Feature | Virtual machine scale sets (no scaling profile) | Availablity Sets |
 | -------- | -------- | -------- |
 |Maximum capacity   | 1000   ||
@@ -46,5 +46,6 @@ Virtual machine scale sets in Flexible Orchestration Mode can optionally be crea
 |Add new VM to set |||
 |Add Vm to specific fault domain |||
 |Maximum Update Domain count |||
+
 
 
