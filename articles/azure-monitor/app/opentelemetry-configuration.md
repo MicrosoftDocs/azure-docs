@@ -185,9 +185,9 @@ You might want to enable Azure Active Directory (AAD) Authentication for a more 
 
 #### [.NET](#tab/net)
     
-    ```csharp
-    coming soon
-    ```
+```csharp
+coming soon
+```
     
 #### [Java](#tab/java)
 
@@ -195,15 +195,15 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 #### [Node.js](#tab/nodejs)
 
-    ```javascript
-    coming soon
-    ```
+```javascript
+coming soon
+```
 
 #### [Python](#tab/python)
     
-    ```python
-    coming soon
-    ```
+```python
+coming soon
+```
 
 ---
 
