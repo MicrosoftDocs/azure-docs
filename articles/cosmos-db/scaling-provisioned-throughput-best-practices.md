@@ -119,7 +119,7 @@ Increase your RU/s to: `10,000 * P * (2 ^ (ROUNDUP(LOG_2 (S/(10,000 * P))))`. Th
  
 For example, suppose we have five physical partitions, 50,000 RU/s and want to scale to 150,000 RU/s. We should first set: `10,000 * 5 * (2 ^ (ROUND(LOG_2(150,000/(10,000 * 5))))` = 200,000 RU/s, and then lower to 150,000 RU/s. 
 
-When we scaled up to 200,000 RU/s, the lowest manual RU/s we can now set in the future is 2000 RU/s. The [lowest autoscale max RU/s](autoscale-faq.yml#lowering-the-max-ru-s) we can set is 20,000 RU/s (scales between 2000 - 20,000 RU/s). Since our target RU/s is 150,000 RU/s, we are not affected by the minimum RU/s.
+When we scaled up to 200,000 RU/s, the lowest manual RU/s we can now set in the future is 2000 RU/s. The [lowest autoscale max RU/s](autoscale-faq.yml#how-do-i-lower-the maximum-ru-s---) we can set is 20,000 RU/s (scales between 2000 - 20,000 RU/s). Since our target RU/s is 150,000 RU/s, we are not affected by the minimum RU/s.
 
 ## How to optimize RU/s for large data ingestion
  
