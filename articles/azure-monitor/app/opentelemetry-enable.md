@@ -423,7 +423,7 @@ Dependencies
 ---
 
 > [!NOTE]
-> Application Insights standard metrics include a variety of measurements related to request processing, dependency calls, exceptions, browser timings, and performance counters. For more information, see [Application Insights standard metrics](standard-metrics.md)
+> The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
 
 ### Add a community instrumentation library
 
