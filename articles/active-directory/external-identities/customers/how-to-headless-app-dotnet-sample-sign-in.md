@@ -43,7 +43,6 @@ In this article, you do the following tasks:
 ## Register the headless app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
 
 ## Enable public client flow
 
