@@ -69,7 +69,7 @@ If a legacy script or application specifies MapReduce for execution, an exceptio
 > [!NOTE]
 > Most user-defined functions (UDFs) require no change to execute on Tez instead of MapReduce.
 
-**Mature versions of ACID transaction processing and LLAP**
+**Changes with respect to ACID transaction and CBO:**
 
 1. ACID tables are the default table type in HDInsight 4.x with no performance or operational overload.
 1. Simplified application development, operations with stronger transactional guarantees, and simpler semantics for SQL commands
