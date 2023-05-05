@@ -41,7 +41,7 @@ The SDK examples below all assume that you defined the environment variables `VI
 
 #### [C#](#tab/csharp)
 
-Start by creating a [VisionServiceOptions](/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
+Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=vision_service_options)]
 
@@ -130,13 +130,13 @@ Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.im
 
 #### [Python](#tab/python)
 
-Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the segmentation mode you would like to use, by setting the [segmentation_mode](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation_mode) property. You must set this property if you want to do segmentation. Supported values are enumerated by [ImageSegmentationMode](TODO).
+Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the segmentation mode you would like to use, by setting the [segmentation_mode](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation_mode) property. You must set this property if you want to do segmentation. Supported values are enumerated by [ImageSegmentationMode](/python/api/azure-ai-vision/azure.ai.vision.enums.imagesegmentationmode).
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=segmentation_mode)]
 
 #### [C++](#tab/cpp)
 
-Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and specify the segmentation mode you would like to use, by calling the [SetSegmentationMode](TODO) method. You must call this method if you want to do segmentation. Supported values are numerated by [ImageSegmentationMode](TODO)
+Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and specify the segmentation mode you would like to use, by calling the [SetSegmentationMode](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setsegmentationmode) method. You must call this method if you want to do segmentation. Supported values are numerated by [ImageSegmentationMode](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imagesegmentationmode)
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=segmentation_mode)]
 
@@ -150,6 +150,8 @@ Set the query string *mode** to one of two values below. This query string is ma
 | `mode`       | `foregroundMatting` | Outputs a gray-scale alpha matte image showing the opacity of the detected foreground object. |
 
 A populated URL for backgroundRemoval would look like this: `https://{endpoint}/computervision/imageanalysis:segment?api-version=2023-02-01-preview&mode=backgroundRemoval`
+
+---
 
 ## Get results from the service
 
@@ -185,7 +187,13 @@ The following is an example of the 1-channel PNG image response for the `foregro
 
 The API will return an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 
-## Troubleshooting
+## Error codes
+
+#### [C#](#tab/csharp)
+
+#### [Python](#tab/python)
+
+#### [C++](#tab/cpp)
 
 ### [REST](#tab/rest)
 

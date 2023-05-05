@@ -36,7 +36,7 @@ The SDK examples below all assume that you defined the environment variables `VI
 
 #### [C#](#tab/csharp)
 
-Start by creating a [VisionServiceOptions](/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
+Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_service_options)]
 
@@ -44,7 +44,7 @@ Start by creating a [VisionServiceOptions](/api/azure.ai.vision.core.options.vis
 
 Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.vision.visionserviceoptions) object using one of the constructors. For example:
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/Program.cs?name=vision_service_options)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=vision_service_options)]
 
 #### [C++](#tab/cpp)
 
@@ -79,7 +79,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from the URL of the image you want to analyze.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/Program.cs?name=vision_source)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=vision_source)]
 
 > [!TIP]
 > You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL.
@@ -422,14 +422,14 @@ The following code calls the Image Analysis API and prints the results for the v
 
 ---
 
-## Troubleshooting
+## Error codes
 
 #### [C#](#tab/csharp)
 
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrorreason).
-* Error code and error message. Click on the [REST tab](#tab/rest) to see a list of some common error codes and messages.
+* Error code and error message. Click on the [REST tab](./call-analyze-image-40.md?tabs=rest#error-codes) to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
@@ -444,7 +444,7 @@ In general, if you run into an issue, please first have a look at the [Image Ana
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/python/api/azure-ai-vision/azure.ai.vision.enums.imageanalysiserrorreason).
-* Error code and error message. Click on the [REST tab](#tab/rest) to see a list of some common error codes and messages.
+* Error code and error message. Click on the [REST tab](./call-analyze-image-40.md?tabs=rest#error-codes) to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
@@ -459,7 +459,7 @@ In general, if you run into an issue, please first have a look at the [Image Ana
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imageanalysiserrorreason).
-* Error code and error message. Click on the [REST tab](#tab/rest) to see a list of some common error codes and messages.
+* Error code and error message. Click on the [REST tab](./call-analyze-image-40.md?tabs=rest#error-codes) to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
@@ -499,13 +499,13 @@ List of common errors:
 * `400 Bad Request`
   * `InvalidRequest - Image URL is badly formatted or not accessible`. Make sure the image URL is valid and publicly accessible.
   * `InvalidRequest - The image size is not allowed to be zero or larger than 20971520 bytes`. Reduce the size of the image by compressing it and/or resizing, and resubmit your request.
-  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only support in specific Azure regions. See [Quickstart prerequisites](../quickstarts-sdk/image-analysis-client-library-40) sections for the list of supported Azure regions.
+  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only support in specific Azure regions. See [Quickstart prerequisites](../quickstarts-sdk/image-analysis-client-library-40.md#prerequisites) for the list of supported Azure regions.
   * `InvalidRequest - The provided image content type ... is not supported`. The HTTP header **Content-Type** in the request is not an allowed type:
     * For an image URL, **Content-Type** should be `application/json`
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
   * `InvalidRequest - Either 'features' or 'model-name' needs to be specified in the query parameter`. 
   * `InvalidRequest - Image format is not valid`
-    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](..\overview-image-analysis?tabs=4-0#image-requirements) section for supported image formats.
+    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](../overview-image-analysis.md?tabs=4-0#image-requirements) section for supported image formats.
   * `InvalidRequest - Analyze query is invalid`
     * `NotSupportedVisualFeature - Specified feature type is not valid`. Make sure the **features** query string has a valid value.
     * `NotSupportedLanguage - The input language is not supported`. Make sure the **language** query string has a valid value for the selected visual feature, based on the [following table](https://aka.ms/cv-languages).
