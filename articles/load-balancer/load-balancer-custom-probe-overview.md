@@ -20,12 +20,6 @@ Health probes support multiple protocols. The availability of a specific health 
 | **[Probe types](#probe-types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
->[!IMPORTANT]
->Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. Review [probe source IP address](#probe-source-ip-address) for details. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
->
->
->Regardless of configured time-out threshold, HTTP(S) load balancer health probes will automatically mark the instance as down if the server returns any status code that isn't HTTP 200 OK or if the connection is terminated via TCP reset.
-
 ## Probe configuration
 
 Health probe configuration consists of the following elements:
@@ -34,33 +28,25 @@ Health probe configuration consists of the following elements:
 | --- | --- | 
 | Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Available options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
-| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attemps to the virtual machine |
 
 ## Application signal, detection of the signal, and Load Balancer reaction
 
 The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. On the next healthy probe up, the health probe marks your backend pool instances as healthy.
 
-For example, a health probe set to 5 seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
+For example, if a health probe set to 5 seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
 
 1. If your application produces a time-out response just before the next probe arrives, the detection of the events will take 5 seconds plus the duration of the application time-out when the probe arrives. You can assume the detection to take slightly over 5 seconds.
-
 2. If your application produces a time-out response just after the next probe arrives, the detection of the events won't begin until the probe arrives and times out, plus another 5 seconds. You can assume the detection to take just under 10 seconds.
 
-For this example, once detection has occurred, the platform takes a small amount of time to react to the change.  
-
-The reaction depends on:
-
+For this example, once detection has occurred, the platform takes a small amount of time to react to the change. The reaction depends on:
 * When the application changes state
 * When the change is detected
 * When the next health probe is sent
 * When the detection has been communicated across the platform 
 
 Assume the reaction to a time-out response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change.
-
 This example is provided to illustrate what is taking place. It's not possible to forecast an exact duration beyond the guidance in the example.
-
->[!NOTE]
->The health probe will probe all running instances in the backend pool. If an instance is stopped it will not be probed until it has been started again.
 
 ## Probe types
 
@@ -87,11 +73,6 @@ HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the spec
 
 HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
-> [!NOTE] 
-> The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
-
-If you use Cloud Services and have web roles that use w3wp.exe, you achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.
-
 An HTTP / HTTPS probe fails when:
 
 * Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). The probe is marked down immediately.
@@ -100,6 +81,9 @@ An HTTP / HTTPS probe fails when:
 
 * Probe endpoint closes the connection via a TCP reset.
 
+> [!NOTE] 
+> The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
+
 ## Probe up behavior
 
 TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:
@@ -107,9 +91,6 @@ TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend e
 * The health probe is successful once after the VM boots.
 
 Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  
-
-> [!NOTE]
-> If the health probe fluctuates, the load balancer waits longer before it puts the backend endpoint back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
 
 ## Probe down behavior
 
@@ -171,6 +152,10 @@ In addition to load balancer health probes, the [following operations use this I
 * Don't enable [TCP timestamps](https://tools.ietf.org/html/rfc1323). TCP timestamps can cause health probes to fail due to the VM's guest OS TCP stack dropping TCP packets. The dropped packets can cause the load balancer to mark the endpoint as down. TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
 
 * Note that a probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
+
+* If the health probe fluctuates, the load balancer waits longer before it puts the backend endpoint back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
+
+* Ensure your virtual machine instances are running. The health probe will probe all running instances in the backend pool. If an instance is stopped, it will not be probed until it has been started again.
 
 ## Monitoring
 
