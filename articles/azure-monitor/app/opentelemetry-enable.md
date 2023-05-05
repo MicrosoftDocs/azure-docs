@@ -254,13 +254,14 @@ Use one of the following two ways to point the client to your Application Insigh
 
 - Use configuration object:
 
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    ```javascript
+    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const config = new ApplicationInsightsConfig();
+    config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
+    const appInsights = new ApplicationInsightsClient(config);
 
-const config = new ApplicationInsightsConfig();
-config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
-const appInsights = new ApplicationInsightsClient(config);
-```
+    ```
+
 
 #### [Python](#tab/python)
 
@@ -890,7 +891,7 @@ public class Program {
 
 #### [Node.js](#tab/nodejs)
 
-```javascript
+```typescript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
@@ -1419,7 +1420,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
 ##### [Node.js](#tab/nodejs)
 
-```javascript
+```typescript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
 const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
@@ -1498,11 +1499,11 @@ Java automatically populates this field.
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
-```javascript
+```typescript
 ...
 const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
 
-class SpanEnrichingProcessor {
+class SpanEnrichingProcessor implements SpanProcessor{
     ...
 
     onEnd(span){
@@ -1562,7 +1563,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
-```javascript
+```typescript
 ...
 import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
 
@@ -1676,7 +1677,7 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
 
     The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
     
-    ```javascript
+    ```typescript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const { IncomingMessage } = require("http");
     const { RequestOptions } = require("https");
@@ -1707,7 +1708,7 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
 2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
-    ```javascript
+    ```typescript
     const { SpanKind, TraceFlags } = require("@opentelemetry/api");
 
     class SpanEnrichingProcessor {
@@ -1830,11 +1831,12 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
 
 Get the request trace ID and the span ID in your code:
 
-    ```javascript
-    const { trace } = require("@opentelemetry/api");
-    let spanId = trace.getActiveSpan().spanContext().spanId;
-    let traceId = trace.getActiveSpan().spanContext().traceId;
-    ```
+   ```javascript
+   const { trace } = require("@opentelemetry/api");
+
+   let spanId = trace.getActiveSpan().spanContext().spanId;
+   let traceId = trace.getActiveSpan().spanContext().traceId;
+   ```
 
 #### [Python](#tab/python)
 

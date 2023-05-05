@@ -399,13 +399,18 @@ catch(error){
 
 You may want to add a custom span when there's a dependency request that's not already collected by an instrumentation library or an application process that you wish to model as a span on the end-to-end transaction view.
 
-Coming soon.
+```javascript
+const { trace } = require("@opentelemetry/api");
+let tracer = trace.getTracer("testTracer");
+let customSpan = tracer.startSpan("testSpan");
+...
+customSpan.end();
+```
 
 ### Send custom telemetry using the Application Insights Classic API
   
 We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights Classic APIs.
   
-Coming soon.
 
 ## Modify telemetry
 
@@ -559,7 +564,12 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
 You might want to get the trace ID or span ID. If you have logs that are sent to a different destination besides Application Insights, you might want to add the trace ID or span ID to enable better correlation when you debug and diagnose issues.
 
-Coming soon.
+   ```javascript
+   const { trace } = require("@opentelemetry/api");
+
+   let spanId = trace.getActiveSpan().spanContext().spanId;
+   let traceId = trace.getActiveSpan().spanContext().traceId;
+   ```
 
 ## Enable the OTLP Exporter
 
