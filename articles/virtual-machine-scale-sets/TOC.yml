@@ -71,6 +71,8 @@
       maintainContext: true
 - name: Scale
   items:
+  - name: Virtual Machine Scaling Profile
+    href: virtual-machine-scaling-profile.md
   - name: Autoscale
     href: virtual-machine-scale-sets-autoscale-overview.md
   - name: Configure autoscale
