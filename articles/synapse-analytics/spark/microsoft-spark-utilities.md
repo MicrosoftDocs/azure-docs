@@ -281,14 +281,14 @@ mssparkutils.fs.ls("Your directory path")
 
 ### View file properties
 
-Returns file properties including file name, file path, file size, and whether it is a directory and a file.
+Returns file properties including file name, file path, file size, file modification time, and whether it is a directory and a file.
 
 :::zone pivot = "programming-language-python"
 
 ```python
 files = mssparkutils.fs.ls('Your directory path')
 for file in files:
-    print(file.name, file.isDir, file.isFile, file.path, file.size)
+    print(file.name, file.isDir, file.isFile, file.path, file.size, file.modifyTime)
 ```
 ::: zone-end
 
@@ -297,7 +297,7 @@ for file in files:
 ```scala
 val files = mssparkutils.fs.ls("/")
 files.foreach{
-    file => println(file.name,file.isDir,file.isFile,file.size)
+    file => println(file.name,file.isDir,file.isFile,file.size,file.modifyTime)
 }
 ```
 
@@ -319,7 +319,7 @@ foreach(var File in Files) {
 ```r
 files <- mssparkutils.fs.ls("/")
 for (file in files) {
-    writeLines(paste(file$name, file$isDir, file$isFile, file$size))
+    writeLines(paste(file$name, file$isDir, file$isFile, file$size, file$modifyTime))
 }
 ```
 
