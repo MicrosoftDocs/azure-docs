@@ -1,19 +1,20 @@
 ---
-title: Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
+title: Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's API for MongoDB query issues.
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
-# Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, see the [SQL API query troubleshooting guide](troubleshoot-query-performance.md) article.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB for NoSQL, see the [API for NoSQL query troubleshooting guide](troubleshoot-query-performance.md) article.
 
 Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
@@ -29,7 +30,7 @@ This article provides examples that you can re-create by using the [nutrition da
 
 ## Use $explain command to get metrics
 
-When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge-mongodb.md) for your query. As a rough guideline, you should explore ways to lower the RU charge for queries with charges greater than 50 RUs. 
+When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge.md) for your query. As a rough guideline, you should explore ways to lower the RU charge for queries with charges greater than 50 RUs. 
 
 In addition to obtaining the RU charge, you should use the `$explain` command to obtain the query and index usage metrics. Here is an example that runs a query and uses the `$explain` command to show query and index usage metrics:
 
@@ -251,7 +252,7 @@ You should check the `pathsNotIndexed` array and add these indexes. In this exam
 
 Indexing best practices in Azure Cosmos DB's API for MongoDB are different from MongoDB. In Azure Cosmos DB's API for MongoDB, compound indexes are only used in queries that need to efficiently sort by multiple properties. If you have queries with filters on multiple properties, you should create single field indexes for each of these properties. Query predicates can use multiple single field indexes.
 
-[Wildcard indexes](mongodb-indexing.md#wildcard-indexes) can simplify indexing. Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates. There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property. Adding a wildcard index for all properties is the easiest way to optimize all of your queries.
+[Wildcard indexes](indexing.md#wildcard-indexes) can simplify indexing. Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates. There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property. Adding a wildcard index for all properties is the easiest way to optimize all of your queries.
 
 You can add new indexes at any time, with no effect on write or read availability. You can [track index transformation progress](../how-to-manage-indexing-policy.md#dotnet-sdk).
 
@@ -332,7 +333,7 @@ In many cases, the RU charge might be acceptable when query latency is still too
 
 ### Improve proximity
 
-Queries that are run from a different region than the Azure Cosmos DB account will have higher latency than if they were run inside the same region. For example, if you're running code on your desktop computer, you should expect latency to be tens or hundreds of milliseconds higher (or more) than if the query came from a virtual machine within the same Azure region as Azure Cosmos DB. It's simple to [globally distribute data in Azure Cosmos DB](tutorial-global-distribution-mongodb.md) to ensure you can bring your data closer to your app.
+Queries that are run from a different region than the Azure Cosmos DB account will have higher latency than if they were run inside the same region. For example, if you're running code on your desktop computer, you should expect latency to be tens or hundreds of milliseconds higher (or more) than if the query came from a virtual machine within the same Azure region as Azure Cosmos DB. It's simple to [globally distribute data in Azure Cosmos DB](tutorial-global-distribution.md) to ensure you can bring your data closer to your app.
 
 ### Increase provisioned throughput
 
@@ -342,8 +343,8 @@ The value `estimatedDelayFromRateLimitingInMilliseconds` gives a sense of the po
 
 ## Next steps
 
-* [Troubleshoot query performance (SQL API)](troubleshoot-query-performance.md)
-* [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
+* [Troubleshoot query performance (API for NoSQL)](troubleshoot-query-performance.md)
+* [Manage indexing in Azure Cosmos DB's API for MongoDB](indexing.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

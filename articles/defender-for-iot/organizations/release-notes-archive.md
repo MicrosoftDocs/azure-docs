@@ -1,8 +1,8 @@
 ---
 title: What's new archive for Microsoft Defender for IoT for organizations
 description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than 6 months ago.
-ms.topic: overview
-ms.date: 03/03/2022
+ms.topic: concept-article
+ms.date: 08/07/2022
 ---
 
 # What's new archive for in Microsoft Defender for IoT for organizations
@@ -11,9 +11,174 @@ ms.date: 03/03/2022
 
 This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than nine months ago.
 
-For more recent updates, see [What's new in Microsoft Defender for IoT?](release-notes.md).
+For more recent updates, see [What's new in Microsoft Defender for IoT?](whats-new.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## December 2021
+
+**Sensor software version**: 10.5.4
+
+- [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
+- [Apache Log4j vulnerability](#apache-log4j-vulnerability)
+- [Alerting](#alerting)
+
+### Enhanced integration with Microsoft Sentinel (Preview)
+
+The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
+
+For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+
+### Apache Log4j vulnerability
+
+Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details, see [the security advisory update](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844).
+
+### Alerting
+
+Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
+
+- Alerts for certain minor events or edge-cases are now disabled.
+- For certain scenarios, similar alerts are minimized in a single alert message.
+
+These changes reduce alert volume and enable more efficient targeting and analysis of security and operational events.
+
+For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
+
+#### Alerts permanently disabled
+
+The alerts listed below are permanently disabled with version 10.5.4. Detection and monitoring are still supported for traffic associated with the alerts.
+
+**Policy engine alerts**
+
+- RPC Procedure Invocations
+- Unauthorized HTTP Server
+- Abnormal usage of MAC Addresses
+
+#### Alerts disabled by default
+
+The alerts listed below are disabled by default with version 10.5.4. You can re-enable the alerts from the Support page of the sensor console, if necessary.
+
+**Anomaly engine alert**
+- Abnormal Number of Parameters in HTTP Header
+- Abnormal HTTP Header Length
+- Illegal HTTP Header Content
+
+**Operational engine alerts**
+- HTTP Client Error
+- RPC Operation Failed
+
+**Policy engine alerts**
+
+Disabling these alerts also disables monitoring of related traffic. Specifically, this traffic won't be reported in Data Mining reports.
+
+- Illegal HTTP Communication alert and HTTP Connections Data Mining traffic
+- Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
+- Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
+
+#### Updated alert functionality
+
+**Unauthorized Database Operation alert**
+Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
+- DDL traffic: alerting and monitoring are supported.
+- DML traffic: Monitoring is supported.  Alerting isn't supported.
+
+**New Asset Detected alert**
+This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if necessary.
+
+### Minimized alerting
+
+Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
+
+This new functionality is available on the following alerts:
+
+- Port Scan Detected alerts, based on activity of the source device (generated by the Anomaly engine)
+- Malware alerts, based on activity of the source device. (generated by the Malware engine). 
+- Suspicion of Denial of Service Attack alerts, based on activity of the destination device (generated by the Malware engine)
+
+## November 2021
+
+**Sensor software version**: 10.5.3
+
+The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
+
+- The on-premises management console, has a new API to support our ServiceNow integration. For more information, see [Integration API reference for on-premises management consoles (Public preview)](api/management-integration-apis.md#integration-api-reference-for-on-premises-management-consoles-public-preview).
+
+- Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
+
+- As part of our automated maintenance, archived alerts that are over 90 days old will now be automatically deleted.
+
+- Many enhancements have been made to the exporting of alert metadata based on customer feedback.
+
+## October 2021
+
+**Sensor software version**: 10.5.2
+
+The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
+
+- [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
+
+- [PCAP API](#pcap-api)
+
+- [On-premises Management Console Audit](#on-premises-management-console-audit)
+
+- [Webhook Extended](#webhook-extended)
+
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
+
+### PLC operating mode detections (Public Preview)
+
+Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+
+This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the effects of such risks.
+This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
+
+#### What is an unsecure mode?
+
+If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*.
+
+#### Visibility and risk assessment
+
+- Use the Device Inventory to view the PLC state of organizational PLCs, and contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
+
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
+
+- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.
+
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
+
+- View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
+
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing PLC option.":::
+
+- Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
+
+### PCAP API
+
+The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself.
+
+### On-premises Management Console audit
+
+Audit logs for the on-premises management console can now be exported to facilitate investigations into what changes were made, and by who.
+
+### Webhook extended
+
+Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert and adds the following information to the report:
+
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+### Unicode support for certificate passphrases
+
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates).
 
 ## April 2021
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 ## Speech synchronization 
 
-You might want to synchronize transcriptions with an audio track, whether it's done in real time or with a prerecording. 
+You might want to synchronize transcriptions with an audio track, whether it's done in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 
@@ -32,7 +32,7 @@ speechRecognizer.Recognizing += (object sender, SpeechRecognitionEventArgs e) =>
     {
         if (e.Result.Reason == ResultReason.RecognizingSpeech)
         {        
-            Console.WriteLine($"RECOGNIZING: Text={e.Result.Text}");
+            Console.WriteLine(String.Format ("RECOGNIZING: {0}", e.Result.Text));
             Console.WriteLine(String.Format ("Offset in Ticks: {0}", e.Result.OffsetInTicks));
             Console.WriteLine(String.Format ("Duration in Ticks: {0}", e.Result.Duration.Ticks));
         }

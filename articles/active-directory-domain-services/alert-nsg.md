@@ -3,14 +3,14 @@ title: Resolve network security group alerts in Azure AD DS | Microsoft Docs
 description: Learn how to troubleshoot and resolve network security group configuration alerts for Azure Active Directory Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/16/2020
+ms.date: 01/29/2023
 ms.author: justinha
 
 ---

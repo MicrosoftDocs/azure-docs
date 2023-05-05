@@ -2,7 +2,6 @@
 title: Best practices for network resources
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 03/10/2021
 
@@ -117,11 +116,12 @@ The *ingress resource* is a YAML manifest of `kind: Ingress`. It defines the hos
 The following example YAML manifest would distribute traffic for *myapp.com* to one of two services, *blogservice* or *storeservice*. The customer is directed to one service or the other based on the URL they access.
 
 ```yaml
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
  name: myapp-ingress
-   annotations: kubernetes.io/ingress.class: "PublicIngress"
 spec:
+ ingressClassName: PublicIngress
  tls:
  - hosts:
    - myapp.com
@@ -132,12 +132,14 @@ spec:
       paths:
       - path: /blog
         backend:
-         serviceName: blogservice
-         servicePort: 80
+         service
+           name: blogservice
+           port: 80
       - path: /store
         backend:
-         serviceName: storeservice
-         servicePort: 80
+         service
+           name: storeservice
+           port: 80
 ```
 
 ### Ingress controller
@@ -233,7 +235,7 @@ This article focused on network connectivity and security. For more information 
 [contour]: https://github.com/heptio/contour
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
-[barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/5
+[barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-network]: concepts-network.md

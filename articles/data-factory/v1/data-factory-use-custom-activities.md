@@ -4,7 +4,7 @@ description: Learn how to create custom activities and use them in an Azure Data
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
@@ -1033,7 +1033,7 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 
 [batch-net-library]: ../../batch/quick-run-dotnet.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
+[batch-technical-overview]:/azure/azure-sql/database/sql-database-paas-overview
 [batch-get-started]: ../../batch/quick-run-dotnet.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

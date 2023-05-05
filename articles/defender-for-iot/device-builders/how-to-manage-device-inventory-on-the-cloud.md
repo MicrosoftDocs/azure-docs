@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT devices with the cloud device inventory
 description: Learn how to manage your IoT devices with the device inventory.
-ms.date: 11/10/2021
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 
@@ -13,7 +13,7 @@ The device inventory can be used to view device systems, and network information
 
 Some of the benefits of the device inventory include:
 
-- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment are not communicating, and will require troubleshooting.
+- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment aren't communicating, and will require troubleshooting.
 
 - Group, and filter devices by site, type, or vendor.
 
@@ -99,7 +99,7 @@ For a list of filters that can be applied to the device inventory table, see the
 
 1. Select the **Apply button**.
 
-Multiple filters can be applied at one time. The filters are not saved when you leave the Device inventory page.
+Multiple filters can be applied at one time. The filters aren't saved when you leave the Device inventory page.
 
 ## View device information
 
@@ -115,7 +115,7 @@ Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-
 
 ## How to identify devices that have not recently communicated with the Azure cloud
 
-If you are under the impression that certain devices are not actively communicating, there is a way to check, and see which devices have not communicated in a specified time period.
+If you are under the impression that certain devices are not actively communicating, there's a way to check, and see which devices have not communicated in a specified time period.
 
 **To identify all devices that have not communicated recently**:
 

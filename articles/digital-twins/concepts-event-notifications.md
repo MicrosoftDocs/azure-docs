@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn to interpret various event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 11/10/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
@@ -30,31 +30,13 @@ This chart shows the different notification types:
 
 ## Notification structure
 
-In general, notifications are made up of two parts: the header and the body. 
+The structure of an event notification from Azure Digital Twins depends on the notification's destination.
 
-### Event notification headers
+Notifications sent to [Event Grid](../event-grid/overview.md) conform to one of the following formats (dependent on the Event Grid settings):
+* [Azure Event Grid event schema](../event-grid/event-schema.md)
+* HTTP Protocol Binding for [CloudEvents](https://cloudevents.io/).
 
-Notification message headers are represented with key-value pairs. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. This section discusses general header information for notification messages, regardless of the specific protocol and serialization chosen.
-
-Some notifications conform to the [CloudEvents](https://cloudevents.io/) standard. CloudEvents conformance is as follows.
-* Notifications emitted from devices continue to follow the existing specifications for notifications
-* Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
-* Notifications emitted from [digital twins](concepts-twins-graph.md) with a [model](concepts-models.md) conform to CloudEvents
-* Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
-
-Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. 
-
-Notifications emitted by Azure Digital Twins to Event Grid will be automatically formatted to either the CloudEvents schema or EventGridEvent schema, depending on the schema type defined in the event grid topic. 
-
-Extension attributes on headers will be added as properties on the Event Grid schema in the payload. 
-
-### Event notification bodies
-
-The bodies of notification messages are described here in JSON. Depending on the wanted serialization type for the message body (such as with JSON, CBOR, Protobuf, and so on), the message body may be serialized differently.
-
-The set of fields that the body contains vary with different notification types.
-
-The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You'll read about the things that trigger each notification type, and the set of fields included with each type of notification body.
+Notifications sent to [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) conform to the AMQP Protocol Binding for [CloudEvents](https://cloudevents.io/).
 
 ## Digital twin change notifications
 
@@ -82,31 +64,94 @@ Here are the fields in the body of a digital twin change notification.
 
 Inside the message, the `data` field contains a JSON Patch document containing the update to the digital twin.
 
-For example, say that a digital twin was updated using the following patch.
+Below are examples of this message type for each possible [notification schema](#notification-structure).
 
-:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
-
-The data in the corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
+# [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
 {
-    "modelId": "dtmi:example:com:floor4;2",
-    "patch": [
-      {
-        "value": 40,
-        "path": "/Temperature",
-        "op": "replace"
+    "id": "39d4abb9-e3ee-4ed5-ad17-2243a9784946",
+    "subject": "example-twin1",
+    "data": {
+      "data": {
+        "modelId": "dtmi:examplecom:interfaceName;1",
+        "patch": [
+          {
+            "value": "new name",
+            "path": "/room",
+            "op": "replace"
+          }
+        ]
       },
-      {
-        "value": 30,
-        "path": "/comp1/prop1",
-        "op": "add"
-      }
-    ]
-  }
+      "contenttype": "application/json",
+      "traceparent": "00-2aa957558db348f387ef704b37631a1d-c28d665340fe5045-01"
+    },
+    "eventType": "Microsoft.DigitalTwins.Twin.Update",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2021-12-09T20:28:52.9795363Z",
+    "topic": "/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.EventGrid/topics/<topic-name>"
+}
 ```
 
-This data is the information that will go in the `data` field of the lifecycle notification message.
+# [Event Grid with CloudEvents](#tab/cloudevents)
+
+```json
+{
+    "specversion": "1.0",
+    "id": "39d4abb9-e3ee-4ed5-ad17-2243a9784946",
+    "type": "Microsoft.DigitalTwins.Twin.Update",
+    "source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
+    "data": {
+      "modelId": "dtmi:examplecom:interfaceName;1",
+      "patch": [
+        {
+          "value": "new name",
+          "path": "/room",
+          "op": "replace"
+        }
+      ]
+    },
+    "subject": "example-twin1",
+    "time": "2021-12-09T20:28:52.9795363Z",
+    "datacontenttype": "application/json",
+    "traceparent": "00-2aa957558db348f387ef704b37631a1d-590d733a1b798149-01"
+}
+```
+
+# [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
+
+An example showing the properties in AMQP's *application-properties* section:
+
+```json
+    "cloudEvents:id": "39d4abb9-e3ee-4ed5-ad17-2243a9784946",
+    "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
+    "cloudEvents:specversion": "1.0",
+    "cloudEvents:type": "Microsoft.DigitalTwins.Twin.Update",
+    "cloudEvents:time": "2021-12-09T20:28:52.9795363Z",
+    "cloudEvents:subject": "example-twin1",
+    "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-e66f14eb07b50d40-01"
+```
+
+An example message body, populated in AMQP's *data* section:
+
+```json
+{
+    "modelId": "dtmi:examplecom:interfaceName;1",
+    "patch": [
+      {
+        "value": "new name",
+        "path": "/room",
+        "op": "replace"
+      }
+    ]
+}
+```
+
+---
+
+>[!NOTE]
+> Azure Digital Twins currently doesn't support [filtering events](how-to-create-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
 
 ## Digital twin lifecycle notifications
 
@@ -134,92 +179,94 @@ Here are the fields in the body of a lifecycle notification.
 
 ### Body details
 
-Here's an example of a lifecycle notification message: 
+Below are examples of this message type for each possible [notification schema](#notification-structure).
+
+# [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
 {
-  "specversion": "1.0",
-  "id": "d047e992-dddc-4a5a-b0af-fa79832235f8",
-  "type": "Microsoft.DigitalTwins.Twin.Create",
-  "source": "contoso-adt.api.wus2.digitaltwins.azure.net",
-  "data": {
-    "$dtId": "floor1",
-    "$etag": "W/\"e398dbf4-8214-4483-9d52-880b61e491ec\"",
-    "$metadata": {
-      "$model": "dtmi:example:Floor;1"
-    }
-  },
-  "subject": "floor1",
-  "time": "2020-06-23T19:03:48.9700792Z",
-  "datacontenttype": "application/json",
-  "traceparent": "00-18f4e34b3e4a784aadf5913917537e7d-691a71e0a220d642-01"
-}
-```
-
-Inside the message, the `data` field contains the data of the affected digital twin, represented in JSON format. The schema for this `data` field is *Digital Twins Resource 7.1*.
-
-For creation events, the `data` payload reflects the state of the twin after the resource is created, so it should include all system generated-elements just like a `GET` call.
-
-Here's an example of the data for an [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that don't make sense for devices (such as reported properties) should be omitted. The following JSON object is the information that will go in the `data` field of the lifecycle notification message:
-
-```json
-{
-  "$dtId": "device-digitaltwin-01",
-  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
-  "thermostat": {
-    "temperature": 80,
-    "humidity": 45,
-    "$metadata": {
-      "$model": "dtmi:com:contoso:Thermostat;1",
-      "temperature": {
-        "desiredValue": 85,
-        "desiredVersion": 3,
-        "ackVersion": 2,
-        "ackCode": 200,
-        "ackDescription": "OK"
+    "id": "6ccdb1cd-0dc3-450f-8730-ceccda8439be",
+    "subject": "example-twin1",
+    "data": {
+      "data": {
+        "$dtId": "example-twin1",
+        "$etag": "W/\"ecf81d6c-8c1a-4a95-afd8-13bd4cea436f\"",
+        "room": "room name",
+        "$metadata": {
+          "$model": "dtmi:examplecom:interfaceName;1",
+          "room": {
+            "lastUpdateTime": "2021-12-09T20:28:52.6651216Z"
+          }
+        }
       },
-      "humidity": {
-        "desiredValue": 40,
-        "desiredVersion": 1,
-        "ackVersion": 1,
-        "ackCode": 200,
-        "ackDescription": "OK"
-      }
-    }
-  },
-  "$metadata": {
-    "$model": "dtmi:com:contoso:Thermostat_X500;1",
-  }
+      "contenttype": "application/json",
+      "traceparent": "00-2aa957558db348f387ef704b37631a1d-51f716e7397ec64b-01"
+    },
+    "eventType": "Microsoft.DigitalTwins.Twin.Create",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2021-12-09T20:28:52.6745538Z",
+    "topic": "/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.EventGrid/topics/<topic-name>"
 }
 ```
 
-Here's another example of digital twin data. This one is based on a [model](concepts-models.md), and doesn't support components:
+# [Event Grid with CloudEvents](#tab/cloudevents)
 
 ```json
 {
-  "$dtId": "logical-digitaltwin-01",
-  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
-  "avgTemperature": 70,
-  "comfortIndex": 85,
-  "$metadata": {
-    "$model": "dtmi:com:contoso:Building;1",
-    "avgTemperature": {
-      "desiredValue": 72,
-      "desiredVersion": 5,
-      "ackVersion": 4,
-      "ackCode": 200,
-      "ackDescription": "OK"
+    "specversion": "1.0",
+    "id": "6ccdb1cd-0dc3-450f-8730-ceccda8439be",
+    "type": "Microsoft.DigitalTwins.Twin.Create",
+    "source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
+    "data": {
+      "$dtId": "example-twin1",
+      "$etag": "W/\"ecf81d6c-8c1a-4a95-afd8-13bd4cea436f\"",
+      "room": "room name",
+      "$metadata": {
+        "$model": "dtmi:examplecom:interfaceName;1",
+        "room": {
+          "lastUpdateTime": "2021-12-09T20:28:52.6651216Z"
+        }
+      }
     },
-    "comfortIndex": {
-      "desiredValue": 90,
-      "desiredVersion": 1,
-      "ackVersion": 3,
-      "ackCode": 200,
-      "ackDescription": "OK"
-    }
-  }
+    "subject": "example-twin1",
+    "time": "2021-12-09T20:28:52.6745538Z",
+    "datacontenttype": "application/json",
+    "traceparent": "00-2aa957558db348f387ef704b37631a1d-96f834571bf4fe45-01"
 }
 ```
+
+# [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
+
+An example showing the properties in AMQP's *application-properties* section:
+
+```json 
+    "cloudEvents:id": "6ccdb1cd-0dc3-450f-8730-ceccda8439be",
+    "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
+    "cloudEvents:specversion": "1.0",
+    "cloudEvents:type": "Microsoft.DigitalTwins.Twin.Create",
+    "cloudEvents:time": "2021-12-09T20:28:52.6745538Z",
+    "cloudEvents:subject": "example-twin1",
+    "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-a158c39c72ec1049-01"
+```
+
+An example message body, populated in AMQP's *data* section:
+
+```json
+{
+    "$dtId": "example-twin1",
+    "$etag": "W/\"ecf81d6c-8c1a-4a95-afd8-13bd4cea436f\"",
+    "room": "room name",
+    "$metadata": {
+        "$model": "dtmi:examplecom:interfaceName;1",
+        "room": {
+            "lastUpdateTime": "2021-12-09T20:28:52.6651216Z"
+        }
+    }
+}
+```
+
+---
 
 ## Digital twin relationship change notifications
 
@@ -245,36 +292,95 @@ Here are the fields in the body of a relationship change notification.
 
 Inside the message, the `data` field contains the payload of a relationship, in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
-Here's an example of the data for an update relationship notification. "Updating a relationship" means properties of the relationship have changed, so the data shows the updated property and its new value. The following JSON object is the information that will go in the `data` field of the digital twin relationship notification message:
+Below are examples of this message type for each possible [notification schema](#notification-structure).
+
+# [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
 {
-    "modelId": "dtmi:example:Floor;1",
-    "patch": [
-      {
-        "value": "user3",
-        "path": "/ownershipUser",
-        "op": "replace"
-      }
-    ]
-  }
-```
-
-Here's an example of the data for a create or delete relationship notification. For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
-
-```json
-{
-    "$relationshipId": "device_to_device",
-    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
-    "$relationshipName": "Connected",
-    "$targetId": "device2",
-    "connectionType": "WIFI"
+    "id": "4d850574-0a28-4667-a59e-3b382ff0e74e",
+    "subject": "example-twin1/relationships/RuntimeEventsScenario_edge",
+    "data": {
+    "data": {
+        "modelId": "dtmi:examplecom:interfaceName;1",
+        "patch": [
+        {
+            "value": "new value",
+            "path": "/prop1",
+            "op": "replace"
+        }
+        ]
+    },
+    "contenttype": "application/json",
+    "traceparent": "00-2aa957558db348f387ef704b37631a1d-c1fcf951f540ec44-01"
+    },
+    "eventType": "Microsoft.DigitalTwins.Relationship.Update",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2021-12-09T20:28:53.2016395Z",
+    "topic": "/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.EventGrid/topics/<topic-name>"
 }
 ```
 
+# [Event Grid with CloudEvents](#tab/cloudevents)
+
+```json
+{
+    "specversion": "1.0",
+    "id": "4d850574-0a28-4667-a59e-3b382ff0e74e",
+    "type": "Microsoft.DigitalTwins.Relationship.Update",
+    "source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
+    "data": {
+    "modelId": "dtmi:examplecom:interfaceName;1",
+    "patch": [
+        {
+        "value": "new value",
+        "path": "/prop1",
+        "op": "replace"
+        }
+    ]
+    },
+    "subject": "example-twin1/relationships/RuntimeEventsScenario_edge",
+    "time": "2021-12-09T20:28:53.2016395Z",
+    "datacontenttype": "application/json",
+    "traceparent": "00-2aa957558db348f387ef704b37631a1d-723b3f49efd2e445-01"
+}
+```
+
+# [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
+
+An example showing the properties in AMQP's *application-properties* section:
+
+```json
+    "cloudEvents:id": "4d850574-0a28-4667-a59e-3b382ff0e74e",
+    "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
+    "cloudEvents:specversion": "1.0",
+    "cloudEvents:type": "Microsoft.DigitalTwins.Relationship.Update",
+    "cloudEvents:time": "2021-12-09T20:28:53.2016395Z",
+    "cloudEvents:subject": "example-twin1/relationships/RuntimeEventsScenario_edge",
+    "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-6f3805aab2b73e49-01"
+```
+
+An example message body, populated in AMQP's *data* section:
+
+```json
+{
+    "modelId": "dtmi:examplecom:interfaceName;1",
+    "patch": [
+      {
+        "value": "new value",
+        "path": "/prop1",
+        "op": "replace"
+      }
+    ]
+}
+```
+
+---
+
 ## Digital twin telemetry messages
 
-*Telemetry messages* are received in Azure Digital Twins from connected devices that collect and send measurements.
+Digital twins can use the [SendTelemetry API](/rest/api/digital-twins/dataplane/twins/digitaltwins_sendtelemetry) to emit *telemetry messages* and send them to egress endpoints.
 
 ### Properties
 
@@ -283,34 +389,83 @@ Here are the fields in the body of a telemetry message.
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, which is provided by the customer when calling the telemetry API. |
-| `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
+| `source` | Fully qualified name of the twin that the telemetry event was sent from. Uses the following format: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `microsoft.iot.telemetry` |
-| `data` | The telemetry message that has been sent to twins. The payload is unmodified and may not align with the schema of the twin that has been sent the telemetry. |
+| `data` | The telemetry message being sent from the twin. The payload does not need to align with any schema defined in your Azure Digital Twins instance. |
 | `dataschema` | The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2`. |
 | `datacontenttype` | `application/json` |
 | `traceparent` | A W3C trace context for the event. |
 
 ### Body details
 
-The body contains the telemetry measurement along with some contextual information about the device.
+The body contains the telemetry measurement along with some contextual information about the twin.
+Below are examples of this message type for each possible [notification schema](#notification-structure).
 
-Here's an example telemetry message body: 
+# [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
 {
-  "specversion": "1.0",
-  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
-  "type": "microsoft.iot.telemetry",
-  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
-  "data": {
-    "Temperature": 10
-  },
-  "dataschema": "dtmi:example:com:floor4;2",
-  "datacontenttype": "application/json",
-  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
+    "id": "6f6635d8-f1b8-43ec-80fb-bb9453fc611c",
+    "subject": "example-twin1",
+    "data": {
+        "data": {
+        "prop": "hello from telemetry"
+        },
+        "dataschema": "dtmi:examplecom:interfaceName;1",
+        "contenttype": "application/json-patch+json; charset=utf-8",
+        "traceparent": "00-2aa957558db348f387ef704b37631a1d-e894098b46243743-01"
+    },
+    "eventType": "microsoft.iot.telemetry",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "0001-01-01T00:00:00Z",
+    "topic": "/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.EventGrid/topics/<topic-name>"
 }
 ```
+
+# [Event Grid with CloudEvents](#tab/cloudevents)
+
+```json
+{
+    "specversion": "1.0",
+    "id": "622e6818-f042-4be8-96df-1a77ee9caf9b",
+    "type": "microsoft.iot.telemetry",
+    "source": "my-example-digital-twin.api.sea.digitaltwins.azure.net/digitaltwins/RuntimeEventsScenario_componentTwin_6f6635d8-f1b8-43ec-80fb-bb9453fc611c",
+    "data": {
+        "prop": "hello from telemetry"
+    },
+    "dataschema": "dtmi:examplecom:interfaceName;1",
+    "subject": "component1",
+    "datacontenttype": "application/json-patch+json; charset=utf-8",
+    "traceparent": "00-2aa957558db348f387ef704b37631a1d-f58ef0c31162c548-01"
+}
+
+```
+
+# [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
+
+An example showing the properties in AMQP's *application-properties* section:
+
+```json
+    "cloudEvents:id": "6f6635d8-f1b8-43ec-80fb-bb9453fc611c",
+    "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net/digitaltwins/example-twin1",
+    "cloudEvents:specversion": "1.0",
+    "cloudEvents:type": "microsoft.iot.telemetry",
+    "cloudEvents:dataschema": "dtmi:examplecom:interfaceName;1",
+    "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-ce042d67cbbfd948-01"
+```
+
+An example message body, populated in AMQP's *data* section:
+
+```json
+{
+    "Temperature": 50
+}
+
+```
+
+---
 
 ## Next steps
 

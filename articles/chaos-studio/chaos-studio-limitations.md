@@ -2,10 +2,10 @@
 title: Azure Chaos Studio limitations and known issues
 description: Understand current limitations and known issues when using Azure Chaos Studio.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ---
 
@@ -15,6 +15,7 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 
 ## Limitations 
 
+* The target resources must be in [one of the regions supported by the Azure Chaos Studio Preview](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio) 
 * For agent-based faults, the virtual machine must have outbound network access to the Chaos Studio agent service:
     * Regional endpoints to allowlist are listed [in this article](chaos-studio-permissions-security.md#network-security).
     * If sending telemetry data to Application Insights, the IPs [in this document](../azure-monitor/app/ip-addresses.md) are also required.

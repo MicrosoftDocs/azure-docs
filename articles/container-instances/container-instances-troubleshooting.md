@@ -1,8 +1,12 @@
 ---
 title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
-ms.topic: article
-ms.date: 06/25/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -50,7 +54,7 @@ To resolve this issue, delete the container instance and retry your deployment. 
 
 If the image can't be pulled, events like the following are shown in the output of [az container show][az-container-show]:
 
-```bash
+```json
 "events": [
   {
     "count": 3,
@@ -92,6 +96,10 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy at a later time
 
 ## Issues during container group runtime
+### Container had an isolated restart without explicit user input
+
+There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends leveraging observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](container-instances-monitor.md), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+
 ### Container continually exits and restarts (no long-running process)
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
@@ -168,8 +176,10 @@ If your container takes a long time to start, but eventually succeeds, start by 
 
 You can view the size of your container image by using the `docker images` command in the Docker CLI:
 
-```console
-$ docker images
+```bash
+docker images
+```
+```output
 REPOSITORY                                    TAG       IMAGE ID        CREATED          SIZE
 mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 months ago    67.6MB
 ```
@@ -193,7 +203,7 @@ On initial creation, Windows containers may have no inbound or outbound connecti
 
 ### Cannot connect to underlying Docker API or run privileged containers
 
-Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](/rest/api/container-instances/) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the container runtime, orchestration technology, and running privileged container operations. To see what operations are supported by ACI, check the [REST reference documentation](/rest/api/container-instances/). If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
 ### Container group IP address may not be accessible due to mismatched ports
 
@@ -202,7 +212,7 @@ Azure Container Instances doesn't yet support port mapping like with regular doc
 If you want to confirm that Azure Container Instances can listen on the port you configured in your container image, test a deployment of the `aci-helloworld` image that exposes the port. Also run the `aci-helloworld` app so that it listens on the port. `aci-helloworld` accepts an optional environment variable `PORT` to override the default port 80 it listens on. For example, to test port 9000, set the [environment variable](container-instances-environment-variables.md) when you create the container group:
 
 1. Set up the container group to expose port 9000, and pass the port number as the value of the environment variable. The example is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment accordingly.
-    ```azurecli
+    ```azurecli-interactive
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --ip-address Public --ports 9000 \
@@ -214,7 +224,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
     You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
 1. When you're done with the container, remove it using the `az container delete` command:
 
-    ```azurecli
+    ```azurecli-interactive
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
 
@@ -232,4 +242,4 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az_container_show
-[list-cached-images]: /rest/api/container-instances/location/listcachedimages
+[list-cached-images]: /rest/api/container-instances/2022-09-01/location/list-cached-images

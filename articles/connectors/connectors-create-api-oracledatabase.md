@@ -14,11 +14,10 @@ tags: connectors
 Using the Oracle Database connector, you create organizational workflows that use data in your existing database. This connector can connect to an on-premises Oracle Database, or an Azure virtual machine with Oracle Database installed. With this connector, you can:
 
 * Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
-* Use actions to get a row of data, insert a new row, and even delete. For example, when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Oracle Database (an action). 
+* Use actions to get a row of data, insert a new row, and even delete. For example, when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Oracle Database (an action).
 
 This connector doesn't support the following items:
 
-* Views 
 * Any table with composite keys
 * Nested object types in tables
 * Database functions with non-scalar values
@@ -27,16 +26,16 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 ## Prerequisites
 
-* Supported Oracle versions: 
+* Supported Oracle versions:
     * Oracle 9 and later
     * Oracle Data Access Client (ODAC) 11.2 and later
 
-* Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
+* Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed.
 
     > [!NOTE]
     > The on-premises data gateway acts as a bridge, and provides a secure data transfer between on-premises data (data that is not in the cloud) and your logic apps. The same gateway can be used with multiple services, and multiple data sources. So, you may only need to install the gateway once.
 
-* Install the Oracle Client on the machine where you installed the on-premises data gateway. Make sure that you install the 64-bit Oracle Data Provider for .NET from Oracle, and select the Windows installer version because the `xcopy` version doesn't work with the on-premises data gateway:  
+* Install the Oracle Client on the machine where you installed the on-premises data gateway. Make sure that you install the 64-bit Oracle Data Provider for .NET from Oracle, and select the Windows installer version because the `xcopy` version doesn't work with the on-premises data gateway:
 
   [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -47,30 +46,30 @@ This article shows you how to use the Oracle Database connector in a logic app.
 ## Add the connector
 
 > [!IMPORTANT]
-> This connector does not have any triggers. It has only actions. So when you create your logic app, add another trigger to start your logic app, such as **Schedule - Recurrence**, or **Request / Response - Response**. 
+> This connector does not have any triggers. It has only actions. So when you create your logic app, add another trigger to start your logic app, such as **Schedule - Recurrence**, or **Request / Response - Response**.
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app.
 
-2. At the start of your logic app, select the **Request / Response - Request** trigger: 
+2. At the start of your logic app, select the **Request / Response - Request** trigger:
 
     ![A dialog box has a box to search all triggers. There is also a single trigger shown, "Request / Response-Request", with a selection button.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Select **Save**. When you save, a request URL is automatically generated. 
+3. Select **Save**. When you save, a request URL is automatically generated.
 
-4. Select **New step**, and select **Add an action**. Type in `oracle` to see the available actions: 
+4. Select **New step**, and select **Add an action**. Type in `oracle` to see the available actions:
 
     ![A search box contains "oracle". The search produces one hit labeled "Oracle Database". There is a tabbed page, one tab showing "TRIGGERS (0)", another showing "ACTIONS (6)". Six actions are listed. The first of these is "Get row Preview".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > This is also the quickest way to see the triggers and actions available for any connector. Type in part of the connector name, such as `oracle`. The designer lists any triggers and any actions. 
+    > This is also the quickest way to see the triggers and actions available for any connector. Type in part of the connector name, such as `oracle`. The designer lists any triggers and any actions.
 
 5. Select one of the actions, such as **Oracle Database - Get row**. Select **Connect via on-premises data gateway**. Enter the Oracle server name, authentication method, username, password, and select the gateway:
 
-    ![The dialog box is titled "Oracle Database - Get row". There is a box, checked, labeled "Connect via on-premise data gateway". Below that are the five other text boxes.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![The dialog box is titled "Oracle Database - Get row". There is a box, checked, labeled "Connect via on-premises data gateway". Below that are the five other text boxes.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. Once connected, select a table from the list, and enter the row ID to your table. You need to know the identifier to the table. If you don't know, contact your Oracle DB administrator, and get the output from `select * from yourTableName`. This gives you the identifiable information you need to proceed.
 
-    In the following example, job data is being returned from a Human Resources database: 
+    In the following example, job data is being returned from a Human Resources database:
 
     ![The dialog box titled "Get row (Preview)" has two text boxes: "Table name", which contains "H R JOBS" and has a drop-down list, and "Row i d", which contains "S A _ REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
@@ -101,26 +100,28 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 #### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. See [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) to install the official provider.
 
-**Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running.  
+**Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running. 
 
 **Resolution**: Download and install the Oracle client SDK on the same computer as the on-premises data gateway.
 
 #### **Error**: Table '[Tablename]' does not define any key columns
 
-**Cause**: The table does not have any primary key.  
+**Cause**: The table does not have any primary key. 
 
 **Resolution**: The Oracle Database connector requires that a table with a primary key column be used.
- 
+
 ## Connector-specific details
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/oracle/). 
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/oracle/).
 
 ## Get some help
 
-The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
+The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing.
 
-You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
-
+You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish).
 
 ## Next steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
+
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

@@ -1,8 +1,11 @@
 ---
 title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
+author: EdB-MSFT
 ms.topic: reference
-ms.date: 03/03/2022
+ms.date: 04/13/2023
+ms.author: edbaynash
+ms.reviewer: lualderm
 
 ---
 
@@ -27,1235 +30,1476 @@ In addition, there might be costs to export some categories of resource logs to 
 
 Following is a list of the types of logs available for each resource type. 
 
-Some categories might be supported only for specific types of resources. See the resource-specific documentation if you feel you're missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
+Some categories might be supported only for specific types of resources. See the resource-specific documentation if you feel you're missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure). 
 
 If you think something is missing, you can open a GitHub comment at the bottom of this article.
 
-## Microsoft.AAD/DomainServices
+## Microsoft.AAD/DomainServices  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AccountLogon|AccountLogon|No|
-|AccountManagement|AccountManagement|No|
-|DetailTracking|DetailTracking|No|
-|DirectoryServiceAccess|DirectoryServiceAccess|No|
-|LogonLogoff|LogonLogoff|No|
-|ObjectAccess|ObjectAccess|No|
-|PolicyChange|PolicyChange|No|
-|PrivilegeUse|PrivilegeUse|No|
-|SystemSecurity|SystemSecurity|No|
+|AccountLogon |AccountLogon |No |
+|AccountManagement |AccountManagement |No |
+|DetailTracking |DetailTracking |No |
+|DirectoryServiceAccess |DirectoryServiceAccess |No |
+|LogonLogoff |LogonLogoff |No |
+|ObjectAccess |ObjectAccess |No |
+|PolicyChange |PolicyChange |No |
+|PrivilegeUse |PrivilegeUse |No |
+|SystemSecurity |SystemSecurity |No |
 
+## microsoft.aadiam/tenants  
+<!-- Data source : arm-->
 
-## microsoft.aadiam/tenants
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Signin|Signin|Yes|
-
+|Signin |Signin |Yes |
 
-## Microsoft.AgFoodPlatform/farmBeats
+## Microsoft.AgFoodPlatform/farmBeats  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationAuditLogs|Application Audit Logs|Yes|
-|FarmManagementLogs|Farm Management Logs|Yes|
-|FarmOperationLogs|Farm Operation Logs|Yes|
-|InsightLogs|Insight Logs|Yes|
-|JobProcessedLogs|Job Processed Logs|Yes|
-|ModelInferenceLogs|Model Inference Logs|Yes|
-|ProviderAuthLogs|Provider Auth Logs|Yes|
-|SatelliteLogs|Satellite Logs|Yes|
-|WeatherLogs|Weather Logs|Yes|
+|ApplicationAuditLogs |Application Audit Logs |Yes |
+|FarmManagementLogs |Farm Management Logs |Yes |
+|FarmOperationLogs |Farm Operation Logs |Yes |
+|InsightLogs |Insight Logs |Yes |
+|JobProcessedLogs |Job Processed Logs |Yes |
+|ModelInferenceLogs |Model Inference Logs |Yes |
+|ProviderAuthLogs |Provider Auth Logs |Yes |
+|SatelliteLogs |Satellite Logs |Yes |
+|SensorManagementLogs |Sensor Management Logs |Yes |
+|WeatherLogs |Weather Logs |Yes |
 
+## Microsoft.AnalysisServices/servers  
+<!-- Data source : arm-->
 
-## Microsoft.AnalysisServices/servers
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Engine|Engine|No|
-|Service|Service|No|
+|Engine |Engine |No |
+|Service |Service |No |
 
+## Microsoft.ApiManagement/service  
+<!-- Data source : naam-->
 
-## Microsoft.ApiManagement/service
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayLogs|Logs related to ApiManagement Gateway|No|
-|WebSocketConnectionLogs|Logs related to Websocket Connections|Yes|
-
+|GatewayLogs |Logs related to ApiManagement Gateway |No |
+|WebSocketConnectionLogs |Logs related to Websocket Connections |Yes |
 
-## Microsoft.AppConfiguration/configurationStores
+## Microsoft.App/managedEnvironments  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
-|HttpRequest|HTTP Requests|Yes|
+|AppEnvSpringAppConsoleLogs |Spring App console logs |Yes |
+|ContainerAppConsoleLogs |Container App console logs |Yes |
+|ContainerAppSystemLogs |Container App system logs |Yes |
 
+## Microsoft.AppConfiguration/configurationStores  
+<!-- Data source : naam-->
 
-## Microsoft.AppPlatform/Spring
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationConsole|Application Console|No|
-|BuildLogs|Build Logs|Yes|
-|IngressLogs|Ingress Logs|Yes|
-|SystemLogs|System Logs|No|
+|Audit |Audit |Yes |
+|HttpRequest |HTTP Requests |Yes |
 
+## Microsoft.AppPlatform/Spring  
+<!-- Data source : arm-->
 
-## Microsoft.Attestation/attestationProviders
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditEvent|AuditEvent message log category.|No|
-|AuditEvent|AuditEvent message log category.|No|
-|ERR|Error message log category.|No|
-|ERR|Error message log category.|No|
-|INF|Informational message log category.|No|
-|INF|Informational message log category.|No|
-|NotProcessed|Requests which could not be processed.|Yes|
-|Operational|Operational message log category.|Yes|
-|WRN|Warning message log category.|Yes|
-|WRN|Warning message log category.|No|
-
+|ApplicationConsole |Application Console |No |
+|BuildLogs |Build Logs |Yes |
+|ContainerEventLogs |Container Event Logs |Yes |
+|IngressLogs |Ingress Logs |Yes |
+|SystemLogs |System Logs |No |
 
-## Microsoft.Automation/automationAccounts
+## Microsoft.Attestation/attestationProviders  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditEvent|AuditEvent|Yes|
-|DscNodeStatus|DscNodeStatus|No|
-|JobLogs|JobLogs|No|
-|JobStreams|JobStreams|No|
+|AuditEvent |AuditEvent message log category. |No |
+|NotProcessed |Requests which could not be processed. |Yes |
+|Operational |Operational message log category. |Yes |
 
+## Microsoft.Automation/automationAccounts  
+<!-- Data source : naam-->
 
-## Microsoft.AutonomousDevelopmentPlatform/accounts
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
-|Operational|Operational|Yes|
-|Request|Request|Yes|
+|AuditEvent |AuditEvent |Yes |
+|DscNodeStatus |DscNodeStatus |No |
+|JobLogs |JobLogs |No |
+|JobStreams |JobStreams |No |
 
+## Microsoft.AutonomousDevelopmentPlatform/accounts  
+<!-- Data source : naam-->
 
-## Microsoft.AutonomousDevelopmentPlatform/datapools
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
-|Operational|Operational|Yes|
-|Request|Request|Yes|
-
+|Audit |Audit |Yes |
+|Operational |Operational |Yes |
+|Request |Request |Yes |
 
-## Microsoft.AutonomousDevelopmentPlatform/workspaces
+## Microsoft.AutonomousDevelopmentPlatform/workspaces  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
-|Operational|Operational|Yes|
-|Request|Request|Yes|
+|Audit |Audit |Yes |
+|Operational |Operational |Yes |
+|Request |Request |Yes |
 
+## microsoft.avs/privateClouds  
+<!-- Data source : naam-->
 
-## microsoft.avs/privateClouds
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|vmwaresyslog|VMware VCenter Syslog|Yes|
-
+|vmwaresyslog |VMware Syslog |Yes |
 
-## Microsoft.Batch/batchAccounts
+## microsoft.azuresphere/catalogs  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ServiceLog|Service Logs|No|
+|AuditLogs |Audit Logs |Yes |
+|DeviceEvents |Device Events |Yes |
 
+## Microsoft.Batch/batchaccounts  
+<!-- Data source : naam-->
 
-## Microsoft.BatchAI/workspaces 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLog |Audit Logs |Yes |
+|ServiceLog |Service Logs |No |
+|ServiceLogs |Service Logs |Yes |
 
-|Category|Category Display Name|Costs To Export| 
-|---|---|---| 
-|BaiClusterEvent|BaiClusterEvent|No| 
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No| 
-|BaiJobEvent|BaiJobEvent|No| 
+## microsoft.botservice/botservices  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BotRequest |Requests from the channels to the bot |Yes |
 
-## Microsoft.Blockchain/blockchainMembers
+## Microsoft.Cache/redis  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BlockchainApplication|Blockchain Application|No|
-|FabricOrderer|Fabric Orderer|No|
-|FabricPeer|Fabric Peer|No|
-|Proxy|Proxy|No|
+|ConnectedClientList |Connected client list |Yes |
 
+## Microsoft.Cache/redisEnterprise/databases  
+<!-- Data source : naam-->
 
-## Microsoft.Blockchain/cordaMembers
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BlockchainApplication|Blockchain Application|No|
-
+|ConnectionEvents |Connection events (New Connection/Authentication/Disconnection) |Yes |
 
-## microsoft.botservice/botservices
+## Microsoft.Cdn/cdnwebapplicationfirewallpolicies  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BotRequest|Requests from the channels to the bot|No|
+|WebApplicationFirewallLogs |Web Appliation Firewall Logs |No |
 
+## Microsoft.Cdn/profiles  
+<!-- Data source : naam-->
 
-## Microsoft.Cache/redis
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ConnectedClientList|Connected client list|Yes|
+|AzureCdnAccessLog |Azure Cdn Access Log |No |
+|FrontDoorAccessLog |FrontDoor Access Log |Yes |
+|FrontDoorHealthProbeLog |FrontDoor Health Probe Log |Yes |
+|FrontDoorWebApplicationFirewallLog |FrontDoor WebApplicationFirewall Log |Yes |
 
+## Microsoft.Cdn/profiles/endpoints  
+<!-- Data source : naam-->
 
-## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|WebApplicationFirewallLogs|Web Appliation Firewall Logs|No|
-
+|CoreAnalytics |Gets the metrics of the endpoint, e.g., bandwidth, egress, etc. |No |
 
-## Microsoft.Cdn/profiles
+## Microsoft.Chaos/experiments  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AzureCdnAccessLog|Azure Cdn Access Log|No|
-|FrontDoorAccessLog|FrontDoor Access Log|Yes|
-|FrontDoorHealthProbeLog|FrontDoor Health Probe Log|Yes|
-|FrontDoorWebApplicationFirewallLog|FrontDoor WebApplicationFirewall Log|Yes|
+|ExperimentOrchestration |Experiment Orchestration Events |Yes |
 
+## Microsoft.ClassicNetwork/networksecuritygroups  
+<!-- Data source : arm-->
 
-## Microsoft.Cdn/profiles/endpoints
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|No|
-
+|Network Security Group Rule Flow Event |Network Security Group Rule Flow Event |No |
 
-## Microsoft.ClassicNetwork/networksecuritygroups
+## Microsoft.CodeSigning/codesigningaccounts  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|No|
+|SignTransactions |Sign Transactions |Yes |
 
+## Microsoft.CognitiveServices/accounts  
+<!-- Data source : naam-->
 
-## Microsoft.CognitiveServices/accounts
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
-|RequestResponse|Request and Response Logs|No|
-|Trace|Trace Logs|No|
+|Audit |Audit Logs |No |
+|RequestResponse |Request and Response Logs |No |
+|Trace |Trace Logs |No |
 
+## Microsoft.Communication/CommunicationServices  
+<!-- Data source : naam-->
 
-## Microsoft.Communication/CommunicationServices
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuthOperational|Operational Authentication Logs|Yes|
-|CallDiagnostics|Call Diagnostics Logs|Yes|
-|CallSummary|Call Summary Logs|Yes|
-|ChatOperational|Operational Chat Logs|No|
-|NetworkTraversalOperational|Operational Network Traversal Logs|Yes|
-|SMSOperational|Operational SMS Logs|No|
-|Usage|Usage Records|No|
-
+|AuthOperational |Operational Authentication Logs |Yes |
+|CallAutomationOperational |Operational Call Automation Logs |Yes |
+|CallDiagnostics |Call Diagnostics Logs |Yes |
+|CallRecordingSummary |Call Recording Summary Logs |Yes |
+|CallSummary |Call Summary Logs |Yes |
+|ChatOperational |Operational Chat Logs |No |
+|EmailSendMailOperational |Email Service Send Mail Logs |Yes |
+|EmailStatusUpdateOperational |Email Service Delivery Status Update Logs |Yes |
+|EmailUserEngagementOperational |Email Service User Engagement Logs |Yes |
+|JobRouterOperational |Operational Job Router Logs |Yes |
+|NetworkTraversalDiagnostics |Network Traversal Relay Diagnostic Logs |Yes |
+|NetworkTraversalOperational |Operational Network Traversal Logs |Yes |
+|RoomsOperational |Operational Rooms Logs |Yes |
+|SMSOperational |Operational SMS Logs |No |
+|Usage |Usage Records |No |
 
-## Microsoft.ConnectedVehicle/platformAccounts
+## Microsoft.Compute/virtualMachines  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|MCVP Audit Logs|Yes|
-|Logs|MCVP Logs|Yes|
+|SoftwareUpdateProfile |SoftwareUpdateProfile |Yes |
+|SoftwareUpdates |SoftwareUpdates |Yes |
 
+## Microsoft.ConfidentialLedger/ManagedCCF  
+<!-- Data source : naam-->
 
-## Microsoft.ContainerRegistry/registries
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ContainerRegistryLoginEvents|Login Events|No|
-|ContainerRegistryRepositoryEvents|RepositoryEvent logs|No|
+|applicationlogs |CCF Application Logs |Yes |
 
+## Microsoft.ConfidentialLedger/ManagedCCFs  
+<!-- Data source : naam-->
 
-## Microsoft.ContainerService/managedClusters
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|cloud-controller-manager|Kubernetes Cloud Controller Manager|Yes|
-|cluster-autoscaler|Kubernetes Cluster Autoscaler|No|
-|csi-azuredisk-controller|csi-azuredisk-controller|Yes|
-|csi-azurefile-controller|csi-azurefile-controller|Yes|
-|csi-snapshot-controller|csi-snapshot-controller|Yes|
-|guard|guard|No|
-|kube-apiserver|Kubernetes API Server|No|
-|kube-audit|Kubernetes Audit|No|
-|kube-audit-admin|Kubernetes Audit Admin Logs|No|
-|kube-controller-manager|Kubernetes Controller Manager|No|
-|kube-scheduler|Kubernetes Scheduler|No|
-
+|applicationlogs |CCF Application Logs |Yes |
 
-## Microsoft.CustomProviders/resourceproviders
+## Microsoft.ConnectedCache/CacheNodes  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditLogs|Audit logs for MiniRP calls|No|
+|Events |Events |Yes |
 
+## Microsoft.ConnectedCache/ispCustomers  
+<!-- Data source : naam-->
 
-## Microsoft.D365CustomerInsights/instances
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit events|No|
-|Operational|Operational events|No|
+|Events |Events |Yes |
 
+## Microsoft.ConnectedVehicle/platformAccounts  
+<!-- Data source : naam-->
 
-## Microsoft.Dashboard/grafana
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GrafanaLoginEvents|Grafana Login Events|Yes|
-
+|Audit |MCVP Audit Logs |Yes |
+|Logs |MCVP Logs |Yes |
 
-## Microsoft.Databricks/workspaces
+## Microsoft.ContainerRegistry/registries  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|accounts|Databricks Accounts|No|
-|clusters|Databricks Clusters|No|
-|dbfs|Databricks File System|No|
-|featureStore|Databricks Feature Store|Yes|
-|genie|Databricks Genie|Yes|
-|globalInitScripts|Databricks Global Init Scripts|Yes|
-|iamRole|Databricks IAM Role|Yes|
-|instancePools|Instance Pools|No|
-|jobs|Databricks Jobs|No|
-|mlflowAcledArtifact|Databricks MLFlow Acled Artifact|Yes|
-|mlflowExperiment|Databricks MLFlow Experiment|Yes|
-|notebook|Databricks Notebook|No|
-|RemoteHistoryService|Databricks Remote History Service|Yes|
-|secrets|Databricks Secrets|No|
-|sqlanalytics|Databricks SQL Analytics|Yes|
-|sqlPermissions|Databricks SQLPermissions|No|
-|ssh|Databricks SSH|No|
-|workspace|Databricks Workspace|No|
+|ContainerRegistryLoginEvents |Login Events |No |
+|ContainerRegistryRepositoryEvents |RepositoryEvent logs |No |
 
+## Microsoft.ContainerService/fleets  
+<!-- Data source : naam-->
 
-## Microsoft.DataCollaboration/workspaces
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|CollaborationAudit|Collaboration Audit|Yes|
-|DataAssets|Data Assets|No|
-|Pipelines|Pipelines|No|
-|Proposals|Proposals|No|
-|Scripts|Scripts|No|
-
+|cloud-controller-manager |Kubernetes Cloud Controller Manager |Yes |
+|cluster-autoscaler |Kubernetes Cluster Autoscaler |Yes |
+|csi-azuredisk-controller |csi-azuredisk-controller |Yes |
+|csi-azurefile-controller |csi-azurefile-controller |Yes |
+|csi-snapshot-controller |csi-snapshot-controller |Yes |
+|guard |guard |Yes |
+|kube-apiserver |Kubernetes API Server |Yes |
+|kube-audit |Kubernetes Audit |Yes |
+|kube-audit-admin |Kubernetes Audit Admin Logs |Yes |
+|kube-controller-manager |Kubernetes Controller Manager |Yes |
+|kube-scheduler |Kubernetes Scheduler |Yes |
 
-## Microsoft.DataFactory/factories
+## Microsoft.ContainerService/managedClusters  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ActivityRuns|Pipeline activity runs log|No|
-|AirflowDagProcessingLogs|Airflow dag processing logs|Yes|
-|AirflowSchedulerLogs|Airflow scheduler logs|Yes|
-|AirflowTaskLogs|Airflow task execution logs|Yes|
-|AirflowWebLogs|Airflow web logs|Yes|
-|AirflowWorkerLogs|Airflow worker logs|Yes|
-|PipelineRuns|Pipeline runs log|No|
-|SandboxActivityRuns|Sandbox Activity runs log|Yes|
-|SandboxPipelineRuns|Sandbox Pipeline runs log|Yes|
-|SSISIntegrationRuntimeLogs|SSIS integration runtime logs|No|
-|SSISPackageEventMessageContext|SSIS package event message context|No|
-|SSISPackageEventMessages|SSIS package event messages|No|
-|SSISPackageExecutableStatistics|SSIS package executable statistics|No|
-|SSISPackageExecutionComponentPhases|SSIS package execution component phases|No|
-|SSISPackageExecutionDataStatistics|SSIS package exeution data statistics|No|
-|TriggerRuns|Trigger runs log|No|
+|cloud-controller-manager |Kubernetes Cloud Controller Manager |Yes |
+|cluster-autoscaler |Kubernetes Cluster Autoscaler |No |
+|csi-azuredisk-controller |csi-azuredisk-controller |Yes |
+|csi-azurefile-controller |csi-azurefile-controller |Yes |
+|csi-snapshot-controller |csi-snapshot-controller |Yes |
+|guard |guard |No |
+|kube-apiserver |Kubernetes API Server |No |
+|kube-audit |Kubernetes Audit |No |
+|kube-audit-admin |Kubernetes Audit Admin Logs |No |
+|kube-controller-manager |Kubernetes Controller Manager |No |
+|kube-scheduler |Kubernetes Scheduler |No |
 
+## Microsoft.CustomProviders/resourceproviders  
+<!-- Data source : arm-->
 
-## Microsoft.DataLakeAnalytics/accounts
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
-|JobInfo|Job Info Logs|Yes|
-|Requests|Request Logs|No|
+|AuditLogs |Audit logs for MiniRP calls |No |
 
+## Microsoft.D365CustomerInsights/instances  
+<!-- Data source : arm-->
 
-## Microsoft.DataLakeStore/accounts
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
-|Requests|Request Logs|No|
-
+|Audit |Audit events |No |
+|Operational |Operational events |No |
 
-## Microsoft.DataShare/accounts
+## Microsoft.Dashboard/grafana  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ReceivedShareSnapshots|Received Share Snapshots|No|
-|SentShareSnapshots|Sent Share Snapshots|No|
-|Shares|Shares|No|
-|ShareSubscriptions|Share Subscriptions|No|
+|GrafanaLoginEvents |Grafana Login Events |Yes |
 
+## Microsoft.Databricks/workspaces  
+<!-- Data source : arm-->
 
-## Microsoft.DBforMariaDB/servers
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|MySqlAuditLogs|MariaDB Audit Logs|No|
-|MySqlSlowLogs|MariaDB Server Logs|No|
+|accounts |Databricks Accounts |No |
+|capsule8Dataplane |Databricks Capsule8 Container Security Scanning Reports |Yes |
+|clamAVScan |Databricks Clam AV Scan |Yes |
+|clusterLibraries |Databricks Cluster Libraries |Yes |
+|clusters |Databricks Clusters |No |
+|databrickssql |Databricks DatabricksSQL |Yes |
+|dbfs |Databricks File System |No |
+|deltaPipelines |Databricks Delta Pipelines |Yes |
+|featureStore |Databricks Feature Store |Yes |
+|genie |Databricks Genie |Yes |
+|gitCredentials |Databricks Git Credentials |Yes |
+|globalInitScripts |Databricks Global Init Scripts |Yes |
+|iamRole |Databricks IAM Role |Yes |
+|instancePools |Instance Pools |No |
+|jobs |Databricks Jobs |No |
+|mlflowAcledArtifact |Databricks MLFlow Acled Artifact |Yes |
+|mlflowExperiment |Databricks MLFlow Experiment |Yes |
+|modelRegistry |Databricks Model Registry |Yes |
+|notebook |Databricks Notebook |No |
+|partnerHub |Databricks Partner Hub |Yes |
+|RemoteHistoryService |Databricks Remote History Service |Yes |
+|repos |Databricks Repos |Yes |
+|secrets |Databricks Secrets |No |
+|serverlessRealTimeInference |Databricks Serverless Real-Time Inference |Yes |
+|sqlanalytics |Databricks SQL Analytics |Yes |
+|sqlPermissions |Databricks SQLPermissions |No |
+|ssh |Databricks SSH |No |
+|unityCatalog |Databricks Unity Catalog |Yes |
+|webTerminal |Databricks Web Terminal |Yes |
+|workspace |Databricks Workspace |No |
 
+## Microsoft.DataCollaboration/workspaces  
+<!-- Data source : arm-->
 
-## Microsoft.DBforMySQL/flexibleServers
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|MySqlAuditLogs|MySQL Audit Logs|No|
-|MySqlSlowLogs|MySQL Slow Logs|No|
-
+|CollaborationAudit |Collaboration Audit |Yes |
+|Computations |Computations |Yes |
+|DataAssets |Data Assets |No |
+|Pipelines |Pipelines |No |
+|Pipelines |Pipelines |No |
+|Proposals |Proposals |No |
+|Scripts |Scripts |No |
 
-## Microsoft.DBforMySQL/servers
+## Microsoft.DataFactory/factories  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|MySqlAuditLogs|MySQL Audit Logs|No|
-|MySqlSlowLogs|MySQL Server Logs|No|
+|ActivityRuns |Pipeline activity runs log |No |
+|AirflowDagProcessingLogs |Airflow dag processing logs |Yes |
+|AirflowSchedulerLogs |Airflow scheduler logs |Yes |
+|AirflowTaskLogs |Airflow task execution logs |Yes |
+|AirflowWebLogs |Airflow web logs |Yes |
+|AirflowWorkerLogs |Airflow worker logs |Yes |
+|PipelineRuns |Pipeline runs log |No |
+|SandboxActivityRuns |Sandbox Activity runs log |Yes |
+|SandboxPipelineRuns |Sandbox Pipeline runs log |Yes |
+|SSISIntegrationRuntimeLogs |SSIS integration runtime logs |No |
+|SSISPackageEventMessageContext |SSIS package event message context |No |
+|SSISPackageEventMessages |SSIS package event messages |No |
+|SSISPackageExecutableStatistics |SSIS package executable statistics |No |
+|SSISPackageExecutionComponentPhases |SSIS package execution component phases |No |
+|SSISPackageExecutionDataStatistics |SSIS package exeution data statistics |No |
+|TriggerRuns |Trigger runs log |No |
 
+## Microsoft.DataLakeAnalytics/accounts  
+<!-- Data source : naam-->
 
-## Microsoft.DBforPostgreSQL/flexibleServers
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|No|
+|Audit |Audit Logs |No |
+|ConfigurationChange |Configuration Change Event Logs |Yes |
+|JobEvent |Job Event Logs |Yes |
+|JobInfo |Job Info Logs |Yes |
+|Requests |Request Logs |No |
 
+## Microsoft.DataLakeStore/accounts  
+<!-- Data source : arm-->
 
-## Microsoft.DBForPostgreSQL/serverGroupsv2
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|Yes|
-
+|Audit |Audit Logs |No |
+|Requests |Request Logs |No |
 
-## Microsoft.DBforPostgreSQL/servers
+## Microsoft.DataProtection/BackupVaults  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|No|
-|QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|PostgreSQL Query Store Wait Statistics|No|
+|AddonAzureBackupJobs |Addon Azure Backup Job Data |Yes |
+|AddonAzureBackupPolicy |Addon Azure Backup Policy Data |Yes |
+|AddonAzureBackupProtectedInstance |Addon Azure Backup Protected Instance Data |Yes |
+|CoreAzureBackup |Core Azure Backup Data |Yes |
 
+## Microsoft.DataShare/accounts  
+<!-- Data source : arm-->
 
-## Microsoft.DBforPostgreSQL/serversv2
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|No|
-
+|ReceivedShareSnapshots |Received Share Snapshots |No |
+|SentShareSnapshots |Sent Share Snapshots |No |
+|Shares |Shares |No |
+|ShareSubscriptions |Share Subscriptions |No |
 
-## Microsoft.DesktopVirtualization/applicationgroups
+## Microsoft.DBforMariaDB/servers  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Checkpoint|Checkpoint|No|
-|Error|Error|No|
-|Management|Management|No|
+|MySqlAuditLogs |MariaDB Audit Logs |No |
+|MySqlSlowLogs |MariaDB Server Logs |No |
 
+## Microsoft.DBforMySQL/flexibleServers  
+<!-- Data source : naam-->
 
-## Microsoft.DesktopVirtualization/hostpools
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AgentHealthStatus|AgentHealthStatus|No|
-|AgentHealthStatus|AgentHealthStatus|Yes|
-|Checkpoint|Checkpoint|Yes|
-|Checkpoint|Checkpoint|No|
-|Connection|Connection|No|
-|Connection|Connection|Yes|
-|Error|Error|Yes|
-|Error|Error|No|
-|HostRegistration|HostRegistration|No|
-|HostRegistration|HostRegistration|Yes|
-|Management|Management|Yes|
-|Management|Management|No|
-|NetworkData|Network Data Logs|Yes|
-|SessionHostManagement|Session Host Management Activity Logs|Yes|
+|MySqlAuditLogs |MySQL Audit Logs |No |
+|MySqlSlowLogs |MySQL Slow Logs |No |
 
+## Microsoft.DBforMySQL/servers  
+<!-- Data source : arm-->
 
-## Microsoft.DesktopVirtualization/scalingplans
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Autoscale|Autoscale logs|Yes|
-
+|MySqlAuditLogs |MySQL Audit Logs |No |
+|MySqlSlowLogs |MySQL Server Logs |No |
 
-## Microsoft.DesktopVirtualization/workspaces
+## Microsoft.DBforPostgreSQL/flexibleServers  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Checkpoint|Checkpoint|No|
-|Error|Error|No|
-|Feed|Feed|No|
-|Management|Management|No|
+|PostgreSQLFlexDatabaseXacts |PostgreSQL remaining transactions |Yes |
+|PostgreSQLFlexQueryStoreRuntime |PostgreSQL Query Store Runtime |Yes |
+|PostgreSQLFlexQueryStoreWaitStats |PostgreSQL Query Store Wait Statistics |Yes |
+|PostgreSQLFlexSessions |PostgreSQL Sessions data |Yes |
+|PostgreSQLFlexTableStats |PostgreSQL Autovacuum and schema statistics |Yes |
+|PostgreSQLLogs |PostgreSQL Server Logs |No |
 
+## Microsoft.DBForPostgreSQL/serverGroupsv2  
+<!-- Data source : naam-->
 
-## Microsoft.Devices/ElasticPools/IotHubTenants
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|C2DCommands|C2D Commands|No|
-|C2DTwinOperations|C2D Twin Operations|No|
-|Configurations|Configurations|No|
-|Connections|Connections|No|
-|D2CTwinOperations|D2CTwinOperations|No|
-|DeviceIdentityOperations|Device Identity Operations|No|
-|DeviceStreams|Device Streams (Preview)|No|
-|DeviceTelemetry|Device Telemetry|No|
-|DirectMethods|Direct Methods|No|
-|DistributedTracing|Distributed Tracing (Preview)|No|
-|FileUploadOperations|File Upload Operations|No|
-|JobsOperations|Jobs Operations|No|
-|Routes|Routes|No|
-|TwinQueries|Twin Queries|No|
+|PostgreSQLLogs |PostgreSQL Server Logs |Yes |
 
+## Microsoft.DBforPostgreSQL/servers  
+<!-- Data source : arm-->
 
-## Microsoft.Devices/IotHubs
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|C2DCommands|C2D Commands|No|
-|C2DTwinOperations|C2D Twin Operations|No|
-|Configurations|Configurations|No|
-|Connections|Connections|No|
-|D2CTwinOperations|D2CTwinOperations|No|
-|DeviceIdentityOperations|Device Identity Operations|No|
-|DeviceStreams|Device Streams (Preview)|No|
-|DeviceTelemetry|Device Telemetry|No|
-|DirectMethods|Direct Methods|No|
-|DistributedTracing|Distributed Tracing (Preview)|No|
-|FileUploadOperations|File Upload Operations|No|
-|JobsOperations|Jobs Operations|No|
-|Routes|Routes|No|
-|TwinQueries|Twin Queries|No|
-
+|PostgreSQLLogs |PostgreSQL Server Logs |No |
+|QueryStoreRuntimeStatistics |PostgreSQL Query Store Runtime Statistics |No |
+|QueryStoreWaitStatistics |PostgreSQL Query Store Wait Statistics |No |
 
-## Microsoft.Devices/provisioningServices
+## Microsoft.DBforPostgreSQL/serversv2  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DeviceOperations|Device Operations|No|
-|ServiceOperations|Service Operations|No|
+|PostgreSQLLogs |PostgreSQL Server Logs |No |
 
+## Microsoft.DesktopVirtualization/applicationgroups  
+<!-- Data source : arm-->
 
-## Microsoft.DigitalTwins/digitalTwinsInstances
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DigitalTwinsOperation|DigitalTwinsOperation|No|
-|EventRoutesOperation|EventRoutesOperation|No|
-|ModelsOperation|ModelsOperation|No|
-|QueryOperation|QueryOperation|No|
-|ResourceProviderOperation|ResourceProviderOperation|Yes|
+|Checkpoint |Checkpoint |No |
+|Error |Error |No |
+|Management |Management |No |
 
+## Microsoft.DesktopVirtualization/hostpools  
+<!-- Data source : naam-->
 
-## Microsoft.DocumentDB/cassandraClusters
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|CassandraAudit|CassandraAudit|Yes|
-|CassandraLogs|CassandraLogs|Yes|
-
+|AgentHealthStatus |AgentHealthStatus |No |
+|AutoscaleEvaluationPooled |Do not use - internal testing |Yes |
+|Checkpoint |Checkpoint |No |
+|Connection |Connection |No |
+|ConnectionGraphicsData |Connection Graphics Data Logs Preview |Yes |
+|Error |Error |No |
+|HostRegistration |HostRegistration |No |
+|Management |Management |No |
+|NetworkData |Network Data Logs |Yes |
+|SessionHostManagement |Session Host Management Activity Logs |Yes |
 
-## Microsoft.DocumentDB/DatabaseAccounts
+## Microsoft.DesktopVirtualization/scalingplans  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|CassandraRequests|CassandraRequests|No|
-|ControlPlaneRequests|ControlPlaneRequests|No|
-|DataPlaneRequests|DataPlaneRequests|No|
-|GremlinRequests|GremlinRequests|No|
-|MongoRequests|MongoRequests|No|
-|PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
-|PartitionKeyStatistics|PartitionKeyStatistics|No|
-|QueryRuntimeStatistics|QueryRuntimeStatistics|No|
-|TableApiRequests|TableApiRequests|Yes|
+|Autoscale |Autoscale logs |Yes |
 
+## Microsoft.DesktopVirtualization/workspaces  
+<!-- Data source : arm-->
 
-## Microsoft.EventGrid/domains
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataPlaneRequests|Data plane operations logs|No|
-|DeliveryFailures|Delivery Failure Logs|No|
-|PublishFailures|Publish Failure Logs|No|
-
+|Checkpoint |Checkpoint |No |
+|Error |Error |No |
+|Feed |Feed |No |
+|Management |Management |No |
 
-## Microsoft.EventGrid/partnerNamespaces
+## Microsoft.DevCenter/devcenters  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataPlaneRequests|Data plane operations logs|No|
-|PublishFailures|Publish Failure Logs|No|
+|DataplaneAuditEvent |Dataplane audit logs |Yes |
 
+## Microsoft.Devices/IotHubs  
+<!-- Data source : naam-->
 
-## Microsoft.EventGrid/partnerTopics
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DeliveryFailures|Delivery Failure Logs|No|
+|C2DCommands |C2D Commands |No |
+|C2DTwinOperations |C2D Twin Operations |No |
+|Configurations |Configurations |No |
+|Connections |Connections |No |
+|D2CTwinOperations |D2CTwinOperations |No |
+|DeviceIdentityOperations |Device Identity Operations |No |
+|DeviceStreams |Device Streams (Preview) |No |
+|DeviceTelemetry |Device Telemetry |No |
+|DirectMethods |Direct Methods |No |
+|DistributedTracing |Distributed Tracing (Preview) |No |
+|FileUploadOperations |File Upload Operations |No |
+|JobsOperations |Jobs Operations |No |
+|Routes |Routes |No |
+|TwinQueries |Twin Queries |No |
 
+## Microsoft.Devices/provisioningServices  
+<!-- Data source : arm-->
 
-## Microsoft.EventGrid/systemTopics
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DeliveryFailures|Delivery Failure Logs|No|
-
+|DeviceOperations |Device Operations |No |
+|ServiceOperations |Service Operations |No |
 
-## Microsoft.EventGrid/topics
+## Microsoft.DigitalTwins/digitalTwinsInstances  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataPlaneRequests|Data plane operations logs|No|
-|DeliveryFailures|Delivery Failure Logs|No|
-|PublishFailures|Publish Failure Logs|No|
+|DataHistoryOperation |DataHistoryOperation |Yes |
+|DigitalTwinsOperation |DigitalTwinsOperation |No |
+|EventRoutesOperation |EventRoutesOperation |No |
+|ModelsOperation |ModelsOperation |No |
+|QueryOperation |QueryOperation |No |
+|ResourceProviderOperation |ResourceProviderOperation |Yes |
 
+## Microsoft.DocumentDB/cassandraClusters  
+<!-- Data source : naam-->
 
-## Microsoft.EventHub/Namespaces
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationMetricsLogs|Application Metrics Logs|Yes|
-|ArchiveLogs|Archive Logs|No|
-|AutoScaleLogs|Auto Scale Logs|No|
-|CustomerManagedKeyUserLogs|Customer Managed Key Logs|No|
-|EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|No|
-|KafkaCoordinatorLogs|Kafka Coordinator Logs|No|
-|KafkaUserErrorLogs|Kafka User Error Logs|No|
-|OperationalLogs|Operational Logs|No|
-|RuntimeAuditLogs|Runtime Audit Logs|Yes|
+|CassandraAudit |CassandraAudit |Yes |
+|CassandraLogs |CassandraLogs |Yes |
 
+## Microsoft.DocumentDB/DatabaseAccounts  
+<!-- Data source : naam-->
 
-## microsoft.experimentation/experimentWorkspaces
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ExPCompute|ExPCompute|Yes|
-|Request|Request|No|
-
+|CassandraRequests |CassandraRequests |No |
+|ControlPlaneRequests |ControlPlaneRequests |No |
+|DataPlaneRequests |DataPlaneRequests |No |
+|GremlinRequests |GremlinRequests |No |
+|MongoRequests |MongoRequests |No |
+|PartitionKeyRUConsumption |PartitionKeyRUConsumption |No |
+|PartitionKeyStatistics |PartitionKeyStatistics |No |
+|QueryRuntimeStatistics |QueryRuntimeStatistics |No |
+|TableApiRequests |TableApiRequests |Yes |
 
-## Microsoft.HealthcareApis/services
+## Microsoft.EventGrid/domains  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditLogs|Audit logs|No|
-|DiagnosticLogs|Diagnostic logs|Yes|
+|DataPlaneRequests |Data plane operations logs |Yes |
+|DeliveryFailures |Delivery Failure Logs |No |
+|PublishFailures |Publish Failure Logs |No |
 
+## Microsoft.EventGrid/partnerNamespaces  
+<!-- Data source : naam-->
 
-## Microsoft.HealthcareApis/workspaces/dicomservices
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditLogs|Audit logs|Yes|
+|DataPlaneRequests |Data plane operations logs |Yes |
+|PublishFailures |Publish Failure Logs |No |
 
+## Microsoft.EventGrid/partnerTopics  
+<!-- Data source : naam-->
 
-## Microsoft.HealthcareApis/workspaces/fhirservices
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditLogs|FHIR Audit logs|Yes|
-
+|DeliveryFailures |Delivery Failure Logs |No |
 
-## microsoft.insights/autoscalesettings
+## Microsoft.EventGrid/systemTopics  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AutoscaleEvaluations|Autoscale Evaluations|No|
-|AutoscaleScaleActions|Autoscale Scale Actions|No|
+|DeliveryFailures |Delivery Failure Logs |No |
 
+## Microsoft.EventGrid/topics  
+<!-- Data source : naam-->
 
-## Microsoft.Insights/Components
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppAvailabilityResults|Availability results|No|
-|AppBrowserTimings|Browser timings|No|
-|AppDependencies|Dependencies|No|
-|AppEvents|Events|No|
-|AppExceptions|Exceptions|No|
-|AppMetrics|Metrics|No|
-|AppPageViews|Page views|No|
-|AppPerformanceCounters|Performance counters|No|
-|AppRequests|Requests|No|
-|AppSystemEvents|System events|No|
-|AppTraces|Traces|No|
-
+|DataPlaneRequests |Data plane operations logs |Yes |
+|DeliveryFailures |Delivery Failure Logs |No |
+|PublishFailures |Publish Failure Logs |No |
 
-## microsoft.keyvault/managedhsms
+## Microsoft.EventHub/Namespaces  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditEvent|Audit Event|No|
+|ApplicationMetricsLogs |Application Metrics Logs |Yes |
+|ArchiveLogs |Archive Logs |No |
+|AutoScaleLogs |Auto Scale Logs |No |
+|CustomerManagedKeyUserLogs |Customer Managed Key Logs |No |
+|EventHubVNetConnectionEvent |VNet/IP Filtering Connection Logs |No |
+|KafkaCoordinatorLogs |Kafka Coordinator Logs |No |
+|KafkaUserErrorLogs |Kafka User Error Logs |No |
+|OperationalLogs |Operational Logs |No |
+|RuntimeAuditLogs |Runtime Audit Logs |Yes |
 
+## Microsoft.HealthcareApis/services  
+<!-- Data source : arm-->
 
-## Microsoft.KeyVault/vaults
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditEvent|Audit Logs|No|
-|AzurePolicyEvaluationDetails|Azure Policy Evaluation Details|Yes|
+|AuditLogs |Audit logs |No |
+|DiagnosticLogs |Diagnostic logs |Yes |
 
+## Microsoft.HealthcareApis/workspaces/analyticsconnectors  
+<!-- Data source : arm-->
 
-## Microsoft.Kusto/Clusters
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Command|Command|No|
-|FailedIngestion|Failed ingest operations|No|
-|IngestionBatching|Ingestion batching|No|
-|Journal|Journal|Yes|
-|Query|Query|No|
-|SucceededIngestion|Successful ingest operations|No|
-|TableDetails|Table details|No|
-|TableUsageStatistics|Table usage statistics|No|
-
+|DiagnosticLogs |Diagnostic logs for Analytics Connector |Yes |
 
-## Microsoft.Logic/integrationAccounts
+## Microsoft.HealthcareApis/workspaces/dicomservices  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|IntegrationAccountTrackingEvents|Integration Account track events|No|
+|AuditLogs |Audit logs |Yes |
+|DiagnosticLogs |Diagnostic logs |Yes |
 
+## Microsoft.HealthcareApis/workspaces/fhirservices  
+<!-- Data source : arm-->
 
-## Microsoft.Logic/IntegrationAccounts
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|IntegrationAccountTrackingEvents|Integration Account track events|No|
+|AuditLogs |FHIR Audit logs |Yes |
 
+## Microsoft.HealthcareApis/workspaces/iotconnectors  
+<!-- Data source : arm-->
 
-## Microsoft.Logic/Workflows
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|WorkflowRuntime|Workflow runtime diagnostic events|No|
-
+|DiagnosticLogs |Diagnostic logs |Yes |
 
-## Microsoft.MachineLearningServices/workspaces
+## microsoft.insights/autoscalesettings  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AmlComputeClusterEvent|AmlComputeClusterEvent|No|
-|AmlComputeClusterEvent|AmlComputeClusterEvent|No|
-|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|No|
-|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
-|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
-|AmlComputeJobEvent|AmlComputeJobEvent|No|
-|AmlComputeJobEvent|AmlComputeJobEvent|No|
-|AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|No|
-|AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|No|
-|ComputeInstanceEvent|ComputeInstanceEvent|Yes|
-|DataLabelChangeEvent|DataLabelChangeEvent|Yes|
-|DataLabelReadEvent|DataLabelReadEvent|Yes|
-|DataSetChangeEvent|DataSetChangeEvent|Yes|
-|DataSetReadEvent|DataSetReadEvent|Yes|
-|DataStoreChangeEvent|DataStoreChangeEvent|Yes|
-|DataStoreReadEvent|DataStoreReadEvent|Yes|
-|DeploymentEventACI|DeploymentEventACI|Yes|
-|DeploymentEventAKS|DeploymentEventAKS|Yes|
-|DeploymentReadEvent|DeploymentReadEvent|Yes|
-|EnvironmentChangeEvent|EnvironmentChangeEvent|Yes|
-|EnvironmentReadEvent|EnvironmentReadEvent|Yes|
-|InferencingOperationACI|InferencingOperationACI|Yes|
-|InferencingOperationAKS|InferencingOperationAKS|Yes|
-|ModelsActionEvent|ModelsActionEvent|Yes|
-|ModelsChangeEvent|ModelsChangeEvent|Yes|
-|ModelsReadEvent|ModelsReadEvent|Yes|
-|PipelineChangeEvent|PipelineChangeEvent|Yes|
-|PipelineReadEvent|PipelineReadEvent|Yes|
-|RunEvent|RunEvent|Yes|
-|RunReadEvent|RunReadEvent|Yes|
+|AutoscaleEvaluations |Autoscale Evaluations |No |
+|AutoscaleScaleActions |Autoscale Scale Actions |No |
 
+## microsoft.insights/components  
+<!-- Data source : naam-->
 
-## Microsoft.Media/mediaservices
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|KeyDeliveryRequests|Key Delivery Requests|No|
-|MediaAccount|Media Account Health Status|Yes|
+|AppAvailabilityResults |Availability results |No |
+|AppBrowserTimings |Browser timings |No |
+|AppDependencies |Dependencies |No |
+|AppEvents |Events |No |
+|AppExceptions |Exceptions |No |
+|AppMetrics |Metrics |No |
+|AppPageViews |Page views |No |
+|AppPerformanceCounters |Performance counters |No |
+|AppRequests |Requests |No |
+|AppSystemEvents |System events |No |
+|AppTraces |Traces |No |
 
+## Microsoft.Insights/datacollectionrules  
+<!-- Data source : naam-->
 
-## Microsoft.Media/videoanalyzers
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|Yes|
-|Diagnostics|Diagnostics Logs|Yes|
-|Operational|Operational Logs|Yes|
-
+|LogErrors |Log Errors |Yes |
+|LogTroubleshooting |Log Troubleshooting |Yes |
 
-## Microsoft.Network/applicationgateways
+## microsoft.keyvault/managedhsms  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationGatewayAccessLog|Application Gateway Access Log|No|
-|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|No|
-|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|No|
+|AuditEvent |Audit Event |No |
 
+## Microsoft.KeyVault/vaults  
+<!-- Data source : naam-->
 
-## Microsoft.Network/azureFirewalls
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AZFWApplicationRule|Azure Firewall Application Rule Hit|Yes|
-|AZFWApplicationRuleAggregation|Azure Firewall Network Rule Aggregation Hit|Yes|
-|AZFWDnsQuery|Azure Firewall Dns query Hit|Yes|
-|AZFWFqdnResolveFailure|Azure Firewall Fqdn Resolution Failure Hit|Yes|
-|AZFWIdpsSignature|Azure Firewall Idps Signature Hit|Yes|
-|AZFWNatRule|Azure Firewall Nat Rule Hit|Yes|
-|AZFWNatRuleAggregation|Azure Firewall Nat Rule Aggregation Hit|Yes|
-|AZFWNetworkRule|Azure Firewall Network Rule Hit|Yes|
-|AZFWNetworkRuleAggregation|Azure Firewall Application Rule Aggregation Hit|Yes|
-|AZFWThreatIntel|Azure Firewall ThreatIntel Hit|Yes|
-|AzureFirewallApplicationRule|Azure Firewall Application Rule|No|
-|AzureFirewallDnsProxy|Azure Firewall DNS Proxy|No|
-|AzureFirewallNetworkRule|Azure Firewall Network Rule|No|
-
+|AuditEvent |Audit Logs |No |
+|AzurePolicyEvaluationDetails |Azure Policy Evaluation Details |Yes |
 
-## microsoft.network/bastionHosts
+## Microsoft.Kusto/clusters  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BastionAuditLogs|Bastion Audit Logs|No|
+|Command |Command |No |
+|FailedIngestion |Failed ingestion |No |
+|IngestionBatching |Ingestion batching |No |
+|Journal |Journal |Yes |
+|Query |Query |No |
+|SucceededIngestion |Succeeded ingestion |No |
+|TableDetails |Table details |No |
+|TableUsageStatistics |Table usage statistics |No |
 
+## microsoft.loadtestservice/loadtests  
+<!-- Data source : naam-->
 
-## Microsoft.Network/expressRouteCircuits
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|PeeringRouteLog|Peering Route Table Logs|No|
+|OperationLogs |Azure Load Testing Operations |Yes |
 
+## Microsoft.Logic/IntegrationAccounts  
+<!-- Data source : naam-->
 
-## Microsoft.Network/frontdoors
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|FrontdoorAccessLog|Frontdoor Access Log|No|
-|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
-
+|IntegrationAccountTrackingEvents |Integration Account track events |No |
 
-## Microsoft.Network/loadBalancers
+## Microsoft.Logic/Workflows  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
-|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
+|WorkflowRuntime |Workflow runtime diagnostic events |No |
 
+## Microsoft.MachineLearningServices/registries  
+<!-- Data source : naam-->
 
-## Microsoft.Network/networksecuritygroups
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|NetworkSecurityGroupEvent|Network Security Group Event|No|
-|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|No|
-|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|No|
+|RegistryAssetReadEvent |Registry Asset Read Event |Yes |
+|RegistryAssetWriteEvent |Registry Asset Write Event |Yes |
 
+## Microsoft.MachineLearningServices/workspaces  
+<!-- Data source : naam-->
 
-## Microsoft.Network/networkSecurityPerimeters
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|NSPInboundAccessAllowed|NSP Inbound Access Allowed.|Yes|
-|NSPInboundAccessDenied|NSP Inbound Access Denied.|Yes|
-|NSPOutboundAccessAllowed|NSP Outbound Access Allowed.|Yes|
-|NSPOutboundAccessDenied|NSP Outbound Access Denied.|Yes|
-|NSPOutboundAttempt|NSP Outbound Attempted.|Yes|
-|PrivateEndPointTraffic|Private Endpoint Traffic|Yes|
-|ResourceInboundAccessAllowed|Resource Inbound Access Allowed.|Yes|
-|ResourceInboundAccessDenied|Resource Inbound Access Denied|Yes|
-|ResourceOutboundAccessAllowed|Resource Outbound Access Allowed|Yes|
-|ResourceOutboundAccessDenied|Resource Outbound Access Denied|Yes|
-
+|AmlComputeClusterEvent |AmlComputeClusterEvent |No |
+|AmlComputeClusterNodeEvent |AmlComputeClusterNodeEvent |Yes |
+|AmlComputeCpuGpuUtilization |AmlComputeCpuGpuUtilization |No |
+|AmlComputeJobEvent |AmlComputeJobEvent |No |
+|AmlRunStatusChangedEvent |AmlRunStatusChangedEvent |No |
+|ComputeInstanceEvent |ComputeInstanceEvent |Yes |
+|DataLabelChangeEvent |DataLabelChangeEvent |Yes |
+|DataLabelReadEvent |DataLabelReadEvent |Yes |
+|DataSetChangeEvent |DataSetChangeEvent |Yes |
+|DataSetReadEvent |DataSetReadEvent |Yes |
+|DataStoreChangeEvent |DataStoreChangeEvent |Yes |
+|DataStoreReadEvent |DataStoreReadEvent |Yes |
+|DeploymentEventACI |DeploymentEventACI |Yes |
+|DeploymentEventAKS |DeploymentEventAKS |Yes |
+|DeploymentReadEvent |DeploymentReadEvent |Yes |
+|EnvironmentChangeEvent |EnvironmentChangeEvent |Yes |
+|EnvironmentReadEvent |EnvironmentReadEvent |Yes |
+|InferencingOperationACI |InferencingOperationACI |Yes |
+|InferencingOperationAKS |InferencingOperationAKS |Yes |
+|ModelsActionEvent |ModelsActionEvent |Yes |
+|ModelsChangeEvent |ModelsChangeEvent |Yes |
+|ModelsReadEvent |ModelsReadEvent |Yes |
+|PipelineChangeEvent |PipelineChangeEvent |Yes |
+|PipelineReadEvent |PipelineReadEvent |Yes |
+|RunEvent |RunEvent |Yes |
+|RunReadEvent |RunReadEvent |Yes |
 
-## microsoft.network/p2svpngateways
+## Microsoft.MachineLearningServices/workspaces/onlineEndpoints  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
-|IKEDiagnosticLog|IKE Diagnostic Logs|No|
-|P2SDiagnosticLog|P2S Diagnostic Logs|No|
+|AmlOnlineEndpointConsoleLog |AmlOnlineEndpointConsoleLog |Yes |
+|AmlOnlineEndpointEventLog |AmlOnlineEndpointEventLog (preview) |Yes |
+|AmlOnlineEndpointTrafficLog |AmlOnlineEndpointTrafficLog (preview) |Yes |
 
+## Microsoft.ManagedNetworkFabric/networkDevices  
+<!-- Data source : naam-->
 
-## Microsoft.Network/publicIPAddresses
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|No|
-|DDoSMitigationReports|Reports of DDoS mitigations|No|
-|DDoSProtectionNotifications|DDoS protection notifications|No|
+|AppAvailabilityResults |Availability results |Yes |
+|AppBrowserTimings |Browser timings |Yes |
 
+## Microsoft.Media/mediaservices  
+<!-- Data source : naam-->
 
-## Microsoft.Network/trafficManagerProfiles
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|No|
-
+|KeyDeliveryRequests |Key Delivery Requests |No |
+|MediaAccount |Media Account Health Status |Yes |
 
-## microsoft.network/virtualnetworkgateways
+## Microsoft.Media/mediaservices/liveEvents  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
-|IKEDiagnosticLog|IKE Diagnostic Logs|No|
-|P2SDiagnosticLog|P2S Diagnostic Logs|No|
-|RouteDiagnosticLog|Route Diagnostic Logs|No|
-|TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
+|LiveEventState |Live Event Operations |Yes |
 
+## Microsoft.Media/mediaservices/streamingEndpoints  
+<!-- Data source : naam-->
 
-## Microsoft.Network/virtualNetworks
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|VMProtectionAlerts|VM protection alerts|No|
-
+|StreamingEndpointRequests |Streaming Endpoint Requests |Yes |
 
-## microsoft.network/vpngateways
+## Microsoft.Media/videoanalyzers  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
-|IKEDiagnosticLog|IKE Diagnostic Logs|No|
-|RouteDiagnosticLog|Route Diagnostic Logs|No|
-|TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
+|Audit |Audit Logs |Yes |
+|Diagnostics |Diagnostics Logs |Yes |
+|Operational |Operational Logs |Yes |
 
+## Microsoft.NetApp/netAppAccounts/capacityPools  
+<!-- Data source : arm-->
 
-## Microsoft.NetworkFunction/azureTrafficCollectors
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ExpressRouteCircuitIpfix|Express Route Circuit IPFIX Flow Records|Yes|
+|Autoscale |Capacity Pool Autoscaled |Yes |
 
+## Microsoft.NetApp/netAppAccounts/capacityPools/volumes  
+<!-- Data source : naam-->
 
-## Microsoft.NotificationHubs/namespaces
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|OperationalLogs|Operational Logs|No|
-
+|ANFFileAccess |ANF File Access |Yes |
 
-## Microsoft.OpenLogisticsPlatform/Workspaces
+## Microsoft.Network/applicationgateways  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|SupplyChainEntityOperations|Supply Chain Entity Operations|Yes|
-|SupplyChainEventLogs|Supply Chain Event logs|Yes|
+|ApplicationGatewayAccessLog |Application Gateway Access Log |No |
+|ApplicationGatewayFirewallLog |Application Gateway Firewall Log |No |
+|ApplicationGatewayPerformanceLog |Application Gateway Performance Log |No |
 
+## Microsoft.Network/azureFirewalls  
+<!-- Data source : naam-->
 
-## Microsoft.OperationalInsights/workspaces
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|No|
+|AZFWApplicationRule |Azure Firewall Application Rule |Yes |
+|AZFWApplicationRuleAggregation |Azure Firewall Network Rule Aggregation (Policy Analytics) |Yes |
+|AZFWDnsQuery |Azure Firewall DNS query |Yes |
+|AZFWFatFlow |Azure Firewall Fat Flow Log |Yes |
+|AZFWFlowTrace |Azure Firewall Flow Trace Log |Yes |
+|AZFWFqdnResolveFailure |Azure Firewall FQDN Resolution Failure |Yes |
+|AZFWIdpsSignature |Azure Firewall IDPS Signature |Yes |
+|AZFWNatRule |Azure Firewall Nat Rule |Yes |
+|AZFWNatRuleAggregation |Azure Firewall Nat Rule Aggregation (Policy Analytics) |Yes |
+|AZFWNetworkRule |Azure Firewall Network Rule |Yes |
+|AZFWNetworkRuleAggregation |Azure Firewall Application Rule Aggregation (Policy Analytics) |Yes |
+|AZFWThreatIntel |Azure Firewall Threat Intelligence |Yes |
+|AzureFirewallApplicationRule |Azure Firewall Application Rule (Legacy Azure Diagnostics) |No |
+|AzureFirewallDnsProxy |Azure Firewall DNS Proxy (Legacy Azure Diagnostics) |No |
+|AzureFirewallNetworkRule |Azure Firewall Network Rule (Legacy Azure Diagnostics) |No |
 
+## microsoft.network/bastionHosts  
+<!-- Data source : naam-->
 
-## Microsoft.PowerBI/tenants
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Engine|Engine|No|
-
+|BastionAuditLogs |Bastion Audit Logs |No |
 
-## Microsoft.PowerBI/tenants/workspaces
+## Microsoft.Network/expressRouteCircuits  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Engine|Engine|No|
+|PeeringRouteLog |Peering Route Table Logs |No |
 
+## Microsoft.Network/frontdoors  
+<!-- Data source : naam-->
 
-## Microsoft.PowerBIDedicated/capacities
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Engine|Engine|No|
+|FrontdoorAccessLog |Frontdoor Access Log |No |
+|FrontdoorWebApplicationFirewallLog |Frontdoor Web Application Firewall Log |No |
 
+## Microsoft.Network/loadBalancers  
+<!-- Data source : naam-->
 
-## microsoft.purview/accounts
-
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataSensitivityLogEvent|DataSensitivity|Yes|
-|ScanStatusLogEvent|ScanStatus|No|
-|Security|PurviewAccountAuditEvents|Yes|
+|LoadBalancerAlertEvent |Load Balancer Alert Events |No |
+|LoadBalancerProbeHealthStatus |Load Balancer Probe Health Status |No |
+
+## Microsoft.Network/networkManagers  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|NetworkGroupMembershipChange |Network Group Membership Change |Yes |
 
-## Microsoft.RecoveryServices/Vaults
+## Microsoft.Network/networksecuritygroups  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AddonAzureBackupAlerts|Addon Azure Backup Alert Data|No|
-|AddonAzureBackupJobs|Addon Azure Backup Job Data|No|
-|AddonAzureBackupPolicy|Addon Azure Backup Policy Data|No|
-|AddonAzureBackupProtectedInstance|Addon Azure Backup Protected Instance Data|No|
-|AddonAzureBackupStorage|Addon Azure Backup Storage Data|No|
-|AzureBackupReport|Azure Backup Reporting Data|No|
-|AzureSiteRecoveryEvents|Azure Site Recovery Events|No|
-|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|No|
-|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|No|
-|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|No|
-|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|No|
-|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|No|
-|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|No|
-|CoreAzureBackup|Core Azure Backup Data|No|
+|NetworkSecurityGroupEvent |Network Security Group Event |No |
+|NetworkSecurityGroupFlowEvent |Network Security Group Rule Flow Event |No |
+|NetworkSecurityGroupRuleCounter |Network Security Group Rule Counter |No |
 
+## Microsoft.Network/networkSecurityPerimeters  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|NspCrossPerimeterInboundAllowed |Cross perimeter inbound access allowed by perimeter link. |Yes |
+|NspCrossPerimeterOutboundAllowed |Cross perimeter outbound access allowed by perimeter link. |Yes |
+|NspIntraPerimeterInboundAllowed |Inbound access allowed within same perimeter. |Yes |
+|NspIntraPerimeterOutboundAllowed |Outbound attempted to same perimeter. NOTE: To be deprecated in future. |Yes |
+|NspOutboundAttempt |Outbound attempted to same or different perimeter. |Yes |
+|NspPrivateInboundAllowed |Private endpoint traffic allowed. |Yes |
+|NspPublicInboundPerimeterRulesAllowed |Public inbound access allowed by NSP access rules. |Yes |
+|NspPublicInboundPerimeterRulesDenied |Public inbound access denied by NSP access rules. |Yes |
+|NspPublicInboundResourceRulesAllowed |Public inbound access allowed by PaaS resource rules. |Yes |
+|NspPublicInboundResourceRulesDenied |Public inbound access denied by PaaS resource rules. |Yes |
+|NspPublicOutboundPerimeterRulesAllowed |Public outbound access allowed by NSP access rules. |Yes |
+|NspPublicOutboundPerimeterRulesDenied |Public outbound access denied by NSP access rules. |Yes |
+|NspPublicOutboundResourceRulesAllowed |Public outbound access allowed by PaaS resource rules. |Yes |
+|NspPublicOutboundResourceRulesDenied |Public outbound access denied by PaaS resource rules |Yes |
 
-## Microsoft.Relay/namespaces
+## Microsoft.Network/networkSecurityPerimeters/profiles  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|HybridConnectionsEvent|HybridConnections Events|No|
-|HybridConnectionsLogs|HybridConnectionsLogs|No|
+|NSPInboundAccessAllowed |NSP Inbound Access Allowed. |Yes |
+|NSPInboundAccessDenied |NSP Inbound Access Denied. |Yes |
+|NSPOutboundAccessAllowed |NSP Outbound Access Allowed. |Yes |
+|NSPOutboundAccessDenied |NSP Outbound Access Denied. |Yes |
 
+## microsoft.network/p2svpngateways  
+<!-- Data source : naam-->
 
-## Microsoft.Search/searchServices
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|GatewayDiagnosticLog |Gateway Diagnostic Logs |No |
+|IKEDiagnosticLog |IKE Diagnostic Logs |No |
+|P2SDiagnosticLog |P2S Diagnostic Logs |No |
+
+## Microsoft.Network/publicIPAddresses  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|OperationLogs|Operation Logs|No|
+|DDoSMitigationFlowLogs |Flow logs of DDoS mitigation decisions |No |
+|DDoSMitigationReports |Reports of DDoS mitigations |No |
+|DDoSProtectionNotifications |DDoS protection notifications |No |
 
+## Microsoft.Network/trafficManagerProfiles  
+<!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ProbeHealthStatusEvents |Traffic Manager Probe Health Results Event |No |
 
-## microsoft.securityinsights/settings
+## microsoft.network/virtualnetworkgateways  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataConnectors|Data Collection - Connectors|Yes|
+|GatewayDiagnosticLog |Gateway Diagnostic Logs |No |
+|IKEDiagnosticLog |IKE Diagnostic Logs |No |
+|P2SDiagnosticLog |P2S Diagnostic Logs |No |
+|RouteDiagnosticLog |Route Diagnostic Logs |No |
+|TunnelDiagnosticLog |Tunnel Diagnostic Logs |No |
 
+## Microsoft.Network/virtualNetworks  
+<!-- Data source : arm-->
 
-## Microsoft.ServiceBus/Namespaces
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|VMProtectionAlerts |VM protection alerts |No |
 
+## microsoft.network/vpngateways  
+<!-- Data source : naam-->
+
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationMetricsLogs|Application Metrics Logs|Yes|
-|OperationalLogs|Operational Logs|No|
-|RuntimeAuditLogs|Runtime Audit Logs|Yes|
-|VNetAndIPFilteringLogs|VNet/IP Filtering Connection Logs|No|
+|GatewayDiagnosticLog |Gateway Diagnostic Logs |No |
+|IKEDiagnosticLog |IKE Diagnostic Logs |No |
+|RouteDiagnosticLog |Route Diagnostic Logs |No |
+|TunnelDiagnosticLog |Tunnel Diagnostic Logs |No |
 
+## Microsoft.NetworkFunction/azureTrafficCollectors  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ExpressRouteCircuitIpfix |Express Route Circuit IPFIX Flow Records |Yes |
 
-## Microsoft.SignalRService/SignalR
+## Microsoft.NotificationHubs/namespaces  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AllLogs|Azure SignalR Service Logs.|No|
+|OperationalLogs |Operational Logs |No |
 
+## MICROSOFT.OPENENERGYPLATFORM/ENERGYSERVICES  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AirFlowTaskLogs |Air Flow Task Logs |Yes |
+|ElasticOperatorLogs |Elastic Operator Logs |Yes |
+|ElasticsearchLogs |Elasticsearch Logs |Yes |
 
-## Microsoft.SignalRService/WebPubSub
+## Microsoft.OpenLogisticsPlatform/Workspaces  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ConnectivityLogs|Connectivity logs for Azure Web PubSub Service.|Yes|
-|HttpRequestLogs|Http Request logs for Azure Web PubSub Service.|Yes|
-|MessagingLogs|Messaging logs for Azure Web PubSub Service.|Yes|
+|SupplyChainEntityOperations |Supply Chain Entity Operations |Yes |
+|SupplyChainEventLogs |Supply Chain Event logs |Yes |
 
+## Microsoft.OperationalInsights/workspaces  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit |Audit |No |
 
-## microsoft.singularity/accounts
+## Microsoft.PlayFab/titles  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Execution|Execution Logs|Yes|
+|AuditLogs |AuditLogs |Yes |
+
+## Microsoft.PowerBI/tenants  
+<!-- Data source : arm-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine |Engine |No |
 
-## Microsoft.Sql/managedInstances
+## Microsoft.PowerBI/tenants/workspaces  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DevOpsOperationsAudit|Devops operations Audit Logs|No|
-|ResourceUsageStats|Resource Usage Statistics|No|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|Engine |Engine |No |
+
+## Microsoft.PowerBIDedicated/capacities  
+<!-- Data source : arm-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine |Engine |No |
 
-## Microsoft.Sql/managedInstances/databases
+## microsoft.purview/accounts  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Errors|Errors|No|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
-|SQLInsights|SQL Insights|No|
+|DataSensitivityLogEvent |DataSensitivity |Yes |
+|ScanStatusLogEvent |ScanStatus |No |
+|Security |PurviewAccountAuditEvents |Yes |
+
+## Microsoft.RecoveryServices/Vaults  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AddonAzureBackupAlerts |Addon Azure Backup Alert Data |No |
+|AddonAzureBackupJobs |Addon Azure Backup Job Data |No |
+|AddonAzureBackupPolicy |Addon Azure Backup Policy Data |No |
+|AddonAzureBackupProtectedInstance |Addon Azure Backup Protected Instance Data |No |
+|AddonAzureBackupStorage |Addon Azure Backup Storage Data |No |
+|ASRReplicatedItems |Azure Site Recovery Replicated Items Details |Yes |
+|AzureBackupReport |Azure Backup Reporting Data |No |
+|AzureSiteRecoveryEvents |Azure Site Recovery Events |No |
+|AzureSiteRecoveryJobs |Azure Site Recovery Jobs |No |
+|AzureSiteRecoveryProtectedDiskDataChurn |Azure Site Recovery Protected Disk Data Churn |No |
+|AzureSiteRecoveryRecoveryPoints |Azure Site Recovery Recovery Points |No |
+|AzureSiteRecoveryReplicatedItems |Azure Site Recovery Replicated Items |No |
+|AzureSiteRecoveryReplicationDataUploadRate |Azure Site Recovery Replication Data Upload Rate |No |
+|AzureSiteRecoveryReplicationStats |Azure Site Recovery Replication Stats |No |
+|CoreAzureBackup |Core Azure Backup Data |No |
 
-## Microsoft.Sql/servers/databases
+## Microsoft.Relay/namespaces  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AutomaticTuning|Automatic tuning|No|
-|Blocks|Blocks|No|
-|DatabaseWaitStatistics|Database Wait Statistics|No|
-|Deadlocks|Deadlocks|No|
-|DevOpsOperationsAudit|Devops operations Audit Logs|No|
-|DmsWorkers|Dms Workers|No|
-|Errors|Errors|No|
-|ExecRequests|Exec Requests|No|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
-|RequestSteps|Request Steps|No|
-|SQLInsights|SQL Insights|No|
-|SqlRequests|Sql Requests|No|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
-|Timeouts|Timeouts|No|
-|Waits|Waits|No|
+|HybridConnectionsEvent |HybridConnections Events |No |
+|HybridConnectionsLogs |HybridConnectionsLogs |Yes |
+
+## Microsoft.Search/searchServices  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|OperationLogs |Operation Logs |No |
 
-## Microsoft.Storage/storageAccounts/blobServices
+## Microsoft.Security/antiMalwareSettings  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|ScanResults |AntimalwareScanResults |Yes |
 
+## Microsoft.Security/defenderForStorageSettings  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ScanResults |AntimalwareScanResults |Yes |
 
-## Microsoft.Storage/storageAccounts/fileServices
+## microsoft.securityinsights/settings  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|Analytics |Analytics |Yes |
+|Automation |Automation |Yes |
+|DataConnectors |Data Collection - Connectors |Yes |
 
+## Microsoft.ServiceBus/Namespaces  
+<!-- Data source : naam-->
 
-## Microsoft.Storage/storageAccounts/queueServices
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ApplicationMetricsLogs |Application Metrics Logs(Unused) |Yes |
+|OperationalLogs |Operational Logs |No |
+|RuntimeAuditLogs |Runtime Audit Logs |Yes |
+|VNetAndIPFilteringLogs |VNet/IP Filtering Connection Logs |No |
+
+## Microsoft.SignalRService/SignalR  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|AllLogs |Azure SignalR Service Logs. |No |
 
+## Microsoft.SignalRService/WebPubSub  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ConnectivityLogs |Connectivity logs for Azure Web PubSub Service. |Yes |
+|HttpRequestLogs |Http Request logs for Azure Web PubSub Service. |Yes |
+|MessagingLogs |Messaging logs for Azure Web PubSub Service. |Yes |
 
-## Microsoft.Storage/storageAccounts/tableServices
+## microsoft.singularity/accounts  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|Activity |Activity Logs |Yes |
+|Execution |Execution Logs |Yes |
 
+## Microsoft.Sql/managedInstances  
+<!-- Data source : naam-->
 
-## Microsoft.StorageCache/caches
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DevOpsOperationsAudit |Devops operations Audit Logs |No |
+|ResourceUsageStats |Resource Usage Statistics |No |
+|SQLSecurityAuditEvents |SQL Security Audit Event |No |
 
+## Microsoft.Sql/managedInstances/databases  
+<!-- Data source : naam-->
+
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AscCacheOperationEvent|HPC Cache operation event|Yes|
-|AscUpgradeEvent|HPC Cache upgrade event|Yes|
-|AscWarningEvent|HPC Cache warning|Yes|
+|Errors |Errors |No |
+|QueryStoreRuntimeStatistics |Query Store Runtime Statistics |No |
+|QueryStoreWaitStatistics |Query Store Wait Statistics |No |
+|SQLInsights |SQL Insights |No |
 
+## Microsoft.Sql/servers/databases  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AutomaticTuning |Automatic tuning |No |
+|Blocks |Blocks |No |
+|DatabaseWaitStatistics |Database Wait Statistics |No |
+|Deadlocks |Deadlocks |No |
+|DevOpsOperationsAudit |Devops operations Audit Logs |No |
+|DmsWorkers |Dms Workers |No |
+|Errors |Errors |No |
+|ExecRequests |Exec Requests |No |
+|QueryStoreRuntimeStatistics |Query Store Runtime Statistics |No |
+|QueryStoreWaitStatistics |Query Store Wait Statistics |No |
+|RequestSteps |Request Steps |No |
+|SQLInsights |SQL Insights |No |
+|SqlRequests |Sql Requests |No |
+|SQLSecurityAuditEvents |SQL Security Audit Event |No |
+|Timeouts |Timeouts |No |
+|Waits |Waits |No |
 
-## Microsoft.StreamAnalytics/streamingjobs
+## Microsoft.Storage/storageAccounts/blobServices  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Authoring|Authoring|No|
-|Execution|Execution|No|
+|StorageDelete |StorageDelete |Yes |
+|StorageRead |StorageRead |Yes |
+|StorageWrite |StorageWrite |Yes |
 
+## Microsoft.Storage/storageAccounts/fileServices  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageDelete |StorageDelete |Yes |
+|StorageRead |StorageRead |Yes |
+|StorageWrite |StorageWrite |Yes |
 
-## Microsoft.Synapse/workspaces
+## Microsoft.Storage/storageAccounts/queueServices  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|No|
-|GatewayApiRequests|Synapse Gateway Api Requests|No|
-|IntegrationActivityRuns|Integration Activity Runs|Yes|
-|IntegrationPipelineRuns|Integration Pipeline Runs|Yes|
-|IntegrationTriggerRuns|Integration Trigger Runs|Yes|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
-|SynapseRbacOperations|Synapse RBAC Operations|No|
+|StorageDelete |StorageDelete |Yes |
+|StorageRead |StorageRead |Yes |
+|StorageWrite |StorageWrite |Yes |
 
+## Microsoft.Storage/storageAccounts/tableServices  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageDelete |StorageDelete |Yes |
+|StorageRead |StorageRead |Yes |
+|StorageWrite |StorageWrite |Yes |
 
-## Microsoft.Synapse/workspaces/bigDataPools
+## Microsoft.StorageCache/caches  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
+|AscCacheOperationEvent |HPC Cache operation event |Yes |
+|AscUpgradeEvent |HPC Cache upgrade event |Yes |
+|AscWarningEvent |HPC Cache warning |Yes |
+
+## Microsoft.StorageMover/storageMovers  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CopyLogsFailed |Copy logs - Failed |Yes |
+|JobRunLogs |Job run logs |Yes |
 
-## Microsoft.Synapse/workspaces/kustoPools
+## Microsoft.StreamAnalytics/streamingjobs  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Command|Command|Yes|
-|FailedIngestion|Failed ingest operations|Yes|
-|IngestionBatching|Ingestion batching|Yes|
-|Query|Query|Yes|
-|SucceededIngestion|Successful ingest operations|Yes|
-|TableDetails|Table details|Yes|
-|TableUsageStatistics|Table usage statistics|Yes|
+|Authoring |Authoring |No |
+|Execution |Execution |No |
+
+## Microsoft.Synapse/workspaces  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BuiltinSqlReqsEnded |Built-in Sql Pool Requests Ended |No |
+|GatewayApiRequests |Synapse Gateway Api Requests |No |
+|IntegrationActivityRuns |Integration Activity Runs |Yes |
+|IntegrationPipelineRuns |Integration Pipeline Runs |Yes |
+|IntegrationTriggerRuns |Integration Trigger Runs |Yes |
+|SQLSecurityAuditEvents |SQL Security Audit Event |No |
+|SynapseLinkEvent |Synapse Link Event |Yes |
+|SynapseRbacOperations |Synapse RBAC Operations |No |
 
-## Microsoft.Synapse/workspaces/sqlPools
+## Microsoft.Synapse/workspaces/bigDataPools  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DmsWorkers|Dms Workers|No|
-|ExecRequests|Exec Requests|No|
-|RequestSteps|Request Steps|No|
-|SqlRequests|Sql Requests|No|
-|SQLSecurityAuditEvents|Sql Security Audit Event|No|
-|Waits|Waits|No|
+|BigDataPoolAppEvents |Big Data Pool Applications Execution Metrics |Yes |
+|BigDataPoolAppsEnded |Big Data Pool Applications Ended |No |
+|BigDataPoolBlockManagerEvents |Big Data Pool Block Manager Events |Yes |
+|BigDataPoolDriverLogs |Big Data Pool Driver Logs |Yes |
+|BigDataPoolEnvironmentEvents |Big Data Pool Environment Events |Yes |
+|BigDataPoolExecutorEvents |Big Data Pool Executor Events |Yes |
+|BigDataPoolExecutorLogs |Big Data Pool Executor Logs |Yes |
+|BigDataPoolJobEvents |Big Data Pool Job Events |Yes |
+|BigDataPoolSqlExecutionEvents |Big Data Pool Sql Execution Events |Yes |
+|BigDataPoolStageEvents |Big Data Pool Stage Events |Yes |
+|BigDataPoolTaskEvents |Big Data Pool Task Events |Yes |
+
+## Microsoft.Synapse/workspaces/kustoPools  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Command |Synapse Data Explorer Command |Yes |
+|FailedIngestion |Synapse Data Explorer Failed Ingestion |Yes |
+|IngestionBatching |Synapse Data Explorer Ingestion Batching |Yes |
+|Query |Synapse Data Explorer Query |Yes |
+|SucceededIngestion |Synapse Data Explorer Succeeded Ingestion |Yes |
+|TableDetails |Synapse Data Explorer Table Details |Yes |
+|TableUsageStatistics |Synapse Data Explorer Table Usage Statistics |Yes |
 
-## Microsoft.TimeSeriesInsights/environments
+## Microsoft.Synapse/workspaces/scopePools  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Ingress|Ingress|No|
-|Management|Management|No|
+|ScopePoolScopeJobsEnded |Scope Pool Scope Jobs Ended |Yes |
+|ScopePoolScopeJobsStateChange |Scope Pool Scope Jobs State Change |Yes |
+
+## Microsoft.Synapse/workspaces/sqlPools  
+<!-- Data source : naam-->
 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DmsWorkers |Dms Workers |No |
+|ExecRequests |Exec Requests |No |
+|RequestSteps |Request Steps |No |
+|SqlRequests |Sql Requests |No |
+|SQLSecurityAuditEvents |Sql Security Audit Event |No |
+|Waits |Waits |No |
 
-## Microsoft.TimeSeriesInsights/environments/eventsources
+## Microsoft.TimeSeriesInsights/environments  
+<!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Ingress|Ingress|No|
-|Management|Management|No|
+|Ingress |Ingress |No |
+|Management |Management |No |
 
+## Microsoft.TimeSeriesInsights/environments/eventsources  
+<!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Ingress |Ingress |No |
+|Management |Management |No |
 
-## Microsoft.Web/hostingEnvironments
+## microsoft.videoindexer/accounts  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
+|Audit |Audit |Yes |
+|IndexingLogs |Indexing Logs |Yes |
 
+## Microsoft.Web/hostingEnvironments  
+<!-- Data source : naam-->
 
-## Microsoft.Web/sites
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppServiceEnvironmentPlatformLogs |App Service Environment Platform Logs |No |
+
+## Microsoft.Web/sites  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppServiceAntivirusScanAuditLogs|Report Antivirus Audit Logs|No|
-|AppServiceAppLogs|App Service Application Logs|No|
-|AppServiceAuditLogs|Access Audit Logs|No|
-|AppServiceConsoleLogs|App Service Console Logs|No|
-|AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
-|AppServiceHTTPLogs|HTTP logs|No|
-|AppServiceIPSecAuditLogs|IPSecurity Audit logs|No|
-|AppServicePlatformLogs|App Service Platform logs|No|
-|FunctionAppLogs|Function Application Logs|No|
+|AppServiceAntivirusScanAuditLogs |Report Antivirus Audit Logs |No |
+|AppServiceAppLogs |App Service Application Logs |No |
+|AppServiceAuditLogs |Access Audit Logs |No |
+|AppServiceConsoleLogs |App Service Console Logs |No |
+|AppServiceFileAuditLogs |Site Content Change Audit Logs |No |
+|AppServiceHTTPLogs |HTTP logs |No |
+|AppServiceIPSecAuditLogs |IPSecurity Audit logs |No |
+|AppServicePlatformLogs |App Service Platform logs |No |
+|FunctionAppLogs |Function Application Logs |No |
+|WorkflowRuntime |Workflow Runtime Logs |Yes |
 
+## Microsoft.Web/sites/slots  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppServiceAntivirusScanAuditLogs |Report Antivirus Audit Logs |No |
+|AppServiceAppLogs |App Service Application Logs |No |
+|AppServiceAuditLogs |Access Audit Logs |No |
+|AppServiceConsoleLogs |App Service Console Logs |No |
+|AppServiceFileAuditLogs |Site Content Change Audit Logs |No |
+|AppServiceHTTPLogs |HTTP logs |No |
+|AppServiceIPSecAuditLogs |IPSecurity Audit logs |No |
+|AppServicePlatformLogs |App Service Platform logs |No |
+|FunctionAppLogs |Function Application Logs |No |
 
-## microsoft.web/sites/slots
+## microsoft.workloads/sapvirtualinstances  
+<!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppServiceAntivirusScanAuditLogs|Report Antivirus Audit Logs|No|
-|AppServiceAppLogs|App Service Application Logs|No|
-|AppServiceAuditLogs|Access Audit Logs|No|
-|AppServiceConsoleLogs|App Service Console Logs|No|
-|AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
-|AppServiceHTTPLogs|HTTP logs|No|
-|AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
-|AppServicePlatformLogs|App Service Platform logs|No|
-|FunctionAppLogs|Function Application Logs|No|
+|ChangeDetection |Change Detection |Yes |
 
 
 ## Next Steps
@@ -1264,3 +1508,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+
+
+<!--Gen Date:  Thu Apr 13 2023 22:24:40 GMT+0300 (Israel Daylight Time)-->

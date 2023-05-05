@@ -8,7 +8,7 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref, devx-track-azurecli, mode-other
+ms.custom: has-adal-ref, devx-track-azurecli, mode-other, devx-track-azurepowershell
 ---
 
 # Run the sample app: iOS - Xcode (Swift or Objective-C)
@@ -66,6 +66,11 @@ cd ./iOS/Objective-C/
 ---
 
 Run `pod install --repo-update` to install the CocoaPods for the project.
+
+> [!NOTE]
+> Use the following command if you have macOS Monterey (12.2.1)
+
+Run `pod update` to install the CocoaPods for the project.
 
 Now open the `.xcworkspace` in Xcode.
 

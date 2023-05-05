@@ -1,0 +1,134 @@
+{
+    "redirections": [
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration.md",
+          "redirect_url": "/azure/governance/machine-configuration/overview",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration-policy-effects.md",
+          "redirect_url": "/azure/governance/machine-configuration/remediation-options",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-desired-state-configuration-extension-migration.md",
+          "redirect_url": "/azure/governance/machine-configuration/migrate-from-dsc-extension",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration-custom.md",
+          "redirect_url": "/azure/governance/machine-configuration/dsc-in-machine-configuration",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-create-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-test.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-test-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-signing.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-sign-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-setup.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-set-up-authoring-environment",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-publish.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-publish-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-definition.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-create-policy-definition",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-assignment.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-create-assignment",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-azure-automation-migration.md",
+          "redirect_url": "/azure/governance/machine-configuration/migrate-from-azure-automation",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration-assignments.md",
+          "redirect_url": "/azure/governance/machine-configuration/assignments",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/agent-notes.md",
+          "redirect_url": "/azure/governance/machine-configuration/agent-release-notes",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-assignments.md",
+          "redirect_url": "/azure/governance/machine-configuration/assignments",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-azure-automation-migration.md",
+          "redirect_url": "/azure/governance/machine-configuration/migrate-from-azure-automation",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create-assignment.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-create-assignment",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create-definition.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-create-policy-definition",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create-publish.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-publish-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create-setup.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-set-up-authoring-environment",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create-signing.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-sign-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create-test.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-test-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-create.md",
+          "redirect_url": "/azure/governance/machine-configuration/how-to-create-package",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-custom.md",
+          "redirect_url": "/azure/governance/machine-configuration/dsc-in-machine-configuration",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-dsc-extension-migration.md",
+          "redirect_url": "/azure/governance/machine-configuration/migrate-from-dsc-extension",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/machine-configuration/machine-configuration-policy-effects.md",
+          "redirect_url": "/azure/governance/machine-configuration/remediation-options",
+          "redirect_document_id": false
+        }
+      ]
+}

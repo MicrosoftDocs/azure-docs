@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
-author: maud-lv
+author: mcleanbyron
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/05/2022
-ms.author: malev
+ms.author: mcleans
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using App Configuration.
@@ -64,7 +64,7 @@ In the **Feature manager**, you can also change the state of a feature flag by c
 
 ## Access feature flags
 
-In the **Operations** menu, select **Feature manager**. You can select **Edits Columns** to add or remove columns, and change the column order.
+In the **Operations** menu, select **Feature manager**. You can select **Edit Columns** to add or remove columns, and change the column order.
 create a label, lock or delete the feature flag.
 :::image type="content" source="media/edit-columns-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit feature flag columns." lightbox="media/edit-columns-feature-flag-expanded.png":::
 

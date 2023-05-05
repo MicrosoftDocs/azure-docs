@@ -29,7 +29,7 @@ Select **Communication Services** in the results, and then select **Create**.
 You can now configure your Communication Services resource. On the first page in the create process, you'll be asked to specify:
 
 * The subscription
-* The resource group (you can create a new one or choose an existing resource group)
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md) (you can create a new one or choose an existing resource group)
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 

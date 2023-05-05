@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: virtual-wan
- author: cherylmc
- ms.service: virtual-wan
- ms.topic: include
- ms.date: 10/20/2019
- ms.author: cherylmc
- ms.custom: include file
+author: cherylmc
+ms.author: cherylmc
+ms.date: 04/29/2022
+ms.service: virtual-wan
+ms.topic: include
 ---
 
 | **Virtual WAN type** | **Hub type** | **Available configurations** |
@@ -16,5 +12,5 @@
 | Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub<br> Azure Firewall<br> NVA in a virtual WAN |
 
 >[!NOTE]
->You can upgrade from Basic to Standard, but cannot revert from Standard back to Basic.
+>You can upgrade from Basic to Standard, but can't revert from Standard back to Basic.
 >

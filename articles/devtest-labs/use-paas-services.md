@@ -50,7 +50,7 @@ DevTest Labs creates environments by using preconfigured Azure Resource Manager 
 
 In large organizations, development teams typically provide customized or isolated testing environments. The IT group provides environments that all teams within a business unit or a division can use.
 
-To enable and configure environment creation for labs, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). DevTest Labs has a public repository of preconfigured ARM templates for creating certain environments. For more information about the public environments, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#enable-and-configure-public-environments).
+To enable and configure environment creation for labs, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). DevTest Labs has a public repository of preconfigured ARM templates for creating certain environments. For more information about the public environments, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#configure-public-environment-settings-for-your-lab).
 
 You can also [create or configure your own ARM templates](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), [store them in private Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to labs](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories).
 
@@ -70,7 +70,7 @@ When you create an environment, DevTest Labs can replace the `$(LabSubnetId)` to
 
 ### Use nested templates
 
-DevTest Labs supports [nested ARM templates](/azure/azure-resource-manager/templates/linked-templates). To use `_artifactsLocation` and `_artifactsLocationSasToken` tokens to create a URI to a nested ARM template, see [Deploy DevTest Labs environments by using nested templates](deploy-nested-template-environments.md). For more information, see the **Deployment artifacts** section of the [Azure Resource Manager Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
+DevTest Labs supports [nested ARM templates](../azure-resource-manager/templates/linked-templates.md). To use `_artifactsLocation` and `_artifactsLocationSasToken` tokens to create a URI to a nested ARM template, see [Deploy DevTest Labs environments by using nested templates](deploy-nested-template-environments.md). For more information, see the **Deployment artifacts** section of the [Azure Resource Manager Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 ## Next steps
 
@@ -78,4 +78,3 @@ DevTest Labs supports [nested ARM templates](/azure/azure-resource-manager/templ
 - [Create an environment with a self-contained Service Fabric cluster in Azure DevTest Labs](create-environment-service-fabric-cluster.md)
 - [Connect an environment to your lab's virtual network in Azure DevTest Labs](connect-environment-lab-virtual-network.md)
 - [Integrate environments into your Azure DevOps CI/CD pipelines](integrate-environments-devops-pipeline.md)
-

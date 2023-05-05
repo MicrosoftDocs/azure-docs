@@ -6,8 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 07/19/2022
 ms.author: aahi
 ---
 
@@ -35,10 +36,11 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Currently multi-service resource does not support VNET. Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
 > * Anomaly Detector
+> * Azure OpenAI
 > * Computer Vision
 > * Content Moderator
 > * Custom Vision
@@ -52,12 +54,13 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 
 > [!NOTE]
-> If you're using LUIS or Speech Services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal and/or Speech Studio from a virtual network, you will need to use the following tags:  
+> If you're using, Azure OpenAI, LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use Azure OpenAI Studio, LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags:
+
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
 > * **CognitiveServicesManagement**
-
+> * **CognitiveServicesFrontEnd**
 
 
 ## Change the default network access rule
@@ -137,17 +140,17 @@ You can manage default network access rules for Cognitive Services resources thr
 1. Set the default rule to deny network access by default.
 
     ```azurecli-interactive
-    az cognitiveservices account update \
-        -g "myresourcegroup" -n "myaccount" \
-        --default-action Deny
+    az resource update \
+        --ids {resourceId} \
+        --set properties.networkAcls="{'defaultAction':'Deny'}"
     ```
 
 1. Set the default rule to allow network access by default.
 
     ```azurecli-interactive
-    az cognitiveservices account update \
-        -g "myresourcegroup" -n "myaccount" \
-        --default-action Allow
+    az resource update \
+        --ids {resourceId} \
+        --set properties.networkAcls="{'defaultAction':'Allow'}"
     ```
 
 ***
@@ -501,6 +504,9 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 * [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### Connecting to private endpoints
+
+> [!NOTE]
+> Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure Cognitive Services. Refer to the [Azure services DNS zone configuration article](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the correct zone and forwader names.  
 
 Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
 

@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Compute environments supported by Azure Data Factory version 1
@@ -263,7 +263,7 @@ You can create a Batch linked service to register a Batch pool of virtual machin
 
 If you are new to using the Batch service:
 
-* Learn about [Azure Batch basics](../../azure-sql/database/sql-database-paas-overview.md).
+* Learn about [Azure Batch basics](/azure/azure-sql/database/sql-database-paas-overview).
 * Learn about the [New-AzureBatchAccount](/previous-versions/azure/mt125880(v=azure.100)) cmdlet. Use this cmdlet to create a Batch account. Or, you can create the Batch account by using the [Azure portal](../../batch/batch-account-create-portal.md). For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Learn about the [New-AzureBatchPool](/previous-versions/azure/mt125936(v=azure.100)) cmdlet. Use this cmdlet to create a Batch pool.
 

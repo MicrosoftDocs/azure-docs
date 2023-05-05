@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Evidence.com | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Evidence.com'
 description: Learn how to configure single sign-on between Azure Active Directory and Evidence.com.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 04/03/2023
 ms.author: jeedes
 ---
 
@@ -44,6 +44,8 @@ To configure the integration of Evidence.com into Azure AD, you need to add Evid
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Evidence.com** in the search box.
 1. Select **Evidence.com** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Evidence.com
 
@@ -80,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<your tenant>.evidence.com/?class=UIX&proc=Login`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Evidence.com Client support team](https://communities.taser.com/support/SupportContactUs?typ=LE) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Evidence.com Client support team](https://my.axon.com/s/contactsupport) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

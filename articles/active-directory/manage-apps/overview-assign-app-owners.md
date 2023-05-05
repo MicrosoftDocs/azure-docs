@@ -1,19 +1,19 @@
 ---
 title: Overview of enterprise application ownership
-titleSuffix: Azure AD
 description: Learn about enterprise application ownership in Azure Active Directory
 services: active-directory
-author: saipradeepb23
+author: omondiatieno
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: conceptual
-ms.date: 02/11/2022
-ms.author: saibandaru
+ms.date: 12/05/2022
+ms.author: jomondi
+ms.reviewer: saibandaru
+ms.custom: enterprise-apps
 
 #Customer intent: As an Azure AD administrator, I want to learn about enterprise application ownership.
-
 ---
 
 # Overview of enterprise application ownership in Azure Active Directory
@@ -33,7 +33,11 @@ If you have an ownerless application in your tenant, you can access the audit lo
 
 You may also see other users who have scoped permissions on the application by navigating to “Roles and Administrators” tab. Once you find the right person to own the application, a user with a highly privileged administrative role in the organization can assign the new owner for the application. See [Assign enterprise application owners](assign-app-owners.md).
 
-As a best practice, we recommend proactive monitoring applications in your environment to ensure there are at least two owners, where possible, to avoid the situation of ownerless apps. Additionally, you should utilize the serviceManagementReference property on the application object to reference the team contact information from your enterprise Service or Asset Management Database. The serviceManagementReference property ensures you have team contact even if an individual leaves the organization. 
+As a best practice, we recommend proactive monitoring applications in your environment to ensure there are at least two owners, where possible, to avoid the situation of ownerless apps. Additionally, you should utilize the serviceManagementReference property on the application object to reference the team contact information from your enterprise Service or Asset Management Database. The serviceManagementReference property ensures you have team contact even if an individual leaves the organization.
+
+**How can I find enterprise applications that are ownerless or at risk of being ownerless in my organization?**
+
+To learn how to identify ownerless enterprise apps or those with only one owner using Microsoft Graph API, see [List ownerless applications](/graph/tutorial-applications-basics#manage-application-ownership).
 
 **How do you add yourself as an owner of an enterprise application?**
 

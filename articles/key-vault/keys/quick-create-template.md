@@ -2,21 +2,20 @@
 title: Azure Quickstart - Create an Azure key vault and a key by using Azure Resource Manager template | Microsoft Docs
 description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Azure Resource Manager template (ARM template).
 services: key-vault
-author: sebansal
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 10/14/2020
-ms.author: sebansal
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 06/28/2022
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
-# Quickstart: Create an Azure key vault and a key by using ARM template 
+# Quickstart: Create an Azure key vault and a key by using ARM template
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
-
 
 ## Prerequisites
 
@@ -24,28 +23,6 @@ To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
-- Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
-
-    1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
-
-        # [CLI](#tab/CLI)
-        ```azurecli-interactive
-        echo "Enter your email address that is used to sign in to Azure:" &&
-        read upn &&
-        az ad user show --id $upn --query "objectId" &&
-        echo "Press [ENTER] to continue ..."
-        ```
-
-        # [PowerShell](#tab/PowerShell)
-        ```azurepowershell-interactive
-        $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-        (Get-AzADUser -UserPrincipalName $upn).Id
-        Write-Host "Press [ENTER] to continue..."
-        ```
-        ---
-
-        Write down the object ID. You need it in the next section of this quickstart.
-
 
 ## Review the template
 
@@ -60,25 +37,39 @@ To complete this article:
         "description": "The name of the key vault to be created."
       }
     },
-    "skuName": {
-      "type": "string",
-      "defaultValue": "Standard",
-      "allowedValues": [
-        "Standard",
-        "Premium"
-      ],
-      "metadata": {
-        "description": "The SKU of the vault to be created."
-      }
-    },
     "keyName": {
       "type": "string",
       "metadata": {
         "description": "The name of the key to be created."
       }
     },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The location of the resources"
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "standard",
+      "allowedValues": [
+        "standard",
+        "premium"
+      ],
+      "metadata": {
+        "description": "The SKU of the vault to be created."
+      }
+    },
     "keyType": {
       "type": "string",
+      "defaultValue": "RSA",
+      "allowedValues": [
+        "EC",
+        "EC-HSM",
+        "RSA",
+        "RSA-HSM"
+      ],
       "metadata": {
         "description": "The JsonWebKeyType of the key to be created."
       }
@@ -100,6 +91,13 @@ To complete this article:
     "curveName": {
       "type": "string",
       "defaultValue": "",
+      "allowedValues": [
+        "",
+        "P-256",
+        "P-256K",
+        "P-384",
+        "P-521"
+      ],
       "metadata": {
         "description": "The JsonWebKeyCurveName of the key to be created."
       }
@@ -108,17 +106,18 @@ To complete this article:
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2019-09-01",
+      "apiVersion": "2021-11-01-preview",
       "name": "[parameters('vaultName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "properties": {
-        "enableRbacAuthorization": false,
-        "enableSoftDelete": false,
+        "accessPolicies": [],
+        "enableRbacAuthorization": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": "90",
         "enabledForDeployment": false,
         "enabledForDiskEncryption": false,
         "enabledForTemplateDeployment": false,
         "tenantId": "[subscription().tenantId]",
-        "accessPolicies": [],
         "sku": {
           "name": "[parameters('skuName')]",
           "family": "A"
@@ -131,18 +130,17 @@ To complete this article:
     },
     {
       "type": "Microsoft.KeyVault/vaults/keys",
-      "apiVersion": "2019-09-01",
-      "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-      ],
+      "apiVersion": "2021-11-01-preview",
+      "name": "[format('{0}/{1}', parameters('vaultName'), parameters('keyName'))]",
       "properties": {
         "kty": "[parameters('keyType')]",
         "keyOps": "[parameters('keyOps')]",
         "keySize": "[parameters('keySize')]",
         "curveName": "[parameters('curveName')]"
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+      ]
     }
   ],
   "outputs": {
@@ -156,8 +154,8 @@ To complete this article:
 
 Two resources are defined in the template:
 
-- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults)
-- Microsoft.KeyVault/vaults/keys
+- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults?tabs=json)
+- [Microsoft.KeyVault/vaults/keys](/azure/templates/microsoft.keyvault/vaults/keys?tabs=json)
 
 More Azure Key Vault template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
@@ -173,6 +171,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 |**exp**  |  Specifies the expiration time, as a DateTime object. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC). |
 
 ## Deploy the template
+
 You can use [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
@@ -195,22 +194,23 @@ $keyVaultName = Read-Host -Prompt "Enter your key vault name"
 Get-AzKeyVaultKey -vaultName $keyVaultName
 Write-Host "Press [ENTER] to continue..."
 ```
+
 ---
 
 ## Creating key using ARM template is different from creating key via data plane
 
 ### Creating a key via ARM
+
 - It's only possible to create *new* keys. It isn't possible to update existing keys, nor create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
-- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions that match the pattern "Microsoft.KeyVault/*". 
+- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions that match the pattern "Microsoft.KeyVault/*".
 
   :::image type="content" source="../media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
   :::image type="content" source="../media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
 
-
 ### Existing API (creating key via data plane)
+
 - It's possible to create new keys, update existing keys, and create new versions of existing keys.
 - The caller must be authorized to use this API. If the vault uses access policies, the caller must have "create" key permission; if the vault is enabled for RBAC, the caller must have "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction.
-
 
 ## Clean up resources
 

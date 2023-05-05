@@ -1,19 +1,18 @@
 ---
-title: Import/Export of Azure IoT Hub device identities | Microsoft Docs
+title: Import/Export of Azure IoT Hub device identities
 description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 10/02/2019
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 10/02/2019
 ms.custom: devx-track-csharp
 ---
 
 # Import and export IoT Hub device identities in bulk
 
-Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when cloning a hub to a different region, see [How to Clone an IoT Hub](iot-hub-how-to-clone.md).
+Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when migrating an IoT hub to a different region, see [How to migrate an IoT Hub using Azure Resource Manager templates](migrate-hub-arm.md).
 
 > [!NOTE]
 > IoT Hub has recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication.  Initially, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
@@ -87,7 +86,7 @@ while(true)
 
 ## Device import/export job limits
 
-Only 1 active device import or export job is allowed at a time for all IoT Hub tiers. IoT Hub also has limits for rate of jobs operations. To learn more, see [Reference - IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+Only 1 active device import or export job is allowed at a time for all IoT Hub tiers. IoT Hub also has limits for rate of jobs operations. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Export devices
 
@@ -221,7 +220,7 @@ The **ImportDevicesAsync** method takes two parameters:
    SharedAccessBlobPermissions.Read
    ```
 
-* A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](../storage/index.yml) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -271,6 +270,20 @@ Use the optional **importMode** property in the import serialization data for ea
 
 > [!NOTE]
 > If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+
+## Import troubleshooting
+
+Using an import job to create devices may fail with a quota issue when it is close to the device count limit of the IoT hub. This can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+
+If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
+
+```sql
+SELECT COUNT() as totalNumberOfDevices FROM devices
+```
+
+For information about the total number of devices that can be registered to an IoT hub, see [IoT Hub limits](iot-hub-devguide-quotas-throttling.md#other-limits).
+
+If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you'll likely encounter the same error.
 
 ## Import devices example – bulk device provisioning
 
@@ -423,19 +436,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Next steps
 
-In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Many of these operations, including how to move devices from one hub to another, are used in the [Managing devices registered to the IoT hub section of How to Clone an IoT Hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
+In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Many of these operations, including how to move devices from one hub to another, are used in the **Manage devices registered to the IoT hub** section of [How to migrate an IoT hub using Azure Resource Manager templates](migrate-hub-arm.md#manage-the-devices-registered-to-the-iot-hub).
 
-The cloning article has a working sample associated with it, which is located in the IoT C# samples on this page: [Azure IoT Samples for C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), with the project being ImportExportDevicesSample. You can download the sample and try it out; there are instructions in the [How to Clone an IoT Hub](iot-hub-how-to-clone.md) article.
-
-To learn more about managing Azure IoT Hub, check out the following articles:
-
-* [Monitor IoT Hub](monitor-iot-hub.md)
-
-To further explore the capabilities of IoT Hub, see:
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
-
-To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
-
-* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)
+The migration article has a working sample associated with it, which is located in the IoT C# samples on this page: [Azure IoT hub service samples for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides), with the project being ImportExportDevicesSample.

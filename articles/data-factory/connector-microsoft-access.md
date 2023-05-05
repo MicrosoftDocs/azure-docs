@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/18/2023
 ---
 
 # Copy data from and to Microsoft Access using Azure Data Factory or Synapse Analytics
@@ -18,12 +18,16 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 
 ## Supported capabilities
 
-This Microsoft Access connector is supported for the following activities:
+This Microsoft Access connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
-You can copy data from Microsoft Access source to any supported sink data store, or copy from any supported source data store to Microsoft Access sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 ## Prerequisites
 

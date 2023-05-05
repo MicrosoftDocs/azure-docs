@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with EFI Digital StoreFront | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with EFI Digital StoreFront'
 description: Learn how to configure single sign-on between Azure Active Directory and EFI Digital StoreFront.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with EFI Digital StoreFront
@@ -44,6 +44,8 @@ To configure the integration of EFI Digital StoreFront into Azure AD, you need t
 1. In the **Add from the gallery** section, type **EFI Digital StoreFront** in the search box.
 1. Select **EFI Digital StoreFront** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for EFI Digital StoreFront
 
 Configure and test Azure AD SSO with EFI Digital StoreFront using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EFI Digital StoreFront.
@@ -76,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COMPANY_NAME>.myprintdesk.net/DSF/asp4/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [EFI Digital StoreFront Client support team](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [EFI Digital StoreFront Client support team](https://www.efi.com/support-and-downloads/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -112,11 +114,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EFI Digital StoreFront SSO
 
-To configure single sign-on on **EFI Digital StoreFront** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [EFI Digital StoreFront Client support team](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **EFI Digital StoreFront** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [EFI Digital StoreFront Client support team](https://www.efi.com/support-and-downloads/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create EFI Digital StoreFront test user
 
-In this section, you create a user called Britta Simon in EFI Digital StoreFront. Work with [EFI Digital StoreFront support team](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) to add the users in the EFI Digital StoreFront platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in EFI Digital StoreFront. Work with [EFI Digital StoreFront support team](https://www.efi.com/support-and-downloads/) to add the users in the EFI Digital StoreFront platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

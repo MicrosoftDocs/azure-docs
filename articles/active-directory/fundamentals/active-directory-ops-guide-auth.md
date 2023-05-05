@@ -3,13 +3,13 @@ title: Azure Active Directory Authentication management operations reference gui
 description: This operations reference guide describes the checks and actions you should take to secure authentication management
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: travisgr
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 
@@ -44,7 +44,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Owner recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ## Credentials management
 
@@ -122,8 +121,8 @@ Like a user in your organization, a device is a core identity you want to protec
 
 You can carry out this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
 
-- Organizations can use [Microsoft Intune](/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Endpoint Configuration Manager) and Android mobile devices.
-- [Hybrid Azure AD join](../devices/hybrid-azuread-join-managed-domains.md) provides management with Group Policies or Microsoft Endpoint Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md) at the same time.
+- Organizations can use [Microsoft Intune](/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Configuration Manager) and Android mobile devices.
+- [Hybrid Azure AD join](../devices/hybrid-azuread-join-managed-domains.md) provides management with Group Policies or Microsoft Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md) at the same time.
 
 If you have domain-joined Windows devices that aren't registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without conditional access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](../conditional-access/require-managed-devices.md) in your conditional access policies.
 
@@ -246,7 +245,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - Plan for [break glass](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
 - Ensure a consistent experience across Microsoft 365 client applications, for example, Teams, OneDrive, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and SharePoint Online
 - Assignment to policies should be implemented through groups, not individuals
-- Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
+- Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD Premium P2, then you can use access reviews to automate the process
 
 #### Conditional Access recommended reading
 
@@ -315,6 +314,7 @@ To avoid this scenario, you should refer to [detect and remediate illicit consen
 
 #### Consent grants recommended reading
 
+- [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 - [Microsoft Graph API permissions](/graph/permissions-reference)
 
 ### User and group settings

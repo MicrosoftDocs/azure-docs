@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: abnarain
 robots: noindex
 ---
@@ -165,7 +165,7 @@ Some data stores in the cloud also require approving of IP address of the machin
 
 The following cloud data stores require approving of IP address of the gateway machine. Some of these data stores, by default, may not require approving of the IP address. 
 
-- [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
+- [Azure SQL Database](/azure/azure-sql/database/firewall-configure) 
 - [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/how-to-configure-firewall.md)
@@ -177,7 +177,7 @@ The following cloud data stores require approving of IP address of the gateway m
 **Answer:** We do not support this feature yet. We are actively working on it.
 
 **Question:** What are the port requirements for the gateway to work?
-**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure Synapse Analytics is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and filtering IP addresses](#firewall-configurations-and-filtering-ip-address-of gateway) section. 
+**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **inbound port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure Synapse Analytics is used as source or destination, then you need to open **port 1433** as well. For more information, see [Firewall configurations and filtering IP addresses](#firewall-configurations-and-filtering-ip-address-of-gateway) section. 
 
 **Question:** What are certificate requirements for Gateway?
 **Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 

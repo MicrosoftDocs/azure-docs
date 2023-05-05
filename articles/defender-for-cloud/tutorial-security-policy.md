@@ -1,5 +1,5 @@
 ---
-title: Working with security policies | Microsoft Docs
+title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/25/2022
@@ -7,37 +7,35 @@ ms.date: 01/25/2022
 
 # Manage security policies
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
 To understand the relationships between initiatives, policies, and recommendations, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 
 ## Who can edit security policies?
 
-Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defender for Cloud roles:
+Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are two specific Defender for Cloud roles that can view and manage security policies:
 
 - **Security reader**: Has rights to view Defender for Cloud items such as recommendations, alerts, policy, and health. Can't make changes.
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
 
-You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell.
+You can edit Azure security policies through Defender for Cloud, Azure Policy, via REST API or using PowerShell.
 
 ## Manage your security policies
 
 To view your security policies in Defender for Cloud:
 
-1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
+1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the Azure management groups or subscriptions.
 
-1. Select the relevant subscription or management group whose policies you want to view.
+1. Select the relevant subscription or management group whose security policies you want to view.
 
 1. Open the **Security policy** page.
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Screenshot showing a subscription's security policy settings page." lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
-    > If there is a label "MG Inherited" alongside your default initiative, it means that the initiative has been assigned to a management group and inherited by the subscription you're viewing.
+    > The settings of each recommendation that apply to the scope are compared and the cumulative outcome of actions taken by the recommendation appears. For example, if in one assignment, a recommendation is Disabled, but in another it's set to Audit, then the cumulative effect applies Audit. The more active effect always takes precedence.
 
 1. Choose from the available options on this page:
 
@@ -47,75 +45,111 @@ To view your security policies in Defender for Cloud:
 
     1. To view and edit the default initiative, select it and proceed as described below.
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
+        :::image type="content" source="./media/tutorial-security-policy/policy-screen.png" alt-text="Screenshot showing the security policy settings for a subscription, focusing on the default assignment." lightbox="./media/tutorial-security-policy/policy-screen.png":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
-       * Use the links at the top to open a policy **assignment** that applies on the subscription or management group. These links let you access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, use the link to edit or disable the policy.
+       * Use the links at the top to open a policy **assignment** that applies on the subscription or management group. These links let you access the assignment and manage recommendations. For example, if you see that a particular recommendation is set to audit effect, use to change it to deny or disable from being evaluated.
        
-       * In the list of policies, you can see the effective application of the policy on your subscription or management group. The settings of each policy that apply to the scope are taken into consideration and the cumulative outcome of actions taken by the policy is shown. For example, if in one assignment of the policy is disabled, but in another it's set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.
+       * In the list of recommendations, you can see the effective application of the recommendation on your subscription or management group. 
        
-       * The policies' effect can be: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. For more information on how effects are applied, see [Understand Policy effects](../governance/policy/concepts/effects.md).
+       * The recommendations' effect can be:
+        
+            **Audit** evaluates the compliance state of resources according to recommendation logic.<br>
+            **Deny** prevents deployment of non-compliant resources based on recommendation logic.<br>
+            **Disabled** prevents the recommendation from running.
 
-       > [!NOTE]
-       > When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
+         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Screenshot showing the edit default assignment screen." lightbox="./media/tutorial-security-policy/default-assignment-screen.png":::
 
+## Enable a security recommendation
 
-## Disable security policies and disable recommendations
+Some recommendations might be disabled by default. For example, in the Azure Security Benchmark initiative, some recommendations are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. For example: recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
 
-When your security initiative triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, disable the specific policy that generates the recommendation.
+To enable a disabled recommendation and ensure it's assessed for your resources:
 
-The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Defender for Cloud's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
+1. From Defender for Cloud's menu, open the **Environment settings** page.
 
-For more information about recommendations, see [Managing security recommendations](review-security-recommendations.md).
-
-
-1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
-
-1. Select the subscription or management group for which you want to disable the recommendation (and policy).
-
-   > [!NOTE]
-   > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
+1. Select the subscription or management group for which you want to disable a recommendation.
 
 1. Open the **Security policy** page.
 
-1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
+1. From the **Default initiative** section, select the relevant initiative.
 
-1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
+1. Search for the recommendation that you want to disable, either by the search bar or filters.
 
-1. From the dropdown list, change the value for the corresponding policy to **Disabled**.
+1. Select the ellipses menu, select **Manage effect and parameters**.
 
-   ![disable policy.](./media/tutorial-security-policy/disable-policy.png)
+1. From the effect section, select **Audit**.
+
+1. Select **Save**.
+
+    :::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Screenshot showing the manage effect and parameters screen for a given recommendation." lightbox="./media/tutorial-security-policy/enable-security-recommendation.png":::
+
+   > [!NOTE]
+   > Setting will take effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
+
+## Manage a security recommendation's settings
+
+It may be necessary to configure additional parameters for some recommendations.
+As an example, diagnostic logging recommendations have a default retention period of 1 day. You can change the default value if your organizational security requirements require logs to be kept for more than that, for example: 30 days.
+The **additional parameters** column indicates whether a recommendation has associated additional parameters:
+
+**Default** – the recommendation is running with default configuration<br>
+**Configured** – the recommendation’s configuration is modified from its default values<br>
+**None** – the recommendation doesn't require any additional configuration
+
+1. From Defender for Cloud's menu, open the **Environment settings** page.
+
+1. Select the subscription or management group for which you want to disable a recommendation.
+
+1. Open the **Security policy** page.
+
+1. From the **Default initiative** section, select the relevant initiative.
+
+1. Search for the recommendation that you want to configure.
+
+   > [!TIP]
+   > To view all available recommendations with additional parameters, using the filters to view the **Additional parameters** column and then default.
+
+1. Select the ellipses menu and select **Manage effect and parameters**.
+
+1. From the additional parameters section, configure the available parameters with new values.
+
+1. Select **Save**.
+
+    :::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Screenshot showing where to configure additional parameters on the manage effect and parameters screen." lightbox="./media/tutorial-security-policy/additional-parameters.png":::
+
+Use the "reset to default" button to revert changes per the recommendation and restore the default value.
+
+## Disable a security recommendation
+
+When your security policy triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, select an initiative and change its settings to disable relevant recommendations.
+
+The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Defender for Cloud's regulatory compliance tools. Even if you've disabled a recommendation in the built-in initiative, a recommendation in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable recommendations from regulatory standard initiatives.
+
+Learn more about [managing security recommendations](review-security-recommendations.md).
+
+1. From Defender for Cloud's menu, open the **Environment settings** page.
+
+1. Select the subscription or management group for which you want to enable a recommendation.
+
+   > [!NOTE]
+   > Remember that a management group applies its settings to its subscriptions. If you disabled a subscription's recommendation, and the subscription belongs to a management group that still uses the same settings, then you will continue to receive the recommendation. The security policy settings will still be applied from the management level and the recommendation will still be generated.
+
+1. Open the **Security policy** page.
+
+1. From the **Default initiative** section, select the relevant initiative.
+
+1. Search for the recommendation that you want to enable, either by the search bar or filters.
+
+1. Select the ellipses menu, select **Manage effect and parameters**.
+
+1. From the effect section, select **Disabled**.
 
 1. Select **Save**.
 
    > [!NOTE]
-   > The change might take up to 12 hours to take effect.
-
-
-## Enable a security policy
-
-Some policies in your initiatives might be disabled by default. For example, in the Azure Security Benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
-
-To enable a disabled policy and ensure it's assessed for your resources:
-
-1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
-
-1. Select the subscription or management group for which you want to enable the recommendation (and policy).
-
-1. Open the **Security policy** page.
-
-1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
-
-1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
-
-1. From the dropdown list, change the value for the corresponding policy to **AuditIfNotExists** or **Enforce**.
-
-1. Select **Save**.
-
-   > [!NOTE]
-   > The change might take up to 12 hours to take effect.
-
+   > Setting will take effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
 
 ## Next steps
 This page explained security policies. For related information, see the following pages:

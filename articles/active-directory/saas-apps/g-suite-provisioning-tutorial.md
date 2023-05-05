@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to G Suite.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -23,7 +23,7 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
-> * Remove users in G Suite when they do not require access anymore
+> * Remove users in G Suite when they do not require access anymore (note: removing a user from the sync scope will not result in deletion of the object in GSuite)
 > * Keep user attributes synchronized between Azure AD and G Suite
 > * Provision groups and group memberships in G Suite
 > * [Single sign-on](./google-apps-tutorial.md) to G Suite (recommended)
@@ -145,7 +145,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
-9. Review the user attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in G Suite for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the G Suite API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. Select the **Save** button to commit any changes.
+
+> [!NOTE]
+> GSuite Provisioning currently only supports the use of primaryEmail as the matching attribute. 
+
 
    |Attribute|Type|
    |---|---|
@@ -170,9 +174,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails.[type eq "work"].address|String|
    |organizations.[type eq "work"].department|String|
    |organizations.[type eq "work"].title|String|
-   |phoneNumbers.[type eq "work"].value|String|
-   |phoneNumbers.[type eq "mobile"].value|String|
-   |phoneNumbers.[type eq "work_fax"].value|String|
    |addresses.[type eq "home"].country|String|
    |addresses.[type eq "home"].formatted|String|
    |addresses.[type eq "home"].locality|String|
@@ -260,6 +261,9 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Troubleshooting Tips
+* Removing a user from the sync scope will disable them in GSuite but will not result in deletion of the user in G Suite
 
 ## Change log
 

@@ -1,5 +1,6 @@
 ---
-title: 'Configure an endpoint with Front Door manager - Azure Front Door'
+title: Configure an endpoint with Front Door manager
+titleSuffix: Azure Front Door
 description: This article shows you how to configure an endpoint for an existing Azure Front Door profile with Front Door manager.
 services: frontdoor
 author: duongau
@@ -90,6 +91,12 @@ To create an Azure Front Door profile, see [create a Azure Front Door](create-fr
 1. Select **Save** to create the security policy and associate it with the endpoint.
 
     :::image type="content" source="./media/how-to-configure-endpoints/associated-security-policy.png" alt-text="Screenshot of security policy associated with an endpoint." lightbox="./media/how-to-configure-endpoints/associated-security-policy-expanded.png":::
+
+## Configure origin timeout
+
+Origin timeout is the amount of time Azure Front Door will wait until it considers the connection to origin has timed out. You can set this value on the overview page of the Azure Front Door profile. This value will be applied to all endpoints in the profile.
+
+:::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
 
 ## Clean up resources
 

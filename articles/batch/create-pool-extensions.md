@@ -29,6 +29,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [Azure Diagnostics extension for Windows VMs](../virtual-machines/windows/extensions-diagnostics.md)
 - [HPC GPU driver extension for Windows on AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)
 - [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
+- [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
 - [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.
@@ -96,6 +97,8 @@ Request Body
                 "resizeTimeout": "PT15M"
             }
         }
+    }
+}
 ```
 
 ## Get extension data from a pool
@@ -105,7 +108,7 @@ The example below retrieves data from the Azure Key Vault extension.
 REST API URI
 
 ```http
- GET https://<accountname>.<region>.batch.azure.com/pools/test3/nodes/tvmps_a3ce79db285d6c124399c5bd3f3cf308d652c89675d9f1f14bfc184476525278_d/extensions/secretext?api-version=2010-01-01
+ GET https://<accountName>.<region>.batch.azure.com/pools/<poolName>/nodes/<tvmNodeName>/extensions/secretext?api-version=2010-01-01
 ```
 
 Response Body

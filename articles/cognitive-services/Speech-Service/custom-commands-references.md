@@ -10,9 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Custom Commands concepts and definitions
+
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
 This article serves as a reference for concepts and definitions for Custom Commands applications.
 

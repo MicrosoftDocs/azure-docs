@@ -1,10 +1,14 @@
 ---
 title: Plan an Azure Service Fabric cluster deployment 
 description: Learn about planning and preparing for a production Service Fabric cluster deployment to Azure.
-
-ms.topic: conceptual
-ms.date: 03/20/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Plan and prepare for a cluster deployment
 
 Planning and preparing for a production cluster deployment is very important.  There are many factors to consider.  This article walks you through the steps of preparing your cluster deployment.

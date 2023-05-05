@@ -1,16 +1,14 @@
 ---
-title: Using load-balancing services in Azure | Microsoft Docs
+title: Using load-balancing services in Azure
 description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
 services: traffic-manager
-documentationcenter: ''
-author: asudbring
+author: greg-lindsay
 manager: kumudD
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
+ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Using load-balancing services in Azure
@@ -148,7 +146,7 @@ In this scenario, Traffic Manager is connected to application gateways (as confi
 
 In this scenario, Load Balancer distributes connections from the web tier to the databases within a high-availability cluster.
 
-If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) for step-by-step instructions.
+If your high-availability database cluster is using SQL Server Always On, refer to [Configure one or more Always On Availability Group Listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) for step-by-step instructions.
 
 For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 

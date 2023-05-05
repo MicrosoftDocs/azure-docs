@@ -7,9 +7,8 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 04/26/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Account Administrator tasks in the Azure portal
@@ -74,17 +73,17 @@ To change the active payment method to a credit card that is already saved:
 
     ![Screenshot that shows box checked next to credit card](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. Click **Set active** in the command bar.
+1. Select **Set active** in the command bar.
 
     ![Screenshot that shows set active button](./media/account-admin-tasks/subscription-checked-payment-method-set-active.png)
 
 ### Edit credit card details
 
-To edit credit card details such as the expiration date or address, click on the credit card that you'd like to edit. A credit card form will appear on the right.
+To edit credit card details such as the expiration date or address, select the credit card that you'd like to edit. A credit card form will appear on the right.
 
 ![Screenshot that shows credit card selected](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Update the credit card details and click **Save**.
+Update the credit card details and select **Save**.
 
 ### Remove a credit card from the account
 
@@ -92,7 +91,7 @@ Update the credit card details and click **Save**.
 
     ![Screenshot that shows box checked next to credit card](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. Click **Delete** in the command bar.
+1. Select **Delete** in the command bar.
 
     ![Screenshot that shows delete button](./media/account-admin-tasks/subscription-checked-payment-method-delete.png)
 
@@ -100,20 +99,20 @@ If your credit card is the active payment method for any of your Microsoft subsc
 
 ### Switch to invoice payment
 
-If you are eligible to pay by invoice (check/wire transfer), you can switch your subscription to invoice payment (check/wire transfer) in the Azure portal.
+If you are eligible to pay by invoice (wire transfer), you can switch your subscription to invoice payment (wire transfer) in the Azure portal.
 
 1. Select **Pay by invoice** in the command bar.
 
     ![Screenshot shows Payment methods page with Pay by invoice selected.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Enter the address for the invoice payment method.
-1. Click **Next**.
+1. Select **Next**.
 
 If you want to be approved to pay by invoice, see [learn how to pay by invoice](pay-by-invoice.md).
 
 ### Edit invoice payment address
 
-To edit the address of your invoice payment method, click on **Invoice** in the list of payment methods for your subscription. The address form will open on the right.
+To edit the address of your invoice payment method, select **Invoice** in the list of payment methods for your subscription. The address form will open on the right.
 
 ## Remove spending limit
 
@@ -133,7 +132,7 @@ The spending limit isn’t available for subscriptions with commitment plans or 
     > [!NOTE]
     > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
 
-1. In the Subscription overview, click the orange banner to remove the spending limit.
+1. In the Subscription overview, select the orange banner to remove the spending limit.
 
     ![Screenshot that shows remove spending limit banner](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
@@ -141,9 +140,9 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
    ![Screenshot that shows remove spending limit blade](./media/account-admin-tasks/remove-spending-limit-blade-x.png)
 
-1. Click **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
+1. Select **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
 
-1. Click **Finish**.
+1. Select **Finish**.
 
 ## Add credits to Azure in Open subscription
 
@@ -175,13 +174,13 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 
 1. If you chose product key:
     - Enter the product key
-    - Click **Validate**
+    - Select **Validate**
 
 1. If you chose credit card:
-    - Click **Select payment method** to add a credit card or select an existing one.
+    - Select **Select payment method** to add a credit card or select an existing one.
     - Specify the amount of credits you want to add.
 
-1. Click **Apply**
+1. Select **Apply**
 
 ## Usage details files comparison
 

@@ -3,13 +3,13 @@ title: Azure Active Directory governance operations reference guide
 description: This operations reference guide describes the checks and actions you should take to secure governance management
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: travisgr
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 
@@ -45,7 +45,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Owner recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ### Configuration changes testing
 

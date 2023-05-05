@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -12,9 +12,41 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-The Azure Blob storage trigger requires a general-purpose storage account. Storage V2 accounts with [hierarchical namespaces](../storage/blobs/data-lake-storage-namespace.md) are also supported. To use a blob-only account, or if your application has specialized needs, review the alternatives to using this trigger.
+There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
 
-For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
+| Consideration | Blob Storage (standard) | Blob Storage (event-based) | Queue Storage | Event Grid | 
+| ----- | ----- | ----- | ----- | ---- |
+| Latency | High (up to 10 min) | Low | Medium  | Low | 
+| [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
+| Extension version |Any | Storage v5.x+ |Any |Any |
+| Processes existing blobs | Yes | No | No | No |
+| Filters | [Blob name pattern](#blob-name-patterns)  | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) | n/a | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) |
+| Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
+| Supports high-scale² | No | Yes | Yes | Yes |
+| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the [examples in this article](#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue Storage trigger to a Blob Storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have non-storage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
+
+<sup>1</sup> Blob Storage input and output bindings support blob-only accounts.
+
+<sup>2</sup> High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+
+For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
+
+::: zone pivot="programming-language-python"  
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models. 
+
+> [!IMPORTANT]   
+> The Python v2 programming model is currently in preview.  
+::: zone-end   
 
 ## Example
 
@@ -40,7 +72,7 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 
 # [Isolated process](#tab/isolated-process)
 
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
 
@@ -178,8 +210,29 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+The following example shows a blob trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="BlobTrigger1")
+@app.blob_trigger(arg_name="myblob", 
+                  path="PATH/TO/BLOB",
+                  connection="CONNECTION_SETTING")
+def test_function(myblob: func.InputStream):
+   logging.info(f"Python blob trigger function processed blob \n"
+                f"Name: {myblob.name}\n"
+                f"Blob Size: {myblob.length} bytes")
+```
+
+# [v1](#tab/python-v1)
+
+The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 Here's the *function.json* file:
 
 ```json
@@ -214,10 +267,13 @@ def main(myblob: func.InputStream):
 ```
 
 ::: zone-end  
+
+---
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute to define the function. C# script instead uses a function.json configuration file.
 
 The attribute's constructor takes the following parameters:
 
@@ -267,6 +323,21 @@ C# script uses a *function.json* file for configuration instead of attributes.
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using decorators, the following properties on the `blob_trigger` decorator define the Blob Storage trigger:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`path`  | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
+|`connection` | The storage account connection string. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -274,7 +345,13 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
 
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property |Description|
@@ -341,11 +418,13 @@ Metadata is available through the `$TriggerMetadata` parameter.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
+The binding types supported by Blob trigger depend on the extension package version and the C# modality used in your function app. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
 
-The usage of the Blob trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
 
-[!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)]
+If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
 
+[!INCLUDE [functions-bindings-blob-storage-attribute](../../includes/functions-bindings-blob-storage-attribute.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-java"
@@ -408,46 +487,20 @@ To look for curly braces in file names, escape the braces by using two braces. T
 
 If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in the function code is *soundfile.mp3*.
 
+## Polling and latency
 
-
-## Polling
-
-Polling works as a hybrid between inspecting logs and running periodic container scans. Blobs are scanned in groups of 10,000 at a time with a continuation token used between intervals.
+Polling works as a hybrid between inspecting logs and running periodic container scans. Blobs are scanned in groups of 10,000 at a time with a continuation token used between intervals. If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. 
 
 > [!WARNING]
-> In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed.
-> 
-> If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob. Another option is to use Event Grid; see the tutorial [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
+> [Storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed. 
 
-## Alternatives
+If you require faster or more reliable blob processing, you should instead implement one of the following strategies: 
 
-### Event Grid trigger
-
-> [!NOTE]
-> When using Storage Extensions 5.x and higher, the Blob trigger has built-in support for an Event Grid based Blob trigger. For more information, see the [Storage extension 5.x and higher](#storage-extension-5x-and-higher) section below.
-
-The [Event Grid trigger](functions-bindings-event-grid.md) also has built-in support for [blob events](../storage/blobs/storage-blob-event-overview.md). Use Event Grid instead of the Blob storage trigger for the following scenarios:
-
-- **Blob-only storage accounts**: [Blob-only storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts) are supported for blob input and output bindings but not for blob triggers.
-
-- **High-scale**: High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
-
-- **Existing Blobs**: The blob trigger will process all existing blobs in the container when you set up the trigger. If you have a container with many existing blobs and only want to trigger for new blobs, use the Event Grid trigger.
-
-- **Minimizing latency**: If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. To avoid this latency, you can switch to an App Service plan with Always On enabled. You can also use an [Event Grid trigger](functions-bindings-event-grid.md) with your Blob storage account. For an example, see the [Event Grid tutorial](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
-
-See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial of an Event Grid example.
-
-#### Storage Extension 5.x and higher
-
-When using the preview storage extension, there is built-in support for Event Grid in the Blob trigger, which requires setting the `source` parameter to Event Grid in your existing Blob trigger. 
-
-For more information on how to use the Blob Trigger based on Event Grid, refer to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).
-
-### Queue storage trigger
-
-Another approach to processing blobs is to write queue messages that correspond to blobs being created or modified and then use a [Queue storage trigger](./functions-bindings-storage-queue.md) to begin processing.
++ Change your binding definition to consume [blob events](../storage/blobs/storage-blob-event-overview.md) instead of polling the container. You can do this in one of two ways:
+    + Add the `source` parameter with a value of `EventGrid` to your binding definition and create an event subscription on the same container. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md).
+    + Replace the Blob Storage trigger with an [Event Grid trigger](functions-bindings-event-grid-trigger.md) using an event subscription on the same container. For more information, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
++ Consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
++ Switch your hosting to use an App Service plan with Always On enabled, which may result in increased costs. 
 
 ## Blob receipts
 

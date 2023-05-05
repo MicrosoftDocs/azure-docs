@@ -2,13 +2,13 @@
 title: Deprecation of IPConfig parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig | Microsoft Docs
 description: Details about deprecation of IPConfig parameters of the cmdlet New-AzRecoveryServicesAsrVMNicConfig and information about the use of new cmdlet New-AzRecoveryServicesAsrVMNicIPConfig
 services: site-recovery
-author: rishjai-msft
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 04/30/2021
-ms.author: rishjai 
-
+ms.author: ankitadutta 
 ---
 # Deprecation of IP Config parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig
 

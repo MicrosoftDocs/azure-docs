@@ -1,12 +1,10 @@
 ---
 title: Ev5 and Esv5-series - Azure Virtual Machines
 description: Specifications for the Ev5 and Esv5-series VMs.
-author: joelpelley
-ms.author: joelpell
-ms.reviewer: joelpell
-ms.custom: mimckitt
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---
@@ -22,7 +20,7 @@ The Ev5 and Esv5-series virtual machines run on the 3rd Generation Intel&reg; Xe
 
 ## Ev5-series
 
-Ev5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM. Ev5-series virtual machines do not have any temporary storage thus lowering the price of entry.
+Ev5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM. Ev5-series virtual machines don't have temporary storage thus lowering the price of entry.
 
 Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD or Ultra Disk storage, select Esv5-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -31,14 +29,14 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_E2_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 2 | 12500 |
+| Standard_E2_v5  | 2   | 16  | Remote Storage Only | 4  | 2 | 12500 |
 | Standard_E4_v5                | 4   | 32  | Remote Storage Only | 8  | 2 | 12500 |
 | Standard_E8_v5                | 8   | 64  | Remote Storage Only | 16 | 4 | 12500 |
 | Standard_E16_v5               | 16  | 128 | Remote Storage Only | 32 | 8 | 12500 |
@@ -50,28 +48,27 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 | Standard_E104i_v5<sup>3</sup> | 104 | 672 | Remote Storage Only | 64 | 8 | 100000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ev5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
+<sup>2</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
 
 ## Esv5-series
 
-Esv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM. Esv5-series virtual machines do not have any temporary storage thus lowering the price of entry.
+Esv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM. Esv5-series virtual machines don't have temporary storage thus lowering the price of entry.
 
-Esv5-series supports Standard SSDs, Standard HDDs, and Premium SSDs disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Esv5-series supports Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>4</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | 12500 |
+| Standard_E2s_v5  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | 12500 |
 | Standard_E4s_v5                | 4   | 32  | Remote Storage Only | 8  | 6400/145    | 20000/1200 | 2 | 12500 |
 | Standard_E8s_v5                | 8   | 64  | Remote Storage Only | 16 | 12800/290   | 20000/1200 | 4 | 12500 |
 | Standard_E16s_v5               | 16  | 128 | Remote Storage Only | 32 | 25600/600   | 40000/1200 | 8 | 12500 |
@@ -80,13 +77,23 @@ Esv5-series supports Standard SSDs, Standard HDDs, and Premium SSDs disk types. 
 | Standard_E48s_v5               | 48  | 384 | Remote Storage Only | 32 | 76800/1315  | 80000/3000 | 8 | 24000  |
 | Standard_E64s_v5               | 64  | 512 | Remote Storage Only | 32 | 80000/1735  | 80000/3000 | 8 | 30000  |
 | Standard_E96s_v5<sup>3</sup>   | 96  | 672 | Remote Storage Only | 32 | 80000/2600  | 80000/4000 | 8 | 35000  |
-| Standard_E104is_v5<sup>4</sup> | 104 | 672 | Remote Storage Only | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
+| Standard_E104is_v5<sup>3,5</sup> | 104 | 672 | Remote Storage Only | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
 
-<sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> [Constrained core](constrained-vcpu.md) sizes available.<br>
-<sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
-<sup>5</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.
+
+<sup>2</sup> [Constrained core](constrained-vcpu.md) sizes available.
+
+<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
+
+<sup>4</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
+<sup>5</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E104is_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/4000 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/4000
+
+
+
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -101,4 +108,4 @@ Esv5-series supports Standard SSDs, Standard HDDs, and Premium SSDs disk types. 
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
+More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)

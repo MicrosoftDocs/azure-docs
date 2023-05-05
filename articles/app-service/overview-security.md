@@ -4,7 +4,7 @@ description: Learn about how App Service helps secure your app, and how you can 
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
 ms.topic: article
 ms.date: 08/24/2018
-ms.custom: seodec18
+ms.custom: UpdateFrequency3
 
 ---
 # Security in Azure App Service
@@ -51,7 +51,7 @@ App Service authentication and authorization support multiple authentication pro
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
 - **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](../key-vault/index.yml). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
-- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
+- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph](/graph/overview) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
 

@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric probes
 description: How to model a liveness and readiness probe in Azure Service Fabric by using application and service manifest files.
-
 ms.topic: conceptual
-author: tugup
-ms.author: tugup
-ms.date: 3/12/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Service Fabric Probes

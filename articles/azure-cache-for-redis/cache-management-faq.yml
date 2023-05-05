@@ -7,7 +7,7 @@ metadata:
   ms.service: cache
   ms.topic: faq
   ms.custom: devx-track-csharp
-  ms.date: 08/06/2020
+  ms.date: 04/04/2023
 title: Azure Cache for Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Cache for Redis.
 
@@ -38,9 +38,9 @@ sections:
 
           ### StackExchange.Redis best practices
 
-          * Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically. [See here for details](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
+          * Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically.
           * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request. For an example of how to manage a connection, see the `RedisConnection` class in [Connect to the cache with Redisconnection](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache-with-redisconnection).
-          * Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [this Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. Read [this article](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) for an example problem that can be caused by large values.
+          * Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [this Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. For more information, see [Best practices development](cache-best-practices-development.md#consider-more-keys-and-smaller-values).
           * Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
           * Use at least the default connectTimeout of 5 seconds. This interval gives StackExchange.Redis sufficient time to re-establish the connection if there's a network blip.
           * Be aware of the performance costs associated with different operations you're running. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io site](https://redis.io/commands/) has details around the time complexity for each operation that it supports. Select each command to see the complexity for each operation.
@@ -48,8 +48,8 @@ sections:
           ### Configuration and concepts
 
           * Use Standard or Premium Tier for Production systems. The Basic Tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are typically used for simple dev/test scenarios.
-          * Remember that Redis is an **In-Memory** data store. Read [this article](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) so that you're aware of scenarios where data loss can occur.
-          * Develop your system such that it can handle connection blips [caused by patching and failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+          * Remember that Redis is an **In-Memory** data store. For more information, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md) so that you're aware of scenarios where data loss can occur.
+          * Develop your system such that it can handle connection blips caused by [patching and failover](cache-failover.md).
 
           ### Performance testing
 
@@ -70,7 +70,7 @@ sections:
       - question: |
           How can I benchmark and test the performance of my cache?
         answer: |
-          * [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+          * [Enable cache diagnostics](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
           * You can use redis-benchmark.exe to load test your Redis server.
           * Ensure that the load testing client and the Azure Cache for Redis are in the same region.
           * Use redis-cli.exe and monitor the cache using the INFO command.

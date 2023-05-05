@@ -5,7 +5,7 @@ author: realAngryAnalytics
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
-ms.date: 04/01/2022
+ms.date: 08/24/2022
 ms.author: stevehow
 ms.reviewer: wiassaf
 ---
@@ -15,7 +15,7 @@ ms.reviewer: wiassaf
 In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics after an accidental drop of a server using PowerShell.
 
 > [!NOTE]
-> This guidance is for standalone dedicated sql pools (formerly SQL DW) only. For synapse workspace dedicated sql pools please follow guidance [Restore SQL pool from deleted workspace](../backuprestore/restore-sql-pool-from-deleted-workspace.md).
+> This guidance is for standalone dedicated SQL pools (formerly SQL DW) only. For dedicated SQL pools in an Azure Synapse Analytics workspace, see [Restore SQL pool from deleted workspace](../backuprestore/restore-sql-pool-from-deleted-workspace.md).
 
 ## Before you begin
 
@@ -23,7 +23,7 @@ In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW)
 
 ## Restore the SQL pool from the deleted server
 
-1. Open PowerShell
+1. Open PowerShell.
 
 2. Connect to your Azure account.
 
@@ -41,7 +41,7 @@ In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW)
 ```powershell
 $SubscriptionID="<YourSubscriptionID>"
 $ResourceGroupName="<YourResourceGroupName>"
-$ServereName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 $DatabaseName="<YourDatabaseName>"
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $TargetDatabaseName="<YourDatabaseName>"
@@ -50,7 +50,7 @@ Connect-AzAccount
 Set-AzContext -SubscriptionId $SubscriptionID
 
 # Define the approximate point in time the server was dropped as DroppedDateTime "yyyy-MM-ddThh:mm:ssZ" (ex. 2022-01-01T16:15:00Z)
-$PointInTime=”<DroppedDateTime>” 
+$PointInTime="<DroppedDateTime>" 
 $DroppedDateTime = Get-Date -Date $PointInTime 
 
 # construct the resource ID of the database you wish to recover. The format required Microsoft.Sql. This includes the approximate date time the server was dropped.

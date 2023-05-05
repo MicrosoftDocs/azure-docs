@@ -10,17 +10,9 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
-
 ## Recognize speech-to-text from a microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Running the script will start a recognition session on your default microphone and output text.
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Running the script will start a recognition session on your default microphone and output text.
 
 ```go
 package main
@@ -61,8 +53,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSpeechKey"
+    region := "YourSpeechRegion"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
 	if err != nil {
@@ -111,7 +103,7 @@ For detailed information, see the [reference content for the `SpeechConfig` clas
 
 ## Recognize speech-to-text from an audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
 
 ```go
 package main
@@ -125,8 +117,8 @@ import (
 )
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSpeechKey"
+    region := "YourSpeechRegion"
     file := "path/to/file.wav"
 
 	audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)
@@ -188,3 +180,10 @@ go run quickstart
 ```
 
 For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

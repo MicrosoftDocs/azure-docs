@@ -23,7 +23,7 @@ ms.date: 06/21/2021
 
 Once the migration has been successfully completed, the next phase it to manage the new cloud-based data workload resources. Management operations include both control plane and data plane activities. Control plane activities are those related to the Azure resources versus data plane, which is **inside** the Azure resource (in this case MySQL).
 
-Azure Database for MySQL provides for the ability to monitor both of these types of operational activities using Azure-based tools such as [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) and [Microsoft Sentinel](../../../sentinel/overview.md). In addition to the Azure-based tools, security information and event management (SIEM) systems can be configured to consume these logs as well.
+Azure Database for MySQL provides for the ability to monitor both of these types of operational activities using Azure-based tools such as [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Microsoft Sentinel](../../../sentinel/overview.md). In addition to the Azure-based tools, security information and event management (SIEM) systems can be configured to consume these logs as well.
 
 Whichever tool is used to monitor the new cloud-based workloads, alerts need to be created to warn Azure and database administrators of any suspicious activity. If a particular alert event has a well-defined remediation path, alerts can fire automated [Azure run books](../../../automation/learn/powershell-runbook-managed-identity.md) to address the event.
 
@@ -97,7 +97,7 @@ The [Planned maintenance notification](../../concepts-monitoring.md#planned-main
 
 ## WWI scenario
 
-WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/design-logs-deployment.md) This workspace is configured to be a part of [Microsoft Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](../../concepts-security.md#threat-protection) events would be surfaced, and incidents created.
+WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/workspace-design.md) This workspace is configured to be a part of [Microsoft Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](../../concepts-security.md#threat-protection) events would be surfaced, and incidents created.
 
 The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets](../../quickstart-create-mysql-server-database-using-azure-powershell.md) to make managing the MySQL Server automated versus having to log to the Azure portal each time.
 

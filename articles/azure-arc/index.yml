@@ -10,7 +10,7 @@ metadata:
   description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
-  ms.date: 10/25/2021
+  ms.date: 11/08/2022
   ms.custom: e2e-hybrid
 
 # highlightedContent section (optional)
@@ -23,7 +23,7 @@ highlightedContent:
       itemType: overview
       url:  overview.md
     # Card
-    - title: Jumpstart
+    - title: Azure Arc Jumpstart
       itemType: sample
       url: https://azurearcjumpstart.io/overview/
       # Card
@@ -39,7 +39,7 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: SQL Server on Azure Arc-enabled servers
+    - title: Azure Arc-enabled SQL Server
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -81,7 +81,7 @@ conceptualContent:
           text: Apply configurations on clusters using GitOps
         - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
           itemType: tutorial
-          text: Azure Arc-enabled Open Service Mesh (Preview)
+          text: Azure Arc-enabled Open Service Mesh
       # footerLink (optional)
       footerLink:
         url: ./kubernetes/index.yml
@@ -100,13 +100,13 @@ conceptualContent:
           text: Create SQL Managed Instance
         - url: ./data/create-postgresql-hyperscale-server-group.md
           itemType: how-to-guide
-          text: Create PostgreSQL Hyperscale
+          text: Create PostgreSQL server
       # footerLink (optional)
       footerLink:
         url: ./data/index.yml
         text: See more
     # Card
-    - title: SQL Server on Azure Arc-enabled servers
+    - title: Azure Arc-enabled SQL Server
       links:
         - url: /sql/sql-server/azure-arc/connect
           itemType: deploy
@@ -141,6 +141,9 @@ conceptualContent:
         - url: ./vmware-vsphere/overview.md
           itemType: overview
           text: Azure Arc-enabled VMware vSphere (preview)
+        - url: ./system-center-virtual-machine-manager/overview.md
+          itemType: overview
+          text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
     # Card
     - title: Application services
       links:

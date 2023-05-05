@@ -2,12 +2,12 @@
 title: 'Tutorial: Create a gateway load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -23,12 +23,7 @@ In this tutorial, you learn how to:
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
 
-> [!IMPORTANT]
-> Azure Gateway Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

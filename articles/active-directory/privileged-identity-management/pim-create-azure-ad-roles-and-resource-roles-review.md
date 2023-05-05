@@ -1,17 +1,17 @@
 ---
-title: Create an access review of Azure resource and Azure AD roles in PIM - Azure AD | Microsoft Docs
+title: Create an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to create an access review of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 1/9/2023
+ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -26,8 +26,10 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
  To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
-> [!Note]
-> In public preview, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
+Access Reviews for **Service Principals** requires an Entra Workload Identities Premium plan in addition to Azure AD Premium P2 license. 
+
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
+
 
 ## Create access reviews
 
@@ -37,7 +39,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
  
 3. For **Azure AD roles**, select **Azure AD roles** under **Privileged Identity Management**. For **Azure resources**, select **Azure resources** under **Privileged Identity Management**.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in Azure Portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Azure portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
 4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the subscription you want to manage.
 
@@ -63,18 +65,20 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/users.png" alt-text="Users scope to review role membership of screenshot.":::
 
-11. Under **Review role membership**, select the privileged Azure resource or Azure AD roles to review.
+11. Or, you can create access reviews only for inactive users (preview). In the *Users scope* section, set the **Inactive users (on tenant level) only** to **true**. If the toggle is set to *true*, the scope of the review will focus on inactive users only. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users inactive for the specified number of days will be the only users in the review.
+ 
+12. Under **Review role membership**, select the privileged Azure resource or Azure AD roles to review.
 
     > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/review-role-membership.png" alt-text="Review role memberships screenshot.":::
 
-12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
+13. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/assignment-type-select.png" alt-text="Reviewers list of assignment types screenshot.":::
 
-13. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
+14. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/reviewers.png" alt-text="Reviewers list of selected users or members (self)":::
 

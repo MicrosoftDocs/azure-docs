@@ -4,7 +4,7 @@ description: Learn how to connect to the Apache Beeline client to run Hive queri
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.date: 04/07/2021
+ms.date: 05/30/2022
 ---
 # Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local
 

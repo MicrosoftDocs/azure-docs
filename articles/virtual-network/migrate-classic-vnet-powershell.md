@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 01/25/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Migrate an Azure Virtual Network from classic to Resource Manager using Azure PowerShell
@@ -159,4 +159,3 @@ For more information on migrating resources in Azure from classic to Resource Ma
 - [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
 - [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.yml).
 - [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md).
-

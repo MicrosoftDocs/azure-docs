@@ -6,7 +6,7 @@ author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 03/07/2022
+ms.date: 06/15/2022
 ms.author: wiassaf
 ms.reviewer: sngun
 ms.custom: subject-rbac-steps, mode-other
@@ -85,15 +85,7 @@ Managed Identity authentication is required when your storage account is attache
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-   This step is not required for dedicated SQL pools within a Synapse workspace.
-
-1. If you have a Synapse workspace, register your workspace's system-managed identity:
-
-   1. Go to your Synapse workspace in the Azure portal.
-   2. Go to the **Managed identities** page.
-   3. Make sure the "Allow Pipelines" option is enabled.
-   
-   ![Register workspace system msi](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+   This step is not required for dedicated SQL pools within a Synapse workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
 
 1. Create a **general-purpose v2 Storage Account**. For more information, see [Create a storage account](../../storage/common/storage-account-create.md).
 
@@ -158,7 +150,7 @@ Managed Identity authentication is required when your storage account is attache
 
     ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-1. Configure Azure AD authentication. Refer to [Configure and manage Azure AD authentication with Azure SQL](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
+1. Configure Azure AD authentication. Refer to [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell). 
 
 1. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
@@ -175,8 +167,8 @@ Managed Identity authentication is required when your storage account is attache
 #### Steps
 
 1. [Create an Azure Active Directory application](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-2. [Get application ID](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
-3. [Get the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+2. [Get application ID](../..//active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
+3. [Get the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication).
 4. [Get the V1 OAuth 2.0 token endpoint](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications).
 5. [Assign read, write, and execution permissions to your Azure AD application](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account.
 6. You can now run the COPY statement:

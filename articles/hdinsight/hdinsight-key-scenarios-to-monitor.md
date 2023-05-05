@@ -4,7 +4,7 @@ description: How to monitor health and performance of Apache Hadoop clusters in 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 03/09/2020
+ms.date: 11/17/2022
 ---
 
 # Monitor cluster performance in Azure HDInsight
@@ -72,7 +72,6 @@ If your cluster's backing store is Azure Data Lake Storage (ADLS), your throttli
 
 * [Performance tuning guidance for Apache Hive on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Performance tuning guidance for Apache Storm on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## Troubleshoot sluggish node performance
 

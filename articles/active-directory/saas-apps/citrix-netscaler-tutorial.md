@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix ADC SAML Connector for Azure AD by using Kerberos-based authentication.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -56,6 +56,8 @@ To integrate Citrix ADC SAML Connector for Azure AD with Azure AD, first add Cit
 1. In the **Add from the gallery** section, enter **Citrix ADC SAML Connector for Azure AD** in the search box.
 
 1. In the results, select **Citrix ADC SAML Connector for Azure AD**, and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Citrix ADC SAML Connector for Azure AD
 

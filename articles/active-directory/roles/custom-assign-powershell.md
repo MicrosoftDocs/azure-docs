@@ -1,14 +1,14 @@
 ---
-title: Assign custom roles using Azure AD PowerShell - Azure AD | Microsoft Docs
+title: Assign custom roles using Azure AD PowerShell
 description: Manage members of an Azure AD administrator custom role with Azure AD PowerShell.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 05/10/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -52,7 +52,7 @@ To assign the role to a service principal instead of a user, use the [Get-AzureA
 
 ## Role definitions
 
-Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directory roles (which are displayed in roleDefinition equivalent form). Today, an Azure AD organization can have a maximum of 30 unique custom role definitions defined.
+Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directory roles (which are displayed in roleDefinition equivalent form). For information about the maximum number of custom roles that can be created in an Azure AD organization, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 ### Create a role definition
 
@@ -132,10 +132,10 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### Delete a role assignment
+### Remove a role assignment
 
 ``` PowerShell
-# Delete role assignment
+# Remove role assignment
 Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-1'
 ```
 

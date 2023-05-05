@@ -4,10 +4,10 @@ description: 'Quickstart: Create a Service Bus namespace and a queue using Azure
 documentationcenter: .net
 author: spelluru
 ms.author: spelluru
-ms.date: 09/27/2021
+ms.date: 08/25/2022
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a Service Bus namespace and a queue using an ARM template
@@ -32,16 +32,16 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The resources defined in the template include:
 
-- [**Microsoft.ServiceBus/namespaces**](/azure/templates/microsoft.servicebus/namespaces)
-- [**Microsoft.ServiceBus/namespaces/queues**](/azure/templates/microsoft.servicebus/namespaces/queues)
+- [**Microsoft.ServiceBus/namespaces**](/azure/templates/microsoft.servicebus/namespaces?pivots=deployment-language-arm-template)
+- [**Microsoft.ServiceBus/namespaces/queues**](/azure/templates/microsoft.servicebus/namespaces/queues?pivots=deployment-language-arm-template)
 
 > [!NOTE]
 > The following ARM templates are available for download and deployment.
 >
-> * [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
-> * [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
-> * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
+> - [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
+> - [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
+> - [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
+> - [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 You can find more template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
 
@@ -51,25 +51,25 @@ With this template, you deploy a Service Bus namespace with a queue.
 
 [Service Bus queues](service-bus-queues-topics-subscriptions.md#queues) offer First In, First Out (FIFO) message delivery to one or more competing consumers.
 
-To run the deployment automatically, click the following button: Create a new resource group for the deployment so that you can easily cleanup later.
+To run the deployment automatically, click the following button: Create a new resource group for the deployment so that you can easily clean up later.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-queue%2Fazuredeploy.json)
 
 ## Validate the deployment
 
-1. Select **Notifications** at the top to see the status of the deployment. Wait until the deployment succeeds. Then, select **Go to resource group** in the notification message to navigate to the page for the resource group that contains the Service Bus namespace. 
+1. Select **Notifications** at the top to see the status of the deployment. Wait until the deployment succeeds. Then, select **Go to resource group** in the notification message to navigate to the page for the resource group that contains the Service Bus namespace.
 
     ![Notification from deployment](./media/service-bus-resource-manager-namespace-queue/notification.png)
-2. Confirm that you see your Service Bus namespace in the list of resources. 
+2. Confirm that you see your Service Bus namespace in the list of resources.
 
     ![Resource group - namespace](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
-3. Select the namespace from the list to see the **Service Bus Namespace** page. 
+3. Select the namespace from the list to see the **Service Bus Namespace** page.
 
 ## Clean up resources
 
 1. In the Azure portal, navigate to the **Resource group** page for your resource group.
-2. Select **Delete resource group** from the toolbar. 
-3. Type the name of the resource group, and select **Delete**. 
+2. Select **Delete resource group** from the toolbar.
+3. Type the name of the resource group, and select **Delete**.
 
     ![Resource group - delete](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)
 
@@ -81,8 +81,8 @@ See the following topic that shows how to create an authorization rule for the n
 
 Learn how to manage these resources by viewing these articles:
 
-* [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
-* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+- [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
+- [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json/

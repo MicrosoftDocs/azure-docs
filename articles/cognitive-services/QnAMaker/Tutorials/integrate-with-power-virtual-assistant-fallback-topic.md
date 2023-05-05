@@ -8,6 +8,7 @@ ms.date: 11/09/2020
 ---
 
 # Tutorial: Add your knowledge base to Power Virtual Agents
+
 Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base.
 
 > [!NOTE]
@@ -15,8 +16,8 @@ Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.
 
 In this tutorial, you learn how to:
 
-<!-- green checkmark -->
 > [!div class="checklist"]
+>
 > * Create a Power Virtual Agents bot
 > * Create a system fallback topic
 > * Add QnA Maker as an action to a topic as a Power Automate flow
@@ -26,44 +27,6 @@ In this tutorial, you learn how to:
 > * Test Power Virtual Agents, and recieve an answer from your QnA Maker knowledge base
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
-
-## Integrate an agent with a knowledge base
-
-[Power Virtual Agents](https://powervirtualagents.microsoft.com/) allows teams to create powerful bots by using a guided, no-code graphical interface. You don't need data scientists or developers.
-
-In Power Virtual Agents, you create an agent with a series of topics (subject areas), in order to answer user questions by performing actions. If an answer can't be found, a system fallback can return an answer.
-
-Configure the agent to send the question to your knowledge base as part of a topic's action, or as part of the *System Fallback* topic path. They both use an action to connect to your knowledge base and return an answer.
-
-## Power Automate connects to `GenerateAnswer` action
-
-To connect your agent to your knowledge base, use Power Automate to create the action. Power Automate provides a process flow, which connects to QnA Maker's `GenerateAnswer` API.
-
-After you design and save the flow, it's available from a Power Automate solution. Use that solution as an action in your agent.
-
-## Connect an agent to your knowledge base
-
-Here's an overview of the steps to connect an agent in Power Virtual Agents to a knowledge base in QnA Maker.
-
-* In the [QnA Maker](https://www.qnamaker.ai/) portal:
-    * Build and publish your knowledge base.
-    * Copy your knowledge base details, including the ID, runtime endpoint key, and runtime endpoint host.
-* In the [Power Virtual Agents](https://powerva.microsoft.com/) portal:
-    * Build an agent topic.
-    * Call an action (to Power Automate flow).
-* In the [Power Automate](https://us.flow.microsoft.com/) portal:
-    * Search for _Generate answer using QnA Maker_ template
-    * Use template to configure flow to use [QnA
-    Maker's GenerateAnswer](/connectors/cognitiveservicesqnamaker/).
-        * QnA Maker published knowledge base information:
-            * Knowledge base ID
-            * QnA Maker resource endpoint host
-            * QnA Maker resource endpoint key
-        * Input - user query
-        * Output - knowledge base answer
-    * Create a solution and add the flow, or add flow to existing solution.
-* Return to Power Virtual Agents:
-    * Select the solution's output as a message for a topic.
 
 ## Create and publish a knowledge base
 
@@ -76,43 +39,19 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
 
 1. In the QnA Maker portal, on the **Settings** page, find the endpoint key, endpoint host, and knowledge base ID.
 
-## Create an agent in Power Virtual Agents
+## Create bot in Power Virtual Agents
 
-1. [Sign in to Power Virtual Agents](https://go.microsoft.com/fwlink/?LinkId=2108000&clcid=0x409). Use your school or work email account.
+[Power Virtual Agents](https://powervirtualagents.microsoft.com/) allows teams to create powerful bots by using a guided, no-code graphical interface. You don't need data scientists or developers.
 
-1. If this is your first bot, you'll be on the **Home** page of the agent. If this isn't your first bot, select the bot from the top-right area of the page, and select **+ New Bot**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Power Virtual Agents home page](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-home.png)
-
-## Topics provided in the bot
-
-The agent uses the topic collection to answer questions in your subject area. In this tutorial, the agent has many topics provided for you, divided into user topics and system topics.
-
-Select **Topics** from the left navigation to see the topics provided by the bot.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of topics provided in the agent](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topics-provided.png)
-
+Create a bot by following the steps in [Create and delete Power Virtual Agents bots](/power-virtual-agents/authoring-first-bot).
 
 ## Create the system fallback topic
 
-Although the agent can connect to your knowledge base from any topic, this tutorial uses the *system fallback* topic. The fallback topic is used when the agent can't find an answer. The agent passes the user's text to QnA Maker's `GenerateAnswer` API, receives the answer from your knowledge base, and displays it to the user as a message.
+In Power Virtual Agents, you create a bot with a series of topics (subject areas), in order to answer user questions by performing actions.
 
-1. In the [Power Virtual Agents](https://powerva.microsoft.com/#/) portal, on the top-right corner, select **Settings** (the gear icon). Then select **System Fallback**.
+Although the bot can connect to your knowledge base from any topic, this tutorial uses the *system fallback* topic. The fallback topic is used when the bot can't find an answer. The bot passes the user's text to QnA Maker's `GenerateAnswer` API, receives the answer from your knowledge base, and displays it to the user as a message.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Power Virtual Agents menu item for System Fallback](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-settings-system-fallback.png)
-
-1. Select **+ Add** to add a system fallback topic.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of adding a fallback topic.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-settings-add-fallback-topic.png)
-
-1. After the topic is added, select **Go to Fallback topic** to author the fallback topic on the authoring canvas.
-
-    > [!TIP]
-    > If you need to return to the fallback topic, it's available in the **Topics** section, as part of the **System** topics.
+Create a fallback topic by following the steps in [Configure the system fallback topic in Power Virtual Agents](/power-virtual-agents/authoring-system-fallback-topic).
 
 ## Use the authoring canvas to add an action
 
@@ -124,7 +63,7 @@ This section creates the fallback topic conversation flow.
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/delete-escalate-action-using-option-menu.png" alt-text="Partial screenshot of conversation flow, with delete option highlighted.":::
 
-1. Select the **+** connector flowing to the **Message** box, and then select **Call an action**.
+1. Above the **Message** node, select the plus (**+**) icon, and then select **Call an action**.
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="Partial Screenshot of Call an action.":::
 
@@ -133,7 +72,6 @@ This section creates the fallback topic conversation flow.
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Create a flow](../media/how-to-integrate-power-virtual-agent/create-a-flow.png)
 
-
     Power Automate opens to a new template. You won't use this new template.
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="Partial Screenshot of Power Automate with new flow template.":::
@@ -141,11 +79,12 @@ This section creates the fallback topic conversation flow.
 ## Create a Power Automate flow to connect to your knowledge base
 
 > [!NOTE]
-> Currently the Power Automate template does not support QnA Maker managed (Preview) endpoints. To add a QnA Maker managed (Preview) knowledge base to Power Automate skip this step and manually add the endpoints to it. 
+> Currently the Power Automate template does not support QnA Maker managed (Preview) endpoints. To add a QnA Maker managed (Preview) knowledge base to Power Automate skip this step and manually add the endpoints to it.
 
 The following procedure creates a Power Automate flow that:
+
 * Takes the incoming user text, and sends it to QnA Maker.
-* Returns the top response back to your agent.
+* Returns the top response back to your bot.
 
 1. In **Power Automate**, select **Templates** from the left navigation. If you are asked if you want to leave the browser page, accept Leave.
 
@@ -157,14 +96,13 @@ The following procedure creates a Power Automate flow that:
 
 1. Select the **Generate Answer** action box, and fill in your QnA Maker settings from a previous section titled [Create and publish a knowledge base](#create-and-publish-a-knowledge-base). Your **Service Host** in the following image refers to your knowledge base host **Host** and is in the format of `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`.
 
-
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Partial Screenshot of QnA Maker template flow with Generate answer (Preview) highlighted.":::
 
 1. Select **Save** to save the flow.
 
 ## Create a solution and add the flow
 
-For the agent to find and connect to the flow, the flow must be included in a Power Automate solution.
+For the bot to find and connect to the flow, the flow must be included in a Power Automate solution.
 
 1. While still in the Power Automate portal, select **Solutions** from the left-side navigation.
 
@@ -188,9 +126,9 @@ For the agent to find and connect to the flow, the flow must be included in a Po
 
 ## Add your solution's flow to Power Virtual Agents
 
-1. Return to the browser tab with your agent in Power Virtual Agents. The authoring canvas should still be open.
+1. Return to the browser tab with your bot in Power Virtual Agents. The authoring canvas should still be open.
 
-1. To insert a new step in the flow, above the **Message** action box, select the **+** connector. Then select **Call an action**.
+1. To insert a new step in the flow, above the **Message** action box, select the plus (**+**) icon. Then select **Call an action**.
 
 1. From the **Flow** pop-up window, select the new flow named **Generate answers using QnA Maker knowledge base...**. The new action appears in the flow.
 
@@ -200,21 +138,21 @@ For the agent to find and connect to the flow, the flow must be included in a Po
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Partial Screenshot of Power Virtual Agent topic conversation canvas selecting input variable.":::
 
-
 1. To correctly set the output variable to the QnA Maker action, in the **Message** action, select **UnrecognizedTriggerPhrase**, then select the icon to insert a variable, `{x}`, then select **FinalAnswer**.
 
 1. From the context toolbar, select **Save**, to save the authoring canvas details for the topic.
 
-Here's what the final agent canvas looks like.
+Here's what the final bot canvas looks like.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot shows the final agent canvas with Trigger Phrases, Action, and then Message sections.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
-## Test the agent
+## Test the bot
+As you design your bot in Power Virtual Agents, you can use [the Test bot pane](/power-virtual-agents/authoring-test-bot) to see how the bot leads a customer through the bot conversation.
 
 1. In the test pane, toggle **Track between topics**. This allows you to watch the progression between topics, as well as within a single topic.
 
-1. Test the agent by entering the user text in the following order. The authoring canvas reports the successful steps with a green check mark.
+1. Test the bot by entering the user text in the following order. The authoring canvas reports the successful steps with a green check mark.
 
     |Question order|Test questions|Purpose|
     |--|--|--|
@@ -229,26 +167,17 @@ Here's what the final agent canvas looks like.
 
 ## Publish your bot
 
-To make the agent available to all members of your school or organization, you need to publish it.
+To make the bot available to all members of your school or organization, you need to *publish* it.
 
-1. From the navigation on the left, select **Publish**. Then select **Publish** on the page.
-
-1. Try your bot on the demo website (look for the link under **Publish**).
-
-    A new web page opens with your bot. Ask the bot the same test question: `How can I improve the throughput performance for query predictions?`
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of final agent canvas](../media/how-to-integrate-power-virtual-agent/demo-chat-bot.png)
+Publish your bot by following the steps in [Publish your bot](/power-virtual-agents/publication-fundamentals-publish-channels).
 
 ## Share your bot
 
-To share the demo website, configure it as a channel.
+To make your bot available to others, you first need to publish it to a channel. For this tutorial we'll use the demo website.
 
-1. From the navigation on the left, select **Manage** > **Channels**.
+Configure the demo website by following the steps in [Configure a chatbot for a live or demo website](/power-virtual-agents/publication-connect-bot-to-web-channels).
 
-1. Select **Demo website** from the channels list.
-
-1. Copy the link and select **Save**. Paste the link to your demo website into an email to your school or organization members.
+Then you can share your website URL with your school or organization members.
 
 ## Clean up resources
 
@@ -259,6 +188,7 @@ When you are done with the knowledge base, remove the QnA Maker resources in the
 [Get analytics on your knowledge base](../How-To/get-analytics-knowledge-base.md)
 
 Learn more about:
+
 * [Power Virtual Agents](/power-virtual-agents/)
 * [Power Automate](/power-automate/)
 * [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](/connectors/cognitiveservicesqnamaker/)

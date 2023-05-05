@@ -1,16 +1,16 @@
 ---
-title: Self-service password reset deep dive - Azure Active Directory
+title: Self-service password reset deep dive
 description: How does self-service password reset work
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 04/19/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -165,7 +165,7 @@ To improve awareness of password events, SSPR lets you configure notifications f
 
 ### Notify users on password resets
 
-If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Azure AD. No one else is notified of the reset event.
+If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Azure AD. If no primary or alternate email address is defined SSPR will attempt email notification via the users User Principal Name (UPN). No one else is notified of the reset event.
 
 ### Notify all admins when other admins reset their passwords
 
@@ -177,6 +177,13 @@ Consider the following example scenario:
 * Administrator *A* resets their password by using SSPR.
 * Administrators *B*, *C*, and *D* receive an email alerting them of the password reset.
 
+> [!NOTE]
+> Email notifications from the SSPR service will be sent from the following addresses based on the Azure cloud you are working with: 
+> - Public: msonlineservicesteam@microsoft.com
+> - China: msonlineservicesteam@oe.21vianet.com 
+> - Government: msonlineservicesteam@azureadnotifications.us
+
+> If you observe issues in receiving notifications, please check your spam settings. 
 ## On-premises integration
 
 If you have a hybrid environment, you can configure Azure AD Connect to write password change events back from Azure AD to an on-premises directory.
@@ -234,9 +241,3 @@ To get started with SSPR, complete the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
-
-The following articles provide additional information regarding password reset through Azure AD:
-
-[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Azure AD authentication methods available and quantity required"
-[Registration]: ./media/concept-sspr-howitworks/configure-registration-options.png "Configure SSPR registration options in the Azure portal"
-[Writeback]: ./media/concept-sspr-howitworks/on-premises-integration.png "On-premises integration for SSPR in the Azure portal"

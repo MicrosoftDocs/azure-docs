@@ -1,19 +1,20 @@
 ---
-title: 'Tutorial - Create and manage a VPN gateway: Azure portal'
-description: In this tutorial, learn how to create, deploy, and manage an Azure VPN gateway using the portal.
+title: 'Tutorial – Create & manage a VPN gateway – Azure portal'
 titleSuffix: Azure VPN Gateway
+description: In this tutorial, learn how to create and manage an Azure VPN gateway using the Azure portal.
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 03/18/2022
+ms.date: 04/12/2023
 
-#Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
 
-# Tutorial: Create and manage a VPN gateway using Azure portal
+# Tutorial: Create and manage a VPN gateway using the Azure portal
 
-Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN gateway deployment items such as creating and managing a VPN gateway. You can also create a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+This tutorial helps you create and manage an Azure VPN gateway using the Azure portal. You can also create and manage a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
+
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
 
 In this tutorial, you learn how to:
 
@@ -23,10 +24,6 @@ In this tutorial, you learn how to:
 > * View the gateway public IP address
 > * Resize a VPN gateway (resize SKU)
 > * Reset a VPN gateway
-
-The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
-
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="VNet and VPN gateway diagram.":::
 
 ## Prerequisites
 
@@ -73,9 +70,9 @@ A gateway can take 45 minutes or more to fully create and deploy. You can see th
 
 You can view the gateway public IP address on the **Overview** page for your gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page.":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page used to view the Public IP address field." lightbox="./media/tutorial-create-gateway-portal/address.png":::
 
-To see additional information about the public IP address object, click the name/IP address link next to **Public IP address**.
+To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
 
 ## <a name="resize"></a>Resize a gateway SKU
 

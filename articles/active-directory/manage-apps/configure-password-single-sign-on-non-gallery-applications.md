@@ -1,17 +1,17 @@
 ---
 title: Add password-based single sign-on to an application
 description: Add password-based single sign-on to an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.date: 04/25/2023
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
 ---
 
@@ -30,8 +30,8 @@ The configuration page for password-based SSO is simple. It includes only the UR
 ## Prerequisites
 
 To configure password-based SSO in your Azure AD tenant, you need:
--	An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
--	One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+-	An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+-	Global Administrator, or owner of the service principal.
 -	An application that supports password-based SSO.
 
 ## Configure password-based single sign-on

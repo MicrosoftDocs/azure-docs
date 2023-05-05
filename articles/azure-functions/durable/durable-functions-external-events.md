@@ -2,9 +2,9 @@
 title: Handling external events in Durable Functions - Azure
 description: Learn how to handle external events in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python
+ms.devlang: csharp, javascript, powershell, python, java
 ---
 
 # Handling external events in Durable Functions (Azure Functions)
@@ -16,7 +16,7 @@ Orchestrator functions have the ability to wait and listen for external events. 
 
 ## Wait for events
 
-The [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy&preserve-view=true) (.NET), `waitForExternalEvent` (JavaScript), and `wait_for_external_event` (Python) methods of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allow an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
+The *"wait-for-external-event"* API of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an event delivered by an external client. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 
 # [C#](#tab/csharp)
 
@@ -82,6 +82,21 @@ if ($approved) {
     # approval granted - do the approved action
 } else {
     # approval denied - send a notification
+}
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("WaitForExternalEvent")
+public void waitForExternalEvent(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean approved = ctx.waitForExternalEvent("Approval", boolean.class).await();
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
 }
 ```
 
@@ -183,6 +198,28 @@ if ($winner -eq $event1) {
     # ...
 }
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("Select")
+public void selectOrchestrator(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    Task<Void> event1 = ctx.waitForExternalEvent("Event1");
+    Task<Void> event2 = ctx.waitForExternalEvent("Event2");
+    Task<Void> event3 = ctx.waitForExternalEvent("Event3");
+
+    Task<?> winner = ctx.anyOf(event1, event2, event3).await();
+    if (winner == event1) {
+        // ...
+    } else if (winner == event2) {
+        // ...
+    } else if (winner == event3) {
+        // ...
+    }
+}
+```
+
 ---
 
 The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
@@ -264,20 +301,40 @@ Wait-DurableTask -Task @($gate1, $gate2, $gate3)
 
 Invoke-ActivityFunction -FunctionName 'IssueBuildingPermit' -Input $applicationId
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("NewBuildingPermit")
+public void newBuildingPermit(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String applicationId = ctx.getInput(String.class);
+
+    Task<Void> gate1 = ctx.waitForExternalEvent("CityPlanningApproval");
+    Task<Void> gate2 = ctx.waitForExternalEvent("FireDeptApproval");
+    Task<Void> gate3 = ctx.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    ctx.allOf(List.of(gate1, gate2, gate3)).await();
+
+    ctx.callActivity("IssueBuildingPermit", applicationId).await();
+}
+```
+
 ---
 
-`WaitForExternalEvent` waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
+The *"wait-for-external-event"* API waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
 
 > [!NOTE]
-> If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent` (.NET), `waitForExternalEvent` (JavaScript), or `wait_for_external_event` (Python), no matter how long it waits.
+> If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting an external event task, no matter how long it waits.
 
 ## Send events
 
-You can use the [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy&preserve-view=true) (.NET) or `raiseEventAsync` (JavaScript) methods to send an external event to an orchestration. These methods are exposed by the [orchestration client](durable-functions-bindings.md#orchestration-client) binding. You can also use the built-in [raise event HTTP API](durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
+You can use the *"raise-event"* API defined by the [orchestration client](durable-functions-bindings.md#orchestration-client) binding to send an external event to an orchestration. You can also use the built-in [raise event HTTP API](durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
 
-A raised event includes an *instance ID*, an *eventName*, and *eventData* as parameters. Orchestrator functions handle these events using the `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript) APIs. The *eventName* must match on both the sending and receiving ends in order for the event to be processed. The event data must also be JSON-serializable.
+A raised event includes an *instance ID*, an *eventName*, and *eventData* as parameters. Orchestrator functions handle these events using the [*"wait-for-external-event"*](#wait-for-events) APIs. The *eventName* must match on both the sending and receiving ends in order for the event to be processed. The event data must also be JSON-serializable.
 
-Internally, the "raise event" mechanisms enqueue a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
+Internally, the *"raise-event"* mechanisms enqueue a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
 
 > [!NOTE]
 > If there is no orchestration instance with the specified *instance ID*, the event message is discarded.
@@ -328,9 +385,21 @@ param($instanceId)
 
 Send-DurableExternalEvent -InstanceId $InstanceId -EventName "Approval"
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("ApprovalQueueProcessor")
+public void approvalQueueProcessor(
+        @QueueTrigger(name = "instanceID", queueName = "approval-queue") String instanceID,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    durableContext.getClient().raiseEvent(instanceID, "Approval", true);
+}
+```
+
 ---
 
-Internally, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript), `raise_event` (Python),  or `Send-DurableExternalEvent` (PowerShell)  enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
+Internally, the "*raise-event*" API enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory buffer. If the orchestration instance later begins listening for that *event name,* it will check the buffer for event messages and trigger the task that was waiting for it.
 
 > [!NOTE]
 > If there is no orchestration instance with the specified *instance ID*, the event message is discarded.

@@ -5,9 +5,10 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 04/16/2021
-  ms.author: nitinme
-  author: nitinme
+  ms.date: 07/19/2022
+  ms.author: aahi
+  ms.manager: nitinme
+  author: aahill
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services

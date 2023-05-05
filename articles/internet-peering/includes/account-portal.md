@@ -3,11 +3,11 @@ title: include file
 titleSuffix: Azure
 description: include file
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
 

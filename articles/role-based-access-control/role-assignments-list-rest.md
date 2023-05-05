@@ -4,12 +4,12 @@ description: Learn how to determine what resources users, groups, service princi
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 02/27/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 
 ---
@@ -22,14 +22,23 @@ ms.author: rolyon
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
+## Prerequisites
+
+You must use the following version:
+
+- `2015-07-01` or later
+- `2022-04-01` or later to include conditions
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## List role assignments
 
-In Azure RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter.
+In Azure RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments](/rest/api/authorization/role-assignments) Get or List REST APIs. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role assignments.
@@ -57,7 +66,7 @@ In Azure RBAC, to list access, you list the role assignments. To list role assig
 The following request lists all role assignments for the specified user at subscription scope:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()+and+assignedTo('{objectId1}')
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=atScope()+and+assignedTo('{objectId1}')
 ```
 
 The following shows an example of the output:
@@ -69,11 +78,16 @@ The following shows an example of the output:
             "properties": {
                 "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
                 "principalId": "{objectId1}",
+                "principalType": "User",
                 "scope": "/subscriptions/{subscriptionId1}",
-                "createdOn": "2019-01-15T21:08:45.4904312Z",
-                "updatedOn": "2019-01-15T21:08:45.4904312Z",
+                "condition": null,
+                "conditionVersion": null,
+                "createdOn": "2022-01-15T21:08:45.4904312Z",
+                "updatedOn": "2022-01-15T21:08:45.4904312Z",
                 "createdBy": "{createdByObjectId1}",
-                "updatedBy": "{updatedByObjectId1}"
+                "updatedBy": "{updatedByObjectId1}",
+                "delegatedManagedIdentityResourceId": null,
+                "description": null
             },
             "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
             "type": "Microsoft.Authorization/roleAssignments",

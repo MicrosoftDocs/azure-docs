@@ -1,8 +1,10 @@
 ---
 title: Determine causes of non-compliance
-description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 09/01/2021
+description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance quickly and easily.
+ms.date: 06/09/2022
 ms.topic: how-to
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Determine causes of non-compliance
 
@@ -103,29 +105,48 @@ The following table maps each
 [Resource Manager mode](../concepts/definition-structure.md#resource-manager-modes) _reason_ to the
 responsible [condition](../concepts/definition-structure.md#conditions) in the policy definition:
 
-|Reason |Condition |
-|-|-|
-|Current value must contain the target value as a key. |containsKey or **not** notContainsKey |
-|Current value must contain the target value. |contains or **not** notContains |
-|Current value must be equal to the target value. |equals or **not** notEquals |
-|Current value must be less than the target value. |less or **not** greaterOrEquals |
-|Current value must be greater than or equal to the target value. |greaterOrEquals or **not** less |
-|Current value must be greater than the target value. |greater or **not** lessOrEquals |
-|Current value must be less than or equal to the target value. |lessOrEquals or **not** greater |
-|Current value must exist. |exists |
-|Current value must be in the target value. |in or **not** notIn |
-|Current value must be like the target value. |like or **not** notLike |
-|Current value must case-sensitive match the target value. |match or **not** notMatch |
-|Current value must case-insensitive match the target value. |matchInsensitively or **not** notMatchInsensitively |
-|Current value must not contain the target value as a key. |notContainsKey or **not** containsKey|
-|Current value must not contain the target value. |notContains or **not** contains |
-|Current value must not be equal to the target value. |notEquals or **not** equals |
-|Current value must not exist. |**not** exists  |
-|Current value must not be in the target value. |notIn or **not** in |
-|Current value must not be like the target value. |notLike or **not** like |
-|Current value must not case-sensitive match the target value. |notMatch or **not** match |
-|Current value must not case-insensitive match the target value. |notMatchInsensitively or **not** matchInsensitively |
-|No related resources match the effect details in the policy definition. |A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
+| Reason                                                                  | Condition                                                                                                                                           |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Current value must contain the target value as a key.                   | containsKey or **not** notContainsKey                                                                                                               |
+| Current value must contain the target value.                            | contains or **not** notContains                                                                                                                     |
+| Current value must be equal to the target value.                        | equals or **not** notEquals                                                                                                                         |
+| Current value must be less than the target value.                       | less or **not** greaterOrEquals                                                                                                                     |
+| Current value must be greater than or equal to the target value.        | greaterOrEquals or **not** less                                                                                                                     |
+| Current value must be greater than the target value.                    | greater or **not** lessOrEquals                                                                                                                     |
+| Current value must be less than or equal to the target value.           | lessOrEquals or **not** greater                                                                                                                     |
+| Current value must exist.                                               | exists                                                                                                                                              |
+| Current value must be in the target value.                              | in or **not** notIn                                                                                                                                 |
+| Current value must be like the target value.                            | like or **not** notLike                                                                                                                             |
+| Current value must be case-sensitive match the target value.            | match or **not** notMatch                                                                                                                           |
+| Current value must be case-insensitive match the target value.          | matchInsensitively or **not** notMatchInsensitively                                                                                                 |
+| Current value must not contain the target value as a key.               | notContainsKey or **not** containsKey                                                                                                               |
+| Current value must not contain the target value.                        | notContains or **not** contains                                                                                                                     |
+| Current value must not be equal to the target value.                    | notEquals or **not** equals                                                                                                                         |
+| Current value must not exist.                                           | **not** exists                                                                                                                                      |
+| Current value must not be in the target value.                          | notIn or **not** in                                                                                                                                 |
+| Current value must not be like the target value.                        | notLike or **not** like                                                                                                                             |
+| Current value must not be case-sensitive match the target value.        | notMatch or **not** match                                                                                                                           |
+| Current value must not be case-insensitive match the target value.      | notMatchInsensitively or **not** matchInsensitively                                                                                                 |
+| No related resources match the effect details in the policy definition. | A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
+
+#### Azure Policy Resource Provider mode compliance reasons
+
+The following table maps each `Microsoft.PolicyInsights`
+[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) reason code to
+its corresponding explanation:
+
+| Compliance reason code              | Error message and explanation                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NonModifiablePolicyAlias            | NonModifiableAliasConflict: The alias '{alias}' is not modifiable in requests using API version '{apiVersion}'. This error happens when a request using an API version where the alias does not support the 'modify' effect or only supports the 'modify' effect with a different token type.                                                                                                                   |
+| AppendPoliciesNotApplicable         | AppendPoliciesUnableToAppend: The aliases: '{ aliases }' are not modifiable in requests using API version: '{ apiVersion }'. This can happen in requests using API versions for which the aliases do not support the 'modify' effect, or support the 'modify' effect with a different token type.                                                                                                               |
+| ConflictingAppendPolicies           | ConflictingAppendPolicies: Found conflicting policy assignments that modify the '{notApplicableFields}' field. Policy identifiers: '{policy}'.  Please contact the subscription administrator to update the policy assignments.                                                                                                                                                                                 |
+| AppendPoliciesFieldsExist           | AppendPoliciesFieldsExistWithDifferentValues: Policy assignments attempted to append fields which already exist in the request with different values. Fields: '{existingFields}'. Policy identifiers: '{policy}'. Please contact the subscription administrator to update the policies.                                                                                                                         |
+| AppendPoliciesUndefinedFields       | AppendPoliciesUndefinedFields: Found policy definition that refers to an undefined field property for API version '{apiVersion}'. Fields: '{nonExistingFields}'. Policy identifiers: '{policy}'. Please contact the subscription administrator to update the policies.                                                                                                                                          |
+| MissingRegistrationForType          | MissingRegistrationForResourceType: The subscription is not registered for the resource type '{ResourceType}'. Please check that the resource type exists and that the resource type is registered.                                                                                                                                                                                                             |
+| AmbiguousPolicyEvaluationPaths      | The request content has one or more ambiguous paths: '{0}' required by policies: '{1}'.                                                                                                                                                                                                                                                                                                                         |
+| InvalidResourceNameWildcardPosition | The policy assignment '{0}' associated with the policy definition '{1}' could not be evaluated. The resource name '{2}' within an ifNotExists condition contains the wildcard '?' character in an invalid position. Wildcards can only be located at the end of the name in a segment by themselves (ex. TopLevelResourceName/?). Please either fix the policy or remove the policy assignment to unblock.      |
+| TooManyResourceNameSegments         | The policy assignment '{0}' associated with the policy definition '{1}' could not be evaluated. The resource name '{2}' within an ifNotExists condition contains too many name segments. The number of name segments must be equal to or less than the number of type segments (excluding the resource provider namespace). Please either fix the policy definition or remove the policy assignment to unblock. |
+| InvalidPolicyFieldPath              | The field path '{0}' within the policy definition is invalid. Field paths must contain no empty segments. They may contain only alphanumeric characters with the exception of the '.' character for splitting segments and the '[*]' character sequence to access array properties.                                                                                                                             |
 
 #### AKS Resource Provider mode compliance reasons
 
@@ -135,15 +156,15 @@ the responsible state of the
 [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)
 in the policy definition:
 
-|Reason |Constraint template reason description |
-|-|-|
-|Constraint/TemplateCreateFailed |The resource failed to create for a policy definition with a Constraint/Template that doesn't match an existing Constraint/Template on cluster by resource metadata name. |
-|Constraint/TemplateUpdateFailed |The Constraint/Template failed to update for a policy definition with a Constraint/Template that matches an existing Constraint/Template on cluster by resource metadata name. |
-|Constraint/TemplateInstallFailed |The Constraint/Template failed to build and was unable to be installed on cluster for either create or update operation. |
-|ConstraintTemplateConflicts |The Template has a conflict with one or more policy definitions using the same Template name with different source. |
-|ConstraintStatusStale |There is an existing 'Audit' status, but Gatekeeper has not performed an audit within the last hour. |
-|ConstraintNotProcessed |There is no status and Gatekeeper has not performed an audit within the last hour. |
-|InvalidConstraint/Template |API Server has rejected the resource due to a bad YAML. This reason can also be caused by a parameter type mismatch (example: string provided for an integer)
+| Reason                           | Constraint template reason description                                                                                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Constraint/TemplateCreateFailed  | The resource failed to create for a policy definition with a Constraint/Template that doesn't match an existing Constraint/Template on cluster by resource metadata name.      |
+| Constraint/TemplateUpdateFailed  | The Constraint/Template failed to update for a policy definition with a Constraint/Template that matches an existing Constraint/Template on cluster by resource metadata name. |
+| Constraint/TemplateInstallFailed | The Constraint/Template failed to build and was unable to be installed on cluster for either create or update operation.                                                       |
+| ConstraintTemplateConflicts      | The Template has a conflict with one or more policy definitions using the same Template name with different source.                                                            |
+| ConstraintStatusStale            | There is an existing 'Audit' status, but Gatekeeper has not performed an audit within the last hour.                                                                           |
+| ConstraintNotProcessed           | There is no status and Gatekeeper has not performed an audit within the last hour.                                                                                             |
+| InvalidConstraint/Template       | API Server has rejected the resource due to a bad YAML. This reason can also be caused by a parameter type mismatch (example: string provided for an integer)                  |
 
 > [!NOTE]
 > For existing policy assignments and constraint templates already on the cluster, if that
@@ -192,9 +213,9 @@ setting.
 
 The guest configuration feature can be used outside of Azure Policy assignments.
 For example,
-[Azure AutoManage](../../../automanage/automanage-virtual-machines.md)
+[Azure AutoManage](../../../automanage/index.yml)
 creates guest configuration assignments, or you might
-[assign configurations when you deploy machines](guest-configuration-create-assignment.md).
+[assign configurations when you deploy machines](../../machine-configuration/how-to-create-assignment.md).
 
 To view all guest configuration assignments across your tenant, from the Azure
 portal open the **Guest Assignments** page. To view detailed compliance

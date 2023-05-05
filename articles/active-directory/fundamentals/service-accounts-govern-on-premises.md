@@ -1,15 +1,15 @@
 ---
-title: Govern on-premises service accounts  | Azure Active Directory
-description: Use this guide to create and run an account lifecycle process for service accounts.
+title: Govern on-premises service accounts 
+description: Learn to create and run an account lifecycle process for on-premises service accounts
 services: active-directory
-author: BarbaraSelden
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 2/15/2021
-ms.author: baselden
+ms.date: 02/10/2023
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -19,167 +19,168 @@ ms.collection: M365-identity-device-management
 
 Active Directory offers four types of on-premises service accounts:
 
-* [Group managed service accounts (gMSAs)](service-accounts-group-managed.md)  
-* [Standalone managed service accounts (sMSAs)](service-accounts-standalone-managed.md)  
-* [Computer accounts](service-accounts-computer.md)  
-* [User accounts that function as service accounts](service-accounts-user-on-premises.md)
+* Group-managed service accounts (gMSAs)
+  * [Secure group managed service accounts](service-accounts-group-managed.md) 
+* Standalone managed service accounts (sMSAs)
+  * [Secure standalone managed service accounts](service-accounts-standalone-managed.md) 
+* On-premises computer accounts
+  * [Secure on-premises computer accounts with Active Directory](service-accounts-computer.md)  
+* User accounts functioning as service accounts
+  * [Secure user-based service accounts in Active Directory](service-accounts-user-on-premises.md)
 
+Part of service account governance includes:
 
-It is critical to govern service accounts closely so that you can: 
+* Protecting them, based on requirements and purpose 
+* Managing account lifecycle, and their credentials   
+* Assessing service accounts, based on risk and permissions
+* Ensuring Active Directory (AD) and Azure Active Directory (Azure AD) have no unused service accounts, with permissions
 
-* Protect them based on their use-case requirements and purpose.  
-* Manage the lifecycle of the accounts and their credentials.  
-* Assess them based on the risk they'll be exposed to and the permissions they carry.  
-* Ensure that Active Directory and Azure Active Directory have no stale service accounts with potentially far-reaching permissions.
+## New service account principles
 
-## Principles for creating a new service account
-
-When you create a service account, understand the considerations listed in the following table:
+When you create service accounts, consider the information in the following table.
 
 | Principle| Consideration | 
 | - |- | 
-| Service account mapping| Tie the service account to a single service, application, or script. |
-| Ownership| Ensure that there's an owner who requests and assumes responsibility for the account. |
-| Scope| Define the scope clearly, and anticipate usage duration for the service account. |
-| Purpose| Create service accounts for a single, specific purpose. |
-| Permissions | Apply the principle of *least permission*. To do so:<li>Never assign permissions to built-in groups, such as administrators.<li>Remove local machine permissions, where appropriate.<li>Tailor access, and use Active Directory delegation for directory access.<li>Use granular access permissions.<li>Set account expirations and location-based restrictions on user-based service accounts. |
-| Monitor and audit use| Monitor sign-in data, and ensure that it matches the intended usage. Set alerts for anomalous usage. |
-| | |
+| Service account mapping| Connect the service account to a service, application, or script |
+| Ownership| Ensure there's an account owner who requests and assumes responsibility |
+| Scope| Define the scope, and anticipate usage duration|
+| Purpose| Create service accounts for one purpose |
+| Permissions | Apply the principle of least permission:</br> - Don't assign permissions to built-in groups, such as administrators</br> - Remove local machine permissions, where feasible</br> - Tailor access, and use AD delegation for directory access</br> - Use granular access permissions</br> - Set account expiration and location restrictions on user-based service accounts |
+| Monitor and audit use| - Monitor sign-in data, and ensure it matches the intended usage</br> - Set alerts for anomalous usage |
 
-### Set restrictions for user accounts
+### User account restrictions
 
-For user accounts that are used as service accounts, apply the following settings:
+For user accounts used as service accounts, apply the following settings:
 
-* [**Account expiration**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): Set the service account to automatically expire at a set time after its review period, unless you've determined that the account should continue.
-
-*  **LogonWorkstations**: Restrict permissions where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from signing in anywhere else.
-
-* [**Cannot change password**](/powershell/module/activedirectory/set-aduser): Prevent the service account from changing its own password by setting the parameter to true.
+* **Account expiration** - set the service account to automatically expire, after its review period, unless the account can continue
+* **LogonWorkstations** - restrict service account sign-in permissions
+  * If it runs locally and accesses resources on the machine, restrict it from signing in elsewhere
+* **Can't change password** - set the parameter to **true** to prevent the service account from changing its own password
  
-## Build a lifecycle management process
+## Lifecycle management process
 
-To help maintain the security of your service accounts, you must manage them from the time you identify the need until they're decommissioned. 
+To help maintain service account security, manage them from inception to decommission. Use the following process:
 
-For lifecycle management of service accounts, use the following process:
+1. Collect account usage information.
+2. Move the service account and app to the configuration management database (CMDB).
+3. Perform risk assessment or a formal review.
+4. Create the service account and apply restrictions.
+5. Schedule and perform recurring reviews. 
+6. Adjust permissions and scopes as needed.
+7. Deprovision the account.
 
-1. Collect usage information for the account.
-1. Move the service account and app to the configuration management database (CMDB).
-1. Perform risk assessment or a formal review.
-1. Create the service account and apply restrictions.
-1. Schedule and perform recurring reviews. Adjust permissions and scopes as necessary.
-1. Deprovision the account when appropriate.
+### Collect service account usage information
 
-### Collect usage information for the service account
-
-Collect relevant business information for each service account. The following table lists the minimum amount of information to collect, but you should collect everything that's necessary to make the business case for each account's existence.
+Collect relevant information for each service account. The following table lists the minimum information to collect. Obtain what's needed to validate each account.
 
 | Data| Description |
 | - | - |
-| Owner| The user or group that's accountable for the service account |
+| Owner| The user or group accountable for the service account |
 | Purpose| The purpose of the service account |
-| Permissions (scopes)| The expected set of permissions |
-| CMDB links| The cross-link service account with the target script or application and owners |
-| Risk| The risk and business impact scoring, based on the security risk assessment |
-| Lifetime| The anticipated maximum lifetime for enabling the scheduling of account expiration or recertification |
-| | |
+| Permissions (scopes)| The expected permissions |
+| CMDB links| The cross-link service account with the target script or application, and owners |
+| Risk| The results of a security risk assessment |
+| Lifetime| The anticipated maximum lifetime to schedule account expiration or recertification |
 
-Ideally, you want to make the request for an account self-service, and require the relevant information. The owner can be an application or business owner, an IT member, or an infrastructure owner. By using a tool such as Microsoft Forms for this request and associated information, you'll make it easier to port it to your CMDB inventory tool if the account is approved.
+Make the account request self-service, and require the relevant information. The owner is an application or business owner, an IT team member, or an infrastructure owner. You can use Microsoft Forms for requests and associated information. If the account is approved, use Microsoft Forms to port it to a configuration management databases (CMDB) inventory tool.
 
-### Onboard service account to CMDB
+### Service accounts and CMDB
 
-Store the collected information in a CMDB-type application. In addition to the business information, include all dependencies on other infrastructure, apps, and processes.  This central repository makes it easier to:
+Store the collected information in a CMDB application. Include dependencies on infrastructure, apps, and processes. Use this central repository to:
 
-* Assess risk.  
-* Configure the service account with the required restrictions.  
-* Understand any relevant functional and security dependencies.  
-* Conduct regular reviews for security and continued need.  
-* Contact the owners for reviewing, retiring, and changing the service account.
+* Assess risk
+* Configure the service account with restrictions
+* Ascertain functional and security dependencies
+* Conduct regular reviews for security and continued need
+* Contact the owner to review, retire, and change the service account
 
-Consider a service account that's used to run a website and has permissions to connect to one or more Human Resources (HR) SQL databases. The information stored in your CMDB for the service account, including example descriptions, is listed in the following table:
+#### Example HR scenario
+ 
+An example is a service account that runs a website with permissions to connect to Human Resources SQL databases. The information in the service account CMDB, including examples, is in the following table:
 
-|Data | Example description|
+|Data | Example|
 | - | - |
-| Owner, Deputy| John Bloom, Anna Mayers |
-| Purpose| Run the HR webpage and connect to HR databases. Can impersonate end users when accessing databases. |
-| Permissions, scopes| HR-WEBServer: sign in locally; run web page<br>HR-SQL1: sign in locally; read permissions on all HR databases<br>HR-SQL2: sign in locally; read permissions on Salary database only |
-| Cost Center| 883944 |
-| Risk Assessed| Medium; Business Impact: Medium; private information; Medium |
-| Account Restrictions| Log on to: only aforementioned servers; Cannot change password; MBI-Password Policy; |
+| Owner, Deputy| Name, Name |
+| Purpose| Run the HR webpage and connect to HR databases. Impersonate end users when accessing databases. |
+| Permissions, scopes| HR-WEBServer: sign in locally; run web page<br>HR-SQL1: sign in locally; read permissions on HR databases<br>HR-SQL2: sign in locally; read permissions on Salary database only |
+| Cost center| 123456 |
+| Risk assessed| Medium; Business Impact: Medium; private information; Medium |
+| Account restrictions| Sign in to: only aforementioned servers; Can't change password; MBI-Password Policy; |
 | Lifetime| Unrestricted |
-| Review Cycle| Biannually (by owner, by security team, by privacy) |
-| | |
+| Review cycle| Biannually: By owner, security team, or privacy team |
 
-### Perform a risk assessment or formal review of service account usage
+### Service account risk assessments or formal reviews
 
-Suppose your account is compromised by an unauthorized source. Assess the risks the account might pose to its associated application or service and to your infrastructure. Consider both direct and indirect risks. 
+If your account is compromised by an unauthorized source, assess the risks to associated applications, services, and infrastructure. Consider direct and indirect risks:
 
-* What would an unauthorized user gain direct access to?  
-* What other information or systems can the service account access?  
-* Can the account be used to grant additional permissions?  
-* How will you know when the permissions change?
+* Resources an unauthorized user can gain access to
+  * Other information or systems the service account can access
+* Permissions the account can grant   
+  * Indications or signals when permissions change
 
-After you've conducted and documented the risk assessment, you might find that the risks have an impact on:
-
-* Account restrictions.  
-* Account lifetime.  
-* Account review requirements (cadence and reviewers).
+After the risk assessment, documentation likely shows that risks affect account: 
+ 
+* Restrictions
+* Lifetime
+* Review requirements
+  * Cadence and reviewers
 
 ### Create a service account and apply account restrictions
 
-Create a service account only after you've completed the risk assessment and documented the relevant information in your CMDB. Align the account restrictions with the risk assessment. Consider the following restrictions when they're relevant to your assessment:
+> [!NOTE]
+> Create a service account after the risk assessment, and document the findings in a CMDB. Align account restrictions with risk assessment findings. 
+ 
+Consider the following restrictions, although some might not be relevant to your assessment.
 
-* For all user accounts that you use as service accounts, define a realistic, definite end date. Set the date by using the **Account Expires** flag. For more information, see [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration). 
+* For user accounts used as service accounts, define a realistic end date 
+  * Use the **Account Expires** flag to set the date
+  * Learn more: [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration)
+* See, [Set-ADUser (Active Directory)](/powershell/module/activedirectory/set-aduser)
+* Password policy requirements
+  * See, [Password and account lockout policies on Azure AD Domain Services managed domains](../../active-directory-domain-services/password-policy.md)
+* Create accounts in an organizational unit location that ensures only some users will manage it
+  *  See, [Delegating Administration of Account OUs and Resource OUs](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous)  
+* Set up and collect auditing that detects service account changes:
+  * See, [Audit Directory Service Changes](/windows/security/threat-protection/auditing/audit-directory-service-changes), and
+  * Go to manageengine.com for [How to audit Kerberos authentication events in AD](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)
+* Grant account access more securely before it goes into production
 
-* Login to the [LogonWorkstation](/powershell/module/activedirectory/set-aduser).
+### Service account reviews
+ 
+Schedule regular service account reviews, especially those classified Medium and High Risk. Reviews can include: 
 
-* [Password Policy](../../active-directory-domain-services/password-policy.md) requirements.
-
-* Account creation in an [organizational unit location](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) that ensures management only for allowed users.
-
-* Setting up and collecting auditing [that detects changes](/windows/security/threat-protection/auditing/audit-directory-service-changes) to the service account, and [service account use](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
-
-When you're ready to put the service account into production, grant access to it more securely. 
-
-### Schedule regular reviews of service accounts
-
-Set up regular reviews of service accounts that are classified as medium and high risk. Reviews should include: 
-
-* Owner attestation to the continued need for the account, and a justification of permissions and scopes.
-
-* Review by privacy and security teams, including an evaluation of upstream and downstream connections.
-
-* Data from audits, ensuring that it's being used only for its intended purposes.
+* Owner attestation of the need for the account, with justification of permissions and scopes
+* Privacy and security team reviews that include upstream and downstream dependencies
+* Audit data review
+ * Ensure the account is used for its stated purpose
 
 ### Deprovision service accounts
 
-In your deprovisioning process, first remove permissions and monitoring, and then remove the account, if appropriate.
+Deprovision service accounts at the following junctures:
 
-You deprovision service accounts when:
+* Retirement of the script or application for which the service account was created
+* Retirement of the script or application function, for which the service account was used
+* Replacement of the service account for another
 
-* The script or application that the service account was created for is retired.
+To deprovision:
+ 
+1. Remove permissions and monitoring.
+2. Examine sign-ins and resource access of related service accounts to ensure no potential effect on them.
+3. Prevent account sign-in.
+4. Ensure the account is no longer needed (there's no complaint).
+5. Create a business policy that determines the amount of time that accounts are disabled.
+6. Delete the service account.
 
-* The function within the script or application, which the service account is used for (for example, access to a specific resource), is retired.
-
-* The service account has been replaced with a different service account.
-
-After you've removed all permissions, remove the account by doing the following:
-
-1. When the associated application or script is deprovisioned, monitor the sign-ins and resource access for the associated service accounts to be sure that they're not being used in another process. If you're sure it's no longer needed, go to next step.
-
-1. Disable the service account to prevent sign-in, and ensure that it's no longer needed. Create a business policy for the time during which accounts should remain disabled.
-
-1. After the remain-disabled policy is fulfilled, delete the service account. 
-
-   * **For MSAs**: [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) by using PowerShell, or delete it manually from the managed service account container.
-
-   * **For computer or user accounts**: Manually delete the account from within Active Directory.
+  * **MSAs** - see, [Uninstall-ADServiceAccount](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true)
+    * Use PowerShell, or delete it manually from the managed service account container
+  * **Computer or user accounts** - manually delete the account from Active Directory
 
 ## Next steps
 
 To learn more about securing service accounts, see the following articles:
 
-* [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
+* [Securing on-premises service accounts](service-accounts-on-premises.md)  
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Secure computer accounts](service-accounts-computer.md)  
-* [Secure user accounts](service-accounts-user-on-premises.md)
+* [Secure on-premises computer accounts with AD](service-accounts-computer.md)  
+* [Secure user-based service accounts in AD](service-accounts-user-on-premises.md)

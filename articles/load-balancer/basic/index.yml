@@ -10,9 +10,9 @@ metadata:
   ms.service: load-balancer
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
-  ms.date: 03/15/2022 #Required; mm/dd/yyyy format.
+  author: mbender-ms
+  ms.author: mbender
+  ms.date: 04/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

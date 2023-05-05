@@ -1,16 +1,16 @@
 ---
 title: Configure performance for the Azure-SSIS Integration Runtime 
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packages in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
@@ -60,7 +60,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 ```
 
 ## AzureSSISLocation
-**AzureSSISLocation** is the location for the integration runtime worker node. The worker node maintains a constant connection to the SSIS Catalog database (SSISDB) in Azure SQL Database. Set the **AzureSSISLocation** to the same location as [logical SQL server](../azure-sql/database/logical-servers.md) that hosts SSISDB, which lets the integration runtime to work as efficiently as possible.
+**AzureSSISLocation** is the location for the integration runtime worker node. The worker node maintains a constant connection to the SSIS Catalog database (SSISDB) in Azure SQL Database. Set the **AzureSSISLocation** to the same location as [logical SQL server](/azure/azure-sql/database/logical-servers) that hosts SSISDB, which lets the integration runtime to work as efficiently as possible.
 
 ## AzureSSISNodeSize
 Data Factory, including the Azure-SSIS IR, supports the following options:
@@ -152,7 +152,7 @@ Here are the guidelines for setting the right value for the **AzureSSISMaxParall
 
 -   Choose a more powerful database such as s3 if the logging level is set to verbose. According our unofficial in-house testing, s3 pricing tier can support SSIS package execution with 2 nodes, 128 parallel counts and verbose logging level.
 
-You can also adjust the database pricing tier based on [database transaction unit](../azure-sql/database/service-tiers-dtu.md) (DTU) usage information available on the Azure portal.
+You can also adjust the database pricing tier based on [database transaction unit](/azure/azure-sql/database/service-tiers-dtu) (DTU) usage information available on the Azure portal.
 
 ## Design for high performance
 Designing an SSIS package to run on Azure is different from designing a package for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.

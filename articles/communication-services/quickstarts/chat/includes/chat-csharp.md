@@ -12,15 +12,18 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).
-
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
+- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity token issue --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -60,9 +63,9 @@ The following classes handle some of the major features of the Azure Communicati
 
 To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client.
 
-Learn more about [User Access Tokens](../../access-tokens.md).
+Learn more about [User Access Tokens](../../identity/access-tokens.md).
 
-This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
+This quickstart doesn't cover creating a service tier to manage tokens for your chat application, although it's recommended. Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 
 Copy the following code snippets and paste into source file: **Program.cs**
 ```csharp
@@ -78,7 +81,7 @@ namespace ChatQuickstart
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             // Your unique Azure Communication service endpoint
-            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+            Uri endpoint = new Uri("<replace with your resource endpoint>");
 
             CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
             ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
@@ -91,7 +94,7 @@ namespace ChatQuickstart
 
 Use the `createChatThread` method on the chatClient to create a chat thread
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateTopic` function.
-- Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you will need to pass an Access ID which you created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
+- Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you'll need to pass an Access ID which you created by following instruction to [Create a user](../../identity/access-tokens.md#create-an-identity)
 
 The response object from the `createChatThread` method contains the `chatThread` details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a `chatThreadClient` client instance needs to instantiated using the `GetChatThreadClient` method on the `ChatClient` client.
 
@@ -128,7 +131,7 @@ await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
 
 Use `SendMessage` to send a message to a thread.
 
-- Use `content` to provide the content for the message, it is required.
+- Use `content` to provide the content for the message, it's required.
 - Use `type` for the content type of the message such as 'Text' or 'Html'. If not specified, 'Text' will be set.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
 - Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
@@ -159,7 +162,7 @@ await foreach (ChatMessage message in allMessages)
 }
 ```
 
-`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you will receive messages that were received, updated or deleted after it. Note that messages received before the offset time but edited or removed after it will also be returned.
+`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you'll receive messages that were received, updated or deleted after it. Note that messages received before the offset time but edited or removed after it will also be returned.
 
 `GetMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `UpdateMessage` and `DeleteMessage`. For deleted messages, `chatMessage.DeletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.EditedOn` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.CreatedOn`, and it can be used for ordering the messages.
 
@@ -228,3 +231,6 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).

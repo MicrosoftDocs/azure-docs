@@ -25,7 +25,7 @@
     href: data-catalog-frequently-asked-questions.yml
 - name: How-to guides
   items:
-  - name: Migrate to Azure Purview
+  - name: Migrate to Microsoft Purview
     href: data-catalog-migration-to-azure-purview.md
   - name: Register data sources
     href: data-catalog-how-to-register.md

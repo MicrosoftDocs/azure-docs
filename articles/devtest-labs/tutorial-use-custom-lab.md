@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-You need at least [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) access to the lab created in [Tutorial: Set up a lab in Azure DevTest Labs](tutorial-create-custom-lab.md), or to another lab that has a claimable VM.
+You need at least [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user) access to the lab created in [Tutorial: Set up a lab in Azure DevTest Labs](tutorial-create-custom-lab.md), or to another lab that has a claimable VM.
 
 The owner or administrator of the lab can give you the URL to access the lab in the Azure portal, and the username and password to access the lab VM.
 
@@ -63,7 +63,7 @@ To connect to a Windows machine through Remote Desktop Protocol (RDP), follow th
 
    :::image type="content" source="./media/tutorial-use-custom-lab/remote-computer-verification.png" alt-text="Screenshot of remote computer verification.":::
 
-Once you connect to the VM, you can use it to do your work. You have [Owner](/azure/role-based-access-control/built-in-roles#owner) role on all lab VMs you claim or create, unless you unclaim them. 
+Once you connect to the VM, you can use it to do your work. You have [Owner](../role-based-access-control/built-in-roles.md#owner) role on all lab VMs you claim or create, unless you unclaim them. 
 
 ## Unclaim a lab VM
 

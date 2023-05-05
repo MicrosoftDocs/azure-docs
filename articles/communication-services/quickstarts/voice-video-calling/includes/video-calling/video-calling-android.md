@@ -14,8 +14,14 @@ If you want to get started with sample code, you can [download the sample app](h
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [user access token](../../../access-tokens.md) for Communication Services.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Create an Android app with an empty activity
 
@@ -27,7 +33,7 @@ Under **Phone and Tablet**, select the **Empty Activity** project template.
 
 :::image type="content" source="../../media/android/studio-blank-activity.png" alt-text="Screenshot showing the Empty Activity option selected in the Project Template Screen.":::
 
-For the **Minimum SDK**, select **API 26: Android 8.0 (Oreo)**, or later.
+For the **Minimum SDK**, select **API 26: Android 8.0 (Oreo)**, or later. [See SDK support versions](../../../../concepts/voice-video-calling/calling-sdk-features.md?#android-calling-sdk-support).
 
 :::image type="content" source="../../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the API option selected.":::
 
@@ -78,7 +84,7 @@ dependencies {
 
 ## Add permissions to application manifest
 
-To request permissions required to make a call, you must first declare the permissions in the application manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
+To request permissions required to make a call, you must first declare the permissions in the application manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -117,9 +123,11 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 
 ### Set up the layout for the app
 
-You need a text input for the callee ID or group call ID, a button for placing the call, and another button for hanging up the call. You also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these through the designer, or by editing the layout XML.
+You need a text input for the callee ID or group call ID, a button for placing the call, and extra button for hanging up the call.
 
-Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of file with the following:
+Also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these buttons through the designer, or by editing the layout XML.
+
+Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of file with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -228,11 +236,11 @@ Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of fi
 
 ## Create the main activity scaffolding and bindings
 
-With the layout created, you can add the bindings, as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
+With the layout created, you can add the bindings, and the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
 
-The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent`, as well as add the bindings for the call button. This occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+The `onCreate` method is overridden to invoke `getAllPermissions` and `createAgent`, and add the bindings for the call button. This event occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
-Go to *MainActivity.java*, and replace the content with the following code:
+Go to *MainActivity.java* file, and replace the content with the following code:
 
 ```java
 package com.example.videocallingquickstart;
@@ -401,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## Request permissions at runtime
 
-For Android 6.0 and later (API level 23), and `targetSdkVersion` 23 or later, permissions are granted at runtime instead of when the app is installed. In order to support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
+For Android 6.0 and later (API level 23), and `targetSdkVersion` 23 or later, permissions are granted at runtime instead of when the app is installed. In order to support it, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
 
 ```java
 /**
@@ -422,7 +430,7 @@ private void getAllPermissions() {
 ```
 
 > [!NOTE]
-> When you're designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information, see the [Android Permissions Guide](https://developer.android.com/training/permissions/requesting).
+> When you're designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information, see, the [Android Permissions Guide](https://developer.android.com/training/permissions/requesting).
 
 ## Object model
 
@@ -437,7 +445,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-You need a user token to create an authenticated call agent. Generally, this token is generated from a service with authentication specific to the application. For more information on user access tokens, see [User access tokens](../../../access-tokens.md). 
+You need a user token to create an authenticated call agent. Generally, this token is generated from a service with authentication specific to the application. For more information on user access tokens, see [User access tokens](../../../identity/access-tokens.md). 
 
 For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Services resource.
 
@@ -499,7 +507,7 @@ private void startCall() {
 }
 ```
 
-In this quickstart, you rely on the function `getNextAvailableCamera` to pick the camera that the call will use. The function takes the enumeration of cameras as input, and iterates through the list to get the next camera available. If the argument is `null`, the function picks the first device on the list. If there are no available cameras when you select **Start Call**, an audio call starts instead. But if the remote participant answered with video, you can still see the remote video stream.
+In this quickstart, you rely on the function `getNextAvailableCamera` to pick the camera that the call uses. The function takes the enumeration of cameras as input, and iterates through the list to get the next camera available. If the argument is `null`, the function picks the first device on the list. If there are no available cameras when you select **Start Call**, an audio call starts instead. But if the remote participant answered with video, you can still see the remote video stream.
 
 ```java
 private VideoDeviceInfo getNextAvailableCamera(VideoDeviceInfo camera) {
@@ -611,7 +619,7 @@ call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
 
 When you use event listeners that are defined within the same class, bind the listener to a variable. Pass the variable in as an argument to add and remove listener methods.
 
-If you try to pass the listener in directly as an argument, you'll lose the reference to that listener. Java creates new instances of these listeners, not referencing previously created ones. You can't remove prior instances, because you won’t have a reference to them anymore.
+If you try to pass the listener in directly as an argument, you lose the reference to that listener. Java creates new instances of these listeners, not referencing previously created ones. You can't remove prior instances, because you don’t have a reference to them.
 
 ### Remote video stream updates
 
@@ -777,7 +785,7 @@ private void hangUp() {
 
 ## Hide and show local video
 
-When the call has started, you can stop local video rendering and streaming with  `turnOffLocalVideo()`. This method removes the view that wraps the local render, and disposes of the current stream. To resume the stream and render the local preview again, use `turnOnLocalVideo()`. This shows the video preview and starts streaming.
+When the call has started, you can stop local video rendering and streaming with `turnOffLocalVideo()`, this method removes the view that wraps the local render, and disposes of the current stream. To resume the stream and render the local preview again, use `turnOnLocalVideo()`, this method shows the video preview and starts streaming.
 
 ```java
 public void turnOnLocalVideo() {
@@ -825,13 +833,13 @@ Completed application             |  1:1 call
 :-------------------------:|:-------------------------:
 :::image type="content" source="../../media/android/video-quickstart-1-1-screen.png" alt-text="Screenshot showing the completed application.":::  |  :::image type="content" source="../../media/android/video-quickstart-1-1-call.png" alt-text="Screenshot showing the application on a call.":::
 
-## Add group call capability 
+## Add group call capability
 
 Now you can update your app to let the user choose between 1:1 calls or group calls.
 
 ### Update layout
 
-Use radio buttons to select if the SDK creates a 1:1 call or joins a group call. The radio buttons will be at the top, so the first section of *app/src/main/res/layout/activity_main.xml* will end as follows.
+Use radio buttons to select if the SDK creates a 1:1 call or joins a group call. The radio buttons are at the top, so the first section of *app/src/main/res/layout/activity_main.xml* end as follows.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -885,7 +893,7 @@ Use radio buttons to select if the SDK creates a 1:1 call or joins a group call.
 
 ### Update MainActivity.Java
 
-You can now update the elements and logic to decide when to create a 1:1 call, and when to join a group call. The first portion of code requires updates to add dependencies, items, and additional configurations.
+You can now update the elements and logic to decide when to create a 1:1 call, and when to join a group call. The first portion of code requires updates to add dependencies, items, and other configurations.
 
 Dependencies:
 

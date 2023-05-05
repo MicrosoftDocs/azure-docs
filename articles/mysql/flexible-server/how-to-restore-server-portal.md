@@ -1,14 +1,15 @@
 ---
-title: Restore an Azure Database for MySQL Flexible Server with Azure portal.
-description: This article describes how to perform restore operations in Azure Database for MySQL Flexible server through the Azure portal
-author: mksuni
-ms.author: sumuth
+title: Restore an Azure Database for MySQL - Flexible Server with Azure portal.
+description: This article describes how to perform restore operations in Azure Database for MySQL - Flexible Server through the Azure portal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 04/01/2021
+author: code-sidd 
+ms.author: sisawant
+ms.date: 07/26/2022
 ---
 
-# Point-in-time restore of a Azure Database for MySQL Flexible Server using Azure portal
+# Point-in-time restore of a Azure Database for MySQL - Flexible Server using Azure portal
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -18,7 +19,7 @@ This article provides step-by-step procedure to perform point-in-time recoveries
 
 To complete this how-to guide, you need:
 
-- You must have an Azure Database for MySQL Flexible Server.
+- You must have an Azure Database for MySQL - Flexible Server.
 
 ## Restore to the latest restore point
 
@@ -75,7 +76,7 @@ Follow these steps to restore your flexible server using an existing full backup
 
 2. Click **Backup and Restore** from the left panel. 
 
-3. View Available Backups page will be shown with the option to restore from all full automated backups taken for the server within the retention period.  
+3. View Available Backups page will be shown with the option to restore from available full automated backups and on-demand backups taken for the server within the retention period.  
 
 4. Select the desired full backup from the list by clicking on corresponding **Restore** action. 
  
@@ -141,7 +142,7 @@ Follow these steps to restore your flexible server using an earliest existing ba
 7. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by clicking the *create virtual network* link.
     > [!Note]
     > Only virtual networks and subnets in the same region and subscription will be listed in the drop down. </br>
-    > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL Flexible Servers can use that subnet.</br>
+    > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL - Flexible Servers can use that subnet.</br>
 
     :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet configuration":::
 

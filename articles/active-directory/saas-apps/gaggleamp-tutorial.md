@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 05/03/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with GaggleAMP
@@ -49,6 +49,8 @@ To configure the integration of GaggleAMP into Azure AD, you need to add GaggleA
 1. In the **Add from the gallery** section, type **GaggleAMP** in the search box.
 1. Select **GaggleAMP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for GaggleAMP
 
 Configure and test Azure AD SSO with GaggleAMP using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in GaggleAMP.
@@ -72,24 +74,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
+1. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
     In the **Identifier** text box, type the URL:
     `https://accounts.gaggleamp.com/auth/saml/callback`
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://gaggleamp.com/i/<customerid>`
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [GaggleAMP Client support team](mailto:sales@gaggleamp.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-7. On the **Set up GaggleAMP** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up GaggleAMP** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -125,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
     ![GaggleAMP Single Sign-On](./media/gaggleamp-tutorial/configuration.png)
 
-	a. Select **Other** form the **Identity provider** dropdown menu.
+	a. Select **Other** from the **Identity provider** dropdown menu.
 	
 	b. In the **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 	
@@ -145,13 +139,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to GaggleAMP Sign on URL where you can initiate the login flow.  
+* Visit the invitation page of your Gaggle, you can find its unique link on the Manager View, menu **option Members > Invite**.
 
-* Go to GaggleAMP Sign-on URL directly and initiate the login flow from there.
+* Click the **Sign in with SAML** button to initiate the login flow from there.
 
-#### IDP initiated:
+#### IdP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the GaggleAMP for which you set up the SSO. 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to GaggleAMP.
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the GaggleAMP tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GaggleAMP for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 

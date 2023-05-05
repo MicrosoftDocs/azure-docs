@@ -1,17 +1,15 @@
 ---
 title: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
 description: Walk through the Getting Started Guide For Microsoft Sentinel ML Notebooks to learn the basics of Microsoft Sentinel notebooks with MSTICPy and queries.
-author: batamig
-ms.author: bagol
+author: austinmccollum
+ms.author: austinmc
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ---
 
-# Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
+# Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-This tutorial describes how to run the **Getting Started Guide For Microsoft Sentinel ML Notebooks** notebook, which sets up basic configurations for running Jupyter notebooks in Microsoft Sentinel and running simple data queries.
+This article describes how to run the **Getting Started Guide For Microsoft Sentinel ML Notebooks** notebook, which sets up basic configurations for running Jupyter notebooks in Microsoft Sentinel and running simple data queries.
 
 The **Getting Started Guide for Microsoft Sentinel ML Notebooks** notebook uses MSTICPy, a Python library of Cybersecurity tools built by Microsoft, which provides threat hunting and investigation functionality.
 
@@ -23,7 +21,7 @@ MSTICPy reduces the amount of code that customers need to write for Microsoft Se
 - Visualization tools using event timelines, process trees, and geo mapping.
 - Advanced analyses, such as time series decomposition, anomaly detection, and clustering.
 
-The steps in this tutorial describe how to run the **Getting Started Guide for Microsoft Sentinel ML Notebooks** notebook in your Azure ML workspace via Microsoft Sentinel. You can also use this tutorial as guidance for performing similar steps to run notebooks in other environments, including locally.
+The steps in this article describe how to run the **Getting Started Guide for Microsoft Sentinel ML Notebooks** notebook in your Azure ML workspace via Microsoft Sentinel. You can also use this article as guidance for performing similar steps to run notebooks in other environments, including locally.
 
 For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations) and [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
@@ -35,7 +33,7 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
 
 - To use notebooks in Microsoft Sentinel, make sure that you have the required permissions. For more information, see [Manage access to Microsoft Sentinel notebooks](notebooks.md#manage-access-to-microsoft-sentinel-notebooks).
 
-- To perform the steps in this tutorial, you'll need Python 3.6 or later. In Azure ML you can use either a Python 3.8 kernel (recommended) or a Python 3.6 kernel.
+- To perform the steps in this article, you'll need Python 3.6 or later. In Azure ML you can use either a Python 3.8 kernel (recommended) or a Python 3.6 kernel.
 
 - This notebook uses the [MaxMind GeoLite2](https://www.maxmind.com) geolocation lookup service for IP addresses. To use the MaxMind GeoLite2 service, you'll need an account key. You can sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).
 
@@ -284,7 +282,7 @@ The Azure CLI component on the Compute instance caches a *refresh token* that it
 
 To authenticate using Azure CLI enter the following into an empty cell and run it:
 
-```python
+```azurecli
 !az login
 ```
 
@@ -666,7 +664,7 @@ You can also try out other notebooks stored in the [Microsoft Sentinel Notebooks
 - The [Entity Explorer series](https://github.com/Azure/Azure-Sentinel-Notebooks/) of notebooks, which allow for a deep drill-down into details about a host, account, IP address, and other entities.
 
 > [!TIP]
-> If you use the notebook described in this tutorial in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.
+> If you use the notebook described in this article in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.
 >
 > To use MSTICPy notebooks outside of Microsoft Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Install Python 3.6 or later with the Anaconda distribution, which includes many of the required packages.
 >

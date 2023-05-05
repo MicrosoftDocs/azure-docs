@@ -1,14 +1,15 @@
 ---
-title: Manage access to custom security attributes in Azure AD (Preview) - Azure Active Directory
+title: Manage access to custom security attributes in Azure AD (Preview)
 description: Learn how to manage access to custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
 ms.author: rolyon
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 01/07/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -55,10 +56,10 @@ You need to determine who needs access to work with custom security attributes i
 
 The following table provides a high-level comparison of the custom security attributes roles.
 
-| Permission | Global Admin | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
+| Permission | Global Administrator | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
 | Add or edit attribute sets |  | :heavy_check_mark: |  |  |  |
 | Add, edit, or deactivate attribute definitions |  | :heavy_check_mark: |  |  |  |
@@ -101,16 +102,18 @@ Once you have a better understanding of how your attributes will be organized an
 | <ul><li>Read attribute definitions in a scoped attribute set</li><li>Read attribute assignments that use attributes in a scoped attribute set for users</li><li>Read attribute assignments that use attributes in a scoped attribute set for applications (service principals)</li><li>[Assign attributes in a scoped attribute set to users](../enterprise-users/users-custom-security-attributes.md)</li><li>[Assign attributes in a scoped attribute set to applications (service principals)](../manage-apps/custom-security-attributes-apps.md)</li><li>[Author Azure role assignment conditions that use the Principal attribute for all attributes in a scoped attribute set](../../role-based-access-control/conditions-format.md#attributes)</li><li>**Cannot** read attributes in other attribute sets</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png)<br/>Attribute set |
 | <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li></ul> | [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader) | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png)<br/>Tenant |
 | <ul><li>Read attribute definitions in a scoped attribute set</li><li>**Cannot** read other attribute sets</li></ul> | [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader) | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png)<br/>Attribute set |
-| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute assignments in a tenant for users</li><li>Read all attribute assignments in a tenant for applications (service principals)</li></ul> | [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png)<br/>Tenant |
-| <ul><li>Read attribute assignments that use attributes in a scoped attribute set for users</li><li>Read attribute assignments that use attributes in a scoped attribute set for applications (service principals)</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png)<br/>Attribute set |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li><li>Read all attribute assignments in a tenant for users</li><li>Read all attribute assignments in a tenant for applications (service principals)</li></ul> | [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png)<br/>Tenant |
+| <ul><li>Read attribute definitions in a scoped attribute set</li><li>Read attribute assignments that use attributes in a scoped attribute set for users</li><li>Read attribute assignments that use attributes in a scoped attribute set for applications (service principals)</li><li>**Cannot** read attributes in other attribute sets</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png)<br/>Attribute set |
 
 ## Step 6: Assign roles
 
 To grant access to the appropriate people, follow these steps to assign one of the custom security attribute roles. 
 
-#### Assign roles at attribute set scope
+### Assign roles at attribute set scope
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+#### Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory**.
 
@@ -126,13 +129,39 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
     > [!NOTE]
     > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
-    
-    > [!NOTE]
-    > Users with attribute set scope role assignments currently can see other attribute sets and custom security attribute definitions.
-    
-#### Assign roles at tenant scope
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+#### PowerShell
+
+Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+
+```powershell
+$roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
+$directoryScope = "/attributeSets/Engineering"
+$principalId = "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId
+```
+
+#### Microsoft Graph API
+
+Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+
+```http
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Content-type: application/json
+
+{
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "roleDefinitionId": "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d",
+    "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
+    "directoryScopeId": "/attributeSets/Engineering"
+}
+```
+
+### Assign roles at tenant scope
+
+#### Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory**.
 
@@ -141,6 +170,14 @@ To grant access to the appropriate people, follow these steps to assign one of t
     ![Screenshot of assigning attribute roles at tenant scope.](./media/custom-security-attributes-manage/manage-tenant.png)
 
 1. Add assignments for the custom security attribute roles.
+
+#### PowerShell
+
+Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
+
+#### Microsoft Graph API
+
+Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
 
 ## View audit logs for attribute changes
 
@@ -162,5 +199,5 @@ The following screenshot shows an example of the audit log. To filter the logs f
 ## Next steps
 
 - [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Troubleshoot custom security attributes in Azure AD](custom-security-attributes-troubleshoot.md)

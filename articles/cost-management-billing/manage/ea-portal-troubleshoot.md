@@ -3,7 +3,7 @@ title: Troubleshoot Azure EA portal access
 description: This article describes some common issues that can occur with an Azure Enterprise Agreement (EA) in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/22/2022
+ms.date: 12/16/2022
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -13,6 +13,13 @@ ms.reviewer: boalcsva
 # Troubleshoot Azure EA portal access
 
 This article describes some common issues that can occur with an Azure Enterprise Agreement (EA). The Azure EA portal is used to manage enterprise agreement users and costs. You might come across these issues when you're configuring or updating Azure EA portal access.
+
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## Issues adding a user to an enrollment
 
@@ -31,12 +38,12 @@ The first work or school account added to the enrollment determines the _default
 
 To update the Authentication Level:
 
-1. Sign in to the Azure EA portal as an Enterprise Administrator.
-2. Click **Manage** on the left navigation panel.
-3. Click the **Enrollment** tab.
+1. Sign in to the Azure [EA portal](https://ea.azure.com/) as an Enterprise Administrator.
+2. Select **Manage** on the left navigation panel.
+3. Select the **Enrollment** tab.
 4. Under **Enrollment Details**, select **Auth Level**.
-5. Click the pencil symbol.
-6. Click **Save**.
+5. Select the pencil symbol.
+6. Select **Save**.
 
 ![Example showing authentication levels ](./media/ea-portal-troubleshoot/create-ea-authentication-level-types.png)
 
@@ -57,7 +64,7 @@ If you get an error message when you try to sign in to the Azure EA portal, use 
 - Use an in-private or incognito browser session to sign in so that no cookies or cached information from previous or existing sessions are kept. Clear your browser's cache and use an in-private or incognito window to open https://ea.azure.com.
 - If you get an _Invalid User_ error when using a Microsoft account, it might be because you have multiple Microsoft accounts. The one that you're trying to sign in with isn't the primary email address.
 Or, if you get an _Invalid User_ error, it might be because the wrong account type was used when the user was added to the enrollment. For example, a work or school account instead of a Microsoft account. In this example, you have another EA admin  add the correct account or you need to contact [support](https://support.microsoft.com/supportforbusiness/productselection?sapId=cf791efa-485b-95a3-6fad-3daf9cd4027c).
-  - If you need to check the primary alias, go to [https://account.live.com](https://account.live.com). Then, click **Your Info** and then click **Manage how to sign in to Microsoft**. Follow the prompts to verify an alternate email address and obtain a code to access sensitive information. Enter the security code. Select **Set it up later** if you don't want to set up two-factor authentication.
+  - If you need to check the primary alias, go to [https://account.live.com](https://account.live.com). Then, select **Your Info** and then select **Manage how to sign in to Microsoft**. Follow the prompts to verify an alternate email address and obtain a code to access sensitive information. Enter the security code. Select **Set it up later** if you don't want to set up two-factor authentication.
   - You'll see the **Manage how to sign in to Microsoft** page where you can view your account aliases. Check that the primary alias is the one that you're using to sign in to the Azure EA portal. If it isn't, you can make it your primary alias. Or, you can use the primary alias for Azure EA portal instead.
 
 ## Next steps

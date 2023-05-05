@@ -2,14 +2,15 @@
 author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen
 ---
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../data-factory-azure-blob-connector.md) |✓ |✓ |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../data-factory-azure-documentdb-connector.md) |✓ |✓ |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Synapse Analytics](../data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
@@ -37,4 +38,3 @@ ms.author: jianleishen
 | &nbsp; |[Generic ODBC](../data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../data-factory-web-table-connector.md) |✓ | |
-

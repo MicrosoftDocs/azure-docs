@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.author: alkohli
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
+Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud.
 
 This article describes how to connect to the local APIs on your Azure Stack Edge device via Azure Resource Manager using Azure PowerShell.
 
@@ -33,7 +33,7 @@ The following table summarizes the various endpoints exposed on your device, the
 | 3. | Blob* | https | 443 | To connect to Blob storage via REST |
 
 \* *Connection to blob storage endpoint is not required to connect to Azure Resource Manager.*
- 
+
 ## Connecting to Azure Resource Manager workflow
 
 The process of connecting to local APIs of the device using Azure Resource Manager requires the following steps:
@@ -54,11 +54,11 @@ The following sections detail each of the above steps in connecting to Azure Res
 
 Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge device](azure-stack-edge-gpu-configure-tls-settings.md).
 
-## Step 1: Configure Azure Stack Edge device 
+## Step 1: Configure Azure Stack Edge device
 
 Take the following steps in the local web UI of your Azure Stack Edge device.
 
-1. Complete the network settings for your Azure Stack Edge device. 
+1. Complete the network settings for your Azure Stack Edge device.
 
     ![Local web UI "Network settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
@@ -121,87 +121,87 @@ The Windows client where you will invoke the Azure Resource Manager APIs needs t
 
 2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal** certificate store on your system. For detailed steps, see [Import certificates into personal store](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format).
 
-## Step 3: Install PowerShell on the client 
+## Step 3: Install PowerShell on the client
 
 ### [Az](#tab/Az)
 
 Your Windows client must meet the following prerequisites:
 
 
-1. Run PowerShell Version 5.0. You must have PowerShell version 5.0. To check the version of PowerShell on your system, run the following cmdlet:
+1. Run Windows PowerShell 5.1. You must have Windows PowerShell 5.1. To check the version of PowerShell on your system, run the following cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Compare the **Major** version and ensure that it is 5.0 or later.
+    Compare the **Major** version and ensure that it is 5.1 or later.
 
-    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
+    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
-    If you don\'t have PowerShell 5.0, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
+    If you don't have PowerShell 5.1, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
     An example output is shown below.
 
     ```output
     Windows PowerShell
-    Copyright (C) Microsoft Corporation. All rights reserved. 
+    Copyright (C) Microsoft Corporation. All rights reserved.
     Try the new cross-platform PowerShell https://aka.ms/pscore6
     PS C:\windows\system32> $PSVersionTable.PSVersion
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      19041  906
     ```
-    
+
 1. You can access the PowerShell Gallery.
 
     Run PowerShell as administrator. Verify that PowerShellGet version is older than 2.2.3. Additionally, verify if the `PSGallery` is registered as a repository.
 
     ```powershell
-    Install-Module PowerShellGet –MinimumVersion 2.2.3
+    Install-Module PowerShellGet -MinimumVersion 2.2.3
     Import-Module -Name PackageManagement -ErrorAction Stop
     Get-PSRepository -Name "PSGallery"
     ```
-    
+
     An example output is shown below.
-    
+
     ```output
-    PS C:\windows\system32> Install-Module PowerShellGet –MinimumVersion 2.2.3
+    PS C:\windows\system32> Install-Module PowerShellGet -MinimumVersion 2.2.3
     PS C:\windows\system32> Import-Module -Name PackageManagement -ErrorAction Stop
     PS C:\windows\system32> Get-PSRepository -Name "PSGallery"
     Name                      InstallationPolicy   SourceLocation
     ----                      ------------------   --------------
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
-    ```    
+    ```
 
 ### [AzureRM](#tab/AzureRM)
 
 Your Windows client must meet the following prerequisites:
 
 
-1. Run PowerShell Version 5.0. You must have PowerShell version 5.0. PowerShell core is not supported. To check the version of PowerShell on your system, run the following cmdlet:
+1. Run Windows PowerShell 5.1. You must have Windows PowerShell 5.1. PowerShell core is not supported. To check the version of PowerShell on your system, run the following cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Compare the **Major** version and ensure that it is 5.0 or later.
+    Compare the **Major** version and ensure that it is 5.1.
 
-    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
+    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
-    If you don\'t have PowerShell 5.0, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
+    If you don't have PowerShell 5.1, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
     An example output is shown below.
 
     ```output
     Windows PowerShell
-    Copyright (C) Microsoft Corporation. All rights reserved. 
+    Copyright (C) Microsoft Corporation. All rights reserved.
     Try the new cross-platform PowerShell https://aka.ms/pscore6
     PS C:\windows\system32> $PSVersionTable.PSVersion
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      18362  145
     ```
-    
+
 2. You can access the PowerShell Gallery.
 
     Run PowerShell as administrator. Verify if the `PSGallery` is registered as a repository.
@@ -211,9 +211,9 @@ Your Windows client must meet the following prerequisites:
     Import-Module -Name PackageManagement -ErrorAction Stop
     Get-PSRepository -Name "PSGallery"
     ```
-    
+
     An example output is shown below.
-    
+
     ```output
     PS C:\windows\system32> Import-Module -Name PowerShellGet -ErrorAction Stop
     PS C:\windows\system32> Import-Module -Name PackageManagement -ErrorAction Stop
@@ -222,16 +222,16 @@ Your Windows client must meet the following prerequisites:
     ----                      ------------------   --------------
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
----    
+---
 If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
-## Step 4: Set up Azure PowerShell on the client 
+## Step 4: Set up Azure PowerShell on the client
 
 ### [Az](#tab/Az)
 
 You will install Azure PowerShell modules on your client that will work with your device.
 
-1. Run PowerShell as an administrator. You need access to PowerShell gallery. 
+1. Run PowerShell as an administrator. You need access to PowerShell gallery.
 
 
 1. First verify that there are no existing versions of `AzureRM` and `Az` modules on your client. To check, run the following commands:
@@ -244,9 +244,9 @@ You will install Azure PowerShell modules on your client that will work with you
     Get-InstalledModule -Name Az -AllVersions
     ```
 
-    If there are existing versions, use the `Uninstall-Module` cmdlet to uninstall. For more information, see 
-    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true#uninstall-the-az-module).
-    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true#uninstall-the-azurerm-module).
+    If there are existing versions, use the `Uninstall-Module` cmdlet to uninstall. For more information, see
+    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps#uninstall-the-az-module).
+    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
 
 1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
@@ -254,32 +254,32 @@ You will install Azure PowerShell modules on your client that will work with you
 
         ```powershell
         # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet.
-        
+
         Install-Module -Name Az.BootStrapper
-        
+
         # Install and import the API Version Profile into the current PowerShell session.
-        
+
         Use-AzProfile -Profile 2020-09-01-hybrid -Force
-        
+
         # Confirm the installation of PowerShell
         Get-Module -Name "Az*" -ListAvailable
         ```
-    
+
     - If your client is using PowerShell 5.1 and later:
-        
+
         ```powershell
         #Install the Az module version 1.10.0
-        
-        Install-Module –Name Az –RequiredVersion 1.10.0    
+
+        Install-Module -Name Az -RequiredVersion 1.10.0
         ```
 
-3.  Make sure that you have Az module version 1.10.0 running at the end of the installation. 
-   
+3.  Make sure that you have Az module version 1.10.0 running at the end of the installation.
 
-    If you used PowerShell core 7.0 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
-    
+
+    If you used PowerShell 7 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
+
     ```output
-   
+
     PS C:\windows\system32> Install-Module -Name Az.BootStrapper
     PS C:\windows\system32> Use-AzProfile -Profile 2020-09-01-hybrid -Force
     Loading Profile 2020-09-01-hybrid
@@ -287,13 +287,13 @@ You will install Azure PowerShell modules on your client that will work with you
     ```
 
     If you used PowerShell 5.1 and later, the example output below indicates that that the Az version 1.10.0 modules were installed successfully.
-     
+
     ```powershell
     PS C:\WINDOWS\system32> Get-InstalledModule -Name Az -AllVersions
     Version              Name                                Repository           Description
     -------              ----                                ----------           ------
-    1.10.0               Az                                  PSGallery            Mic...  
-    
+    1.10.0               Az                                  PSGallery            Mic...
+
     PS C:\WINDOWS\system32>
     ```
 
@@ -301,42 +301,42 @@ You will install Azure PowerShell modules on your client that will work with you
 
 You will install Azure PowerShell modules on your client that will work with your device.
 
-1. Run PowerShell as an administrator. You need access to PowerShell gallery. 
+1. Run PowerShell as an administrator. You need access to PowerShell gallery.
 
 
 2. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
     ```powershell
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
-    
+
     Install-Module -Name AzureRM.BootStrapper
-    
+
     # Install and import the API Version Profile into the current PowerShell session.
-    
+
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-    
+
     # Confirm the installation of PowerShell
     Get-Module -Name "Azure*" -ListAvailable
     ```
-    
-    Make sure that you have Azure-RM module version 2.5.0 running at the end of the installation. 
+
+    Make sure that you have Azure-RM module version 2.5.0 running at the end of the installation.
     If you have an existing version of Azure-RM module that does not match the required version, uninstall using the following command:
 
     `Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose`
 
     You will now need to install the required version again.
-   
+
 
     An example output shown below indicates that the AzureRM version 2.5.0 modules were installed successfully.
-    
+
     ```powershell
     PS C:\windows\system32> Install-Module -Name AzureRM.BootStrapper
     PS C:\windows\system32> Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Loading Profile 2019-03-01-hybrid
     PS C:\windows\system32> Get-Module -Name "Azure*" -ListAvailable
-     
+
         Directory: C:\Program Files\WindowsPowerShell\Modules
-     
+
     ModuleType Version    Name                          ExportedCommands
     ---------- -------    ----                          ----------------
     Script     4.5.0      Azure.Storage                       {Get-AzureStorageTable, New-AzureStorageTableSASToken, New...
@@ -353,17 +353,17 @@ You will install Azure PowerShell modules on your client that will work with you
     Script     4.0.2      AzureRM.Tags                        {Remove-AzureRmTag, Get-AzureRmTag, New-AzureRmTag}
     Script     4.0.3      AzureRM.UsageAggregates             Get-UsageAggregates
     Script     5.0.1      AzureRM.Websites                    {Get-AzureRmAppServicePlan, Set-AzureRmAppServicePlan, New...
-    
-     
+
+
         Directory: C:\Program Files (x86)\Microsoft Azure Information Protection\Powershell
-     
+
     ModuleType Version    Name                            ExportedCommands
     ---------- -------    ----                           ----------------
     Binary     1.48.204.0 AzureInformationProtection          {Clear-RMSAuthentication, Get-RMSFileStatus, Get-RMSServer...
     ```
----   
+---
 
-## Step 5: Modify host file for endpoint name resolution 
+## Step 5: Modify host file for endpoint name resolution
 
 You will now add the device IP address to:
 
@@ -379,7 +379,7 @@ On your Windows client that you are using to connect to the device, take the fol
 
     ![Windows Explorer hosts file](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
 
-2. Add the following entries to your **hosts** file replacing with appropriate values for your device: 
+2. Add the following entries to your **hosts** file replacing with appropriate values for your device:
 
     ```
     <Device IP> login.<appliance name>.<DNS domain>
@@ -421,7 +421,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
 1. Use the `Add-AzEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 443.
 
-    The `Add-AzEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. 
+    The `Add-AzEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager.
 
 
     > [!IMPORTANT]
@@ -432,10 +432,10 @@ Set the Azure Resource Manager environment and verify that your device to client
     ```
 
     A sample output is shown below:
-    
+
     ```output
     PS C:\WINDOWS\system32> Add-AzEnvironment -Name AzASE -ARMEndpoint "https://management.myasegpu.wdshcsso.com/"
-    
+
     Name  Resource Manager Url                      ActiveDirectory Authority
     ----  --------------------                      -------------------------
     AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...
@@ -448,7 +448,7 @@ Set the Azure Resource Manager environment and verify that your device to client
         ```powershell
         Set-AzEnvironment -Name <Environment Name>
         ```
-        
+
         Here is an example output.
 
         ```output
@@ -456,22 +456,22 @@ Set the Azure Resource Manager environment and verify that your device to client
 
         Name  Resource Manager Url                      ActiveDirectory Authority
         ----  --------------------                      -------------------------
-        AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...     
+        AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...
         ```
-        For more information, go to [Set-AzEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).    
+        For more information, go to [Set-AzEnvironment](/powershell/module/az.accounts/set-azenvironment).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
 
     - See more information on how to [Switch Az environments](#switch-environments).
 
-2. Call local device APIs to authenticate the connections to Azure Resource Manager. 
+2. Call local device APIs to authenticate the connections to Azure Resource Manager.
 
     1. These credentials are for a local machine account and are solely used for API access.
 
-    2. You can connect via `login-AzAccount` or via `Connect-AzAccount` command. 
+    2. You can connect via `login-AzAccount` or via `Connect-AzAccount` command.
 
-        1. To sign in, type the following command. 
-        
+        1. To sign in, type the following command.
+
             ```powershell
             $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
@@ -483,8 +483,8 @@ Set the Azure Resource Manager environment and verify that your device to client
 
             - **Username** - *EdgeArmUser*
 
-            - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in. 
-       
+            - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
+
 
 
             Here is an example output for the `Connect-AzAccount`:
@@ -493,27 +493,27 @@ Set the Azure Resource Manager environment and verify that your device to client
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             PS C:\windows\system32> $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
             PS C:\windows\system32> Connect-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
-            
+
             Account       SubscriptionName   TenantId            Environment
             -------       ----------------   --------            -----------
             EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzASE
-            
-            PS C:\windows\system32>
-            ```                   
-        
-            An alternative way to log in is to use the `login-AzAccount` cmdlet. 
-            
-            `login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d` 
 
-            Here is an example output. 
-         
+            PS C:\windows\system32>
+            ```
+
+            An alternative way to log in is to use the `login-AzAccount` cmdlet.
+
+            `login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+
+            Here is an example output.
+
             ```output
             PS C:\WINDOWS\system32> login-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d
-            
+
             Account               SubscriptionName              TenantId
             -------               ----------------              --------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a...            
-            
+            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a...
+
             PS C:\WINDOWS\system32>
             ```
 3. To verify that the connection to the device is working, use the `Get-AzResource` command. This command should return all the resources that exist locally on the device.
@@ -522,7 +522,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
     ```output
     PS C:\WINDOWS\system32> Get-AzResource
-    
+
     Name              : aseimagestorageaccount
     ResourceGroupName : ase-image-resourcegroup
     ResourceType      : Microsoft.Storage/storageaccounts
@@ -530,25 +530,25 @@ Set the Azure Resource Manager environment and verify that your device to client
     ResourceId        : /subscriptions/.../resourceGroups/ase-image-resourcegroup/providers/Microsoft.Storage/storageac
                         counts/aseimagestorageaccount
     Tags              :
-    
+
     Name              : myaselinuxvmimage1
     ResourceGroupName : ASERG
     ResourceType      : Microsoft.Compute/images
     Location          : dbelocal
     ResourceId        : /subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Compute/images/myaselinuxvmimage1
     Tags              :
-    
+
     Name              : ASEVNET
     ResourceGroupName : ASERG
     ResourceType      : Microsoft.Network/virtualNetworks
     Location          : dbelocal
     ResourceId        : /subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
     Tags              :
-    
-    PS C:\WINDOWS\system32>  
+
+    PS C:\WINDOWS\system32>
     ```
 
-   
+
 
 ### [AzureRM](#tab/AzureRM)
 
@@ -557,7 +557,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
 1. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 443.
 
-    The `Add-AzureRmEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. 
+    The `Add-AzureRmEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager.
 
 
     > [!IMPORTANT]
@@ -568,10 +568,10 @@ Set the Azure Resource Manager environment and verify that your device to client
     ```
 
     A sample output is shown below:
-    
+
     ```output
     PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com/
-    
+
     Name  Resource Manager Url                    ActiveDirectory Authority
     ----  --------------------                   -------------------------
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
@@ -584,47 +584,47 @@ Set the Azure Resource Manager environment and verify that your device to client
     ```powershell
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
-    
+
     For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
 
     - See more information on [how to switch AzureRM environments](#switch-environments).
 
-2. Call local device APIs to authenticate the connections to Azure Resource Manager. 
+2. Call local device APIs to authenticate the connections to Azure Resource Manager.
 
     1. These credentials are for a local machine account and are solely used for API access.
 
-    2. You can connect via `login-AzureRMAccount` or via `Connect-AzureRMAccount` command. 
+    2. You can connect via `login-AzureRMAccount` or via `Connect-AzureRMAccount` command.
 
         1. To sign in, type the following command. The tenant ID in this instance is hard coded - c0257de7-538f-415c-993a-1b87a031879d. Use the following username and password.
 
             - **Username** - *EdgeArmUser*
 
-            - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in. 
+            - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
 
             ```output
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             PS C:\windows\system32> $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
             PS C:\windows\system32> Connect-AzureRmAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
-            
+
             Account       SubscriptionName   TenantId            Environment
             -------       ----------------   --------            -----------
             EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
-            
+
             PS C:\windows\system32>
             ```
-                   
-        
-            An alternative way to log in is to use the `login-AzureRmAccount` cmdlet. 
-            
-            `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d` 
 
-            Here is a sample output of the command. 
-         
+
+            An alternative way to log in is to use the `login-AzureRmAccount` cmdlet.
+
+            `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+
+            Here is a sample output of the command.
+
             ```output
             PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d
-            
+
             Account         SubscriptionName  TenantId              Environment
             -------         ----------------  --------              -------
             EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
@@ -632,7 +632,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```
 ---
 
-If you run into issues with your Azure Resource Manager connections, see [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md) for guidance. 
+If you run into issues with your Azure Resource Manager connections, see [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md) for guidance.
 
 > [!IMPORTANT]
 > The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
@@ -643,7 +643,7 @@ You may need to switch between two environments.
 
 ### [Az](#tab/Az)
 
-Run `Disconnect-AzAccount` command to switch to a different `AzEnvironment`. If you use `Set-AzEnvironment` and `Login-AzAccount` without using `Disconnect-AzAccount`, the environment is not actually switched.  
+Run `Disconnect-AzAccount` command to switch to a different `AzEnvironment`. If you use `Set-AzEnvironment` and `Login-AzAccount` without using `Disconnect-AzAccount`, the environment is not actually switched.
 
 The following examples show how to switch between two environments, `AzASE1` and `AzASE2`.
 
@@ -721,7 +721,7 @@ ExtendedProperties : {}
 
 ### [AzureRM](#tab/AzureRM)
 
-Run `Disconnect-AzureRmAccount` command to switch to a different `AzureRmEnvironment`. If you use `Set-AzureRmEnvironment` and `Login-AzureRmAccount` without using `Disconnect-AzureRmAccount`, the environment is not actually switched.  
+Run `Disconnect-AzureRmAccount` command to switch to a different `AzureRmEnvironment`. If you use `Set-AzureRmEnvironment` and `Login-AzureRmAccount` without using `Disconnect-AzureRmAccount`, the environment is not actually switched.
 
 The following examples show how to switch between two environments, `AzDBE1` and `AzDBE2`.
 

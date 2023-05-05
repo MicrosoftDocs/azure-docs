@@ -2,8 +2,11 @@
 title: Deploy a Service Fabric managed cluster
 description: In this tutorial, you will deploy a Service Fabric managed cluster for testing.
 ms.topic: tutorial
-ms.date: 8/23/2021
-ms.custom: references_regions, devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Tutorial: Deploy a Service Fabric managed cluster
