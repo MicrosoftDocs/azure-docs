@@ -56,7 +56,7 @@ SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange:
 - Unknown - Indicates an unknown status. 
 - Active - Indicates that OPTIONS are being sent and received. 
 - Expired - Indicates that status is expired. 
-- Error - Indicates a error in OPTIONS exchange.  
+- Error - Indicates an error in OPTIONS exchange.  
 
 Status - The overall health status of a Trunk: 
 - Unknown - Indicates an unknown health status. 
