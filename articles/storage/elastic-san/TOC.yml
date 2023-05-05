@@ -14,6 +14,8 @@ items:
     href: elastic-san-planning.md
   - name: Scale targets
     href: elastic-san-scale-targets.md
+  - name: Networking
+    href: elastic-san-networking-concepts.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN
@@ -26,7 +28,7 @@ items:
     href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
-  - name: Configure virtual networks
+  - name: Configure network
     href: elastic-san-networking.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
