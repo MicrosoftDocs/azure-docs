@@ -27,7 +27,8 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Event Grid namespace terminology](mqtt-event-grid-namespace-terminology.md)
     - [Client authentication](mqtt-client-authentication.md)
     - [Access control for MQTT clients](mqtt-access-control.md)
-    - [MQTT clients and client groups](mqtt-clients-and-client-groups.md)
+    - [MQTT clients](mqtt-clients.md)
+    - [MQTT client groups](mqtt-client-groups.md)
     - [Topic spaces](mqtt-topic-spaces.md)
     - Routing MQTT messages
         - [Routing MQTT messages](mqtt-routing.md)

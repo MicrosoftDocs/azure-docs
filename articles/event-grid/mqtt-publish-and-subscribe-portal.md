@@ -152,5 +152,4 @@ An Event Grid Namespace serves as an application container that can house resour
 :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app.":::
 
 ## Next steps
-
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)

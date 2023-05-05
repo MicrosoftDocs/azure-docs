@@ -69,57 +69,5 @@ az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource 
 az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name`
 ```
 
-## Connect the client and publish / subscribe MQTT messages
-
-The following sample code is a simple .NET publisher that attempts to connect, and publish to a namespace, and subscribes to the topic.  You can use the code to modify per your requirement and run the below code in Visual Studio or any of your favorite tools.  
-
-You need to install the MQTTnet package (version 4.1.4.563) from NuGet to run the code.  
-(In Visual Studio, right click on the project name in Solution Explorer, go to Manage NuGet packages, search for MQTTnet.  Select MQTTnet package and install.)
-
-> [!NOTE]
->The following sample code is only for demonstration purposes and is not intended for production use.
-
-**Sample C# code to connect a client, publish/subscribe MQTT message on a topic**
-
-```csharp
-using MQTTnet.Client;
-using MQTTnet;
-using System.Security.Cryptography.X509Certificates;
-
-string hostname = "contosoegnamespace.eastus2-1.ts.eventgrid.azure.net";
-string clientId = "client3-session1";  //client ID can be the session identifier.  A client can have multiple sessions using username and clientId.
-string x509_pem = @" client certificate cer.pem file path\client.cer.pem";  //Provide your client certificate .cer.pem file path
-string x509_key = @"client certificate key.pem file path\client.key.pem";  //Provide your client certificate .key.pem file path
-
-var certificate = new X509Certificate2(X509Certificate2.CreateFromPemFile(x509_pem, x509_key).Export(X509ContentType.Pkcs12));
-
-var mqttClient = new MqttFactory().CreateMqttClient();
-
-var connAck = await mqttClient!.ConnectAsync(new MqttClientOptionsBuilder()
-    .WithTcpServer(hostname, 8883)
-    .WithClientId(clientId).WithCredentials(“client3-authnid”, "")  //use client authentication name in the username
-    .WithTls(new MqttClientOptionsBuilderTlsParameters()
-    {
-        UseTls = true,
-        Certificates = new X509Certificate2Collection(certificate)
-    })
-
-    .Build());
-
-Console.WriteLine($"Client Connected: {mqttClient.IsConnected} with CONNACK: {connAck.ResultCode}");
-
-mqttClient.ApplicationMessageReceivedAsync += async m => await Console.Out.WriteAsync($"Received message on topic: '{m.ApplicationMessage.Topic}' with content: '{m.ApplicationMessage.ConvertPayloadToString()}'\n\n");
-
-var suback = await mqttClient.SubscribeAsync("contosotopics/topic1");
-suback.Items.ToList().ForEach(s => Console.WriteLine($"subscribed to '{s.TopicFilter.Topic}' with '{s.ResultCode}'"));
-
-while (true)
-{
-    var puback = await mqttClient.PublishStringAsync("contosotopics/topic1", "hello world!");
-    Console.WriteLine(puback.ReasonString);
-    await Task.Delay(1000);
-}
-
-```
-
-You can replicate and modify the code for multiple clients to perform publish / subscribe among the clients.
+## Next steps
+- [Publish and subscribe to MQTT message using Event Grid](mqtt-publish-and-subscribe-portal.md)
