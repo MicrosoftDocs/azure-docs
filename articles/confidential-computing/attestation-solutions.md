@@ -95,7 +95,7 @@ At Microsoft, we provide [Microsoft Azure Attestation (MAA)](https://azure.micro
 - Offers a strong Service Level Agreement (SLA)
 
 ### Build Your Own
-Customers can create their own attestation mechanisms to trust their computing infrastructure from tools provided by cloud and hardware providers. Building your own attestation processes for Microsoft solutions may require the use of [Trusted Hardware Identity Management (THIM)](../../security/fundamentals/trusted-hardware-identity-management.md), a solution that handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. Benefits from building and using your own attestation service includes,
+Customers can create their own attestation mechanisms to trust their computing infrastructure from tools provided by cloud and hardware providers. Building your own attestation processes for Microsoft solutions may require the use of [Trusted Hardware Identity Management (THIM)](../security/fundamentals/trusted-hardware-identity-management.md), a solution that handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. Benefits from building and using your own attestation service includes,
 - 100% control over the attestation processes to meet regulatory and compliance requirements
 - Customization of integrations with other computing technologies 
 
@@ -105,7 +105,7 @@ There are many attestation scenarios at Microsoft that enable customers to choos
 ### VMs with Application Enclaves
 [VMs with Application Enclaves](confidential-computing-enclaves.md) are enabled by Intel SGX, which allows organizations to create enclaves that protect data, and keep data encrypted while the CPU processes the data. Customers can attest Intel SGX enclaves in Azure with MAA and on their own. 
 - [Intel SGX Attestation Home Page](attestation.md)
-- [Cloud Provider: Intel SGX Sample Code Attestation with MAA](https://learn.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)
+- [Cloud Provider: Intel SGX Sample Code Attestation with MAA](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)
 - [Build Your Own: Open Enclave Attestation](https://github.com/openenclave/openenclave/blob/master/samples/attestation/README.md) 
 	
 ### Confidential Virtual Machines
