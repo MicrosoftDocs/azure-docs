@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/24/2023
 ---
 
-# Use Hunts to conduct proactive threat hunting in Microsoft Sentinel
+# Use Hunts to conduct end-to-end proactive threat hunting in Microsoft Sentinel
 
 Proactive threat hunting is a process where security analysts seek out undetected threats and malicious behaviors. By creating a hypothesis, searching through data, and validating that hypothesis, they determine what to act on. Actions can include creating new detections, new threat intelligence, or spinning up a new incident.
 
