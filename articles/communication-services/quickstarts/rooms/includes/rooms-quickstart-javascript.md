@@ -72,7 +72,8 @@ Create a new `room` with default properties using the code snippet below:
 ```javascript
 let validFrom = new Date(Date.now());
 let validForDays = 3;
-let validUntil = validFrom.setDate(validFrom.getTime() + validForDays);
+let validUntil = new Date(validFrom.getTime());
+validUntil.setDate(validFrom.getTime() + validForDays);
 
 // options payload to create a room
 const createRoomOptions = {
@@ -108,7 +109,8 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 ```javascript
 validFrom = new Date(Date.now());
 validForDays = 30;
-validUntil = validFrom.setDate(validFrom.getTime() + validForDays);
+validUntil = new Date(validFrom.getTime());
+validUntil.setDate(validFrom.getTime() + validForDays);
 
 // request payload to update a room
 const updateRoomOptions = {
