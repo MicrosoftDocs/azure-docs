@@ -36,7 +36,7 @@ Microsoft offers a framework to get you started with Azure. The [Cloud Adoption 
 Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more
 
 - [Storage Migration Overview](https://www.atempo.com/solutions/miria-large-data-and-file-migration-and-copy-2/)
-- Latest supported features by Miria in [Migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
+- Latest supported features by Miria in the [Migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
 
 Remember, you need enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
 
@@ -63,7 +63,7 @@ Use the following methods to identify the bandwidth headroom that is free to con
 ### Before you begin
 
 This documentation assumes that:
-- you have the [read and write permissions](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) in the Azure Storage Account Container that you are using, or an appropriate [RBAC role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
+- you have the [read and write permissions](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) in the Azure Storage Container that you are using, or an appropriate [RBAC role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
 - you already have a Miria Server and Miria Data Mover installed and running on a VM or on a server in your environment. If this is not the case, please refer to the following links for more information regarding:
     - [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
     - [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
@@ -128,7 +128,7 @@ This section provides a brief guide for how to add Azure BLOB to an on-premises-
 
 &nbsp;
 
-8. Optional - Configure extra security best practices
+8. Optional - Configure security best practices
 
 ### Creating a Miria Target Storage: Azure BLOB
 
@@ -169,7 +169,7 @@ Once the Storage Manager is successfully created, we need to create the Miria co
 
 &nbsp;
 
-8. Select a Storage Manager Container name (here SMC_Azure) and activate the toggle Available as Source to support future workflows.  Name the source platform (here Azure)
+8. Select a Storage Manager Container name (here SMC_Azure) and activate the toggle Available as Source to support future workflows.  Name the source platform (here SMC_Azure)
 :::image type="content" source="./media/atempo-quick-start-guide/storage-manager-container-config.png" alt-text="Screenshot of the Configure Container UI inside the Miria software.":::
 
 &nbsp;
