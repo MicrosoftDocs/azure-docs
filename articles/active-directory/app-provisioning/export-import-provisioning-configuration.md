@@ -28,7 +28,7 @@ To export your configuration:
 
 1. In the [Azure portal](https://portal.azure.com/), on the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
-1. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. This takes you to the schema editor.
+1. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. The schema editor opens.
 1. Click on download in the command bar at the top of the page to download your schema.
 
 ### Disaster recovery - roll back to a known good state
