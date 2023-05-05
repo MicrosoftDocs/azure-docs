@@ -12,7 +12,7 @@ ms.author: msangapu
 > Automatic scaling is in preview. It's available for Premium Pv2 and Pv3 pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
 >
 
-App Service offers automatic scaling that adjusts the number of instances based on incoming HTTP requests. Automatic scaling guarantees that your web apps can manage different levels of traffic. You can adjust scaling settings, like setting the minimum and maximum number of instances per web app, to enhance performance. The platform tackles cold start issues by pre-warming instances that act as a buffer when scaling out, resulting in smooth performance transitions. Billing is calculated per second using existing meters, and pre-warmed instances are also charged per second.
+App Service offers automatic scaling that adjusts the number of instances based on incoming HTTP requests. Automatic scaling guarantees that your web apps can manage different levels of traffic. You can adjust scaling settings, like setting the minimum and maximum number of instances per web app, to enhance performance. The platform tackles cold start issues by prewarming instances that act as a buffer when scaling out, resulting in smooth performance transitions. Billing is calculated per second using existing meters, and prewarmed instances are also charged per second.
 
 ## How automatic scaling works
 
@@ -73,17 +73,17 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 
 ---
 
-## Update pre-warmed instances
+## Update prewarmed instances
 
-The __pre-warmed instance__ setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
+The __prewarmed instance__ setting provides warmed instances as a buffer during HTTP scale and activation events. Prewarmed instances continue to buffer until the maximum scale-out limit is reached. The default prewarmed instance count is 1 and, for most scenarios, this value should remain as 1.
 
 #### [Azure portal](#tab/azure-portal)
 
-You can't change the pre-warmed instance setting in the portal, you must instead use the Azure CLI.
+You can't change the prewarmed instance setting in the portal, you must instead use the Azure CLI.
 
 #### [Azure CLI](#tab/azure-cli)
 
-You can modify the number of pre-warmed instances for an app using the Azure CLI.
+You can modify the number of prewarmed instances for an app using the Azure CLI.
 
 ```azurecli-interactive
  az webapp update --resource-group <RESOURCE_GROUP> --name <APP_NAME> --prewarmed-instance-count <PREWARMED_COUNT>
@@ -148,7 +148,7 @@ A comparison of scale out and scale in options available on App Service:
 |Rule-based scaling	|No	|Yes	|No, the platform manages the scale out and in based on HTTP traffic. |
 |Schedule-based scaling	|No	|Yes	|No|
 |Always ready instances | No, your web app runs on the number of manually scaled instances.	| No, your web app runs on other instances available during the scale out operation, based on threshold defined for autoscale rules. | Yes (minimum 1) |
-|Pre-warmed instances	|No	|No	|Yes (default 1) |
+|Prewarmed instances	|No	|No	|Yes (default 1) |
 |Per-app maximum	|No	|No	|Yes|
 
 ### How does automatic scaling work with existing autoscale rules?
