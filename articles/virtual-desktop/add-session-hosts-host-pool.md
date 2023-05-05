@@ -202,8 +202,9 @@ Select the relevant tab for your scenario and follow the steps.
 1. Download the Agent and the Agent Bootloader installation files using the following links You may need to unblock them; right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
    - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+
+    This is the latest downloadable version of the Azure Virtual Desktop Agent in non-validation environments. For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -226,11 +227,11 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 
 1. Make sure the virtual machines you want to use as session hosts are joined to Azure Active Directory or an Active Directory domain (AD DS or Azure AD DS).
 
-1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which will also restart the virtual machines:
+   1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which will also restart the virtual machines:
 
-   ```powershell
-   Install-WindowsFeature -Name RDS-RD-Server -Restart
-   ```
+      ```powershell
+      Install-WindowsFeature -Name RDS-RD-Server -Restart
+      ```
 
 1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands:
 
