@@ -18,19 +18,18 @@ ms.custom: developer
 
 # Sign in users in your own Node.js headless application by using Microsoft Entra- Prepare app
 
-In this article, you create a new Node.js headless application and add all the files and folders required. You'll need to create the app to complete the rest of the articles in this series. However, if you prefer using a completed code sample for learning, download the sample headless application from GitHub.
+In this article, you create a new Node.js headless application and add all the files and folders required. You'll need to create the app to complete the rest of the articles in this series. However, if you prefer using a completed code sample for learning, download the [sample Node.js headless application](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) from GitHub.
 
-## Create a new Node js application project
+## Create a new Node.js application project
 
 To build the Node.js headless application from scratch, follow these steps:
 
-1. Create a folder to host your application and give it a name, such as *ciam-node-headless-app*
+1. Create a folder to host your application and give it a name, such as *ciam-node-headless-app*.
 
 1. In your terminal, navigate to your project directory, such as `cd ciam-node-headless-app` and initialize your project using `npm init` 
  This creates a package.json file in your project folder, which contains references to all npm packages. 
 
-1. In your project root directory, create two files named *authConfig.js* and *index.js*
- *authConfig.js* holds the authentication parameters while *index.js* contains the authentication parameters. 
+1. In your project root directory, create two files named *authConfig.js* and *index.js*. The *authConfig.js* file contains the authentication configuration parameters while *index.js* holds the application authentication logic. 
 
  After creating the files, your project's directory structure should look similar to the following:
 
@@ -42,7 +41,7 @@ To build the Node.js headless application from scratch, follow these steps:
  ```
 ## Next steps
 
-Learn how to add sign-in support to a Node.js headless application
+Learn how to add sign-in support to a Node.js headless application:
 
 > [!div class="nextstepaction"]
 > [Add sign in and sign out >](how-to-headless-app-node-sign-in-sign-out.md)

@@ -54,16 +54,16 @@ const msalConfig = {
 ```
 The `msalConfig` object contains a set of configuration options that can be used to customize the behavior of your authentication flows. This configuration object is passed into the instance of our public client application upon creation. In your *authConfig.js* file, replace:
 
-- Enter_the_Application_Id_Here with the Application (client) ID of the app you registered earlier.
+- `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
 
-- Enter_the_Tenant_Name_Here and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to read tenant details.
+- `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to read tenant details.
 
-In the configuration object, we also add `LoggerOptions` to the configuration object, which contains two options:
+In the configuration object, you also add `LoggerOptions`, which contains two options:
 
-- loggerCallback - A callback function that handles the logging of MSAL statements
-- piiLoggingEnabled - A config option that when set to true, enables logging of personally identifiable information (PII). For our app, we set this option to false. 
+- `loggerCallback` - A callback function that handles the logging of MSAL statements
+- `piiLoggingEnabled` - A config option that when set to true, enables logging of personally identifiable information (PII). For our app, we set this option to false. 
 
-After creating the `msalConfig` object, add a `loginRequest` object that contains the scopes our application requires. Scopes define the level of access that the application has to user resources. Although the scopes array is empty, MSAL by default adds the OIDC scopes (openid, profile, email) to any login request. Users are asked to consent to these scopes during sign in. To create the `loginRequest` object, add the following code in *authConfig.js*.
+After creating the `msalConfig` object, add a `loginRequest` object that contains the scopes our application requires. Scopes define the level of access that the application has to user resources. Although the scopes array in the example snippet has no values, MSAL by default adds the OIDC scopes (openid, profile, email) to any login request. Users are asked to consent to these scopes during sign in. To create the `loginRequest` object, add the following code in *authConfig.js*.
 
 ```javascript
 const loginRequest = {
@@ -73,7 +73,7 @@ const loginRequest = {
     },
 };
 ```
-In `authcConfig.js`, export `msalConfig` and `loginRequest` to make them accessible wherever you require them by adding the following code:
+In `authcConfig.js`, export the `msalConfig` and `loginRequest` objects to make them accessible when required by adding the following code:
 
 ```javascript
 module.exports = {
@@ -94,7 +94,7 @@ const msalInstance = new msal.PublicClientApplication(msalConfig);
 
 ## Create an instance of a PublicClientApplication object
 
-To use MSAL Node, you must first create an instance of a `PublicClientApplication` object using the `msalConfig` object. The initialized `PublicClientApplication` object is used to authenticate the user and obtain an access token. 
+To use MSAL Node, you must first create an instance of a `[PublicClientApplication](/javascript/api/@azure/msal-node/publicclientapplication)` object using the `msalConfig` object. The initialized `PublicClientApplication` object is used to authenticate the user and obtain an access token. 
 
 In *index.js*, add the following code to initialize the public client application:
 
@@ -104,7 +104,7 @@ const msalInstance = new msal.PublicClientApplication(msalConfig);
 
 ## Create the device code request
 
-To create the device code request that the application uses to obtain access tokens using the device code flow, add the following code to *index.js*
+To create the `[deviceCodeRequest](/javascript/api/@azure/msal-node/devicecoderequest)` that the application uses to obtain access tokens using the Oauth2 device code flow, add the following code to *index.js*
 
 ```javascript
 const getTokenDeviceCode = (clientApplication) => {
@@ -128,11 +128,12 @@ const getTokenDeviceCode = (clientApplication) => {
 ```
 The `getTokenDeviceCode` function takes a single parameter, `clientApplication`, which is an instance of the `PublicClientApplication` object we created previously. The function creates a new object named `deviceCodeRequest`, which includes the `loginRequest` object imported from the *authConfig.js* file. It also contains a `deviceCodeCallback` function that logs the device code message to the console. 
 
-The `clientApplication` object is then used to call the `acquireTokenByDeviceCode` API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the application prompts the user to visit a URL, where they input the device code shown in the console. Once the code is entered, the promise should resolve with an access token response. 
+The `clientApplication` object is then used to call the `[acquireTokenByDeviceCode](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-acquiretokenbydevicecode)` API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the application prompts the user to visit a URL, where they input the device code shown in the console. Once the code is entered, the promise should resolve with an access token response. 
 
 ## Initiate the device code flow
 
 Finally, add the following code to *index.js* to initiate the device code flow by calling the `getTokenDeviceCode` function with the `msalInstance` object created earlier. The returned response object is logged to the console.
+
 ```javascript
 getTokenDeviceCode(msalInstance).then(response => {
     console.log(response)

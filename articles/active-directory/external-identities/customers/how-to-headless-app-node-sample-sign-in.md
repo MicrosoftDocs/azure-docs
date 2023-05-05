@@ -73,15 +73,15 @@ To get the headless app sample code, you can do either [download the .zip file](
     ```powershell
         cd 1-Authentication\4-sign-in-device-code\App
     ```
-1. Run the following commands to install app dependencies:
+1. Run the following command to install app dependencies:
 
     ```powershell
         npm install
     ```
 
-## Configure the sample headless app
+## Update the sample app to use its Azure app registration details
 
-1. In your code  editor, open `App\authConfig.js` file. 
+1. In your code  editor, open the `App\authConfig.js` file. 
 
 1. Find the placeholder: 
     
@@ -99,7 +99,7 @@ You can now test the sample Node.js headless app.
         npm start 
     ```
 
-1. Open your browser, then go to the URL suggested from the message in the terminal, https://microsoft.com/devicelogin. You should see the page similar to the following screenshot:
+1. Open your browser, then go to the URL suggested from the message in the terminal, https://microsoft.com/devicelogin. You should see a page similar to the following screenshot:
 
      :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-enter-code.png" alt-text="Screenshot of the enter code prompt in a node headless application using the device code flow.":::
 
@@ -113,7 +113,7 @@ You can now test the sample Node.js headless app.
 
      :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node headless application":::
 
-1. You can now move back to your terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
+1. Move back to the terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
 
 ## Next steps 
 

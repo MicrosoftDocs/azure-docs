@@ -60,7 +60,7 @@ items:
                 - name: ASP.NET
                   items:
                     - name: Sign in users
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                      href: ../../develop/web-api-quickstart.md
             - name: Headless app
               items: 
               - name: Node.js 
@@ -155,7 +155,7 @@ items:
 
             - name: Headless app
               items: 
-                - name: Node (CIAM)
+                - name: Node.js
                   items:
                     - name: Sign in users
                       items:
@@ -174,7 +174,7 @@ items:
                 - name: .NET MAUI - Sign in users
                   href: ../../develop/tutorial-v2-ios.md
                 - name: Electron​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-desktop
+                  href: ../../develop/tutorial-v2-nodejs-desktop.md
             - name: Mobile app
               items: 
                 - name: .NET MAUI - Sign in users
