@@ -46,6 +46,8 @@ After you deploy an application, you can start, stop, and delete it by using the
 
 1. On the **Overview** page for that application, select **Start/Stop**, **Restart**, or **Delete**.
 
+   ![app-overview](https://user-images.githubusercontent.com/1830237/236372847-8ad46172-666e-4343-a456-dd86fed17706.png)
+
 ### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
