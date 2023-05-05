@@ -50,6 +50,8 @@ The survey is designed to answer two questions from a user’s point of view.
 
 The API allows applications to gather data points that describe user perceived ratings of their Overall Call, Audio, Video, and Screen Share experiences. Microsoft analyzes survey API results according to the following goals.
 
+
+
 ### End of Call Survey API goals
 
 
