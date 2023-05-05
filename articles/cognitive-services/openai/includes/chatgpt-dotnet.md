@@ -59,7 +59,7 @@ dotnet add package Azure.AI.OpenAI --prerelease
 
 ### Retrieve key and endpoint
 
-To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**.
+To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**.
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -109,13 +109,63 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 From the project directory, open the *program.cs* file and replace with the following code:
 
+### Without response streaming
+
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
-string key = GetEnvironmentVariable("OPENAI_API_KEY");
+string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+
+OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+
+var chatCompletionsOptions = new ChatCompletionsOptions()
+{
+    Messages =
+    {
+        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
+        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
+        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
+        new ChatMessage(ChatRole.User, "Do other Azure Cognitive Services support this too?"),
+    },
+    MaxTokens = 100
+};
+
+Response<ChatCompletions> response = client.GetChatCompletions(
+    deploymentOrModelName: "gpt-35-turbo", //
+    chatCompletionsOptions);
+
+Console.WriteLine(response.Value.Choices[0].Message.Content);
+
+Console.WriteLine();
+```
+
+> [!IMPORTANT]
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
+
+```cmd
+dotnet run program.cs
+```
+
+## Output
+
+```output
+Yes, many of the Azure Cognitive Services support customer managed keys. Some examples include Azure Cognitive Services Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
+```
+
+This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.  
+
+### Async with streaming
+
+```csharp
+using Azure;
+using Azure.AI.OpenAI;
+using static System.Environment;
+
+string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
 
 OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
@@ -144,19 +194,6 @@ await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoices
     }
     Console.WriteLine();
 }
-```
-
-> [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
-
-```cmd
-dotnet run program.cs
-```
-
-## Output
-
-```output
-Yes, many of the Azure Cognitive Services support customer managed keys. Some examples include Azure Cognitive Services Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
 ```
 
 ## Clean up resources
