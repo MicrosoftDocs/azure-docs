@@ -32,7 +32,7 @@ To interact with the Translator service using the client library, you need to cr
 
 1. Create a new Python file called **text-translation-app.py** in your preferred editor or IDE.
 
-1. Copy and paste the text translation [code sample](#code-sample) into the **text-translation-app.py** file.
+1. Copy and paste the text translation [code sample](#code-sample) into the **text-translation-app.py** file.  Update **`<your-key>`**, **`<your-endpoint>`**, and **`region`** with values from your Azure portal Translator instance.
 
 ## Code sample
 
@@ -46,8 +46,13 @@ from azure.ai.translation.text import TextTranslationClient, TranslatorCredentia
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
 
-credential = TranslatorCredential("ef0bd80b228141fe98c2f523ba2ff058", "global")
-text_translator = TextTranslationClient(endpoint="https://api.cognitive.microsofttranslator.com/", credential=credential)
+# set `<your-key>`, `<your-endpoint>`, and  `<region>` variables with the values from the Azure portal
+key = "<your-key>"
+endpoint = "<your-endpoint>"
+region = "<region>"
+
+credential = TranslatorCredential(key, region)
+text_translator = TextTranslationClient(endpoint=endpoint, credential=credential)
 
 try:
     source_language = "en"
