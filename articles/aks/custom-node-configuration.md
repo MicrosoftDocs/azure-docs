@@ -20,6 +20,7 @@ Customizing your node configuration allows you to adjust operating system (OS) s
 
 Before you begin, make sure you have an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You also need to register the feature flag using the following steps:
 
+
 1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
     ```azurecli
@@ -192,7 +193,7 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 | `imageGcLowThreshold` | 0-100, no higher than `imageGcHighThreshold` | 80 | The percent of disk usage before which image garbage collection is never run. Minimum disk usage that **can** trigger garbage collection. |
 | `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | none | Optimize NUMA node alignment, see more [here](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | Allowed list of unsafe sysctls or unsafe sysctl patterns. |
-| `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 | The maximum size (for example, 10 MB) of a container log file before it's rotated. |
+| `containerLogMaxSizeMB` | Size in megabytes (MB) | 50 | The maximum size (for example, 10 MB) of a container log file before it's rotated. |
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. |
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
