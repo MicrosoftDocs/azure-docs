@@ -4,7 +4,7 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 05/05/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -45,7 +45,7 @@ To access file data from the Azure portal using your Azure AD account, both of t
 
 The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to file shares in the Azure portal.
 
-For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST Preview](authorize-oauth-rest-azure-active-directory.md).
+For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST Preview](authorize-oauth-rest.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
@@ -93,5 +93,5 @@ To update this setting for an existing storage account, follow these steps:
 
 ## See also
 
-- [Access Azure file shares using Azure AD with Azure Files OAuth over REST Preview](authorize-oauth-rest-azure-active-directory.md)
+- [Access Azure file shares using Azure AD with Azure Files OAuth over REST Preview](authorize-oauth-rest.md)
 - [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
