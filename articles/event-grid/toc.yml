@@ -261,8 +261,6 @@ items:
         items:
         - name: Use cases for domains
           href: event-domains-use-cases.md
-      - name: Event Grid on Kubernetes 
-        href: kubernetes/index.yml
     - name: How-to guides
       items:
       - name: Create, view, and manage system topics
@@ -484,3 +482,6 @@ items:
       items:
       - name: Monitoring data reference (MQTT delivery)
         href: monitor-mqtt-delivery-reference.md
+    - name: Event Grid on Kubernetes documentation
+      href: kubernetes/index.yml
+
