@@ -22,10 +22,11 @@ Azure Communication Services emits the following telephony and SMS event types:
 Related classes/types for the Azure SDKs: 
  | SDK | Classes/Types |
  | --- | --- |
- | .NET | [Azure.Messaging.EventGrid.SystemEvents](https://learn.microsoft.com/en-us/dotnet/api/azure.messaging.eventgrid.systemevents?view=azure-dotnet) |
- | Java | [com.azure.messaging.eventgrid.systemevents](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventgrid.systemevents?view=azure-java-stable) |
- | JavaScript | [@azure/eventgrid](https://learn.microsoft.com/en-us/javascript/api/@azure/eventgrid/?view=azure-node-latest) |
- | Pyhton | [azure.eventgrid.SystemEventNames Enum](https://learn.microsoft.com/en-us/python/api/azure-eventgrid/azure.eventgrid.systemeventnames?view=azure-python) |
+ | .NET | [Azure.Messaging.EventGrid.SystemEvents](/dotnet/api/azure.messaging.eventgrid.systemevents?view=azure-dotnet) |
+ | Java | [com.azure.messaging.eventgrid.systemevents](/java/api/com.azure.messaging.eventgrid.systemevents?view=azure-java-stable) |
+ | JavaScript | [@azure/eventgrid](/javascript/api/@azure/eventgrid/?view=azure-node-latest) |
+ | Python | [azure.eventgrid.SystemEventNames Enum](/python/api/azure-eventgrid/azure.eventgrid.systemeventnames?view=azure-python) |
+
 
 ## Event responses
 
