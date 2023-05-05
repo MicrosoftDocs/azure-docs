@@ -12,9 +12,9 @@ ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershe
 
 # Tutorial: Deploy an event-driven job with Azure Container Apps
 
-Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario which requires on-demand processing.
+Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
 
-In this tutorial, you'll create an event-driven job that starts an execution for each message that is sent to an Azure Storage Queue. Each job execution runs a container that performs the following steps:
+In this tutorial, you create an event-driven job that starts an execution for each message that is sent to an Azure Storage Queue. Each job execution runs a container that performs the following steps:
 
 1. Dequeues one message from the queue.
 1. Logs the message to the job execution logs.
@@ -160,7 +160,7 @@ To verify the job was configured correctly, you can send some messages to the qu
 
     Because the job is configured to evaluate the scale rule every 60 seconds, it may take up to 60 seconds for the job execution to start. Repeat the command until you see the job execution and its status is `Succeeded`.
 
-1. Run the following commands to see logged messages. This commands require the Log analytics extension, so accept the prompt to install extension when requested.
+1. Run the following commands to see logged messages. These commands require the Log analytics extension, so accept the prompt to install extension when requested.
 
     ```azurecli
     LOG_ANALYTICS_WORKSPACE_ID=`az containerapp env show --name $ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
