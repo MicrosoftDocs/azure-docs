@@ -3,10 +3,11 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 05/05/2023
 ms.author: jukullam
 ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devops-pipelines-deploy"
 ms.devlang: azurecli
+zone_pivot_groups: functions-task-versions
 ---
 
 # Continuous delivery with Azure Pipelines
@@ -16,6 +17,7 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy to Azure
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (pre-packaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
 YAML pipelines aren't available for Azure DevOps 2019 and earlier.
+
 ## Prerequisites
 
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com).
@@ -23,6 +25,8 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 * An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 
 * An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
+
+::: zone pivot="v1"
 
 ## Create your function app
 
@@ -352,6 +356,7 @@ You can configure your function app to have multiple slots. Slots allow you to s
 Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to specify the slot to deploy to. You can swap the slots by using the **Azure App Service Manage** task.
 
 ---
+
 ## Create a pipeline with Azure CLI
 
 To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
@@ -372,8 +377,14 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
     - You must be the project administrator in Azure DevOps.
 
+::: zone-end  
+
+::: zone pivot="v2"
+
+::: zone-end  
 
 ## Next steps
 
 - Review the [Azure Functions overview](functions-overview.md).
 - Review the [Azure DevOps overview](/azure/devops/pipelines/).
+

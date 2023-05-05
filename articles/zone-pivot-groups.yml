@@ -2372,3 +2372,12 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+# Owner: juliakm, ggailey777
+- id: functions-task-versions
+  title: Select your version of the Pipelines task
+  prompt: Choose an option
+  pivots: 
+  - id: v1
+    title: AzureFunctionApp@1
+  - id: v2
+    title: AzureFunctionApp@2
