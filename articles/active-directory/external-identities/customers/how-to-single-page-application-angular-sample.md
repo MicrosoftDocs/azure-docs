@@ -17,7 +17,7 @@ ms.custom: developer
 
 # Sign in users in a sample Angular single-page application 
 
-This how-to guide uses a sample Angular single-page application (SPA) to demonstrate how to add authentication users into a SPA by using Microsoft Entra. The SPA enables you to sign in users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample Angular single-page application (SPA) to demonstrate how to add authentication users into a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 
