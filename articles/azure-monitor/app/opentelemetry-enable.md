@@ -312,8 +312,8 @@ Requests
 * Servlets
 * Spring scheduling
 
-  > [!NOTE]
-  > Servlet and Netty autoinstrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+> [!NOTE]
+> Servlet and Netty autoinstrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 Dependencies (plus downstream distributed trace propagation):
 * Apache HttpClient
@@ -1028,7 +1028,7 @@ For code representing a background job not captured by an instrumentation librar
 
 #### [Java](#tab/java)
   
-#### Use the OpenTelemetry annotation
+##### Use the OpenTelemetry annotation
 
 The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
 
@@ -1058,7 +1058,7 @@ By default, the span ends up in the `dependencies` table with dependency type `I
 
 For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
 
-#### Use the OpenTelemetry API
+##### Use the OpenTelemetry API
 
 If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
 you can add your spans by using the OpenTelemetry API.
@@ -1108,8 +1108,6 @@ span.end();
 
 
 #### [Python](#tab/python)
-
-#### Use the OpenTelemetry API
 
 The OpenTelemetry API can be used to add your own spans, which appear in the `requests` and `dependencies` tables in Application Insights.
 
