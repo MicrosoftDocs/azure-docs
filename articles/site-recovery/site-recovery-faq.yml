@@ -224,6 +224,10 @@ sections:
         answer: |
                No, Azure Site Recovery does not support move of Recovery Services vault that has protected virtual machines hosted in it.
 
+      - question: |
+        Is it possible to identify if DR is enabled on a VM from portal level?
+        answer: |
+              Yes, it is possible to identify if DR is enabled on VM by checking the JSON view of the server on overview page. For DR enabled Virtual Machine, you will be able to see an add on field in JSON view with "name": "SiteRecovery-OS_Name".
 
   - name: Replication
     questions:
