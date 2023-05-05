@@ -355,6 +355,14 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other
+- id: programming-languages-set-functions-nodejs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
 - id: development-environment-functions
   title: Development environment
   prompt: Choose a development environment

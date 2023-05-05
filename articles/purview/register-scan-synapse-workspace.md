@@ -325,7 +325,7 @@ PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_sour
 ```
 
 >[!IMPORTANT]
-> The collection_id is the identification for the collection, not the name. For the root collection, the collection_id will be the name of the root collection, but for all sub-collections it is a 5-character ID that can be found in one of two places:
+> The collection_id is not the friendly name for the collection, a 5-character ID. For the root collection, the collection_id will be the name of the collection. For all sub-collections, it is instead the ID that can be found in one of two places:
 >
 > 1. The URL in the Microsoft Purview governance portal. Select the collection, and check the URL to find where it says collection=. That will be your ID. So, for our example below, the Investments collection has the ID 50h55c.
 >    :::image type="content" source="media/register-scan-synapse-workspace/find-collection-id.png" alt-text="Screenshot of the collection ID in the URL." lightbox="media/register-scan-synapse-workspace/find-collection-id.png" :::
