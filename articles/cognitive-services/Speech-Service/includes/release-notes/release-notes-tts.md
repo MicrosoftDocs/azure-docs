@@ -6,6 +6,21 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### April 2023 release
+
+#### Prebuilt Neural TTS Voices
+- The following features of these voices moved from public preview to GA:
+
+| Style | Text-to-speech voices |
+| ----- | ----- |
+| style="chat" | `en-GB-RyanNeural`, `es-MX-JorgeNeural`, and `it-IT-IsabellaNeural`|
+| style="cheerful" | `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural` |
+| style="sad" | `en-GB-SoniaNeural`, `fr-FR-DeniseNeural` and `fr-FR-HenriNeural` |
+
+- Improve the English pronunciation for `hi-IN`, `ta-IN` and `te-IN` voices, now is flighting in public preview regions
+
+For more information, see the [language and voice list](../../language-support.md?tabs=tts).
+
 ### March 2023 release
 
 #### New features
@@ -21,7 +36,7 @@ Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neu
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
 | Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- |
 | `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-CarlyNeural` (Female)<br/>`en-AU-DarrenNeural` (Male)<br/>`en-AU-DuncanNeural` (Male)<br/>`en-AU-ElsieNeural` (Female)<br/>`en-AU-FreyaNeural` (Female)<br/>`en-AU-JoanneNeural` (Female)<br/>`en-AU-KenNeural` (Male)<br/>`en-AU-KimNeural` (Female)<br/>`en-AU-NeilNeural` (Male)<br/>`en-AU-TimNeural` (Male)<br/>`en-AU-TinaNeural` (Female)<br/>`en-AU-WilliamNeural` (Male) |
 | `en-GB` | English (United Kingdom) | `en-GB-RyanNeural` (Male)<br/>`en-GB-SoniaNeural` (Female) |
 | `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural` (Female)<br/>`es-ES-ArnauNeural` (Male)<br/>`es-ES-DarioNeural` (Male)<br/>`es-ES-EliasNeural` (Male)<br/>`es-ES-EstrellaNeural` (Female)<br/>`es-ES-IreneNeural` (Female)<br/>`es-ES-LaiaNeural` (Female)<br/>`es-ES-LiaNeural` (Female)<br/>`es-ES-NilNeural` (Male)<br/>`es-ES-SaulNeural` (Male)<br/>`es-ES-TeoNeural` (Male)<br/>`es-ES-TrianaNeural` (Female)<br/>`es-ES-VeraNeural` (Female) |
@@ -39,7 +54,7 @@ Added support for the `cheerful` style with the `de-DE-ConradNeural` voice.
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
 | Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- | 
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male) |
 | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) | `zh-CN-henan-YundengNeural` (Male) |
 
@@ -56,8 +71,8 @@ The Batch synthesis API is currently in public preview. Once it's generally avai
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
 | Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
-| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/>`es-MX-CandelaNeural` (Female)<br/>`es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) | 
+| ----- | ----- | ----- |
+| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/> `es-MX-CandelaNeural` (Female)<br/> `es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) | 
 | `it-IT` | Italian (Italy) | `it-IT-BenignoNeural` (Male)<br/>`it-IT-CalimeroNeural` (Male)<br/>`it-IT-CataldoNeural` (Male)<br/>`it-IT-FabiolaNeural` (Female)<br/>`it-IT-FiammaNeural` (Female)<br/>`it-IT-GianniNeural` (Male)<br/>`it-IT-ImeldaNeural` (Female)<br/>`it-IT-IrmaNeural` (Female)<br/>`it-IT-LisandroNeural` (Male)<br/>`it-IT-PalmiraNeural` (Female)<br/>`it-IT-PierinaNeural` (Female)<br/>`it-IT-RinaldoNeural` (Male) | 
 | `pt-BR` | Portuguese (Brazil) | `pt-BR-BrendaNeural` (Female)<br/>`pt-BR-DonatoNeural` (Male)<br/>`pt-BR-ElzaNeural` (Female)<br/>`pt-BR-FabioNeural` (Male)<br/>`pt-BR-GiovannaNeural` (Female)<br/>`pt-BR-HumbertoNeural` (Male)<br/>`pt-BR-JulioNeural` (Male)<br/>`pt-BR-LeilaNeural` (Female)<br/>`pt-BR-LeticiaNeural` (Female)<br/>`pt-BR-ManuelaNeural` (Female)<br/>`pt-BR-NicolauNeural` (Male)<br/>`pt-BR-ValerioNeural` (Male)<br/>`pt-BR-YaraNeural` (Female) | 
 
@@ -75,7 +90,7 @@ The following locale support is added for [Custom Neural Voice](../../custom-neu
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
 | Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- | 
 | `eu-ES` | Basque | `eu-ES-AinhoaNeural` (Female)<br/>`eu-ES-AnderNeural` (Male) | 
 | `hy-AM` | Armenian (Armenia) | `hy-AM-AnahitNeural` (Female)<br/>`hy-AM-HaykNeural` (Male) | 
 
@@ -84,7 +99,7 @@ The following voices are now generally available. See the [full language and voi
 The following voices are now available in public preview. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
 | Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- |
 | `en-AU` | English (Australia) | `en-AU-AnnetteNeural`(Female)<br/>`en-AU-CarlyNeural`(Female)<br/>`en-AU-DarrenNeural`(Male)<br/>`en-AU-DuncanNeural`(Male)<br/>`en-AU-ElsieNeural`(Female)<br/>`en-AU-FreyaNeural`(Female)<br/>`en-AU-JoanneNeural`(Female)<br/>`en-AU-KenNeural`(Male)<br/>`en-AU-KimNeural`(Female)<br/>`en-AU-NeilNeural`(Male)<br/>`en-AU-TimNeural`(Male)<br/>`en-AU-TinaNeural`(Female) | 
 | `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural`(Female)<br/>`es-ES-AlvaroNeural`(Male)<br/>`es-ES-ArnauNeural`(Male)<br/>`es-ES-DarioNeural`(Male)<br/>`es-ES-EliasNeural`(Male)<br/>`es-ES-EstrellaNeural`(Female)<br/>`es-ES-IreneNeural`(Female)<br/>`es-ES-LaiaNeural`(Female)<br/>`es-ES-LiaNeural`(Female)<br/>`es-ES-NilNeural`(Male)<br/>`es-ES-SaulNeural`(Male)<br/>`es-ES-TeoNeural`(Male)<br/>`es-ES-TrianaNeural`(Female)<br/>`es-ES-VeraNeural`(Female) | 
 | `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural`(Female)<br/>`ja-JP-DaichiNeural`(Male)<br/>`ja-JP-MayuNeural`(Female)<br/>`ja-JP-NaokiNeural`(Male)<br/>`ja-JP-ShioriNeural`(Female) | 
