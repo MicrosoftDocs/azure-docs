@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for da-DK
 
 | `ipa` | `viseme` | Example 1     | Example 2          | Example 3                  |
 |-------|----------|---------------|--------------------|----------------------------|
@@ -37,7 +37,7 @@ ms.author: eur
 | `y`   | 4        | **y**bsalon   | underkr**y**dder   | men**u**                   |
 | `yː`  | 4        | **y**de       | vids**y**n         | dødss**yg**                |
 
-### Consonant
+### Consonant for da-DK
 
 | `ipa` | `viseme` | Example 1     | Example 2          | Example 3                  |
 |-------|----------|---------------|--------------------|----------------------------|

@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for it-IT
 
 | `ipa` | `viseme` | Example 1    | Example 2            | Example 3     |
 |-------|----------|--------------|----------------------|---------------|
@@ -27,7 +27,7 @@ ms.author: eur
 | `oi`  | 8,6      | **oi**bò     | intellettual**oi**de | Gameb**oy**   |
 | `ou`  | 8,7      |              | sh**ow**             | talksh**ow**  |
 
-### Consonant
+### Consonant for it-IT
 
 | `ipa` | `viseme` | Example 1    | Example 2            | Example 3     |
 |-------|----------|--------------|----------------------|---------------|

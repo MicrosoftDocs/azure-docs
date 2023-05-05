@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for tr-TR
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3   |
 |-------|----------|-------------|-----------------|-------------|
@@ -27,7 +27,7 @@ ms.author: eur
 | `y`   | 4        | **ü**lke    | g**ü**l         | öyk**ü**    |
 | `y͡ɟ` | 4,16     |             | d**üğ**me       |             |
 
-### Consonant
+### Consonant for tr-TR
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3   |
 |-------|----------|-------------|-----------------|-------------|

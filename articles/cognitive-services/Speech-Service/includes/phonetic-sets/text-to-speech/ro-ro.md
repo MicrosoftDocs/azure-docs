@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for ro-RO
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3        |
 |-------|----------|---------------|------------------|------------------|
@@ -21,7 +21,7 @@ ms.author: eur
 | `o̯a` | 8,2      | **oa**ră      | închis**oa**re   | șam**oa**        |
 | `u`   | 7        | **u**mble     | grad**u**l       | Alexandr**u**    |
 
-### Consonant
+### Consonant for ro-RO
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3        |
 |-------|----------|---------------|------------------|------------------|

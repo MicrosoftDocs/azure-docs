@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for el-GR
 
 | `ipa` | `viseme` | Example 1        | Example 2            | Example 3           |
 |-------|----------|------------------|----------------------|---------------------|
@@ -16,7 +16,7 @@ ms.author: eur
 | `o`   | 8        | **ό**αση         | δ**ώ**ρο             | δυ**ο               |
 | `u`   | 7        | **ου**γγρικό     | παπ**ού**τσι         | μαϊμ**ού**          |
 
-### Consonant
+### Consonant for el-GR
 
 | `ipa` | `viseme` | Example 1        | Example 2            | Example 3           |
 |-------|----------|------------------|----------------------|---------------------|

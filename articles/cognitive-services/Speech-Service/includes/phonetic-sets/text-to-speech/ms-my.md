@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for ms-MY
 
 | `ipa` | `viseme` | Example 1    | Example 2       | Example 3        |
 |-------|----------|--------------|-----------------|------------------|
@@ -20,7 +20,7 @@ ms.author: eur
 | `au`  | 2,7      | **au**to     | ak**au**n       | bak**au**        |
 | `oi`  | 8,6      |              |                 | amb**oi**        |
 
-### Consonant
+### Consonant for ms-MY
 
 | `ipa` | `viseme` | Example 1    | Example 2       | Example 3        |
 |-------|----------|--------------|-----------------|------------------|

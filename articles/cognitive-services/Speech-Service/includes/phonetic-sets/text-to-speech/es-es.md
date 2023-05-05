@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for es-ES
 
 | `sapi` | `ipa` | `viseme` | Example 1    | Example 2     | Example 3      |
 |--------|-------|----------|--------------|---------------|----------------|
@@ -16,7 +16,7 @@ ms.author: eur
 | o      | `o`   | 8        | **o**caso    | enc**o**ntrar | ocas**o**      |
 | u      | `u`   | 7        | **u**sted    | p**u**nta     | Juanl**u**     |
 
-### Consonant
+### Consonant for es-ES
 
 | `sapi` | `ipa` | `viseme` | Example 1    | Example 2     | Example 3      |
 |--------|-------|----------|--------------|---------------|----------------|

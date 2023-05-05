@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for cs-CZ
 
 | `ipa` | `viseme` | Example 1      | Example 2         | Example 3      |
 |-------|----------|----------------|-------------------|----------------|
@@ -25,7 +25,7 @@ ms.author: eur
 | `ɛ͡ʊ̯`| 4,4      | **eu**forie    | terap**eu**tická  |                |
 | `ə`   | 1        |                |                   |                |
 
-### Consonant
+### Consonant for cs-CZ
 
 | `ipa` | `viseme` | Example 1      | Example 2         | Example 3      |
 |-------|----------|----------------|-------------------|----------------|

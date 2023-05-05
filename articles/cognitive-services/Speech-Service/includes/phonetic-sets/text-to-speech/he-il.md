@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for he-IL
 
 | `ipa` | `viseme` | Example 1               | Example 2                | Example 3                 |
 |-------|----------|-------------------------|--------------------------|---------------------------|
@@ -16,7 +16,7 @@ ms.author: eur
 | `o`   | 8        | אות                     | יום                      | לא                        |
 | `u`   | 7        | עוגה                    | כרוב                     | הגיעו                     |
 
-### Consonant
+### Consonant for he-IL
 
 | `ipa` | `viseme` | Example 1               | Example 2                | Example 3                 |
 |-------|----------|-------------------------|--------------------------|---------------------------|

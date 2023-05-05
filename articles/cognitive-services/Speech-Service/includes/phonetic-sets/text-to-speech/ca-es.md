@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for ca-ES
 
 | `ipa` | `viseme` | Example 1         | Example 2        | Example 3      |
 |-------|----------|-------------------|------------------|----------------|
@@ -19,7 +19,7 @@ ms.author: eur
 | `o`   | 8        | **o**mbra         | ret**o**ndre     | omissi**ó**    |
 | `u`   | 7        | **u**niversitaris | candidat**u**res | cron**o**      |
 
-### Consonant
+### Consonant for ca-ES
 
 | `ipa` | `viseme` | Example 1         | Example 2        | Example 3      |
 |-------|----------|-------------------|------------------|----------------|

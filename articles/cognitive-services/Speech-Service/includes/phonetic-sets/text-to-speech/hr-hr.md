@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for hr-HR
 
 | `ipa` | `viseme` | Example 1       | Example 2          | Example 3     |
 |-------|----------|-----------------|--------------------|---------------|
@@ -21,7 +21,7 @@ ms.author: eur
 | `o`   | 8        | **o**aza        | nan**o**si         | d**o**        |
 | `oː`  | 8        | **O**lgu        | kisel**o**g        | t**o**        |
 
-### Consonant
+### Consonant for hr-HR
 
 | `ipa` | `viseme` | Example 1       | Example 2          | Example 3     |
 |-------|----------|-----------------|--------------------|---------------|

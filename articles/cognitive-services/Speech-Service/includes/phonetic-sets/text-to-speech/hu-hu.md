@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for hu-HU
 
 | `ipa` | `viseme` | Example 1      | Example 2           | Example 3          |
 |-------|----------|----------------|---------------------|--------------------|
@@ -26,7 +26,7 @@ ms.author: eur
 | `y`   | 4        | **ü**dítõt     | áts**ü**tve         | alsóbbrend**ü**    |
 | `yː`  | 4        | **ű**rállomás  | gépjárm**ű**vek     | idej**ű**          |
 
-### Consonant
+### Consonant for hu-HU
 
 | `ipa` | `viseme` | Example 1      | Example 2           | Example 3          |
 |-------|----------|----------------|---------------------|--------------------|

@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowels for sk-SK
 
 | `ipa` | `viseme` | Example 1        | Example 2          | Example 3      |
 |-------|----------|------------------|--------------------|----------------|
@@ -29,7 +29,7 @@ ms.author: eur
 | `ou`  | 8,7      |                  |                    |                |
 | `ə`   | 1        |                  |                    |                |
 
-### Consonant
+### Consonant for sk-SK
 
 | `ipa` | `viseme` | Example 1        | Example 2          | Example 3      |
 |-------|----------|------------------|--------------------|----------------|

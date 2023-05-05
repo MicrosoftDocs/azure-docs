@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels
+### Vowelsfor sl-SI
 
 | `ipa` | `viseme` | Example 1              | Example 2       | Example 3        |
 |-------|----------|------------------------|-----------------|------------------|
@@ -24,7 +24,7 @@ ms.author: eur
 | `u`   | 7        | **u**lova              | mam**u**t       | mandat**u**      |
 | `uː`  | 7        | **u**ra                | dramat**u**rgom | intervj**u**     |
 
-### Consonant
+### Consonant for sl-SI
 
 | `ipa` | `viseme` | Example 1              | Example 2       | Example 3        |
 |-------|----------|------------------------|-----------------|------------------|
