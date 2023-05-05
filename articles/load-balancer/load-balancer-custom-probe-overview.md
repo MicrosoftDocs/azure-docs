@@ -30,13 +30,11 @@ Health probes support multiple protocols. The availability of a specific health 
 
 Health probe configuration consists of the following elements:
 
-* Duration of the interval between individual probes
-
-* Protocol
-
-* Port
-
-* HTTP path to use for HTTP GET when using HTTP(S) probes
+| Health Probe configuration | Details |
+| --- | --- | 
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Available options are: TCP, HTTP, HTTPS |
+| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
 
 >[!NOTE]
 >A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
@@ -70,14 +68,6 @@ This example is provided to illustrate what is taking place. It's not possible t
 ## Probe types
 
 The protocol used by the health probe can be configured to one of the following options:
-
-* TCP listeners
-
-* HTTP endpoints
-
-* HTTPS endpoints
-
-The available protocols depend on the load balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
