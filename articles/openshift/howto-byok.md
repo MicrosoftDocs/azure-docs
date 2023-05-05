@@ -38,7 +38,12 @@ For details about using Disk Encryption Sets to manage your encryption keys, see
 * You will need to have the EncryptionAtHost feature enabled on your subscription. You can enable it by running:
 
     ```azurecli-interactive
-    az feature register --namespace Microsoft.Compute --name EncryptionAtHost --wait
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+* You can check the current status of the feature by running:
+
+    ```azurecli-interactive
+    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
     ```
 
 ## Create a virtual network containing two empty subnets
