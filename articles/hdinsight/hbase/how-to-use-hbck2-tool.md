@@ -105,7 +105,7 @@ If `-i or --inputFiles` is specified, pass one or more input file names. Each fi
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar bypass -i fileName1 fileName2
 ```
 
-**reportMissingRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...**
+`reportMissingRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...`
 
 **Options:**
 
@@ -119,12 +119,12 @@ An example triggering missing regions report for table 'table_1' under default n
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar reportMissingRegionsInMeta default:table_1 ns1
 ```
-Returns list of missing regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <NAMESPACE|NAMESPACE:TABLENAME>, one per line. For example:
+Returns list of missing regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<NAMESPACE|NAMESPACE:TABLENAME>`, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar reportMissingRegionsInMeta -i fileName1 fileName2
 ```
 
-**addFsRegionsMissingInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...**
+`addFsRegionsMissingInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...`
 
 **Options**
 
@@ -136,12 +136,12 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
 ```
-Returns HBCK2  an 'assigns' command with all reinserted regions. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <NAMESPACE|NAMESPACE:TABLENAME>, one per line. For example:
+Returns HBCK2  an 'assigns' command with all reinserted regions. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<NAMESPACE|NAMESPACE:TABLENAME>`, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta -i fileName1 fileName2
 ```
 
-**extraRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...**
+`extraRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...`
 
 **Options**
 
@@ -162,7 +162,7 @@ An example triggering extra regions report for table 'table_1' under default nam
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar extraRegionsInMeta -f default:table_1 ns1
 ```
-Returns list of extra regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <NAMESPACE|NAMESPACE:TABLENAME>, one per line. For example:
+Returns list of extra regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<NAMESPACE|NAMESPACE:TABLENAME>`, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar extraRegionsInMeta -i fileName1 fileName2
 ```
@@ -177,7 +177,7 @@ Do a server-side fix of bad or inconsistent state in `hbase:meta`. Master UI has
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar fixMeta
 ```
 
-**generateMissingTableDescriptorFile <NAMESPACE:TABLENAME>**
+`generateMissingTableDescriptorFile <NAMESPACE:TABLENAME>`
 
 Trying to fix an orphan table by generating a missing table descriptor file. This command has no effect if the table folder is missing or if the `.tableinfo` is present (we don't override existing table descriptors). This command first checks if the TableDescriptor is cached in HBase Master in which case it recovers the `.tableinfo` accordingly. If TableDescriptor isn't cached in master, then it creates a default `.tableinfo` file with the following items:
 - the table name
@@ -188,7 +188,7 @@ If the `.tableinfo` file was generated using default parameters then make sure y
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar generateMissingTableDescriptorFile namespace:table_name
 ```
 
-**replication [OPTIONS] [<NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...]**
+`replication [OPTIONS] [<NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...]`
 
 **Options**
 
