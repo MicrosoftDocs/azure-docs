@@ -247,6 +247,8 @@ items:
                   href: deploy-customer-managed-keytab-active-directory-connector.md
                 - name: Deploy AD connector - CLI
                   href: deploy-active-directory-connector-cli.md
+                - name: Rotate customer-managed keytab
+                  href: rotate-customer-managed-keytab.md
             - name: Deploy SQL Managed Instance
               href: deploy-active-directory-sql-managed-instance.md
             - name: Deploy SQL Managed Instance - CLI
