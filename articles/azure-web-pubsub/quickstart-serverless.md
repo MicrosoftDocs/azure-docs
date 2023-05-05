@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Build a serverless real-time chat app with client authentication
-description: A tutorial to walk through how to using Azure Web PubSub service and Azure Functions to build a serverless chat app with client authentication.
+description: A tutorial to walk through how to use Azure Web PubSub service and Azure Functions to build a serverless chat app with client authentication.
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
@@ -237,7 +237,7 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
-    - Add below `using` statements in header to resolve required  dependencies.
+    - Add `using` statements in header to resolve required  dependencies.
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         ```
@@ -322,7 +322,7 @@ In this tutorial, you learn how to:
             };
         }
         ```
-    - Add below `using` statements in header to resolve required  dependencies.
+    - Add `using` statements in header to resolve required  dependencies.
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
@@ -344,7 +344,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-6. Add the client single page `index.html` in the project root folder and copy content as below.
+6. Add the client single page `index.html` in the project root folder and copy content.
     ```html
     <html>
         <body>
@@ -395,7 +395,7 @@ In this tutorial, you learn how to:
     # [JavaScript](#tab/javascript)
 
     # [C# in-process](#tab/csharp-in-process)
-    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    Since C# project compiles files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
     <ItemGroup>
         <None Update="index.html">
@@ -405,7 +405,7 @@ In this tutorial, you learn how to:
     ```
 
     # [C# isolated process](#tab/csharp-isolated-process)
-    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    Since C# project compiles files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
     <ItemGroup>
         <None Update="index.html">
@@ -416,7 +416,7 @@ In this tutorial, you learn how to:
 
 ## Create and Deploy the Azure Function App
 
-Before you can deploy your function code to Azure, you need to create 3 resources:
+Before you can deploy your function code to Azure, you need to create three resources:
 * A resource group, which is a logical container for related resources.
 * A storage account, which is used to maintain state and other information about your functions.
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment and sharing of resources.
@@ -429,7 +429,7 @@ Use the following commands to create these items.
     az login
     ```
 
-1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
+1. Create a resource group or you can skip by reusing the one of Azure Web PubSub service:
 
     ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
@@ -465,7 +465,7 @@ Use the following commands to create these items.
 
 1. Deploy the function project to Azure:
 
-    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](./../azure-functions/functions-run-local.md) command.
+    After you have successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](./../azure-functions/functions-run-local.md) command.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME>
@@ -482,7 +482,7 @@ Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **S
 
 :::image type="content" source="media/quickstart-serverless/func-keys.png" alt-text="Screenshot of get function system keys.":::
 
-Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the `<FUNCTIONAPP_NAME>` and `<APP_KEY>` to yours.
+Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use. Replace the `<FUNCTIONAPP_NAME>` and `<APP_KEY>` to yours.
 
    - Hub Name: `simplechat`
    - URL Template: **https://<FUNCTIONAPP_NAME>.azurewebsites.net/runtime/webhooks/webpubsub?code=<APP_KEY>**
@@ -493,9 +493,9 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
 
 ## Configure to enable client authentication
 
-Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. Set **App Service authentication settings** to **Allow unauthenticated access**, so you client index page can be visited by anonymous users before redirect to authenticate. Then **Save**.
+Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. Set **App Service authentication settings** to **Allow unauthenticated access**, so your client index page can be visited by anonymous users before redirect to authenticate. Then **Save**.
 
-Here we choose `Microsoft` as identify provider which will use `x-ms-client-principal-name` as `userId` in the `negotiate` function. Besides, You can configure other identity providers following below links, and don't forget update the `userId` value in `negotiate` function accordingly.
+Here we choose `Microsoft` as identify provider, which uses `x-ms-client-principal-name` as `userId` in the `negotiate` function. Besides, you can configure other identity providers following the links, and don't forget update the `userId` value in `negotiate` function accordingly.
 
 * [Microsoft(Azure AD)](../app-service/configure-authentication-provider-aad.md)
 * [Facebook](../app-service/configure-authentication-provider-facebook.md)
@@ -504,11 +504,11 @@ Here we choose `Microsoft` as identify provider which will use `x-ms-client-prin
 
 ## Try the application
 
-Now you're able to test your page from your function app: `https://<FUNCTIONAPP_NAME>.azurewebsites.net/api/index`. See snapshot below.
+Now you're able to test your page from your function app: `https://<FUNCTIONAPP_NAME>.azurewebsites.net/api/index`. See snapshot.
 1. Click `login` to auth yourself.
 2. Type message in the input box to chat.
 
-In the message function, we will broadcast caller's message to all clients and return caller with message `[SYSTEM] ack`. So we can know in sample chat snapshot below, first 4 messages are from current client and last 2 messages are from another client.
+In the message function, we broadcast caller's message to all clients and return caller with message `[SYSTEM] ack`. So we can know in sample chat snapshot, first four messages are from current client and last two messages are from another client.
 
 :::image type="content" source="media/quickstart-serverless/chat-sample.png" alt-text="Screenshot of chat sample.":::
 

@@ -297,7 +297,7 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
-    - Add below `using` statements in header to resolve required dependencies.
+    - Add `using` statements in header to resolve required dependencies.
          ```c#
          using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
          ```
@@ -412,7 +412,7 @@ In this tutorial, you learn how to:
             return value.ToString("0.000");
         }
         ``` 
-    - Add below `using` statements in header to resolve required dependencies.
+    - Add `using` statements in header to resolve required dependencies.
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
@@ -478,7 +478,7 @@ In this tutorial, you learn how to:
             }))
         ```
 
-6. Add the client single page `index.html` in the project root folder and copy content as below.
+6. Add the client single page `index.html` in the project root folder and copy content.
     ```html
     <html>
         <body>
@@ -506,7 +506,7 @@ In this tutorial, you learn how to:
     # [JavaScript](#tab/javascript)
 
     # [C# in-process](#tab/csharp-in-process)
-    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    Since C# project compiles files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
     <ItemGroup>
         <None Update="index.html">
@@ -516,7 +516,7 @@ In this tutorial, you learn how to:
     ```
 
     # [C# isolated process](#tab/csharp-isolated-process)
-    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    Since C# project compiles files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
     <ItemGroup>
         <None Update="index.html">
@@ -534,7 +534,7 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Screenshot of copying the Web PubSub connection string.":::
 
-    Run command below in the function folder to set the service connection string. Replace `<connection-string>` with your value as needed.
+    Run command in the function folder to set the service connection string. Replace `<connection-string>` with your value as needed.
 
     ```bash
     func settings add WebPubSubConnectionString "<connection-string>"
@@ -543,7 +543,7 @@ In this tutorial, you learn how to:
     > [!NOTE]
     > `TimerTrigger` used in the sample has dependency on Azure Storage, but you can use local storage emulator when the Function is running locally. If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
-    Now you're able to run your local function by command below.
+    Now you're able to run your local function by command.
 
     ```bash
     func start --port 7071
@@ -552,11 +552,11 @@ In this tutorial, you learn how to:
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
     
     > [!NOTE]
-    > Some browers will automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
+    > Some browers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
 
 ## Deploy Function App to Azure
 
-Before you can deploy your function code to Azure, you need to create 3 resources:
+Before you can deploy your function code to Azure, you need to create three resources:
 * A resource group, which is a logical container for related resources.
 * A storage account, which is used to maintain state and other information about your functions.
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment and sharing of resources.
@@ -569,7 +569,7 @@ Use the following commands to create these item.
     az login
     ```
 
-1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
+1. Create a resource group or you can skip by reusing the one of Azure Web PubSub service:
 
     ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
@@ -610,7 +610,7 @@ Use the following commands to create these item.
 
 1. Deploy the function project to Azure:
 
-    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
+    After you have successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings
