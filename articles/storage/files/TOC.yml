@@ -388,7 +388,7 @@
       items:
       - name: Version 11.x samples
         href: files-samples-dotnet-v11.md
-      - name: Design highly available applications
+      - name: Design highly available applications (.NET version 11.x)
         href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
     - name: Java version 8 samples
       href: files-samples-java-v8.md
