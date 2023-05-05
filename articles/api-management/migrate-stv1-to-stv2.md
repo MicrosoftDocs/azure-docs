@@ -67,7 +67,7 @@ az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2022-08
 
 ## Scenario 2: Migrate a network-injected API Management instance
 
-Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration (see the following section). You can also cause migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
+Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration (see the following section). You can also migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
 
 ### Update VNet configuration
 
