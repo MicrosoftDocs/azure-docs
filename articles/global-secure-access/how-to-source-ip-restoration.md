@@ -12,31 +12,19 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Source IP restoration
+# Enabling source IP restoration
 
-With a cloud based network proxy between users and their resources, the source IP address that the resources see doesn't always match the actual source IP. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP. Customers that use IP-based location information as a control in Conditional Access typically have issues with traditional SASE solutions breaking this capability. Source IP restoration provides the ability to restore the source IP and allow Conditional Access and other downstream applications to continue to use this in decision making. These IP location-based checks are relied on in places like: [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [audit logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
+Source IP functionality restores the end user’s IP in various locations. Without it enabled downstream services like Exchange Online, SharePoint Online, and others see 147.x.x.x addresses from Global Secure Access. 
 
-:::image type="content" source="media/concept-conditional-access/global-secure-access-overview.png" alt-text="Diagram showing NaaS conceptual traffic flow." lightbox="media/concept-conditional-access/global-secure-access-overview.png":::
-
-With Global Secure Access, Microsoft is addressing this difference in apparent IP address by restoring the client IP address seen at the edge, so that source IP enforcement at the destination continues to work as before. The endpoint may have a public IP address of 203.0.113.1, then appear to have an IP of 147.243.229.116 in the sign-in logs in the middle, but using source IP restoration Exchange Online sees the original IP address 203.0.113.1.
-
-## Scenarios
-
-Source IP functionality restores the end user’s IP in various locations. [Learn how to use enriched Office 365 logs for Global Secure Access](how-to-enriched-logs.md), [Learn how to use network logging for Global Secure Access](how-to-network-logging.md), [Learn how to use admin audit logging for Global Secure Access](how-to-admin-audit-logging.md).
-
-When enabled SharePoint Online, Exchange Online, and other applications will see the Source IP where expected in Azure AD and Microsoft 365 services.
-
-## Enable source IP restoration
-
-### Prerequisites
+## Prerequisites
 
 * A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Administrators who interact with the **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
+* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](NEED-LINK-TO-DOC).
+* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
 
-### Enable Network Access signaling for Conditional Access
+## Enable Network Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration an administrator must take the following steps.
 
@@ -53,9 +41,9 @@ This functionality allows downstream applications like SharePoint Online and Exc
 
 In the following example we create: 
 
-1. A named location to represent a specific network location like an organization's primary headquarters
-1. Then create a Conditional Access policy that requires multifactor authentication for users who aren't in that network location.
-1. Then create a Conditional Access policy that enforces continuous access evaluation (CAE) strict location enforcement for Exchange and SharePoint.
+1. A named location to represent a specific network location like an organization's primary headquarters.
+1. A Conditional Access policy that requires multifactor authentication for users who aren't in that network location.
+1. A Conditional Access policy that enforces continuous access evaluation (CAE) strict location enforcement for Exchange and SharePoint.
 
 This combination of location and Conditional Access policies will allow you to enable and enforce source IP restoration.
 
@@ -124,9 +112,9 @@ Re-enable source IP restoration or switch back to the created network and access
 
 1. Sign in to the **Azure portal** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Azure Active Directory** > **Users** > select one of your test users > **Sign-in logs**.
-1. With source IP restoration enabled you should see IP addresses that include their actual IP address. 
-   1. If source IP restoration is disabled you'll see NaaS edge IP addresses that begin with 147.
+1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
+   1. If source IP restoration is disabled, you see NaaS edge IP addresses that begin with 147.
 
-Sign-in log data may take a few minutes to appear, this is normal as there's some processing that must take place.
+Sign-in log data may take a few minutes to appear, this delay is normal as there's some processing that must take place.
 
 ## Next steps

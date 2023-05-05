@@ -12,20 +12,18 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Conditional Access and ZTNA
+# Enable compliant network check with Conditional Access
 
-Putting resources and applications behind both the network perimeter and identity policy engine has advantages over traditional virtual private network (VPN) solutions. Administrators can apply advanced access controls to enforce Zero Trust policies. In the industry, these approaches are sometimes referred to as Secure Access Service Edge (SASE), Security Service Edge (SSE)​, or Zero Trust network access (ZTNA).
+Putting resources and applications behind both the network perimeter *and* identity policy engine has advantages over traditional virtual private network (VPN) solutions. Administrators can apply advanced access controls to enforce Zero Trust policies. In the industry, these approaches are sometimes referred to as Secure Access Service Edge (SASE), Security Service Edge (SSE)​, or Zero Trust network access (ZTNA).
 
-In Microsoft's implementation, we allow administrators to enforce user, device, and location based checks using Conditional Access and continuous access evaluation. Administrators can define conditions that must be met and continue to apply in order for access to continue. For example if a user moves from a network that is in scope (a headquarters location) to one that isn't (a deli around the corner), continuous access evaluation can sense this change and take action to block access.
+In Microsoft's implementation, we allow administrators to enforce user, device, and location based checks using Conditional Access. Administrators can define a set of conditions that must be met and continue to apply in order for access to continue. For example if a user moves from a network that is in scope (a headquarters location) to one that isn't (a deli around the corner), continuous access evaluation can sense this change and take action to block access.
 
 :::image type="content" source="media/concept-conditional-access/global-secure-access-overview.png" alt-text="Diagram showing NaaS conceptual traffic flow." lightbox="media/concept-conditional-access/global-secure-access-overview.png":::
-
-## Enable compliant network check with Conditional Access
 
 ### Prerequisites
 
 * A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Administrators who interact with the **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
+* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](NEED-LINK-TO-DOC).
