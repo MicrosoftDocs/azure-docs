@@ -370,7 +370,7 @@ function patchDemo() {
                 }
             });
             
-            if (!isAccepted) throw new Error("Patch was't accepted");
+            if (!isAccepted) throw new Error("Patch wasn't accepted");
         }
     });
 
