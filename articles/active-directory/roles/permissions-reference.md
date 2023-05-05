@@ -2312,7 +2312,15 @@ Assign the Tenant Creator role to users who need to do the following tasks:
 
 ## Usage Summary Reports Reader
 
-Users with this role can access tenant level aggregated data and associated insights in Microsoft 365 admin center for Usage and Productivity Score but cannot access any user level details or insights. In Microsoft 365 admin center for the two reports, we differentiate between tenant level aggregated data and user level details. This role gives an extra layer of protection on individual user identifiable data, which was requested by both customers and legal teams.
+Assign the Usage Summary Reports Reader role to users who need to do the following:
+
+- View the Usage reports and Adoption Score
+- View the Usage reports and Adoption Score
+
+> [!NOTE]
+> This role only allows users to view organizational-level data with the following exceptions:
+> Member users can view user management data and settings.
+> Guest users assigned this role can not view user management data and settings.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
