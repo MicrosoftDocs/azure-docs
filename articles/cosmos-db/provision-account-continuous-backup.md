@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 05/02/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
@@ -40,7 +40,7 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
 
 1. Install the latest version of Azure PowerShell
 
-    * Before provisioning the account, install any version of Azure PowerShell higher than 6.2.0. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-az-ps).
+    * Before provisioning the account, install latest version of Azure PowerShell. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Next connect to your Azure account and select the required subscription with the following commands:
 
@@ -125,11 +125,7 @@ For PowerShell and CLI commands tier value is optional, if it isn't provided –
 
 Before provisioning the account, install Azure CLI with the following steps:
 
-1. Install the latest version of Azure CLI
-
-   * Install a version of the Azure CLI higher than 2.26.0. For more information about the latest version of the Azure CLI, see [Azure CLI](/cli/azure/install-azure-cli).
-   * If you have already installed CLI, run ``az upgrade`` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
-
+1. Install the latest version of Azure CLI, see [Azure CLI](/cli/azure/install-azure-cli)
 2. Sign in and select your subscription
 
    * Sign into your Azure account with ``az login`` command.
