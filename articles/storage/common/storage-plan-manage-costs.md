@@ -98,15 +98,17 @@ If your account has the hierarchical namespace feature enabled, make sure that t
 
 All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following lists map operations to the type of transaction shown in the pricing page.
 
-| Write operations | List and create operations | Read operations |
-|----|-|---|
-|[Put Blob](/rest/api/storageservices/put-blob)|[List Blobs](/rest/api/storageservices/list-blobs)|[Get Blob](/rest/api/storageservices/get-blob)|
-|[Put Block](/rest/api/storageservices/put-blob)|[List Containers](/rest/api/storageservices/list-containers2)|[Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>1</sup>|
-|[Put Block List](/rest/api/storageservices/put-block-list)|[Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags)||
-|[Append Block](/rest/api/storageservices/append-block)|[Create Container](/rest/api/storageservices/create-container)||
-|[Snapshot Blob](/rest/api/storageservices/snapshot-blob)|||
-|[Copy Blob](/rest/api/storageservices/copy-blob)|||
-|[Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>2</sup>|||
+| Cost category in pricing page | REST operations |
+|--|--|
+| Write operations | [Put Blob](/rest/api/storageservices/put-blob), [Put Block](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) [Append Block](/rest/api/storageservices/append-block), [Snapshot Blob](/rest/api/storageservices/snapshot-blob), [Copy Blob](/rest/api/storageservices/copy-blob), [Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>2</sup>|
+| List and create operations | [List Blobs](/rest/api/storageservices/list-blobs), [List Containers](/rest/api/storageservices/list-containers2), [Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags), [Create Container](/rest/api/storageservices/create-container) |
+| Read operations | [Get Blob](/rest/api/storageservices/get-blob), [Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>1</sup>|
+| All other operations (except delete) | Operations |
+| Data retrieval charge | Operations |
+| Point in time restore | Operations |
+
+> [!NOTE]
+> Delete is not listed in this table as it is free operation.
 
 <sup>1</sup>    Applies only when changing to a cooler tier.
 
@@ -128,17 +130,17 @@ If your account does not have the hierarchical namespace feature enabled, but yo
 
 All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following table maps operations to the type of transaction shown in the pricing page.
 
-| Write operations | Read operations |
-|----|-|
-|[Append Data](/rest/api/storageservices/datalakestoragegen2/path/update)|[Read File](/rest/api/storageservices/datalakestoragegen2/path/read)|
-|[Create Filesystem](/rest/api/storageservices/datalakestoragegen2/filesystem/create)|[List Paths](/rest/api/storageservices/datalakestoragegen2/path/list)|
-|[Create File](/rest/api/storageservices/datalakestoragegen2/path/create)||
-|[Create Directory](/rest/api/storageservices/datalakestoragegen2/path/create)||
-|[Flush Data](/rest/api/storageservices/datalakestoragegen2/path/update)||
-|[Set Properties](/rest/api/storageservices/datalakestoragegen2/path/update)||
-|[Set Filesystem Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/set-properties)||
-|[Rename File](/rest/api/storageservices/datalakestoragegen2/path/create)||
-|[Rename Directory](/rest/api/storageservices/datalakestoragegen2/path/create)||
+| Write | Write (Iterative) | Read | Read (Iterative) |
+|----|-|---|---|
+|[Append Data](/rest/api/storageservices/datalakestoragegen2/path/update)|[Rename Directory](/rest/api/storageservices/datalakestoragegen2/path/create)|[Read File](/rest/api/storageservices/datalakestoragegen2/path/read)|[List Filesystems](/rest/api/storageservices/datalakestoragegen2/filesystem/list)|
+|[Create Filesystem](/rest/api/storageservices/datalakestoragegen2/filesystem/create)|||[List Path](/rest/api/storageservices/datalakestoragegen2/path/list)|
+|[Create File](/rest/api/storageservices/datalakestoragegen2/path/create)||||
+|[Create Directory](/rest/api/storageservices/datalakestoragegen2/path/create)||||
+|[Flush Data](/rest/api/storageservices/datalakestoragegen2/path/update)||||
+|[Set Properties](/rest/api/storageservices/datalakestoragegen2/path/update)||||
+|[Set Filesystem Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/set-properties)||||
+|[Rename File](/rest/api/storageservices/datalakestoragegen2/path/create)||||
+|||||
 
 ### Using Azure Prepayment with Azure Blob Storage
 
