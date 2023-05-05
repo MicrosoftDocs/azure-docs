@@ -10,7 +10,7 @@ ms.date: 05/04/2023
 
 This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
-## How are upgrades done for the Istio components
+## How Istio components are upgraded
 
 **Minor version:** Currently the Istio add-on only has minor version 1.17 available. Minor version upgrade experiences are planned for when newer versions of Istio (1.18) are introduced.
 
