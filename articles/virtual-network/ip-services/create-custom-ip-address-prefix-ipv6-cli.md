@@ -51,7 +51,7 @@ To utilize the Azure BYOIP feature, you must perform and number of steps prior t
 
 ## Provisioning for IPv6
 
-The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges.  Note that some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-cli.md) to focus on the differences between IPv4 and IPv6.
+The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges.  Some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-cli.md) to focus on the differences between IPv4 and IPv6.
 
 ### Create a resource group and specify the prefix and authorization messages
 
@@ -132,7 +132,7 @@ az network custom-ip prefix update \
 > [!NOTE]
 > The estimated time to fully complete the commissioning process for a custom IPv6 global prefix is 3-4 hours.  The estimated time to fully complete the commissioning process for a custom IPv6 regional prefix is 30 minutes.
 
-It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
+It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
 
 > [!IMPORTANT]
 > As the global custom IPv6 prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
