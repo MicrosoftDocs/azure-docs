@@ -28,11 +28,37 @@ This automated and elastic behavior reduces the management overhead to monitor a
 
 You can manually increase or decrease the number of instances in the virtual machine scale set by updating the *sku.capacity* property.
 
-**Azure Portal**
+### Azure Portal
 
-**CLI**
+1. Navigate to an existing Virtual machine scale set.
 
-**PS**
+1. Under **Settings,** select the **Scaling** tab.
+
+1. Choose **Manual Scale**, if it is not already selected.
+
+1. Update the **Instance count**
+
+1. Press the **Save** button.
+
+### Azure CLI
+
+
+```azurecli
+az vmss scale \
+	--new-capacity 5 \
+	--name <scale set name> \
+	--resource-group <resource group name>
+```
+
+### Azure Powershell
+
+
+```azurepowershell
+Update-AzVmss `
+	-SkuCapacity 5 `
+	-ResourceGroupName <resource group name> ` 
+	-VMScaleSetName <scale set name>  `
+```
 
 ## Benefits of autoscale
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set.
@@ -43,6 +69,12 @@ If your application demand increases, the load on the VM instances in your scale
 When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or memory, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
+
+
+
+
+
+
 
 
 
@@ -71,6 +103,12 @@ Autoscale rules can use metrics from one of the following sources:
 | Storage account      | The Azure diagnostic extension writes performance metrics to Azure storage that is then consumed to trigger autoscale rules. |
 | Service Bus Queue    | Your application or other components can transmit messages on an Azure Service Bus queue to trigger rules.                   |
 | Application Insights | An instrumentation package installed in your application that streams metrics directly from the app.                         |
+
+
+
+
+
+
 
 
 
@@ -117,6 +155,12 @@ The autoscale rules are then triggered when the metrics are compared against you
 
 
 
+
+
+
+
+
+
 ### Actions when rules trigger
 When an autoscale rule triggers, your scale set can automatically scale in one of the following ways:
 
@@ -133,6 +177,12 @@ When an autoscale rule triggers, your scale set can automatically scale in one o
 
 
 
+
+
+
+
+
+
 ## In-guest VM metrics with the Azure diagnostics extension
 The Azure diagnostics extension is an agent that runs inside a VM instance. The agent monitors and saves performance metrics to Azure storage. These performance metrics contain more detailed information about the status of the VM, such as *AverageReadTime* for disks or *PercentIdleTime* for CPU. You can create autoscale rules based on a more detailed awareness of the VM performance, not just the percentage of CPU usage or memory consumption.
 
@@ -144,10 +194,22 @@ For more information, see the articles for how to enable the Azure diagnostics e
 
 
 
+
+
+
+
+
+
 ## Application-level metrics with App Insights
 To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create autoscale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
 
 For more information about App Insights, see [What is Application Insights](../azure-monitor/app/app-insights-overview.md).
+
+
+
+
+
+
 
 
 
@@ -172,5 +234,7 @@ You can create autoscale rules that use host-based metrics with one of the follo
 For information on how to manage your VM instances, see [Manage Virtual Machine Scale Sets with Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
 To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/alerts/alerts-log-webhook.md).
+
+
 
 
