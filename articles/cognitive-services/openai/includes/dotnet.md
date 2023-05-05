@@ -27,7 +27,7 @@ keywords:
 
 ### Create a new .NET Core application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-openai-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
 
 ```dotnetcli
 dotnet new console -n azure-openai-quickstart
@@ -154,4 +154,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

@@ -8,7 +8,7 @@ ms.reviewer: aul
 ---
 
 # Collect Prometheus metrics with Container insights
-[Prometheus](https://aka.ms/azureprometheus-promio) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Container insights uses its containerized agent to collect much of the same data that is typically collected from the cluster by Prometheus without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
+[Prometheus](https://aka.ms/azureprometheus-promio) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Container insights uses its containerized agent to collect much of the same data that Prometheus typically collects from the cluster without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
 
 Container insights can also scrape Prometheus metrics from your cluster and send the data to either Azure Monitor Logs or to Azure Monitor managed service for Prometheus. This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram.
 
@@ -16,7 +16,7 @@ Container insights can also scrape Prometheus metrics from your cluster and send
 
 
 ## Send data to Azure Monitor managed service for Prometheus
-[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This requires configuring the *metrics addon* for the Azure Monitor agent, which sends data to Prometheus.
+[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This service requires configuring the *metrics addon* for the Azure Monitor agent, which sends data to Prometheus.
 
 > [!NOTE]
 > The metrics addon used to collect Prometheus metrics for Managed Prometheus currently only supports AKS clusters and cannot be used as an Arc enabled Kubernetes extension. To collect Prometheus metrics from Kubernetes clusters that are running self-managed Prometheus we recommend looking at the [remote write capabilities of Managed Prometheus](../essentials/prometheus-remote-write.md). 
@@ -25,7 +25,7 @@ Container insights can also scrape Prometheus metrics from your cluster and send
 > You don't need to enable Container insights to configure your AKS cluster to send data to managed Prometheus. See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on how to configure your cluster without enabling Container insights.
 
 
-Use the following procedure to add Promtheus collection to your cluster that's already using Container insights.
+Use the following procedure to add Prometheus collection to your cluster that's already using Container insights.
 
 1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
 2. Click **Insights**.
@@ -43,7 +43,7 @@ Use the following procedure to add Promtheus collection to your cluster that's a
 See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations)
 
 ## Send metrics to Azure Monitor Logs
-You may want to collect additional data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
+You may want to collect more data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
 
 ### Prometheus scraping settings
 
@@ -65,11 +65,11 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 | Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
 | | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of a node IP address. Must be all uppercase.) |
 | | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. Fully qualified domain names must be used here. For example,`kubernetes_services = ["http://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`|
-| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, the Container insights agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, the Container insights agent scrapes Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod, and `monitor_kubernetes_pods` must be set to `true`. |
 | | `prometheus.io/scheme` | String | http | Defaults to scraping over HTTP. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path from which to fetch metrics. If the metrics path isn't `/metrics`, define it with this annotation. |
-| | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If the port isn't set, it will default to 9102. |
+| | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If the port isn't set, it defaults to 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allowlist of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of a node IP address. Must be all uppercase.) |
 | Node-wide or cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, and h. |
@@ -165,7 +165,7 @@ The configuration change can take a few minutes to finish before taking effect. 
 To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs ama-logs-fdf58 -n=kube-system`.
 
 
-If there are configuration errors from the Azure Monitor Agent pods, the output will show errors similar to the following example:
+If there are configuration errors from the Azure Monitor Agent pods, the output shows errors similar to the following example:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -176,13 +176,13 @@ Errors related to applying configuration changes are also available for review. 
 
 - From an agent pod logs using the same `kubectl logs` command.
 
-- From Live Data (preview). Live Data (preview) logs show errors similar to the following example:
+- From Live Data. Live Data logs show errors similar to the following example:
 
     ```
     2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
     ```
 
-- From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Warning* severity for scrape errors and *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence, and count in the last hour.
+- From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Warning* severity for scrape errors and *Error* severity for configuration errors. If there are no errors, the entry in the table has data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence, and count in the last hour.
 - For Azure Red Hat OpenShift v3.x and v4.x, check the Azure Monitor Agent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
 
 Errors prevent Azure Monitor Agent from parsing the file, causing it to restart and use the default configuration. After you correct the errors in ConfigMap on clusters other than Azure Red Hat OpenShift v3.x, save the YAML file and apply the updated ConfigMaps by running the command `kubectl apply -f <configmap_yaml_file.yaml`.

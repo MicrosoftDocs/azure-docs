@@ -775,6 +775,8 @@ items:
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
         href: ./hbase/apache-hbase-provision-vnet.md
+      - name: Use Apache HBase HBCK2 Tool
+        href: ./hbase/how-to-use-hbck2-tool.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues
