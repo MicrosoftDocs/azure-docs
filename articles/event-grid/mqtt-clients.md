@@ -48,7 +48,7 @@ Use the "Thumbprint Match" option while using self-signed certificate to authent
 > - Allowed validationScheme values are SubjectMatchesAuthenticationName, DnsMatchesAuthenticationName, UriMatchesAuthenticationName, IpMatchesAuthenticationName, EmailMatchesAuthenticationName, ThumbprintMatch
 > - Using thumbprint with allow reuse of the same certificate across multiple clients.  For other types of validation, the authentication name needs to be in the chosen field of the client certificate.
 
-**Client attributes?**
+**Client attributes**
 
 Client attributes are a set of user defined key-value pairs or tags that provide information about the client.
 
