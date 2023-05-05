@@ -46,19 +46,19 @@ If you don't have a secure workspace configuration, you can create it using the 
 :::image type="content" source="./media/how-to-registry-network-isolation/basic-netwrok-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
 
-### Scenario: Azure Machine Learning workspace configuration is secure but the Azure Machine Learning registry is public
+## Scenario: Azure Machine Learning workspace configuration is secure but the Azure Machine Learning registry is public
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration but using a public registry. 
 
-#### Create assets in registry from local files 
+### Create assets in registry from local files 
 
 The identity (for example, a Data Scientist's Azure AD user identity) used to create assets in the registry must be assigned the __AzureML Registry User__, __owner__, or __contributor__ role in Azure role-based access control. For more information, see the [Manage access to Azure Machine Learning](how-to-assign-roles.md) article.
 
-#### Share assets from workspace to registry 
+### Share assets from workspace to registry 
 
 Due to data exfiltration protection, it isn't possible to share an asset from secure workspace to a public registry if the storage account containing the asset has public access disabled. 
 
-#### Use assets from registry in workspace 
+### Use assets from registry in workspace 
 
 Example operations: 
 * Submit a job that uses an asset from registry.
@@ -67,7 +67,7 @@ Example operations:
 
 Using assets from registry to a secure workspace requires configuring outbound access to the registry. 
 
-#### Deploy a model from registry to workspace 
+### Deploy a model from registry to workspace 
 
 To deploy a model from a registry to a secure managed online endpoint, the deployment must have `egress_public_network_access=disabled` set. Azure Machine Learning creates the necessary private endpoints to the registry during endpoint deployment. For more information, see [Create secure managed online endpoints](how-to-secure-online-endpoint.md). 
 
@@ -81,19 +81,19 @@ __Outbound network configuration to access any Azure Machine Learning registry__
 | `AzureContainerRegistry.<region>` | TCP: 443 | Access Docker images for environments. |
 
 
-### Scenario: Azure Machine Learning workspace configuration is secure and Azure Machine Learning registry is connected to virtual networks using private endpoints
+## Scenario: Azure Machine Learning workspace configuration is secure and Azure Machine Learning registry is connected to virtual networks using private endpoints
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration with Azure Machine Learning registries connected using private endpoint to a virtual network. 
 
 Azure Machine Learning registry has associated storage/ACR service instances. These service instances can also be connected to the VNet using private endpoints to secure the configuration. For more information, see the [How to create a private endpoint](#how-to-create-a-private-endpoint) section.
 
-#### How to find the Azure Storage Account and Azure Container Registry used by your registry
+### How to find the Azure Storage Account and Azure Container Registry used by your registry
 
 The storage account and ACR used by your Azure Machine Learning registry are created under a managed resource group in your Azure subscription. The name of the managed resource group follows the pattern of `azureml-rg-<name-of-your-registry>_<GUID>`. The GUID is a randomly generated string. For example, if the name of your registry is "contosoreg", the name of the managed resource group would be `azureml-rg-contosoreg_<GUID>`.
 
 In the Azure portal, you can find this resource group by searching for `azureml_rg-<name-of-your-registry>`. All the storage and ACR resources for your registry are available under this resource group.
 
-#### Create assets in Registry from local files     
+### Create assets in Registry from local files     
 
  
 > [!NOTE]
@@ -101,7 +101,7 @@ In the Azure portal, you can find this resource group by searching for `azureml_
 
 Clients need to be connected to the VNet to which the registry is connected with a private endpoint.
 
-#### Securely connect to your registry 
+### Securely connect to your registry 
 
 To connect to a registry that's secured behind a VNet, use one of the following methods: 
 
@@ -115,11 +115,11 @@ To connect to a registry that's secured behind a VNet, use one of the following 
 
 * [Azure Bastion](/azure/bastion/bastion-overview) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the registry.  
 
-#### Share assets from workspace to registry 
+### Share assets from workspace to registry 
 
 Create a private endpoint to the registry, storage and ACR from the VNet of the workspace. If you are trying to connect to multiple registries, create private endpoint for each registry and associated storage and ACRs. For more information, see the [How to create a private endpoint](#how-to-create-a-private-endpoint) section.
 
-#### Use assets from registry in workspace 
+### Use assets from registry in workspace 
 
 Example operations: 
 * Submit a job that uses an asset from registry.
@@ -128,11 +128,11 @@ Example operations:
 
 Create a private endpoint to the registry, storage and ACR from the VNet of the workspace. If you're trying to connect to multiple registries, create private endpoint for each registry and associated storage and ACRs. For more information, see the [How to create a private endpoint](#how-to-create-a-private-endpoint) section.
 
-#### Deploy a model from registry to workspace 
+### Deploy a model from registry to workspace 
 
 To deploy a model from a registry to a secure managed online endpoint, the deployment must have `egress_public_network_access=disabled` set. Azure Machine Learning creates the necessary private endpoints to the registry during endpoint deployment. For more information, see [Create secure managed online endpoints](how-to-secure-online-endpoint.md). 
 
-#### How to create a private endpoint
+### How to create a private endpoint
 
 Use the tabs to view instructions to either add a private endpoint to an __existing registry__ or create a __new registry__ that has a private endpoint:
 
@@ -162,13 +162,13 @@ Use the tabs to view instructions to either add a private endpoint to an __exist
 
 ---
 
-#### How to find the Azure Storage Account and Azure Container Registry used by your registry
+### How to find the Azure Storage Account and Azure Container Registry used by your registry
 
 The storage account and ACR used by your Azure Machine Learning registry are created under a managed resource group in your Azure subscription. The name of the managed resource group follows the pattern of `azureml-rg-<name-of-your-registry>_<GUID>`. The GUID is a randomly generated string. For example, if the name of your registry is "contosoreg", the name of the managed resource group would be `azureml-rg-contosoreg_<GUID>`.
 
 In the Azure portal, you can find this resource group by searching for `azureml_rg-<name-of-your-registry>`. All the storage and ACR resources for your registry are available under this resource group.
 
-#### How to create a private endpoint for the Azure Storage Account
+### How to create a private endpoint for the Azure Storage Account
 
 To create a private endpoint for the storage account used by your registry, use the following steps:
 
