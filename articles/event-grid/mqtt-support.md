@@ -30,7 +30,7 @@ While connecting to Event Grid, use the following ports during communication ove
 - MQTT v3.1.1 and MQTT v5 on TCP port 8883
 - MQTT v3.1.1 over WebSocket and MQTTv5 over WebSocket on TCP port 443.
 
-### The CONNECT packet should include the  properties:
+### The CONNECT packet should include the following properties:
 
 - The ClientId field is required, and it should include the session name of the client. The session name needs to be unique across the namespace. You can use the client authentication name as the session name if each client is using one session per client. If one client is using multiple sessions, it needs to use different values for ClientId for each of its sessions.
 - The Username field is required if you didn’t select a value in the  alternativeAuthenticationNameSources during namespace creation. In that case, you need to provide your client’s authentication name in the Username field. That name needs to match the authentication name provided and the value in the client’s certificate field that was specified during the client resource creation.
@@ -64,17 +64,9 @@ For example, the following combinations of Username and ClientIds in the CONNECT
 
 The following lists detail the limitations to the MQTT support in Event Grid.
 
-### MQTTv3.1.1 Level of Support and Limitations
+### MQTTv5 Limitations
 
-- MQTT v3.1.1 support is limited in the following ways:
-- Will Message isn't supported yet. Receiving a CONNECT request with Will Message will result in a connection failure.
-- QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 will fail and close the connection.
-- Message ordering isn't guaranteed.
-- Keep Alive Maximum is 1160 seconds.
-
-### MQTTv5 Level of Support and Limitations
-
-- MQTT v5 support is limited in following ways (communicated to client via CONNACK properties unless explicitly noted otherwise):
+MQTT v5 support is limited in following ways (communicated to client via CONNACK properties unless explicitly noted otherwise):
 - Shared Subscriptions aren't supported yet.
 - Retain flag isn't supported yet.
 - Will Message isn't supported yet. Receiving a CONNECT request with Will Message will result in CONNACK with 0x83 (Implementation specific error).
@@ -88,6 +80,14 @@ The following lists detail the limitations to the MQTT support in Event Grid.
 - Topic Alias Maximum is 10. The server won't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within set limit.
 - CONNACK doesn't return Response Information property even if the CONNECT request contains Request Response Information property.
 - If the server receives a PUBACK from a client with non-success response code, the connection will be terminated.
+- Keep Alive Maximum is 1160 seconds.
+
+### MQTTv3.1.1 Limitations
+
+MQTT v3.1.1 support is limited in the following ways:
+- Will Message isn't supported yet. Receiving a CONNECT request with Will Message will result in a connection failure.
+- QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 will fail and close the connection.
+- Message ordering isn't guaranteed.
 - Keep Alive Maximum is 1160 seconds.
 
 ## Next steps:

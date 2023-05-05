@@ -9,10 +9,6 @@ ms.author: geguirgu
 # Enrichments for MQTT Routed Messages
 
 
-> [!IMPORTANT]
-> **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
-
-
 The enrichments support enables you to add up to 10 custom key-value properties to your messages before they're sent to the Event Grid topic. These enrichments enable you to:
 
 - Add contextual data to your messages. For example, enriching the message with the client's name or the namespace name could provide endpoints with information about the source of the message.
@@ -43,7 +39,7 @@ The enrichment value could be a static string for static enrichments or one of t
 
 - ${mqtt.message.userProperties.x}: user properties in the MQTTv5 PUBLISH packet, where x is the user property key name
     - Type: string
-    - Use the following variable format instead if your user property includes special characters ${mqtt.message.userProperties['x']}. You'll still need to escape an apostrophe and backslash as follows: and "PN\t" becomes "PN\\t".
+    - Use the following variable format instead if your user property includes special characters ${mqtt.message.userProperties['x']}. You still need to escape an apostrophe and backslash as follows: and "PN\t" becomes "PN\\t".
 - ${mqtt.message.topicName}: the topic in the MQTT PUBLISH packet.
     - Type: string
 - ${mqtt.message.responseTopic}: the response topic in the MQTTv5 PUBLISH packet.
@@ -59,7 +55,7 @@ Use the following steps to configure routing enrichments:
 
 - Go to your namespace in the Azure portal.
 - Under Routing, Check Enable Routing
-- Under routing topic, select the Event Grid Topic that you have created where all MQTT messages will be routed.
+- Under routing topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
 - Under Message Enrichments, select +Add Enrichment
   - Add up to 20 key-value pairs and select their type appropriately.
 - Select Apply

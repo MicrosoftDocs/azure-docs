@@ -150,6 +150,8 @@ items:
             href: event-schema-data-box.md
           - name: Azure Data Manager for Agriculture
             href: event-schema-data-manager-for-agriculture.md
+          - name: Azure Event Grid Namespace
+            href: event-schema-event-grid-namespace.md
           - name: Azure Event Hubs
             href: event-schema-event-hubs.md
           - name: Azure Health Data Services
@@ -439,6 +441,8 @@ items:
         href: mqtt-routing-to-event-hubs-cli.md
       - name: Route MQTT messages to Event Hubs using portal
         href: mqtt-routing-to-event-hubs-portal.md
+    - name: Samples
+      href: /samples/browse/?term=MQTT+Application
     - name: Concepts
       items:
       - name: Terminology
@@ -463,7 +467,7 @@ items:
         - name: Routing enrichments
           href: mqtt-routing-enrichment.md
       - name: MQTT support
-        href: mqtt-mqtt-support.md
+        href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
     - name: How-to guides
