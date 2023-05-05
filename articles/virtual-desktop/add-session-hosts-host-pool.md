@@ -256,16 +256,16 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    }
    ```
 
-1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
-
-   ```powershell
-   msiexec /i Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi /quiet REGISTRATIONTOKEN=<RegistrationToken>
-   ```
-
 1. To install the remaining components, run the following command as an administrator:
 
    ```powershell
    msiexec /i Microsoft.RDInfra.RDAgentBootLoader.Installer-x64.msi /quiet
+   ```
+
+1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
+
+   ```powershell
+   msiexec /i Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi /quiet REGISTRATIONTOKEN=<RegistrationToken>
    ```
 
 1. The virtual machines should now appear as a session host in the host pool. Finally, restart the virtual machines. 
