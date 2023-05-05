@@ -89,9 +89,9 @@ if __name__ == '__main__':
     main()
 ```
 
-While we are hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
+While we're hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
 
-When you run the code above, if you are using the data source from the prerequisites you get an answer that looks as follows:
+When you run the code above, if you're using the data source from the prerequisites you get an answer that looks as follows:
 
 ```
 Q: How much battery life do I have left?
@@ -106,7 +106,7 @@ print("A: {}".format(output.answers[0].answer))
 print("Confidence Score: {}".format(output.answers[0].confidence)) # add this line 
 ```
 
-You will now receive a result with a confidence score:
+You'll now receive a result with a confidence score:
 
 ```
 Q: How much battery life do I have left?
