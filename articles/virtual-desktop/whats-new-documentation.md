@@ -50,4 +50,4 @@ In January 2023, we published the following change:
 
 ## Next steps
 
-- Learn [What's new for Azure Virtual Desktop](whats-new.md).
+ Learn [What's new for Azure Virtual Desktop](whats-new.md).
