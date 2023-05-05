@@ -223,11 +223,11 @@ You can use the [ca-certificate buildpack](https://github.com/paketo-buildpacks/
 
 In Azure Spring Apps Enterprise tier, the CA certificates use the **Public Key Certificates** tab on the **TLS/SSL settings** page in the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-enterprise-build-service/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the public key certificates in SSL/TLS setting page." lightbox="media/how-to-enterprise-build-service/public-key-certificates.png":::
+:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the public key certificates in SSL/TLS setting page." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png":::
 
 You can configure the CA certificates on the Build Service **Edit binding** page. The following screenshot shows selecting a certificate to configure binding from the `succeeded` certificates in the **CA Certificates** list:
 
-:::image type="content" source="media/how-to-enterprise-build-service/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing edit CA Certificates buildpack binding." lightbox="media/how-to-enterprise-build-service/ca-certificates-buildpack-binding.png":::
+:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing edit CA Certificates buildpack binding." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
 
 ### [Disable Build Service](#tab/disable-build-service)
 
@@ -359,11 +359,11 @@ To edit buildpack bindings using the Azure portal, use the following steps:
 
    After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox="media/how-to-enterprise-build-service/edit-binding.png":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png":::
 
 1. The **Edit binding for default builder** page displays.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder pane.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder pane.":::
 
    You can do the following binding tasks:
 
@@ -372,11 +372,11 @@ To edit buildpack bindings using the Azure portal, use the following steps:
    - Unbind a buildpack binding
      Select a **Binding type** that has a status of **Bound** and then select **Unbind binding** from the context menu.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
 
    To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing binding properties.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing binding properties.":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
