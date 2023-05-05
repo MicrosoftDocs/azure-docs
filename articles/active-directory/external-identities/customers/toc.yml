@@ -45,12 +45,12 @@ items:
               items:
                 - name: JavaScript
                   items:
-                    - name: Sign in users and call an API
-                      href: how-to-single-page-app-vanillajs-sample-sign-in.md  
+                    - name: Sign in users
+                      href: how-to-single-page-app-vanillajs-sample-sign-in.md
                 - name: React
                   items:
-                    - name: Sign in users and call an API
-                      href: ../../develop/web-api-quickstart.md
+                    - name: Sign in users
+                      href: how-to-single-page-application-react-sample.md
             - name: Web app
               items:
                 - name: Node.js
