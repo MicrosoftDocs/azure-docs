@@ -5,7 +5,7 @@ author: timkresler
 ms.author: timkresler
 ms.service: storage
 ms.topic: quickstart #Required; leave this attribute/value as-is.
-ms.date: 05/05/2023
+ms.date: 05/04/2023
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 # Atempo Quick Start Guide
