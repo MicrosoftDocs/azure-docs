@@ -15,8 +15,15 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-# landingContent:
+landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  
+  - title: About API Center
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is API Center?
+            url: overview.md
+          - text: Key concepts
+            url: key-concepts.md
