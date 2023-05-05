@@ -19,6 +19,14 @@ Azure Communication Services emits the following telephony and SMS event types:
 | Microsoft.Communication.EmailDeliveryReportReceived                         | Published when a delivery report is received for an Email sent by the Communication Service. |
 | Microsoft.Communication.EmailEngagementTrackingReportReceived           |    Published when the Email sent is either opened or the link, if applicable is clicked.  |
 
+Related classes/types for the Azure SDKs: 
+ | SDK | Classes/Types |
+ | --- | --- |
+ | .NET | [Azure.Messaging.EventGrid.SystemEvents](https://learn.microsoft.com/en-us/dotnet/api/azure.messaging.eventgrid.systemevents?view=azure-dotnet) |
+ | Java | [com.azure.messaging.eventgrid.systemevents](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventgrid.systemevents?view=azure-java-stable) |
+ | JavaScript | [@azure/eventgrid](https://learn.microsoft.com/en-us/javascript/api/@azure/eventgrid/?view=azure-node-latest) |
+ | Pyhton | [azure.eventgrid.SystemEventNames Enum](https://learn.microsoft.com/en-us/python/api/azure-eventgrid/azure.eventgrid.systemeventnames?view=azure-python) |
+
 ## Event responses
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
