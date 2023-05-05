@@ -16,7 +16,7 @@ ms.date: 05/23/2023
 
 Feature materialization computes features from source data and writes them to storage for later use. Feature materialization can be done on a one-off basis or as a scheduled job.  Functionally, feature materialization runs `featureset.to_spark_dataframe(featureWindowStartDateTime, featureWindowEndDateTime)` for a given feature start/end window, and writes the data to configured storage.
 
-For more information on feature transformations and best practices, see  [Feature Transformation and Best Practice](./transformations.md).
+For more information on feature transformations and best practices, see  [Feature Transformation and Best Practice](./concept-feature-transformations.md).
 
 ## One-time backfill job
 
@@ -105,13 +105,13 @@ In the third recurrent job, part of the feature window materialized by the secon
 
 ## Config materialization interval/frequency effectively
 
-You can set the interval and frequency of materialization based on the business needs, for example, how stale/fresh is required on the materialized feature values. As long as you follow the [Best Practices in Defining Feature transformation](./transformations.md#best-practices-in-defining-feature-transformation), the interval and frequency don't affect the correctness of the feature values.
+You can set the interval and frequency of materialization based on the business needs, for example, how stale/fresh is required on the materialized feature values. As long as you follow the [Best Practices in Defining Feature transformation](./concept-feature-transformations.md#best-practices-in-defining-feature-transformation), the interval and frequency don't affect the correctness of the feature values.
 
 However, there are cases where the materialization job runs too frequently, resulting in wasted compute resources. Here's an example:
 
 - You define a feature set that emits calculated feature values with timestamp [t0, t1, t2,...]. 
 - You define the materialization interval and frequency that submits the materialization job at that time [job_1, job_2, job_3, job_4...].
-- Each job covers a feature window based on the definition in [Scheduled recurrent materialization](./feature-materialization.md#scheduled-recurrent-materialization).
+- Each job covers a feature window based on the definition in [Scheduled recurrent materialization](#scheduled-recurrent-materialization).
 - Each job runs `featureSetSpec.to_spark_df(featureWindowStartDateTime, featureWindowEndDateTime)`, which only calculates features in that time window.
 
 Given that, only job_1, job_3, and job_5 produce feature values written into the offline store. While Job_2 and Job_4 don't produce any outputs, resulting in  wasted compute resources.
