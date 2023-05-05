@@ -31,10 +31,10 @@ FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
     [ WHERE condition ]
 ```
 > [!NOTE]
-> Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html)command, with following exceptions:
+> Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command, with following exceptions:
 >
 > - `FREEZE [ boolean ]`
-> - `HEADER [ MATCH ]`
+> - `HEADER MATCH`
 >
 > `COPY TO` syntax is yet not supported.
 
@@ -59,7 +59,8 @@ Specifies the format of destination file. Currently the extension supports follo
 | text       | A file containing a single text value (for example, large JSON or XML)                            |
 
 ## azure_storage.account_add
-Allowing access to a storage account requires adding the storage account.
+Function allows adding access to a storage account.
+
 ```postgresql
 azure_storage.account_add
         (account_name_p text
@@ -73,7 +74,8 @@ An Azure blob storage (ABS) account contains all of your ABS objects: blobs, fil
 Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is only accessible by the postgres superuser. To see which storage accounts exist, use the account_list
 
 ## azure_storage.account_remove
-For removing access to storage account, following function can be used
+Function allows revoking account access to storage account.
+
 ```sql
 azure_storage.account_remove
         (account_name_p text);
@@ -83,8 +85,40 @@ azure_storage.account_remove
 #### account_name_p
 Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
 
+## azure_storage.account_user_add
+The function allows adding access for a role to a storage account.
+
+```postgresql
+azure_storage.account_add
+        ( account_name_p text
+        , user_p regrole);
+```
+
+### Arguments
+#### account_name_p
+An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+
+#### user_p
+Role created by user visible on the cluster.
+
+## azure_storage.account_user_remove
+The function allows removing access for a role to a storage account.
+
+```postgresql
+azure_storage.account_remove
+        ( account_name_p text
+        , user_p regrole);
+```
+
+### Arguments
+#### account_name_p
+An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+
+#### user_p
+Role created by user visible on the cluster.
+
 ## azure_storage.account_list
-The function lists the account & users having access to container.
+The function lists the account & role having access to Azure blob storage.
 
 ```postgresql
 azure_storage.account_list
@@ -135,7 +169,7 @@ A container name must be a valid DNS name, as it forms part of the unique URI us
 * Two or more consecutive dash characters aren't permitted in container names.
 
 The URI for a container is similar to:
-https://myaccount.blob.core.windows.net/mycontainer
+https://<span></span>myaccount.blob.core.windows.net/mycontainer
 
 #### prefix
 returns file from blob container with matching string initials.
