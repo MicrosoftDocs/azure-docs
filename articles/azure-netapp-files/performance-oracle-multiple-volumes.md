@@ -271,7 +271,7 @@ Oracle Exadata is an engineered system--a combination of hardware and software t
 
 When it comes to running Oracle on Exadata, there are some common reasons Exadata is chosen: 
 
-* 1-2 high IO workloads that are natural fit for Exadata features and as these workloads will require significant Exadata engineered features, the rest of the databases running along with them were simply consolidated to the Exadata. 
+* 1-2 high IO workloads that are natural fit for Exadata features and as these workloads require significant Exadata engineered features, the rest of the databases running along with them were consolidated to the Exadata. 
 * Complicated or difficult OLTP workloads that require RAC to scale and are difficult to architect with proprietary hardware without deep knowledge of Oracle optimization or may be technical debt unable to be optimized. 
 * Under-utilized existing Exadata with various workloads: this exists either due to previous migrations, end-of-life on a previous Exadata, or due to a desire to work/test an Exadata in-house. 
 
@@ -286,7 +286,7 @@ There are several tools that can be used to assess these workload opportunities:
     * All Exadata databases are licensed to use AWR reports and connected performance and diagnostic features. 
     * Is always on and collects data that can be used to view historical workload information and assess usage. Peak values can assess the high usage on the system, 
     * Larger window AWR reports can assess the overall workload, providing valuable insight into feature usage and how to migrate the workload to non-Exadata effectively. Peak AWR reports in contrast are best for performance optimization and troubleshooting. 
-* The Global (RAC-Aware) AWR report for Exadata also includes an Exadata specific section which drills down into specific Exadata feature usage and provides valuable insight info flash cache, flash logging, IO and other feature usage by database and cell node.
+* The Global (RAC-Aware) AWR report for Exadata also includes an Exadata specific section, which drills down into specific Exadata feature usage and provides valuable insight info flash cache, flash logging, IO and other feature usage by database and cell node.
 
 ### Decoupling from Exadata 
 
@@ -308,17 +308,17 @@ When identifying Oracle Exadata workloads to migrate to the cloud, consider the 
 1. Cell Physical IO: Inspect the savings provided from: 
     1. the amount directed to the DB node to balance CPU. 
     1. identifying the number of bytes returned by smart scan. These values can be subtracted in IO for the percentage of cell single block physical reads once it migrates off Exadata. 
-1. Note the number of logical reads from cache, determine if flash cache will be required in a cloud IaaS solution for the workload. 
+1. Note the number of logical reads from cache. Determine if flash cache will be required in a cloud IaaS solution for the workload. 
 1. Compare the physical read and write total bytes to the amount performed total in cache. Can memory be raised to eliminate physical read requirements (it's common for some to shrink down SGA to force offloading for Exadata)? 
-1. In **System Statistics**, identify what objects are impacted by what statistic and if tuning SQL, additional indexing, partitioning or other physical tuning may optimize the workload dramatically. 
-1. Inspect **Initialization Parameters** for underscore (_) or deprecated parameters which should be justified due to database level impact they may be causing on performance.
+1. In **System Statistics**, identify what objects are impacted by what statistic. If tuning SQL, further indexing, partitioning, or other physical tuning may optimize the workload dramatically. 
+1. Inspect **Initialization Parameters** for underscore (_) or deprecated parameters, which should be justified due to database level impact they may be causing on performance.
 
 ## Exadata Server Configuration  
 
-In Oracle version 12.2 and above, an Exadata specific addition will be included in the AWR global report. This report has sections which provide exceptional value to a migration from Exadata. 
+In Oracle version 12.2 and above, an Exadata specific addition will be included in the AWR global report. This report has sections that provide exceptional value to a migration from Exadata. 
 * Exadata version and system details 
 * Cell node alerts detail 
-* Exadata non-online disks 
+* Exadata nononline disks 
 * Outlier data for any Exadata OS statistics 
     * Yellow/Pink: Of concern. Exadata is not running optimally. 
     * Red: Exadata performance is impacted significantly. 
@@ -336,7 +336,7 @@ In Oracle version 12.2 and above, an Exadata specific addition will be included 
 
 ### Top database by IO throughput 
 
-Although sizing assessments can be performed, there are some questions about the averages and the simulated peaks that are built into these values for large workloads. This section, found at the end of an AWR report, is exceptionally valuable as it shows both the average flash and disk usage of the top 10 databases on Exadata. Although many may assume they want to size databases for peak in the cloud, most will clearly understand this doesn’t make sense when the majority of work (over 95% is in the average range and with a simulated peak calculated in, can be upwards of 98% or more). It's important to pay for what is needed, even for the highest of Oracle’s demand workloads and inspecting the **Top Databases by IO Throughput** can be enlightening for understanding the resource needs for the database. 
+Although sizing assessments can be performed, there are some questions about the averages and the simulated peaks that are built into these values for large workloads. This section, found at the end of an AWR report, is exceptionally valuable as it shows both the average flash and disk usage of the top 10 databases on Exadata. Although many may assume they want to size databases for peak performance in the cloud, this doesn’t make sense for most deployments when most of the work (over 95% is in the average range and with a simulated peak calculated in, can be upwards of 98% or more). It's important to pay for what is needed, even for the highest of Oracle’s demand workloads and inspecting the **Top Databases by IO Throughput** can be enlightening for understanding the resource needs for the database. 
 
 ### Right-size Oracle using the AWR on Exadata   
 
