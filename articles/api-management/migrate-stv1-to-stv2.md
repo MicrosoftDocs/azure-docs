@@ -79,6 +79,9 @@ Update the configuration of the VNet in each location (region) where the API Man
 
 * A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 
+> [!IMPORTANT]
+> When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource, or migration won't succeed. In an internal VNet, this public IP address is used only for management operations.
+
 For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
 #### Update VNet configuration
