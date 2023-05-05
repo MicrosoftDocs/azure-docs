@@ -24,6 +24,8 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
+Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
+
 ## May-2023
 
 ### AzAcSnap 8 (Build: 1AC073A)
@@ -53,6 +55,8 @@ AzAcSnap 7a is being released with the following fixes:
   - Enable mounting volumes on HLI (BareMetal) where the volumes have been reverted to a prior state when using `-c restore --restore revertvolume`.
   - Correctly set ThroughputMiBps on volume clones for Azure NetApp Files volumes in an Auto QoS Capacity Pool when using `-c restore --restore snaptovol`.
 
+Download the [AzAcSnap 7a](https://aka.ms/azacsnap-7a) installer.
+
 ## Dec-2022
 
 ### AzAcSnap 7 (Build: 1A8FDFF)
@@ -80,6 +84,8 @@ AzAcSnap 7 is being released with the following fixes and improvements:
   - Preliminary support for Azure NetApp Files Backup.
   - Db2 database support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner.
 
+Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
+
 ## Jul-2022
 
 ### AzAcSnap 6 (Build: 1A5F0B8)
@@ -100,6 +106,8 @@ AzAcSnap 6 is being released with the following fixes and improvements:
   - Azure Managed Disk as an alternate storage back-end.
 - ANF Client API Version updated to 2021-10-01.
 - Change to workflow for handling Backint to re-enable backint configuration should there be a failure when putting SAP HANA in a consistent state for snapshot.
+
+Download the [AzAcSnap 6](https://aka.ms/azacsnap-6) installer.
 
 ## May-2022
 
