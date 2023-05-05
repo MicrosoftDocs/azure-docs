@@ -37,45 +37,45 @@ The following charts capture the performance profile of a single E104ids_v5 Azur
 
 The following diagram depicts the architecture that testing was completed against; note the Oracle database spread across multiple Azure NetApp Files volumes and endpoints. 
 
-:::image type="content" alt-text="Diagram of an Oracle subnet with an Azure NetApp Files capacity pool." source="../media/azure-netapp-files/oracle-subnet-diagram.png":::
+:::image type="content" alt-text="Diagram of an Oracle subnet with an Azure NetApp Files capacity pool." source="../media/azure-netapp-files/oracle-subnet-diagram.png" lightbox="../media/azure-netapp-files/oracle-subnet-diagram.png":::
 
 #### Single-host storage IO 
 
 The following diagram shows a 100% randomly select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a submillisecond DB file sequential read event latency. With a database block size of 8K that amounts to approximately 6,800 MiB/s of storage throughput. 
 
-:::image type="content" alt-text="Diagram of single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png":::
+:::image type="content" alt-text="Diagram of single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png" lightbox="../media/azure-netapp-files/single-host-random-performance-chart.png":::
 
 
 #### Single-host throughput 
 
 The following diagram demonstrates that, for bandwidth intensive sequential IO workloads such as full table scans or RMAN activities, Azure NetApp Files can deliver the full bandwidth capabilities of the E104ids_v5 VM itself. 
 
-:::image type="content" alt-text="Diagram of single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Diagram of single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
 
 >[!NOTE]
 >As the compute instance is at the theoretical maximum of its bandwidth, adding additional application concurrency results only in increased client-side latency. This results in SLOB2 workloads exceeding the targeted completion timeframe therefore thread count was capped at six. 
 
-### SLOB2 scale=out performance 
+### SLOB2 scale-out performance 
 
-The following graphics capture the performance profile of three E104ids_v5 Azure VMs each running a single Oracle 19c database and each with their own set of Azure NetApp Files volumes and an identical ASM disk group layout as described in the Scale up performance section. The graphics show that with Azure NetApp Files multi-volume/multi-endpoint, performance easily scales out with consistency and predictability. 
+The following charts capture the performance profile of three E104ids_v5 Azure VMs each running a single Oracle 19c database and each with their own set of Azure NetApp Files volumes and an identical ASM disk group layout as described in the Scale up performance section. The graphics show that with Azure NetApp Files multi-volume/multi-endpoint, performance easily scales out with consistency and predictability. 
 
 #### Multi-host architecture 
 
 The following diagram depicts the architecture that testing was completed against; note the three Oracle databases spread across multiple Azure NetApp Files volumes and endpoints. Endpoints can be dedicated to a single host as shown with Oracle VM 1 or shared among hosts as shown with Oracle VM2 and Oracle VM 3. 
 
-:::image type="content" alt-text="Diagram of Oracle automatic storage management for Azure NetApp Files." source="../media/azure-netapp-files/oracle-multiple-volume-diagram.png":::
+:::image type="content" alt-text="Diagram of Oracle automatic storage management for Azure NetApp Files." source="../media/azure-netapp-files/oracle-multiple-volume-diagram.png" lightbox="../media/azure-netapp-files/oracle-multiple-volume-diagram.png":::
 
 #### Multi-host storage IO
 
 The following diagram shows a 100% random select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second across all three hosts individually. SLOB2 was able accomplish this while executing in parallel to a collective total of about 2,500,000 I/O requests per second with each host still maintaining a submillisecond db file sequential read event latency. With a database block size of 8K, this amounts to approximately 20,000 MiB/s between the three hosts. 
 
-:::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="../media/azure-netapp-files/collective-random-storage-chart.png":::
+:::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="../media/azure-netapp-files/collective-random-storage-chart.png" lightbox="../media/azure-netapp-files/collective-random-storage-chart.png":::
 
 #### Multi-host storage IO 
 
 The following diagram demonstrates that for sequential workloads, Azure NetApp Files can still deliver the full bandwidth capabilities of the E104ids_v5 VM itself even as it scales outward. SLOB2 was able to drive I/O totaling over 30,000 MiB/s across the three hosts while running in parallel.
 
-:::image type="content" alt-text="Stacked bar chart of collective sequential throughput." source="../media/azure-netapp-files/collective-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Stacked bar chart of collective sequential throughput." source="../media/azure-netapp-files/collective-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/collective-sequential-throughput-chart.png":::
 
 #### Real-world performance 
 
@@ -99,7 +99,9 @@ This section details the criteria to be considered in selecting [VMs](../virtual
 
 #### Chipsets 
 
-The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 GBps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. The four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affect the performance characteristics of the machine. Read the [Azure Compute documentation](/architecture/guide/technology-choices/compute-decision-tree) carefully paying attention to chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
+The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 GBps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. The four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affect the performance characteristics of the machine.
+
+Read the [Azure Compute documentation](/azure/architecture/guide/technology-choices/compute-decision-tree) carefully paying attention to chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
 
 #### Available network bandwidth 
 
@@ -111,7 +113,9 @@ Egress limits are VM-wide and are applied as such against all network-based work
 
 #### Network concurrency 
 
-Azure VMs and Azure NetApp Files volumes come equipped with specific amounts of bandwidth. As shown earlier, so long as a VM has sufficient CPU headroom, a workload can in theory consume the bandwidth made available to it--that is within the limits of the network card and or egress limit applied. In practice however, the amount of throughput achievable is predicated upon the concurrency of the workload at the network, that is the number of network flows and network endpoints. Read the [network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits) section of the VM network bandwidth document for greater understanding of. This section can be simplified to a single statement: the more network flows connecting client to storage the richer the potential performance.
+Azure VMs and Azure NetApp Files volumes come equipped with specific amounts of bandwidth. As shown earlier, so long as a VM has sufficient CPU headroom, a workload can in theory consume the bandwidth made available to it--that is within the limits of the network card and or egress limit applied. In practice however, the amount of throughput achievable is predicated upon the concurrency of the workload at the network, that is the number of network flows and network endpoints.
+
+Read the [network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits) section of the VM network bandwidth document for greater understanding of. The takeaway: the more network flows connecting client to storage the richer the potential performance.
 
 Oracle supports two separate NFS clients, Kernel NFS and [Direct NFS (dNFS)](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/about-direct-nfs-client-mounts-to-nfs-storage-devices.html). Kernel NFS, until late, supported a single network flow between two endpoints (compute – storage). Direct NFS, the more performant of the two, supports a variable number of network flows – tests have shown hundreds of unique connections per endpoint - increasing or decreasing as load demands. Due to the scaling of network flows between two endpoints, Direct NFS is far preferred over Kernel NFS, and as such, the recommended configuration. Azure NetApp Files product group does not recommend using Kernel NFS with Oracle workloads. For more information, refer to the [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md). 
 
@@ -148,7 +152,7 @@ A level of expertise is required when reading Azure VM performance limits docume
 
 A sample chart is shown for reference:
 
-:::image type="content" alt-text="." source="../media/azure-netapp-files/sample-chart.png":::
+:::image type="content" alt-text="Sample chart data." source="../media/azure-netapp-files/sample-chart.png":::
 
 ### Azure NetApp Files 
 
