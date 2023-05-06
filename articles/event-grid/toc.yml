@@ -1,8 +1,6 @@
 items:
   - name: Azure Event Grid Documentation
     href: index.yml
-  - name: Switch to Event Grid on Kubernetes documentation
-    href: kubernetes/index.yml
   - name: Overview
     items:
     - name: What is Event Grid?
@@ -484,3 +482,6 @@ items:
       items:
       - name: Monitoring data reference (MQTT delivery)
         href: monitor-mqtt-delivery-reference.md
+  - name: Event Grid on Kubernetes documentation
+    href: kubernetes/index.yml
+
