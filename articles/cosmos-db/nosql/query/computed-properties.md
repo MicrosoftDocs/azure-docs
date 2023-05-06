@@ -35,6 +35,10 @@ Example computed property definition:
 
 ### Name constraints
 
+It's strongly recommended that computed properties are named in such a way that there is no collision with a persisted property name. To avoid overlapping property names, you can add a prefix or suffix to all computed property names. This article uses the prefix `cp_` in all name definitions.
+
+There are several constraints on computed property names:
+
 - All computed properties must have unique names. 
 
 - The name value is a single property name at the top level of the item and it should not include a path or any `/`.
@@ -44,7 +48,6 @@ Example computed property definition:
 - A computed property name can't match a property path that is already indexed. This applies to all indexing paths specified including included paths, excluded paths, spatial indexes and composite indexes.
 
 > [!IMPORTANT]
-> It's strongly recommended that computed properties are named in such a way that there is no collision with a persisted property name. To avoid overlapping property names, you can add a prefix or suffix to all computed property names. This article uses the prefix `cp_` in all name definitions.
 > Defining a computed property with the same name as a persisted property won't give an error, but it may lead to unexpected behavior. 
 > Regardless of whether the computed property is indexed, values from persisted properties that share a name with a computed property won't be included in the index. Queries will always use the computed property instead of the persisted property, with the exception of the persisted property being returned instead of the computed property if there is a wildcard projection in the SELECT clause.
 
@@ -115,7 +118,7 @@ Let's take an example computed property definition to convert the name property 
 } 
 ```
 
-This property could then be projected.
+This property could then be projected in a query.
 
 ```sql
 SELECT c.cp_lowerName FROM c
