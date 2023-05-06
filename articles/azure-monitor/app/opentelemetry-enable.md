@@ -210,6 +210,7 @@ To copy your unique Connection String:
 To paste your Connection String, select from the options below:
 
   A. Set via Environment Variable (Recommended)
+  
   Replace `<Your Connection String>` in the following command with *your* unique connection string.
 
    ```console
@@ -217,6 +218,7 @@ To paste your Connection String, select from the options below:
    ```
 
   B. Set via Configuration File - Java Only (Recommended)
+  
   Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.12.jar` with the following content:
     
    ```json
@@ -227,6 +229,7 @@ To paste your Connection String, select from the options below:
   Replace `<Your Connection String>` in the preceding JSON with *your* unique connection string.
 
   C. Set via Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
+  
   Uncomment the code line with `<Your Connection String>`, and replace the placeholder with *your* unique connection string.
 
   > [!NOTE]
