@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: caihuarui
 ms.service: spring-apps 
 ms.topic: how-to
-ms.date: 4/30/2023
+ms.date: 5/9/2023
 ms.custom: devx-track-java
 ---
 
@@ -16,41 +16,48 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier (all tiers)
 
-This article shows you how to use the Remote Procedure Call framework (gRPC) in Azure Spring Apps. For an example application to modify and deploy, this article uses the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices).
+This article shows you how to use the Remote Procedure Call framework (gRPC) that you can use to efficiently connect services in Azure Spring Apps. For an example to modify and deploy, this article uses the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application.
 
-From your local environment, you create a gRPC service by modifying the current `customers-service` microservice, deploy it to Azure Spring Apps, and use grpc curl commands to test the service and make calls to gRPC methods.
+From your local environment, you create a gRPC service by modifying the  `customers-service` microservice, deploy it to Azure Spring Apps, and use grpc curl commands to test the service by making calls to gRPC methods.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- [Azure CLI](/cli/azure/install-azure-cli). Also use the following command to install the Azure Spring Apps extension.
+
+  ```azurecli
+  az extension add --name spring
+  ```
+
 - [Git](https://git-scm.com/downloads).
-- [Microsoft Build of OpenJDK](/java/openjdk/download#openjdk-17) Version 17
-- [Maven](https://maven.apache.org/download.cgi)
+- [Microsoft Build of OpenJDK](/java/openjdk/download#openjdk-17) Version 17.
+- [Maven](https://maven.apache.org/download.cgi).
 - An Azure Spring Apps instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md).
 
-## Deploy Spring Petclinic Microservices
+## Deploy sample application
 
 An application is required to proceed. Use the following steps to deploy the Spring Petclinic microservices project:
 
 1. In your local environment, use the following command to clone the sample app repository to your Azure account.
 
-    ```bash
-    git clone https://github.com/azure-samples/spring-petclinic-microservices
-    ```
+   ```bash
+   git clone https://github.com/azure-samples/spring-petclinic-microservices
+   ```
 
-1. Use the following commands to change directory and build the project:
+1. Use the following commands to change the directory and build the project:
 
-    ```bash
-    cd spring-petclinic-microservices
-    mvn clean package -DskipTest    
-    ```
+   ```bash
+   cd spring-petclinic-microservices
+   mvn clean package -DskipTest    
+   ```
 
-   The deployment can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders. For more information about the project, see the readme file.
+   The deployment can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders.
+
+1. Use the steps in [Unit-1 - Deploy and monitor Spring Boot apps](https://github.com/Azure-Samples/spring-petclinic-microservices#unit-1---deploy-and-monitor-spring-boot-apps) to complete the deployment needed for this demonstration. Continue with Unit 2 and Unit 3 as desired.
 
 ## Assign a public endpoint
 
-To facilitate testing, assign a public endpoint. The public endpoint is used in the grpcurl commands as the hostname. For more information, see [grpcurl](https://github.com/fullstorydev/grpcurl).
+To facilitate testing, assign a public endpoint. The public endpoint is used in the grpcurl commands as the hostname. For more information, see [fullstorydev/grpcurl](https://github.com/fullstorydev/grpcurl).
 
 Use the following command to assign a public endpoint.
 
@@ -59,7 +66,7 @@ az spring app update \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
     --name <app-name> \
-     --assign-public-endpoint true
+    --assign-public-endpoint true
 ```
 
 You can also use the Azure portal to assign a public endpoint. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md).
@@ -70,98 +77,98 @@ Before changing the customers service into a gRPC server, examine the current re
 
 Use the following steps to change customers-service into a gRPC server.
 
-1. Locate `pom.xml` in the `spring-petclinic-customers-service` folder.
+1. Locate *pom.xml* in the *spring-petclinic-customers-service* folder.
 
-1. In the `pom.xml` file, delete the following element that defines the `spring-boot-starter-web` dependency:
+1. In the *pom.xml* file, delete the following element that defines the `spring-boot-starter-web` dependency:
 
    ```xml
    <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-web</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
    </dependency>
    ```
 
-   If this dependency isn't removed, gRPC is routed incorrectly using a static server address as the application starts a web server and a gRPC server. Azure Spring Apps would rewrite the server port to 1025.
+   If this dependency isn't removed, the application starts both a web server and a gRPC server. Azure Spring Apps would then rewrite the server port to 1025, which would prevent gRPC from being routed correctly with a static server address.
 
-1. Add the following elements, which define the dependency and build plugins required for gRPC, to the `pom.xml` file:
+1. Add the following elements, which define the dependency and build plugins required for gRPC, to the *pom.xml* file:
 
    ```xml
    <dependencies>
    <!-- For both gRPC server and client -->
-      <dependency>
-          <groupId>net.devh</groupId>
-          <artifactId>grpc-spring-boot-starter</artifactId>
-          <version>2.5.1.RELEASE</version>
-          <exclusions>
-              <exclusion>
-                  <groupId>io.grpc</groupId>
-                  <artifactId>grpc-netty-shaded</artifactId>
-              </exclusion>
-          </exclusions>
-      </dependency>
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-spring-boot-starter</artifactId>
+            <version>2.5.1.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-netty-shaded</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
    <!-- For the gRPC server (only) -->
-      <dependency>
-          <groupId>net.devh</groupId>
-          <artifactId>grpc-server-spring-boot-starter</artifactId>
-          <version>2.5.1.RELEASE</version>
-          <exclusions>
-               <exclusion>
-                   <groupId>io.grpc</groupId>
-                   <artifactId>grpc-netty-shaded</artifactId>
-               </exclusion>
+       <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-server-spring-boot-starter</artifactId>
+            <version>2.5.1.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-netty-shaded</artifactId>
+                </exclusion>
           </exclusions>
-      </dependency>
-      <dependency>
-          <groupId>net.devh</groupId>
-          <artifactId>grpc-client-spring-boot-autoconfigure</artifactId>
-          <version>2.5.1.RELEASE</version>
-          <type>pom</type>
-      </dependency>
+        </dependency>
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-client-spring-boot-autoconfigure</artifactId>
+            <version>2.5.1.RELEASE</version>
+            <type>pom</type>
+        </dependency>
    </dependencies>
    <build>
        <extensions>
-           <extension>
-               <groupId>kr.motd.maven</groupId>
-               <artifactId>os-maven-plugin</artifactId>
-               <version>1.6.1</version>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.6.1</version>
            </extension>
        </extensions>
        <plugins>
            <plugin>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
            </plugin>
            <plugin>
-               <groupId>org.xolstice.maven.plugins</groupId>
-               <artifactId>protobuf-maven-plugin</artifactId>
-               <version>0.6.1</version>
-               <configuration>
-                   <protocArtifact>
-                       com.google.protobuf:protoc:3.3.0:exe:${os.detected.lassifier}
-                   </protocArtifact>
-                   <pluginId>grpc-java</pluginId>
-                   <pluginArtifact>
-                       io.grpc:protoc-gen-grpc-java:1.4.0:exe:${os.detected.classifier}
-                   </pluginArtifact>
-               </configuration>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.6.1</version>
+                <configuration>
+                    <protocArtifact>
+                        com.google.protobuf:protoc:3.3.0:exe:${os.detected.lassifier}
+                    </protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                    <pluginArtifact>
+                        io.grpc:protoc-gen-grpc-java:1.4.0:exe:${os.detected.classifier}
+                    </pluginArtifact>
+                </configuration>
                <executions>
-                   <execution>
-                       <goals>
-                           <goal>compile</goal>
-                           <goal>compile-custom</goal>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
                        </goals>
-                   </execution>
-               </executions>
-           </plugin>
-       </plugins>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
    </build>
    ```
 
 ## Build the gRPC service
 
-Use the following steps to create and run a proto file that defines the message types and RPC interface methods to later implement.
+Use the following steps to create and run a proto file that defines the message types and RPC interface methods.
 
-1. Create a new file with a `.proto` extension in the source code folder that has the following content:
+1. Create a new file with the *proto* extension in the source code folder that has the following content:
 
    ```JSON
    syntax = "proto3";
@@ -226,11 +233,11 @@ Use the following steps to create and run a proto file that defines the message 
     mvn package 
    ```
 
-   You can implement the gRPC service with the RPC methods defined in the proto file. In the sample application, the generated files include `CustomersServiceGrpc`, as defined by the gRPC proto plugin.
+   You can implement the gRPC service with the RPC methods defined in the proto file. In the sample application, the generated files include *CustomersServiceGrpc.java*, as defined by the gRPC proto plugin.
 
 ## Implement the gRPC service
 
-In your development environment, create a java class file for the project with the following content that implements the RPC methods defined in the proto file. Use the annotation `@GrpcService` to extend the autogenerated gRPC service base class and implement its methods.
+In your development environment, create a java class file for the project with the following content that implements the RPC methods defined in the proto file. Use the annotation `@GrpcService` to extend the autogenerated gRPC service base class to implement its methods.
 
 The following example shows an implementation of some of the methods.
 
@@ -264,6 +271,8 @@ Use the following command to configure the server to use port 1025 so that the i
    grpc.server.port=1025
    ```
 
+The setting `grpc.server.port=1025` is added to the *application.yaml* or *application.properties* in the *spring-petclinic-customers-service/src/main/resources* folder.
+
 The customers-service is now a gRPC service.
 
 ## Deploy the application to Azure Spring Apps
@@ -273,22 +282,22 @@ You can now configure the server and deploy the application.
 Use the following command to deploy the jar to file to your Azure Spring Apps instance:
 
    ```azurelcli
-    az spring app deploy --name ${CUSTOMERS_SERVICE} \
-        --jar-path ${CUSTOMERS_SERVICE_JAR} \
-        --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql' \
-        --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
-            MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
-            MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
-            MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
+   az spring app deploy --name ${CUSTOMERS_SERVICE} \
+       --jar-path ${CUSTOMERS_SERVICE_JAR} \
+       --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql' \
+       --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
+           MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
+           MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
+           MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
    ```
 
 The deployment can take a few minutes to completed.
 
-Now that the application is deployed in Azure Spring Apps, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which should fail as expected because a gRPC service can't be accessed with the HTTP protocol.
+Now that the application is deployed in Azure Spring Apps, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which should fail as expected because a gRPC service can't be accessed using the HTTP protocol.
 
 ## Set the ingress configuration
 
-Set the backend protocol to use gRPC so that you can use grpc curl commands to test the gRPC server. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
+Set the backend protocol to use gRPC so that you can use grpc curl commands to test the gRPC server. Update your application's ingress settings. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
 
 ## Call customers service from the local environment
 
