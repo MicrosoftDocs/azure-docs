@@ -121,13 +121,13 @@ pip install azure-monitor-opentelemetry --pre
 ---
 
 ### Enable Azure Monitor Application Insights
+To enable Azure Monitor Application Insights, you will make a minor modification to your application and set your "Connection String".
 
-This section provides guidance that shows how to enable OpenTelemetry.
-
-#### Configure the Application Insights connection string
-
+#### Modify your Application
 
 ##### [ASP.NET Core](#tab/aspnetcore)
+
+###### When setting Application Insights Connection String via Environment variable:
 
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
 
@@ -139,6 +139,18 @@ using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
+
+var app = builder.Build();
+
+app.Run();
+```
+
+###### When setting Application Insights Connection String via code:
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
 
 var app = builder.Build();
 
@@ -159,7 +171,7 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 
 ##### [Node.js](#tab/nodejs)
 
-The following code demonstrates how to enable OpenTelemetry in a simple Node.js application:
+###### When setting Application Insights Connection String via Environment variable:
 
 ```javascript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
@@ -168,9 +180,21 @@ const config = new ApplicationInsightsConfig();
 const appInsights = new ApplicationInsightsClient(config);
 ```
 
+###### When setting Application Insights Connection String via code:
+    
+```javascript
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+const config = new ApplicationInsightsConfig();
+config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
+const appInsights = new ApplicationInsightsClient(config);
+```
+
 ##### [Python](#tab/python)
 
-The following code demonstrates how to enable OpenTelemetry in a simple Python application:
+###### When setting Application Insights Connection String via Environment variable:
+Coming soon.
+
+###### When setting Application Insights Connection String via code:
 
 ```python
 from azure.monitor.opentelemetry import configure_azure_monitor
@@ -191,81 +215,32 @@ input()
 
 ---
 
-#### Paste your unique Application Insights connection string
-
-You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. If both have been set, the programmatic connection string takes precedence.
+#### Set the Connection String
+You can set the connection string either via the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING` or via code. If both have been set, the connection string in code takes precedence.
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 1. Go to the **Overview** pane of your Application Insights resource.
 
-1. Find your **Connection String**.
+2. Find your **Connection String**.
 
-1. Hover over the connection string and select the **Copy to clipboard** icon.
+3. Hover over the connection string and select the **Copy to clipboard** icon.
 
-The following instructions detail where to paste your unique connection string.
+When setting the Connection String via code (except Java), replace the `<Your Connection String>` in the preceding code with *your* unique connection string.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+When setting the Connection String via Environment variable, replace the `<Your Connection String>` in the following command *your* unique connection string.
 
-Use one of the following ways to point the client to your Application Insights resource:
-
-- Programatically set your connection string:
-    ```csharp
-    var builder = WebApplication.CreateBuilder(args);
-
-    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
-
-    var app = builder.Build();
-
-    app.Run();
-    ```
-
-- Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
-
-#### [Java](#tab/java)
-
-Use one of the following two ways to point the jar file to your Application Insights resource:
-
-- Set an environment variable:
-        
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
-    
-- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.12.jar` with the following content:
+
+Java provides an additional way to set the Connection String. Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.12.jar` with the following content:
     
    ```json
    {
      "connectionString": "<Your Connection String>"
    }
    ```
-
-#### [Node.js](#tab/nodejs)
-
-Use one of the following two ways to point the client to your Application Insights resource:
-
-- Set an environment variable:
-        
-   ```console
-   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
-   ```
-
-- Use configuration object:
-
-    ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const config = new ApplicationInsightsConfig();
-    config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
-    const appInsights = new ApplicationInsightsClient(config);
-
-    ```
-
-
-#### [Python](#tab/python)
-
-Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
-
----
 
 #### Confirm data is flowing
 
