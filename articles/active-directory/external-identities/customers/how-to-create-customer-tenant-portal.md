@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Create a customer identity and access management (CIAM) tenant
 
-Microsoft Entra offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Microsoft Entra External Identities can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+Azure Active Directory (Azure AD) offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Azure AD can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 In this article, you learn how to:
 

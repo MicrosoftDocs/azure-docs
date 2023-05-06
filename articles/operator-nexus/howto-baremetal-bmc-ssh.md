@@ -5,34 +5,33 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 05/05/2023
 ms.custom: template-how-to
 ---
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset`
 
 > [!CAUTION]
-> Please note this process is used in emergency situations when all other troubleshooting options via Azure have been exhausted. SSH access to these bare metal machines (BMM) is restricted to users managed via this method from the specified jump host list.
+> Please note this process is used in emergency situations when all other troubleshooting options via Azure have been exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways using Azure have been exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these BMMs.
+There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure have been exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines.
 
-When the command runs, it executes on each BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each bare metal machine in the Cluster. If a bare metal machine is unavailable or powered off at the time of command execution, the status of the command reflects which bare metal machines couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
-There's a maximum number of 12 users defined per Cluster. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
+The BMCs support a maximum number of 12 users. Users are defined on a per Cluster basis and applied to each bare metal machine. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
 
 ## Prerequisites
 
-- Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
+- Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
 - The on-premises Cluster must have connectivity to Azure.
-- Get the Resource group name that you created for `Cluster` resource
-- The process applies keysets to all running BMMs.
+- Get the Resource Group name for the `Cluster` resource.
+- The process applies keysets to all running bare metal machines.
 - The users added must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
-- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`, `/write` and `/delete`.
+- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`, `/write`, and `/delete`.
 
 ## Creating a BMC keyset
 
-The `bmckeyset create` command creates SSH access to the BMM in a Cluster for a group of users.
+The `bmckeyset create` command creates SSH access to the bare metal machine in a Cluster for a group of users.
 
 The command syntax is:
 
@@ -74,13 +73,13 @@ az networkcloud cluster bmckeyset create \
       type: Required. The extended location type: "CustomLocation".
   --privilege-level                           [Required] : The access level allowed for the users
                                                            in this key set.  Allowed values:
-                                                           "Standard" or "Superuser".
+                                                           "Administrator" or "ReadOnly".
   --resource-group -g                         [Required] : Name of resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
   --user-list                                 [Required] : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. The Azure Active Directory user name (email name).
+      azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public ssh key of the user.
 
@@ -140,13 +139,13 @@ For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand
 
 ## Deleting a BMC keyset
 
-The `bmckeyset delete` command removes SSH access to the BMC for a group of users. All members of the group will no longer have SSH access to any of the BMCs in the Cluster.
+The `bmckeyset delete` command removes SSH access to the BMC for a group of users. All members of the group lose SSH access to any of the BMCs in the Cluster.
 
 The command syntax is:
 
 ```azurecli
 az networkcloud cluster bmckeyset delete \
-  --name <BMM Keyset Name> \
+  --name <BMC Keyset Name> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group Name> \
 ```
@@ -180,7 +179,7 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster bmckeyset update \
-  --name <BMM Keyset Name> \
+  --name <BMC Keyset Name> \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Standard" or "Superuser"> \
   --user-list '[{"description":"<User description>",\
@@ -206,10 +205,10 @@ az networkcloud cluster bmckeyset update \
                                                            users. Supports IPv4 or IPv6 addresses.
   --privilege-level                                      : The access level allowed for the users
                                                            in this key set.  Allowed values:
-                                                           "Standard" or "Superuser".
+                                                           "Administrator" or "ReadOnly".
   --user-list                                            : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. The Azure Active Directory user name (email name).
+      azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public SSH key of the user.
 
