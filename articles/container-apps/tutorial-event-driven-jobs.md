@@ -2,26 +2,19 @@
 title: 'Tutorial: Deploy an event-driven job with Azure Container Apps'
 description: Learn to create a job that processes queue messages with Azure Container Apps
 services: container-apps
-author: jorgearteiro
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
-ms.author: joarteir
+ms.date: 05/05/2023
+ms.author: cshoe
 ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, references_regions
 ---
 
 # Tutorial: Deploy an event-driven job with Azure Container Apps
 
-Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
+Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires serverless emphemeral compute resources.
 
-In this tutorial, you create an event-driven job that starts an execution for each message that is sent to an Azure Storage Queue. Each job execution runs a container that performs the following steps:
-
-1. Dequeues one message from the queue.
-1. Logs the message to the job execution logs.
-1. Deletes the message from the queue.
-1. Exits.
-
-You learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Container Apps environment to deploy your container apps
@@ -29,6 +22,13 @@ You learn how to:
 > * Build a container image that runs a job
 > * Deploy the job to the Container Apps environment
 > * Verify that the queue messages are processed by the container app
+
+The job you create starts an execution for each message that is sent to an Azure Storage Queue. Each job execution runs a container that performs the following steps:
+
+1. Dequeues one message from the queue.
+1. Logs the message to the job execution logs.
+1. Deletes the message from the queue.
+1. Exits.
 
 [!INCLUDE [container-apps-create-cli-steps-jobs.md](../../includes/container-apps-create-cli-steps-jobs.md)]
 
@@ -49,14 +49,14 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
     ```azurecli
     az storage account create \
-    --name $STORAGE_ACCOUNT_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --location "$LOCATION" \
-    --sku Standard_LRS \
-    --kind StorageV2
+        --name "$STORAGE_ACCOUNT_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
+        --location "$LOCATION" \
+        --sku Standard_LRS \
+        --kind StorageV2
     ```
 
-1. Get the connection string for the queue.
+1. Save the queue's connection string into a variable.
 
     ```azurecli
     QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --output tsv`
@@ -67,13 +67,13 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
     ```azurecli
     az storage queue create \
         --name "$QUEUE_NAME" \
-        --account-name $STORAGE_ACCOUNT_NAME \
-        --connection-string $QUEUE_CONNECTION_STRING
+        --account-name "$STORAGE_ACCOUNT_NAME" \
+        --connection-string "$QUEUE_CONNECTION_STRING"
     ```
 
 ## Build and deploy the job
 
-To deploy the job, you must first build a container image that contains the job code and push it to a registry. Then, you can deploy the job to the Container Apps environment.
+To deploy the job, you must first build a container image for the job and push it to a registry. Then, you can deploy the job to the Container Apps environment.
 
 1. Define a name for your container image and registry.
 
@@ -88,8 +88,8 @@ To deploy the job, you must first build a container image that contains the job 
 
     ```azurecli
     az acr create \
-        --name $CONTAINER_REGISTRY_NAME \
-        --resource-group $RESOURCE_GROUP \
+        --name "$CONTAINER_REGISTRY_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION" \
         --sku Basic \
         --admin-enabled true
@@ -99,9 +99,9 @@ To deploy the job, you must first build a container image that contains the job 
 
     ```azurecli
     az acr build \
-        --registry $CONTAINER_REGISTRY_NAME \
-        --image $CONTAINER_IMAGE_NAME \
-        https://github.com/Azure-Samples/azure-container-apps-samples.git
+        --registry "$CONTAINER_REGISTRY_NAME" \
+        --image "$CONTAINER_IMAGE_NAME" \
+        https://github.com/anthonychu/20230425-event-driven-jobs.git
     ```
 
     The image is now available in the container registry.
@@ -112,31 +112,32 @@ To deploy the job, you must first build a container image that contains the job 
     az containerapp job create \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
-        --environment-name "$CONTAINERAPPS_ENVIRONMENT" \
+        --environment "$ENVIRONMENT" \
         --trigger-type "Event" \
         --replica-timeout "60" \
         --replica-retry-limit "1" \
-        --replica-count "1" \
+        --replica-completion-count "1" \
         --parallelism "1" \
         --min-executions "0" \
         --max-executions "10" \
         --scale-polling-interval "60" \
         --scale-rule-name "queue" \
         --scale-rule-type "azure-queue" \
-        --scale-rule-metadata "accountName=$STORAGE_ACCOUNT_NAME" "queueName=$QUEUE_NAME" "queueLength=1" 
+        --scale-rule-metadata "accountName=$STORAGE_ACCOUNT_NAME" "queueName=$QUEUE_NAME" "queueLength=1" \
         --scale-rule-auth "connection=connection-string-secret" \
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
         --cpu "0.5" \
         --memory "1Gi" \
         --secrets "connection-string-secret=$QUEUE_CONNECTION_STRING" \
-        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io" \
+        --env-vars "AZURE_QUEUE_NAME=$QUEUE_NAME" "AZURE_STORAGE_CONNECTION_STRING=secretref:connection-string-secret"
     ```
 
-The job is now created in the Container Apps environment. 
+The event-driven job is now created in the Container Apps environment. 
 
 ## Verify the deployment
 
-The job is configured to evaluate the scale rule every 60 seconds. For each evaluation period, it starts a new job execution for each message in the queue, up to a maximum of 10 executions.
+The job is configured to evaluate the scale rule every 60 seconds, which checks the number of messages in the queue. For each evaluation period, it starts a new job execution for each message in the queue, up to a maximum of 10 executions.
 
 To verify the job was configured correctly, you can send some messages to the queue, confirm that job executions are started, and the messages are logged to the job execution logs.
 
@@ -182,7 +183,7 @@ Once you're done, run the following command to delete the resource group that co
 
 ```azurecli
 az group delete \
-  --resource-group $RESOURCE_GROUP
+    --resource-group $RESOURCE_GROUP
 ```
 
 ## Next steps
