@@ -104,9 +104,9 @@ In this scenario, the introduction of the WAF and AFD protection mechanisms will
 
 ## Next steps 
 
-- [Configure a Web application firewall](./partner-akamai) to protect Azure AD B2C authentication endpoints.
-- [Configure Fraud prevention with Dynamics](./partner-dynamics-365-fraud-protection) to protect your authentication experiences.
-- [Investigate risk with Identity Protection in Azure AD B2C](./identity-protection-investigate-risk) to discover, investigate, and remediate identity-based risks.
-- [Securing phone-based multi-factor authentication (MFA)](./phone-based-mfa) to protect your phone based multi-factor authentication.
-- [Configure Identity Protection](./conditional-access-user-flow) to protect your sign in experience.
-- [Configure Monitoring and alerting](./azure-monitor) to be alerted to any threats.
+- [Configure a Web application firewall](./partner-akamai.md) to protect Azure AD B2C authentication endpoints.
+- [Configure Fraud prevention with Dynamics](./partner-dynamics-365-fraud-protection.md) to protect your authentication experiences.
+- [Investigate risk with Identity Protection in Azure AD B2C](./identity-protection-investigate-risk.md) to discover, investigate, and remediate identity-based risks.
+- [Securing phone-based multi-factor authentication (MFA)](./phone-based-mfa.md) to protect your phone based multi-factor authentication.
+- [Configure Identity Protection](./conditional-access-user-flow.md) to protect your sign in experience.
+- [Configure Monitoring and alerting](./azure-monitor/md) to be alerted to any threats.
