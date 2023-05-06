@@ -482,6 +482,6 @@ items:
       items:
       - name: Monitoring data reference (MQTT delivery)
         href: monitor-mqtt-delivery-reference.md
-    - name: Event Grid on Kubernetes documentation
-      href: kubernetes/index.yml
+  - name: Event Grid on Kubernetes documentation
+    href: kubernetes/index.yml
 
