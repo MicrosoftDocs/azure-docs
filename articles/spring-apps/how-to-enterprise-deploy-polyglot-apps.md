@@ -44,17 +44,17 @@ These buildpacks support to build with source code or artifact for Java, .NET Co
 
 All the builders configured in an Azure Spring Apps service instance are listed in the **Build Service** section under **VMware Tanzu components**, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-enterprise-build-service/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with list of configured builders." lightbox="media/how-to-enterprise-build-service/builder-list.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with list of configured builders." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
 
 Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see [Ubuntu Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html#ubuntu-stacks) in the VMware documentation.
 
 We strongly recommend to use `Jammy OS Stack` to create your builder because `Bioinic OS Stack` will be deprecated by VMware later.
 
-:::image type="content" source="media/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of Azure portal showing the Add Builder pane." lightbox="media/how-to-enterprise-build-service/builder-create.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-create.png" alt-text="Screenshot of Azure portal showing the Add Builder pane." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-create.png":::
 
 You can also edit a custom builder when the builder isn't used in a deployment. You can update the buildpacks or the OS Stack, but the builder name is read only.
 
-:::image type="content" source="media/how-to-enterprise-build-service/builder-edit.png" alt-text="Screenshot of Azure portal showing the Build Service page with builders list and context menu showing the Edit Builder command." lightbox="media/how-to-enterprise-build-service/builder-edit.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-edit.png" alt-text="Screenshot of Azure portal showing the Build Service page with builders list and context menu showing the Edit Builder command." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-edit.png":::
 
 The builder is a resource that continuously contributes to your deployments. It provides the latest runtime images and latest buildpacks.
 
@@ -72,9 +72,9 @@ Once you enable a user container registry with build service, you can show and c
 1. Select **Container registry**.
 1. Select **Edit** column with an existed container registry to view the configuration
 
-:::image type="content" source="media/how-to-enterprise-container-registry/show-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page." lightbox="media/how-to-enterprise-container-registry/show-container-registry.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page." lightbox="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png":::
 
-:::image type="content" source="media/how-to-enterprise-container-registry/edit-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Edit container registry configuration." lightbox="media/how-to-enterprise-container-registry/edit-container-registry.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Edit container registry configuration." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
