@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 05/05/2023
 ms.author: jasteppe
 ---
 
@@ -36,10 +36,10 @@ The signature indicates the valid types for the arguments. If an invalid type is
 
 Exceptions may occur at various points within the device data processing lifecycle. Here are the various points where exceptions can occur:
 
-|Action|When|Exceptions that may occur during parsing of the device mapping templates|Outcome|
-|------|----|------------------------------------------------------------------------|-------|
-|**Device mapping templates parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse the device mapping.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
-|**Device mapping templates parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse any expressions.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
+|Action|When|Exceptions that may occur during parsing of the device mapping|Outcome|
+|------|----|--------------------------------------------------------------|-------|
+|**Device mapping parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse the device mapping.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
+|**Device mapping parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse any expressions.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
 |**Function execution**|Each time a function is executed against device data within a device message.|Input device data doesn't match that of the function signature.|System stops processing that device message. The device message isn't retried.|
 |**Function execution**|Each time a function is executed against device data within a device message.|Any other exceptions listed in the description of the function.|System stops processing that device message. The device message isn't retried.|
 
