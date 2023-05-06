@@ -193,27 +193,30 @@ input()
 
 ---
 
-#### Set the Connection String
-You can set the connection string in one of three ways:
+#### Copy the Connection String from your Application Insights Resource
+> [!TIP]
+> If you don't already have one, now is a great time to [Create an Application Insights Resource](create-workspace-resource.md#create-a-workspace-based-resource).
 
-1. Environment Variable (Recommended)
-2. Configuration File - Java Only (Recommended)
-3. Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
+To copy your unique Connection String:
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 1. Go to the **Overview** pane of your Application Insights resource.
 2. Find your **Connection String**.
 3. Hover over the connection string and select the **Copy to clipboard** icon.
-4. To paste the connection string, select your desired approach from the options below.
 
-  A. Environment Variable (Recommended)
+#### Paste the Connection String in your environment
+
+To paste your Connection String, select from the options below:
+
+  A. Set via Environment Variable (Recommended)
   Replace `<Your Connection String>` in the following command with *your* unique connection string.
 
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
-  B. Configuration File - Java Only (Recommended)
+
+  B. Set via Configuration File - Java Only (Recommended)
   Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.12.jar` with the following content:
     
    ```json
@@ -223,7 +226,7 @@ You can set the connection string in one of three ways:
    ```
   Replace `<Your Connection String>` in the preceding JSON with *your* unique connection string.
 
-  C. Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
+  C. Set via Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
   Uncomment the code line with `<Your Connection String>`, and replace the placeholder with *your* unique connection string.
 
   > [!NOTE]
@@ -231,7 +234,6 @@ You can set the connection string in one of three ways:
   > 1. Code
   > 2. Environment Variable
   > 3. Configuration File
-
 
 #### Confirm data is flowing
 
