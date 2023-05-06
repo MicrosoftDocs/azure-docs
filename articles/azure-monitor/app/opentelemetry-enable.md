@@ -551,11 +551,12 @@ Autocollected requests:
 * Kafka consumers
 * Netty
 * Quartz
+* RabbitMQ
 * Servlets
 * Spring scheduling
 
-  > [!NOTE]
-  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+> [!NOTE]
+> Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 Autocollected dependencies (plus downstream distributed trace propagation):
 
@@ -572,6 +573,7 @@ Autocollected dependencies (plus downstream distributed trace propagation):
 * Kafka
 * Netty client
 * OkHttp
+* RabbitMQ
 
 Autocollected dependencies (without downstream distributed trace propagation):
 
@@ -734,7 +736,7 @@ See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azu
 
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
-- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#autocollected-logging).
 - <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 ## Collect custom telemetry

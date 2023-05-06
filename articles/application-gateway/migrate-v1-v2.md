@@ -1,6 +1,6 @@
 ---
-title: Migrate from v1 to v2 - Azure Application Gateway
-description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
+title: Migrate from V1 to V2 - Azure Application Gateway
+description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -28,8 +28,8 @@ This article primarily helps with the configuration migration. The traffic migra
 
 An Azure PowerShell script is provided in this document. It performs the following operations to help you with the configuration:
 
-* Creates a new Standard_v2 or WAF_v2 gateway in a virtual network subnet that you specify.
-* Seamlessly copies the configuration associated with the v1 Standard or WAF gateway to the newly created Standard_V2 or WAF_V2 gateway.
+* Creates a new Standard_V2 or WAF_V2 gateway in a virtual network subnet that you specify.
+* Seamlessly copies the configuration associated with the V1 Standard or WAF gateway to the newly created Standard_V2 or WAF_V2 gateway.
 
 ## Downloading the script
 
@@ -68,7 +68,7 @@ To run the script:
 
    ```
    AzureAppGwMigration.ps1
-    -resourceId <v1 application gateway Resource ID>
+    -resourceId <V1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
     -AppGwResourceGroupName <resource group name you want to use>
@@ -80,21 +80,21 @@ To run the script:
    ```
 
    Parameters for the script:
-   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
+   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard V1 or WAF V1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
 
      You can also run the following Azure PowerShell commands to get the Resource ID:
 
      ```azurepowershell
-     $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name>
+     $appgw = Get-AzApplicationGateway -Name <V1 gateway name> -ResourceGroupName <resource group Name>
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance but the CIDR needs to be part of the VNET address space. The script creates it for you if it doesn't exist and if it exists, it will use the existing one (make sure the subnet is either empty, contains only v2 Gateway if any, and has enough available IPs).
-   * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_v2 or WAF_v2 gateway. If this parameter isn't supplied, the name of your existing v1 gateway will be used with the suffix *_v2* appended.
-   * **AppGwResourceGroupName: [String]: Optional**. Name of resource group where you want v2 Application Gateway resources to be created (default value will be `<v1-app-gw-rgname>`)
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your v1 gateway must be uploaded to the new v2 gateway. For each of your TLS/SSL certs configured for your Standard v1 or WAF v1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
+   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new V2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance but the CIDR needs to be part of the VNET address space. The script creates it for you if it doesn't exist and if it exists, it will use the existing one (make sure the subnet is either empty, contains only V2 Gateway if any, and has enough available IPs).
+   * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway will be used with the suffix *_V2* appended.
+   * **AppGwResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value will be `<V1-app-gw-rgname>`)
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
 
-     This parameter is only optional if you don't have HTTPS listeners configured for your v1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
+     This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
 
       ```azurepowershell
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -115,10 +115,10 @@ To run the script:
       ```
 
       To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
-   * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new v2 gateway.  This must be from the same VNet that you allocate for your new v2 gateway. If this isn't specified, the script allocates a private IP address for your v2 gateway.
-   * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new v2 gateway. If this isn't specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway's name with *-IP* appended.
-   * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the v2 gateway creation and the configuration copy. By default, no validation is done.
-   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it's created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
+   * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
+   * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.
+   * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
+   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new V2 gateway after it's created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created V2 gateway.
 
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
@@ -139,42 +139,42 @@ To run the script:
 
 ### Caveats\Limitations
 
-* The new v2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing v1 gateway seamlessly to v2. However, you can allocate an existing (unallocated) public or private IP address to the new v2 gateway.
-* You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
-* If you have a network security group or user defined routes associated to the v2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration
+* The new V2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing V1 gateway seamlessly to V2. However, you can allocate an existing (unallocated) public or private IP address to the new V2 gateway.
+* You must provide an IP address space for another subnet within your virtual network where your V1 gateway is located. The script can't create the V2 gateway in any existing subnets that already have a V1 gateway. However, if the existing subnet already has a V2 gateway, that may still work provided there's enough IP address space.
+* If you have a network security group or user defined routes associated to the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration
 * [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
-* To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your v1 gateway.
-* If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
+* To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your V1 gateway.
+* If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new V2 gateway. FIPS mode isn't supported in V2.
 * In case of Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
-* Headers with names containing anything other than letters, digits, and hyphens are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
-* NTLM and Kerberos authentication is not supported by Application Gateway v2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from v1 to v2 gateways if run.
+* Headers with names containing anything other than letters, digits, and hyphens are not passed to your application. This only applies to header names, not header values. This is a breaking change from V1.
+* NTLM and Kerberos authentication is not supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
 
 ## Traffic migration
 
-First, double check that the script successfully created a new v2 gateway with the exact configuration migrated over from your v1 gateway. You can verify this from the Azure portal.
+First, double check that the script successfully created a new V2 gateway with the exact configuration migrated over from your V1 gateway. You can verify this from the Azure portal.
 
-Also, send a small amount of traffic through the v2 gateway as a manual test.
+Also, send a small amount of traffic through the V2 gateway as a manual test.
 
 Here are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
 
-* **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard v1 or WAF v1 gateway**.
+* **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard V1 or WAF V1 gateway**.
 
-    You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
-* **A custom DNS zone (for example, contoso.com) that points to the DNS label (for example: *myappgw.eastus.cloudapp.azure.com* using a CNAME record) associated with your v1 gateway**.
+    You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_V2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new V2 gateway.
+* **A custom DNS zone (for example, contoso.com) that points to the DNS label (for example: *myappgw.eastus.cloudapp.azure.com* using a CNAME record) associated with your V1 gateway**.
 
    You have two choices:
 
-  * If you use public IP addresses on your application gateway, you can do a controlled, granular migration using a Traffic Manager profile to incrementally route traffic (weighted traffic routing method) to the new v2 gateway.
+  * If you use public IP addresses on your application gateway, you can do a controlled, granular migration using a Traffic Manager profile to incrementally route traffic (weighted traffic routing method) to the new V2 gateway.
 
-    You can do this by adding the DNS labels of both the v1 and v2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, `www.contoso.com`) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
-  * Or, you can update your custom domain DNS record to point to the DNS label of the new v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
+    You can do this by adding the DNS labels of both the V1 and V2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, `www.contoso.com`) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
+  * Or, you can update your custom domain DNS record to point to the DNS label of the new V2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new V2 gateway.
 * **Your clients connect to the frontend IP address of your application gateway**.
 
-   Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
+   Update your clients to use the IP address(es) associated with the newly created V2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
 
 ## Pricing considerations
 
-The pricing models are different for the Application Gateway v1 and v2 SKUs. V2 is charged based on consumption. See [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) before migrating for pricing information. 
+The pricing models are different for the Application Gateway V1 and V2 SKUs. V2 is charged based on consumption. See [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) before migrating for pricing information. 
 
 ### Cost efficiency guidance
 
@@ -183,7 +183,7 @@ The V2 SKU comes with a range of advantages such as a performance boost of 5x, i
 There are 5 variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
 
 
-| SKU      | v1 Fixed Price/mo          | v2 Fixed Price/mo | Recommendation|
+| SKU      | V1 Fixed Price/mo          | V2 Fixed Price/mo | Recommendation|
 | ------------- |:-------------:|:-----:|:-----: | 
 |Standard Medium     | 102.2 | 179.8|V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits). We recommend 3:1 consolidation. |
 | WAF Medium    | 183.96     |   262.8 |Same as for Standard Medium |
@@ -203,4 +203,4 @@ Common questions on migration can be found [here](./retirement-faq.md#faq-on-v1-
 
 ## Next steps
 
-[Learn about Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)
+[Learn about Application Gateway V2](application-gateway-autoscaling-zone-redundant.md)

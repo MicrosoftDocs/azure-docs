@@ -58,7 +58,7 @@
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Run command
+  - name: Run Command
     href: concepts-run-command.md
   - name: Security
     items:
