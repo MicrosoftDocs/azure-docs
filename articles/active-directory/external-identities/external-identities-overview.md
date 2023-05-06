@@ -63,7 +63,7 @@ Currently, B2B direct connect enables the Teams Connect shared channels feature,
 
 You use [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to manage trust relationships with other Azure AD organizations and define inbound and outbound policies for B2B direct connect.
 
-For details about the resources, files, and applications, that are available to the B2B direct connect user via the Teams shared channel, refer to [Chat, teams, channels, & apps in Microsoft Teams](/microsoftteams/deploy-chat-teams-channels-microsoft-teams-landing-page).
+For details about the resources, files, and applications that are available to the B2B direct connect user via the Teams shared channel refer to [Chat, teams, channels, & apps in Microsoft Teams](/microsoftteams/deploy-chat-teams-channels-microsoft-teams-landing-page).
 
 ## Azure AD B2C
 
@@ -102,7 +102,7 @@ Azure AD B2B collaboration and B2B direct connect are features Azure AD, and the
 
 ### Cross-tenant access settings
 
-Cross-tenant access settings let you manage B2B collaboration and B2B direct connect with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations, that can participate in B2B collaboration and B2B direct connect. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
+Cross-tenant access settings let you manage B2B collaboration and B2B direct connect with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations that can participate in B2B collaboration and B2B direct connect. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
 - **Default cross-tenant access settings** determine your baseline inbound and outbound settings for both B2B collaboration and B2B direct connect. Initially, your default settings are configured to allow all inbound and outbound B2B collaboration with other Azure AD organizations and to block B2B direct connect with all Azure AD organizations. You can change these initial settings to create your own default configuration.
 

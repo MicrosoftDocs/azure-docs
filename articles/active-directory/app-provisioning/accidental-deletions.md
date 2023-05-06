@@ -86,7 +86,7 @@ Let the provisioning job run (20 – 40 mins) and navigate back to the provision
 - Delete a user / put them into the recycle bin.
 - Block sign in for a user.
 - Unassign a user or group from the application (or configuration).
-- Remove a user from a group that's providing them access to the application (or configuration).
+- Remove a user from a group that's provides them access to the application (or configuration).
 
 To learn more about deprovisioning scenarios, see [How Application Provisioning Works](how-provisioning-works.md#deprovisioning).
 
