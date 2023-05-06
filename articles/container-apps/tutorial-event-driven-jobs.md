@@ -101,7 +101,7 @@ To deploy the job, you must first build a container image for the job and push i
     az acr build \
         --registry "$CONTAINER_REGISTRY_NAME" \
         --image "$CONTAINER_IMAGE_NAME" \
-        https://github.com/anthonychu/20230425-event-driven-jobs.git
+        "https://github.com/anthonychu/20230425-event-driven-jobs.git"
     ```
 
     The image is now available in the container registry.
