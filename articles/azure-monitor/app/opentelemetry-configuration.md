@@ -382,7 +382,7 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 ## OpenTelemetry configurations
 
-The following OpenTelemetry configurations can be accessed through environment variables.
+The following OpenTelemetry configurations can be accessed through environment variables while using the Azure Monitor OpenTelemetry Distros.
 
 ### [.NET](#tab/net)
 
@@ -394,7 +394,7 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 ### [Node.js](#tab/nodejs)
 
-For more information about OpenTelemetry SDK congiguration, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/sdk-configuration). 
+For more information about OpenTelemetry SDK configuration, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/sdk-configuration). 
 
 ### [Python](#tab/python)
 
