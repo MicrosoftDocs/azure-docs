@@ -69,7 +69,7 @@ az spring app deploy -n hystrix-turbine --artifact-path hystrix-turbine/target/h
 
 ## Verify your apps
 
-After all the apps are running and discoverable, access `user-service` with the path `https://<service_name>-user-service.azuremicroservices.io/personalized/1` from your browser, where `service_name` is your Azure Spring Apps instance name. If the user-service can access `recommendation-service`, you should get the following output. Refresh the web page a few times if it doesn't work.
+After all the apps are running and discoverable, access `user-service` with the path `https://<Azure-Spring-Apps-instance-name>-user-service.azuremicroservices.io/personalized/1` from your browser. If the user-service can access `recommendation-service`, you should get the following output. Refresh the web page a few times if it doesn't work.
 
 ```json
 [{"name":"Product1","description":"Description1","detailsLink":"link1"},{"name":"Product2","description":"Description2","detailsLink":"link3"},{"name":"Product3","description":"Description3","detailsLink":"link3"}]
