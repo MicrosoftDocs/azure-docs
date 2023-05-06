@@ -2,7 +2,7 @@
 title:       Virtual machine scaling profile for virtual machine scale sets 
 description: The virtual machine scaling profile for virtual machine scale sets define the vm configuration you want to use when adding instances to the scale set via autoscaling 
 author:      fitzgeraldsteele # GitHub alias
-ms.author:    fisteele# Microsoft alias
+ms.author:    fisteele # Microsoft alias
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.date:     05/05/2023
@@ -24,7 +24,7 @@ When you increase the capacity or instance count of the scale set, the scale set
 > [!NOTE] 
 > Virtual machine scaling profile settings are required for scale sets in Uniform Orchestration Mode, and optional for scale sets in Flexible Orchestration Mode.
 
-## Create a scale set without a scaling profile
+## Create a scale set with a scaling profile
 By default, scale sets are created with a virtual machine scaling profile. See quickstart and tutorials for examples.
 
 ## Create a scale set without a scaling profile
