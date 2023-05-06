@@ -138,22 +138,30 @@ To use your app registration in the web API sample:
 
 If your daemon app and wep API successfully run, you should see something similar to the following JSON array in your console window
 
-    ```json
-          {
-            id: 1,
-            owner: '3e8....-db63-43a2-a767-5d7db...',
-            description: 'Pick up grocerie'
-          },
-          {
-            id: 2,
-            owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
-            description: 'Finish invoice report'
-          },
-          {
-            id: 3,
-            owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
-            description: 'Water plants'
-          }
-    ```
+```json
+        {
+        id: 1,
+        owner: '3e8....-db63-43a2-a767-5d7db...',
+        description: 'Pick up grocery'
+        },
+        {
+        id: 2,
+        owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
+        description: 'Finish invoice report'
+        },
+        {
+        id: 3,
+        owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
+        description: 'Water plants'
+        }
+```
 
 ### How it works
+
+The Node.js app uses [OAuth 2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md) to acquire an access token for itself and not for the user. The access token that the app requests contains the permissions represented as roles. The client credential flow uses this set of permissions in place of user scopes for application tokens.You [exposed these application permissions](#configure-app-roles) in the web API earlier, then [granted them to the daemon app](#grant-api-permissions-to-the-daemon-app).
+
+On the API side, the web API must verify that the access token has the required permissions (application permissions). The web API can't accept an access token that doesn't have the required permissions. 
+
+### Access to data
+
+A Web API endpoint should be prepared to accept calls from both users and applications. Therefore, it should have a way to respond to each request accordingly. For example, a call from a user via delegated permissions/scopes receives the user's data to-do list. On the other hand, a call from an application via application permissions/roles may receive the entire to-do list.
