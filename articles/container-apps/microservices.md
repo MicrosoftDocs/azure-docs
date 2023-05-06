@@ -22,7 +22,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 A Container Apps [environment](environment.md) provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of container apps made up of one or more [containers](containers.md).
 
-You can add [**Azure Functions**](https://aka.ms/release-func) and [**Azure Spring Apps**](https://aka.ms/release-spring) to your Azure Container Apps environment.
+You can add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 ## Dapr integration
 

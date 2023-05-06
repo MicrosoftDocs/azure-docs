@@ -33,7 +33,7 @@ Reasons to deploy container apps to different environments include situations wh
 - Two applications never share the same compute resources
 - Two Dapr applications can't communicate via the Dapr service invocation API
 
-You can add [**Azure Functions**](https://aka.ms/release-func) and [**Azure Spring Apps**](https://aka.ms/release-spring) to your Azure Container Apps environment.
+You can add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 ## Logs
 

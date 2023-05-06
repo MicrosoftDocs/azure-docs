@@ -40,7 +40,7 @@ With Azure Container Apps, you can:
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
 
-- Add [**Azure Functions**](https://aka.ms/release-func) and [**Azure Spring Apps**](https://aka.ms/release-spring) to your Azure Container Apps environment.
+- Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 - [**Use specialized hardware**](plans.md) for access to increased compute resources.
 
