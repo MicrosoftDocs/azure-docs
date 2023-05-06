@@ -23,7 +23,7 @@ From your local environment, you create a gRPC service by modifying the  `custom
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Also use the following command to install the Azure Spring Apps extension.
+- [Azure CLI](/cli/azure/install-azure-cli). Use the following command to install the Azure Spring Apps extension.
 
   ```azurecli
   az extension add --name spring
@@ -34,11 +34,11 @@ From your local environment, you create a gRPC service by modifying the  `custom
 - [Maven](https://maven.apache.org/download.cgi).
 - An Azure Spring Apps instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md).
 
-## Deploy sample application
+## Deploy the sample application
 
 An application is required to proceed. Use the following steps to deploy the Spring Petclinic microservices project:
 
-1. In your local environment, use the following command to clone the sample app repository to your Azure account.
+1. In your local environment, use the following command to clone the sample application repository.
 
    ```bash
    git clone https://github.com/azure-samples/spring-petclinic-microservices
@@ -53,7 +53,7 @@ An application is required to proceed. Use the following steps to deploy the Spr
 
    The deployment can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders.
 
-1. Use the steps in [Unit-1 - Deploy and monitor Spring Boot apps](https://github.com/Azure-Samples/spring-petclinic-microservices#unit-1---deploy-and-monitor-spring-boot-apps) to complete the deployment needed for this demonstration. Continue with Unit 2 and Unit 3 as desired.
+1. Use the steps in [Unit-1 - Deploy and monitor Spring Boot apps](https://github.com/Azure-Samples/spring-petclinic-microservices#unit-1---deploy-and-monitor-spring-boot-apps) to complete the deployment needed for this demonstration.
 
 ## Assign a public endpoint
 
@@ -281,7 +281,7 @@ You can now configure the server and deploy the application.
 
 Use the following command to deploy the jar to file to your Azure Spring Apps instance:
 
-   ```azurelcli
+   ```azurecli
    az spring app deploy --name ${CUSTOMERS_SERVICE} \
        --jar-path ${CUSTOMERS_SERVICE_JAR} \
        --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql' \
@@ -299,7 +299,7 @@ Now that the application is deployed in Azure Spring Apps, call a gRPC service f
 
 Set the backend protocol to use gRPC so that you can use grpc curl commands to test the gRPC server. Update your application's ingress settings. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
 
-## Call customers service from the local environment
+## Call the sample application from a local environment
 
 You can use grpcurl to test the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. The traffic is automatically routed to port 1025 on the backend.
 
