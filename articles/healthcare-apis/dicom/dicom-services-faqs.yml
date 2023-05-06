@@ -48,7 +48,7 @@ sections:
         answer: |
           Trust, data privacy, and security are the highest priority for Microsoft and remain fundamental to managing PHI data in the cloud. The DICOM service is designed to support security and privacy.
           
-          Microsoft Azure offers a comprehensive set of offerings to help your organization comply with national, regional, and industry-specific requirements governing the collection and use of data. [Learn more about Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/).
+          Microsoft Azure offers a comprehensive set of offerings to help your organization comply with national/regional and industry-specific requirements governing the collection and use of data. [Learn more about Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/).
           
       - question: What is DICOM?
         answer: |
