@@ -1,5 +1,5 @@
 ---
-title: "Four Part Tutorial: Hello, World (preview)"
+title: "Four Part Tutorial: Get Started with Feature Store (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial. 
 services: machine-learning
@@ -15,7 +15,7 @@ ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial #1: Hello World: Develop and register a feature set with Managed Feature Store (preview)
+# Tutorial #1: Hello World: develop and register a feature set with managed feature store (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -25,12 +25,12 @@ With the Azure ML managed feature store, you can discover, create and operationa
 This tutorial is the first part of a three part series. In this tutorial, you'll learn how to:
 
 * Create a new minimal feature store resource
-* Develop and locally test a featureset with feature transformation capability
+* Develop and locally test a feature set with feature transformation capability
 * Register a feature store entity with the feature store
-* Register the featureset that you developed with the feature store
+* Register the feature set that you developed with the feature store
 * Generate a sample training dataframe using the features you created
 
-## Prerequisites: Configure an AzureML Spark Notebook
+## Prerequisites: Configure an AzureML Spark notebook
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
@@ -63,7 +63,7 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
       1. Select the "manage preview features" icon (this icon looks like an announcement icon) in the top right nav of this screen
       1. To enable access, select "Run notebooks and jobs on managed spark". If you have any issues, see detailed steps [here](https://learn.microsoft.com/en-us/azure/machine-learning/interactive-data-wrangling-with-apache-spark-azure-ml#prerequisites) - you only need to enable the managed Spark preview access feature for now
 
-1. Select **AzureML Spark Compute** in the top nav "Compute" dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **configure session**.
+1. Select **AzureML Spark compute** in the top nav "Compute" dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **configure session**.
 
       1. Select **configure session**
       1. Select **Upload conda file**
@@ -80,17 +80,17 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
 
 #### Set up the root directory for the samples
 
-[Set up the root directory for the samples code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=root-dir)
+[Set up the root directory for the samples code sample](~/azureml-examples-feature store/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=root-dir)
 
 > [!Note]
-> Feature store Vs Project workspace: You''ll use a featurestore to reuse features across projects. You'll use a project workspace (the current workspace) to train and inference models, by leveraging features from feature stores. Many project workspaces can share and reuse the same feature store.
+> Feature store Vs Project workspace: You'll use a feature store to reuse features across projects. You'll use a project workspace (the current workspace) to train and inference models, by leveraging features from feature stores. Many project workspaces can share and reuse the same feature store.
 
 > [!Note]
 > This tutorial uses two SDK's:
 >
 > 1. The Feature Store CRUD SDK
 >
->    * You'll use the same MLClient (package name `azure-ai-ml`) SDK that you use with the Azure ML workpace. Feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations (Create, Update and Delete), for featurestore, featureset and featurestore-entity.
+>    * You'll use the same MLClient (package name `azure-ai-ml`) SDK that you use with the Azure ML workpace. Feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations (Create, Update and Delete), for feature store, feature set and feature store entity.
 >
 > 2. The feature store core sdk
 >
@@ -98,7 +98,7 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
 >
    >    - List/Get registered feature set
    >    - Generate/resolve feature retrieval spec
-   >    - Execute a featureset definition, to generate Spark dataframe
+   >    - Execute a feature set definition, to generate Spark dataframe
    >    - Generate training using a point-in-time join
 >
 > This tutorial does not require explicit installation of these SDK's, since the instructions already explain the process. The **conda YAML** instructions in the earlier step cover this.
@@ -121,7 +121,7 @@ As explained above, this develops and consumes features
 
 [Initialize the Azure ML feature store core SDK code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=init-fs-core-sdk)
 
-## Step 2: Prototype and develop a transaction rolling aggregation featureset in this notebook
+## Step 2: Prototype and develop a transaction rolling aggregation feature set in this notebook
 
 ### Step 2a: Explore the transactions source data
 
@@ -145,15 +145,15 @@ We'll create these rolling window aggregate features:
 
 **Action:**
 
-- Inspect the feature transformation code file: featurestore/featuresets/`transactions/spec/code/transaciton_transform.py`. You'll see the rolling aggregation defined for the features. This is a spark transformer.
+- Inspect the feature transformation code file: `featurestore/featuresets/transactions/spec/code/transaciton_transform.py`. You'll see the rolling aggregation defined for the features. This is a spark transformer.
 
 See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts-url-todo) and [transformation concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-transformation-concepts-todo) to learn more about the feature set and transformations.
 
-[Locally develop a transactions featureset code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=develop-txn-fset-locally)
+[Locally develop a transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=develop-txn-fset-locally)
 
 ## Step 3: Register a feature-store entity
 
-As a best practice, entities help enforce use of the same join key definition across featuresets which use the same logical entities. Examples of entities can include accounts, customers, etc. Entities are typically created once, and then re-used across featuresets. For information on basics concept of feature store, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
+As a best practice, entities help enforce use of the same join key definition across feature sets which use the same logical entities. Examples of entities can include accounts, customers, etc. Entities are typically created once, and then re-used across feature sets. For information on basics concept of feature store, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
 
 ### Step 3a: Explore the transactions source data
 
@@ -165,15 +165,15 @@ Create an account entity that has the join key `accountID`, of type string.
 
 [Code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=register-acct-entity)
 
-## Step 4: Register the transaction featureset with the featurestore
+## Step 4: Register the transaction feature set with the feature store
 
 You register a feature set with the feature store so that you can share and reuse with others. This offers managed capabilities like versioning and materialization. We'll learn more about these capabilities in this tutorial series.
 
 You also register a feature set asset with the feature store. This has a reference to the feature retrieval spec, and offers version, materialization, etc. as additional properties.
 
-[Register the transaction featureset with the featurestore code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=register-txn-fset)
+[Register the transaction feature set with the feature store code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=register-txn-fset)
 
-### Explore the FeatureStore UI
+### Explore the feature store UI
 
 * Open the [Azure ML global landing page](https://ml.azure.com/home?flight=FeatureStoresPrPr,FeatureStoresPuPr). **(todo PuP: remove flight url)**
 * Select `Feature stores` in the left nav
@@ -194,9 +194,9 @@ See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4c
 
 [Load observation data code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=load-obs-data)
 
-### Step 5c: Get the registered featureset and list its features
+### Step 5c: Get the registered feature set and list its features
 
-[Get the registered featureset and list its features code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=get-txn-fset)
+[Get the registered feature set and list its features code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=get-txn-fset)
 
 [Print sample values code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/1.%20hello_world.ipnyb?name=print-txn-fset-sample-values)
 

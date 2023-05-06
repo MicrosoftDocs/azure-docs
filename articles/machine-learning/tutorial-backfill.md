@@ -15,14 +15,14 @@ ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial #1: Enable materialization and backfill feature data (preview)
+# Tutorial #2: Enable materialization and backfill feature data (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this tutorial series you will learn how features seamlessly integrate all phases of the ML lifecycle: feature prototyping, training and operationalization.
 
-Part 1 of this tutorial showed how to create a feature set, and use it to generate training data. A featureset query applies the transformations to the source on the fly, to compute the features before it returns the values. This works well for the prototyping phase. However, when you run training and inference in production environment, it is recommended that you materialize the features, for greater reliability and availability. Materialization is the process of computing the feature values for a given feature window, and then storing these values in a materialization store. All feature queries will now use the values from the materialization store.
+Part 1 of this tutorial showed how to create a feature set, and use it to generate training data. A feature set query applies the transformations to the source on the fly, to compute the features before it returns the values. This works well for the prototyping phase. However, when you run training and inference in production environment, it is recommended that you materialize the features, for greater reliability and availability. Materialization is the process of computing the feature values for a given feature window, and then storing these values in a materialization store. All feature queries will now use the values from the materialization store.
 
 Here in Tutorial part 2, you'll learn how to:
 
@@ -34,7 +34,7 @@ Here in Tutorial part 2, you'll learn how to:
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
-1. Complete the `1. hello_world.ipynb` notebook, to create the required feature store, account entity and transaction featureset
+1. Complete the `1. hello_world.ipynb` notebook, to create the required feature store, account entity and transaction feature set
 1. An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` role and `Contributor` role.
 
 * To perform the steps in this article, your user account must be assigned the owner or contributor role to a resource group where the feature store will be created
@@ -71,7 +71,7 @@ The tutorial notebook will run from this current workspace
 
 #### Initialize the feature store CRUD client
 
-Ensure you update the `featurestore_name` to reflect what you created in part 1 of this tutorial
+Ensure you update the `featurestore_name` value to reflect what you created in part 1 of this tutorial
 
 [Initialize the feature store CRUD client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=init-fs-crud-client)
 
@@ -148,28 +148,28 @@ To learn more about access control, see access control document.
 
 [Enable offline store on the feature store code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=enable-offline-store)
 
-## Step 2: Enable offline materialization on transactions featureset
+## Step 2: Enable offline materialization on transactions feature set
 
-Once materialization is enabled on a featureset, you can perform backfill (described in this part of the tutorial), or you can schedule recurrent materialization jobs (described in the next part of the tutorial)
+Once materialization is enabled on a feature set, you can perform backfill (described in this part of the tutorial), or you can schedule recurrent materialization jobs (described in the next part of the tutorial)
 
-[Enable offline materialization on transactions featureset code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=enable-offline-mat-txns-fset)
+[Enable offline materialization on transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=enable-offline-mat-txns-fset)
 
 As another option, you can save the the above feature set asset as a yaml resource
 
 [Save the feature set asset as a yaml resource code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=dump-txn-fset-yaml)
 
-## Step 3: Backfill data for the transactions featureset
+## Step 3: Backfill data for the transactions feature set
 
 As explained earlier in this tutorial, materialization involves computation of the feature values for a given feature window, and storage of those values in a materialization store. Materializing the features increases its reliability and availability. All feature queries will now use the values from the materialization store. In this step, you perform a one-time backfill for a feature window of **three months**.
 
 > [!Note]
 > Determination of the backfill data window is important. It must match the training data window. For example, to train with two years of data, you must retrieve features for that same window. Therefore, backfill for a two year window.
 
-[Backfill data for the transactions featureset code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=backfill-txns-fset)
+[Backfill data for the transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=backfill-txns-fset)
 
-Let's print sample data from the featureset. The output information shows that the data was retrieved from the materialization store. We retrieved the training and inference data with The `get_offline_features()` method retrieved the training / inference data, and this method uses the materialization store by default.
+Let's print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. We retrieved the training and inference data with The `get_offline_features()` method retrieved the training / inference data, and this method uses the materialization store by default.
 
-[Print sample data for the transactions featureset code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=sample-txns-fset-data)
+[Print sample data for the transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=sample-txns-fset-data)
 
 ## Cleanup
 
