@@ -132,7 +132,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 
     To configure scraping of Prometheus metrics by specifying a pod annotation:
 
-    1. In the ConfigMap, specify the following configuration:
+      1. In the ConfigMap, specify the following configuration:
 
     ```
     prometheus-data-collection-settings: |- ​
@@ -142,7 +142,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
     monitor_kubernetes_pods = true 
     ```
 
-    1. Specify the following configuration for pod annotations:
+      2. Specify the following configuration for pod annotations:
 
     ```
     - prometheus.io/scrape:"true" #Enable scraping for this pod ​

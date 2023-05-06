@@ -1,6 +1,6 @@
 ---
 title: Minimal Prometheus ingestion profile in Azure Monitor (preview)
-description: Describes how the setting for minimal ingestion profile for Prometheus metrics in Azure Monitor is configured and how you can modify it to collect additional data.
+description: Describes minimal ingestion profile in Azure Monitor managed service for Prometheus and how you can configure it collect more data.
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 09/28/2022
@@ -10,7 +10,10 @@ ms.reviewer: aul
 
 
 # Minimal ingestion profile for Prometheus metrics in Azure Monitor (preview)
-Azure monitor metrics addon collects minimal amount of Prometheus metrics by default. This helps reduce ingestion volume of series/metrics , so only metrics used by default dashboards, default recording rules & default alerts are collected. This article describes how this setting is configured, what metrics are collected by default due to this, and how you can modify collection to enable collecting additional metrics, as needed.
+Azure monitor metrics addon collects number of Prometheus metrics by default. `Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. This article describes how this setting is configured. This article also lists metrics collected by default when `minimal ingestion profile` is enabled. You can modify collection to enable collecting more metrics, as specified below.
+
+> [!NOTE]
+> For addon based collection, `Minimal ingestion profile` setting is enabled by default.
 
 Following targets are **enabled/ON** by default - meaning you don't have to provide any scrape job configuration for scraping these targets, as metrics addon will scrape these targets automatically by default
 
@@ -19,7 +22,7 @@ Following targets are **enabled/ON** by default - meaning you don't have to prov
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
 
-Following targets are available to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to tuen ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
+Following targets are available to scrape, but scraping isn't enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they're disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
 
 - `core-dns` (`job=kube-dns`)
 - `kube-proxy` (`job=kube-proxy`)
@@ -37,10 +40,10 @@ The setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"` i
 There are four scenarios where you may want to customize this behavior:
 
 **Ingest only minimal metrics per default target.**<br>
-This is the default behavior  with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only series and metrics listed below will be ingested for each of the default targets.
+This is the default behavior  with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only metrics listed below are ingested for each of the default targets.
 
-**Ingest a few additional metrics for one or more default targets in addition to minimal metrics.**<br>
-Keep ` minimalIngestionProfile="true"` and specify the appropriate `keeplistRegexes.*` specific to the target, for example `keeplistRegexes.coreDns="X``Y"`. X,Y will be merged with default metric list for the target and then ingested. ``
+**Ingest a few other metrics for one or more default targets in addition to minimal metrics.**<br>
+Keep ` minimalIngestionProfile="true"` and specify the appropriate `keeplistRegexes.*` specific to the target, for example `keeplistRegexes.coreDns="X``Y"`. X,Y is merged with default metric list for the target and then ingested. ``
 
 
 **Ingest only a specific set of metrics for a target, and nothing else.**<br>
@@ -48,14 +51,14 @@ Set `minimalIngestionProfile="false"` and specify the appropriate `default-targe
 
 
 **Ingest all metrics scraped for the default target.**<br>
-Set `minimalIngestionProfile="false"` and don't specify any `default-targets-metrics-keep-list.<targetname>` for that target. This can increase metric ingestion volume by a factor per target.
+Set `minimalIngestionProfile="false"` and don't specify any `default-targets-metrics-keep-list.<targetname>` for that target. Changing to `false` can increase metric ingestion volume by a factor per target.
 
 
 > [!NOTE]
-> `up` metric is not part of the allow/keep list because it will be ingested per scrape, per target, regardless of `keepLists` specified. This metric is not actually scraped but produced as result of scrape operation by the metrics addon. For histograms and summaries, each series has to be included explicitly in the list (`*bucket`, `*sum`, `*count` series).
+> `up` metric is not part of the allow/keep list because it is ingested per scrape, per target, regardless of `keepLists` specified. This metric is not actually scraped but produced as result of scrape operation by the metrics addon. For histograms and summaries, each series has to be included explicitly in the list (`*bucket`, `*sum`, `*count` series).
 
 ### Minimal ingestion for default ON targets
-The following metrics are allow-listed with `minimalingestionprofile=true` for default ON targets. The below metrics will be collected by default as these targets are scraped by default.
+The following metrics are allow-listed with `minimalingestionprofile=true` for default ON targets. The below metrics are collected by default as these targets are scraped by default.
 
 **kubelet**<br>
 - `kubelet_volume_stats_used_bytes`
@@ -173,6 +176,7 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 - `node_disk_io_time_seconds_total`
 - `node_filesystem_size_bytes`
 - `node_filesystem_avail_bytes`
+- `node_filesystem_readonly`
 - `node_network_receive_bytes_total`
 - `node_network_transmit_bytes_total`
 - `node_vmstat_pgmajfault`
@@ -184,7 +188,7 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 - `node_uname_info"`
 
 ### Minimal ingestion for default OFF targets
-The following metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. But these metrics won't be collected by default as these targets aren't scraped by default. You turn ON scraping for these targets using `default-scrape-settings-enabled.<target-name>=true`' using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section.
+The following are metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. These metrics are not collected by default as these targets are not scraped by default (due to being OFF by default). You can turn ON scraping for these targets using `default-scrape-settings-enabled.<target-name>=true`' using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section.
 
 **core-dns**
 - `coredns_build_info`

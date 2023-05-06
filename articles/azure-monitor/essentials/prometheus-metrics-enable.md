@@ -10,7 +10,7 @@ ms.reviewer: aul
 ---
 
 # Collect Prometheus metrics from an AKS cluster (preview)
-This article describes how to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus. When you configure your AKS cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the [Azure Monitor agent](../agents/agents-overview.md) is installed with a metrics extension. In addition, you will specify the Azure Monitor workspace where the data should be sent.
+This article describes how to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus. When you configure your AKS cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the [Azure Monitor agent](../agents/agents-overview.md) is installed with a metrics extension. In addition, you'll specify the Azure Monitor workspace where the data should be sent.
 
 > [!NOTE]
 > The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster. However, both agents do use the Azure Monitor agent.
@@ -64,7 +64,7 @@ If no Azure Monitor workspace is specified, a default Azure Monitor workspace is
     ```
 
 - **Use an existing Azure Monitor workspace.**<br>
-If the existing Azure Monitor workspace is already linked to one or more Grafana workspaces, the data will be available in that Grafana workspace.
+If the existing Azure Monitor workspace is already linked to one or more Grafana workspaces, data is available in that Grafana workspace.
 
     ```azurecli
     az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
@@ -138,7 +138,7 @@ The output is similar to the following example:
 
 On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
 
-If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you will need the list of already existing Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
+If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, the list of already existing Grafana integrations is needed. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
 
 ```json
 "properties": {
@@ -226,7 +226,7 @@ Therefore, the default scoping for the `Monitoring Data Reader` role is on the r
 
 On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
 
-If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you will need the list of already existing Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
+If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, the list of already existing Grafana integrations is needed. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
 
 ```json
 "properties": {
@@ -309,7 +309,7 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
 
-If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you need the list of Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, the instance hasn't been linked with any Azure Monitor workspace. Update the azure_monitor_workspace_integrations block(shown below) in main.tf with the list of grafana integrations.
+If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you need the list of Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, the instance hasn't been linked with any Azure Monitor workspace. Update the azure_monitor_workspace_integrations block(shown here) in main.tf with the list of grafana integrations.
 
 ```.tf
   azure_monitor_workspace_integrations {
@@ -319,9 +319,9 @@ If you're using an existing Azure Managed Grafana instance that's already linked
 
 ### Download and edit the templates
 
-If you are deploying a new AKS cluster using Terraform with managed Prometheus addon enabled, follow the steps below.
+If you're deploying a new AKS cluster using Terraform with managed Prometheus addon enabled, follow these steps:
 
-1. Please download all files under [AddonTerraformTemplate](https://aka.ms/AAkm357).
+1. Download all files under [AddonTerraformTemplate](https://aka.ms/AAkm357).
 2. Edit the variables in variables.tf file with the correct parameter values.
 3. Run `terraform init -upgrade` to initialize the Terraform deployment.
 4. Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
@@ -330,12 +330,12 @@ If you are deploying a new AKS cluster using Terraform with managed Prometheus a
 
 Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in main.tf only when those values exist. These are optional blocks.
 
-**NOTE**
-- Please edit the main.tf file appropriately before running the terraform template
-- Please add in any existing azure_monitor_workspace_integrations values to the grafana resource before running the template otherwise the older values will get deleted and replaced with what is there in the template at the time of deployment
-- Users with 'User Access Administrator' role in the subscription  of the AKS cluster can be able to enable 'Monitoring Data Reader' role directly by deploying the template.
-- Please edit the grafanaSku parameter if you are using a non standard SKU.
-- Please run this template in the Grafana Resources RG.
+> [!NOTE]
+> Edit the main.tf file appropriately before running the terraform template
+> Add in any existing azure_monitor_workspace_integrations values to the grafana resource before running the template. Else, older values gets deleted and replaced with what is there in the template during deployment
+> Users with 'User Access Administrator' role in the subscription  of the AKS cluster can be able to enable 'Monitoring Data Reader' role directly by deploying the template.
+> Edit the grafanaSku parameter if you're using a nonstandard SKU.
+> Run this template in the Grafana Resource's resource group
 
 ## [Azure Policy](#tab/azurepolicy)
 
@@ -360,7 +360,7 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
 
 1. After you create the policy definition, in the Azure portal, select **Policy** > **Definitions**. Select the policy definition you created.
 1. Select **Assign**, go to the **Parameters** tab, and fill in the details. Select **Review + Create**.
-1. Now that the policy is assigned to the subscription, whenever you create a new cluster, which doesn't have Prometheus enabled, the policy runs and deploys the resources. If you want to apply the policy to an existing AKS cluster, create a **Remediation task** for that AKS cluster resource after you go to the **Policy Assignment**.
+1. After the policy is assigned to the subscription, whenever you create a new cluster without Prometheus enabled, the policy will run and deploy to enable Prometheus monitoring. If you want to apply the policy to an existing AKS cluster, create a **Remediation task** for that AKS cluster resource after you go to the **Policy Assignment**.
 1. Now you should see metrics flowing in the existing Azure Managed Grafana instance, which is linked with the corresponding Azure Monitor workspace.
 
 Afterwards, if you create a new Managed Grafana instance, you can link it with the corresponding Azure Monitor workspace from the **Linked Grafana Workspaces** tab of the relevant **Azure Monitor Workspace** page. The `Monitoring Data Reader` role must be assigned to the managed identity of the Managed Grafana instance with the scope as the Azure Monitor workspace, so that Grafana has access to query the metrics. Use the following instructions to do so:
@@ -388,9 +388,9 @@ Deploy the template with the parameter file by using any valid method for deploy
 
 ### Limitations during enablement/deployment
 
-- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the ARM template deployments that require exact values in the `kube-state` metrics pods. If the Kubernetes pod has any issues with malformed parameters and isn't running, the feature won't work as expected.
+- Ensure that you update the `kube-state metrics` annotations and labels list with proper formatting. There's a limitation in the ARM template deployments that require exact values in the `kube-state` metrics pods. If the Kubernetes pod has any issues with malformed parameters and isn't running, the feature might not as expected.
 - A data collection rule and data collection endpoint are created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. Currently, these names can't be modified.
-- You must get the existing Azure Monitor workspace integrations for a Grafana isntance and update the ARM template with it. Otherwise, the ARM deployment will overwrite and remove the existing integrations.
+- You must get the existing Azure Monitor workspace integrations for a Grafana intance and update the ARM template with it. Otherwise, the ARM deployment gets over-written, which removes existing integrations.
 ---
 
 ## Enable Windows metrics collection
@@ -413,7 +413,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
    ```
 
 1. Apply the [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) to your cluster. Set the `windowsexporter` and `windowskubeproxy` Booleans to `true`. For more information, see [Metrics add-on settings configmap](./prometheus-metrics-scrape-configuration.md#metrics-add-on-settings-configmap).
-1. Enable the recording rules which are required for the out-of-the-box dashboards:
+1. Enable the recording rules that are required for the out-of-the-box dashboards:
 
    * If onboarding using the CLI, include the option `--enable-windows-recording-rules`.
    * If onboarding using an ARM template, Bicep, or Azure Policy, set `enableWindowsRecordingRules` to `true` in the parameters file.
@@ -465,14 +465,14 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
     ```
 ## Artifacts/Resources provisioned/created as a result of metrics addon enablement for an AKS cluster
 
-When you enable metrics addon the followig are provisioned
+When you enable metrics addon, the following resources are provisioned:
 
 | Resource Name | Resource Type | Resource Group | Region/Location | Description |
     |:---|:---|:---|:---|:---|
-    | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This datacollection rule is for prometheus metrics collection by metrics addon which has the chosen azure monitor workspace as destination, and also it is associated to the AKS cluster resource |
+    | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This data collection rule is for prometheus metrics collection by metrics addon, which has the chosen Azure monitor workspace as destination, and also it is associated to the AKS cluster resource |
     | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection endpoint** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This data collection endpoint is used by the above data collection rule for ingesting Prometheus metrics from the metrics addon|
     
-When you create a new Azure Monitor workspace the following additonal resources are created as part of it
+When you create a new Azure Monitor workspace, the following additional resources are created as part of it
 
 | Resource Name | Resource Type | Resource Group | Region/Location | Description |
     |:---|:---|:---|:---|:---|
@@ -488,7 +488,7 @@ Azure Monitor metrics addon supports HTTP Proxy and uses the same settings as th
 
 **Azure public cloud**
 
-The following table lists the firewall configuration required for azure monitor Prometheus metrics ingestion for Azure Public cloud. All network traffic from the agent is outbound to Azure Monitor.
+The following table lists the firewall configuration required for Azure monitor Prometheus metrics ingestion for Azure Public cloud. All network traffic from the agent is outbound to Azure Monitor.
 
 |Agent resource| Purpose | Port |
 |--------------|------|---|
@@ -498,7 +498,7 @@ The following table lists the firewall configuration required for azure monitor 
 
 **Azure US Government cloud**
 
-The following table lists the firewall configuration required for azure monitor Prometheus metrics ingestion for Azure US Government cloud. All network traffic from the agent is outbound to Azure Monitor.
+The following table lists the firewall configuration required for Azure monitor Prometheus metrics ingestion for Azure US Government cloud. All network traffic from the agent is outbound to Azure Monitor.
 
 |Agent resource| Purpose | Port |
 |--------------|------|---|
@@ -524,7 +524,7 @@ Currently, the Azure CLI is the only option to remove the metrics add-on and sto
     az extension add --name aks-preview
     ```
 
-1. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster, along with the DCRA that links the data collection rule with your cluster. This action doesn't remove the data collection endpoint, data collection rule, or the data already collected and stored in your Azure Monitor workspace.
+2. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection dule (DCR) and DCRA that links the data collection rule with the cluster. This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
     ```azurecli
     az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
@@ -532,7 +532,7 @@ Currently, the Azure CLI is the only option to remove the metrics add-on and sto
 
 ## Supported regions
 
-The list of regions Azure Monitor Metrics and Azure Monitor Worskapce is supported in can be found [here](https://aka.ms/ama-metrics-supported-regions) under the Managed Prometheus tag.
+The list of regions Azure Monitor Metrics and Azure Monitor Workspace is supported in can be found [here](https://aka.ms/ama-metrics-supported-regions) under the Managed Prometheus tag.
 
 ## Next steps
 

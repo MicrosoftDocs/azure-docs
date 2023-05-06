@@ -97,6 +97,7 @@ The following metrics are collected by default from each default target. All oth
    - `node_disk_io_time_seconds_total`
    - `node_filesystem_size_bytes`
    - `node_filesystem_avail_bytes`
+   - `node_filesystem_readonly`
    - `node_network_receive_bytes_total`
    - `node_network_transmit_bytes_total`
    - `node_vmstat_pgmajfault`

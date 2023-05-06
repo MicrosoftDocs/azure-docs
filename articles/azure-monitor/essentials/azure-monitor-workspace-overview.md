@@ -50,7 +50,7 @@ Azure Monitor workspaces have default quotas and limitations for metrics. As you
 
 ### Multiple Azure Monitor workspaces  
 
-When an Azure Monitor workspace reaches 80% of its maximum capacity or is forcasted to reach that volume of metrics, it's recommended to split the Azure Monitor workspace into multiple workspaces. You should split the workspace based on how the data in the workspace is used by your applications and business processes and by how you want to access that data in the future.  
+When an Azure Monitor workspace reaches 80% of its maximum capacity or is forecasted to reach that volume of metrics, it's recommended to split the Azure Monitor workspace into multiple workspaces. You should split the workspace based on how the data in the workspace is used by your applications and business processes and by how you want to access that data in the future.  
   
 In certain circumstances, splitting an Azure Monitor workspace into multiple workspaces can be necessary. For example: 
 * Monitoring data in sovereign clouds: Create an Azure Monitor workspace in each sovereign cloud.  
