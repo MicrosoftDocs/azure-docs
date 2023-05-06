@@ -18,11 +18,11 @@ ms.custom: developer
 
 # Call an API in a sample Node.js daemon application 
 
-In this article uses a sample Node.js daemon application to show you how a daemon app acquires a token to call a web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
+This article uses a sample Node.js daemon application to show you how a daemon app acquires a token to call a web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
 
 A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. 
 
-A daemon app uses the standard [OAuth 2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md). 
+A daemon app uses the standard [OAuth 2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md). To simplify the process of acquiring the token, the sample we use in this article uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 
 ## Prerequisites
@@ -138,22 +138,22 @@ To use your app registration in the web API sample:
 
 If your daemon app and wep API successfully run, you should see something similar to the following JSON array in your console window
 
-```json
-        {
-        id: 1,
-        owner: '3e8....-db63-43a2-a767-5d7db...',
-        description: 'Pick up grocery'
-        },
-        {
-        id: 2,
-        owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
-        description: 'Finish invoice report'
-        },
-        {
-        id: 3,
-        owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
-        description: 'Water plants'
-        }
+    ```json
+{
+id: 1,
+owner: '3e8....-db63-43a2-a767-5d7db...',
+description: 'Pick up grocery'
+},
+{
+id: 2,
+owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
+description: 'Finish invoice report'
+},
+{
+id: 3,
+owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
+description: 'Water plants'
+}
 ```
 
 ### How it works
