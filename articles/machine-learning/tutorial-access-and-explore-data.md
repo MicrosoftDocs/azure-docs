@@ -219,5 +219,5 @@ Part 4 of this tutorial describes how to delete the resources
 * Part 2: run training pipeline with feature store
 * Understand concepts: feature store concepts, feature transformation concepts
 * Understand identity and access control for feature store
-* View feature store trouble shooting guide
+* View feature store troubleshooting guide
 * Reference: YAML reference, feature store SDK
