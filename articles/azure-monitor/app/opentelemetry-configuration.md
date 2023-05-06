@@ -389,7 +389,7 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 ## OpenTelemetry configurations
 
-The following OpenTelemetry configurations can be accessed through environment variables.
+The following OpenTelemetry configurations can be accessed through environment variables while using the Azure Monitor OpenTelemetry Distros.
 
 ### [.NET](#tab/net)
 
