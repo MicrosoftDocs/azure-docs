@@ -69,7 +69,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
     ```console
     openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
     ```
-After you complete these steps, you should have a *.cer* format file and the *.key* format file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* file is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
+After you complete these steps, you should have a *.cer* file and the *.key* file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* file is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 
 
