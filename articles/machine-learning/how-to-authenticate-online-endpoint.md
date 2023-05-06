@@ -48,7 +48,7 @@ ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESO
 __Tokens__ will be returned in the `accessToken` field:
 
 ```azurecli
-ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query accessToken)
+ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
 ```
 
 Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 
