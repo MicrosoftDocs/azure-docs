@@ -13,8 +13,8 @@ In addition to the default scrape targets that Azure Monitor Prometheus agent sc
 
 The three configmaps that can be used for custom target scraping are -
 - ama-metrics-prometheus-config - When a configmap with this name is created, scrape jobs defined in it are run from the Azure monitor metrics replica pod running in the cluster.
-- ama-metrics-prometheus-config-node - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** DaemonSet pod running in the cluster. For more information, see [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-DaemonSet).
-- ama-metrics-prometheus-config-node-windows - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** DaemonSet. For more information, see [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-DaemonSet).
+- ama-metrics-prometheus-config-node - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** DaemonSet pod running in the cluster. For more information, see [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
+- ama-metrics-prometheus-config-node-windows - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** DaemonSet. For more information, see [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
 
 ## Create Prometheus configuration file
 

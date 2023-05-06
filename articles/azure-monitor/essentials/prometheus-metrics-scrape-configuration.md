@@ -158,7 +158,7 @@ scrape_configs:
 
 Any other unsupported sections must be removed from the config before they're applied as a configmap. Otherwise, the custom configuration fails validation and isn't applied.
 
-See the [Apply config file](prometheus-metrics-scrape-validate.md#apply-config-file) section to create a configmap from the Prometheus config.
+See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-file-as-configmap) section to create a configmap from the Prometheus config.
 
 > [!NOTE]
 > When custom scrape configuration fails to apply because of validation errors, default scrape configuration continues to be used.
@@ -359,7 +359,7 @@ scrape_configs:
       regex: __meta_kubernetes_pod_label_(.+)
 ```
 
-See the [Apply config file](prometheus-metrics-scrape-validate.md#apply-config-file) section to create a configmap from the Prometheus config.
+See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-file-as-configmap) section to create a configmap from the Prometheus config.
 
 ## Next steps
 

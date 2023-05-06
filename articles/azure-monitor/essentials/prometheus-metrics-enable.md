@@ -476,8 +476,8 @@ When you create a new Azure Monitor workspace, the following additional resource
 
 | Resource Name | Resource Type | Resource Group | Region/Location | Description |
     |:---|:---|:---|:---|:---|
-    | `<azuremonitor-workspace-name>` | **System Data Collection Rule** | MA_<azuremonitor-workspace-name>_<azuremonitor-workspace-region>_managed | Same region as Azure Monitor Workspace | This is **system** data collection rule that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
-    | `<azuremonitor-workspace-name>` | **System Data Collection endpoint** | MA_<azuremonitor-workspace-name>_<azuremonitor-workspace-region>_managed | Same region as Azure Monitor Workspace | This is **system** data collection endpoint that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
+    | `<azuremonitor-workspace-name>` | **System Data Collection Rule** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same region as Azure Monitor Workspace | This is **system** data collection rule that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
+    | `<azuremonitor-workspace-name>` | **System Data Collection endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same region as Azure Monitor Workspace | This is **system** data collection endpoint that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
     
 
 ## HTTP Proxy

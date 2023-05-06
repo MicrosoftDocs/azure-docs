@@ -94,7 +94,7 @@ When you delete an Azure Monitor workspace, unlike with a [Log Analytics workspa
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
 ### [CLI](#tab/cli)
-To delete an AzureMonitor workspace use [az resource delete](https://learn.microsoft.com/cli/azure/resource#az-resource-delete)
+To delete an AzureMonitor workspace use `az resource delete`
 
 For example:
 ```azurecli
