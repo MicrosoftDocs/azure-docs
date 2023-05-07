@@ -3,7 +3,7 @@ title: Provision Azure NetApp Files volumes on Azure Kubernetes Service
 description: Learn how to provision Azure NetApp Files volumes on an Azure Kubernetes Service cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/18/2023
+ms.date: 05/07/2023
 ---
 
 # Provision Azure NetApp Files volumes on Azure Kubernetes Service
@@ -65,6 +65,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
     > [!NOTE]
     > This subnet must be in the same virtual network as your AKS cluster.
+    > Ensure that the `address-prefixes` are set correctly and without any conflicts
 
     ```azurecli-interactive
     RESOURCE_GROUP=myResourceGroup
@@ -76,7 +77,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
         --vnet-name $VNET_NAME \
         --name $SUBNET_NAME \
         --delegations "Microsoft.NetApp/volumes" \
-        --address-prefixes 10.0.0.0/28
+        --address-prefixes 10.225.0.0/24
     ```
 
    Volumes can either be provisioned statically or dynamically. Both options are covered further in the next sections.
@@ -278,12 +279,6 @@ This section walks you through the installation of Astra Trident using the opera
     kubectl create ns trident
     ```
 
-   The output of the command resembles the following example:
-
-    ```output
-    namespace/trident created
-    ```
-
 2. Run the [kubectl apply][kubectl-apply] command to deploy the Trident operator using the bundle file:
 
  - For AKS cluster version less than 1.25, run following command:
@@ -386,6 +381,11 @@ This section walks you through the installation of Astra Trident using the opera
     ```output
     secret/backend-tbc-anf-secret created
     tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
+    ```
+    
+ 3. To confirm backend was set with correct credentials and premissions successfully, run the following [kubectl describe][kubectl-describe] command: 
+    ```bash
+    kubectl describe tridentbackendconfig.trident.netapp.io/backend-tbc-anf -n trident
     ```
 
 ### Create a StorageClass
