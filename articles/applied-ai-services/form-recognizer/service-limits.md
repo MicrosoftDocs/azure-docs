@@ -10,7 +10,6 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/03/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Form Recognizer service quotas and limits
