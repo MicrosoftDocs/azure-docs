@@ -138,7 +138,7 @@ To use your app registration in the web API sample:
 
 If your daemon app and wep API successfully run, you should see something similar to the following JSON array in your console window
 
-    ```json
+```json
 {
 id: 1,
 owner: '3e8....-db63-43a2-a767-5d7db...',
