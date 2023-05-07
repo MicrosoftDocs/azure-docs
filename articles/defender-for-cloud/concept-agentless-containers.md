@@ -113,25 +113,15 @@ To onboard multiple subscriptions at once, you can use this [script](https://git
 If you don't see results from your clusters, check the following:
 
 - Do you have [stopped clusters](#what-do-i-do-if-i-have-stopped-clusters)?
-- Are your clusters [Read only (locked)](#what-do-i-do-if-i-have-read-only-clusters-locked)?
 - Are your [resource groups, subscriptions, or clusters locked](#what-do-i-do-if-i-have-locked-resource-groups-subscriptions-or-clusters)?
 
 ### What do I do if I have stopped clusters?
 
 We suggest that you rerun the cluster to solve this issue.
 
-### What do I do if I have Read only clusters (locked)?
-
-We suggest that you do one of the following:
-
-- Remove the lock.
-- Perform the bind operation manually by doing an API request.
-
-Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
-
 ### What do I do if I have locked resource groups, subscriptions, or clusters?
 
-We suggest that you unlock the resource, make the relevant requests manually, and then re-lock the resource by doing the following:
+We suggest that you unlock the locked resource group / subscription / cluster, make the relevant requests manually, and then re-lock the resource group / subscription / cluster by doing the following:
 
 1. Enable the feature flag manually via CLI:
 
@@ -148,7 +138,12 @@ We suggest that you unlock the resource, make the relevant requests manually, an
     az extension add --name aks-preview
     az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator"
     ```
-This solution is relevant for locked subscriptions and locked clusters as well.
+For locked clusters, you can also do one of the following:
+
+- Remove the lock.
+- Perform the bind operation manually by doing an API request.
+
+Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
 ## Next steps
 
