@@ -100,10 +100,10 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `<collection_name>` | object | Logical grouping of production inference data to collect. There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user <br><br> **Note**: The `collection_name`(s) should correspond to the name(s) of the `Collector` object used in the deployment `score.py` to collect the production inference data.For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
+| `<collection_name>` | object | Logical grouping of production inference data to collect. There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user. <br><br> **Note**: Each `collection_name` should correspond to the name of the `Collector` object used in the deployment `score.py` to collect the production inference data. For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
 | `<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `false` |
 | `<collection_name>.data.name` | string | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
-| `<collection_name>.data.path` | string | The full AzureML datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
+| `<collection_name>.data.path` | string | The full Azure Machine Learning datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
 | `<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
 
 ## Remarks
