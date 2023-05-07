@@ -28,6 +28,7 @@ The list of templates are as follows:
 
 - [Onboard pre-hire employee](lifecycle-workflow-templates.md#onboard-pre-hire-employee)
 - [Onboard new hire employee](lifecycle-workflow-templates.md#onboard-new-hire-employee)
+- [Post-Onboarding of an employee](lifecycle-workflow-templates.md#post-onboarding-of-an-employee)
 - [Real-time employee termination](lifecycle-workflow-templates.md#real-time-employee-termination)  
 - [Pre-Offboarding of an employee](lifecycle-workflow-templates.md#pre-offboarding-of-an-employee)
 - [Offboard an employee](lifecycle-workflow-templates.md#offboard-an-employee)
@@ -72,11 +73,31 @@ The default specific parameters for the **Onboard new hire employee** template a
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
 |Days from event     | 0        | ❌        |
 |Event timing     | On        |  ❌       |
-|Event User attribute     | EmployeeHireDate        |   ❌      |
+|Event User attribute     | EmployeeHireDate, createdDateTime        |   ✔️      |
 |Scope type     | Rule based        | ❌        |
 |Execution conditions     | (department eq 'Marketing')        |  ✔️       |
 |Tasks     | **Add User To Group**, **Enable User Account**, **Send Welcome Email**      |  ✔️       |
 
+
+### Post-Onboarding of an employee
+
+The **Post-Onboarding of an employee** template is designed to configure tasks that will be completed after an employee's start, or creation, date.
+
+:::image type="content" source="media/lifecycle-workflow-templates/onboard-post-employee-template.png" alt-text="Screenshot of a Lifecycle Workflow post-onboard new hire template.":::
+
+The default specific parameters for the **Post-Onboarding of an employee** template are as follows:
+
+
+|parameter  |description  |Customizable  |
+|---------|---------|---------|
+|Category     |  Joiner       |  ❌       |
+|Trigger Type     | Trigger and Scope Based        |  ❌       |
+|Days from event     | 7       | ✔️        |
+|Event timing     | After        |  ❌       |
+|Event User attribute     | EmployeeHireDate, createdDateTime        |   ✔️      |
+|Scope type     | Rule based        | ❌        |
+|Execution conditions     | (department eq 'Marketing')        |  ✔️       |
+|Tasks     | **Add User To Group**, **Add user to selected teams**    |  ✔️       |
 
 
 ### Real-time employee termination
