@@ -39,7 +39,7 @@ items:
       href: quickstart-analyze-logs-and-metrics-standard-consumption.md
 - name: Tutorials
   items:
-  - name: Run microservice apps-Pet Clinic
+  - name: "Run microservice apps (Pet Clinic)"
     items:
     - name: Introduction to PetClinic sample
       href: quickstart-sample-app-introduction.md
@@ -55,7 +55,7 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
-  - name: Run polyglot apps on Enterprise tier-ACME Fitness Store
+  - name: "Run polyglot apps on Enterprise tier (ACME Fitness Store)"
     items:
     - name: Introduction to Fitness Store sample
       href: quickstart-sample-app-acme-fitness-store-introduction.md
