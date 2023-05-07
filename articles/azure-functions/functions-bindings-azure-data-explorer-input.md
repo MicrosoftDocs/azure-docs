@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 05/04/2023
 ms.author: shsagir
 ms.reviewer: ramacg
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions-data-explorer
 ---
 
 # Azure Data Explorer input bindings for Azure Functions (preview)
@@ -597,7 +597,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-python"  
 
 ## Configuration
 

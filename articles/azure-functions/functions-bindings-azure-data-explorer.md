@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 05/04/2023
 ms.author: shsagir
 ms.reviewer: ramacg
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions-data-explorer
 ---
 
 # Azure Data Explorer bindings for Azure Functions overview (preview)
@@ -56,7 +56,7 @@ You can install this version of the extension in your function app by registerin
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript"
 
 ## Install bundle
 
