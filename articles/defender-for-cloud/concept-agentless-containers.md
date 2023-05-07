@@ -114,7 +114,7 @@ If you don't see results from your clusters, check the following:
 
 - Do you have [stopped clusters](#what-do-i-do-if-i-have-stopped-clusters)?
 - Are your clusters [Read only (locked)](#what-do-i-do-if-i-have-read-only-clusters-locked)?
-- Are your [resource groups, subscriptions, or clusters locked](#what-do-i-do-if-i-have-locked-resource-groups)?
+- Are your [resource groups, subscriptions, or clusters locked](#what-do-i-do-if-i-have-locked-resource-groups-subscriptions-or-clusters)?
 
 ### What do I do if I have stopped clusters?
 
@@ -129,7 +129,7 @@ We suggest that you do one of the following:
 
 Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
-### What do I do if I have locked resource groups?
+### What do I do if I have locked resource groups, subscriptions, or clusters?
 
 We suggest that you unlock the resource, make the relevant requests manually, and then re-lock the resource by doing the following:
 
