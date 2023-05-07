@@ -39,15 +39,25 @@ We recommend that you use an existing Azure Active Directory tenant for Azure Co
 
 To add the Project Synergy application:
 
+1. Check whether the Azure Active Directory (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+    1. Open PowerShell.
+    1. Run the following command and check whether `AzureAD` appears in the output.
+       ```azurepowershell
+       Get-Module -ListAvailable
+       ```
+    1. If `AzureAD` doesn't appear in the output, install the module:
+        1. Close your current PowerShell window.
+        1. Open PowerShell as an admin.
+        1. Run the following command.
+            ```azurepowershell
+            Install-Module AzureAD
+            ```
+        1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
-1. If you don't have the Azure Active Directory module installed, install it:
-    ```azurepowershell
-    Install-Module AzureAD
-    ```
 1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
     ```azurepowershell
     Connect-AzureAD -TenantId "<AADTenantID>"
@@ -146,15 +156,25 @@ Azure Communications Gateway contains services that need to access the Operator 
 
 Do the following steps in the tenant that contains your Project Synergy application.
 
+1. Check whether the Azure Active Directory (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+    1. Open PowerShell.
+    1. Run the following command and check whether `AzureAD` appears in the output.
+       ```azurepowershell
+       Get-Module -ListAvailable
+       ```
+    1. If `AzureAD` doesn't appear in the output, install the module:
+        1. Close your current PowerShell window.
+        1. Open PowerShell as an admin.
+        1. Run the following command.
+            ```azurepowershell
+            Install-Module AzureAD
+            ```
+        1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
-1. If you didn't install the Azure Active Directory module as part of [1. Add the Project Synergy application to your Azure tenancy](#1-add-the-project-synergy-application-to-your-azure-tenancy), install it:
-    ```azurepowershell
-    Install-Module AzureAD
-    ```
 1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
     ```azurepowershell
     Connect-AzureAD -TenantId "<AADTenantID>"
