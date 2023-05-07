@@ -49,7 +49,7 @@ This feature uses trusted access. Learn more about [AKS trusted access prerequis
 
 ## Enable extension for Agentless Container Posture for CSPM
 
-Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers resgistries across your organization's SDLC and runtime.
+Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's SDLC and runtime.
 
 **To enable the extensions for Agentless Containers Posture in your container environments:**
 
@@ -131,7 +131,7 @@ We suggest that you unlock the locked resource group / subscription / cluster, m
     
     Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
     
-1. Preform the bind operation in the CLI:
+1. Perform the bind operation in the CLI:
 
     ``` CLI
     az account set -s <SubscriptionId>
