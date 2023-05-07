@@ -68,7 +68,7 @@ items:
             - name: Daemon, service
               items:
                 - name: Node.js - Call an API
-                  href: how-to-daemon-nodes-sample-sign-in-call-api.md
+                  href: how-to-daemon-node-sample-call-api.md
                   displayName: client credentials grant
             - name: Desktop app
               items:
@@ -84,8 +84,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-app-vanillajs-prepare-tenant.md
                         - name: Prepare app
@@ -98,8 +96,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
@@ -138,8 +134,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/tutorial-v2-asp-webapp.md
                         - name: Prepare tenant
                           href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
@@ -165,16 +159,20 @@ items:
                   href: ../../develop/tutorial-v2-nodejs-console.md
                 - name: .NET​ - Sign in users
                   href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
-            - name: Desktop app
+            - name: Daemon, service
               items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
-                - name: Electron​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-desktop.md
-            - name: Mobile app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
+                - name: Node.js
+                  items:
+                    - name: Call API
+                      items:
+                        - name: Overview
+                          href: how-to-daemon-node-call-api-overview.md
+                        - name: Prepare tenant
+                          href: how-to-daemon-node-call-api-prepare-tenant.md
+                        - name: Prepare app
+                          href: how-to-daemon-node-call-api-prepare-app.md 
+                        - name: Acquire access token & call API
+                          href: how-to-daemon-node-call-api-call-api.md 
     - name: Authenticate and authorize
       expanded: true
       items:
