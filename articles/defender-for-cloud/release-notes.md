@@ -31,7 +31,7 @@ The changes are listed as follows:
 | Description | Old Name |New Name  |
 |---|---|---|
 | JIT rule names (allow and deny) in NSG (Network Security Group) | SecurityCenter-JITRule | MicrosoftDefenderForCloud-JITRule
-| JIT rule descriptions in NSG | ASC JIT Network Access rule for policy | MDC JIT Network Access rule |
+| JIT rule descriptions in NSG | ASC JIT Network Access rule | MDC JIT Network Access rule |
 |JIT firewall rule collection names | ASC-JIT | MDC-JIT |
 |JIT firewall rules names | ASC-JIT | MDC-JIT
 
