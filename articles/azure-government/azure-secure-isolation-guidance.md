@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 05/04/2023
+ms.date: 05/06/2023
 ---
 
 # Azure guidance for secure isolation
@@ -112,12 +112,15 @@ Proper protection and management of cryptographic keys is essential for data sec
 
 The Key Vault service provides an abstraction over the underlying HSMs. It provides a REST API to enable service use from cloud applications and authentication through [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to allow you to centralize and customize authentication, disaster recovery, high availability, and elasticity. Key Vault supports [cryptographic keys](../key-vault/keys/about-keys.md) of various types, sizes, and curves, including RSA and Elliptic Curve keys. With managed HSMs, support is also available for AES symmetric keys.
 
-With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key (BYOK)* scenarios, as shown in Figure 3. **Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM. BYOK functionality is available with both [key vaults](../key-vault/keys/hsm-protected-keys.md) and [managed HSMs](../key-vault/managed-hsm/hsm-protected-keys-byok.md). Methods for transferring HSM-protected keys to Key Vault vary depending on the underlying HSM, as explained in online documentation.
+With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key (BYOK)* scenarios, as shown in Figure 3.
 
 :::image type="content" source="./media/secure-isolation-fig3.png" alt-text="Azure Key Vault support for bring your own key (BYOK)":::
 **Figure 3.**  Azure Key Vault support for bring your own key (BYOK)
 
-**Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
+**Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM. BYOK functionality is available with both [key vaults](../key-vault/keys/hsm-protected-keys.md) and [managed HSMs](../key-vault/managed-hsm/hsm-protected-keys-byok.md). Methods for transferring HSM-protected keys to Key Vault vary depending on the underlying HSM, as explained in online documentation.
+
+> [!NOTE]
+> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents are precluded from accessing, using or extracting any data stored in the service, including cryptographic keys. For more information, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
 
 Key Vault provides a robust solution for encryption key lifecycle management. Upon creation, every key vault or managed HSM is automatically associated with the Azure AD tenant that owns the subscription. Anyone trying to manage or retrieve content from a key vault or managed HSM must be properly authenticated and authorized:
 
@@ -416,6 +419,9 @@ In cases where an Azure service is composed of Microsoft-controlled code and cus
 ### Physical isolation
 In addition to robust logical compute isolation available by design to all Azure tenants, if you desire physical compute isolation you can use Azure Dedicated Host or Isolated Virtual Machines, which are both dedicated to a single customer.
 
+> [!NOTE]
+> Physical tenant isolation increases deployment cost and may not be required in most scenarios given the strong logical isolation assurances provided by Azure.
+
 #### Azure Dedicated Host
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) provides physical servers that can host one or more Azure VMs and are dedicated to one Azure subscription. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place [Windows](../virtual-machines/windows/overview.md), [Linux](../virtual-machines/linux/overview.md), and [SQL Server on Azure](/azure/azure-sql/virtual-machines/) VMs directly into provisioned hosts using whatever configuration best meets your needs. Dedicated Host provides hardware isolation at the physical server level, enabling you to place your Azure VMs on an isolated and dedicated physical server that runs only your organization’s workloads to meet corporate compliance requirements.
 
@@ -424,10 +430,7 @@ In addition to robust logical compute isolation available by design to all Azure
 
 You can deploy both Windows and Linux virtual machines into dedicated hosts by selecting the server and CPU type, number of cores, and extra features. Dedicated Host enables control over platform maintenance events by allowing you to opt in to a maintenance window to reduce potential impact to your provisioned services. Most maintenance events have little to no impact on your VMs; however, if you're in a highly regulated industry or with a sensitive workload, you may want to have control over any potential maintenance impact.
 
-> [!NOTE]
-> Microsoft provides detailed customer guidance on **[Windows](../virtual-machines/windows/quick-create-portal.md)** and **[Linux](../virtual-machines/linux/quick-create-portal.md)** Azure Virtual Machine provisioning using the Azure portal, Azure PowerShell, and Azure CLI.
-
-Table 5 summarizes the available security guidance for your virtual machines provisioned in Azure.
+Microsoft provides detailed customer guidance on **[Windows](../virtual-machines/windows/quick-create-portal.md)** and **[Linux](../virtual-machines/linux/quick-create-portal.md)** Azure Virtual Machine provisioning using the Azure portal, Azure PowerShell, and Azure CLI. Table 5 summarizes the available security guidance for your virtual machines provisioned in Azure.
 
 **Table 5.**  Security guidance for Azure virtual machines
 
@@ -854,17 +857,23 @@ Listed below are key risks that are unique to shared cloud environments that may
 ### Exploitation of vulnerabilities in virtualization technologies
 Compared to traditional on-premises hosted systems, Azure provides a greatly **reduced attack surface** by using a locked-down Windows Server core for the Host OS layered over the Hypervisor. Moreover, by default, guest PaaS VMs don't have any user accounts to accept incoming remote connections and the default Windows administrator account is disabled. Your software in PaaS VMs is restricted by default to running under a low-privilege account, which helps protect your service from attacks by its own end users. You can modify these permissions, and you can also choose to configure your VMs to allow remote administrative access.
 
-PaaS VMs offer more advanced **protection against persistent malware** infections than traditional physical server solutions, which if compromised by an attacker can be difficult to clean, even after the vulnerability is corrected. The attacker may have left behind modifications to the system that allow re-entry, and it's a challenge to find all such changes. In the extreme case, the system must be reimaged from scratch with all software reinstalled, sometimes resulting in the loss of application data. With PaaS VMs, reimaging is a routine part of operations, and it can help clean out intrusions that haven't even been detected. This approach makes it more difficult for a compromise to persist.
+PaaS VMs offer more advanced **protection against persistent malware** infections than traditional physical server solutions, which if compromised by an attacker can be difficult to clean, even after the vulnerability is corrected. The attacker may have left behind modifications to the system that allow re-entry, and it's a challenge to find all such changes. In the extreme case, the system must be re-imaged from scratch with all software reinstalled, sometimes resulting in the loss of application data. With PaaS VMs, re-imaging is a routine part of operations, and it can help clean out intrusions that haven't even been detected. This approach makes it more difficult for a compromise to persist.
 
+#### Side channel attacks
 Microsoft has been at the forefront of mitigating **speculative execution side channel attacks** that exploit hardware vulnerabilities in modern processors that use hyper-threading. In many ways, these issues are similar to the Spectre (variant 2) side channel attack, which was disclosed in 2018. Multiple new speculative execution side channel issues were disclosed by both Intel and AMD in 2022. To address these vulnerabilities, Microsoft has developed and optimized Hyper-V **[HyperClear](/virtualization/community/team-blog/2018/20180814-hyper-v-hyperclear-mitigation-for-l1-terminal-fault)**, a comprehensive and high performing side channel vulnerability mitigation architecture. HyperClear relies on three main components to ensure strong inter-VM isolation:
 
 - **Core scheduler** to avoid sharing of a CPU core’s private buffers and other resources.
 - **Virtual-processor address space isolation** to avoid speculative access to another virtual machine’s memory or another virtual CPU core’s private state.
 - **Sensitive data scrubbing** to avoid leaving private data anywhere in hypervisor memory other than within a virtual processor’s private address space so that this data can't be speculatively accessed in the future.
 
-These protections have been deployed to Azure and are available in Windows Server 2016 and later supported releases. The Hyper-V HyperClear architecture has proven to be a readily extensible design that helps provide strong isolation boundaries against a variety of speculative execution side channel attacks with negligible impact on performance.
+These protections have been deployed to Azure and are available in Windows Server 2016 and later supported releases.
 
-When VMs belonging to different customers are running on the same physical server, it's the Hypervisor’s job to ensure that they can't learn anything important about what the other customer’s VMs are doing. Azure helps block unauthorized direct communication by design; however, there are subtle effects where one customer might be able to characterize the work being done by another customer. The most important of these effects are timing effects when different VMs are competing for the same resources. By carefully comparing operations counts on CPUs with elapsed time, a VM can learn something about what other VMs on the same server are doing. Known as side channel attacks, these exploits have received plenty of attention in the academic press where researchers have been seeking to learn much more specific information about what is going on in a peer VM. Of particular interest are efforts to learn the cryptographic keys of a peer VM by measuring the timing of certain memory accesses and inferring which cache lines the victim’s VM is reading and updating. Under controlled conditions with VMs using hyper-threading, successful attacks have been demonstrated against commercially available implementations of cryptographic algorithms. In addition to the previously mentioned Hyper-V HyperClear mitigation architecture that's in use by Azure, there are several extra mitigations in Azure that reduce the risk of such an attack:
+> [!NOTE]
+> The Hyper-V HyperClear architecture has proven to be a readily extensible design that helps provide strong isolation boundaries against a variety of speculative execution side channel attacks with negligible impact on performance.
+
+When VMs belonging to different customers are running on the same physical server, it's the Hypervisor’s job to ensure that they can't learn anything important about what the other customer’s VMs are doing. Azure helps block unauthorized direct communication by design; however, there are subtle effects where one customer might be able to characterize the work being done by another customer. The most important of these effects are timing effects when different VMs are competing for the same resources. By carefully comparing operations counts on CPUs with elapsed time, a VM can learn something about what other VMs on the same server are doing. These exploits have received plenty of attention in the academic press where researchers have been seeking to learn more specific information about what's going on in a peer VM.
+
+Of particular interest are efforts to learn the **cryptographic keys of a peer VM** by measuring the timing of certain memory accesses and inferring which cache lines the victim’s VM is reading and updating. Under controlled conditions with VMs using hyper-threading, successful attacks have been demonstrated against commercially available implementations of cryptographic algorithms. In addition to the previously mentioned Hyper-V HyperClear mitigation architecture that's in use by Azure, there are several extra mitigations in Azure that reduce the risk of such an attack:
 
 - The standard Azure cryptographic libraries have been designed to resist such attacks by not having cache access patterns depend on the cryptographic keys being used.
 - Azure uses an advanced VM host placement algorithm that is highly sophisticated and nearly impossible to predict, which helps reduce the chances of adversary-controlled VM being placed on the same host as the target VM.
