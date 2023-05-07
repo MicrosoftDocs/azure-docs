@@ -1,4 +1,3 @@
-
 ---
 title: Materialized views (preview)
 titleSuffix: Azure Cosmos DB NoSQL API
