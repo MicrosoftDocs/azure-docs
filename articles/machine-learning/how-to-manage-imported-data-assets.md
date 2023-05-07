@@ -1,7 +1,7 @@
 ---
 title: Manage imported data assets(preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to manage imported data assets aka edit auto-deletion.
+description: Learn how to manage imported data assets also known as edit auto-deletion.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -19,7 +19,7 @@ ms.custom: data4ml
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v2](how-to-import-data-assets.md)
 
-In this article, learn how to manage imported data assets from life-cycle point of view. We learn how to modify or update auto-delete settings on the data assets that are imported on to a managed datastore (`workspacemanagedstore`) that is managed by Microsoft on behalf of the customer. 
+In this article, learn how to manage imported data assets from life-cycle point of view. We learn how to modify or update auto-delete settings on the data assets that are imported on to a managed datastore (`workspacemanagedstore`) that Microsoft manages for the customer.
 
 > [!NOTE] 
 > Auto-delete settings capability or lifecycle management is offered currently only on the imported data assets in managed datastore aka `workspacemanagedstore`.
