@@ -49,8 +49,8 @@ Message: The request content contains duplicate JSON property names creating amb
 ```
 #### Solution
 
-The issue is the managed identity ARM id. By default, the managed identity SDK/UI returns an arm id using `resourcegroups` in the URI.
-To fix it, replace `resourcegroups` with `resourceGroups` in the managed identity ARM id.
+The issue is the managed identity ARM ID. By default, the managed identity SDK/UI returns an ARM ID using `resourcegroups` in the URI.
+To fix it, replace `resourcegroups` with `resourceGroups` in the managed identity ARM ID.
 ```yaml
 $schema: http://azureml/sdk-2-0/Featurestore.json
 
@@ -65,7 +65,7 @@ materialization_identity:
 
 ### Symptom: Invalid Schema in Feature Set Specification
 
-You develop a feature set in an AzureML Spark notebook using  the following code snippet. If there are invalid schema in the feature set specification YAML, you will see various errors.
+You develop a feature set in an Azure Machine Learning Spark notebook using the following code snippet. If there is an invalid schema in the feature set specification YAML, you'll see various errors as described in the following sections.
 
 ```python
 from featurestore import FeaturesetSpec
@@ -77,12 +77,13 @@ accounts_df=accounts_featureset_spec.to_spark_dataframe()
 display(accounts_df.head(5))
 ```
 
+
 ### Symptom: Error - Schema check errors, timestamp column
 
 Error message: `azure.ai.ml.exceptions.ValidationException: Schema check errors, timestamp column: timestamp1 is not in output dataframe`
 
 #### Solution
-As shown in the error message, the timestamp column, `timestamp1`, does not exist in the source data. Please check the `source` definition in the feature set specification, make sure the `source.timestamp_column` matches what in the source data. 
+As shown in the error message, the timestamp column, `timestamp1`, doesn't exist in the source data. Check the `source` definition in the feature set specification, make sure the `source.timestamp_column` matches what in the source data. 
 
 In the following yaml definition, the `source.timestamp_column.name` is wrong.
 
@@ -101,7 +102,7 @@ source:
 Error message: `Exception: Schema check errors, no index column: accountID1 in output dataframe`
 
 #### Solution
-As shown in the error message, the index column, `accountID1`, does not exist in the source data. Please check the `index_columns.name` definition, to make sure it matches what in the source data.
+As shown in the error message, the index column `accountID1` doesn't exist in the source data. Check the `index_columns.name` definition to make sure it matches what in the source data.
 
 In the following yaml definition, the `index_columns.name` is wrong.
 ```yaml
@@ -112,14 +113,14 @@ index_columns:
     type: string
 ```
 
-#### Symptom: Error - AttributeError: module has no attribute
+### Symptom: Error - AttributeError: module has no attribute
 
 Error message: `AttributeError: module '7780d27aa8364270b6b61fed2a43b749.transaction_transform' has no attribute 'TransactionFeatureTransformer1'`
 
-##### Solution
-As shown in the error message, the `transformer_class`, `TransactionFeatureTransformer1`, defined in the feature set specification does not match what is in the source code.
+#### Solution
+As shown in the error message the `transformer_class`, `TransactionFeatureTransformer1`,  defined in the feature set specification doesn't match what is in the source code.
 
-In the following yaml definition, please check the source code in the path of `feature_transformation_code.path`, make sure the `feature_transformation_code.transformer_class` matches what defined in the source code.
+In the following YAML definition, check the source code in the path of `feature_transformation_code.path` and make sure the `feature_transformation_code.transformer_class` matches what defined in the source code.
 ```yaml
 $schema: http://azureml/sdk-2-0/FeatureSetSpec.json
 
@@ -128,11 +129,12 @@ feature_transformation_code:
   transformer_class: transaction_transform.TransactionFeatureTransformer1 
 ```
 
-##### Symptom
+### Symptom: ValidationException: Schema check errors with an invalid data type
+
 Error message: `ValidationException: Schema check errors, feature column: transaction_7d_count has data type: ColumnType.long, expected: ColumnType.string`
 
-###### Solution
-As shown in the error message, the feature column, `transaction_7d_count`, has invalid data type. What defined in the specification yaml is `string`, however, the data has type of `long`.
+#### Solution
+As shown in the error message, the feature column, `transaction_7d_count`, has invalid data type. This feature is defined in the specification YAML as `string`, however, the data has type of `long`.
 
 In the following yaml definition, the `features.transaction_7d_count.type` needs to change to `long`.
 ```yaml
@@ -144,9 +146,9 @@ features:
     description: 7-day rolling transaction count
 ```
 
-#### Symptom: Unable to See Data when get_offline_features() is Run in Notebook
+### Symptom: Unable to See Data when get_offline_features() is Run in Notebook
 
-You may try the following code snippet in an AzureML Spark notebook, but do not see data:
+You may try the following code snippet in an Azure Machine Learning Spark notebook, but don't see data:
 
 ```python
 observation_data_path= "abfs://container@storage.blob.core.windows.net/observation_data/train/*.parquet"
@@ -162,24 +164,27 @@ training_df = Featurestore.get_offline_features(features, observation_data_df, o
 display(training_df.head(5))
 ```
 
-##### Solution
+#### Solution
 
-Please check the source_delay and temporal_join_lookback for the feature set, and make sure `temporal_join_lookback > source.source_delay`. In addition, please refer to the [todo: feature-retrieval-concept-todo] for detail.
+Check the `source_delay` and `temporal_join_lookback` for the feature set, and make sure `temporal_join_lookback` > `source.source_delay`. For more information, see  [Feature Retrieval](concept-feature-retrieval.md).
 
-### Issues with Materialization and Feature Retrieval Job
+## Issues with materialization and feature retrieval jobs
 
-#### Symptom: Wrong Offline Store Configuration
+The following sections contain information on errors you might encounter during materialization and feature retrieval jobs.
 
-In materialization job, you may hit below errors.
+### Symptom: Wrong Offline Store Configuration
+
+In a materialization job, you may encounter the below errors.
+
 Error message: 
 `Caused by: Status code: -1 error code: null error message: InvalidAbfsRestOperationExceptionjava.net.UnknownHostException: adlgen23.dfs.core.windows.net`
 
 Error message: 
 `java.util.concurrent.ExecutionException: Operation failed: "The specifed resource name contains invalid characters.", 400, HEAD, https://{storage}.dfs.core.windows.net/{container-name}/{fs-id}/transactions/1/_delta_log?upn=false&action=getStatus&timeout=90`
 
-##### Solution
+#### Solution
 
-The root cause is a wrong offline store target is configured for your feature store. Please check `offline_store.target` and make sure it is a valid Azure lake gen2 storage URI.
+The root cause is an incorrect offline store target is configured for your feature store. Check `offline_store.target` and make sure it's a valid Azure Data Lake Storage Gen2 URI.
 ```yaml
 $schema: http://azureml/sdk-2-0/Featurestore.json
 
@@ -191,11 +196,11 @@ offline_store:
 
 ```
 
-#### Issues with Missing Permission
+### Issues with Missing Permission
 
-You may encounter different authorization errors in materialization as well as feature retrieval job.
+You may encounter different authorization errors in a materialization and feature retrieval job.
 
-##### Symptom: Missing Permission to Access AzureML Resource
+#### Symptom: Missing permission to access Azure Machine Learning resource
 
 ```python
 Traceback (most recent call last):
@@ -205,18 +210,18 @@ azure.core.exceptions.HttpResponseError: (AuthorizationFailed) The client 'XXXX'
 Code: AuthorizationFailed
 ```
 
-###### Solution:
+##### Solution:
 
-1. If it happens to the materialization job, assign `AzureML Data Scientist` role to the User Assigned Identity (UAI) attached to your featurestore.
+1. If it happens to the materialization job, assign `AzureML Data Scientist` role to the User Assigned Identity (UAI) attached to your feature store.
 1. If it happens to the feature retrieval job, assign `AzureML Data Scientist` role to the identity used in the `feature_retrieval` component.
-1. If it happens when you run code in an AzureML Spark notebook, it uses your own identity to access AzureML service, assign `AzureML Data Scientist` role to yourself.
+1. If it happens when you run code in an Azure Machine Learning Spark notebook, it uses your own identity to access Azure Machine Learning service. Assign the `AzureML Data Scientist` role to yourself.
 
 `AzureML Data Scientist` is a recommended role. You can create your own custom role with the following actions
 - Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action
 - Microsoft.MachineLearningServices/workspaces/featuresets/read
 - Microsoft.MachineLearningServices/workspaces/read
 
-##### Symptom: Missing Permission to Read from the Storage
+#### Symptom: Missing Permission to Read from the Storage
 
 ```python
 An error occurred while calling o1025.parquet.
@@ -229,17 +234,17 @@ An error occurred while calling o1025.parquet.
 	at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:2124)
 ```
 
-###### Solution:
+##### Solution:
 
 - If it happens to the materialization job, assign `Storage Blob Data Reader` role to the User Assigned Identity (UAI) to the storage container used as offline store.
 - If it happens to the feature retrieval job, assign `Storage Blob Data Reader` role to the identity used in the spark job.
-- If it happens when you run code in an AzureML Spark notebook, it uses your own identity to access AzureML service, assign `Storage Blob Data Reader` role to yourself.
+- If it happens when you run code in an Azure Machine Learning Spark notebook, it uses your own identity to access Azure Machine Learning service, assign `Storage Blob Data Reader` role to yourself.
 
 `Storage Blob Data Reader` is the minimum recommended access requirement. You can also assign roles like more privileges like `Storage Blob Data Contributor` or `Storage Blob Data Owner`.
 
-##### Symptom: Missing Permission to Write Data to Offline Store
+#### Symptom: Missing permission to write data to offline store
 
-This happens to the materialization job.
+This error may occur during a materialization job.
 
 ```yaml
 An error occurred while calling o1162.load.
@@ -253,14 +258,14 @@ An error occurred while calling o1162.load.
 	at com.google.common.cache.LocalCache$S
 ```
 
-###### Solution
+##### Solution
 
-Assign `Storage Blob Data Contributor` role to the User Assigned Identity (UAI) attached to your featurestore.
-`Storage Blob Data Contributor` is the minimum recommended access requirement. You can also assign roles like more privileges like `Storage Blob Data Owner`.
+Assign the `Storage Blob Data Contributor` role to the User Assigned Identity (UAI) attached to your feature store.
+`Storage Blob Data Contributor` is the minimum recommended access requirement. You can also assign roles with more privileges like `Storage Blob Data Owner`.
 
-#### Symptom: Cannot Resolve Feature Retrieval Specification
+#### Symptom: Cannot resolve feature retrieval specification
 
-To use features, you will prepare a feature retrieval spec yaml file. This file is used as an input to the feature retrieval component. You may hit various errors if there are issues in the yaml file.
+To use features, you'll prepare a feature retrieval specification YAML file. This file is used as an input to the feature retrieval component. You may encounter various errors if there are issues in the YAML file.
 
 Invalid feature:
 ```python
@@ -281,9 +286,9 @@ Message: Featureset with name: transactionss and version: 1 not found.
 ```
 
 ##### Solution:
-We recommend to use the utility function to prepare the feature retrieval spec yaml file.
+We recommend using the utility function to prepare the feature retrieval specification YAML file.
 
-Below is a code snippet to generate feature retrieval spec in an AzureML Spark notebook using `generate_feature_retrieval_spec` utility function. 
+This code snippet generates a feature retrieval spec in an Azure Machine Learning Spark notebook using `generate_feature_retrieval_spec` utility function. 
 ```python
 from featurestore import Featurestore, FeaturesetSpec, Featureset
 
@@ -302,11 +307,11 @@ feature_retrieval_spec_path = "./project/fraud_model/FeatureRetrievalSpec.yaml"
 featurestore.generate_feature_retrieval_spec(feature_retrieval_spec_path, features)
 ```
 
-#### Symptom: Missing Feature Retrieval Spec with Batch Inference using Model as Input
+#### Symptom: Missing feature retrieval specification with batch inference using model as input
 
-The batch inference pipeline generally contains two steps: step one is the feature retrieval step to prepare data; step two is the inference step.
+The batch inference pipeline generally contains two steps: step 1 is the feature retrieval step to prepare data; step 2 is the inference step.
 
-When you provide a model as input to the feature retrieval step, it expects the retrival spec yaml file exists under the model artifact folder. If it does not exist, you will see following error in the feature retrieval job.
+When you provide a model as input to the feature retrieval step, it expects the retrieval spec yaml file exists under the model artifact folder. If it doesn't exist, you'll see following error in the feature retrieval job.
 ```python
 ValueError: Failed with visit error: Failed with execution error: error in streaming from input data sources
 	VisitError(ExecutionError(StreamError(NotFound)))
@@ -316,19 +321,20 @@ ValueError: Failed with visit error: Failed with execution error: error in strea
 
 ##### Solution:
 
-In your training job, when upload the model, please use following code to write the feature retrieval spec yaml to the model artifact folder.
+In your training job, when you upload the model, use the following code to write the feature retrieval spec yaml to the model artifact folder.
 
 ```python
 shutil.copy("path_to_feature_retrieval_spec.yaml", args.model_output)
 ```
 
-### Issues with Training Job
+## Issues with training jobs
 
-#### Symptom: No Feature Values in Training Job
 
-If you use the out-of-box feature retrieval component to prepare training data, this component writes the feature retrieval specification yaml file under the output folder, and the feature values (parquet files) under a `data` sub-folder. So in the training step, you should consume data from this `data` sub-folder, and populate the feature retrieval specification yaml to the model output folder.
+### Symptom: No feature values in training job
 
-##### Solution
+If you use the out-of-box feature retrieval component to prepare training data, this component writes the feature retrieval specification yaml file under the output folder, and the feature values (parquet files) under a `data` subfolder. In the training step, you should consume data from this `data` subfolder, and populate the feature retrieval specification YAML to the model output folder.
+
+#### Solution
 
 Assume the retrieval component output folder is passed to the training step as `args.training_data`, following code snippet shows how to read the data and populate the retrieval specification.
 ```python
@@ -346,13 +352,13 @@ with open(pkl_filename, 'wb') as file:
 shutil.copy(os.path.join(args.training_data, "feature_retrieval_spec.yaml"), args.model_output)
 ```
 
-### Where to Find Materialization Job Error and Logs
+## Where to Find Materialization Job Error and Logs
 
-Feature set materialization job and feature retrieval component are implemented as an AzureML spark job. You can follow the instructions to find the error message and logs for troubleshooting.
+Feature set materialization jobs and feature retrieval components are implemented as an Azure Machine Learning Spark job. You can follow the instructions to find the error message and logs for troubleshooting.
 
 1. Navigate to the feature store page: https://ml.azure.com/featureStore/{your-feature-store-name}.
-2. Go to the `feature set` tab and click on the feature set you are working on and navigate to the feature set detail page.
-3. From feature set detail page, click on the `Materialization jobs` tab then click on the failed job to the job details view.
+2. Go to the `feature set` tab and select on the feature set you're working on and navigate to the feature set detail page.
+3. From feature set detail page, select on the `Materialization jobs` tab then select on the failed job to the job details view.
 4. On the job detail view, under `Properties` card, it shows job status and error message.
 5. In addition, you can go to the `Outputs + logs` tab, then find the `stdout` file from `logs\azureml\driver\stdout` 
 
