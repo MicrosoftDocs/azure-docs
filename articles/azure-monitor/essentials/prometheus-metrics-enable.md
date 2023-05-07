@@ -331,11 +331,7 @@ If you're deploying a new AKS cluster using Terraform with managed Prometheus ad
 Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in main.tf only when those values exist. These are optional blocks.
 
 > [!NOTE]
-> Edit the main.tf file appropriately before running the terraform template
-> Add in any existing azure_monitor_workspace_integrations values to the grafana resource before running the template. Else, older values gets deleted and replaced with what is there in the template during deployment
-> Users with 'User Access Administrator' role in the subscription  of the AKS cluster can be able to enable 'Monitoring Data Reader' role directly by deploying the template.
-> Edit the grafanaSku parameter if you're using a nonstandard SKU.
-> Run this template in the Grafana Resource's resource group
+> Edit the main.tf file appropriately before running the terraform template. Add in any existing azure_monitor_workspace_integrations values to the grafana resource before running the template. Else, older values gets deleted and replaced with what is there in the template during deployment. Users with 'User Access Administrator' role in the subscription  of the AKS cluster can enable 'Monitoring Data Reader' role directly by deploying the template. Edit the grafanaSku parameter if you're using a nonstandard SKU and finally run this template in the Grafana Resource's resource group.
 
 ## [Azure Policy](#tab/azurepolicy)
 
