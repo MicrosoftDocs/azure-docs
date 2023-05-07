@@ -10,107 +10,71 @@ ms.subservice: mldata
 ms.topic: conceptual
 ms.date: 05/23/2023 
 ---
-# Feature retrieval in Azure Machine Learning
+# Offline feature retrieval using point-in-time join
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning includes a built-in component to perform offline feature retrieval, so that the features can be used in an Azure Machine Learning pipeline job with the training and batch inference steps.
+## Understanding point-in-time join 
+Point-of-time joins, also referred to as temporal joins, can be used to prevent data leakage.  [Data leakage](https://en.wikipedia.org/wiki/Leakage_(machine_learning)) (also known as target leakage) occurs when information that isn't expected to be available during prediction is used during model training. This can result in an overestimation of the model’s performance when it's used in a real-world setting. For a better understanding, see this article: [data leakage](https://www.kaggle.com/code/alexisbcook/data-leakage#Target-leakage).
 
-The feature retrieval operation runs a Spark job to:
-- retrieve feature values from feature stores (according to the feature retrieval spec)
-- join (point-in-time) the feature values to the observation data to form a training data (or batch inference data)
-- output the data with the feature retrieval spec
+The below illustration explains how point-in-time joins in feature store works:
 
-The component expects the following inputs:
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_v2.png" alt-text="Diagram depicting the logical function of a point-in-time-join":::
 
-| Input | Type | Description | Supported value | Note |
-|----|------|------|------|------|
-| input_model | custom_model | The model that is trained using features from feature store. It's expected that the model artifact folder has the `feature_retrieval_spec.yaml` file that defines the feature dependency. The YAML file is used by this component to retrieve corresponding features from the feature store, which are used in a batch inference pipeline as a first step to prepare the batch inference data. | Azure Machine Learning model asset `azureml:<name>:<version>`, local path to the model folder, abfss:// wasbs:// or Azure Machine Learning:// path to the model folder  | only one of input_model and feature_retrieval_spec inputs are required |
-| feature_retrieval_spec | uri_file | The URI path to a `feature_retrieval_spec.yaml` file. The YAML file is used by this component to retrieve corresponding features from the feature stores. This is used in a training pipeline as a first step to prepare the training data | Azure Machine Learning data asset `azureml:<name>:<version>`, local path to the file, abfss:// wasbs:// or azureml:// path to the file | only one of `input_model` and `feature_retrieval_spec` inputs is required |
-| observation_data | uri_folder | The observation data to which the features are joined. |  Azure Machine Learning data asset `azureml:<name>:<version>`, local path to the data folder, abfss:// wasbs:// or azureml:// path to the data folder | | 
-| observation_data_format | enum | The feature retrieval job reads the observation data according to the format. | parquet, csv, delta | |
-| timestamp_column| string | Name of the timestamp column in the observation data. The column is used by the point-at-time join on the observation data side | | | 
+The observation data has two labeled events, L0** and *L1*. The two events happened at time *t0* and *t1*. 
 
+When we create training sample from this observation data, what values of features *feature1*, *feature2* and *feature3* will we select? We have to select the feature values that correspond to *t0* and *t1*.
 
-The component has one output, `output_data`. The output data is a uri_folder data asset. It always has the following folder structure:
+The following table shows the output of `get_offline_features` method that does the point-in-time join:
 
-`<output folder name>`/<BR>
-├── data/<BR>
-│   ├── xxxxx.parquet<BR>
-│   └── xxxxx.parquet<BR>
-└── feature_retrieval_spec.yaml
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_output.png" alt-text="Diagram depicting the output of a method that performed a point-in-time-join":::
 
+In the point-in-time join, for each observation event at time *t*, the feature value from the nearest past of *t* is joined to the observation event.
 
-You can use the component either by referencing its component ID in a pipeline job YAML file, or by dragging and dropping the component in pipeline designer to create the pipeline. 
+## Parameters used by point-in-time Join
 
-## Example: drag and drop the component in Designer UI
+In the feature set specification definition, the following two parameters affect the result of the point-in-time join.
+- `source_delay`
+- `temporal_join_lookback`
 
-![](./imgs/feature_retrieval_component.png)
+Both parameters represent a duration (time delta). Given an observation event that has timestamp at *t*, the feature value that has the latest timestamp in the window [`t - temporal_join_lookback` or `t - source_delay`] is joined to the event.
 
-### Example: reference the component in pipeline job YAML
+### Explanation of source_delay
 
-```yaml
-description: training pipeline
-display_name: training
-experiment_name: training on fraud model
-type: pipeline
+In the source data of the feature set, an event that happened at time *t* will land in the source data table at time *t + x*, due to the latency in the upstream of the data pipeline. The source delay is represented by *x*.
 
-inputs:
-  feature_retrieval_spec: 
-    mode: ro_mount
-    path: ../feature_retrieval_spec.yaml
-    type: uri_file
-  observation_data: 
-    mode: ro_mount
-    path: wasbs://data@azuremlexampledata.blob.core.windows.net/feature-store-prp/observation_data/train/*.parquet
-    type: uri_folder
-  timestamp_column: timestamp 
-  model_name: fraud_model 
+The existence of source delay brings [Data leakage](https://en.wikipedia.org/wiki/Leakage_(machine_learning)).
+- When a model is trained using offline data not considering source delay, it gets feature values from the near past.
+- When the model is deployed to the production environment, it now only gets feature values that are delayed by at least the amount of time of source delay. The predictive scores degrade.
 
-jobs:
-  feature_retrieval_step:
-    component: azureml://registries/azureml-preview/components/feature_retrieval/versions/0.0.1
-    inputs:
-      feature_retrieval_spec:
-        path: ${{parent.inputs.feature_retrieval_spec}}
-      observation_data:
-        path: ${{parent.inputs.observation_data}}
-      timestamp_column:
-        path: ${{parent.inputs.timestamp_column}}
-      observation_data_format: parquet
-    resources:
-      instance_type: standard_e4s_v3
-      runtime_version: "3.2"
-    outputs:
-      output_data:
-    conf:
-      spark.driver.cores: 4
-      spark.driver.memory: 28g
-      spark.executor.cores: 4
-      spark.executor.memory: 28g
-      spark.executor.instances: 2
-    type: spark
+To address the data leakage brought in by source delay, you can define the `source_delay` in the feature set specification by estimating the source delay duration. 
 
-  training_step:
-    type: command
-    compute: azureml:cpu-cluster
-    code: ../train/src
-    environment:
-      image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
-      conda_file: ../../env/conda.yml
-    inputs:
-      training_data: 
-        path: ${{parent.jobs.feature_retrieval_step.outputs.output_data}}
-        mode: ro_mount
-    outputs:
-      model_output:
-        type: custom_model
-      run_id_output:
-        type: uri_file
-    command: >-
-      python train.py
-      --training_data ${{inputs.training_data}}
-      --model_output ${{outputs.model_output}}
-      --run_id_output ${{outputs.run_id_output}}
-```
+In the point-in-time join, the value of `source_delay` is considered. Using the same example, event *L0* and *L1* join to earlier feature values, instead of the nearest past feature values.
 
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_source_delay_v2.png" alt-text="Diagram illustrating the concept of source delay":::
+
+The below table shows the output of get_offline_features method that does the point-in-time join:
+
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_source_delay_output.png" alt-text="A table showing the output of the get_offline_features method that does the point-in-time join":::
+
+If `source_delay` isn't set the feature set specification, its default value is 0, meaning there's no source delay.
+
+The value of `source_delay` is also considered in recurrent feature materialization. Check details in the [Feature materialization in Azure Machine Learning](./feature-materialization.md)
+
+### Explanation of temporal_join_lookback
+
+A point-in-time join looks for feature values from the nearest past of the observation event time. It may fetch a feature value from the distant past, such as a feature value that was calculated six months ago, if the feature value has not been updated since then. Using feature values that are quite old may also cause issues in model accuracy.
+
+To prevent the join from fetching feature values from too far in the past, you can set the `temporal_join_lookback` parameter in the feature set specification, which controls how far the point-in-time joint looks back for values. 
+
+In the same example, event *L0* and *L1* join to earlier feature values, instead of the nearest past feature values.
+
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_temporal_lookback_v2.png" alt-text="Diagram illustrating the concept of temporal_join_lookback":::
+
+The below table shows the output of get_offline_features method that does the point-in-time join:
+
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_temporal_lookback_output.png" alt-text="A table showing the output of the get_offline_features method that does the point-in-time join":::
+
+If the `temporal_join_lookback` parameter isn't set, the default value is infinity, that is, look back as far as possible in the point-in-time join.
+
+If `temporal_join_lookback` parameter is set, it should always be set to a larger duration than `source_delay` in order to get a result. 

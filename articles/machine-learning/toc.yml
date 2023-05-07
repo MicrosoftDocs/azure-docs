@@ -177,6 +177,18 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
+    - name: Managed feature store
+      items:
+        - name: What is a managed feature store?
+          href: concept-what-is-managed-feature-store.md
+        - name: Top-level entities in managed feature store
+          href: concept-top-level-entities-in-managed-feature-store.md
+        - name: Feature transformations and best practices
+          href: concept-feature-transformations.md
+        - name: Feature materialization
+          href: concept-feature-materialization.md
+        - name: Offline feature retrieval
+          href: concept-feature-retrieval.md
     - name: Train models
       items:
         - name: Model training
@@ -1317,6 +1329,18 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
+        - name: Feature store
+          items:
+            - name: Feature store
+              href: reference-yaml-feature-store.md
+            - name: Feature set
+              href: reference-yaml-feature-set.md
+            - name: Feature entity
+              href: reference-yaml-feature-entitiy.md
+            - name: Feature retrieval spec
+              href: reference-yaml-feature-retrieval-spec.md
+            - name: Feature set spec
+              href: reference-yaml-featureset-spec
         - name: Endpoint
           items:
             - name: Online (real-time)
