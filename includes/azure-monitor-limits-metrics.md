@@ -59,7 +59,7 @@ Based on query time range and range vectors in query over a 30-second window.
 | Query hours per Azure tenant | 20,000,000 |
 
 #### Alert and recording rules 
-Prometheus alert rules and recording are defined in PromQL. They're performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus.
+Prometheus alert rules and recording rules are defined in PromQL. They're performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus.
 
 | Limit | Value |
 |:---|:---|
