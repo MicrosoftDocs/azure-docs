@@ -2,6 +2,8 @@ items:
 - name: Azure Spring Apps documentation
   href: index.yml
   displayName: Azure Spring Apps
+- name: What's New
+  href: whats-new.md
 - name: Overview
   expanded: true
   items:
@@ -353,6 +355,8 @@ items:
   items:
   - name: API breaking changes
     href: breaking-changes.md
+  - name: "What's New (Archived)"
+    href: whats-new-archive.md
   - name: Azure CLI plugin
     href: /cli/azure/spring?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure PowerShell
