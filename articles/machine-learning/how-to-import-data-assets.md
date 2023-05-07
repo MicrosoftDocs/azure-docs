@@ -231,9 +231,8 @@ ml_client.data.show_materialization_status(name="<name>")
 
 ## Additional Capabilities
 
-- [Import from external data sources on a schedule (preview)](reference-yaml-schedule.md#import-data-definition-(preview))
+- [Import from external data sources on a schedule (preview)](reference-yaml-schedule.md)
 - [Edit auto-delete settings on imported data asset](how-to-manage-imported-data-assets.md)
-
 
 ## Next steps
 

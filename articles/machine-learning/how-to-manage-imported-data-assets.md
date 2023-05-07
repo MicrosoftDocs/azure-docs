@@ -95,7 +95,8 @@ You can view and list the data assets with certain conditions or values configur
 > az ml data list --query '[?auto_delete_setting.\"condition\"==''created_greater_than'']'
 
 > az ml data list --query '[?auto_delete_setting.\"value\"==''30d'']'
-
-
 ```
+
+# [Python SDK](#tab/Python-SDK)
+
 ---

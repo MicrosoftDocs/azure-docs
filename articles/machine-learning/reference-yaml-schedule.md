@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: cloga, AmarBadal
-ms.author: lochen, ambadal
+author: lochen
+ms.author: lochen
 ms.date: 08/15/2022
-ms.reviewer: lagayhar.
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) schedule YAML schema
@@ -112,17 +112,17 @@ Customer can directly use `create_job: azureml:<job_name>` or can use the follow
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-
 Customer can directly use `import_data: ./<data_import>.yaml` or can use the following properties to define the data import definition.
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
 |`type`| string | **Required.** Specifies the data asset type that you want to import the data as. It can be mltable when importing from a Database source, or uri_folder when importing from a FileSource.|`mltable`, `uri_folder`|
 | `name` | string | **Required.** Data asset name to register the imported data under. | |
-| `path` | string | **Required.** The path to the datastore that takes in the imported data, specified in one of two ways:  <br><br> - **Required.** A URI of datastore path. Only supported URI type is `azureml`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). To avoid an over-write, a unique path for each import is recommended. To do this, parameterize the path as shown in this example - `azureml://datastores/<datastore_name>/paths/<source_name>/${{name}}`. The "datastore_name" in the example can be a datastore that you have created or can be workspaceblobstore. Alternately a "managed datastore" can be selected by referencing as shown: `azureml://datastores/workspacemanagedstore`, where the system automatically assigns a unique path. | Azure Machine Learning://<>| |
-| `source` | object | External source details of the imported data source. See [Attributes of the `source`](#attributes-of-source) for the set of source properties. | |
+| `path` | string | **Required.** The path to the datastore that takes in the imported data, specified in one of two ways:  <br><br> - **Required.** A URI of datastore path. Only supported URI type is `azureml`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). To avoid an over-write, a unique path for each import is recommended. To do this, parameterize the path as shown in this example - `azureml://datastores/<datastore_name>/paths/<source_name>/${{name}}`. The "datastore_name" in the example can be a datastore that you have created or can be workspaceblobstore. Alternately a "managed datastore" can be selected by referencing as shown: `azureml://datastores/workspacemanagedstore`, where the system automatically assigns a unique path. | Azure Machine Learning://<>|
+| `source` | object | External source details of the imported data source. See [Attributes of the `source`](#attributes-of-source-(preview)) for the set of source properties. | |
 
 ### Attributes of `source` (preview)
+
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | string | The type of external source from where you intend to import data from. Only the following types are allowed at the moment -  `Database` or `FileSystem`| `Database`, `FileSystem` | |
