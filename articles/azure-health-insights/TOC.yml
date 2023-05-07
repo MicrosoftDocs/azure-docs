@@ -9,14 +9,7 @@ items:
     - name: Onco Phenotype
       href: ./oncophenotype/index.yml
     - name: Trial Matcher 
-      href: ./trial-matcher/index.yml
-- name: Concepts
-  expanded: true
-  items:
-     - name: Request Info
-       href: request-info.md      
-     - name: Response Info
-       href: response-info.md     
+      href: ./trial-matcher/index.yml     
 - name: Quickstarts
   expanded: true
   items:

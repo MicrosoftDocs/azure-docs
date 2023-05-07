@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/21/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
@@ -79,7 +79,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.11/applicationinsights-agent-3.4.11.jar) file.
+Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.12/applicationinsights-agent-3.4.12.jar) file.
 
 > [!WARNING]
 >
@@ -181,12 +181,13 @@ public class Program
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.11.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` to your application's JVM args.
 
 > [!TIP]
-> For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
-    
-If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
+> For scenario-specific guidance, see [Get Started (Supplemental)](./java-get-started-supplemental.md).
+
+> [!TIP]
+> If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ##### [Node.js](#tab/nodejs)
 
@@ -300,7 +301,7 @@ Use one of the following two ways to point the jar file to your Application Insi
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
     
-- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.11.jar` with the following content:
+- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.12.jar` with the following content:
     
    ```json
    {
@@ -550,11 +551,12 @@ Autocollected requests:
 * Kafka consumers
 * Netty
 * Quartz
+* RabbitMQ
 * Servlets
 * Spring scheduling
 
-  > [!NOTE]
-  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+> [!NOTE]
+> Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 Autocollected dependencies (plus downstream distributed trace propagation):
 
@@ -571,6 +573,7 @@ Autocollected dependencies (plus downstream distributed trace propagation):
 * Kafka
 * Netty client
 * OkHttp
+* RabbitMQ
 
 Autocollected dependencies (without downstream distributed trace propagation):
 
@@ -733,7 +736,7 @@ See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azu
 
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
-- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#autocollected-logging).
 - <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 ## Collect custom telemetry
@@ -1453,7 +1456,7 @@ This is not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.11</version>
+      <version>3.4.12</version>
     </dependency>
     ```
 

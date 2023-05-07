@@ -302,7 +302,7 @@ sections:
           
       - question: How can I stop and start Azure Application Gateway?
         answer: |
-          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts.
+          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts. Any PUT operation done on a Stopped Application Gateway (like adding tag, health probe, listener etc.) triggers a Start. It's recommended to Stop the application gateway once the configuration has been updated.
                              
           ```azurepowershell
           # Stop an existing Azure Application Gateway instance

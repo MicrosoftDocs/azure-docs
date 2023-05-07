@@ -27,7 +27,7 @@ You can create a hub in the Azure portal. For all new IoT hubs, Defender for IoT
 
 **To create an IoT Hub**:
 
-1. Follow the steps in [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
+1. Follow the steps to [create an IoT hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
 1. Under the **Management** tab, ensure that **Defender for IoT** is set to **On**. By default, Defender for IoT will be set to **On** .
 

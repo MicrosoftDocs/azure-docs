@@ -63,9 +63,9 @@ For more information, see the [Geolocation service] documentation.
 
 ### Render service
 
-[Render service V2] introduces a new version of the [Get Map Tile V2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. It's recommended that you use Render service V2 instead of Render service V1. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render service V2, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
+[Render V2 service] introduces a new version of the [Get Map Tile V2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. It's recommended that you use Render V2 service instead of Render service V1. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render V2 service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render V2 service":::
 
 ### Route service
 
@@ -241,7 +241,7 @@ Stay up to date on Azure Maps:
 [Geolocation service]: /rest/api/maps/geolocation
 [Get Map Tile V2 API]: /rest/api/maps/render-v2/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render service V2]: /rest/api/maps/render-v2
+[Render V2 service]: /rest/api/maps/render-v2
 [REST APIs]: /rest/api/maps/
 [Route service]: /rest/api/maps/route
 [routeset API]: /rest/api/maps/v20220901preview/routeset
