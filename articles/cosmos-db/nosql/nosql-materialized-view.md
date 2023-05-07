@@ -18,9 +18,9 @@ ms.custom: build-2023
 > [!IMPORTANT]
 > Materialized View Feature for Azure Cosmos DB NoSQL API is currently in preview. You can enable this feature using the Azure portal. This preview of materialized views is provided without a service-level agreement. At this time, materialized views are not recommended for production workloads. Certain features of this preview may not be supported or may have constrained capabilities. For more information, see [supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Materialized views, when defined, help provide a means to efficiently query a base container in Azure Cosmos DB with filters that do not include partition key. When users write to the base container, the materialized view is built automatically in the background. This view can have a different partition key for efficient lookups. The view will also only contain fields explicitly projected from the base container. This view will be a read-only table.
+Materialized views, when defined, help provide a means to efficiently query a base container in Azure Cosmos DB with filters that don't include partition key. When users write to the base container, the materialized view is built automatically in the background. This view can have a different partition key for efficient lookups. The view will also only contain fields explicitly projected from the base container. This view will be a read-only table.
 
-Many a times, business use case require applications to make queries that do not specify the partition key. In such cases, the queries could scan through all data for a small result set. Such queries end up being expensive as they end up inadvertently executing as a cross-partition query.
+Many a time, business use case requires applications to make queries that don't specify the partition key. In such cases, the queries could scan through all data for a small result set. Such queries end up being expensive as they end up inadvertently executing as a cross-partition query.
 
 With a materialized view feature, you can:
 
@@ -42,7 +42,7 @@ Materialized views have many benefits that include, but aren't limited to:
 
 ## Get started with materialized views
 
-Use Azure CLI to enable the materialized views feature either with a native command or a REST API operation on you Cosmos DB NoSQL API database account.
+Use Azure CLI to enable the materialized views feature either with a native command or a REST API operation on your Cosmos DB NoSQL API database account.
 
 1. Sign-in to the Azure CLI.
 
@@ -51,7 +51,7 @@ Use Azure CLI to enable the materialized views feature either with a native comm
     ```
 
     > [!NOTE]
-    > If you do not have the Azure CLI installed, see [how to install the Azure CLI](/cli/azure/install-azure-cli).
+    > If you don't have the Azure CLI installed, see [how to install the Azure CLI](/cli/azure/install-azure-cli).
     > For using variables as specified in subsequent sections, you need BASH in your CLI.
 
 1. Let's define all the variables that will be required for this exercise.
@@ -72,8 +72,8 @@ Use Azure CLI to enable the materialized views feature either with a native comm
     mvName="<new-materialized-view-name>"
     ```
 
-  > [!NOTE]
-  > In this example, we will set mvName to "mv-demo". After creating the Materialized View, we'll see the materialized view container with the name mv-demo in the portal
+    > [!NOTE]
+    > In this example, we'll set mvName to "mv-demo". After creating the Materialized View, we'll see the materialized view container with the name mv-demo in the portal
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -199,7 +199,7 @@ Here are a few sample commands to create a materialized view:
     > [!NOTE]
     > accountId is recommended only for this Get Started. Users make their own Partition Key choices as per their use case.
 
-3.  Insert a few items in the source container. To better understand this Getting Started, please make sure that the items mandatorily have accountId, mobileNumber, and email fields . A sample item could look like this:
+3.  Insert a few items in the source container. To better understand this Getting Started, please make sure that the items mandatorily have accountId, mobileNumber, and email fields. A sample item could look like this:
     ```json
     {
       "accountId": "acc-id-1",
@@ -211,7 +211,7 @@ Here are a few sample commands to create a materialized view:
     > We can define Materialized View on an empty base container as well.
 
 1. Now, let's create a materialized view named `mv-demo` with a Partition Key that is different from the source container Partition Key. Let's specify "mobile" as the Partition Key for the Materialized View container.
-	1. First, we'll create an ARM template for our Materialized View and save it in the "mv_definition.json" file. Below is the content of the mv_definition file:
+	1. First, we create an ARM template for our Materialized View and save it in the "mv_definition.json" file. Below is the content of the mv_definition file:
         ```json
           {
             "location": "North Central US",
@@ -240,7 +240,7 @@ Here are a few sample commands to create a materialized view:
   
 	2. In the above template, notice that the partitionKey path is set as /mobile and we also have additional parameters to specify the source collection and the definition to populate the materialized view.
 
-1. Now we make a REST API call to create the materialized view as defined in the mv_definition.json file. We'll use Azure CLI to make the REST API call.
+1. Now we make a REST API call to create the materialized view as defined in the mv_definition.json file. We use Azure CLI to make the REST API call.
 	1. We already have the subscriptionId, resourceGroup, databaseAccount, databaseName, and mvName variables set in bash. We'll construct parts of the URL using these variables as below:
 
         ```azurecli
@@ -252,7 +252,7 @@ Here are a few sample commands to create a materialized view:
         URL6="$databaseName/containers/";\
         URL7="$mvName?api-version=2022-11-15-preview";
         ```
-	1. Now we will make the REST API call to create the Materilized View as below:
+	1. Make the REST API call to create the Materialized View as below:
         ```azurecli
         az rest --method PUT body @mv_definition.json --uri $URL1$URL2$URL3$URL4$URL5$URL6$URL7 --headers content-type=application/json
         ```
@@ -272,15 +272,15 @@ Once the materialized  view is created, the materialized view container will aut
 There are a few limitations with the Cosmos DB NoSQL API Materialized View Feature while in preview:
 
 - Materialized views can't be created on a table that existed before support for materialized views was enabled on the account. To use materialized views, create a new table after the feature is enabled.
-- Where clause in the materialized view definition is not supported.
+- Where clause in the materialized view definition isn't supported.
 - You can project source container items’ Json object property list only in materialized view definition. At present, the list can be only first level of properties in JSON tree.
 - In materialized view definition, aliases are not supported for fields of documents.
-- It is recommended that MV is created when the source container is still empty or has very few items.  This is a temporary issue and a fix is underway.
-- Restoring from backups does not restore materialized views. You need to re-create the materialized views after the restore process is complete.
+- It's recommended that MV is created when the source container is still empty or has very few items.  This is a temporary issue and a fix is underway.
+- Restoring from backups doesn't restore materialized views. You need to re-create the materialized views after the restore process is complete.
 - All materialized views defined on a specific source container must be deleted before deleting the source container.
 - PITR, hierarchical partitioning, end to end encryption features are not supported on source containers on which materialized views are created.
 - Role based Access Control is currently not supported.
-- Cross-tenant customer-managed-key based encryption is not supported on materialized views.
+- Cross-tenant customer-managed-key based encryption isn't supported on materialized views.
 
 In addition to the above limitations, consider the following extra limitations:
 
