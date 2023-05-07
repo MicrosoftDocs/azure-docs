@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview, a service that enables yo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/07/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
@@ -163,6 +163,13 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ---
 ---
+
+## Connect to volumes from clients
+
+After you have configured your storage endpoints and network rules, you can connect to Elastic SAN volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md) or [Windows](elastic-san-connect-windows.md) clients.
+
+> [!NOTE]
+> If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
 
 ## Next steps
 
