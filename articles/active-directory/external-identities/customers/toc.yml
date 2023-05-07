@@ -36,7 +36,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Integrate an app
+    - name: Integrate apps
       expanded: true
       items: 
         - name: Configure code samples
@@ -65,6 +65,11 @@ items:
                       href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: ../../develop/console-app-quickstart.md
+            - name: Daemon, service
+              items:
+                - name: Node.js - Call an API
+                  href: how-to-daemon-nodes-sample-sign-in-call-api.md
+                  displayName: client credentials grant
             - name: Desktop app
               items:
                 - name: Electron

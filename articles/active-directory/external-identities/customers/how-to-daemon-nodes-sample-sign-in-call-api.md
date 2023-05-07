@@ -165,3 +165,9 @@ On the API side, the web API must verify that the access token has the required 
 ### Access to data
 
 A Web API endpoint should be prepared to accept calls from both users and applications. Therefore, it should have a way to respond to each request accordingly. For example, a call from a user via delegated permissions/scopes receives the user's data to-do list. On the other hand, a call from an application via application permissions/roles may receive the entire to-do list.
+
+## Next steps:
+
+- Learn how to [Use client certificate instead of a secret for authentication in your Node.js confidential app](how-to-web-app-node-use-certificate.md).
+
+- Learn about [permissions and consent](../../develop/permissions-consent-overview.md).
