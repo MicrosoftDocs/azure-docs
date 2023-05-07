@@ -121,9 +121,11 @@ az spring app identity remove \
     --system-assigned
 ```
 
+---
+
 ## Get the client ID from the object ID (principal ID)
 
-Use the following command to get the client ID from the object/principle ID value:
+Use the following command to get the client ID from the object/principal ID value:
 
 ```azurecli
 az ad sp show --id <object-ID> --query appId

@@ -80,7 +80,7 @@ You only want to select virtual networks that contain **VNet-A** in the name. To
 > [!IMPORTANT] 
 > The **basic editor** is only available during the creation of an Azure Policy. Once a policy is created, all edits will be done using JSON in the **Policies** section of virtual network manager or via Azure Policy.
 >
-> When using the basic editor, your condition options will be limited through the portal experience. For complex conditions like creating a network group for VNets based on a customer-defined tag, you can used the advanced editor. Learn more about [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
+> When using the basic editor, your condition options are limited through the portal experience. For complex conditions like creating a network group for VNets based on a [customer-defined tag](#example-3-using-custom-tag-values-with-advanced-editor), you must use the advanced editor. Learn more about [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
 
 ## Advanced editor
 

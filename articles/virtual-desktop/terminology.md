@@ -28,7 +28,7 @@ The following table goes into more detail about the differences between each typ
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
 |Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool based on user session count. You can choose which [load balancing algorithm](host-pool-load-balancing.md) to use: breadth-first or depth-first. |
-|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. |
+|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. Under high concurrent connection load when multiple users connect to the host pool at the same time, the number of sessions created on a session host can exceed the maximum session limit. |
 |User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
 |Scaling|None. | [Autoscale](autoscale-scaling-plan.md) for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
 |Windows Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
@@ -93,7 +93,9 @@ To learn how to set up your Azure Virtual Desktop host pool, see [Create a host 
 To learn how to connect to Azure Virtual Desktop, see one of the following articles:
 
 - [Connect with Windows](./users/connect-windows.md)
+- [Connect with the Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
 - [Connect with a web browser](./users/connect-web.md)
 - [Connect with the Android client](./users/connect-android-chrome-os.md)
 - [Connect with the macOS client](./users/connect-macos.md)
 - [Connect with the iOS client](./users/connect-ios-ipados.md)
+- [Connect with the Remote Desktop app for Windows](./users/connect-microsoft-store.md)

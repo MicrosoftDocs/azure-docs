@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
@@ -132,7 +132,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * India ID cards and documents (PAN and Aadhaar)
   * Australia ID cards and documents (photo card, Key-pass ID)
   * Canada ID cards and documents (identification card, Maple card)
-  * United Kingdom ID cards and documents (national identity card)
+  * United Kingdom ID cards and documents (national/regional identity card)
 
 ---
 

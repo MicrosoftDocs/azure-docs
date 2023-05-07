@@ -123,6 +123,8 @@
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable Azure AD Kerberos authentication for hybrid accounts
       href: storage-files-identity-auth-azure-active-directory-enable.md
+    - name: Enable AD Kerberos authentication for Linux clients (SMB)
+      href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -329,7 +331,7 @@
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    href: ../common/videos-azure-files-and-file-sync.md
   - name: Azure Files and Azure NetApp Files comparison
     href: storage-files-netapp-comparison.md
   - name: Compare access with NFS to Azure Files, Blob Storage, and NetApp Files

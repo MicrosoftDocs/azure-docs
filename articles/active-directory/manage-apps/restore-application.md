@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 11/02/2022
 ms.author: jomondi
 ms.reviewer: sureshja
-ms.custom: mode-other
+ms.custom: enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal
 #Customer intent: As an administrator of an Azure AD tenant, I want to restore a soft deleted enterprise application.
 ---

@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 04/07/2023
+ms.date: 04/19/2023
 ms.topic: conceptual
 ---
 
@@ -70,7 +70,7 @@ This parameter specifies a resource in Azure Resource Manager to delete from Azu
 > [!NOTE]
 > If you have deployed one or more Azure VM extensions to your Azure Arc-enabled server and you delete its registration in Azure, the extensions remain installed and may continue performing their functions. Any machine intended to be retired or no longer managed by Azure Arc-enabled servers should first have its [extensions removed](#step-1-remove-vm-extensions) before removing its registration from Azure.
 
-To disconnect using a service principal, run the command below. Be sure to specify a service principal that has the required roles for disconnecting servers; this will not be the same service principal that was used to onboard the server:
+To disconnect using a service principal, run the command below. Be sure to specify a service principal that has the required roles for disconnecting servers, i.e. the Azure Connected Machine Resource Administrator role. This will not be the same service principal that was used to onboard the server:
 
 `azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
@@ -485,7 +485,7 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 | --------------------- | ------------------ |
 | `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | `ARM` | `management.azure.com` |
-| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
+| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` |
 
 To send Azure Active Directory and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 
