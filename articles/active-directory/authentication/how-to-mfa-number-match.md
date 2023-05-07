@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 04/10/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -108,6 +108,7 @@ In addition:
   >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to Approve/Deny push notifications.
 
 If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
+This is because TOTP will be preferred over the **Approve**/**Deny** push notification and Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. For more information, see [Configure accounts for two-step verification](howto-mfa-nps-extension-rdg.md#configure-accounts-for-two-step-verification).
 
 ### Apple Watch supported for Microsoft Authenticator
 
@@ -310,9 +311,7 @@ Number match will be enabled for all users of Microsoft Authenticator push notif
 
 Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
-### Will the changes after May 8th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
-
-No, the changes after May 8th won't affect the **Enable and Target** tab for Microsoft Authenticator in the Authentication methods policy. Administrators can continue to target specific users and groups or **All Users** for Microsoft Authenticator **Push** or **Any** authentication mode. 
+### What happens to number matching settings that are currently configured for a group in the Authentication methods policy after number matching is enabled for Authenticator push notifications after May 8th, 2023?
 
 When Microsoft begins protecting all organizations by enabling number matching after May 8th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
 

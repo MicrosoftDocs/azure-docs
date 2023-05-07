@@ -2,13 +2,15 @@
 title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
-ms.date: 10/13/2022
-ms.custom: seodec18, devx-track-arm-template
+ms.date: 04/10/2023
+ms.custom: seodec18, devx-track-arm-template, ai-gen-docs
 ---
 
 # Azure Resource Manager resource group and resource deletion
 
 This article shows how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when you delete a resource group.
+
+[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## How order of deletion is determined
 
@@ -78,6 +80,21 @@ az group delete --name ExampleResourceGroup
 
 1. To confirm the deletion, type the name of the resource group
 
+# [Python](#tab/azure-python)
+
+```python
+import os
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+credential = AzureCliCredential()
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+rg_result = resource_client.resource_groups.begin_delete("exampleGroup")
+```
+
 ---
 
 ## Delete resource
@@ -111,6 +128,29 @@ az resource delete \
    ![Delete resource](./media/delete-resource-group/delete-resource.png)
 
 1. When prompted, confirm the deletion.
+
+# [Python](#tab/azure-python)
+
+```python
+import os
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+credential = AzureCliCredential()
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+resource_client.resources.begin_delete_by_id(
+    "/subscriptions/{}/resourceGroups/{}/providers/{}/{}".format(
+        subscription_id,
+        "exampleGroup",
+        "Microsoft.Compute",
+        "virtualMachines/exampleVM"
+    ),
+    "2022-11-01"
+)
+```
 
 ---
 

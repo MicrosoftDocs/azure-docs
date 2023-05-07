@@ -22,6 +22,9 @@ The **Azure AD Insights** tab shows you who is assigned to privileged roles in y
 > [!NOTE] 
 > Keep role assignments permanent if a user has a an additional Microsoft account (for example, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to activate a role assignment, a user with an additional Microsoft account will be locked out.  
 
+## Prerequisite
+To view information on the Azure AD Insights tab, you must have Permissions Management Administrator role permissions.
+
 ## View information in the Azure AD Insights tab
 
 1. From the Permissions Management home page, select the **Azure AD Insights** tab.

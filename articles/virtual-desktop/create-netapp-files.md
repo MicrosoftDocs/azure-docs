@@ -48,8 +48,4 @@ Your MSIX image should now be accessible to your session hosts when they add an 
 
 ## Next steps
 
-Now that you've created an Azure NetApp Files share, here are some resources about what you can use it for in Azure Virtual Desktop:
-
-- [Create a profile container with Azure NetApp Files and AD DS](create-fslogix-profile-container.md)
-- [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md)
-- [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md)
+Now that you've created an Azure NetApp Files share to store MSIX images, learn how to [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md)

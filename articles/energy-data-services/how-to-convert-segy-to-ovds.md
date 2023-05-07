@@ -1,12 +1,12 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
-description: This article explains how to convert a SGY file to oVDS file format #Required; article description that is displayed in search results. 
-author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
-ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - How to convert a segy to ovds file
+description: This article explains how to convert a SGY file to oVDS file format
+author: elizabethhalper
+ms.author: elhalper
+ms.service: energy-data-services
+ms.topic: how-to
 ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # How to convert a SEG-Y file to oVDS

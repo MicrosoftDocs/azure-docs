@@ -13,6 +13,9 @@ items:
   - name: Pricing
     displayName: cost,free,standard,custom,tier,S1,S2,S3,S4,C2,C3,C4,D3,hosting
     href: https://azure.microsoft.com/pricing/details/cognitive-services/translator
+  - name: Request limits
+    displayName: detection,detect,region,
+    href: request-limits.md
   - name: What's new?
     displayName: release,ga,update,support
     href: whats-new.md
@@ -93,8 +96,6 @@ items:
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
-    - name: Use managed identities to access Azure storage
-      href: ../../app-service/scenario-secure-app-access-storage.md?bc=/azure/cognitive-services/translator/breadcrumb/toc.json&toc=/azure/cognitive-services/translator/toc.json
     - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
@@ -124,9 +125,6 @@ items:
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
-    - name: Request limits
-      displayName: detection,detect,region,
-      href: request-limits.md
 - name: Document Translation
   items:
     - name: What is Document Translation?

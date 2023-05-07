@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 04/07/2023
+ms.date: 04/10/2023
 
 ---
 # Quickstart: Create a Redis Enterprise cache
@@ -40,7 +40,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    | ------------ |  ------- | -------------------------------------------------- |
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **DNS name** | Enter a name that is unique in the region. | The cache name must be a string between 1 and 63 characters that contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name\>.\<Azure region\>.redisenterprise.cache.azure.net*. |
+   | **DNS name** | Enter a name that is unique in the region. | The cache name must be a string between 1 and 63 characters when _combined with the cache's region name_ that contain only numbers, letters, or hyphens. (If the cache name is less than 45 characters long it should work in all currently available regions.) The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name\>.\<Azure region\>.redisenterprise.cache.azure.net*. |
    | **Location** | Drop down and select a location. | Enterprise tiers are available in selected Azure regions. |
    | **Cache type** | Drop down and select an *Enterprise* or *Enterprise Flash* tier and a size. |  The tier determines the size, performance, and features that are available for the cache. |
 
@@ -54,7 +54,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. Select **Next: Advanced**.
 
-   Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however.
+   Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. You can't change the eviction policy or clustering policy of an Enterprise cache instance after you create it. If you're using this cache instance in a replication group, be sure to know the policies of your primary nodes before you create the cache. For more information on replication, see [Active geo-replication prerequisites](cache-how-to-active-geo-replication.md#active-geo-replication-prerequisites).
 
    Set **Clustering policy** to **Enterprise** for a nonclustered cache. For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
 

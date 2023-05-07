@@ -7,15 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 04/25/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Build and train a custom classification model (preview)
 
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+**This article applies to:** ![Form Recognizer checkmark](../media/yes-icon.png) **The latest [public preview SDK](../sdk-preview.md) supported by Form Recognizer REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
 
 > [!IMPORTANT]
 >
