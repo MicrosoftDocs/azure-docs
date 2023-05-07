@@ -89,10 +89,10 @@ Both of online and batch endpoints use the same constructs, which help you trans
 
 | Feature                   | Online endpoints                 | Batch endpoints                          |
 |---------------------------|----------------------------------|------------------------------------------|
-| Deployment's types        | Models                           | Pipeline components (preview) and models |
-| Custom model's deployment | Yes, with scoring script         | Yes, with scoring script                 |
+| Deployment's types        | Models                           | Models and Pipeline components (preview) |
 | MLflow model's deployment | Yes (requires public networking) | Yes                                      |
-| Triton model's deployment | Yes                              | No                                       |
+| Custom model's deployment | Yes, with scoring script         | Yes, with scoring script                 |
+| Inference server          | - AzureML Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | AzureML Batch   |
 | Compute resource consumed | Instances or granular resources  | Cluster instances                        |
 | Compute type              | AzureML and Kubernetes           | AzureML and Kubernetes                   |
 | Scale compute to zero     | No                               | Yes                                      |
