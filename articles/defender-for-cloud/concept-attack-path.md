@@ -4,7 +4,7 @@ description: Learn how to prioritize remediation of cloud misconfigurations and 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 05/04/2023
+ms.date: 05/07/2023
 ---
 
 # Identify and analyze risks across your environment
