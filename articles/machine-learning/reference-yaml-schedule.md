@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: cloga
-ms.author: lochen
+author: cloga, AmarBadal
+ms.author: lochen, ambadal
 ms.date: 08/15/2022
-ms.reviewer: lagayhar
+ms.reviewer: lagayhar.
 ---
 
 # CLI (v2) schedule YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/schedule.schema.json.
 
@@ -108,6 +108,30 @@ Customer can directly use `create_job: azureml:<job_name>` or can use the follow
 | `path` | string | The path to the data to use as input. This can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
 | `mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode (`rw_mount`) the output directory will be a mounted directory. For upload mode the file(s) written will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
 
+### Import data definition (preview) 
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+
+Customer can directly use `import_data: ./<data_import>.yaml` or can use the following properties to define the data import definition.
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+|`type`| string | **Required.** Specifies the data asset type that you want to import the data as. It can be mltable when importing from a Database source or uri_folder when importing from a FileSource.|`mltable`, `uri_folder`|
+| `name` | string | **Required.** Data asset name to register the imported data under. | |
+| `path` | string | **Required.** The path to the datastore to where the data needs to be imported to. This can be specified in a 2 ways:  <br><br> - **Required.** A URI of datastore path. Only supported URI type is `azureml`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). It is recommended to give a unique path for each import to avoid over-writing, this can be done by parameterizing the path as the following example - `azureml://datastores/<datastore_name>/paths/<source_name>/${{name}}`. The "datastore_name" in the example can be a datastore that you have created or can be workspaceblobstore. Alternately a "managed datastore" can be selected by referencing as the following: `azureml://datastores/workspacemanagedstore`, where the system automatically assigns a unique path. | azureml://<>| |
+| `source` | object | External source details from where you are planning to import data. See [Attributes of the `source`](#attributes-of-source) for the set of source properties. | |
+
+### Attributes of `source` (preview)
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `type` | string | The type of external source from where you intend to import data from. Only the following types are allowed at the moment -  `Database` or `FileSystem`| `Database`, `FileSystem` | |
+| `query` | string | This needs to be defined only when the `type` defined above is `database`The query in the in the external source of type `Database` that defines or filters data that needs to be imported.| | |
+| `path` | string | This needs to be defined only when the `type` defined above is `FileSystem`The path of the folder in the external source of type `FileSystem` where the file(s) or data that needs to be imported resides.| | |
+| `connection` | string | **Required.** The connection property for the external source referenced in the format of `azureml:<connection_name>` | | |
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Remarks
 
 The `az ml schedule` command can be used for managing Azure Machine Learning models.
@@ -116,18 +140,103 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). A couple are shown below.
 
-## YAML: Schedule with recurrence pattern
+## YAML: Schedule for a job with recurrence pattern
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/CLI/schedules/recurrence-job-schedule.yml":::
 
-## YAML: Schedule with cron expression
+## YAML: Schedule for a job with cron expression
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/CLI/schedules/cron-job-schedule.yml":::
 
+## YAML: Schedule for data import with recurrence pattern  (preview)
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
+name: simple_recurrence_import_schedule
+display_name: Simple recurrence import schedule
+description: a simple hourly recurrence import schedule
+
+trigger:
+  type: recurrence
+  frequency: day #can be minute, hour, day, week, month
+  interval: 1 #every day
+  schedule:
+    hours: [4,5,10,11,12]
+    minutes: [0,30]
+  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
+  time_zone: "Pacific Standard Time" # optional - default will be UTC
+
+import_data: ./my-snowflake-import-data.yaml
+
+```
+## YAML: Schedule for data import definition inline with recurrence pattern on managed datastore (preview)
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
+name: inline_recurrence_import_schedule
+display_name: Inline recurrence import schedule
+description: an inline hourly recurrence import schedule
+
+trigger:
+  type: recurrence
+  frequency: day #can be minute, hour, day, week, month
+  interval: 1 #every day
+  schedule:
+    hours: [4,5,10,11,12]
+    minutes: [0,30]
+  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
+  time_zone: "Pacific Standard Time" # optional - default will be UTC
+
+import_data:
+  type: mltable
+  name: my_snowflake_ds
+  path: azureml://datastores/workspacemanagedstore
+  source:
+    type: database
+    query: select * from TPCH_SF1.REGION
+    connection: azureml:my_snowflake_connection
+
+```
+
+## YAML: Schedule for data import with cron expression (preview)
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
+name: simple_cron_import_schedule
+display_name: Simple cron import schedule
+description: a simple hourly cron import schedule
+
+trigger:
+  type: cron
+  expression: "0 * * * *"
+  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
+  time_zone: "Pacific Standard Time" # optional - default will be UTC
+
+import_data: ./my-snowflake-import-data.yaml
+```
+## YAML: Schedule for data import definition inline with cron expression (preview)
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
+name: inline_cron_import_schedule
+display_name: Inline cron import schedule
+description: an inline hourly cron import schedule
+
+trigger:
+  type: cron
+  expression: "0 * * * *"
+  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
+  time_zone: "Pacific Standard Time" # optional - default will be UTC
+
+import_data:
+  type: mltable
+  name: my_snowflake_ds
+  path: azureml://datastores/workspaceblobstore/paths/snowflake/${{name}}
+  source:
+    type: database
+    query: select * from TPCH_SF1.REGION
+    connection: azureml:my_snowflake_connection
+```
 ## Appendix
 
 ### Timezone
@@ -267,4 +376,3 @@ Current schedule supports the following timezones. The key can be used directly 
 | UTC +13:00  | TONGA__STANDARD_TIME            | "Tonga Standard Time"             |
 | UTC +13:00  | SAMOA_STANDARD_TIME             | "Samoa Standard Time"             |
 | UTC +14:00  | LINE_ISLANDS_STANDARD_TIME      | "Line Islands Standard Time"      |
-
