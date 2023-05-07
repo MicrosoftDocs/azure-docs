@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a function app on Azure Arc in a custom container'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
-ms.date: 05/11/2021
+ms.date: 05/07/2023
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -16,15 +16,13 @@ To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-
 > [!NOTE]
 > Support for deploying a custom container to an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 
-Other options for deloying your custom container app to Azure include:
+Other options for deploying your custom container app to Azure include:
 
 + Azure Functions: to learn more, see [Deploy a custom container to Azure Functions](./functions-deploy-custom-container.md). 
 
 + Azure Container Apps: to learn more, see [Deploy a custom container to Azure Container apps](./functions-deploy-custom-container-aca.md).
 
-## Create the custom container
-
-If you haven't already done so, complete the previous quickstart article [Create a function that runs in custom container](./functions-create-function-linux-custom-image.md) to create and publish a custom container with your first function app.
+[!INCLUDE [functions-create-container-prereq](../../includes/functions-create-container-prereq.md)]
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
@@ -57,31 +55,18 @@ In the previous example, replace `<STORAGE_NAME>` with a name that is appropriat
 
 Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command to create a new function app in the environment.
 
-# [C\#](#tab/csharp)  
+# [Azure Container Registry](#tab/acr)
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime dotnet --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+az functionapp create --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> 
 ```
 
-# [JavaScript](#tab/nodejs)  
+# [Docker Hub](#tab/docker)
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime node --runtime-version 12 --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+az functionapp create --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
-
-# [Python](#tab/python)  
-```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime python --runtime-version 3.8 --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
-```
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az functionapp create --resource-group myResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime powershell --runtime-version 7.0
-```
-
 ---
 
-In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your Docker Hub ID. 
-
-The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image.
+In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, `<APP_NAME>` with a globally unique name, and `<DOCKER_ID>` or `<LOGIN_SERVER>` with your Docker Hub account ID or Container Registry server, respectively. When you're deploying from a custom container registry, the image name indicates the URL of the registry. 
 
 When you first create the function app, it pulls the initial image from your Docker Hub. You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub. 
 
@@ -98,15 +83,7 @@ This code must be run either in Cloud Shell or in Bash on your local computer. R
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
-## Clean up resources
-
-If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. Because you created a Premium Plan for Azure Functions, you'll incur one or two USD per day in ongoing costs.
-
-To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
-
-```azurecli
-az group delete --name AzureFunctionsContainers-rg
-```
+[!INCLUDE [functions-cleanup-resources-containers](../../includes/functions-cleanup-resources-containers.md)]
 
 ## Next steps
 

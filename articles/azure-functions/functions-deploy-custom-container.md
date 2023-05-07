@@ -12,15 +12,13 @@ In this article, you deploy the custom Linux container with your function app to
 
 Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
-Other options for deloying your custom container app to Azure include:
+Other options for deploying your custom container app to Azure include:
 
 + Azure Container Apps: to learn more, see [Deploy a custom container to Azure Container apps](./functions-deploy-custom-container-aca.md).
 
 + Azure Arc (currently in preview): to learn more, see [Deploy a custom container to Azure Arc](./create-first-function-arc-custom-container.md).
 
-## Create the custom container
-
-If you haven't already done so, complete the previous quickstart article [Create a function that runs in custom container](./functions-create-function-linux-custom-image.md) to create and publish a custom container with your first function app.
+[!INCLUDE [functions-create-container-prereq](../../includes/functions-create-container-prereq.md)]
 
 ## Create supporting Azure resources for your function
 
@@ -28,7 +26,7 @@ Before you can deploy your container to Azure, you need to create three resource
 
 * A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
 * A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
-* A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+* A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources. 
 
 Use the following commands to create these items. Both Azure CLI and PowerShell are supported.
 
@@ -109,29 +107,34 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
 ## Create and configure a function app on Azure with the image
 
-A function app on Azure manages the execution of your functions in your hosting plan. In this section, you use the Azure resources from the previous section to create a function app from an image on Docker Hub and configure it with a connection string to Azure Storage.
+A function app on Azure manages the execution of your functions in your Azure Functions hosting plan. In this section, you use the Azure resources from the previous section to create a function app from an image in a container registry and configure it with a connection string to Azure Storage.
 
-1. Create a function app using the following command:
+1. Create a function app using the following command, depending on your container registry:
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure Container Registry](#tab/acr/azure-cli)
     ```azurecli
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> 
     ```
 
-    In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image.
+    # [Docker Hub](#tab/docker/azure-cli)
+    ```azurecli
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
 
-    > [!NOTE]  
-    > If you're using a custom container registry, then the *deployment-container-image-name* parameter will refer to the registry URL.
+    # [Azure Container Registry](#tab/acr/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -DockerImageName <LOGIN_SERVER>/azurefunctionsimage:v1
+    ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [Docker Hub](#tab/docker/azure-powershell)
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
     ---
     
-    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your Docker Hub account ID. When you're deploying from a custom container registry, use the `deployment-container-image-name` parameter to indicate the URL of the registry. 
+    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` or `<LOGIN_SERVER>` with your Docker Hub account ID or Container Registry server, respectively. When you're deploying from a custom container registry, the image name indicates the URL of the registry. 
 
-     When you first create the function app, it pulls the initial image from your Docker Hub. You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.
+    When you first create the function app, it pulls the initial image from your Docker Hub. You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from your container registry.
     
     > [!TIP]  
     > You can use the [`DisableColor` setting](functions-host-json.md#console) in the *host.json* file to prevent ANSI control characters from being written to the container logs.
@@ -178,41 +181,11 @@ A function app on Azure manages the execution of your functions in your hosting 
  
 1. The function can now use this connection string to access the storage account.
 
-> [!NOTE]
-> If you publish your custom image to a private container registry, you must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. For more information, see [Custom containers](../app-service/reference-app-settings.md#custom-containers) in the App Service settings reference.
+[!INCLUDE [functions-container-verify-azure](../../includes/functions-container-verify-azure.md)]
 
-## Verify your functions on Azure
-
-With the image deployed to your function app in Azure, you can now invoke the function as before through HTTP requests.
-In your browser, navigate to the following URL:
-
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
-`https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`  
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
-# [In-process](#tab/in-process) 
-`https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
-# [Isolated process](#tab/isolated-process)
-`https://<APP_NAME>.azurewebsites.net/api/HttpExample`
-
----
-:::zone-end  
-
-Replace `<APP_NAME>` with the name of your function app. When you navigate to this URL, the browser must display similar output as when you ran the function locally.
-
-## Clean up resources
-
-If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. Because you created a Premium Plan for Azure Functions, you'll incur one or two USD per day in ongoing costs.
-
-To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
-
-```azurecli
-az group delete --name AzureFunctionsContainers-rg
-```
+[!INCLUDE [functions-cleanup-resources-containers](../../includes/functions-cleanup-resources-containers.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Working with custom containers and Azure Functions](./functions-how-to-custom-container.md)
-
-[authorization keys]: functions-bindings-http-webhook-trigger.md#authorization-keys

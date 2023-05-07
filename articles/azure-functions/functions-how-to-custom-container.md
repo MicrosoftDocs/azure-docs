@@ -10,7 +10,11 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article shows you how to work with function apps deployed as custom Linux containers. To learn more about container deployments of Azure Functions, see [Azure Functions Linux container deployment](./functions-containers.md). 
 
-Unless otherwise noted, the content applies to all function apps running in custom containers. 
+Unless otherwise noted, the content applies to all function apps running in custom containers, regarless of the Azure hosting environment. 
+
+## Work with images
+
+You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image.
 
 ## Enable continuous deployment to Azure
 

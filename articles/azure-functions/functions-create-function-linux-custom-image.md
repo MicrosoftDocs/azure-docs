@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions-full
 
 In this article, you use Azure Functions tools to create your project code as a function app in a custom Docker container using a language-specific Linux base image. Make sure to choose your language of choice at the top of the article. 
 
-You then publish your custom image to a container registry, such as Azure Container Registry or Docker. There are several options for deploying function apps in a custom container: Azure Functions hosting, Azure Container Apps, and Kubernetes, such as Azure Arc. Subsequent articles show you how to host your custom container function app. 
+You also publish your custom image to a container registry, such as Azure Container Registry or DockerHub. There are several options for deploying function apps in a custom container: Azure Functions hosting, Azure Container Apps, and Kubernetes, such as Azure Arc. Subsequent articles show you how to host your custom container function app. 
 
 ::: zone pivot="programming-language-other"
 Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of a custom container.
@@ -28,11 +28,11 @@ To publish the custom function app image you create, you also need a registry ac
 
 # [Azure Container Registry](#tab/acr)
 
-+ To create a Azure Container Registry instance, complete [this quickstart](../container-registry/container-registry-get-started-portal.md).
++ To create an Azure Container Registry instance, complete [this quickstart](../container-registry/container-registry-get-started-portal.md).
 
-# [Docker](#tab/docker)
+# [Docker Hub](#tab/docker)
 
-+ You'll need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
++ You need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
 
 ---
 
@@ -314,6 +314,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ::: zone pivot="programming-language-csharp"
 # [In-process](#tab/in-process)
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
+
 # [Isolated process](#tab/isolated-process)
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample`, which must display the same greeting message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 
@@ -325,9 +326,39 @@ After the image starts in the local container, browse to `http://localhost:8080/
 
 After verifying the function app in the container, press **Ctrl**+**C** to stop the docker.
 
-## Push the image to Docker Hub
+## Push the image to a registry 
 
-Docker Hub is a container registry that hosts images and provides image and container services. To share your image, which includes deploying to Azure, you must push it to a registry.
+To make your container image available for deployment to a hosting environment, you must push it to a container registry.
+
+# [Azure Container Registry](#tab/acr)
+
+Azure Container Apps is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
+
+1. Use the following command to sign in to your registry instance:
+
+    ```azurecli
+    az acr login --name <REGISTRY_NAME>
+    ```
+
+    In the previous command, replace `<REGISTRY_NAME>` with the name of your Container Registry instance.
+
+1. Use the following command to tag your image with the fully qualified name of your registry login server:
+
+    ```docker
+    docker tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 <LOGIN_SERVER>/azurefunctionsimage:v1 
+    ```
+    
+    Replace `<LOGIN_SERVER>` with the fully qualified name of your registry login server and `<DOCKER_ID>` with your Docker ID.
+
+1.  Use the following command to push the container to your registry instance:
+ 
+    ```docker
+    docker push <LOGIN_SERVER>/azurefunctionsimage:v1
+    ```
+
+# [Docker Hub](#tab/docker)
+
+Docker Hub is a container registry that hosts images and provides image and container services. 
 
 1. If you haven't already signed in to Docker, do so with the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command, replacing `<docker_id>` with your Docker Hub account ID. This command prompts you for your username and password. A "sign in Succeeded" message confirms that you're signed in.
 
@@ -338,15 +369,16 @@ Docker Hub is a container registry that hosts images and provides image and cont
 1. After you've signed in, push the image to Docker Hub by using the [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) command, again replace the `<docker_id>` with your Docker Hub account ID.
 
     ```console
-    docker push <docker_id>/azurefunctionsimage:v1.0.0
+    docker push <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
 
-1. Depending on your network speed, pushing the image for the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section and create Azure resources in another terminal.
+    Depending on your network speed, pushing the image for the first time might take a few minutes. Subsequent changes are pushed faster. 
 
+---
 
 ## Next steps
 
-Now that you have your function app running in a custom container published to a repository, you can deploy the custom container to one of several Azure environments:
+Now that you have your function app running in a custom container available in a container registry, you can deploy the image  to one of several Azure environments:
 
 # [Azure Functions](#tab/functions)
 

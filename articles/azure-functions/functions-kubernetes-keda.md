@@ -11,6 +11,9 @@ ms.author: eamono
 
 The Azure Functions runtime provides flexibility in hosting where and how you want.  [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
 
+> [!IMPORTANT]
+> Microsoft isn't currently able to provide official support for Azure Functions when running directly on Kubernetes clusters, including on Azure Kubernetes Service (AKS). Azure Functions deployments to both Azure Container Apps and Azure Arc, which leverage Kubernetes, are currently in preview. 
+
 ## How Kubernetes-based functions work
 
 The Azure Functions service is made up of two key components: a runtime and a scale controller.  The Functions runtime runs and executes your code.  The runtime includes logic on how to trigger, log, and manage function executions.  The Azure Functions runtime can run *anywhere*.  The other component is a scale controller.  The scale controller monitors the rate of events that are targeting your function, and proactively scales the number of instances running your app.  To learn more, see [Azure Functions scale and hosting](functions-scale.md).
