@@ -81,7 +81,7 @@ public class Program
 
 #### Set the Application Insights connection string
 
-You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. In the event that both have been set, the programatic connection string will take precedence.
+You can set the connection string either programmatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. In the event that both have been set, the programmatic connection string will take precedence.
 
 You can find your connection string in the Overview Pane of your Application Insights Resource.
 
