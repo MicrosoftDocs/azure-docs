@@ -36,23 +36,27 @@ Tanzu Build Service on the Azure Spring Apps Enterprise tier is enabled by defau
 
 Currently, the following APM types and CA certificates are supported:
 
-- [ApplicationInsights](#use-application-insights)
-- [Dynatrace](#use-dynatrace)
-- [AppDynamics](#use-appdynamics)
-- [NewRelic](#use-new-relic)
-- [ElasticAPM](#use-elasticapm)
+- ApplicationInsights
+- Dynatrace
+- AppDynamics
+- New Relic
+- ElasticAPM
 - [CA certificates](#use-ca-certificates)
+
+See the section [Supported APM resources with Build Service enabled](#supported-apm-resources-with-build-service-enabled) for support information.
 
 CA Certificates are supported for all language family buildpacks, but not all supported APMs. The following table shows the binding types supported by Tanzu language family buildpacks.
 
-| Buildpack                                             | ApplicationInsights | NewRelic | AppDynamics | Dynatrace | ElasticAPM |
-|-------------------------------------------------------|---------------------|----------|-------------|-----------|------------|
-| Java                                                  | ✅                  | ✅      | ✅          | ✅       | ✅         |
-| Dotnet                                                | ❌                  | ❌      | ❌          | ✅       | ❌         |
-| Go                                                    | ❌                  | ❌      | ❌          | ✅       | ❌         |
-| Python                                                | ❌                  | ❌      | ❌          | ❌       | ❌         |
-| NodeJS                                                | ❌                  | ✅      | ✅          | ✅       | ✅         |
-| [WebServers](how-to-enterprise-deploy-static-file.md) | ❌                  | ❌      | ❌          | ✅       | ❌         |
+| Buildpack  | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
+|------------|---------------------|-----------|-------------|-----------|------------|
+| Java       | ✔                  | ✔         | ✔          | ✔         | ✔         |
+| Dotnet     |                     |           |             | ✔        |            |
+| Go         |                     |           |             | ✔        |            |
+| Python     |                     |           |             |           |            |
+| NodeJS     |                     | ✔        | ✔           | ✔        | ✔          |
+| WebServers |                     |           |             | ✔        |            |
+
+For information about using WebServers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md)
 
 When you enable Build Service, the APM and CA Certificate are integrated with a builder, as described in the [Manage APM integration and CA certificates in Azure Spring Apps](#manage-apm-integration-and-ca-certificates-in-azure-spring-apps) section.
 
@@ -98,126 +102,117 @@ az spring app deploy \
     --env NEW_RELIC_APP_NAME=<your-app-name> NEW_RELIC_LICENSE_KEY=<your-license-key>
 ```
 
-### Supported APM resources with Build Service enabled
+#### Supported APM resources with Build Service enabled
 
-This section describes the APM providers and tools you can use for your integrations.
+This section lists the supported languages and required variables for Application Performance Monitoring that you can use for your integrations. Listed are the supported languages, required environment variables for buildpack binding, required environment variables for deploying an application with a custom image, notes, and links to information on supported variables.
 
-#### Use Application Insights
+- **Application Insights**
 
-The following languages are supported:
+  Supported languages:
+  - Java
+  
+  Environment variables required - buildpack binding:
+  - `connection-string`
 
-- Java
+  Environment variables required - deploying with custom image:
+  - `APPLICATIONINSIGHTS_CONNECTION_STRING`
+  
+  Notes:
+  - Upper-case keys are allowed, and you can replace underscores (`_`) with hyphens (`-`).
 
-The following list shows the required environment variables for buildpack binding:
+  More information:
+  - [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
 
-- `connection-string`
+- **DynaTrace**
 
-Upper-case keys are allowed, and you can also replace `_` with `-`.
+  Supported languages:
+  - Java
+  - .NET
+  - Go
+  - Node.js
+  - WebServers
+  
+  Environment variables required - buildpack binding:
+  - `api-url` or `environment-id` (used in build step)
+  - `api-token` (used in build step)
+  - `TENANT`
+  - `TENANTTOKEN`
+  - `CONNECTION_POINT`
 
-The following list shows the required environment variables for deploy an app with a custom image:
+  Environment variables required - deploying with custom image:
+  - `DT_TENANT`
+  - `DT_TENANTTOKEN`
+  - `DT_CONNECTION_POINT`
+  
+  More variable information:
+  - [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
 
-- `APPLICATIONINSIGHTS_CONNECTION_STRING`
+- **New Relic**
 
-For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
+  Supported languages:
+  - Java
+  - Node.js
+  
+  Environment variables required - buildpack binding:
+  - `license_key`
+  - `app_name`
 
-#### Use Dynatrace
+  Environment variables required - deploying with custom image:
+  - `NEW_RELIC_LICENSE_KEY`
+  - `NEW_RELIC_APP_NAME`
+  
+  More variable information:
+  - [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 
-The following languages are supported:
+- **ElasticAPM**
 
-- Java
-- .NET
-- Go
-- Node.js
-- WebServers
+  Supported languages:
+  - Java
+  - Node.js
+  
+  Environment variables required - buildpack binding:
+  - `service_name`
+  - `application_packages`
+  - `server_url`
 
-The following list shows the required environment for buildpack binding:
+  Environment variables required - deploying with custom image:
+  - `ELASTIC_APM_SERVICE_NAME`
+  - `ELASTIC_APM_APPLICATION_PACKAGES`
+  - `ELASTIC_APM_SERVER_URL`
+  
+  More variable information:
+  - [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
-- `api-url` or `environment-id` (used in build step)
-- `api-token` (used in build step)
-- `TENANT`
-- `TENANTTOKEN`
-- `CONNECTION_POINT`
+- **AppDynamics**
 
-The following list shows the required environment variables for deploy an app with a custom image:
+  Supported languages:
+  - Java
+  - Node.js
+  
+  Environment variables required - buildpack binding:
+  - `agent_application_name`
+  - `agent_tier_name`
+  - `agent_node_name`
+  - `agent_account_name`
+  - `agent_account_access_key`
+  - `controller_host_name`
+  - `controller_ssl_enabled`
+  - `controller_port`
 
-- `DT_TENANT`
-- `DT_TENANTTOKEN`
-- `DT_CONNECTION_POINT`
+  Environment variables required - deploying with custom image:
+  - `APPDYNAMICS_AGENT_APPLICATION_NAME`
+  - `APPDYNAMICS_AGENT_TIER_NAME`
+  - `APPDYNAMICS_AGENT_NODE_NAME`
+  - `APPDYNAMICS_AGENT_ACCOUNT_NAME`
+  - `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
+  - `APPDYNAMICS_CONTROLLER_HOST_NAME`
+  - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
+  - `APPDYNAMICS_CONTROLLER_PORT`
+  
+  More variable information:
+- [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
-For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
-
-#### Use New Relic
-
-The following languages are supported:
-
-- Java
-- Node.js
-
-The following list shows the required environment variables for buildpack binding:
-
-- `license_key`
-- `app_name`
-
-The following list shows the required environment variables for deploy an app with a custom image:
-
-- `NEW_RELIC_LICENSE_KEY`
-- `NEW_RELIC_APP_NAME`
-
-For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
-
-#### Use ElasticAPM
-
-The following languages are supported:
-
-- Java
-- Node.js
-
-The following list shows the required environment variables for buildpack binding:
-
-- `service_name`
-- `application_packages`
-- `server_url`
-
-The following list shows the required environment variables for deploy an app with a custom image:
-
-- `ELASTIC_APM_SERVICE_NAME`
-- `ELASTIC_APM_APPLICATION_PACKAGES`
-- `ELASTIC_APM_SERVER_URL`
-
-For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
-
-#### Use AppDynamics
-
-The following languages are supported:
-
-- Java
-- Node.js
-
-The following list shows the required environment variables for buildpack binding:
-
-- `agent_application_name`
-- `agent_tier_name`
-- `agent_node_name`
-- `agent_account_name`
-- `agent_account_access_key`
-- `controller_host_name`
-- `controller_ssl_enabled`
-- `controller_port`
-
-The following list shows the required environment variables for deploy an app with a custom image:
-
-- `APPDYNAMICS_AGENT_APPLICATION_NAME`
-- `APPDYNAMICS_AGENT_TIER_NAME`
-- `APPDYNAMICS_AGENT_NODE_NAME`
-- `APPDYNAMICS_AGENT_ACCOUNT_NAME`
-- `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
-- `APPDYNAMICS_CONTROLLER_HOST_NAME`
-- `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
-- `APPDYNAMICS_CONTROLLER_PORT`
-
-For other supported environment variables, see [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
-
-#### Use CA certificate buildpacks
+#### Use CA certificates
 
 You can use the [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system trust store at build and runtime.
 
@@ -257,75 +252,70 @@ az spring app deploy \
 
 ### Supported APM resources with Build Service disabled
 
-This section describes the APM providers and tools you can use for your integrations.
- 
-- Use Application Insights
+This section lists the supported languages and required variables for Application Performance Monitoring that you can use for your integrations. Listed are the supported languages, required runtime environment variables and links to information on supported variables.
 
-  The following languages are supported:
+- **Application Insights**
 
+  Supported languages:
   - Java
-
-  The following list shows the required runtime environment variables:
-
+  
+  Required runtime environment variables:
   - `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-  For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
+  More variable information:
+  - [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net)
 
-- Use Dynatrace
+- **Dynatrace**
 
-  The following languages are supported:
-
+  Supported languages:
   - Java
   - .NET
   - Go
   - Node.js
   - WebServers
-
-  The following list shows the required runtime environment variables:
+  
+  Required runtime environment variables:
   - `DT_TENANT`
   - `DT_TENANTTOKEN`
   - `DT_CONNECTION_POINT`
 
-  For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
+  More variable information:
+  - [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
 
-- Use New Relic
+- **New Relic**
 
-  The following languages are supported:
-
+  Supported languages:
   - Java
   - Node.js
-
-  The following list shows the required runtime environment variables:
-
+  
+  Required runtime environment variables:
   - `NEW_RELIC_LICENSE_KEY`
   - `NEW_RELIC_APP_NAME`
+  
+  More variable information:
+  - [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 
-  For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+- **ElasticAPM**
 
-- Use ElasticAPM
-
-  The following languages are supported:
-
+  Supported languages:
   - Java
   - Node.js
-
-   The following list shows the required runtime environment variables:
-
+  
+  Required runtime environment variables:
   - `ELASTIC_APM_SERVICE_NAME`
   - `ELASTIC_APM_APPLICATION_PACKAGES`
   - `ELASTIC_APM_SERVER_URL`
+  
+  More variable information:
+  - [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
-  For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
+- **AppDynamics**
 
-- Use AppDynamics
-
-  The following languages are supported:
-
+  Supported languages:
   - Java
   - Node.js
-
-  The following list shows the required runtime environment variables:
-
+  
+  Required runtime environment variables:
   - `APPDYNAMICS_AGENT_APPLICATION_NAME`
   - `APPDYNAMICS_AGENT_TIER_NAME`
   - `APPDYNAMICS_AGENT_NODE_NAME`
@@ -334,8 +324,9 @@ This section describes the APM providers and tools you can use for your integrat
   - `APPDYNAMICS_CONTROLLER_HOST_NAME`
   - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
   - `APPDYNAMICS_CONTROLLER_PORT`
-
-  For other supported environment variables, see [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
+  
+  More variable information:
+  - [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
 ---
 
@@ -359,11 +350,11 @@ To edit buildpack bindings using the Azure portal, use the following steps:
 
    After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Bindings Edit option highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png":::
 
 1. The **Edit binding for default builder** page displays.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder pane.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page.":::
 
    You can do the following binding tasks:
 
@@ -372,11 +363,11 @@ To edit buildpack bindings using the Azure portal, use the following steps:
    - Unbind a buildpack binding
      Select a **Binding type** that has a status of **Bound** and then select **Unbind binding** from the context menu.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted.":::
 
    To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing binding properties.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted.":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
