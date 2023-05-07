@@ -1,4 +1,3 @@
-
 ---
 title: Materialized views (preview)
 titleSuffix: Azure Cosmos DB NoSQL API
@@ -58,9 +57,9 @@ Use Azure CLI to enable the materialized views feature either with a native comm
 1. Let's define all the variables that will be required for this exercise.
     ```azurecli
     # Variable for subscriptionId
-    subscriptionId="subscription-name>
+    subscriptionId="subscription-name>"
     
-    "# Variable for resource group name
+    # Variable for resource group name
     resourceGroupName="<resource-group-name>"
     
     # Variable for account name
