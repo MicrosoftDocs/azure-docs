@@ -287,9 +287,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
-
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
@@ -298,9 +295,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
-
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for activity log alerts.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
@@ -311,9 +305,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for resource health alerts.
-
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     
     ### [Service Health alert](#tab/service-health)
@@ -322,9 +313,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
-
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for service health alerts.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
         
