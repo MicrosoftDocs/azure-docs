@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 05/07/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,9 +20,9 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
-- [Two Defender for DevOps recommendations are now included in Azure DevOps scan findings](#two-defender-for-devops-recommendations-are-now-included-in-azure-devops-scan-findings)
+- [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
 
-### Two Defender for DevOps recommendations are now included in Azure DevOps scan findings
+### Two Defender for DevOps recommendations now include Azure DevOps scan findings
 
 Defender for DevOps Code and IaC has expanded its recommendation coverage in Microsoft Defender for Cloud to include Azure DevOps security findings for the following two recommendations:
 
