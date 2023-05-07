@@ -73,20 +73,6 @@ items:
       href: quickstart-set-request-rate-limits-enterprise.md
     - name: Automate deployments
       href: quickstart-automate-deployments-github-actions-enterprise.md
-  - name: Enabled managed identity
-    items:
-    - name: Managed identity to connect to databases
-      href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-    - name: Managed identity to connect Key Vault
-      href: tutorial-managed-identities-key-vault.md
-    - name: Managed identity to invoke Azure Functions
-      href: tutorial-managed-identities-functions.md
-  - name: Alerts and action groups
-    href: tutorial-alerts-action-groups.md
-  - name: Circuit Breaker Dashboard
-    href: tutorial-circuit-breaker.md
-  - name: Custom DNS name
-    href: tutorial-custom-domain.md
 - name: Concepts
   items:
   - name: App and deployment
@@ -117,6 +103,12 @@ items:
     href: how-to-enterprise-marketplace-offer.md
 - name: Security
   items:
+  - name: Passwordless connection to an Azure database
+    href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Managed identity to connect Key Vault
+    href: tutorial-managed-identities-key-vault.md
+  - name: Managed identity to invoke Azure Functions
+    href: tutorial-managed-identities-functions.md
   - name: Security controls
     href: concept-security-controls.md
   - name: Security baseline
@@ -231,6 +223,10 @@ items:
       href: how-to-integrate-azure-load-balancers.md
   - name: Monitor
     items:
+    - name: Alerts and action groups
+      href: tutorial-alerts-action-groups.md
+    - name: Circuit Breaker Dashboard
+      href: tutorial-circuit-breaker.md
     - name: Distributed tracing and App Insights
       href: how-to-distributed-tracing.md
     - name: Analyze logs and metrics
@@ -261,6 +257,8 @@ items:
       href: how-to-configure-health-probes-graceful-termination.md
   - name: Network
     items:
+    - name: Custom DNS name
+      href: tutorial-custom-domain.md
     - name: Deploy Azure Spring Apps in a virtual network
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network

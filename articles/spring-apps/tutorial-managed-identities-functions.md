@@ -1,15 +1,15 @@
 ---
-title:  "Tutorial: Managed identity to invoke Azure Functions"
+title:  "Managed identity to invoke Azure Functions"
 description: Use managed identity to invoke Azure Functions from an Azure Spring Apps app
 author: karlerickson
 ms.author: margard
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022, devx-track-java, devx-track-azurecli
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/10/2020
 ---
 
-# Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
+# Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.

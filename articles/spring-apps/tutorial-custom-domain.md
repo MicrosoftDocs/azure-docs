@@ -1,24 +1,24 @@
 ---
-title: "Tutorial: Map an existing custom domain to Azure Spring Apps"
+title: "Map an existing custom domain to Azure Spring Apps"
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Map an existing custom domain to Azure Spring Apps
+# Map an existing custom domain to Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier 
+**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-Domain Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
+Domain Name Service (DNS) is a technique for storing network node names throughout a network. This article maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
 
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault.
 

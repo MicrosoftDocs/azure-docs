@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action groups | Microsoft Docs"
+title: "Monitor Azure Spring Apps resources using alerts and action groups | Microsoft Docs"
 description: Learn how to use Spring app alerts.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 12/29/2019
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Tutorial: Monitor Spring app resources using alerts and action groups
+# Monitor Spring app resources using alerts and action groups
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -27,7 +27,7 @@ There are two steps to set up an alert pipeline:
 
 ## Prerequisites
 
-In addition to the Azure Spring Apps requirements, the procedures in this tutorial work with a deployed Azure Spring Apps instance. Follow a [quickstart](./quickstart.md) to get started.
+In addition to the Azure Spring Apps requirements, the procedures in this article work with a deployed Azure Spring Apps instance. Follow a [quickstart](./quickstart.md) to get started.
 
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of an Azure Spring Apps instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
 
@@ -111,7 +111,7 @@ A rule can also be created using the **Metrics** page:
 
 ## Next steps
 
-In this tutorial you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
+In this article you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
 > [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)
