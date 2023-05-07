@@ -51,7 +51,7 @@ The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md
 * Full script output is returned and stored.
 * Job history available for 90 days.
 * Scripts can run as Local System or with user-supplied credentials.
-* Requires [manual installation](../../automation/automation-windows-hrw-install.md)
+* Requires [extension based Hybrid Worker](../../automation/automation-windows-hrw-install.md).
 
 ## Serial console
 
