@@ -14,9 +14,9 @@ ms.date: 05/23/2023
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning includes a built-in component to perform offline feature retrieval, so that the features can be used in a Azure Machine Learning pipeline job with the training and batch inference steps.
+Azure Machine Learning includes a built-in component to perform offline feature retrieval, so that the features can be used in an Azure Machine Learning pipeline job with the training and batch inference steps.
 
-The feature retrieval operation will run a Spark job to:
+The feature retrieval operation runs a Spark job to:
 - retrieve feature values from feature stores (according to the feature retrieval spec)
 - join (point-in-time) the feature values to the observation data to form a training data (or batch inference data)
 - output the data with the feature retrieval spec
@@ -25,11 +25,11 @@ The component expects the following inputs:
 
 | Input | Type | Description | Supported value | Note |
 |----|------|------|------|------|
-| input_model | custom_model | The model that is trained using features from feature store. It is expected that the model artifact folder has the `feature_retrieval_spec.yaml` file that defines the feature dependency. The yaml file is used by this component to retrieve corresponding features from the feature stores. This is usually used in a batch inference pipeline as a first step to prepare the batch inference data. | azureML model asset `azureml:<name>:<version>`, local path to the model folder, abfss:// wasbs:// or azureml:// path to the model folder  | only one of input_model and feature_retrieval_spec inputs is required |
-| feature_retrieval_spec | uri_file | This is the URI path to a `feature_retrieval_spec.yaml` file. The yaml file is used by this component to retrieve corresponding features from the feature stores. This is usually used in a training pipeline as a first step to prepare the training data | azureML data asset `azureml:<name>:<version>`, local path to the file, abfss:// wasbs:// or azureml:// path to the file | only one of input_model and feature_retrieval_spec inputs is required |
-| observation_data | uri_folder | The observation data to which the features are joined to. |  azureML data asset `azureml:<name>:<version>`, local path to the data folder, abfss:// wasbs:// or azureml:// path to the data folder | | 
-| observation_data_format | enum | The feature retrieval job will read the observation data according to the format. | parquet, csv, delta | |
-| timestamp_column| string | Name of the timestamp column in the observation data. The column is used by the poiat-at-time join on the observation data side | | | 
+| input_model | custom_model | The model that is trained using features from feature store. It's expected that the model artifact folder has the `feature_retrieval_spec.yaml` file that defines the feature dependency. The YAML file is used by this component to retrieve corresponding features from the feature store, which are used in a batch inference pipeline as a first step to prepare the batch inference data. | Azure Machine Learning model asset `azureml:<name>:<version>`, local path to the model folder, abfss:// wasbs:// or Azure Machine Learning:// path to the model folder  | only one of input_model and feature_retrieval_spec inputs are required |
+| feature_retrieval_spec | uri_file | The URI path to a `feature_retrieval_spec.yaml` file. The YAML file is used by this component to retrieve corresponding features from the feature stores. This is used in a training pipeline as a first step to prepare the training data | Azure Machine Learning data asset `azureml:<name>:<version>`, local path to the file, abfss:// wasbs:// or azureml:// path to the file | only one of `input_model` and `feature_retrieval_spec` inputs is required |
+| observation_data | uri_folder | The observation data to which the features are joined. |  Azure Machine Learning data asset `azureml:<name>:<version>`, local path to the data folder, abfss:// wasbs:// or azureml:// path to the data folder | | 
+| observation_data_format | enum | The feature retrieval job reads the observation data according to the format. | parquet, csv, delta | |
+| timestamp_column| string | Name of the timestamp column in the observation data. The column is used by the point-at-time join on the observation data side | | | 
 
 
 The component has one output, `output_data`. The output data is a uri_folder data asset. It always has the following folder structure:
@@ -41,7 +41,7 @@ The component has one output, `output_data`. The output data is a uri_folder dat
 └── feature_retrieval_spec.yaml
 
 
-You can use the component either by referencing its component ID in a piepline job YAML file, or by dragging and dropping the component in pipeline designer to create the pipeline. 
+You can use the component either by referencing its component ID in a pipeline job YAML file, or by dragging and dropping the component in pipeline designer to create the pipeline. 
 
 ## Example: drag and drop the component in Designer UI
 
