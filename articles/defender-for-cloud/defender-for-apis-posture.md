@@ -46,22 +46,12 @@ To see the alert process in action, you can simulate an action that triggers a D
 
 In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths.
 
-When the Defender CSPM plan is enabled together with Defender for APIs, you can use Cloud Security Explorer to query Cloud Security Graph, to identify, review and analyze API security risks across your organization. 
+When the Defender CSPM plan is enabled together with Defender for APIs, you can use Cloud Security Explorer to identify, review and analyze API security risks across your organization. 
 
 1. In the Defender for Cloud portal, select **Cloud Security Explorer**.
-1. You can build your own query, or select the API query template.
-    1. To build your own query, in **What would you like to search?** select the **APIs** category. You can query:
-        - API collections that contain one or more API endpoints.
-        - API endpoints for Azure API Management operations.
+1. In **What would you like to search?** select the **APIs** category. 
+1. Review the search results so that you can review, prioritize, and fix any API issues.
 
-        :::image type="content" source="media/defender-for-apis-posture/api-insights.png" alt-text="Screenshot that shows the predefined API query." lightbox="media/defender-for-apis-posture/api-insights.png":::
-    
-    The search results display each API resource with its associated insights, so that you can review, prioritize, and fix any issues.
-
-    Alternatively, you can select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query returns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
-    
-    :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Screenshot that shows a predefined API query.":::
-    
 
 ## Next steps
 
