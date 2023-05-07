@@ -135,7 +135,7 @@ The tutorials for deploying and running the [samples](verifiable-credentials-con
 - Dotnet - [Publish to App Service](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs#2-publish-your-web-app)
 - Node - [Deploy to App Service](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-vscode#deploy-to-azure)
 - Java - [Deploy to App Service](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-maven#4---deploy-the-app). You need to add the maven plugin for Azure App Service to the sample.
-- Python - [Deploy using VSCode](../../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#3---deploy-your-application-code-to-azure)
+- Python - [Deploy using Visual Studio Code](../../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#3---deploy-your-application-code-to-azure)
 
 Regardless of which language of the sample you are using, they will pickup the Azure AppService hostname `https://something.azurewebsites.net` and use it as the public endpoint. You don't need to configure something extra to make it work. If you make changes to the code or configuration, you need to redeploy the sample to Azure AppServices. Troubleshooting/debugging will not be as easy as running the sample on your local machine, where traces to the console window shows you errors, but you can achieve almost the same by using the [Log Stream](../../app-service/troubleshoot-diagnostic-logs.md#stream-logs).
  

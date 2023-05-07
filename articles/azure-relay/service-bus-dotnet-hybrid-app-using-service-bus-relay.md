@@ -353,7 +353,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
    ![Add as a link][24]
 
-1. Now open the *HomeController.cs* file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This code lets the client to call the on-premises service, returning the result of the call.
+1. Now open the *HomeController.cs* file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This code lets the client call the on-premises service, returning the result of the call.
 
    ```csharp
    namespace ProductsWeb.Controllers
