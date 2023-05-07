@@ -45,8 +45,13 @@ The detailed information added to the **Tasks** field consists of key-value pair
 | **taskId** | Resource ID of the task. |
 | **title** | Friendly name given to the task by its creator. |
 
+## Incident tasks workbook
+
+You can use the new **Incident tasks workbook** to see all the open incidents, assigned and unassigned, and any tasks associated with these incidents.
 
 ## View incident tasks in the SecurityIncident table
+
+Apart from the **Incident tasks workbook**, you can audit task activity by querying the *SecurityIncident* table in **Logs**. The rest of this article shows you how to do this, as well as how to read and understand the query results to get task activity information.
 
 1. In the **Logs** page, enter the following query in the query window and run it. This query will return all the incidents that have any tasks assigned.
 
@@ -111,6 +116,10 @@ Let's go back to the task list in the incident details page and delete the task 
 When we come back to **Logs** and run the query yet again, we'll see another new record, only this time the status for our task&mdash;the one titled "This task is a test task!"&mdash;will be **Deleted**.
 
 **However**&mdash; once the task has appeared one such time in the array (with a **Deleted** status), it will no longer appear in the **Tasks** array in new records for that incident in the **SecurityIncident** table. The existing records, like those we saw above, will continue to preserve the evidence that this task once existed.
+
+## View active tasks belonging to a closed incident
+
+
 
 
 ## Next steps
