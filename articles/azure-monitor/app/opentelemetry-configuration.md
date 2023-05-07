@@ -184,7 +184,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 ## Enable Azure AD authentication
 
-You might want to enable Azure Active Directory (AAD) Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
+You might want to enable Azure Active Directory (Azure AD) Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
 
 #### [.NET](#tab/net)
     
