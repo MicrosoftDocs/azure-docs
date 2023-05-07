@@ -1,5 +1,5 @@
 ---
-title: Collect data from models in production (preview)
+title: Inference data collection from models in production (preview)
 titleSuffix: Azure Machine Learning
 description: Collect inference data from models deployed on Azure Machine Learning to monitor their performance in production.
 services: machine-learning
@@ -9,16 +9,18 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.topic: concept-article 
+ms.topic: conceptual 
 ms.date: 4/24/2023
 ms.custom: devplatv2, event-tier1-build-2023
 ---
 
-# Collect inference data from models in production (preview)
+# Data collection from models in production (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Use Azure Machine Learning **Data collector** for real-time logging of input and output data from models that are deployed to managed online endpoints or Kubernetes online endpoints. Azure Machine Learning stores the logged inference data in Azure blob storage. This data can then be seamlessly used for model monitoring, debugging, or auditing, thereby, providing observability into the performance of your deployed models.
+In this article, you'll learn about data collection from models that are deployed to Azure Machine Learning online endpoints.
+
+Azure Machine Learning **Data collector** provides real-time logging of input and output data from models that are deployed to managed online endpoints or Kubernetes online endpoints. Azure Machine Learning stores the logged inference data in Azure blob storage. This data can then be seamlessly used for model monitoring, debugging, or auditing, thereby, providing observability into the performance of your deployed models.
 
 Data collector provides:
 - Logging of inference data to a central location (Azure Blob Storage)
