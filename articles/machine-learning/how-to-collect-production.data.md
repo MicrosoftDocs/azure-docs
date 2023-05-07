@@ -1,5 +1,5 @@
 ---
-title: Collect production data from models deployed for real-time inferencing
+title: Collect production data from models deployed for real-time inferencing (preview)
 titleSuffix: Azure Machine Learning
 description: Collect inference data from your model deployed to a real-time endpoint on Azure Machine Learning to monitor its performance in production.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: mopeakande
 ms.custom: template-how-to-pattern
 ---
 
-# Collect production data from models deployed for real-time inferencing
+# Collect production data from models deployed for real-time inferencing (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
