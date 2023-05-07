@@ -55,11 +55,11 @@ In the point-in-time join, the value of `source_delay` is considered. Using the 
 
 The below table shows the output of get_offline_features method that does the point-in-time join:
 
-:::image type="content" source="./media/concept-feature-retrieval/pit_join_source_delay_output.png" alt-text="A table showing the output of the get_offline_features method that does the point-in-time join":::
+:::image type="content" source="./media/concept-feature-retrieval/pit_join_source_delay_output.png" alt-text="A table showing the output of the get_offline_features method as an example of the effects of source delay":::
 
 If `source_delay` isn't set the feature set specification, its default value is 0, meaning there's no source delay.
 
-The value of `source_delay` is also considered in recurrent feature materialization. Check details in the [Feature materialization in Azure Machine Learning](./feature-materialization.md)
+The value of `source_delay` is also considered in recurrent feature materialization. Check details in the [Feature materialization in Azure Machine Learning](./concept-feature-materialization.md)
 
 ### Explanation of temporal_join_lookback
 

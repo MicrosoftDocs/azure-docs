@@ -1,5 +1,5 @@
 ---
-title: Feature retrieval in Azure Machine Learning
+title: Build a feature retrieval component
 titleSuffix: Azure Machine Learning
 description: Learn about the feature retrieval function in Azure Machine Learning, and how that function allows features to easily be used in pipeline jobs
 author: rsethur
@@ -10,7 +10,7 @@ ms.subservice: mldata
 ms.topic: conceptual
 ms.date: 05/23/2023 
 ---
-# Feature retrieval in Azure Machine Learning
+# Build a feature retrieval component
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

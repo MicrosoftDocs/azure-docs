@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
 author: qjxu
-ms.author: qjax
+ms.author: qiax
 ms.reviewer: franksolomon
 ms.date: 05/23/2023
 ms.custom: cliv2
 ---
 
-# CLI (v2) data YAML schema
+# CLI (v2) feature store YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 

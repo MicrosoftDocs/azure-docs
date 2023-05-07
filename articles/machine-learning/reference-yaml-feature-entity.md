@@ -1,19 +1,19 @@
 ---
 title: 'CLI (v2) feature entity  YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) feature store YAML schema.
+description: Reference documentation for the CLI (v2) feature entity YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
 author: qjxu
-ms.author: qjax
+ms.author: qiax
 ms.reviewer: franksolomon
 ms.date: 05/23/2023
 ms.custom: cliv2
 ---
 
-# CLI (v2) data YAML schema
+# CLI (v2) feature entity YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 

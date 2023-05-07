@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.date: 05/23/2023  
 ---
 
-
 # Feature transformations
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]

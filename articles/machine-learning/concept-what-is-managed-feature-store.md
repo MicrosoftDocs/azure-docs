@@ -43,6 +43,7 @@ Feature store is a new type of workspace that can be used by multiple project wo
 By providing a feature set specification, the system takes care of serving, securing, and monitoring your features. This eliminates the need for you to set up and manage the feature engineering pipelines. For more information on top level entities in feature store, including feature set specifications, see [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md).
 
 #### Discover and manage features
+
 | Capability | Description|
 |---|---|
 | Search and reuse features| You'll be able to search and reuse features across feature stores|
@@ -51,6 +52,7 @@ By providing a feature set specification, the system takes care of serving, secu
 | Feature set usage| You can see the list of registered models using the feature sets.|
 
 #### Feature transformation
+
 | Capability | Description|
 |---|---|
 | Support for custom transformations | If you need to develop features with custom transformations like wind based aggregates, you can do so by writing a Spark transformer|
@@ -60,6 +62,7 @@ By providing a feature set specification, the system takes care of serving, secu
 
 #### Materialization
 Materialization is the process of computing feature values for a given feature window and persisting in a materialization store. Now feature data can be retrieved more quickly and reliably for training and inference purposes.
+
 | Capability | Description|
 |---|---|
 |Managed feature materialization pipeline| You declaratively specify the materialization schedule, and system takes care of scheduling, precomputing ans materializing the values into the materialization store.|
@@ -70,6 +73,7 @@ Materialization is the process of computing feature values for a given feature w
 > Only offline store (ADLS Gen2) materialization is currently supported.
 
 #### Feature retrieval
+
 | Capability | Description|
 |---|---|
 | Declarative training data generation | Using the built-in feature retrieval component, you can generate training data in your pipelines without writing any code|
@@ -77,12 +81,14 @@ Materialization is the process of computing feature values for a given feature w
 | Programmatic feature retrieval | You can also use Python sdk `get_offline_features()`to generate the training/inference data|
 
 #### Monitoring
+
 | Capability | Description|
 |---|---|
 |Status of materialization jobs| You can view status of materialization jobs using the UI, CLI or SDK|
 | Notification on materialization jobs| You can set up email notifications on the different statuses of the materialization jobs|
 
 #### Security
+
 | Capability | Description|
 |---|---|
 | RBAC| Role based access control for feature store, feature set and entities. Note that this is granular. For fine-grained access, see below|
