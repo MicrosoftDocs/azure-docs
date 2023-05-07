@@ -468,7 +468,7 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
 ```
 
 ### [Python](#tab/python)
-Coming Soon.
+Currently unavailable.
 
 ---
 
@@ -1133,7 +1133,7 @@ The OpenTelemetry Logs/Events API is still under development. In the meantime, y
 
 #### [ASP.NET Core](#tab/aspnetcore)
   
-Coming soon.
+Currently unavailable.
   
 #### [Java](#tab/java)
 
@@ -1159,11 +1159,11 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
 
 #### [Node.js](#tab/nodejs)
 
-Coming soon.
+Currently unavailable.
   
 #### [Python](#tab/python)
 
-Coming soon.
+Currently unavailable.
 
 ---
 
@@ -1566,7 +1566,7 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 
 #### [Node.js](#tab/nodejs)
   
-Coming soon.
+Currently unavailable.
 
 #### [Python](#tab/python)
   
