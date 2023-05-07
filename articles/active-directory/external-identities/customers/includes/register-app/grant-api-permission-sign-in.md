@@ -21,7 +21,9 @@ ms.author: kengaderdus
 1. Under **Select permissions** section, search for and select both **openid** and **offline_access** permissions.
 
 1. Select the **Add permissions** button. 
- 
-1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
 
-1. Select **Refresh**, the verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
+1. At this point, you've assigned the permissions correctly. However, since the tenant is a customers tenant, the  consumer users themselves can't consent to these permissions. To address this problem, you as the admin must consent to these permissions on behalf of all the users in the tenant:
+ 
+    1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
+
+    1. Select **Refresh**, the verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
