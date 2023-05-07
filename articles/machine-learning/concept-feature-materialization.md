@@ -11,8 +11,9 @@ ms.topic: conceptual
 ms.date: 05/23/2023 
 ---
 
-
 # Feature materialization on time-series features
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Feature materialization computes features from source data and writes them to storage for later use. Feature materialization can be done on a one-off basis or as a scheduled job.  Functionally, feature materialization runs `featureset.to_spark_dataframe(featureWindowStartDateTime, featureWindowEndDateTime)` for a given feature start/end window, and writes the data to configured storage.
 
