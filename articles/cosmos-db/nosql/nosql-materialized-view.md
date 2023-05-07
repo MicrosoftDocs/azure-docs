@@ -293,7 +293,6 @@ In addition to the above limitations, consider the following extra limitations:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> 1.	[Understanding cross-partition queries in Azure Cosmos DB](http://https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-query-container "Understanding cross-partition queries in Azure Cosmos DB")
-> 2.	[Data modelling and partitioning ](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/model-partition-example "Data modelling and partitioning ")
+- [Understanding cross-partition queries in Azure Cosmos DB](how-to-query-container.md)
+- [Data modelling and partitioning ](model-partition-example.md)
 
