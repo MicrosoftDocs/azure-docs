@@ -52,7 +52,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * New model additions in gated preview: **Vaccination cards**, **Contracts**, **US Tax 1098**, **US Tax 1098-E**, and **US Tax 1098-T**.  To request access to gated preview models, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 * [**Receipt model updates**](concept-receipt.md)
   * Receipt model has added support for thermal receipts.
-  * Receipt model now has added language support for 18 languages and three language dialects (English, French, Portuguese).
+  * Receipt model now has added language support for 18 languages and three regional languages (English, French, Portuguese).
   * Receipt model now supports `TaxDetails` extraction.
 * [**Layout model**](concept-layout.md) now has improved table recognition.
 * [**Read model**](concept-read.md) now has added improvement for single-digit character recognition.
@@ -132,7 +132,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * India ID cards and documents (PAN and Aadhaar)
   * Australia ID cards and documents (photo card, Key-pass ID)
   * Canada ID cards and documents (identification card, Maple card)
-  * United Kingdom ID cards and documents (national identity card)
+  * United Kingdom ID cards and documents (national/regional identity card)
 
 ---
 
