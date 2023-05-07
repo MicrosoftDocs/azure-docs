@@ -6,14 +6,14 @@ author: Heidilohr
 manager: femila
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 04/28/2023
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory
 
 In this article, you'll learn how to create and configure an Azure Files share for Azure Active Directory (Azure AD) Kerberos authentication. This configuration allows you to store FSLogix profiles that can be accessed by hybrid user identities from Azure AD-joined or Hybrid Azure AD-joined session hosts without requiring network line-of-sight to domain controllers. Azure AD Kerberos enables Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol.
 
-This feature is currently supported in the Azure Public cloud.
+This feature is supported in the Azure Public, Azure US Gov and Azure China 21Vianet clouds.
 
 ## Prerequisites
 

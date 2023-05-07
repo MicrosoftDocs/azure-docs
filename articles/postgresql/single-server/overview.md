@@ -37,7 +37,7 @@ These capabilities require almost no administration, and all are provided at no 
 
 ## Deployment models
 
-Azure Database for PostgreSQL powered by the PostgreSQL community edition is available in three deployment modes:
+Azure Database for PostgreSQL powered by the PostgreSQL community edition is available in two deployment modes:
 
 - Single Server
 - Flexible Server

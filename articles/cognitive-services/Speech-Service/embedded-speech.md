@@ -132,7 +132,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.27.0</version>
+            <version>1.28.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -153,7 +153,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.27.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.28.0@aar'
 }
 ```
 ::: zone-end
@@ -181,7 +181,7 @@ The following [text-to-speech](text-to-speech.md) locales and voices are availab
 | `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
 | `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
 | `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
-| `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
+| `pt-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
 
 ## Embedded speech configuration
@@ -269,6 +269,7 @@ embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
 
 - [C# (.NET 6.0)](https://aka.ms/embedded-speech-samples-csharp)
+- [C# (.NET MAUI)](https://aka.ms/embedded-speech-samples-csharp-maui)
 - [C# for Unity](https://aka.ms/embedded-speech-samples-csharp-unity)
 ::: zone-end
 

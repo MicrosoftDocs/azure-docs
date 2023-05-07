@@ -98,7 +98,7 @@ After you have purchased the required Azure AD tier, [plan and deploy Azure AD M
 
 ### Azure AD Free tier
 
-All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app is the only method that can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
+All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app and SMS methods can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
 
 * [Learn more about Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Enable security defaults for users in Azure AD Free](../fundamentals/concept-fundamentals-security-defaults.md#enabling-security-defaults)

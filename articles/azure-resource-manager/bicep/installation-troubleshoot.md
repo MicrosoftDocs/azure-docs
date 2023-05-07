@@ -3,7 +3,7 @@ title: Troubleshoot problems with Bicep installation
 description: How to resolve errors and problems with your Bicep installation.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/15/2021
+ms.date: 04/18/2023
 ---
 
 # Troubleshoot Bicep installation
@@ -21,6 +21,9 @@ Failed to install .NET runtime v5.0
 ```error
 Failed to download .NET 5.0.x ....... Error!
 ```
+
+> [!WARNING]
+> This is a last resort solution that may cause problems when updating versions.
 
 To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET with the following settings:
 

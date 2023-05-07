@@ -21,7 +21,7 @@ Query Performance Insight provides intelligent query analysis for Azure Postgres
 >[!div class="checklist"]
 > * Identify what your long running queries, and how they change over time.
 > * Determine the wait types affecting those queries.
-> * Details on top database queries by Calls (execution count ), by data-usage, by IOPS and by Temporary file usage (potential tuning candidates for performance improvements).
+> * Details on top database queries by Calls (execution count), by data-usage, by IOPS and by Temporary file usage (potential tuning candidates for performance improvements).
 > * The ability to drill down into details of a query, to view the Query ID and history of resource utilization.
 > * Deeper insight into overall databases resource consumption.
 

@@ -94,6 +94,9 @@
         - name: Private access
           href: concepts-private-access.md
           displayName: private, link
+        - name: Customer managed keys
+          href: concepts-customer-managed-keys.md
+          displayName: customer-managed, keys, cmk
         - name: Row-level security
           href: concepts-row-level-security.md
           displayName: row, level, security, rls
@@ -198,7 +201,10 @@
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
-        - name: Configure SSL
+        - name: Customer managed keys
+          href: how-to-customer-managed-keys.md
+          displayName: customer-managed, keys, cmk
+        - name: Configure TLS/SSL
           href: howto-ssl-connection-security.md
           displayName: ssl, tls
     - name: Troubleshoot

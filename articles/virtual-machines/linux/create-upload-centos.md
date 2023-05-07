@@ -457,7 +457,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
           - device: ephemeral0.2
             filesystem: swap
         mounts:
-          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.1", "/mnt/resource"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```

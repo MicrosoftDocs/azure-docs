@@ -27,7 +27,7 @@ keywords:
 
 ### Create a new .NET Core application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-openai-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
 
 ```dotnetcli
 dotnet new console -n azure-openai-quickstart
@@ -112,29 +112,21 @@ using Azure;
 using Azure.AI.OpenAI;
 using static System.Environment;
 
-namespace azure_openai_quickstart
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
-            string key = GetEnvironmentVariable("OPENAI_API_KEY");
-            string engine = "text-davinci-003"; //Enter the deployment name you chose when you deployed the model.
+string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
+string key = GetEnvironmentVariable("OPENAI_API_KEY");
 
-            OpenAIClient client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
+// Enter the deployment name you chose when you deployed the model.
+string engine = "text-davinci-003";
 
-            string prompt = "When was Microsoft founded?";
-            Console.Write($"Input: {prompt}\n");
+OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
-            Response<Completions> completionsResponse = client.GetCompletions(engine, prompt);
-            string completion = completionsResponse.Value.Choices[0].Text;
-            Console.WriteLine($"Chatbot: {completion}");
+string prompt = "When was Microsoft founded?";
+Console.Write($"Input: {prompt}\n");
 
-        }  
-    }
-}
-
+Response<Completions> completionsResponse = 
+    await client.GetCompletionsAsync(engine, prompt);
+string completion = completionsResponse.Value.Choices[0].Text;
+Console.WriteLine($"Chatbot: {completion}");
 ```
 
 > [!IMPORTANT]
@@ -162,4 +154,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

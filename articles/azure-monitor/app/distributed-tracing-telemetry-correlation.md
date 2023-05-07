@@ -256,7 +256,7 @@ By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-cont
 
 If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under **Logs (Analytics)** in the Azure Monitor Application Insights resource.
 
-![Screenshot that shows Request telemetry in Logs (Analytics).](./media/opencensus-python/0011-correlation.png)
+:::image type="content" source="./media/opencensus-python/0011-correlation.png" lightbox="./media/opencensus-python/0011-correlation.png" alt-text="Screenshot that shows Request telemetry in Logs (Analytics).":::
 
 The `id` field is in the format `<trace-id>.<span-id>`, where `trace-id` is taken from the trace header that was passed in the request and `span-id` is a generated 8-byte array for this span.
 
