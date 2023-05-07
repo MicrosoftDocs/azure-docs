@@ -51,7 +51,7 @@ Here in Tutorial part 3, you'll learn how to:
 
 #### Set up the samples root directory
 
-[Start the spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=root-dir)
+[Start the samples root directory code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=root-dir)
 
 #### Initialize the project workspace CRUD client
 
@@ -67,13 +67,13 @@ Ensure you update the `featurestore_name` to reflect what you created in part 1 
 
 #### Initialize the feature store consumption client
 
-[Start the spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=init-fs-core-sdk)
+[Start the feature store consumption client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=init-fs-core-sdk)
 
 #### In the project workspace, create a compute cluster named cpu-cluster
 
 We'll run training/batch inference jobs that rely on this compute cluster
 
-[Start the spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=create-compute-cluster)
+[Start the create a compute cluster code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=create-compute-cluster)
 
 ## Step 1: Locally create an accounts feature set from precomputed data
 
@@ -138,7 +138,7 @@ You already did this in part 1 of the tutorial, after you registered the transac
 * In the left nav, select `Feature stores`
 * You'll see a list of feature stores that you can access. Select the feature store that you created in the steps above.
 
-You can see the feature sets and entity that you created. Click on the feature sets to browse the feature definitions. You can also use the global search box to search for feature sets across feature stores.
+You can see the feature sets and entity that you created. Select feature sets to browse the feature definitions. You can also use the global search box to search for feature sets across feature stores.
 
 ### (Optional) Step 3b: Discover features from the SDK
 
@@ -196,7 +196,7 @@ Notice that the feature retrieval spec is packaged along with the model. The mod
 
 ### Step 5a: View the list of feature sets associated with the model
 
-In the same models page, click on the `feature sets` tab. This shows both the `transactions` and `accounts` featuresets on which this model depends.
+In the same models page, select the `feature sets` tab. This shows both the `transactions` and `accounts` featuresets on which this model depends.
 
 ### Step 5b: View the list of models using the feature sets
 

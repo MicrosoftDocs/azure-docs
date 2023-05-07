@@ -1,0 +1,140 @@
+---
+title: "Four Part Tutorial: Batch Inference (preview)"
+titleSuffix: Azure ML managed Feature Store - Basics
+description: Managed Feature Store tutorial. 
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: tutorial
+author: rsethur
+ms.author: seramasu
+ms.date: 05/05/2023
+ms.reviewer: franksolomon
+ms.custom: sdkv2
+
+#Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
+---
+
+# Tutorial #3: Experiment and train models using features (preview)
+
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In this tutorial series, you will learn how features seamlessly integrate all phases of the ML lifecycle: feature prototyping, training and operationalization.
+
+Earlier in this tutorial, you experimented with features, trained a model, and registered the model along with the feature-retrieval spec. Here in Tutorial #4, you'll learn how to run batch inference for the registered model.
+
+You'll learn how to:
+
+* Enable recurrent materialization for the `transactions` feature set
+* Run batch inference pipeline on the registered model
+
+## Prerequisites: Configure an AzureML Spark Notebook
+
+- Ensure you have executed tutorial parts 1, 2, and 3
+
+## Setup
+
+### Configure the Azure ML spark notebook
+
+1. At the "Compute" dropdown in the top nav, select "AzureML Spark Compute". Note that it might show "Ready" there, but the spark session is created only after you execute the next steps.
+
+      * Select "configure session" in the bottom nav
+      * Select **upload conda file**
+      * Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` from your local device
+      * Increase the session time out (idle time) to avoid frequent prerequisite re-runs
+
+#### Start the spark session
+
+[Start the spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=start-spark-session)
+
+#### Set up the samples root directory
+
+[Start the spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=root-dir)
+
+#### Initialize the project workspace CRUD client
+
+The tutorial notebook will run from this current workspace
+
+[Initialize the project workspace CRUD client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference?name=init-ws-crud-client)
+
+#### Initialize the feature store CRUD client
+
+Ensure you update the `featurestore_name` to reflect what you created in part 1 of this tutorial
+
+[Initialize the Feature Store CRUD client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=init-fs-crud-client)
+
+#### Initialize the feature store SDK client
+
+[Start the feature store SDK client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference?name=init-fs-core-sdk)
+
+## Step 1: Enable recurrent materialization on the `transactions` featureset
+
+In tutorial part 2, we enabled materialization, and we performed backfill on the transactions feature set. Backfill is an on-demand, one-time operation that computes and places feature values in the materialization store. However, to perform inference of the model in production, you might want to set up recurrent materialization jobs to keep the materialization store up-to-date. These jobs run on user-defined schedules. The recurrent job schedule works this way:
+
+* Interval and frequency values define a window. For example, values of
+
+  * interval = 3
+  * frequency = Hour
+
+    define a 3-hour window.
+
+* The first window starts at the start_time defined in the RecurrenceTrigger, and so on.
+* The first recurrent job will be submitted at the start of the next window after the update time.
+* Later recurrent jobs will be submitted at every window after the first job.
+
+As explained in earlier parts of this tutorial, once data is materialized (backfill / recurrent materialization), feature retrieval will use the materialized data by default.
+
+[Enable recurrent materialization code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=enable-recurrent-mat-txns-fset)
+
+### (Optional) Save the feature set asset yaml with the updated settings
+
+[Save the feature set asset yaml code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=dump-txn-fset-with-mat-yaml)
+
+### Track status of the recurrent materialization jobs in the feature store studio UI
+
+This job will run every three hours.
+
+Action:
+
+* Feel free to execute the next step for now (batch inference).
+* In three hours, check the recurrent job status with the UI
+
+## Run the batch-inference pipeline
+
+In this step, you'll manually trigger the batch inference pipeline. In a production scenario, a ci/cd pipeline could trigger the pipeline, based on model registration and approval.
+
+The batch-inference has these steps:
+
+1. Feature retrieval: This uses the same built-in feature retrieval component used in the training pipeline, in the part 3 of the tutorial. For pipeline training, we provided a feature retrieval spec as a component input. However, for batch inference, we'll pass the registered model as the input, and the component will look for the feature retrieval spec in the model artifact. Additionally, in case of training, the observation data had the target variable. However, batch inference will not involve the target variable. The feature retrieval step will join the observation data with the features, and output the data for batch inference.
+1. Batch inference: This step uses the batch inference input data from previous step, runs inference on the model, and appends the predicted value as output.
+
+> [!Note]
+> We use a job for batch inference in this example. You can also use Azure ML's batch endpoints.
+
+[Run the batch inference pipeline code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=run-batch-inf-pipeline)
+
+### Inspect the batch inference output data
+
+1. In the pipeline view
+   * select inference_step
+   * in the outputs card, copy the Data field. It will look something like `azureml_995abbc2-3171-461e-8214-c3c5d17ede83_output_data_data_with_prediction:1`
+   * Paste it in the cell below, with separate name and version values (notice that the last character is the version, separated by a `:`).
+   * Notice that the batch inference pipeline generated the `batch inference pipeline`
+
+Explanation: Since we did not provide `name` or `version` values of `inference_step` in the batch inference pipeline (/project/fraud_mode/pipelines/batch_inference_pipeline.yaml) outputs, the system created an untracked data asset with a guid as name and version as 1. In the next cell, we'll derive and then display the data path from the asset.
+
+[Inspect the batch inference output data code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/4.%20batch_inference.ipynb?name=inspect-batch-inf-output-data)
+
+
+
+## Cleanup
+
+Pending
+
+## Next steps
+
+* Understand concepts: feature store concepts, feature transformation concepts
+* Understand identity and access control for feature store
+* View feature store troubleshooting guide
+* Reference: YAML reference, feature store SDK

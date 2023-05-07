@@ -22,7 +22,7 @@ ms.custom: sdkv2
 
 With the Azure ML managed feature store, you can discover, create and operationalize features. Features serve as the connective tissue in the ML lifecycle, starting from prototyping phase, where you experiment with various features, to the operationalization phase. In this phase, models are deployed and feature data is referenced during inference. For information about the basic feature store concept, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
 
-This tutorial is the first part of a three part series. In this tutorial, you'll learn how to:
+This tutorial is the first part of a four part series. In this tutorial, you'll learn how to:
 
 * Create a new minimal feature store resource
 * Develop and locally test a feature set with feature transformation capability
