@@ -96,7 +96,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     > [!NOTE]
     > There are `CreationTime` or `DeletionTime` fields for the account. These same fields exist for regions too. These times allow you to choose the right region and a valid time range to use when restoring a resource.
 
-:::zone target="api-nosql" pivot="azure-cosmos-db-apis-nosql-mongodb-gremlin-table"
+:::zone pivot="api-nosql"
 
 1. Use [`Get-AzCosmosDBSqlRestorableDatabase`](/powershell/module/az.cosmosdb/get-azcosmosdbsqlrestorabledatabase) to list all restorable versions of databases for live accounts.
 
@@ -148,7 +148,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 :::zone-end
 
-:::zone target="api-mongodb" pivot="azure-cosmos-db-apis-nosql-mongodb-gremlin-table"
+:::zone pivot="api-mongodb"
 
 1. Use [`Get-AzCosmosdbMongoDBRestorableDatabase`](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbrestorabledatabase) to list all restorable versions of databases for live accounts.
 
@@ -194,7 +194,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 :::zone-end
 
-:::zone target="api-mongodb" pivot="azure-cosmos-db-apis-nosql-mongodb-gremlin-table"
+:::zone pivot="api-gremlin"
 
 1. Use [`Get-AzCosmosdbGremlinRestorableDatabase`](/powershell/module/az.cosmosdb/get-azcosmosdbgremlinrestorabledatabase) to list all restorable versions of databases for live accounts.
 
@@ -240,7 +240,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 :::zone-end
 
-:::zone target="api-table" pivot="azure-cosmos-db-apis-nosql-mongodb-gremlin-table"
+:::zone pivot="api-table"
 
 1. Use [`Get-AzCosmosdbTableRestorableTable`](/powershell/module/az.cosmosdb/get-azcosmosdbtablerestorabletable) to list all restorable versions of tables for live accounts.
 
@@ -272,4 +272,21 @@ TODO
 
 ## Track the status of a restore operation
 
-When a point-in-time restore is triggered for a deleted container or database, the operation is identified as an **InAccount** restore operation on the resource. To get a list of restore operations for a specific resource, filter the Activity Log of the account using the search filter `InAccount Restore Deleted` and a time filter. The resulting list includes the `UserPrincipalName` field that identifies the user that triggered the restore operation. For more information on how to access activity logs, see [Auditing point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
+When a point-in-time restore is triggered for a deleted container or database, the operation is identified as an **InAccount** restore operation on the resource.
+
+### [Azure portal](#tab/azure-portal)
+
+To get a list of restore operations for a specific resource, filter the Activity Log of the account using the search filter `InAccount Restore Deleted` and a time filter. The resulting list includes the `UserPrincipalName` field that identifies the user that triggered the restore operation. For more information on how to access activity logs, see [Auditing point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
+
+### [Azure CLI / Azure PowerShell / Azure Resource Manager template](#tab/azure-cli+azure-powershell+azure-resource-manager)
+
+Not supported yet.
+
+---
+
+## Next steps
+
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
+* [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
