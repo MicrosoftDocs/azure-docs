@@ -446,7 +446,7 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 
 ## Limitations and known issues
 
-* Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDKs, like Python, is planned for the future.
+* Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDKs, like Python, are not yet available.
 * There are limitations with various Azure Cosmos DB connectors (ex. Azure Data Factory).
 * You can only specify hierarchical partition keys up to three layers in depth.
 * Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. To use hierarchical partitions on existing containers, you should create a new container with the hierarchical partition keys set and move the data using [container copy jobs](intra-account-container-copy.md).
