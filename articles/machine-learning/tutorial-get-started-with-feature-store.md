@@ -74,7 +74,7 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
 
 #### Start Spark Session
 
-[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=start-spark-session)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=start-spark-session)]
 
 [Quickstart: Create workspace resources](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
 
