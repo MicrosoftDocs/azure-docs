@@ -68,7 +68,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
     
 1. Save changes to the file.
 1. Open the *Properties/launchSettings.json* file.
-1. Change the `https` value in `applicationURI` so that it reads `https://localhost:7274`. You used this URL to define the **Redirect URI**.
+1. In the `https` section of `profiles`, change the `https` URL in `applicationUrl` so that it reads `https://localhost:7274`. You used this URL to define the **Redirect URI**.
 1. Save the changes to your file.
 
 ## Next steps

@@ -46,11 +46,8 @@ The sign-in flow involves the following steps:
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org).
-
-- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
-
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
+- Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
+- [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
 
 If you want to run a sample Node.js web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-node-sample-sign-in.md)
