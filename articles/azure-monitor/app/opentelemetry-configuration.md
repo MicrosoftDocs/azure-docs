@@ -20,24 +20,43 @@ A connection string in Application Insights defines the target location for send
 
 ### [.NET](#tab/net)
 
-Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
+Use one of the following three ways to configure the connection string:
 
-```csharp
-using Azure.Monitor.OpenTelemetry.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+- Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
+    ```csharp
+    using Azure.Monitor.OpenTelemetry.AspNetCore;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.Extensions.DependencyInjection;
 
-var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
-    //Uncomment the line below when setting the Application Insights Connection String via code
-    //options.ConnectionString = "<Your Connection String>";
-});
+    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+        //Uncomment the line below when setting the Application Insights Connection String via code
+        //options.ConnectionString = "<Your Connection String>";
+    });
 
-var app = builder.Build();
+    var app = builder.Build();
 
-app.Run();
-```
+    app.Run();
+    ```
+- Set an environment variable:
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+- Add the following section to your `appsettings.json` config file:
+  ```json
+  {
+    "AzureMonitor": {
+        "ConnectionString": "<Your Connection String>"
+    }
+  }
+  ```
+  
+> [!NOTE]
+> If you set the connection string in more than one place, we adhere to the following precendence:
+> 1. Code
+> 2. Environment Variable
+> 3. Configuration File
 
 ### [Java](#tab/java)
 
