@@ -9,7 +9,7 @@ manager: RideMo
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/08/2023
 ms.author: rbinrais
 ms.subservice: B2C
 ---
@@ -109,4 +109,4 @@ In this scenario, the introduction of the WAF and AFD protection mechanisms prot
 - [Investigate risk with Identity Protection in Azure AD B2C](./identity-protection-investigate-risk.md) to discover, investigate, and remediate identity-based risks.
 - [Securing phone-based multi-factor authentication (MFA)](./phone-based-mfa.md) to protect your phone based multi-factor authentication.
 - [Configure Identity Protection](./conditional-access-user-flow.md) to protect your sign in experience.
-- [Configure Monitoring and alerting](./azure-monitor/md) to be alerted to any threats.
+- [Configure Monitoring and alerting](./azure-monitor.md) to be alerted to any threats.
