@@ -121,7 +121,7 @@ If you have already installed Visual Studio 2022:
 1. In **Create a new project**, find, and select **ASP.NET Web Application (.NET Framework)**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/configure-webapp-netframework48.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET Framework 4.8 web app." lightbox="media/quickstart-dotnet/configure-webapp-netframework48.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/configure-webapp-net-framework-48.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET Framework 4.8 web app." lightbox="media/quickstart-dotnet/configure-webapp-net-framework-48.png" border="true":::
 
 1. Select the **MVC** template.
 1. Ensure **Authentication** is set to **No Authentication**. Select **Create**.
@@ -159,7 +159,7 @@ If you have already installed Visual Studio 2022:
 
     You see the template ASP.NET Core 7.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+    :::image type="content" source="media/core/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
     
 :::zone-end
 
@@ -250,7 +250,7 @@ Follow these steps to create your App Service resources and publish your project
 
     You see the ASP.NET Framework 4.8 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnetcore/vs-azure-webapp-net-48.png" lightbox="media/quickstart-dotnet/vs-azure-webapp-net-48.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/vs-azure-webapp-net-48.png" lightbox="media/quickstart-dotnetcore/vs-azure-webapp-net-48.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 web app in Azure.":::
 
     -----
 
@@ -459,8 +459,6 @@ Follow these steps to create your App Service resources and publish your project
     -----
 
 1. Select the **Review + create** button at the bottom of the page.
-
-    :::image type="content" source="./media/quickstart-dotnet/review-create.png" alt-text="Screenshot of the Review and create button at the bottom of the page.":::
 
 1. After validation runs, select the **Create** button at the bottom of the page.
 
@@ -702,7 +700,7 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
     
     You see the updated ASP.NET Framework 4.8 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnet/updated-azure-webapp-net-48.png" lightbox="media/quickstart-dotnet/updated-azure-webapp-net-48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
 
     -----
     
