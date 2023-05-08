@@ -80,6 +80,9 @@ For more information on workspaces, see [how to manage resources in VS Code](how
 
 ## Create a GPU cluster for training
 
+> [!NOTE]
+> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [Train the model](#train-the-model).
+
 A compute target is the computing resource or environment where you run training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
 
 1. In the Azure Machine Learning view, expand your workspace node.
@@ -109,11 +112,19 @@ A compute target is the computing resource or environment where you run training
 
 After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
 
-## <a name="train-the-model"></a> Train image classification model
+## Train the model
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 
 Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute: azureml:gpu-cluster` with this code:
+> ```yml
+> resources:
+>  instance_type: Standard_NC12
+>  instance_count: 3
+```
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -154,7 +165,7 @@ In this tutorial, you learn the following tasks:
 
 For next steps, see:
 
-* [Launch Visual Studio Code remotely connected to a compute instance (preview)](how-to-launch-vs-code-remote.md).
+* [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md)
 * For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
 * [Run Jupyter Notebooks in Visual Studio Code](how-to-manage-resources-vscode.md) using a remote Jupyter server.
 * For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train and deploy a model with Azure Machine Learning](tutorial-train-deploy-notebook.md).

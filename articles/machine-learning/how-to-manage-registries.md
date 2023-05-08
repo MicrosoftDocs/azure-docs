@@ -78,6 +78,7 @@ replication_locations:
   - location: westus
 ```
 
+For more information on the structure of the YAML file, see the [registry YAML reference](reference-yaml-registry.md) article.
 
 > [!TIP]
 > You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. Use `az account list-locations -o table` to find the mapping of region display names to the name of the region that can be specified in YAML.
@@ -266,3 +267,4 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 ## Next steps
 
 * [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Network isolation with registries (preview)](./how-to-registry-network-isolation.md)

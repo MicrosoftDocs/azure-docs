@@ -10,7 +10,7 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ---
-# This H1 is the title of the article. It appears in search, appears at the top of the article, and has the second greatest impact on search. 100 chars or less.
+# This H1 is the title of the article. It appears in search, appears at the top of the article, and has the second most significant impact on search —100 chars or less.
 
 Guidance [here](https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=main)
 
