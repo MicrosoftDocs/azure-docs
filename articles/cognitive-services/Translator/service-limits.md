@@ -1,7 +1,7 @@
 ---
-title: Request limits - Translator Service
+title: Service limits - Translator Service
 titleSuffix: Azure Cognitive Services
-description: This article lists request limits for the Translator text and document translation. Charges are incurred based on character count, not request frequency with a limit of 50,000 characters per request. Character limits are subscription-based, with F0 limited to 2 million characters per hour.
+description: This article lists service limits for the Translator text and document translation. Charges are incurred based on character count, not request frequency with a limit of 50,000 characters per request. Character limits are subscription-based, with F0 limited to 2 million characters per hour.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 04/17/2023
 ms.author: lajanuar
 ---
 
-# Request limits for Azure Translator Service
+# Service limits for Azure Translator Service
 
 This article provides both a quick reference and detailed description of Azure Translator Service character and array limits for text and document translation.
 
