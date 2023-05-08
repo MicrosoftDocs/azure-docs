@@ -107,7 +107,7 @@ Navigate to the Visual Studio Code Debug view by selecting the debug icon from t
 
 [!INCLUDE [debug-without-container-setup](includes/debug-without-container-setup.md)]
 
-Open the file *App.java* and add a breakpoint.
+Add a breakpoint to your Java code.
 
 Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
 
@@ -123,7 +123,7 @@ In the Visual Studio Code integrated terminal, change the directory to the ***&l
 npm install
 ```
 
-Open the file `app.js` and add a breakpoint.
+Add a breakpoint to your Node.js code.
 
 Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
 
@@ -138,8 +138,6 @@ Navigate to the Visual Studio Code Debug view by selecting the debug icon from t
 Debugging in attach mode isn't supported for C or Python.
 
 # [C\# / Azure Functions / Node.js / Java](#tab/csharp+azfunctions+node+java)
-
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages go to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
 Currently, debugging in attach mode is supported only as follows:
 
@@ -160,7 +158,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 ### Build and run container for debugging and debug in attach mode
 
-1. Open your module file (`ModuleBackgroundService.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
+1. Open your module file and add a breakpoint.
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
@@ -188,7 +186,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
-When you debug modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
+When you debug modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. To debug from Visual Studio Code, you must:
 
 - Set up your IoT Edge device, build your IoT Edge modules with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
 - Update `launch.json` so that Visual Studio Code can attach to the process in a container on the remote machine. You can find this file in the `.vscode` folder in your workspace, and it updates each time you add a new module that supports debugging.
@@ -224,7 +222,7 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
     ...
     ```
 
-1. Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, tempSensor) listed. Change the values if necessary.
+1. Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, filtermodeule) listed. Change the values if necessary.
 
     ```json
     "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
@@ -275,7 +273,7 @@ Provide your container registry credentials to Docker so that it can push your c
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   You may receive a security warning recommending the use of `--password-stdin`. While that is a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+   You may receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
 1. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
 
@@ -339,34 +337,6 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 <!--iotedgedev end-->
 
 ## Debug your module
-
-Open the module file for your development language and add a breakpoint:
-
-# [C\#](#tab/csharp)
-
-Add your breakpoint to the file `ModuleBackgroundService.cs`.
-
-# [Azure Functions](#tab/azfunctions)
-
-Add your breakpoint to the file `<your module name>.cs`.
-
-# [C](#tab/c)
-
-Add your breakpoint to the file `main.c`.
-
-# [Java](#tab/java)
-
-Add your breakpoint to the file `App.java`.
-
-# [Node.js](#tab/node)
-
-Add your breakpoint to the file `app.js`.
-
-# [Python](#tab/python)
-
-Add your breakpoint to the file `main.py`in the callback method where you added the `ptvsd.break_into_debugger()` line.
-
----
 
 To debug modules on a remote device, you can use Remote SSH debugging in Visual Studio Code.
 
