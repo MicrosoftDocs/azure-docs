@@ -575,6 +575,8 @@
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer
           href: ../data-explorer.md
+        - name: SDK observability
+          href: sdk-observability.md
     - name: Performance
       items:
         - name: Query
