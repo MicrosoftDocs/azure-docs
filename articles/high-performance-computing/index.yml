@@ -163,9 +163,9 @@ additionalContent:
               url: https://www.youtube.com/watch?v=qkiGJWGM6Ew
             - text: Unlock your innovation with Microsoft Azure HPC | Azure HPC
               url: https://www.youtube.com/watch?v=0lSZQ_3YY68
-            - text: Azure HPC+AI Day: HPC + AI software
+            - text: "Azure HPC+AI Day: HPC + AI software"
               url: https://www.youtube.com/watch?v=20wbd2gxuY0
-            - text: Azure HPC+Al Day: AI Infra Platform Strategy
+            - text: "Azure HPC+Al Day: AI Infra Platform Strategy"
               url: https://www.youtube.com/watch?v=Nt7oGrvhRXo       
         # Card
         - title: HPC Deep Dives
