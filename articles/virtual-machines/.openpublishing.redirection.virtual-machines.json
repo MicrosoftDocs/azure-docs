@@ -36,6 +36,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-manage.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-move-resource.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-planning.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-troubleshoot.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-deprovision.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-deploy.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/move-vm.md",
             "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription",
             "redirect_document_id": false
@@ -1653,6 +1688,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/linux/quick-create-cli-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/create-vm-rest-api.md",
+            "redirect_url": "/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication",
             "redirect_document_id": false
         },
         {

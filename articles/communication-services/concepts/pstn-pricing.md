@@ -167,11 +167,13 @@ All prices shown below are in USD.
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 18.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0234/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.0234/min   |Starting at USD 0.0401/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -243,11 +245,13 @@ All prices shown below are in USD.
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 25.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0270/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.0270/min   |Starting at USD 0.1151/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 

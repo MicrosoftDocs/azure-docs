@@ -4,7 +4,7 @@ description: This article describes how to set up Data-in replication for Azure 
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 12/30/2022
+ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -61,7 +61,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    1. Open the configuration file to edit it and locate **mysqld** section in the file.
    1. In the mysqld section, add following line:
 
-      ```bash
+      ```config
       log-bin=mysql-bin.log
       ```
 
