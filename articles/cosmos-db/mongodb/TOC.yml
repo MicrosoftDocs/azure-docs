@@ -405,6 +405,8 @@
           items:
             - name: Options to migrate data into Azure Cosmos DB
               href: ../migration-choices.md
+            - name: Desktop data migration tool
+              href: ../how-to-migrate-desktop-tool.md
             - name: Estimate RU/s with capacity planner
               displayName: request units, RUs, RU, capacity
               href: estimate-ru-capacity-planner.md
@@ -415,6 +417,8 @@
                   href: ../free-tier.md
                 - name: Premigration guide
                   href: pre-migration-steps.md
+                - name: Programmatic Database Migration Assistant (legacy)
+                  href: programmatic-database-migration-assistant-legacy.md
                 - name: MongoDB native tools (offline)
                   href: tutorial-mongotools-cosmos-db.md
                 - name: Database Migration Service (online)

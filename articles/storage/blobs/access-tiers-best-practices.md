@@ -5,7 +5,7 @@ description: Learn about best practice guidelines that help you use access tiers
 author: normesta
 
 ms.author: normesta
-ms.date: 01/20/2023
+ms.date: 05/02/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Best practices for using blob access tiers
 
-This article provides best practice guidelines that help you use access tiers to optimize performance and reduce costs. To learn more about access tiers, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md?tabs=azure-portal). 
+This article provides best practice guidelines that help you use access tiers to optimize performance and reduce costs. To learn more about access tiers, see [Access tiers for blob data](access-tiers-overview.md?tabs=azure-portal). 
 
 ## Choose the most cost-efficient access tiers
 

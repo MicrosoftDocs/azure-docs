@@ -72,7 +72,7 @@ Batched delivery in configured on a per-event subscription basis via the portal,
 
 * All or none
 
-  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 60 seconds.
+  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 30 seconds.
 
 * Optimistic batching
 

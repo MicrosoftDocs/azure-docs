@@ -58,6 +58,8 @@
         href: troubleshoot-device-dsregcmd.md
       - name: Troubleshoot hybrid Azure AD joined down level Windows devices
         href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: Local Administrator Password Solution
+    href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
     href: device-management-azure-portal.md
   - name: Troubleshooting Windows devices
