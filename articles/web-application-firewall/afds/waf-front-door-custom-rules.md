@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Custom rules for Web Application Firewall with Azure Front Door
 
-Azure Web Application Firewall (WAF) with Front Door allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration.
+Azure Web Application Firewall (WAF) with Front Door allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated but still keep the configuration.
 
 For more information on rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
@@ -21,20 +21,20 @@ You can control access with a custom WAf rule that defines a priority number, a 
 
 - **Priority**
 
-    A unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. The rule evaluation stops on any rule action except for *Log*. Priority numbers must be unique among all custom rules.
+    A unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. The rule evaluation stops any rule action except for *Log*. Priority numbers must be unique among all custom rules.
 
 - **Action**
 
   Defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
 
     - *Allow* - WAF allows the request to process, logs an entry in WAF logs, and exits.
-    - *Block* - Request is blocked. WAF sends response to client without forwarding the request further. WAF logs an entry in WAF logs and exits.
+    - *Block* - Request is blocked. WAF sends a response to the client without forwarding the request further. WAF logs an entry in WAF logs and exits.
     - *Log* -  WAF logs an entry in WAF logs, and continues to evaluate the next rule in the priority order.
     - *Redirect* - WAF redirects the request to a specified URI, logs an entry in WAF logs, and exits.
 
 - **Match condition** 
 
-  Defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on geo location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
+  Defines a match variable, an operator, and a matching value. Each rule may contain multiple match conditions. A match condition may be based on geolocation, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
   - **Match variable**
     - RequestMethod
     - QueryString
@@ -44,7 +44,7 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - RequestBody
     - Cookies
   - **Operator**
-    - Any - is often used to define default action if no rules are matched. Any is a match all operator.
+    - Any - is often used to define default action if no rules are matched. Any is a match-all operator.
     - Equal
     - Contains
     - LessThan: size constraint
