@@ -26,9 +26,15 @@ Endpoints and deployments are two constructs that allow you to decouple the inte
 
 Let's imagine you are working on an application that needs to predict the type and color of a car given its photo. The application only needs to know that they make an HTTP request to a URL using some sort of credentials, provide a picture of a car, and they get the type and color of the car back as string values. This thing we have just described is __an endpoint__.
 
+:::image type="content" source="media/concept-endpoints/concept-endpoint.png" alt-text="Example showing the concept of an endpoint.":::
+
 Now, let's imagine that one data scientists, Alice, is working on its implementation. Alice is  well versed on TensorFlow so she decided to implement the model using a Keras sequential classifier with a RestNet architecture she consumed from TensorFlow Hub. She tested the model and she is happy with the results. She decides to use that model to solve the car prediction problem. Her model is big in size, it would require 8GB of memory with 4 cores to run it. This thing we have just described is __a deployment__.
 
+:::image type="content" source="media/concept-endpoints/concept-deployment.png" alt-text="Example showing the concept of a deployment.":::
+
 Finally, let's imagine that after running for a couple of months, the organization discovers that the application performs poorly on images with no ideal illumination conditions. Bob, another data scientist, knows a lot about data argumentation techniques that can be used to help the model build robustness on that factor. However, he feels more comfortable using Torch rather than TensorFlow. He trained another model then using those techniques and he is happy with the results. He would like to try this model on production gradually until the organization is ready to retire the old one. His model shows better performance when deployed to GPU, so he need one to the deployment. We have just described __another deployment under the same endpoint__.
+
+:::image type="content" source="media/concept-endpoints/concept-deployment-routing.png" alt-text="Example showing the concept of an endpoint with multiple deployment.":::
 
 ## Endpoints and deployments
 
@@ -69,37 +75,46 @@ Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pi
 
 ### Comparison
 
-Both of online and batch endpoints use the same constructs, which help you transition easily from one to the other. However, there are some differences that are important to take into account. Some of these differences are due to the nature of the work:
+Both online and batch endpoints are based on the idea of endpoints and deployments, which help you transition easily from one to the other. However, when moving from one to another, there are some differences that are important to take into account. Some of these differences are due to the nature of the work:
 
 #### Endpoints
 
-| Feature                          | Online endpoints                 | Batch endpoints                |
-|----------------------------------|----------------------------------|--------------------------------|
-| Stable invocation URL            | Yes                              | Yes                            |
-| Multiple deployments support     | Yes                              | Yes                            |
-| Deployment's routing             | Traffic split                    | Switch to default              |
-| Mirror traffic to all deployment | Yes                              | No                             |
-| Swagger support                  | Yes                              | No                             |
-| Authentication                   | Key and token                    | Azure AD                       |
-| Private network support          | Yes                              | Yes                            |
-| Network egress control           | Yes                              | No                             |
-| Customer-managed keys            | Yes                              | No                             |
+The following table shows a summary of the different features in Online and Batch endpoints.
+
+| Feature                               | Online endpoints                 | Batch endpoints                |
+|---------------------------------------|----------------------------------|--------------------------------|
+| Stable invocation URL                 | Yes                              | Yes                            |
+| Multiple deployments support          | Yes                              | Yes                            |
+| Deployment's routing                  | Traffic split                    | Switch to default              |
+| Mirror traffic to all deployment      | Yes                              | No                             |
+| Swagger support                       | Yes                              | No                             |
+| Authentication                        | Key and token                    | Azure AD                       |
+| Private network support               | Yes                              | Yes                            |
+| Managed network isolation<sup>1</sup> | Yes                              | No                             |
+| Customer-managed keys                 | Yes                              | No                             |
+
+- <sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows managing the networking configuration of the endpoint independently from the Azure Machine Learning workspace configuration.
 
 #### Deployments
 
-| Feature                   | Online endpoints                 | Batch endpoints                          |
-|---------------------------|----------------------------------|------------------------------------------|
-| Deployment's types        | Models                           | Models and Pipeline components (preview) |
-| MLflow model's deployment | Yes (requires public networking) | Yes                                      |
-| Custom model's deployment | Yes, with scoring script         | Yes, with scoring script                 |
-| Inference server          | - AzureML Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | AzureML Batch   |
-| Compute resource consumed | Instances or granular resources  | Cluster instances                        |
-| Compute type              | AzureML and Kubernetes           | AzureML and Kubernetes                   |
-| Scale compute to zero     | No                               | Yes                                      |
-| Low-priority compute      | No                               | Yes                                      |
-| Autoscale                 | Yes                              | No                                       |
-| Test deployments locally  | Yes                              | No                                       |
+The following table shows a summary of the different features in Online and Batch endpoints at the deployment level. These concepts apply per each deployment under the endpoint.
 
+| Feature                       | Online endpoints                 | Batch endpoints                          |
+|-------------------------------|----------------------------------|------------------------------------------|
+| Deployment's types            | Models                           | Models and Pipeline components (preview) |
+| MLflow model's deployment     | Yes (requires public networking) | Yes                                      |
+| Custom model's deployment     | Yes, with scoring script         | Yes, with scoring script                 |
+| Inference server <sup>1</sup> | - AzureML Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | AzureML Batch   |
+| Compute resource consumed     | Instances or granular resources  | Cluster instances                        |
+| Compute type                  | AzureML and Kubernetes           | AzureML and Kubernetes                   |
+| Low-priority compute          | No                               | Yes                                      |
+| Scale compute to zero         | No                               | Yes                                      |
+| Autoscale compute<sup>2</sup> | Yes, based on resources' load    | Yes, based on jobs count                 |
+| Overcapacity management       | Throttling                       | Queuing                                  |
+| Test deployments locally      | Yes                              | No                                       |
+
+- <sup>1</sup> *Inference server* makes reference to the serving technology that takes request, process them, and creates a response. The inference server also dictates the format of the input and the expected outputs.
+- <sup>2</sup> *Autoscale* makes reference to the ability of dynamically scaling up or down the deployment's allocated resources based on its load. Online and Batch Deployments use different strategies. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc), batch endpoints scale up or down based on the amount of jobs created.
 
 ## Developer interfaces
 

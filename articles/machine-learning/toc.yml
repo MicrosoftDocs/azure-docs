@@ -240,10 +240,10 @@
               href: how-to-select-algorithms.md
     - name: Deploy to production
       items:
+        - name: Inference
+          href: concept-endpoints.md
         - name: Endpoints
           items:
-            - name: Endpoints for inference
-              href: concept-endpoints.md
             - name: Online endpoints
               href: concept-endpoints-online.md
             - name: Batch endpoints
