@@ -1,7 +1,7 @@
 ---
 title: "Four Part Tutorial: Features and the machine learning lifecycle (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
-description: Managed Feature Store tutorial. 
+description: Managed Feature Store tutorial part 4. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -65,7 +65,7 @@ Ensure you update the `featurestore_name` to reflect what you created in part 1 
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=init-fs-crud-client)]
 
-#### Initialize the feature store consumption client
+#### Initialize the feature store SDK client
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=init-fs-core-sdk)]
 

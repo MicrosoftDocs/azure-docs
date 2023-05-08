@@ -1,7 +1,7 @@
 ---
 title: "Four Part Tutorial: Get Started with Feature Store (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
-description: Managed Feature Store tutorial. 
+description: Managed Feature Store tutorial part 1. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

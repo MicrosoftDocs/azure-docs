@@ -1,7 +1,7 @@
 ---
 title: "Four Part Tutorial: Enable Materialization and Backfill Feature Data (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
-description: Managed Feature Store tutorial. 
+description: Managed Feature Store tutorial part 2. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -61,7 +61,7 @@ Before you proceed with this article, make sure you cover these prerequisites:
 
 #### Set up the root directory for the samples
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=start-root-dir)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=root-dir)]
 
 #### Initialize the project workspace CRUD client
 
