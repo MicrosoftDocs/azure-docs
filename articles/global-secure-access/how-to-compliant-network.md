@@ -31,7 +31,7 @@ These compliant network locations are specific to each tenant. Branch locations 
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](NEED-LINK-TO-DOC).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md)
 
-### Enable Network Access signaling for Conditional Access
+### Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration an administrator must take the following steps.
 

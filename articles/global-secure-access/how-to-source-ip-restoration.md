@@ -24,7 +24,7 @@ Source IP functionality restores the end user’s IP in various locations. Witho
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
 
-## Enable Network Access signaling for Conditional Access
+## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration an administrator must take the following steps.
 
