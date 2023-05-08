@@ -1,6 +1,6 @@
 ---
-title: Rotate Customer-managed Keytab
-description: Rotate Customer-managed Keytab
+title: Rotate customer-managed keytab
+description: How to rotate a customer-managed keytab
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -32,9 +32,9 @@ The following steps need to be followed to rotate the keytab:
 1. Edit the SQL MI spec to point the Active Directory keytab secret setting to this new secret.
 1. Change the password in the Active Directory domain.
 
-We have provided the following powershell and bash scripts that will take care of steps 1-5 for you:
+We have provided the following PowerShell and bash scripts that will take care of steps 1-5 for you:
 - [`rotate-sqlmi-keytab.sh`](https://github.com/microsoft/azure_arc/blob/main/arc_data_services/deploy/scripts/rotate-sql-keytab.sh) - This bash script uses `ktutil` or `adutil` (if the `--use-adutil` flag is specified) to generate the new keytab for you.
-- [`rotate-sqlmi-keytab.ps1`](https://github.com/microsoft/azure_arc/blob/main/arc_data_services/deploy/scripts/rotate-sql-keytab.ps1) - This powershell script uses `ktpass.exe` to generate the new keytab for you.
+- [`rotate-sqlmi-keytab.ps1`](https://github.com/microsoft/azure_arc/blob/main/arc_data_services/deploy/scripts/rotate-sql-keytab.ps1) - This PowerShell script uses `ktpass.exe` to generate the new keytab for you.
 
 Executing the above script would result in the following keytab file for the user `arcsqlmi@CONTOSO.COM`, secret `sqlmi-keytab-secret-kvno-2-3` and namespace `test`:
 
