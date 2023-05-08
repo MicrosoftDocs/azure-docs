@@ -24,7 +24,7 @@ The article series is broken down into the following steps:
 
 1. Overview (this article)
 1. [Prepare your tenant](how-to-browserless-app-dotnet-sign-in-prepare-tenant.md)
-1. [Sign in user](how-to-browserless-app-dotnet-sign-in-user.md)
+1. [Sign in user](how-to-browserless-app-dotnet-sign-in-sign-in.md)
 
 ## Prerequisites
 

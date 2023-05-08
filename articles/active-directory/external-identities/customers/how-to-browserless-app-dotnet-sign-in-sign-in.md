@@ -77,9 +77,9 @@ Before proceeding, ensure you've [configured your app](./how-to-browserless-app-
 
 ## Sign in to your app
 
-1. In your terminal, navigate to the root folder of your browserless app and run the app by running the command `dotnet run` in your terminal. Navigate to the verficiation URL printed out in the terminal and enter the device code printed out in the terminal to [complete the authentication process](how-to-browserless-dotnet-sign-in-sign-in.md).
+1. In your terminal, navigate to the root folder of your browserless app and run the app by running the command `dotnet run` in your terminal.
 
-1. Open your browser, then open the URL printed in your terminal, `https://microsoft.com/devicelogin`. You should see a page similar to the following screenshot:
+1. Open your browser, then navigate to the URL printed in your terminal, `https://microsoft.com/devicelogin`. You should see a page similar to the following screenshot:
 
      :::image type="content" source="media/how-to-browserless-dotnet-sign-in-sign-in/browserless-app-dotnet-enter-code.png" alt-text="Screenshot of the enter code prompt in a node browserless application using the device code flow.":::
 
