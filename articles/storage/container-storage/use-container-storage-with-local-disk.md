@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure Epheme
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/08/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -13,13 +13,22 @@ ms.subservice: container-storage
 Azure Container Storage is a volume management service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This article shows you how to configure Azure Container Storage to use Azure Ephemeral OS disk as back-end storage for your Kubernetes workloads.
 
 > [!IMPORTANT]
-> Local NVMe disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
+> Azure Container Storage Preview only supports NVMe for local disk. Temp drives and local SSD aren't currently supported. Local NVMe disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
 
 ## Prerequisites
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
-- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three L series virtual machines (VMs) such as **standard_l8s_v3**, each with at least four virtual CPUs.
+- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three [L series](../../virtual-machines/sizes-storage.md) virtual machines (VMs) such as **standard_l8s_v3**.
 - Follow the instructions in [Use Azure Container Storage with AKS](container-storage-aks-quickstart.md) to assign [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the AKS managed identity and install Azure Container Storage Preview.
+
+## Regional availability
+
+Azure Container Storage Preview is only available in the following Azure regions:
+
+- East US
+- West Europe
+- West US 2
+- West US 3
 
 ## Create a storage pool
 
