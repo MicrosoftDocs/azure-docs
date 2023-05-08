@@ -17,13 +17,13 @@ ms.custom: it-pro
 
 # Enable self-service password reset
 
-Customer identity and access management (CIAM) in Microsoft Entra self-service password reset (SSPR) gives customers the ability to change or reset their password, with no administrator or help desk involvement. If a customer's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work.
+Self-service password reset (SSPR) in Azure Active Directory (Azure AD) for customers gives customers the ability to change or reset their password, with no administrator or help desk involvement. If a customer's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work.
 
 ## How does the password reset process work?
 
 The self-service password uses the email one-time passcode (Email OTP) authentication. When enabled, customer users who forgot their passwords use Email OTP authentication. With one-time passcode authentication, users verify their identity by entering the one-time passcode sent to their email address, and are then prompted to change their password.
 
-The following screenshots show the self-service password rest flow. From the app, the customer chooses to sign-in. On the MS Entra sign-in page, the user types their email and selects **Next**. If users forgot their password, they choose the **Forgot password?** option. MS Entra sends the passcode to email address provided on the first page. The customer needs to type the passcode to continue. 
+The following screenshots show the self-service password rest flow. From the app, the customer chooses to sign-in. On the sign-in page, the user types their email and selects **Next**. If users forgot their password, they choose the **Forgot password?** option. Azure AD sends the passcode to email address provided on the first page. The customer needs to type the passcode to continue. 
 
 :::image type="content" source="media/how-to-enable-password-reset-customers/sspr-flow.png" alt-text="Screenshot that shows the self-service password rest flow.":::
 

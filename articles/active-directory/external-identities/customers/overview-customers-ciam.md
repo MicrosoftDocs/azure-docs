@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: overview
-ms.date: 05/02/2023
+ms.date: 05/07/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -40,29 +40,59 @@ Azure AD for customers is intended for businesses that want to make applications
 
 - **Provide self-service account management.** Customers can register for your online services by themselves, manage their profile, delete their account, enroll in a multifactor authentication (MFA) method, or reset their password with no admin or help desk assistance.
 
-Learn more about [adding sign-in and sign-up to your app](concept-planning-your-solution.md) and [customizing the sign-in look and feel](concept-branding-customers.md). 
+Learn more about [adding sign-in and sign-up to your app](concept-planning-your-solution.md) and [customizing the sign-in look and feel](concept-branding-customers.md).
 
-## Create custom extensions to the authentication flow
+## Manage apps and users in a dedicated customer tenant
 
-Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define additional actions for events at various points within the authentication flow.
+Azure AD for customers uses the standard tenant model and overlays it with customized onboarding journeys for workforce or customer scenarios. B2B collaboration is part of workforce configurations. With the introduction of Azure AD for customers, Microsoft Entra now offers two different types of tenants that you can create and manage: *workforce tenants* and *customer tenants*.
 
-- **Use custom authentication extensions to enrich tokens**.  Add claims from external systems to the application token just before the token is issued to the application.
+A **workforce tenant** contains your employees and the apps and resources that are internal to your organization. If you've worked with Azure Active Directory, a workforce tenant is the type of tenant you're already familiar with. You might already have an existing workforce tenant for your organization.
 
-- **Add logic to attribute collection**. Define validation actions at the start of attribute collection or just before attribute submission.
+In contrast, a **customer tenant** represents your customer-facing app, resources, and directory of customer accounts. A customer tenant is distinct and separate from your workforce tenant. A customer tenant is the first resource you need to create to get started with Azure AD for customers. To establish a CIAM solution for a customer-facing app or service, you create a new customer tenant. A customer tenant contains:
 
-Learn more about [custom authentication extensions](concept-custom-extensions.md).
+- **A directory**: The directory stores your customers' credentials and profile data. When a customer signs up for your app, a local account is created for them in your customer tenant.
 
-## Manage customer accounts throughout the lifecycle
+- **Application registrations**: Microsoft Entra performs identity and access management only for registered applications. Registering your app establishes a trust relationship and allows you to integrate your app with Microsoft Entra
 
-A customer tenant, separate from your workforce tenant, represents your customer-facing app, resources, and directory of customer accounts.
+- **User flows**: The customer tenant contains the self-service sign-up, sign-in, and password reset experiences that you enable for your customers.
 
-- **Manage accounts and resources in a dedicated customer tenant.** Create a tenant specifically for your customer-facing apps and services. Register your customer-facing apps in this tenant, and manage customer identities and access in the dedicated directory, separate from your workforce tenant.
+- **Extensions**: If you need to add user attributes and data from external systems, you can create custom authentication extensions for your user flows.
+
+- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. Learn more
+
+- **Encryption keys**: Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
+
+
+There are two types of user accounts you can manage in a customer tenant:
+
+- **Customer account**: Accounts that represent the customers who access your applications.
+
+- **Admin account**: Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
 
 Learn more about managing [customer accounts](how-to-manage-customer-accounts.md) and [admin accounts](how-to-manage-admin-accounts.md) in your customer tenant.
 
+## Design user flows for self-service sign-up
+
+You can create a simple sign-up and sign-in experience for your customers by adding a user flow to your application. The user flow defines the series of sign-up steps customers follow and the sign-in methods they can use (such as email and password, one-time passcodes, or social accounts from [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md)). You can also collect information from customers during sign-up by selecting from a series of user built-in attributes or adding your own custom attributes.
+
+Several user flow settings let you control how the customer signs up for the application, including:
+
+- Sign-in methods and social identity providers (Google or Facebook)
+- Attributes to be collected from the customer signing up, such as first name, postal code, or country/region of residency
+- Company branding and language customization
+
+For details about configuring a user flow, see [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
+
+## Create custom extensions to the authentication flow
+
+Azure AD for customers is designed for flexibility by allowing you to define additional actions at certain points within the authentication flow. Using a custom authentication extension, you can add claims from external systems to the token just before it's issued to your application.
+
+Learn more about [custom authentication extensions](concept-custom-extensions.md).
+
+
 ## Microsoft Entra security and reliability
 
-Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. Because it's built on Microsoft Entra and Azure Active Directory, so you benefit from the advantages offered by these platforms.
+Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. Because it's built on Microsoft Entra and Azure AD, so you benefit from the advantages offered by these platforms.
 
 - **Microsoft Entra security.** Get all the security and data privacy benefits of Microsoft Entra, including Conditional Access, multifactor authentication, and governance. Protect access to your apps using strong authentication and risk-based adaptive access policies. Because customers are managed in a separate tenant, you can tailor your access policies to users who typically use personal and shared devices instead of managed ones.
 

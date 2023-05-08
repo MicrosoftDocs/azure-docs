@@ -252,8 +252,6 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 
 
 
-...
-
 ---
 
 >[!Note]

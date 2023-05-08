@@ -451,14 +451,14 @@ $ng = @{
 }
 $nat = Get-AzNatGateway @ng
 
-## Place the existing public IP prefix associated with the NAT gateway into a variable. ##
+## Place the existing public IP address associated with the NAT gateway into a variable. ##
 $ip = @{
     Name = 'myPublicIP-NAT'
     ResourceGroupName = 'myResourceGroup'
 }
-$prefixIP1 = Get-AzPublicIPAddress @ip
+$publicIP1 = Get-AzPublicIPaddress @ip
 
-## Place the secondary public IP address into a variable. ##
+## Place the second public IP address into a variable. ##
 $ip = @{
     Name = 'myPublicIP-NAT2'
     ResourceGroupName = 'myResourceGroup'
@@ -468,7 +468,7 @@ $publicIP2 = Get-AzPublicIPAddress @ip
 ## Place ONLY the public IP you wish to keep in the array. ##
 $pipArray = $publicIP1
 
-## Add the IP address prefix to the NAT gateway. ##
+## Add the public IP address to the NAT gateway. ##
 $nt = @{
     NatGateway = $nat
     PublicIpAddress = $pipArray
