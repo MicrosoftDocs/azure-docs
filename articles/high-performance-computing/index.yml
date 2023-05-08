@@ -151,17 +151,17 @@ additionalContent:
         - title: HPC Business Strategy
           summary: Getting to know Azure
           links:
-            - text: Azure HPC+AI Platform Overview
+            - text: "Azure HPC+AI Platform Overview"
               url: https://www.youtube.com/watch?v=V0-laXwBI7I
-            - text: What is High Performance Computing - HPC?
+            - text: "What is High Performance Computing - HPC?"
               url: https://www.youtube.com/watch?v=0biElmaDfFs
-            - text: How to accelerate innovation with AI at Scale
+            - text: "How to accelerate innovation with AI at Scale"
               url: https://www.youtube.com/watch?v=DLw-wC4zntw&list=PLLasX02E8BPAFdOYrnPd3bJsqfhCasPse&index=3
-            - text: The benefits of HPC, AI, and the Cloud with Steve Scott
+            - text: "The benefits of HPC, AI, and the Cloud with Steve Scott"
               url: https://www.youtube.com/watch?v=GmimOVxFSRY
-            - text: Introduction to Azure HPC software platform | Azure HPC
+            - text: "Introduction to Azure HPC software platform | Azure HPC"
               url: https://www.youtube.com/watch?v=qkiGJWGM6Ew
-            - text: Unlock your innovation with Microsoft Azure HPC | Azure HPC
+            - text: "Unlock your innovation with Microsoft Azure HPC | Azure HPC"
               url: https://www.youtube.com/watch?v=0lSZQ_3YY68
             - text: "Azure HPC+AI Day: HPC + AI software"
               url: https://www.youtube.com/watch?v=20wbd2gxuY0
@@ -171,11 +171,11 @@ additionalContent:
         - title: HPC Deep Dives
           summary: Azure Infrastructure
           links:
-            - text: Comparing cloud platform performance for HPC+AI workloads
+            - text: "Comparing cloud platform performance for HPC+AI workloads"
               url: https://www.youtube.com/watch?v=4-0TYA7Po2A
-            - text: Leveraging EESSI for WRF simulations at scale on Azure HPC
+            - text: "Leveraging EESSI for WRF simulations at scale on Azure HPC"
               url: https://www.youtube.com/watch?v=LGkQi7BDf6w
-            - text: Day 1 - (3) UCX on Azure HPC and AI Clusters
+            - text: "Day 1 - (3) UCX on Azure HPC and AI Clusters"
               url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
 
 
