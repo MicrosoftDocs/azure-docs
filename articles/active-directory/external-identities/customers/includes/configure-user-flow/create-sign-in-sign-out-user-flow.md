@@ -22,8 +22,6 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Select **+ New user flow**.
 
-   <!--[Screenshot](media/17-create-user-flow-new-user-flow.png)-->
-
 1. On the **Create** page:
 
    1. Enter a **Name** for the user flow, such as *SignInSignUpSample*.
@@ -44,7 +42,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
         
       The following screenshot demonstrates how to select the identity providers.
       
-      <!--   ![Screenshot that shows how to select the Azure AD sign up and email accounts identity providers.](media/18-create-user-flow.png)-->
+      :::image type="content" source="../../media/create-sign-in-sign-out-user-flow/select-identity-provider.png" alt-text="Screenshot that shows how to select identity providers.":::
 
    1. Under **User attributes**, choose the attributes you want to collect from the user upon sign-up. By selecting **Show more**, you can choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**. (Users are only prompted for attributes when they sign up for the first time.)
 
