@@ -58,10 +58,10 @@ CollectionFhir is the root template type used by the MedTech service FHIR destin
 |**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
 |**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
 |**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
-|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|True when the `components` element isn't used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but ignored).|
+|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|True when the `components` element isn't used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
 |**components**|One or more components to create on the observation.|True when the `value` element isn't used instead.|
 |**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|False|
-|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but ignored).|
+|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
 
 ### CodeValueFhir
 
