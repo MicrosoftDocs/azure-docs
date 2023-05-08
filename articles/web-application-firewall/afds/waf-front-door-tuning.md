@@ -5,8 +5,8 @@ services: web-application-firewall
 author: mohitkusecurity
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/28/2022
-ms.author: mohitku
+ms.date: 05/08/2023
+ms.author: arpitjain099
 ms.reviewer: victorh 
 zone_pivot_groups: front-door-tiers
 ---
