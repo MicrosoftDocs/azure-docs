@@ -22,10 +22,7 @@ The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the
 - This series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
 - These devices have low acoustic emissions and meet the requirements for noise levels in an office environment.
 
-And those sre the benefits.
-
-[!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md
-)]
+[!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md)]
 
 ## Use cases
 
