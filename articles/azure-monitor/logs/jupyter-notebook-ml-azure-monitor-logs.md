@@ -251,7 +251,31 @@ Use the gradient boosting regression model to predict ingestion in a new time ra
 
 Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further analysis.   
 
-1. To send data to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../logs/tutorial-logs-ingestion-api.md).
+1. To send data to your Log Analytics workspace, you need a custom table, data collection endpoint, data collection rule, and a registered application with permission to use the data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../logs/tutorial-logs-ingestion-portal.md).
+
+    When you create your custom table:
+
+    1. Upload this sample file to define the table schema:
+    
+    ```json
+    [
+      {     
+        "TimeGenerated": "2023-03-19T19:56:43.7447391Z",    
+        "ActualUsage": 40.1,    
+        "PredictedUsage": 45.1,    
+        "Anomalies": -1,    
+        "DataType": "AzureDiagnostics"     
+      } 
+    ]
+    ```
+    
+    1. Paste this transformation into the **Transformation editor** to define a new `AnomalyTimeGenerated` column, which indicates when the anomaly was detected and sets the `TimeGenerated` column to the time at which the data is ingested into your Log Analytics workspace: 
+    
+    ```kusto
+    source | extend AnomalyTimeGenerated = todatetime(TimeGenerated) | extend TimeGenerated = now() 
+    ```
+
+ 
 1. Define variables you need to pass in the call to the Logs Ingestion API:
 
     ```python
