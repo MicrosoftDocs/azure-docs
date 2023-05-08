@@ -31,7 +31,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 
 1. On the top left-hand side of the screen, select **Create a resource** > search for **WAF** > select **Web Application Firewall (WAF)** > select **Create**.
 
-1. In the **Basics** tab of the **Create a WAF policy** page, enter or select the following information, accept the defaults for the remaining settings:
+1. In the **Basics** tab of the **Create a WAF policy** page, enter or select the following information, and accept the defaults for the remaining settings:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -79,14 +79,14 @@ Below is an example of configuring a custom rule to block a request if the query
 
 ### Default Rule Set (DRS)
 
-Azure-managed Default Rule Set (DRS) is enabled by default for Premium and Classic tiers of Front Door. Current default rule set for Premium Front Door is Microsoft_DefaultRuleSet_2.0. Microsoft_DefaultRuleSet_1.1 is the current default rule set for Classic Front Door. From **Managed rules** page, select **Assign** to assign a different DRS.
+Azure-managed Default Rule Set (DRS) is enabled by default for the Premium and Classic tiers of Front Door. The current default rule set for Premium Front Door is Microsoft_DefaultRuleSet_2.0. Microsoft_DefaultRuleSet_1.1 is the current default rule set for Classic Front Door. From **Managed rules** page, select **Assign** to assign a different DRS.
 
-To disable an individual rule, select the **check box** in front of the rule number, and select **Disable** at the top of the page. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** at the top of the page.
+To disable an individual rule, select the **check box** in front of the rule number, and select **Disable** at the top of the page. To change action types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** at the top of the page.
 
 :::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons." lightbox="../media/waf-front-door-create-portal/managed-rules.png":::
 
 > [!NOTE]
-> Managed rules are only supported in Front Door Premium tier and Front Door Classic tier policies.
+> Managed rules are only supported in the Front Door Premium tier and Front Door Classic tier policies.
 
 ## Clean up resources
 
