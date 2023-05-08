@@ -830,13 +830,13 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **app.js**.
 
-1. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+1. Add a temperature threshold variable to the beginning of *app.js*. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
     var temperatureThreshold = 25;
     ```
 
-1. Replace the entire `PipeMessage` function with the `FilterMessage` function.
+1. Replace the entire **PipeMessage** function with the **FilterMessage** function.
 
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
@@ -857,7 +857,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
     ```
 
-1. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
+1. Replace the function name `pipeMessage` with `filterMessage` in the `client.on()` call.
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
@@ -1019,27 +1019,19 @@ In Visual Studio Code, open the **deployment.template.json** deployment manifest
 
 ::: zone pivot="iotedge-dev-cli"
 
-If you're using an Azure Container Registry to store your module image, add your credentials to the *edgeAgent* > *settings* > *registryCredentials* section in **deployment.template.json**. Replace **myacr** with your own registry name and provide your password and **Login server** address. For example:
+If you're using an Azure Container Registry to store your module image, add your credentials to the **modulesContent** > **edgeAgent** > **settings** > **registryCredentials** section in **deployment.template.json**. Replace **myacr** with your own registry name and provide your password and **Login server** address. For example:
 
 ```json
-"modulesContent": {
-"$edgeAgent": {
-"properties.desired": {
-   "schemaVersion": "1.1",
-   "runtime": {
-      "type": "docker",
-      "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-        "registryCredentials": {
-            "myacr": {
-                "username": "myacr",
-                "password": "<your_acr_password>",
-                "address": "myacr.azurecr.io"
-            }
-        }
+"registryCredentials": {
+    "myacr": {
+        "username": "myacr",
+        "password": "<your_acr_password>",
+        "address": "myacr.azurecr.io"
+    }
+}
 ```
 
-Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, filtermodule) listed. Change the values if necessary.
+Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (filtermodule and tempSensor) listed. Change the values if necessary.
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
