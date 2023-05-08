@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article provides instructions for troubleshooting Azure Spring Apps development issues. For additional information, see [Azure Spring Apps FAQ](./faq.md).
+This article provides instructions for troubleshooting Azure Spring Apps development issues. For more information, see [Azure Spring Apps FAQ](./faq.md).
 
 ## Availability, performance, and application issues
 
@@ -41,7 +41,7 @@ To fix this error, go to the `server parameters` of your MySQL instance, and cha
 
 When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to *App management* in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
 
-* If the status is *Running* but the discovery status is not *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
+* If the status is *Running* but the discovery status isn't *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
 * If the discovery status is *UP*, go to Metrics to check the application's health. Inspect the following metrics:
 
@@ -51,7 +51,7 @@ When you're debugging application crashes, start by checking the running status 
 
   * `AppMemoryMax` (*jvm.memory.max*):
 
-    The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it is defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
+    The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it's defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
 
   * `AppMemoryUsed` (*jvm.memory.used*):
 
@@ -81,7 +81,7 @@ If your application experiences high CPU or memory usage, one of two things is t
 * All the app instances experience high CPU or memory usage.
 * Some of the app instances experience high CPU or memory usage.
 
-To ascertain which situation applies, do the following:
+To ascertain which situation applies, use the following steps:
 
 1. Go to **Metrics**, and then select either **Service CPU Usage Percentage** or **Service Memory Used**.
 2. Add an **App=** filter to specify which application you want to monitor.
@@ -93,7 +93,7 @@ If *some instances* are experiencing high CPU or memory usage, check the instanc
 
 For more information, see [Metrics for Azure Spring Apps](./concept-metrics.md).
 
-If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This helps you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This review helps you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
@@ -115,12 +115,12 @@ Before you onboard your application, ensure that it meets the following criteria
 
 When you set up an Azure Spring Apps service instance by using the Azure portal, Azure Spring Apps performs the validation for you.
 
-But if you try to set up the Azure Spring Apps service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that:
+But if you try to set up the Azure Spring Apps service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that you meet the following conditions:
 
 * The subscription is active.
-* The location is [supported](./faq.md) by Azure Spring Apps.
+* Azure Spring Apps is available in the region you're using. For more information, see the [Azure Spring Apps FAQ](./faq.md).
 * The resource group for the instance is already created.
-* The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
+* The resource name conforms to the naming rule. The name must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
 If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
@@ -146,7 +146,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 az spring app show-deploy-log --name <app-name>
 ```
 
-Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
+Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
 
 ### I can't deploy a source package
 
@@ -160,7 +160,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 az spring app show-deploy-log --name <app-name>
 ```
 
-However, note that one Azure Spring Apps service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md).
+However, one Azure Spring Apps service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md).
 
 ### My application can't be registered
 
@@ -168,7 +168,7 @@ In most cases, this situation occurs when *Required Dependencies* and *Service D
 
 Wait at least two minutes before a newly registered instance starts receiving traffic.
 
-If you're migrating an existing Spring Cloud-based solution to Azure, ensure that your ad-hoc *Service Registry* and *Config Server* instances are removed (or disabled) to avoid conflicting with the managed instances provided by Azure Spring Apps.
+If you're migrating an existing Spring Cloud-based solution to Azure, be sure to remove or disable your ad-hoc *Service Registry* and *Config Server* instances to avoid conflicting with the managed instances provided by Azure Spring Apps.
 
 You can also check the *Service Registry* client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
@@ -232,23 +232,23 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/logs/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). Also, be aware that the free tier doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## Enterprise tier
 
 ### Error 112039: Failed to purchase on Azure Marketplace
 
-Creating an Azure Spring Apps Enterprise tier instance fails with error code "112039". Check the detailed error message for below for more information:
+Creating an Azure Spring Apps Enterprise tier instance fails with error code "112039". For more information, check the detailed error message in the following list:
 
 * **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Apps Enterprise tier purchase a SaaS offer from VMware.
 
   You must register the Microsoft.SaaS resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-* **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address is not in the supported location.
+* **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address isn't in the supported location.
 
   For more information, see the section [No plans are available for market '\<Location>'](#no-plans-are-available-for-market-location).
 
-* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.asa-ent-hr-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased.
+* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.asa-ent-hr-mtr"**: Your Azure subscription hasn't signed the terms for the offer and plan to be purchased.
 
   Go to your Azure subscription and run the following Azure CLI command to agree to the terms:
 
