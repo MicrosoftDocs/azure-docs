@@ -73,7 +73,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |IbizaExtension|Experiences of Log Analytics in the Azure portal.|
 |infraInsights/container|[Container insights.](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)|
 |infraInsights/vm|[VM insights.](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)|
-|LogAnalyticsExtension|[Azure Dasboard.](https://learn.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+|LogAnalyticsExtension|[Azure Dasboard](../../azure-portal/azure-portal-dashboards.md).|
 |LogAnalyticsPSClient|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
 |OmsAnalyticsPBI|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
 |PowerBIConnector|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
