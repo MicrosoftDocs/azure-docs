@@ -13,9 +13,9 @@ zone_pivot_groups: front-door-tiers
 
 # Configure a custom response for Azure Web Application Firewall (WAF)
 
-By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. The default message also includes the tracking reference string that can be used to link to [log entries](./waf-front-door-monitor.md) for the request.  You can configure a custom response status code and a custom message with reference string for your use case. This article describes how to configure a custom response page when a request is blocked by WAF.
+By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. The default message also includes the tracking reference string that can be used to link to [log entries](./waf-front-door-monitor.md) for the request.  You can configure a custom response status code and a custom message with a reference string for your use case. This article describes how to configure a custom response page when a request is blocked by WAF.
 
-## Configure custom response status code and message use portal
+## Configure custom response status code and message using portal
 
 You can configure a custom response status code and body under "Policy settings" from the WAF portal.
 
@@ -37,7 +37,7 @@ In the above example, we kept the response code as 403, and configured a short "
 
 ::: zone-end
 
-## Configure custom response status code and message use PowerShell
+## Configure custom response status code and message using PowerShell
 
 ### Set up your PowerShell environment
 
@@ -52,7 +52,7 @@ Connect-AzAccount
 Install-Module -Name Az
 
 ```
-Make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
+Make sure you have the current version of PowerShellGet installed. Run the below command and reopen PowerShell.
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
@@ -70,9 +70,9 @@ In Azure, you allocate related resources to a resource group. Here we create a r
 New-AzResourceGroup -Name myResourceGroupWAF
 ```
 
-### Create a new WAF policy with custom response 
+### Create a new WAF policy with a custom response 
 
-Below is an example of creating a new WAF policy with custom response status code set to 405, and message to **You are blocked.**, using
+Below is an example of creating a new WAF policy with a custom response status code set to 405, and a message to **You are blocked.**, using
 [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)
 
 ```azurepowershell
