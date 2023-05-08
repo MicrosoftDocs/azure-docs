@@ -39,7 +39,7 @@ To fix this error, go to the `server parameters` of your MySQL instance, and cha
 
 ### My application crashes or throws an unexpected error
 
-When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to *Apps* in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
+When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
 
 * If the status is *Running* but the discovery status is not *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
