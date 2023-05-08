@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: not-enterprise-apps
 ---
 
 # Resources for migrating applications to Azure Active Directory

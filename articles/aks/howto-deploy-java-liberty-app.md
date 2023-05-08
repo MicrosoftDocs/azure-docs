@@ -240,7 +240,7 @@ The following steps deploy and test the application.
 
    You should see output similar to the following to indicate that all the pods are running.
 
-   ```bash
+   ```output
    NAME                                       READY   STATUS    RESTARTS   AGE
    javaee-cafe-cluster-agic-67cdc95bc-2j2gr   1/1     Running   0          29s
    javaee-cafe-cluster-agic-67cdc95bc-fgtt8   1/1     Running   0          29s
