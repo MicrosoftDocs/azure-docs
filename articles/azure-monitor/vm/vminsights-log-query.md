@@ -13,6 +13,9 @@ VM insights collects performance and connection metrics, computer and process in
 
 ## Map records
 
+> [!IMPORTANT]
+> If your virtual machine is using VM insights with Azure Monitor agent, then you must have [processes and dependencies enabled](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) for these tables to be created.
+
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is added to VM insights. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
 There are internally generated properties you can use to identify unique processes and computers:
