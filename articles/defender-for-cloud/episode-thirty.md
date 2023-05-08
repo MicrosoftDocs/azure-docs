@@ -11,7 +11,7 @@ ms.date: 05/08/2023
 **Episode description**: In this episode of Defender for Cloud in the Field, Yael Genut joins Yuri Diogenes to talk about the new custom recommendations for AWS and GCP. Yael explains the importance of creating custom recommendations in a multicloud environment and how to use Kusto Querly Language to create these customizations. Yael also demonstrates the step-by-step process to create custom recommendations using this new capability and how these custom recommendations appear in Defender for Cloud dashboard.
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=1145810e-fc14-4d73-8d63-ea861aefb30b" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://aka.ms/docs/player?id=41612fbe-4c9c-4cd2-9a99-3fbd94d31bec" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [01:44](/shows/mdc-in-the-field/security-policy#time=01m44s) - Understanding custom recommendations
 - [03:15](/shows/mdc-in-the-field/security-policy#time=03m15s) - Creating a custom recommendation based on a template
