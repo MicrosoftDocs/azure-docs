@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 04/02/2023
+ms.date: 05/07/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -28,8 +28,9 @@ Although workforce tenants and customer tenants are built on the same underlying
 
 |Feature  |Workforce tenant  | Customer tenant |
 |---------|---------|---------|
-| **External Identities** | Invite partners and other external users to your workforce tenant for collaboration. External users become guests in your workforce directory. <br></br> **Available identity providers**: Azure AD accounts, Microsoft accounts, one-time passcode, Google, Facebook, SAML/WS-Fed federation | Enable self-service sign-up for customers and authorize access to apps. Users are added to your directory as customer accounts. <br></br> **Available identity providers**: Local accounts, Azure AD accounts, Microsoft accounts, one-time passcode, Google, Facebook |
-| **Groups** | [Groups](../../fundamentals/active-directory-groups-create-azure-portal.md) can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. Customer accounts can't be member of any group, so you can't perform [group-based assignment of enterprise applications](../../manage-apps/assign-user-or-group-access-portal.md).|
+| **External Identities** | Invite partners and other external users to your workforce tenant for collaboration. External users become guests in your workforce directory. | Enable self-service sign-up for customers and authorize access to apps. Users are added to your directory as customer accounts.  |
+| **Available identity providers** | - Azure AD accounts </br>- Microsoft accounts </br>- One-time passcode </br>- Google </br>- Facebook </br>- SAML/WS-Fed federation | - Local accounts </br>- Azure AD accounts </br>- Microsoft accounts </br>- One-time passcode </br>- Google </br>- Facebook |
+| **Groups** | [Groups](../../fundamentals/active-directory-groups-create-azure-portal.md) can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. Support for Azure AD groups and application roles is being phased into customer tenants. For the latest updates, see [Groups and application roles support](reference-group-app-roles-support.md). |
 | **Roles and administrators**| [Roles and administrators](../../fundamentals/active-directory-users-assign-role-azure-portal.md) are fully supported for administrative and user accounts. | Roles aren't supported with customer accounts. Customer accounts don't have access to any Microsoft Entra resources.|
 | **Custom domain names** |  You can use [custom domains] for administrative accounts only. | Not currently supported. However, the URLs visible to customers in sign-up and sign-in pages are neutral, unbranded URLs.|
 | **Conditional Access** | [Conditional Access](../../conditional-access/overview.md) is fully supported for administrative and user accounts. | Multifactor authentication is supported with customer accounts. Learn how to configure multifactor authentication with Conditional Access in a customer tenant.|
