@@ -12,9 +12,9 @@ ms.custom:
 
 # Elastic SAN Preview networking
 
-Azure Elastic storage area network (SAN) preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN Preview volumes from an Azure virtual network or an on-premises network.
+Azure Elastic storage area network (SAN) preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
-Elastic SAN volume groups can be configured to allow access only from specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant. In hybrid environments, on-premises applications can access the Elastic SAN volumes indirectly over a VPN or ExpressRoute connection to the virtual network, depending on the configuration.
+Elastic SAN volume groups can be configured to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant. Depending on the configuration, applications on peered virtual networks or on-premises networks connected by a VPN or ExpressRoute can also access volumes in the group.
 
 There are two types of virtual network endpoints you can configure to allow access to an Elastic SAN volume group:
 
@@ -27,18 +27,23 @@ After configuring endpoint access, network rules can be configured to further co
 
 ## Azure Storage service endpoints
 
-Azure Virtual Network (VNet) service endpoints provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources to only your virtual networks. Service endpoints enable private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
+[Azure Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) provide secure and direct connectivity to Azure services using an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources to only your virtual networks.
 
 > [!IMPORTANT]
-> Microsoft recommends using Azure Private Link instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data-exfiltration protection and mapping a service to a Private IP address in your own network. For more information, see [Azure Private Link](../../private-link/private-link-overview.md).  
+> Microsoft recommends using Azure Private Link instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data exfiltration protection and mapping a service to a Private IP address in your own network. For more information, see [Azure Private Link](../../private-link/private-link-overview.md).  
 
-To use a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) with your Elastic SAN, you must enable it within the virtual network from which you want to grant access. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the SAN that allow requests to be received from specific subnets in a virtual network.
+Service endpoints enable private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the SAN that allow requests to be received from specific subnets in a virtual network.
+
+To use a service endpoint with your Elastic SAN, you must enable it within the virtual network where you want to grant access. The endpoint names for storage are:
+
+- **Microsoft.Storage** - classic Azure Storage endpoints
+- **Microsoft.Storage.Global** - new cross-region Azure Storage endpoints
 
 For details on how to configure service endpoints, see [Enable Storage service endpoint](elastic-san-networking.md#enable-storage-service-endpoint).
 
 ### Available virtual network regions
 
-Cross-region service endpoints for Azure Storage became generally available in April of 2023. As a result, service endpoints for Azure Storage work between virtual networks and service instances in any region. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+Cross-region service endpoints for Azure Storage became generally available in April of 2023. Now, service endpoints for Azure Storage work between virtual networks and service instances in different regions. All traffic from subnets with cross-region service endpoints to storage services, such as Elastic SAN, will use a private IP address as a source IP instead of a public one.
 
 To use cross-region service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as cross-region (**Microsoft.Storage.Global**).
 
@@ -50,11 +55,11 @@ Using a private endpoint has several advantages over service endpoints, includin
 
 - The scope of the endpoint configuration is restricted to selected instances of just your volume groups - not all storage instances for all customers.
 - Built-in data exfiltration protection
-- Private Access to your Elastic SAN volumes from on-premises
+- Private access to your Elastic SAN volumes from on-premises
 
 For a complete comparison of private endpoints to service endpoints, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-Similar to service endpoints, you must enable private endpoints within the virtual network from which you want to grant access. Traffic between the virtual network and the Elastic SAN is routed over an optimal path on Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
+Similar to service endpoints, you must enable private endpoints within the virtual network from which you want to grant access. Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
 For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#enable-private-endpoint).
 
@@ -70,7 +75,14 @@ For details on how to define network rules, see [Managing virtual network rules]
 
 ## Client connections
 
-If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
+After you have enabled the desired endpoints and granted access in your network rules, you are ready to configure your clients to connect to the appropriate Elastic SAN volumes. For more details on how to configure client connections, see:
+
+[Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+[Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
+[Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
+
+> [!NOTE]
+> If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
 
 ## Next steps
 
