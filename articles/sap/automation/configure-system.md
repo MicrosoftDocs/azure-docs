@@ -4,7 +4,7 @@ description: Define the SAP system properties for the SAP on Azure Deployment Au
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 04/21/2023
+ms.date: 05/04/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -403,7 +403,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 ## High availability configuration
 
-The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags.
+The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags. For Red Hat and SUSE should use the appropriate 'HA' version of the virtual machine images (RHEL-SAP-HA, sles-sap-15-sp?). 
 
 High availability configurations use Pacemaker with Azure fencing agents. 
 

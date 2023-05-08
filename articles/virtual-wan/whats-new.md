@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 05/08/2023
 ms.author: cherylmc
 ---
 
@@ -77,6 +77,7 @@ The following features are currently in gated public preview. After working with
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
+| Managed preview | Route-maps | This feature allows you to preform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps (preview)](route-maps-about.md#key-considerations).
 |Managed preview|Configure user groups and IP address pools for P2S User VPNs| This feature allows you to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**.|| Known limitations are displayed here: [Configure User Groups and IP address pools for P2S User VPNs (preview)](user-groups-create.md).|
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 |Managed preview|Routing intent and policies enabling inter-hub security|This feature allows you to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](how-to-routing-policies.md).|For access to the preview, contact previewinterhub@microsoft.com|Not compatible with NVA in a spoke, but compatible with BGP peering.<br><br>For additional limitations, see [How to configure Virtual WAN  hub routing intent and routing policies](how-to-routing-policies.md#key-considerations).|

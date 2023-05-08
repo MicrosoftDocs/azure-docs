@@ -56,7 +56,7 @@ The following features/properties are defined on Deployment level, and will be e
 
 * **An App must have one production Deployment**: Deleting a production Deployment is blocked by the API. It should be swapped to staging before deleting.
 * **An App can have at most two Deployments**: Creating more than two deployments is blocked by the API. Deploy your new binary to either the existing production or staging deployment.
-* **Deployment management is not available in Basic Tier**: Use Standard tier for Blue-Green deployment capability.
+* **Deployment management is not available in Basic Tier**: Use Standard tier or Enterprise tier for Blue-Green deployment capability.
 
 ## Next steps
 
