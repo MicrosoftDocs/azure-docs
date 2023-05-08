@@ -30,9 +30,9 @@ Azure Communications Services provides monitoring and analytics features via [Az
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select “CallSurvey” to enable the logs for end of call survey.
+> Under diagnostic setting name please select “Call Survey” to enable the logs for end of call survey.
 
-
+ :::image type="content" source="..\logs\diagnostic-settings-call-survey-log.png" alt-text="Screenshot of diagnostic settings for call survey.":::
 ### Overview 
 
 
