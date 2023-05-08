@@ -100,7 +100,7 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
 
 The browserless app is initialized as a public client application. We then acquire token using the device code auth grant flow. This flow allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. We pass a callback to the `AcquireTokenWithDeviceCodeAsync` method. This callback contains a `DeviceCodeResult` object which contains the URL a user will navigate to and sign in. Once the user signs in, an `AuthenticationResult` is returned containing an access token and some basic account information.
 
-```javascript
+```csharp
 var result = await app.AcquireTokenWithDeviceCode(new [] { "openid" }, async deviceCode => {
     Console.WriteLine($"In a broswer, navigate to the URL '{deviceCode.VerificationUrl}' and enter the code '{deviceCode.UserCode}'");
     await Task.FromResult(0);
