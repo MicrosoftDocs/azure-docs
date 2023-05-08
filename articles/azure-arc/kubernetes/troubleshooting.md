@@ -65,7 +65,7 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
 
 
-### OBO Service
+### Overage claims error
 
 If you have gotten overage claim please check below things in order:
 
