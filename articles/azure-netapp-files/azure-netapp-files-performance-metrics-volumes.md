@@ -74,7 +74,7 @@ The following examples show the FIO random reads and writes.
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-##### Output
+##### Benchmark results
 
 For official benchmark results for how FIO performs in Azure NetApp Files, see [Azure NetApp Files performance benchmarks for Linux](performance-benchmarks-linux.md).
 
@@ -90,7 +90,7 @@ The examples in this section show the FIO sequential reads and writes.
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-##### Output
+##### Benchmark results
 
 For official benchmark results for how FIO performs in Azure NetApp Files, see [Azure NetApp Files performance benchmarks for Linux](performance-benchmarks-linux.md).
 
