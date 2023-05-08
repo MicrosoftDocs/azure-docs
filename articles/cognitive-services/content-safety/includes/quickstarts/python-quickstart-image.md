@@ -77,8 +77,8 @@ The following section walks through a sample request with the Python SDK.
     from azure.ai.contentsafety.models import AnalyzeImageOptions, ImageData
     
     def analyze_image():
-        endpoint = "[Your endpoint]"
-        key = "[Your subscription key]"
+        endpoint = os.environ.get('CONTENT_SAFETY_ENDPOINT')
+        key = os.environ.get('CONTENT_SAFETY_KEY')
         image_path = os.path.join("sample_data", "image.jpg")
     
         # Create an Content Safety client
@@ -110,7 +110,8 @@ The following section walks through a sample request with the Python SDK.
     if __name__ == "__main__":
         analyze_image()
     ```
-1. tbd
+
+1. Replace `"sample_data"` and `"image.jpg"` with the path and filename of the local you want to use.
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console

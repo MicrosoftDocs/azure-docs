@@ -18,6 +18,53 @@ ms.author: pafarley
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
+## Set up application
+
+Create a new C# application.
+
+#### [Visual Studio IDE](#tab/visual-studio)
+
+Using Visual Studio, create a new **Console app (.NET Framework)** application. 
+
+### Install the client library 
+
+Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.ContentSafety`. Select **Install**.
+
+#### [CLI](#tab/cli)
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `content-safety-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+
+```console
+dotnet new console -n content-safety-quickstart
+```
+
+Change your directory to the newly created app folder. You can build the application with:
+
+```console
+dotnet build
+```
+
+The build output should contain no warnings or errors. 
+
+```console
+...
+Build succeeded.
+  0 Warning(s)
+  0 Error(s)
+...
+```
+
+### Install the client library
+
+Within the application directory, install the Content Safety client library for .NET with the following command:
+
+```console
+dotnet add package  Azure.AI.ContentSafety --prerelease
+```
+    
+---
+
+
 ## Create environment variables 
 
 In this example, you'll write your credentials to environment variables on the local machine running the application.
@@ -56,16 +103,16 @@ After you add the environment variables, run `source ~/.bashrc` from your consol
 
 ---
 
+
+
 ## Analyze image content
 
-The following section walks through a sample request with the .NET SDK.
-
-tbd
+From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
 
 
 ```csharp
-string endpoint = "[Your endpoint]";
-string key = "[Your subscription key]";
+string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
 
 ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
 
@@ -111,3 +158,19 @@ if (response.Value.ViolenceResult != null)
 ```
 
 
+
+Then, run the application
+
+#### [Visual Studio IDE](#tab/visual-studio)
+
+Run the application by clicking the **Debug** button at the top of the IDE window.
+
+#### [CLI](#tab/cli)
+
+Run the application from your application directory with the `dotnet run` command.
+
+```dotnet
+dotnet run
+```
+
+---

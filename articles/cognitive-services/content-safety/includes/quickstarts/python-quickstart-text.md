@@ -78,14 +78,14 @@ The following section walks through a sample request with the Python SDK.
     
     
     def analyze_text():
-        endpoing = "[Your endpoint]"
-        key = "[Your subscription key]"
+        endpoint = os.environ.get('CONTENT_SAFETY_ENDPOINT')
+        key = os.environ.get('CONTENT_SAFETY_KEY')
     
         # Create an Content Safety client
         client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     
         # Build request
-        request = AnalyzeTextOptions(text="[Your input text]")
+        request = AnalyzeTextOptions(text="Your input text")
     
         # Analyze text
         try:
@@ -108,8 +108,7 @@ The following section walks through a sample request with the Python SDK.
     if __name__ == "__main__":
         analyze_text()
     ```
-
-1. tbd
+1. Replace `"Your input text"` with the text content you'd like to use.
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console
