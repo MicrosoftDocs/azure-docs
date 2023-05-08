@@ -1,5 +1,5 @@
 ---
-title: Manage imported data assets(preview)
+title: Manage imported data assets (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to manage imported data assets also known as edit auto-deletion.
 services: machine-learning
@@ -25,7 +25,6 @@ In this article, learn how to manage imported data assets from life-cycle point 
 > Auto-delete settings capability or lifecycle management is offered currently only on the imported data assets in managed datastore aka `workspacemanagedstore`.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 
 ## Modifying auto delete settings
 
@@ -58,9 +57,10 @@ ml_client.data.create_or_update(my_data) 
 
 ---
 
-## Deleting/ Removing auto delete settings
+## Deleting/removing auto delete settings
 
-You can remove a previously configured auto-delete setting 
+You can remove a previously configured auto-delete setting.
+ 
 # [Azure CLI](#tab/cli)
 
 ```cli
@@ -88,8 +88,7 @@ ml_client.data.create_or_update(my_data) 
 
 ## Query on the configured auto delete settings
 
-You can view and list the data assets with certain conditions or values configured in "auto-delete" settings
-# [Azure CLI](#tab/cli)
+You can view and list the data assets with certain conditions or with values configured in the "auto-delete" settings, as shown in this Azure CLI code sample:
 
 ```cli
 > az ml data list --query '[?auto_delete_setting.\"condition\"==''created_greater_than'']'
@@ -97,6 +96,8 @@ You can view and list the data assets with certain conditions or values configur
 > az ml data list --query '[?auto_delete_setting.\"value\"==''30d'']'
 ```
 
-# [Python SDK](#tab/Python-SDK)
+## Next steps
 
----
+- [Read data in a job](how-to-read-write-data-v2.md#read-data-in-a-job)
+- [Working with tables in Azure Machine Learning](how-to-mltable.md)
+- [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md)
