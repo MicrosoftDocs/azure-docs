@@ -71,7 +71,7 @@ If you have gotten overage claim please check below things in order:
 
 1. Are you using SPN which is part of more than 200 AAD groups? If yes, then, please create another SPN with membership in less than 200 AAD groups.
 
-1. Have you configured oubound proxy envrionment? If yes then, please check if this endpoint https://<region>.obo.arc.azure.com:8084/ is whitelisted.
+1. Have you configured oubound proxy envrionment? If yes then, please check if this endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
 
 1. If you are using AAD user entity and #2 is also satisfied then, please file a support ticket for follow up.
 
