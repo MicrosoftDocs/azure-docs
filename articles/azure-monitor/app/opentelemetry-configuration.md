@@ -204,9 +204,26 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 You might want to enable Azure Active Directory (Azure AD) Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
 
 #### [.NET](#tab/net)
-    
+
+We supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
 ```csharp
-Currently unavailable.
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+    options.Credential = new DefaultAzureCredential();
+});
+
+var app = builder.Build();
+
+app.Run();
 ```
     
 #### [Java](#tab/java)
