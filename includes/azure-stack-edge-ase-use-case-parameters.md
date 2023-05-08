@@ -11,7 +11,9 @@ ms.date: 05/08/2023
 
 Azure Stack Edge is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. The solution provides hardware as a service and seamless cloud-to-edge experiences.
 
-This overview provides use case parameters in place for all new Azure Stack Edge customers. Azure Stack Edge is only available to new customers in the following scenarios:
+Azure Stack Edge is only available to new customers in the following scenarios:
+ - Validated partner workloads.
+ - Large scale deployments.
 
 ### Validated partner workloads
 
@@ -37,16 +39,12 @@ Use the following links to get information about additional infrastructure solut
  - [Azure Arc – Hybrid and multicloud management and solutions](https://azure.microsoft.com/products/azure-arc/#overview>).
  - [Azure Stack HCI – Hyperconverged infrastructure | Microsoft Azure](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
  
-### Existing Azure Stack Edge Customers
-
-- All existing customers can continue to order Azure Stack Edge.
-
 ### Next steps for qualified workloads and existing customers
 
-- Submit an Azure Stack Edge sign-Up form.
+- Submit an Azure Stack Edge sign-Up form via Azure portal.
 
-### Next steps for alternate edge solutions
+### Next steps for additional edge solutions
 
-- Learn more about [Azure Arc – Hybrid and multicloud Management and Solution](https://azure.microsoft.com/products/azure-arc/#overview>).
-- Review the [Azure Stack HCI – Hyperconverged infrastructure solution](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
+- [Azure Arc – Hybrid and multicloud Management and Solution](https://azure.microsoft.com/products/azure-arc/#overview>).
+- [Azure Stack HCI – Hyperconverged infrastructure solution](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
 - Explore the [HCI catalog](https://azurestackhcisolutions.azure.microsoft.com/#/catalog).
