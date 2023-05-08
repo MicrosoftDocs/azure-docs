@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items: 
-    - name: About Azure Modeling and Simulation Workbench (preview)
+    - name: What is Azure Modeling and Simulation Workbench?
       href: modeling-simulation-workbench-overview.md
 - name: Quickstart
   items: 
@@ -21,6 +21,8 @@ items:
   items: 
     - name: Workbench
       href: ./concept-workbench.md
+    - name: User personas
+      href: ./concept-user-personas.md
     - name: Chamber
       href: ./concept-chamber.md
     - name: Connector
@@ -31,11 +33,11 @@ items:
   items: 
     - name: Manage chamber
       items: 
-        - name: Set up license services
+        - name: Manage license services
           href: ./howtoguide-licenses.md
-        - name: Upload data
+        - name: Import data
           href: ./howtoguide-upload-data.md
-        - name: Download data
+        - name: Export data
           href: ./howtoguide-download-data.md
         - name: Manage chamber storage
           href: ./howtoguide-manage-storage.md          

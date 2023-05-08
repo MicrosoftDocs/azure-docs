@@ -26,15 +26,18 @@ landingContent:
             url: ./modeling-simulation-workbench-overview.md
       - linkListType: concept
         links:
-          - text: Modeling and Simulation Workbench
+          - text: Workbench
             url: ./concept-workbench.md
-          - text: Chamber
+          - text: User Personas
             url: ./concept-chamber.md
-          - text: Connector
+          - text: Chambers
+            url: ./concept-chamber.md
+          - text: Connectors
             url: ./concept-connector.md
           - text: Data Pipeline
             url: ./concept-data-pipeline.md
-
+          - text: License Service
+            url: ./concept-licenses.md
   # Card: Get started
   - title: Get started
     linkLists:
@@ -44,11 +47,11 @@ landingContent:
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Set up license services
+          - text: Manage license service
             url: ./howtoguide-licenses.md
-          - text: Upload data to chamber
+          - text: Import data
             url: ./howtoguide-upload-data.md
-          - text: Download data from chamber
+          - text: Export data
             url: ./howtoguide-download-data.md
           - text: Manage chamber storage
             url: ./howtoguide-manage-storage.md
