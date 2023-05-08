@@ -63,11 +63,11 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 1. Enable and start the `pmproxy` service.
 
     ```bash
-    systemctl start pmproxy
+    systemctl enable pmproxy
     ```
 
     ```bash
-    systemctl enable pmproxy
+    systemctl start pmproxy
     ```
 
 1. Data will then be collected by PCP on the system. You can export the data using `pmproxy` at `http://<SERVER-NAME-OR-IP-ADDRESS>:44322/metrics?names=ha_cluster`. Replace `<SERVER-NAME-OR-IP-ADDRESS>` with your server name or IP address.
