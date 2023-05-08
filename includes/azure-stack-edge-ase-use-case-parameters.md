@@ -42,7 +42,7 @@ Use the following links to get information about additional infrastructure solut
 
 ### Next steps for qualified workloads and existing customers
 
-- Submit an Azure Stack Edge Sign-Up form.
+- Submit an Azure Stack Edge sign-Up form.
 
 ### Next steps for alternate edge solutions
 
