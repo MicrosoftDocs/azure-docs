@@ -27,7 +27,7 @@ In a real world scenario, some tenants can grow large with thousands of users, w
 
 Using a synthetic partition key that combines **TenantId** and **UserId** adds complexity to the application. Additionally, the synthetic partition key queries for a tenant are still cross-partition, unless all users are known and specified in advance.
 
-With hierarchical partition keys, we can partition first on **TenantId**, and then **UserId**. We can even partition further down to another level, such as **SessionId**, as long as the overall depth doesn't exceed three levels. When a physical partition exceeds 50 GB of storage, Azure Cosmos DB automatically splits the physical partition so that roughly half of the data is on one physical partition, and half on the other. Effectively, subpartitioning means that a single TenantId can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
+With hierarchical partition keys, we can partition first on **TenantId**, and then **UserId**. If you expect the **TenantId** and **UserId** combination to produce partitions that exceed 20 GB, you can even partition further down to another level, such as **SessionId**. The overall depth can't exceed three levels. When a physical partition exceeds 50 GB of storage, Azure Cosmos DB automatically splits the physical partition so that roughly half of the data is on one physical partition, and half on the other. Effectively, subpartitioning means that a single TenantId can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
 
 Queries that specify either the **TenantId**, or both **TenantId** and **UserId** is efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular **TenantId** was only on five of them, the query would only be routed to the smaller number of relevant physical partitions.
 
@@ -43,7 +43,7 @@ Find the latest preview version of each supported SDK:
 | --- | --- | --- |
 | **.NET SDK v3** | *>= 3.33.0* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0/> |
 | **Java SDK v4** | *>= 4.42.0* | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4420-2023-03-17/> |
-| **JavaScript SDK v4** | *3.17.4-beta.1* | <https://www.npmjs.com/package/@azure/cosmos/v/3.17.4-beta.1/> |
+| **JavaScript SDK v3** | *3.17.4-beta.1* | <https://www.npmjs.com/package/@azure/cosmos/v/3.17.4-beta.1/> |
 
 ## Create a container with hierarchical partition keys
 
@@ -66,6 +66,9 @@ The simplest way to create a container and specify hierarchical partition keys i
     :::image type="content" source="media/hierarchical-partition-keys/new-container-option.png" lightbox="media/hierarchical-partition-keys/new-container-option.png" alt-text="Screenshot of the New Container option within the Data Explorer.":::
 
 1. In the **New Container** dialog, specify `/TenantId` for the partition key field. Enter any value for the remaining fields (database, container, throughput, etc.).
+
+    > [!NOTE]
+    > We are using `/TenantId` as an example here. You can specify any key for the first level when implementing hierarchical partition keys on your own containers.
 
 1. Select **Add Hierarchical Partition Key** twice.
 
@@ -443,7 +446,8 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 
 ## Limitations and known issues
 
-* Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other Python SDK is planned and not yet available.
+* Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDKs, like Python, is planned for the future.
+* There are limitations with various Azure Cosmos DB connectors (ex. Azure Data Factory).
 * You can only specify hierarchical partition keys up to three layers in depth.
 * Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. To use hierarchical partitions on existing containers, you should create a new container with the hierarchical partition keys set and move the data using [container copy jobs](intra-account-container-copy.md).
 * Hierarchical partition keys are currently supported only for API for NoSQL accounts (API for MongoDB and Cassandra aren't currently supported).
