@@ -151,7 +151,7 @@ For more information, see [Add members - Microsoft Graph v1.0](https://learn.mic
   
 Alternatively, you can use Azure AD dynamic groups, which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive this wouldn't be the recommended approach as dynamic groups can take up to 24 hours to populate. 
 
-If you prefer to use dynamic groups, you don't need to add the users to a group explicitly with another API call. Create a dynamic group that automatically adds the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, see [Create or edit a dynamic group and get status](../enterprise-users/groups-create-rule). 
+If you prefer to use dynamic groups, you don't need to add the users to a group explicitly with another API call. Create a dynamic group that automatically adds the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, see [Create or edit a dynamic group and get status](../enterprise-users/groups-create-rule.md). 
   
 ## Step 5: Provision the invited user to the application
 
