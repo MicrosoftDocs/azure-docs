@@ -27,7 +27,6 @@ This article contains all major API changes and feature updates for the Azure VM
 **Improvements**
 - Added support to pull the latest image version stored in Azure Compute Gallery to AIB templates
 - Added support to pull the latest image version stored in Azure Compute Gallery as the source for the image template
-- Added support for image versioning
 - Added `versioning` to support generating version numbers for image distributions. For more information, see [properties: versioning](../../articles/virtual-machines/linux/image-builder-json.md#properties-versioning)
 - Added support for per region configuration when distributing to Azure Compute Gallery
 
