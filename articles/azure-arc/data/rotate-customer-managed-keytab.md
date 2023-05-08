@@ -30,7 +30,7 @@ The following steps need to be followed to rotate the keytab:
 1. Update the new keytab file with new entries for the new credentials for the SQL MI AD account
 1. Create a kubernetes secret holding the new keytab file contents in the same namespace as the SQL MI.
 1. Edit the SQL MI spec to point the AD keytab secret setting to this new secret
-1. Change the password in the AD Domain
+1. Change the password in the Active Directory (AD) domain.
 
 We have provided the following powershell and bash scripts that will take care of steps 1-5 for you:
 - [`rotate-sqlmi-keytab.sh`](https://github.com/microsoft/azure_arc/blob/main/arc_data_services/deploy/scripts/rotate-sql-keytab.sh) - This bash script uses `ktutil` or `adutil` (if the `--use-adutil` flag is specified) to generate the new keytab for you.
@@ -68,26 +68,27 @@ data:
     <keytab-contents>
 ```
 
-Finally, change the password for `arcsqlmi` User in the Domain Controller for the AD Domain `contoso.com`:
+Finally, change the password for `arcsqlmi` user account in the domain controller for the AD domain `contoso.com`:
 
-1. Open `Server Manager` on the Domain Controller for the AD Domain `contoso.com`. You can either search for Server Manager or open it through the Start Menu.
-1. Go to Tools >  Active Directory Users and Computers:
-<br><br>
-![Active Directory Users and Computers](_images/ADUsersAndComputers.png)
-* Select the User that we want to change password for >  Right Click > Reset Password:
-<br><br>
-![ResetPassword](_images/ResetPassword.png)
+1. Open **Server Manager** on the domain controller for the AD domain `contoso.com`. You can either search for *Server Manager* or open it through the Start menu.
+1. Go to **Tools** > **Active Directory Users and Computers**
 
-1. Enter new password details and press `OK`
+   :::image type="content" source="media/rotate-customer-managed-keytab/active-directory-users-and-computers.png" alt-text="Screenshot of Active Directory Users and Computers.":::
 
-### Troubleshooting Errors After Rotation
+1. Select the user that you want to change password for. Right-click to select the user. Select **Reset password**:
 
-In case there are errors when trying to use Active Directory Authentication after completing keytab rotation, the following files in the arc-sqlmi container in the SQL MI pod are a good place to start investigating the root cause:
-- `security.log` file located at `/var/opt/mssql/log` - This log file has logs for SQL's interactions with the Active Directory Domain.
+   :::image type="content" source="media/rotate-customer-managed-keytab/reset-password.png" alt-text="Screenshot of the control to reset the password for an AD user account.":::
+
+1. Enter new password and select `OK`
+
+### Troubleshooting errors after rotation
+
+In case there are errors when trying to use Active Directory Authentication after completing keytab rotation, the following files in the `arc-sqlmi` container in the SQL MI pod are a good place to start investigating the root cause:
+- `security.log` file located at `/var/opt/mssql/log` - This log file has logs for SQL's interactions with the AD domain.
 - `errorlog` file located at `/var/opt/mssql/log` - This log file contains logs from the SQL Server running on the container.
 - `mssql.keytab` file located at `/var/run/secrets/managed/keytabs/mssql` - Verify that this keytab file contains the newly updated entries and matches the keytab file created by using the scripts provided above. The keytab file can be read using the `klist` command i.e. `klist -k mssql.keytab -e`
 
-Additionally, after getting the kerberos Ticket-Granting Ticket (TGT) by using `kinit` command, verify the `kvno` of the SQL user matches the highest `kvno` in the `mssql.keytab` file in the arc-sqlmi container. For example, for `arcsqlmi@CONTOSO.COM` user:
+Additionally, after getting the kerberos Ticket-Granting Ticket (TGT) by using `kinit` command, verify the `kvno` of the SQL user matches the highest `kvno` in the `mssql.keytab` file in the `arc-sqlmi` container. For example, for `arcsqlmi@CONTOSO.COM` user:
 
 - Get the kerberos TGT from the AD domain by running `kinit arcsqlmi@CONTOSO.COM`. This will prompt a user input for the password for `arcsqlmi` user.
 - Once this succeeds, the `kvno` can be queried by running `kvno arcsqlmi@CONTOSO.COM`.
