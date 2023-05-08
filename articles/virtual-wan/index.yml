@@ -107,6 +107,8 @@ landingContent:
             url: scenario-shared-services-vnet.md
           - text: Scenario - Custom routing via Azure Firewall
             url: scenario-route-between-vnets-firewall.md
+          - text: About Route-maps
+            url: route-maps-about.md
       - linkListType: how-to-guide
         links:
           - text: Configure virtual hub routing
