@@ -11,7 +11,6 @@ ms.date: 12/15/2022
 ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 # Analyze document API response
 
