@@ -34,7 +34,7 @@ The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software
 
 Select a Python version:
 
-#### [Python 3.8](#tab/py3)
+#### [Python 3.8(GA)](#tab/py3)
 
 | Filename part | Description |
 |---|---|
@@ -76,21 +76,23 @@ Perform the following steps using a 64-bit Linux machine with Python 3.10.x and 
 
    :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-1. On the **Add Python Package** page, select a local package to upload. The package can be **.who** or **.tar.gz** file for Python 3.8 and **.whl** file for Python 3.10 (preview). 
+1. On the **Add Python Package** page, select a local package to upload. The package can be **.whl** or **.tar.gz** file for Python 3.8 and **.whl** file for Python 3.10 (preview). 
 1. Enter a name and select the **Runtime Version** as Python 3.8 or Python 3.10 (preview).
    > [!NOTE]
    > Currently, Python 3.10 (preview) runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central, and Gov clouds.               
 1. Select **Import**.
 
-   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8 (preview) Package page with an uploaded tar.gz file selected.":::
+   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8 Package page with an uploaded tar.gz file selected.":::
 
 After a package has been imported, it's listed on the Python packages page in your Automation account. To remove a package, select the package and select **Delete**.
 
-:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3.8 (preview) packages page after a package has been imported.":::
+:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3.8 packages page after a package has been imported.":::
 
 ### Import a package with dependencies
 
+
 You can import a Python 3.8 package and its dependencies by importing the following Python script into a Python 3.8 runbook, and then running it.
+
 
 ```cmd
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
