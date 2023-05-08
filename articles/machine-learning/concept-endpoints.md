@@ -45,8 +45,6 @@ An **endpoint**, is a stable and durable URL that can be used to request or invo
 
 A **deployment** is a set of resources required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments which can host independent assets and consume different resources based on what the actual assets require. Endpoints have a routing mechanism that can route the request generated for the clients to specific deployments under the endpoint.
 
-:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
-
 To function properly, __each endpoint needs to have at least one deployment__. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
 ## Online and batch endpoints
