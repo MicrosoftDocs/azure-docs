@@ -28,7 +28,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 ### Access network-restricted vaults
 
-If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access.
+If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access. Vaults shouldn't depend on the app's public outbound IPs because the origin IP of the secret request could be different. Instead, the vault should be configured to accept traffic from a virtual network used by the app.
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
@@ -50,8 +50,10 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
+
 > [!NOTE]
 > Windows container currently does not support Key Vault references over VNet Integration.
+
 
 ### Access vaults with a user-assigned identity
 
@@ -173,9 +175,9 @@ An example pseudo-template for a function app might look like the following:
                         "[resourceId('Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('appInsightsKeyName'))]"
                     ],
                     "properties": {
-                        "AzureWebJobsStorage": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringResourceId')).secretUriWithVersion, ')')]",
-                        "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringResourceId')).secretUriWithVersion, ')')]",
-                        "APPINSIGHTS_INSTRUMENTATIONKEY": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('appInsightsKeyResourceId')).secretUriWithVersion, ')')]",
+                        "AzureWebJobsStorage": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringName')).secretUriWithVersion, ')')]",
+                        "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringName')).secretUriWithVersion, ')')]",
+                        "APPINSIGHTS_INSTRUMENTATIONKEY": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('appInsightsKeyName')).secretUriWithVersion, ')')]",
                         "WEBSITE_ENABLE_SYNC_UPDATE_SITE": "true"
                         //...
                     }

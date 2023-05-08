@@ -109,8 +109,8 @@ Follow the health signals below for monitoring before upgrading your next set of
 For migrating existing virtual machine resources to a zone redundant configuration, refer to the below resources:
 
 - Move a VM to another subscription or resource group
-    - [CLI](./linux/move-vm.md)
-    - [PowerShell](./windows/move-vm.md)
+    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)
+    - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
 - [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
 - [Move region maintenance configuration resources](./move-region-maintenance-configuration-resources.md)
