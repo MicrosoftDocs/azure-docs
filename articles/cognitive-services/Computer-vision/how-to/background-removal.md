@@ -62,7 +62,7 @@ Where we used this helper function to read the value of an environment variable:
 
 #### [REST API](#tab/rest)
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for the additional query string you add to this URL.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. See [Select a mode ](./background-removal.md&tabs=rest#select-a-mode) section for another query string you add to this URL.
 
 ---
 
@@ -74,7 +74,7 @@ The code in this guide uses remote images referenced by URL. You may want to try
 
 Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.core.input.visionsource.fromurl).
 
-Note that **VisionSource** implements **IDisposable**. Create the object with a **using** statement, or explicitly call **Dispose** method after analysis completes.
+**VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_source)]
 
@@ -152,7 +152,7 @@ This section shows you how to make the API call and parse the results.
 
 The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
 
-Note that **SegmentationResult** implements **IDisposable**. Create the object with a **using** statement, or explicitly call **Dispose** method after analysis completes.
+**SegmentationResult** implements **IDisposable**, therefore  create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=segment)]
 
@@ -170,17 +170,24 @@ The following code calls the Image Analysis API and saves the resulting segmente
 
 #### [REST](#tab/rest)
 
-The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream. The following four-channel PNG image is an example of a response for the `backgroundRemoval` mode:
+The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream.
 
-:::image type="content" source="../media/background-removal/building-1-result.png" alt-text="Photo of a city, with the background transparent.":::
+---
 
-The following one-channel PNG image is an example of a response for the `foregroundMatting` mode:
+As an example, assume background removal is run on the following image:
 
-:::image type="content" source="../media/background-removal/building-1-matte.png" alt-text="Alpha matte of the city photograph.":::
+:::image type="content" source="../media/background-removal/building-1.png" alt-text="Photo of a city near water.":::
+
+On a successful background removal call, The following four-channel PNG image is the response for the `backgroundRemoval` mode:
+
+:::image type="content" source="../media/background-removal/building-1-result.png" alt-text="Photo of a city near water; sky is transparent.":::
+
+The following one-channel PNG image is the response for the `foregroundMatting` mode:
+
+:::image type="content" source="../media/background-removal/building-1-matte.png" alt-text="Alpha matte of a city skyline.":::
 
 The API returns an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 
----
 
 ## Error codes
 
