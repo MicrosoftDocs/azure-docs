@@ -130,12 +130,11 @@ To compare and understand the differences, see the following table.
 | Setup and maintenance | Simple to set up with less management overhead | Extra effort is required |
 | Limits | No limit on the total number of service endpoints in a virtual network. Azure services may enforce limits on the number of subnets used for securing the resource. (see [virtual network FAQ](virtual-networks-faq.md#are-there-any-limits-on-how-many-virtual network-service-endpoints-i-can-set-up-from-my-virtual network)) | Yes (see [Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)) |
 
-
-**Azure service resources secured to virtual networks aren't reachable from on-premises networks. If you want to allow traffic from on-premises, allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources. For more information, see the [virtual network FAQ](virtual-networks-faq.md#can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-virtual network-service-endpoints).
+**Azure service resources secured to virtual networks aren't reachable from on-premises networks. If you want to allow traffic from on-premises, allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources. For more information, see the [virtual network FAQ](virtual-networks-faq.md#can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints).
 
 ## Next steps
 
-- Learn how to [integrate your app with an Azure network](../app-service/overview-virtual network-integration.md).
+- Learn how to [integrate your app with an Azure network](../app-service/overview-vnet-integration.md).
 
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
 
