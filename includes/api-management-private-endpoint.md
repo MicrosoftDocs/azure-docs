@@ -17,5 +17,7 @@ With a private endpoint and Private Link, you can:
 - Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
 > [!IMPORTANT]
-> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance. Currently, outbound traffic isn't supported. Note that you may still use the external or internal [virtual network](../articles/api-management/virtual-network-concepts.md) model to establish outbound connectivity to private endpoints from your API Management instance.
+> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance. Currently, outbound traffic isn't supported. 
+> 
+>   You can use the external or internal [virtual network](/azure/api-management/virtual-network-concepts) model to establish outbound connectivity to private endpoints from your API Management instance.
 > * To enable private endpoints, the API Management instance can't already be configured with an external or internal [virtual network](../articles/api-management/virtual-network-concepts.md).  
