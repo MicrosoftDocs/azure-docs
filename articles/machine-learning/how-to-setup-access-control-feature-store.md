@@ -30,7 +30,7 @@ To control access to these resources, create the following roles. For each role,
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
 |`Feature store admin`     |who can create/update/delete feature store         | [RBAC permission required for Featurestore Admin](#rbac-permission-required-for-featurestore-admin)        |
-|`Featureset consumer`     |who can use defined feature sets in their ML lifecycle.     |[RBAC permission required for Featureset consumer](#rbac-permission-required-for-featureset-consumer)         |
+|`Featureset consumer`     |who can use defined feature sets in their machine learning lifecycle.     |[RBAC permission required for Featureset consumer](#rbac-permission-required-for-featureset-consumer)         |
 |`Featureset developer`    |who can create/update feature sets, or set up materializations such as backfill and recurrent jobs.    | [RBAC permission required for Featureset developer](#rbac-permission-required-for-featureset-developer)        |
 
 If materialization is enabled on your feature store, you must also create the following role:
@@ -50,9 +50,9 @@ The following resources are involved for granting access:
 - Users' Azure storage accounts that have the source data of feature sets
 
 
-## Permissions required for the Feature store Admin role
+## Permissions required for the feature store admin role
 
-To create and/or delete a managed feature store, we recommend using the built-in `Contributor` and `User Access Administrator` roles on the resource group. In addition, the Feature store Admin role requires at least the following permissions.
+To create and/or delete a managed feature store, we recommend using the built-in `Contributor` and `User Access Administrator` roles on the resource group. In addition, the `Feature store admin` role requires at least the following permissions.
 
 |Scope| Action/Role|
 |----|------|
@@ -78,7 +78,7 @@ To consume feature sets defined in the feature store, use the following build-in
 
 |Scope| Action/Role|
 |----|------|
-| the feature store | Azure Machine Learning Data Scientist|
+| the feature store | AzureML Data Scientist|
 | storage accounts of source data, that is, data sources of feature sets | Blob storage data reader role |
 | storage account of feature store offline store | Blob storage data reader role |
 
@@ -103,7 +103,7 @@ To develop feature sets in the feature store, use the following built-in roles.
 
 |Scope| Action/Role|
 |----|------|
-| the feature store | Azure Machine Learning Data Scientist|
+| the feature store | AzureML Data Scientist|
 | storage accounts of source data | Blob storage data reader role |
 | storage account of feature store offline store | Blob storage data reader role |
 
@@ -125,7 +125,7 @@ In addition to all of the permissions required by the `Featureset consumer` role
 
 |Scope| Action/Role |
 |----|------|
-| feature store | Azure Machine Learning Data Scientist role |
+| feature store | AzureML Data Scientist role |
 | storage account of feature store offline store | Blob storage data contributor role |
 | storage accounts of source data | Blob storage data reader role |
 
