@@ -133,8 +133,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/tutorial-v2-asp-webapp.md
                         - name: Prepare tenant
                           href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
