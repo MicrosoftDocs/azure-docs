@@ -17,23 +17,23 @@ ms.collection: M365-identity-device-management
 
 # Onboard external users to Line-of-business applications using Azure Active Directory B2B 
 
-App developers can use Azure Active Directory B2B (Azure AD B2B) to onboard and collaborate with external users within line-of-business (LOB) apps. Similar to the **Share** button in many Office 365 applications, app developers can create a one-click invitation experience within any LOB app that is integrated with Azure AD.  
+Application developers can use Azure Active Directory B2B (Azure AD B2B) to onboard and collaborate with external users within line-of-business (LOB) applications. Similar to the **Share** button in many Office 365 applications, application developers can create a one-click invitation experience within any LOB application that is integrated with Azure AD.  
 
 Benefits include: 
 
-- Simple and easy user onboarding and access to the LOB apps with users able to gain access with a few steps.
+- Simple and easy user onboarding and access to the LOB applications with users able to gain access with a few steps.
 
 - Enables external users to bring their own identity and perform Single sign-on (SSO). 
 
 - Automatic provisioning of external identities to Azure AD. 
 
-- Apply Azure AD Conditional Access and cross tenant access policies to enforce authorization policies such as requiring multifactor authentication. 
+- Apply Azure AD Conditional Access and cross tenant access policies to enforce authorization policies such as requiring multi-factor authentication. 
 
 ## Integration flow 
 
-To integrate LOB apps with Azure AD B2B, follow this pattern: 
+To integrate LOB applications with Azure AD B2B, follow this pattern: 
 
-![Screenshot shows the integration of LOB apps.](media/external-user-onboarding/integration-flow.png)
+![Screenshot shows the integration of LOB applications.](media/external-user-onboarding/integration-flow.png)
 
 | Step | Description |
 |:-------|:--------|
@@ -47,7 +47,7 @@ To integrate LOB apps with Azure AD B2B, follow this pattern:
 | 8. | The application provisions the user to its own database/backend user directory using the user’s object ID attribute as the **immutable ID**. |
 | 9. | The application presents the success/failure status to the end user. |
 
-If assignment is required to access the LOB application, the invited guest user must also be assigned to the app with an appropriate app role. This can be done as another API call adding the invited guest to a group (steps #5-7) or by automating group membership with Azure AD dynamic groups. Using Dynamic Groups wouldn't require another API call by the application, but group membership wouldn't be updated as quickly compared to adding a user to a group immediately after user invitation. 
+If assignment is required to access the LOB application, the invited guest user must also be assigned to the application with an appropriate application role. This can be done as another API call adding the invited guest to a group (steps #5-7) or by automating group membership with Azure AD dynamic groups. Using dynamic groups wouldn't require another API call by the application, but group membership wouldn't be updated as quickly compared to adding a user to a group immediately after user invitation. 
 
 ## Step 1: Check if the external user already exists 
 
@@ -60,7 +60,7 @@ Application Permission: User.read.all
 
 GET https://graph.microsoft.com/v1.0/users?$filter=othermails/any(id:id eq 'userEmail@contoso.com')  
 ```
-If you receive a user’s details in the response, then the user already exists. You should present the users returned to the inviting user and allow them to choose which external user they want to grant access. You should proceed to make appropriate API calls or trigger other processes to grant this user access to the app rather than proceeding with the invitation step. 
+If you receive a user’s details in the response, then the user already exists. You should present the users returned to the inviting user and allow them to choose which external user they want to grant access. You should proceed to make appropriate API calls or trigger other processes to grant this user access to the application rather than proceeding with the invitation step. 
 
 ## Step 2: Create and send invitation
 
@@ -98,7 +98,7 @@ Content-type: application/json
 >[!NOTE]
 > To see the full list of available options for the JSON body of the invitation, check out [invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0). 
 
-App developers can alternatively onboard external users using Azure AD Self Service Sign Up or Entitlement Management Access Packages. You can create your “invitation” button in your LOB application that will trigger a custom email containing a pre-defined Self-service sign up URL or Access Package URL. The invited user can then self-service onboard and access the application.  
+Application developers can alternatively onboard external users using Azure AD self-service sign-up or Entitlement management access packages. You can create your **invitation** button in your LOB application that will trigger a custom email containing a pre-defined Self-service sign-up URL or access package URL. The invited user can then self-service onboard and access the application.  
 
 ## Step 3: Write additional attributes to Azure AD (optional)  
 
@@ -107,7 +107,7 @@ App developers can alternatively onboard external users using Azure AD Self Serv
 
 If your organization or the LOB application requires additional information be stored for future use, such as claims emittance in tokens or granular authorization policies, your application can make an additional API call to update the external user after they’ve been invited/created in Azure AD. Doing so requires your application to have additional API permissions and would require an additional call to the Microsoft Graph API.  
 
-To update the user you will need to use the Object ID of the newly created guest user received in the response from the invitation API call. This will be the “id” value in the API response from either the existence check or invitation. You can write to any standard attribute or custom extension attributes you may have created. 
+To update the user you will need to use the object ID of the newly created guest user received in the response from the invitation API call. This will be the **ID** value in the API response from either the existence check or invitation. You can write to any standard attribute or custom extension attributes you may have created. 
 
 For example:
 
@@ -137,7 +137,7 @@ If user assignment is required in Azure AD for application access and/or role as
 
 For example:
 
-Permissions: Assign the Group Updater role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the group.readwrite.all permission in Microsoft Graph API. 
+Permissions: Assign the Group updater role or a custom role to the enterprise application and scope the role assignment to only the group(s) this application should be updating. Or assign the `group.readwrite.all` permission in Microsoft Graph API. 
 
 ```
 POST https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
@@ -151,16 +151,16 @@ For more information refer to [Add members - Microsoft Graph v1.0](https://learn
   
 Alternatively, you can leverage Azure AD dynamic groups which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive this would not be the recommended approach as dynamic groups can take up to 24 hours to populate. 
 
-If you prefer to use dynamic groups, you do not need to add the users to a group explicitly with an additional API call. Create a dynamic group that will automatically add the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, refer to [Create or edit a dynamic group and get status](https://learn.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule). 
+If you prefer to use dynamic groups, you do not need to add the users to a group explicitly with an additional API call. Create a dynamic group that will automatically add the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, refer to [Create or edit a dynamic group and get status](../azure/active-directory/enterprise-users/groups-create-rule). 
   
 ## Step 5: Provision the invited user to the application
 
 Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API returns a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning varies. 
 
-With the external user provisioned in both Azure AD and the application, the LOB app can now notify the end user who initiated the invitation that the process has been successful. The invited user can get single sign-on with their own identity without the inviting organization needing to onboard and issue extra credentials. Azure AD can enforce authorization policies such as conditional access, multi-factor authentication, and risk-based identity protection. 
+With the external user provisioned in both Azure AD and the application, the LOB application can now notify the end user who initiated the invitation that the process has been successful. The invited user can get SSO with their own identity without the inviting organization needing to onboard and issue extra credentials. Azure AD can enforce authorization policies such as Conditional Access, Azure AD Multi-Factor Authentication, and risk-based Identity Protection. 
 
 ## Other considerations 
 
 - Ensure proper error handling is done within the LOB application. The application should validate that each API call is successful. If unsuccessful, extra attempts and/or presenting error messages to the end user would be appropriate. 
 
-- If you need the LOB app to update external users once they’ve been invited, consider granting a custom role that allows the app to only update users and assign the scope to a Dynamic Administrative Unit. For example, you can create a Dynamic Administrative Unit to contain all users where usertype = guest. Once the external user is onboarded to Azure AD, it takes some time for them to be added to the Administrative Unit. So, the LOB app will need to attempt to update the user after some time and it may take more than one attempt if there are delays. Despite these delays, this is the best approach available to enable the LOB app to update external users without granting it permission to update any user in the directory. 
+- If you need the LOB application to update external users once they’ve been invited, consider granting a custom role that allows the application to only update users and assign the scope to a dynamic administrative unit. For example, you can create a dynamic administrative unit to contain all users where usertype = guest. Once the external user is onboarded to Azure AD, it takes some time for them to be added to the administrative unit. So, the LOB application needs to attempt to update the user after some time and it may take more than one attempt if there are delays. Despite these delays, this is the best approach available to enable the LOB application to update external users without granting it permission to update any user in the directory. 
