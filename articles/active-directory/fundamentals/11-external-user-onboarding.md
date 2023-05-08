@@ -77,7 +77,7 @@ More flags and attributes to consider for inclusion in the invitation request:
 - Display name of the invited user. 
 - Determine whether you want to use the default Microsoft invitation email or suppress the default email to create your own. 
 
-Once the application has collected the required information and determined any other flags or information to be included, the application must POST the request to the Microsoft Graph API invitation manager. Ensure the application registration has the appropriate permissions in Azure AD.  
+Once the application has collected the required information and determined any other flags or information to include, the application must POST the request to the Microsoft Graph API invitation manager. Ensure the application registration has the appropriate permissions in Azure AD.  
 
 For example: 
 
@@ -98,7 +98,7 @@ Content-type: application/json
 >[!NOTE]
 > To see the full list of available options for the JSON body of the invitation, check out [invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0). 
 
-Application developers can alternatively onboard external users using Azure AD Self-service sign-up or Entitlement management access packages. You can create your **invitation** button in your LOB application that triggers a custom email containing a pre-defined Self-service sign-up URL or access package URL. The invited user can then self-service onboard and access the application.  
+Application developers can alternatively onboard external users using Azure AD Self-service sign-up or Entitlement management access packages. You can create your **invitation** button in your LOB application that triggers a custom email containing a predefined Self-service sign-up URL or access package URL. The invited user then self-service onboard and access the application.  
 
 ## Step 3: Write other attributes to Azure AD (optional)  
 
@@ -133,7 +133,7 @@ For more information, see [Update user - Microsoft Graph v1.0](https://learn.mic
 >[!NOTE]
 >If user assignment is not required to access the application, you may skip this step. 
 
-If user assignment is required in Azure AD for application access and/or role assignment, the user must be assigned to the application, or else the user will not be able to gain access regardless of successful authentication. To achieve this, you should make another API call to add the invited external user to a specific group. The group can be assigned to the application and mapped to a specific application role.  
+If user assignment is required in Azure AD for application access and/or role assignment, the user must be assigned to the application, or else the user won't be able to gain access regardless of successful authentication. To achieve this, you should make another API call to add the invited external user to a specific group. The group can be assigned to the application and mapped to a specific application role.  
 
 For example:
 
@@ -151,7 +151,7 @@ For more information, see [Add members - Microsoft Graph v1.0](https://learn.mic
   
 Alternatively, you can use Azure AD dynamic groups, which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive this wouldn't be the recommended approach as dynamic groups can take up to 24 hours to populate. 
 
-If you prefer to use dynamic groups, you don't need to add the users to a group explicitly with another API call. Create a dynamic group that will automatically add the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, see [Create or edit a dynamic group and get status](../azure/active-directory/enterprise-users/groups-create-rule). 
+If you prefer to use dynamic groups, you don't need to add the users to a group explicitly with another API call. Create a dynamic group that automatically adds the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, see [Create or edit a dynamic group and get status](../enterprise-users/groups-create-rule). 
   
 ## Step 5: Provision the invited user to the application
 
