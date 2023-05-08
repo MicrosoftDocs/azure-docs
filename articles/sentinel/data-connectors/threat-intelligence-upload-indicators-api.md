@@ -44,7 +44,8 @@ Follow These Steps to Connect to your Threat Intelligence:
 
 1. Get AAD Access Token
 
-To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: https://learn.microsoft.com/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token 
+To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: [Get Azure AD tokens for users by using MSAL
+](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token) 
   - Notice: Please request AAD access token with scope value: https://management.azure.com/.default  
 
 2. Send indicators to Sentinel
@@ -53,7 +54,7 @@ You can send indicators by calling our Upload Indicators API. For more informati
 
 >HTTP method: POST 
 
->Endpoint: https://apis.sentinelus.net/[WorkspaceID]/threatintelligence:upload-indicators?api-version=2022-07-01 
+>Endpoint: `https://apis.sentinelus.net/[WorkspaceID]/threatintelligence:upload-indicators?api-version=2022-07-01` 
 
 >WorkspaceID: the workspace that the indicators are uploaded to.  
 

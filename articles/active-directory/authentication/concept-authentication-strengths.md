@@ -222,7 +222,6 @@ An authentication strength Conditional Access policy works together with [MFA tr
 - **If MFA trust is enabled**, Azure AD checks the user's authentication session for a claim indicating that MFA has been fulfilled in the user's home tenant. See the preceding table for authentication methods that are acceptable for MFA when completed in an external user's home tenant. If the session contains a claim indicating that MFA policies have already been met in the user's home tenant, and the methods satisfy the authentication strength requirements, the user is allowed access. Otherwise, Azure AD presents the user with a challenge to complete MFA in the home tenant using an acceptable authentication method.
 - **If MFA trust is disabled**, Azure AD presents the user with a challenge to complete MFA in the resource tenant using an acceptable authentication method. (See the table above for authentication methods that are acceptable for MFA by an external user.)
 
-
 ## Limitations
 
 - **Conditional Access policies are only evaluated after the initial authentication** -  As a result, authentication strength doesn't restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.

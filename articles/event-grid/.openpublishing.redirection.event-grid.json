@@ -2,7 +2,7 @@
   "redirections": [     
     {
       "source_path": "compare-messaging-services.md",
-      "redirect_url": "/azure/architecture/guide/technology-choices/messaging",
+      "redirect_url": "/azure/service-bus-messaging/compare-messaging-services",
       "redirect_document_id": false
     },          
     {
