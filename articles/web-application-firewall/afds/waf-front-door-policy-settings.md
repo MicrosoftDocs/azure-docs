@@ -5,8 +5,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
-ms.author: victorh
+ms.date: 05/08/2023
+ms.author: arpitjain099
 ---
 
 # Policy settings for Web Application Firewall on Azure Front Door
