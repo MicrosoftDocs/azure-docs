@@ -46,7 +46,7 @@ catch(MsalUiRequiredException)
 
 On both desktop and mobile applications, it's important to specify the parent by using `.WithParentActivityOrWindow`. In many cases, it's a requirement and MSAL will throw exceptions.
 
-For desktop applications, see [Parent window handles](/azure/active-directory/develop/scenario-desktop-acquire-token-wam#parent-window-handles)
+For desktop applications, see [Parent window handles](/azure/active-directory/develop/scenario-desktop-acquire-token-wam#parent-window-handles).
 
 For mobile applications, provide `Activity` (Android) or `UIViewController` (iOS).
 
