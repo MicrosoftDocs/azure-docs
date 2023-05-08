@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: overview
-ms.date: 05/02/2023
+ms.date: 05/07/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -73,7 +73,7 @@ Learn more about managing [customer accounts](how-to-manage-customer-accounts.md
 
 ## Design user flows for self-service sign-up
 
-You can easily create a simple sign-up and sign-in experience for your customers by adding a user flow to your application. The user flow defines the series of sign-up steps customers follow and the sign-in methods they can use (such as email and password, one-time passcodes, or social accounts from [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md)). You can also collect information from customers during sign-up by selecting from a series of built-in attributes or adding your own custom attributes.
+You can easily create a simple sign-up and sign-in experience for your customers by adding a user flow to your application. The user flow defines the series of sign-up steps customers follow and the sign-in methods they can use (such as email and password, one-time passcodes, or social accounts from [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md)). You can also collect information from customers during sign-up by selecting from a series of user built-in attributes or adding your own custom attributes.
 
 Several user flow settings let you control how the customer signs up for the application, including:
 

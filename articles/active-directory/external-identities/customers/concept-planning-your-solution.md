@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/07/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -28,10 +28,10 @@ Adding secure sign-in to your app and setting up a customer identity and access 
 
 | Step | Action | Description |
 |---------|---------|---------|
-|**1**     |      **Create a customer tenant**   | [Create a customer tenant](https://aka.ms/ciam-free-trial) in the Microsoft Entra admin center. You can set your correct geographic location and your domain name at this step. |
-|**2**     |      **Register your application**   | In the Microsoft Entra admin center, [register your application](how-to-register-ciam-app.md) with Azure Active Directory.    |
-|**3**     |    **Integrate a sign-in flow with your app**     | - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md) </br>- Associate the app with the user flow </br>- Update the app code with your customer tenant info </br>See [Samples and guidance by app type and language](samples-ciam-all.md)   |
-|**4**     |    **Customize and secure your sign-in**     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md)  </br>- [Add attributes to collect](how-to-define-custom-attributes.md) </br>- Map claims to your token </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-custom-extensions.md) if you want to extend the authentication flow   |
+|**1**     |      **Create a customer tenant**   | - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.</br>- Or, [start a free trial](https://aka.ms/ciam-free-trial). </br>Learn more in [Step 1: Create a customer tenant](#step-1-create-a-customer-tenant) later in this article. |
+|**2**     |      **Register your application**   | - [Register your application](how-to-register-ciam-app.md) with Azure Active Directory.</br>Learn more in [Step 2: Register your application](#step-2-register-your-application) later in this article.   |
+|**3**     |    **Integrate a sign-in flow with your app**.     | - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md). </br>- [Add your application](how-to-user-flow-add-application.md) to the user flow. </br>Learn more in [Step 3: Integrate a sign-in flow with your app](#step-3-integrate-a-sign-in-flow-with-your-app) later in this article.  |
+|**4**     |    **Customize and secure your sign-in**     |  - [Customize branding](concept-branding-customers.md). </br>- [Add identity providers](concept-authentication-methods-customers.md).  </br>- [Add attributes to collect](how-to-define-custom-attributes.md) and map claims to the token. </br>- [Add multifactor authentication](concept-security-customers.md).  </br>Learn more in [Step 4: Customize and secure your sign-in](#step-4-customize-and-secure-your-sign-in) later in this article.   |
 
 The rest of this article explains each of these steps in more detail and outlines important planning considerations.
 
@@ -47,14 +47,14 @@ A customer tenant is the first resource you need to create to get started with A
 Following are some planning considerations for your new customer tenant:
 
 - When you create a customer tenant, you can set your correct geographic location and your domain name.
-- This new workforce and customer tenant model won't affect your already existing B2C tenants.
-- There are two types of users in a customer tenant: admin and customer. You can [create and manage admin accounts](how-to-manage-admin-accounts.md) for your customer tenant. Customer accounts are generally created through self-service sign-up, but you can [create and manage customer local accounts](how-to-manage-customer-accounts.md).
+- This new workforce and customer tenant model does't affect your already existing B2C tenants.
+- There are two types of users in a customer tenant: admin and customer. You can [create and manage admin accounts](how-to-manage-admin-accounts.md) for your customer tenant. Customer accounts are typically created through self-service sign-up, but you can [create and manage customer local accounts](how-to-manage-customer-accounts.md).
 - Customer accounts have a [default set of permissions](reference-user-permissions.md). Customers are restricted from accessing information about other users in the customer tenant. By default, customers can’t access information about other users, groups, or devices.
 
 **To create a customer tenant**:
 
-- If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-free-trial). 
-- Otherwise, you can [create a customer tenant](https://aka.ms/ciam-free-trial) in the Microsoft Entra admin center. You can set your correct geographic location and your domain name at this step.
+- You can [create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center. You can set your correct geographic location and your domain name at this step.
+- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial).
 
 ## Step 2: Register your application
 
@@ -83,17 +83,30 @@ Following are some planning considerations for integrating a user flow:
 
 - Each application can have just one sign-up and sign-in user flow.
 - If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows.
-- If you set company branding before you create the user flow, the sign in pages will reflect that branding. Otherwise, the sign in pages will reflect the neutral branding.
-- In the user flow settings, you can select from a set of built-in attributes you want to collect from customers on the sign-up page, for example, display name, given name, and surname. These attributes are stored with the customer's profile in your directory. If you need to collect more information, you can create custom attributes to add to your user flow.
-- You can set up social identity providers [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md) and use them in your self-service sign-up user flows.
-- In this setup flow, we describe integrating the user flow with your app in Step 3, and then updating the company branding and language customizations in step 4. But you can customize your user flow and company branding anytime, either before or after you integrate an app with a user flow.
-- You can enrich the token with claims from external systems using a custom extension, as described in the Extensibility options section in Step 4.
+- Although we describe setting up company branding and language customizations later in Step 4, you can do so anytime, either before or after you integrate an app with a user flow. If you configure company branding before you create the user flow, the sign in pages reflect that branding. Otherwise, the sign in pages reflect the default, neutral branding.
+- In the user flow settings, you can select from a set of built-in user attributes you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. If you want to collect more information, you can [define custom attributes](how-to-define-custom-attributes.md) and add them to your user flow. The built-in user attributes are:
+
+  - City
+  - Country/Region
+  - Display Name
+  - Email Address
+  - Given Name
+  - Job Title
+  - Postal Code
+  - State/Province
+  - Street Address
+  - Surname
+  
+- If your application requires specific user attributes, you can include them in the token sent to your application. 
+- You can set up social identity providers [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md) and then add them to your user flow as sign-in options.
 
 **To integrate a sign-in flow with your app**:
 
+- If you want to collect information from customers beyond the built-in user attributes, [define custom attributes](how-to-define-custom-attributes.md) so they're available as you configure to your user flow.
+
 - [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
 
-- [Create custom attributes](how-to-define-custom-attributes.md) if you want to collect information from customer beyond the built-in attributes, and select them in your user flow.
+- [Add your application](how-to-user-flow-add-application.md) to the user flow.
 
 ## Step 4: Customize and secure your sign-in
 
@@ -101,7 +114,7 @@ Following are some planning considerations for integrating a user flow:
 
 Following are planning considerations for configuring company branding, language customizations, and custom extensions:
 
-- **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding will appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
+- **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
 
 - **Extending the authentication token claims**. Azure AD for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [custom authentication extensions](concept-custom-extensions.md).
 
