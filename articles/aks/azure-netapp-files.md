@@ -383,7 +383,7 @@ This section walks you through the installation of Astra Trident using the opera
     tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
     ```
     
- 3. To confirm backend was set with correct credentials and premissions successfully, run the following [kubectl describe][kubectl-describe] command: 
+ 3. To confirm backend was set with correct credentials and sufficient permissions, run the following [kubectl describe][kubectl-describe] command: 
     ```bash
     kubectl describe tridentbackendconfig.trident.netapp.io/backend-tbc-anf -n trident
     ```
