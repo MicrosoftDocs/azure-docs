@@ -16,7 +16,7 @@ Following are few configurations that can be tuned to custom configure HDInsight
 |Configuration|Description|Default value|Applicable cluster/Autoscale type|Remarks|
 |----|----|----|----|----|
 |yarn.4_0.graceful.decomm.workaround.enable|Enable YARN graceful decommissioning|Loadware autoscale – True Scheduled autoscale - True|Hadoop/Spark |If this config is disabled, YARN puts nodes in Decommissioned state directly from Running state without waiting for the applications using the node to finish. This might lead to applications getting killed abruptly when nodes are decommissioned. 
-Read more about job resiliency in YARN here|
+Read more about job resiliency in YARN [here](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/GracefulDecommission.html)|
 |yarn.graceful.decomm.timeout|YARN graceful decommissioning timeout in seconds | Hadoop Loadware – 3600 Spark Scheduled - 1 Hadoop Scheduled – 1 Spark Loadware – 86400| Hadoop/Spark| Graceful decommissioning timeout is best configured according to customer applications. For example – if an application has many mappers and few reducers, which can take 4 hours to complete, this configuration needs to be set to more than 4 hours |
 |yarn.max.scale.up.increment | Maximum number of nodes to scale up in one go|- | Hadoop/Spark/Interactive Query|It has been tested with 200 nodes. We don't recommend setting this value to more than 200. It can be set to less than 200 if the customer wants less aggressive scale up |
 |yarn.max.scale.down.increment |Maximum number of nodes to scale up in one go | 50|Hadoop/Spark/Interactive Query|Can be set to up to 100 |
