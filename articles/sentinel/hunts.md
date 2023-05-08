@@ -25,7 +25,11 @@ Common use cases:
 - View metrics based on validated hypotheses and tangible results.
 
 ## Prerequisites
-The [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) is required. To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
+- Either assign the built-in [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) or,
+- Assign a custom Azure RBAC role with the appropriate permissions under *Microsoft.SecurityInsights/hunts*.
+
+To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md). 
+To learn more about custom roles, see [Custom roles and advanced Azure RBAC](roles.md#custom-roles-and-advanced-azure-rbac)
 
 ## Define your hypothesis
 Defining a hypothesis is an open ended, flexible process and can include any idea you want to validate. Common hypotheses include:
