@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/quickstart-html-uiex.md",
+      "redirect_url": "/azure/static-web-apps/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-restore.md",
       "redirect_url": "/azure/app-service/manage-backup",
       "redirect_document_id": false
