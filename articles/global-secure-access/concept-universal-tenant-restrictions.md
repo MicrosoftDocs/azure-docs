@@ -12,9 +12,9 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Universal Tenant Restrictions
+# Universal tenant restrictions
 
-Background  
+The initial implementation of tenant restrictions was important but lacked some funtionality. 
 
 Tenant Restriction v1 (TRv1) was an important capability but had some key limitations as listed below: 
 

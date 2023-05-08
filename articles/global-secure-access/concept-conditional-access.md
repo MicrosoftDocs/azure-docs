@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Global Secure Access and Conditional Access
 
-Global Secure Access enlightens Conditional Access in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the polies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements.
+Global Secure Access enlightens Conditional Access in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the polies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements to visibility in traffic coming from Global Secure Access clients or configured branch offices.
 
 ## Source IP restoration
 
@@ -22,9 +22,9 @@ With a cloud based network proxy between users and their resources, the source I
 
 To enable source IP restoration see the article, [Enabling source IP restoration](how-to-source-ip-restoration.md).
 
-## Conditional Access on network traffic profiles from client
+## Conditional Access on network traffic profiles
 
-Integrations with the new Global Secure Access client allow profiling of network traffic from endpoints as a way to consistently enforce policy. This functionality surfaces in Conditional Access as a new assignment that policies can target called traffic profiles. 
+Integrations with the new Global Secure Access client and configured branch offices allow profiling of network traffic from endpoints as a way to consistently enforce policy. This functionality surfaces in Conditional Access as a new assignment that policies can target called traffic profiles. 
 
 In the preview, we support the Microsoft 365 traffic profile wich contains... NEED A GOOD DESCRIPTION TO GO HERE OF WHAT THAT IS AND DOES
 
