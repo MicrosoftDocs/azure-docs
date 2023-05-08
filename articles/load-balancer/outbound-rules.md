@@ -100,12 +100,12 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 ## Outbound rules scenarios
 
 
-* Configure outbound connections to a specific set of public IPs or prefix.
-* Modify [SNAT](load-balancer-outbound-connections.md) port allocation.
-* Enable outbound only.
-* Outbound NAT for VMs only (no inbound).
-* Outbound NAT for internal standard load balancer.
-* Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer.
+* [Configure outbound connections to a specific set of public IPs or prefix](#scenario1out).
+* [Modify SNAT port allocation](#scenario2out).
+* [Enable outbound only](#scenario3out).
+* [Outbound NAT for VMs only (no inbound)](#scenario4out).
+* [Outbound NAT for internal standard load balancer](#scenario5out).
+* [Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer](#scenario6out).
 
 
 ### <a name="scenario1out"></a>Scenario 1: Configure outbound connections to a specific set of public IPs or prefix
