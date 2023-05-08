@@ -5,6 +5,9 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 ms.service: azure-government
+author: bandersmsft
+ms.author: banders
+ms.reviewer: prsaini
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
