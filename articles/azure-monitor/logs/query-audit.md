@@ -40,7 +40,7 @@ An audit record is created each time a query is run. If you send the data to a L
 | AADTenantId           | ID of the tenant of the user account that started the query.  |
 | AADEmail              | Email of the tenant of the user account that started the query.  |
 | AADClientId           | ID and resolved name of the application used to start the query. |
-| RequestClientApp      | Resolved name of the application used to start the query. For more details, see [request client app.](#request-client-app)|
+| RequestClientApp      | Resolved name of the application used to start the query. For more details, see [request client app.](#request-client-app).|
 | QueryTimeRangeStart   | Start of the time range selected for the query. This may not be populated in certain scenarios such as when the query is started from Log Analytics, and time range is specified inside the query rather than the time picker. |
 | QueryTimeRangeEnd     | End of the time range selected for the query. This may not be populated in certain scenarios such as when the query is started from Log Analytics, and time range is specified inside the query rather than the time picker.  |
 | QueryText             | Text of the query that was run. |
