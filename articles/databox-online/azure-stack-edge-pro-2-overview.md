@@ -20,11 +20,12 @@ The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the
 
 - This series offers multiple models that closely align with your compute, storage, and memory needs. Depending on the model you choose, the compute acceleration could be via one or two Graphical Processing Units (GPU) on the device. 
 - This series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
-- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment. 
+- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment.
+
+And those sre the benefits.
 
 [!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md
 )]
-
 
 ## Use cases
 
