@@ -25,10 +25,10 @@ Replace `<REGISTRY_NAME>` with your Container Registry instance and `<LOGIN_SERV
 
 # [Docker Hub](#tab/docker)
 
-    ```console
-    docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.1 .
-    docker push <DOCKER_ID>/azurefunctionsimage:v1.0.1
-    ```
+```console
+docker build --tag <DOCKER_ID> azurefunctionsimage:v1.0.1 .
+docker push <DOCKER_ID> azurefunctionsimage:v1.0.1
+```
 
 Replace `<DOCKER_ID>` with your Docker Hub account ID.
 
