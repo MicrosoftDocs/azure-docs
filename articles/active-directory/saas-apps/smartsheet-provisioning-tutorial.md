@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure Smartsheet for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Smartsheet for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Smartsheet.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 9d391bd3-b0d3-4c7d-af8a-70bc0a538706
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2019
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
@@ -27,9 +27,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sm
 > * Remove users in Smartsheet when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Smartsheet
 > * Single sign-on to Smartsheet (recommended)
-
-> [!NOTE]
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

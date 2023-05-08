@@ -1,10 +1,10 @@
 ---
-author: ElazarK
 ms.service: defender-for-cloud
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/14/2022
-ms.author: elkrieger
+ms.author: benmansheim
+author: bmansheim
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
@@ -29,7 +29,7 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
     > [!Note]
     > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](../supported-machines-endpoint-solutions-clouds-containers.md).
 
-1. (Optional) Enable vulnerability scanning of your ECR images. Learn more about [vulnerability assessment for ECR images](../defender-for-containers-va-ecr.md).
+1. (Optional) Enable vulnerability scanning of your ECR images. Learn more about [vulnerability assessment for ECR images](../defender-for-containers-vulnerability-assessment-elastic.md).
 
 1. Continue through the remaining pages of the connector wizard.
 
@@ -62,4 +62,4 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
 To view the alerts and recommendations for your EKS clusters, use the filters on the alerts, recommendations, and inventory pages to filter by resource type **AWS EKS cluster**.
 
-:::image type="content" source="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png" alt-text="Screenshot of how to use filters on Microsoft Defender for Cloud's alerts page to view alerts related to AWS EKS clusters." lightbox="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png":::
+:::image type="content" source="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png" alt-text="Screenshot of how to use filters on Microsoft Defender for Cloud's security alerts page to view alerts related to AWS EKS clusters." lightbox="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png":::

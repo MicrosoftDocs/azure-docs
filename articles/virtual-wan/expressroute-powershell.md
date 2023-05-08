@@ -3,15 +3,15 @@ title: 'Create an ExpressRoute association to Azure Virtual WAN - PowerShell'
 description: Learn how to create an ExpressRoute association from your branch site to Azure Virtual WAN using PowerShell.
 author: cherylmc
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/05/2022
 ms.author: cherylmc
-
 ---
 
 # Create an ExpressRoute association to Virtual WAN - PowerShell
 
-This article helps you use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more information about Virtual WAN and Virtual WAN resources, see the [Virtual WAN Overview](virtual-wan-about.md).
+This article helps you use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 * Obtain an IP address range for your virtual hub region. A virtual hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the virtual hub can't overlap with any of your existing virtual networks that you connect to. It also can't overlap with your address ranges that you connect to on-premises. If you're unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
-* The ExpressRoute circuit must be a Premium or Standard circuit in order to connect to the virtual hub gateway.
+* The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -69,7 +69,7 @@ Before you can create a virtual wan, you have to create a resource group to host
 
 ## Create a virtual hub and a gateway
 
-A virtual hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Use one of the following examples to create an ExpressRoute gateway in a new or existing virtual hub.
+Use one of the following examples to create an ExpressRoute gateway in a new or existing virtual hub.
 
 **New virtual hub** - This example creates a default virtual hub named westushub with the specified address prefix and a location for the virtual hub.
 
@@ -119,10 +119,6 @@ The next step is to get the private peering ID of the ExpressRoute circuit. You 
 ## Connect your circuit to the gateway
 
 In this section, you connect an ExpressRoute (ER) circuit to your virtual hub's ExpressRoute gateway.
-
-* ExpressRoute Standard or Premium circuits that are in ExpressRoute Global Reach-supported locations can connect to a Virtual WAN ExpressRoute gateway and enjoy all Virtual WAN transit capabilities (VPN-to-VPN, VPN, and ExpressRoute transit).
-
-* ExpressRoute Standard and Premium circuits that are in non-Global Reach locations can connect to Azure resources, but won't be able to use Virtual WAN transit capabilities. ExpressRoute Local is also supported with Azure Virtual WAN virtual hubs.
 
 Use one of the following examples to connect your circuit. Both examples include optional authorization key steps.
 
@@ -196,7 +192,6 @@ Optional - Connect by using ExpressRoute circuit's authorization key.
 
 After the circuit connection is established, the virtual hub connection status will indicate 'this hub', implying the connection is established to the virtual hub ExpressRoute gateway. Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
 
-If you have sites connected to a Virtual WAN VPN gateway in the same virtual hub as the ExpressRoute gateway, you can have bidirectional connectivity between VPN and ExpressRoute end points. Dynamic routing (BGP) is supported. The ASN of the gateways in the virtual hub is fixed and can't be edited at this time.
 
 ### To change gateway size
 
@@ -208,4 +203,7 @@ Set-AzExpressRouteGateway -ResourceGroupName "testRG" -Name "testergw" -MinScale
 
 ## Next Steps
 
-Next, to learn more about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
+Next, to learn more about ExpressRoute in Virtual WAN, see:
+
+> [!div class="nextstepaction"]
+> * [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md)

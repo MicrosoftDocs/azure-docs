@@ -1,18 +1,18 @@
 ---
-title: Azure virtual machine scale sets overview
-description: Learn about Azure virtual machine scale sets and how to automatically scale your applications
+title: Azure Virtual Machine Scale Sets overview
+description: Learn about Azure Virtual Machine Scale Sets and how to automatically scale your applications
 author: ju-shim
 ms.author: jushiman
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice:
-ms.date: 06/30/2020
+ms.date: 03/09/2023
 ms.reviewer: mimckitt
 
 ---
-# What are virtual machine scale sets?
+# What are Virtual Machine Scale Sets?
 
-Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
+Azure Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
 - Easy to create and manage multiple VMs
 - Provides high availability and application resiliency by distributing VMs across availability zones or fault domains
 - Allows your application to automatically scale as resource demand changes
@@ -31,11 +31,12 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 > [!IMPORTANT]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
+:::image type="content" source="media/overview/azure-virtual-machine-scale-sets-video-thumbnail.jpg" alt-text="YouTube video about Virtual Machine Scale Sets." link="https://youtu.be/lE2xJXYHnB8":::
 
-## Why use virtual machine scale sets?
+## Why use Virtual Machine Scale Sets?
 To provide redundancy and improved performance, applications are typically distributed across multiple instances. Customers may access your application through a load balancer that distributes requests to one of the application instances. If you need to perform maintenance or update an application instance, your customers must be distributed to another available application instance. To keep up with extra customer demand, you may need to increase the number of application instances that run your application.
 
-Azure virtual machine scale sets provide the management capabilities for applications that run across many VMs, automatic scaling of resources, and load balancing of traffic. Scale sets provide the following key benefits:
+Azure Virtual Machine Scale Sets provide the management capabilities for applications that run across many VMs, automatic scaling of resources, and load balancing of traffic. Scale sets provide the following key benefits:
 
 - **Easy to create and manage multiple VMs**
     - When you have many VMs that run your application, it's important to maintain a consistent configuration across your environment. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.

@@ -4,15 +4,13 @@ description: Learn how to implement role-based access control in your applicatio
 services: active-directory
 author: davidmu1
 manager: CelesteDG
- 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity 
-ms.date: 06/16/2022
+ms.date: 01/06/2023
 ms.author: davidmu
-ms.reviewer: johngarland, mamarxen, ianbe, marsma
-
+ms.reviewer: johngarland, mamarxen, ianbe
 #Customer intent: As an application developer, I want to learn how to implement role-based access control in my applications so I can make sure that only those users with the right access privileges can access the functionality of them.
 ---
 

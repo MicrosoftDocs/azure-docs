@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 11/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,7 +50,7 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm user compromise
 - Dismiss user risk
 - Block user from signing in
-- Investigate further using Azure ATP
+- Investigate further using Microsoft Defender for Identity
 
 ## Risky sign-ins
 
@@ -100,7 +100,7 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 Organizations may use the following frameworks to begin their investigation into any suspicious activity. Investigations may require having a conversation with the user in question, review of the [sign-in logs](../reports-monitoring/concept-sign-ins.md), or review of the [audit logs](../reports-monitoring/concept-audit-logs.md) to name a few.
 
 1. Check the logs and validate whether the suspicious activity is normal for the given user.
-   1. Look at the user’s past activities including at least the following properties to see if they are normal for the given user. 
+   1. Look at the user’s past activities including at least the following properties to see if they're normal for the given user. 
       1. Application
       1. Device - Is the device registered or compliant?
       1. Location - Is the user traveling to a different location or accessing devices from multiple locations?

@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create a private endpoint by using Azure PowerShell'
-description: In this quickstart, you'll learn how to create a private endpoint by using Azure PowerShell.
+title: 'Quickstart: Create a private endpoint - Azure PowerShell'
+description: In this quickstart, you'll learn how to create a private endpoint using Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 05/24/2022
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Azure PowerShell.
 ---
+
 # Quickstart: Create a private endpoint by using Azure PowerShell
 
 Get started with Azure Private Link by using a private endpoint to connect securely to an Azure web app.
@@ -56,17 +57,17 @@ In this section, you'll:
 
 ```azurepowershell-interactive
 ## Configure the back-end subnet. ##
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.0.0.0/24
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.1.0.0/24
 
 ## Create the Azure Bastion subnet. ##
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.1.0/24
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.1.1.0/24
 
 ## Create the virtual network. ##
 $net = @{
     Name = 'MyVNet'
     ResourceGroupName = 'CreatePrivateEndpointQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig, $bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -160,7 +161,7 @@ $ip = @{
     Name = 'myIPconfig'
     GroupId = 'sites'
     MemberName = 'sites'
-    PrivateIPAddress = '10.0.0.10'
+    PrivateIPAddress = '10.1.0.10'
 }
 $ipconfig = New-AzPrivateEndpointIpConfiguration @ip
 
@@ -323,6 +324,14 @@ Use the VM you created in the previous step to connect to the webapp across the 
    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 10. Close the connection to **myVM**.
+
+## Clean up resources
+
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, virtual network, and the remaining resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg'
+```
 
 ## Next steps
 

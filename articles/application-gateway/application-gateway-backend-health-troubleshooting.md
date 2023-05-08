@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 02/14/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -195,7 +195,7 @@ az network application-gateway start -n <appgw_name> -g <rg_name>
 
 **Message:** Status code of the backend's HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to `<protocol>://127.0.0.1:<port>/`, and it considers response status codes in the rage 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
+**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to `<protocol>://127.0.0.1:<port>/`, and it considers response status codes in the range 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
 
 **Solution:** Depending on the backend server's response code, you can take the following steps. A few of the common status codes are listed here:
 
@@ -240,8 +240,8 @@ Learn more about [Application Gateway probe matching](./application-gateway-prob
 
 1. Sign in to the machine where your application is hosted.
 2. Select Win+R or right-click the **Start** button, and then select **Run**.
-3. Enter `certmgr.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate, typically in `\Certificates - Current User\\Personal\\Certificates\`, and open it.
+3. Enter `certlm.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate, typically in `Certificates - Local Computer\Personal\Certificates`, and open it.
 5. Select the root certificate and then select **View Certificate**.
 6. In the Certificate properties, select the **Details** tab.
 7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
@@ -317,8 +317,8 @@ For Windows:
 
 1. Sign in to the machine where your application is hosted.
 2. Select Win+R or right-click the **Start** button and select **Run**.
-3. Enter **certmgr.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate (typically in `\Certificates - Current User\\Personal\\Certificates`), and open the certificate.
+3. Enter **certlm.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate (typically in `Certificates - Local Computer\Personal\Certificates`), and open the certificate.
 5. On the **Details** tab, check the certificate **Subject**.
 6. Verify the CN of the certificate from the details and enter the same in the host name field of the custom probe or in the HTTP settings (if **Pick hostname from backend HTTP settings** is selected). If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
 
@@ -383,8 +383,8 @@ This behavior can occur for one or more of the following reasons:
 2. Check whether your UDR has a default route (0.0.0.0/0) with the next hop not set as **Internet**:
 
    a.	Follow steps 1a and 1b to determine your subnet.
-   b.	Check whether there's any UDR configured. If there is, search for the resource on the search bar or under **All resources**.
-   c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the internet destination without modifying the packet.
+   b.	Check to see if a UDR is configured. If there is, search for the resource on the search bar or under **All resources**.
+   c.	Check to see if there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the Internet destination without modifying the packet. If probes are routed through a virtual appliance and modified, the backend resource will display a **200** status code and the Application Gateway health status can display as **Unknown**. This doesn't indicate an error. Traffic should still be routing through the Application Gateway without issue.
    d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
 3. Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP:

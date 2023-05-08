@@ -1,5 +1,5 @@
 ---
-title: Azure AD certificate-based authentication technical deep dive - Azure Active Directory
+title: Azure AD certificate-based authentication technical deep dive
 description: Learn how Azure AD certificate-based authentication works
 
 services: active-directory
@@ -68,9 +68,94 @@ Now we'll walk through each step:
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
 1. Azure AD verifies the certificate revocation list to make sure the certificate isn't revoked and is valid. Azure AD identifies the user by using the [username binding configured](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy) on the tenant to map the certificate field value to the user attribute value.
-1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
+1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If MFA is required but the certificate satisfies only a single factor, either passwordless sign-in or FIDO2 will be offered as a second factor if they are already registered.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
+
+## Certificate-based authentication is MFA capable
+
+Azure AD CBA is an MFA (Multi factor authentication) capable method, that is Azure AD CBA can be either Single (SF) or Multi-factor (MF) depending on the tenant configuration. Enabling CBA for a user indicates the user is potentially capable of MFA. This means a user may need additional configuration to get MFA and proof up to register other authentication methods when the user is in scope for CBA.
+
+If CBA enabled user only has a Single Factor (SF) certificate and need MFA
+   1. Use Password + SF certificate.
+   1. Issue Temporary Access Pass (TAP)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+
+If CBA enabled user has not yet been issued a certificate and need MFA
+   1. Issue Temporary Access Pass (TAP)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+
+If CBA enabled user cannot use MF cert (such as on mobile device without smart card support) and need MFA
+   1. Issue Temporary Access Pass (TAP)
+   1. User Register another MFA method (when user can use MF cert)
+   1. Use Password + MF cert (when user can use MF cert)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user
+
+
+## MFA with Single-factor certificate-based authentication
+
+Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
+Some of the supported combinations are
+
+1. CBA (first factor) + passwordless phone sign-in (PSI as second factor)
+1. CBA (first factor) + FIDO2 security keys (second factor) 
+1. Password (first factor) + CBA (second factor) 
+
+Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
+
+>[!IMPORTANT]
+>A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. Make sure users who do not have a valid certificate are not part of CBA auth method scope. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
+
+**Steps to set up passwordless phone signin(PSI) with CBA**
+
+For passwordless sign-in to work, users should disable legacy notification through mobile app.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
+
+   >[!IMPORTANT]
+   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose      **Passwordless** for passwordless sign-in to work with CBA.
+
+1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/configure.png" alt-text="Screenshot of how to configure multifactor authentication settings.":::
+
+1. Under **Verification options**, clear the **Notification through mobile app** checkbox and click **Save**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/clear-notification.png" alt-text="Screenshot of how to remove notification through mobile app.":::
+
+## MFA authentication flow using single factor certificates and passwordless sign in
+
+Let's look at an example of a user who has single factor certificates and has configured passwordless sign in. 
+
+1. Enter your User Principal Name (UPN) and click **Next**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-principal-name.png" alt-text="Screenshot of how to enter a user principal name.":::
+
+1. Select **Sign in with a certificate**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of how to sign in with a certificate.":::
+
+   If you enabled other authentication methods like Phone sign-in or FIDO2 security keys, users may see a different sign-in screen.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of alternate way to sign in with a certificate.":::
+
+1. Pick the correct user certificate in the client certificate picker and click **OK**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of how to select a certificate.":::
+
+1. Because the certificate is configured to be single-factor authentication strength, the user needs a second factor to meet MFA requirements. The user will see available second factors, which in this case is passwordless sign-in. Select **Approve a request on my Microsoft Authenticator app**.
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/second-factor-request.png" alt-text="Screenshot of second factor request.":::
+
+1. You'll get a notification on your phone. Select **Approve Sign-in?**.
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/approve.png" alt-text="Screenshot of approval request.":::
+
+1. Enter the number you see on the browser or app screen into Microsoft Authenticator.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/number.png" alt-text="Screenshot of number match.":::
+
+1. Select **Yes** and user will be authenticated and signed in.
 
 ## Understanding the authentication binding policy
 
@@ -79,12 +164,6 @@ The authentication binding policy helps determine the strength of authentication
 ### Certificate strengths
 
 An admin can determine whether the certificates are single-factor or multifactor strength. For more information, see the documentation that maps [NIST Authentication Assurance Levels to Azure AD Auth Methods](https://aka.ms/AzureADNISTAAL), which builds upon [NIST 800-63B SP 800-63B, Digital Identity Guidelines: Authentication and Lifecycle Mgmt](https://csrc.nist.gov/publications/detail/sp/800-63b/final).
-
-### Single-factor certificate authentication
-
-When a user has a single-factor certificate, they can't perform multifactor authentication. There's no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
-
-:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of MFA not allowed for single factor certificate." :::  
 
 ### Multifactor certificate authentication 
 
@@ -182,7 +261,7 @@ The following steps are a typical flow of the CRL check:
    - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
 >[!NOTE]
->Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 5 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
+>Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 10 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
 If the tenant’s PKI chain has more than 5 CAs and in case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration.
  
 

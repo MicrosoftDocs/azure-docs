@@ -7,7 +7,7 @@ ms.date: 06/16/2022
 ms.topic: how-to
 ms.service: iot-central
 ms.tool: azure-cli
-ms.custom: [device-developer, contperf-fy23q1]
+ms.custom: device-developer, contperf-fy23q1, devx-track-azurecli
 services: iot-central
 # This topic applies to device developers and solution builders.
 ---
@@ -22,7 +22,7 @@ Use the Azure CLI IoT extension to see messages your devices are sending to IoT 
 
 A work or school account in Azure, added as a user in an IoT Central application.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Install the IoT Central extension
 

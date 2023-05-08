@@ -1,5 +1,5 @@
 ---
-title: Manage Azure AD user roles - Azure Active Directory | Microsoft Docs
+title: Manage Azure AD user roles
 description: Instructions about how to assign and update user roles with Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign user roles with Azure Active Directory
 
-The ability to manage Azure resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](/azure/security/fundamentals/zero-trust), use Just-In-Time and Just-Enough-Access policies when assigning roles.
+The ability to manage Azure resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](../../security/fundamentals/zero-trust.md), use Just-In-Time and Just-Enough-Access policies when assigning roles.
 
 Before assigning roles to users, review the following Microsoft Learn articles:
 

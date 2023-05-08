@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday writeback in Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday writeback in Azure Active Directory'
 description: Learn how to configure attribute writeback from Azure AD to Workday
 services: active-directory
 author: cmmdesai
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/14/2020
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute writeback from Azure AD to Workday

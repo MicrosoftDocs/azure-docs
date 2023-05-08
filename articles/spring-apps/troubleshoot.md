@@ -39,21 +39,21 @@ To fix this error, go to the `server parameters` of your MySQL instance, and cha
 
 ### My application crashes or throws an unexpected error
 
-When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to *App management* in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
+When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
 
 * If the status is *Running* but the discovery status is not *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
 * If the discovery status is *UP*, go to Metrics to check the application's health. Inspect the following metrics:
 
-  * `TomcatErrorCount` (*tomcat.global.error*):
+  * `tomcat.global.error`:
 
     All Spring application exceptions are counted here. If this number is large, go to Azure Log Analytics to inspect your application logs.
 
-  * `AppMemoryMax` (*jvm.memory.max*):
+  * `jvm.memory.max`:
 
     The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it is defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
 
-  * `AppMemoryUsed` (*jvm.memory.used*):
+  * `jvm.memory.used`:
 
     The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a *sawtooth* pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
 
@@ -63,7 +63,10 @@ When you're debugging application crashes, start by checking the running status 
     * The surge memory allocation for a specific logic path.
     * Gradual memory leaks.
 
-   For more information, see [Metrics](./concept-metrics.md).
+  For more information, see [Metrics](./concept-metrics.md).
+
+  > [!NOTE]
+  > These metrics are available only for Spring Boot applications. To enable these metrics, add the `spring-boot-starter-actuator` dependency. For more information, see the [Add actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
 
 * If the application fails to start, verify that the application has valid jvm parameters. If jvm memory is set too high, the following error message might appear in your logs:
 
@@ -217,7 +220,7 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 ### I can't find metrics or logs for my application
 
-Go to **App management** to ensure that the application statuses are *Running* and *UP*.
+Go to **Apps** to ensure that the application statuses are *Running* and *UP*.
 
 Check to see whether *JMX* is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
 
@@ -246,7 +249,7 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
 
   For more information, see the section [No plans are available for market '\<Location>'](#no-plans-are-available-for-market-location).
 
-* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.tanzu-asc-ent-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased.
+* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.asa-ent-hr-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased.
 
   Go to your Azure subscription and run the following Azure CLI command to agree to the terms:
 
@@ -254,7 +257,7 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
   az term accept \
       --publisher vmware-inc \
       --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan tanzu-asc-ent-mtr
+      --plan asa-ent-hr-mtr
   ```
 
   If that doesn't help, you can contact the support team with the following info.

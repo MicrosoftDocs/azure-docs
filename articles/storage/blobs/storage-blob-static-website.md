@@ -63,17 +63,13 @@ If you set up [redundancy in a secondary region](../common/storage-redundancy.md
 
 You can modify the public access level of the **$web** container, but making this modification has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
 
-The following screenshot shows the public access level setting in the Azure portal:
-
-![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
-
 While the primary static website endpoint isn't affected, a change to the public access level does impact the primary blob service endpoint.
 
 For example, if you change the public access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of public access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change.
 
 However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
 
-Disabling public access on a storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
+Disabling public access on a storage account by using the [public access setting](anonymous-read-access-prevent.md#set-the-storage-accounts-allowblobpublicaccess-property-to-false) of the storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
 ## Mapping a custom domain to a static website URL
 
@@ -150,5 +146,5 @@ In the Azure portal, open the static website configuration page of your account 
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Build your first serverless web app](/labs/build2018/serverlesswebapp/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

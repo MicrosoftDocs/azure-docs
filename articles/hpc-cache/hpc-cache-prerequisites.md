@@ -3,9 +3,10 @@ title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/15/2022
-ms.author: v-erinkelly
+ms.date: 2/15/2023
+ms.author: kianaharris
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -148,6 +149,12 @@ A successful connection gives this response:
 OCSP Response Status: successful (0x0)
 ```
 
+### Event server access
+
+Azure HPC Cache uses Azure event server endpoints to monitor cache health and send diagnostic information.
+
+Make sure that the cache can securely access hosts in the domain events.data.microsoft.com - that is, open TCP port 443 for traffic to `*.events.data.microsoft.com`.
+
 ## Permissions
 
 Check these permission-related prerequisites before starting to create your cache.
@@ -162,8 +169,6 @@ Check these permission-related prerequisites before starting to create your cach
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - fix that if you change the wording of this heading -->
 
 The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers. Add storage targets after you create the cache.
-
-The size of your cache determines the number of storage targets it can support - up to 10 storage targets for most caches, or up to 20 for the largest sizes. Read [Size your cache correctly to support your storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for details.
 
 Each storage type has specific prerequisites.
 

@@ -5,11 +5,12 @@ description: Learn how to collect data from models deployed to web service endpo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: larryfr
-author: blackmist
-ms.date: 01/04/2022
+ms.author: alehughes
+author: ahughes-msft
+ms.reviewer: larryfr
+ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 ---
 
 # Monitor and collect data from ML web service endpoints
@@ -215,9 +216,9 @@ To log web service request information, add `print` statements to your score.py 
 ## Export data for retention and processing
 
 >[!Important]
-> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](../../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
+> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](/previous-versions/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Use Application Insights' [continuous export](../../azure-monitor/app/export-telemetry.md) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
+Use Application Insights' [continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 

@@ -2,6 +2,7 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -146,7 +147,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
             --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
              --role acrpush \
             --query "password" --output tsv)
-  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  USER_NAME=$(az identity show -n $SERVICE_PRINCIPAL_NAME -g $RESOURCE_GROUP_NAME --subscription $SUBSCRIPTION_ID --query "clientId" -o tsv)
   ```
 - Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
   ```azurecli
@@ -155,7 +156,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
   ```azurecli
-  USER_NAME="helm-token"
+  USER_NAME="helmtoken"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
                     --scope-map _repositories_admin \

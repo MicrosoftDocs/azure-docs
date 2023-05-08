@@ -12,7 +12,7 @@ ms.custom: language-service-question-answering
 
 # Add your Question Answering project to Power Virtual Agents
 
-Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base. 
+Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your project. 
 
 > [!NOTE]
 > The integration demonstrated in this tutorial is in preview and is not intended for deployment to production environments. 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Test Power Virtual Agents, and receive an answer from your Question Answering project
 
 > [!NOTE]
-> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
+> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](../../index.yml). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
 
 ## Create and publish a project
 1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a Question Answering project. Once you have deployed your project.
@@ -188,7 +188,7 @@ As you design your bot in Power Virtual Agents, you can use the [Test bot pane](
 |3                 |Yes                                                                |In reply to "Did that answer your question?"                                                                                                                                     |
 |4                 |Excellent                                                          |In reply to "Please rate your experience."                                                                                                                                     |
 |5                 |Yes                                                                |In reply to "Can I help with anything else?"                                                                                                                                     |
-|6                 |How can I improve the throughput performance for query predictions?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is shown. the green check marks for the individual actions indicate success for each action.|
+|6                 |How can I improve the throughput performance for query predictions?|This question triggers the fallback action, which sends the text to your project to answer. Then the answer is shown. the green check marks for the individual actions indicate success for each action.|
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the completd test bot running alongside the tutorial flow.]( ../media/power-virtual-agents/flow-step-11.png) ]( ../media/power-virtual-agents/flow-step-11.png#lightbox)
@@ -209,7 +209,7 @@ Then you can share your website URL with your school or organization members.
 
 ## Clean up resources
 
-When you are done with the knowledge base, remove the QnA Maker resources in the Azure portal.
+When you are done with the project, remove the QnA Maker resources in the Azure portal.
 
 ## See also
 

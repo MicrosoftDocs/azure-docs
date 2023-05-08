@@ -1,7 +1,7 @@
 ---
 title: Create and manage tests
 titleSuffix: Azure Load Testing
-description: 'Learn how to create and manage tests in your Azure Load Testing Preview resource.'
+description: 'Learn how to create and manage tests in your Azure Load Testing resource.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -11,12 +11,9 @@ ms.topic: how-to
 ---
 <!-- Intent: As a user I want to configure the test plan for a load test, so that I can successfully run a load test -->
 
-# Create and manage tests in Azure Load Testing Preview
+# Create and manage tests in Azure Load Testing
 
-Learn how to create and manage [tests](./concept-load-testing-concepts.md#test) in your Azure Load Testing Preview resource.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Learn how to create and manage [tests](./concept-load-testing-concepts.md#test) in your Azure Load Testing resource.
 
 ## Prerequisites
 

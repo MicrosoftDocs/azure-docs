@@ -2,7 +2,8 @@
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.custom: devx-track-bicep
+ms.date: 11/17/2022
 ---
 
 # Scope functions for Bicep
@@ -202,7 +203,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 param location string = resourceGroup().location
 ```
 
-You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources-bicep.md#apply-tags-from-resource-group).
 
 ## subscription
 
@@ -270,7 +271,7 @@ Returns an object used for setting the scope to the tenant.
 
 Or
 
-Returns properties about the tenant for the current deployment.
+Returns the tenant of the user.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 

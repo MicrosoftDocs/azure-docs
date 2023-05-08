@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 02/17/2023
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
@@ -26,7 +26,18 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
 
 ### Add the client library
 
@@ -48,7 +59,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 ## Code example
 
-Create a Java file named `Example.java`. Open the file and copy the below code.
+Create a Java file named `Example.java`. Open the file and copy the below code. Then run the code.
 
 ```java
 import com.azure.core.credential.AzureKeyCredential;

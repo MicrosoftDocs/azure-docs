@@ -2,10 +2,10 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 08/11/2022
-author: v-amallick
+ms.date: 02/20/2023
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -148,24 +148,27 @@ For eg., when you have a backup policy of weekly fulls, daily differentials and 
 
 #### Excluding backup file types
 
-The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ` RecoveryPointsToBeExcludedForRestoreAsFiles ` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+The **ExtensionSettingsOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field `RecoveryPointTypesToBeExcludedForRestoreAsFiles` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
 
 1. In the target machine where files are to be downloaded, go to "C:\Program Files\Azure Workload Backup\bin" folder
-2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
+2. Create a new JSON file named "ExtensionSettingsOverrides.JSON", if it doesn't already exist.
 3. Add the following JSON key value pair
 
     ```json
     {
-    "RecoveryPointsToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    "RecoveryPointTypesToBeExcludedForRestoreAsFiles": "ExcludeFull"
     }
     ```
 
 4. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain as mentioned in this file.
 
-The ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` only takes specific values which denote the recovery points to be excluded during restore. For SQL, these values are:
+The `RecoveryPointTypesToBeExcludedForRestoreAsFiles` only takes specific values which denote the recovery points to be excluded during restore. For SQL, these values are:
 
 - ExcludeFull (Other backup types such as differential and logs will be downloaded, if they are present in the restore point chain)
 - ExcludeFullAndDifferential (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferentialAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+
 
 ### Restore to a specific restore point
 
@@ -183,6 +186,44 @@ If you've selected **Full & Differential** as the restore type, do the following
 If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## Recover a database from .bak file using SSMS
+
+You can use *Restore as Files* operation to restore the database files in `.bak` format while restoring from the Azure portal. [Learn more](restore-sql-database-azure-vm.md#restore-as-files). 
+
+When the restoration of the `.bak` file to the Azure virtual machine is complete, you can trigger restore using **TSQL commands** through SSMS. 
+ 
+To restore the database files to the *original path on the source server*, remove the `MOVE` clause from the TSQL restore query. 
+  
+**Example**
+
+  ```azurecli-interactive
+    USE [master] 
+    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'
+  ```
+
+>[!Note]
+>You shouldn’t have the same database files on the target server (restore with replace).  Also, you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16).
+
+To relocate the database files from the target restore server, you can frame a TSQL command using the `MOVE` clauses.
+
+  ```azurecli
+    USE [master] 
+    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'  MOVE N'<LogicalName1>' TO N'<TargetFilePath1OnDisk>',  MOVE N'<LogicalName2>' TO N'<TargetFilePath2OnDisk>' GO
+  ```
+
+**Example**
+
+  ```azurecli
+    USE [master] 
+    RESTORE DATABASE [test] FROM  DISK = N'J:\dbBackupFiles\test.bak' WITH  FILE = 1,  MOVE N'test' TO N'F:\data\test.mdf',  MOVE N'test_log' TO N'G:\log\test_log.ldf',  NOUNLOAD,  STATS = 5 
+    GO
+  ```
+
+If there are more than two files for the database, you can add additional `MOVE` clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
+
+>[!Note]
+>For large database recovery, we recommend you to use TSQL statements. If you want to relocate the specific database files, see the list of database files in the JSON format created during the **Restore as Files** operation.
 
 ## Cross Region Restore
 

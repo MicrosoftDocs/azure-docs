@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub Enterprise Managed User (OIDC).
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e39cbad7-e23a-4986-9725-54a7aeb7b1ea
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/19/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

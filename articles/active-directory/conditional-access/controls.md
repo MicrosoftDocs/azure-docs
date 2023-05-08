@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -58,7 +58,5 @@ Custom controls can't be used with Identity Protection's automation requiring Az
 ## Next steps
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
-
 - [Report-only mode](concept-conditional-access-report-only.md)
-
 - [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

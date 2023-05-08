@@ -6,6 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: alkohli
@@ -35,7 +36,7 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 Before you can use Azure Marketplace images for Azure Stack Edge, make sure you're connected to Azure in either of the following ways.
 
-[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## Search for Azure Marketplace images

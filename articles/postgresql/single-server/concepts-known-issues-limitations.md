@@ -4,14 +4,16 @@ description: Lists the known issues that customers should be aware of.
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 06/24/2022
 ---
 
 # Azure Database for PostgreSQL - Known issues and limitations
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This page provides a list of known issues in Azure Database for PostgreSQL that could impact your application. It also lists any mitigation and recommendations to work around the issue.
 

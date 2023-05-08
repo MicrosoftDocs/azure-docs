@@ -10,7 +10,7 @@
     href: require-tou.md
 - name: Tutorials
   items:
-  - name: Require Azure AD Multi-Factor Authentication
+  - name: Require Azure AD Multifactor Authentication
     href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -39,6 +39,8 @@
     href: service-dependencies.md
   - name: Filter for applications
     href: concept-filter-for-applications.md
+  - name: Token protection
+    href: concept-token-protection.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
@@ -68,6 +70,8 @@
       href: howto-conditional-access-policy-registration.md
     - name: Block legacy authentication
       href: howto-conditional-access-policy-block-legacy.md
+    - name: Require MFA for guest users
+      href: howto-policy-guest-mfa.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
     - name: Require MFA for Azure management
@@ -76,16 +80,24 @@
       href: howto-conditional-access-policy-risk.md
     - name: Require password change for risky users
       href: howto-conditional-access-policy-risk-user.md
-    - name: Require compliant or hybrid joined devices
-      href: howto-conditional-access-policy-compliant-device.md
+    - name: Require compliant or hybrid joined devices for admins
+      href: howto-conditional-access-policy-compliant-device-admin.md
+    - name: Block access for unknown or unsupported device platform
+      href: howto-policy-unknown-unsupported-device.md
     - name: Require approved app or app protection policy
       href: howto-policy-approved-app-or-app-protection.md
+    - name: No persistent browser session
+      href: howto-policy-persistent-browser-session.md
+    - name: Require compliant device, hybrid joined, or MFA for users
+      href: howto-conditional-access-policy-compliant-device.md
+    - name: Use application enforced restrictions
+      href: howto-policy-app-enforced-restriction.md
+    - name: Require MFA for Intune enrollment
+      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
-    - name: Require MFA for Intune enrollment
-      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
     - name: Require authentication strength for external users
       href: howto-conditional-access-policy-authentication-strength-external.md
   - name: Configure resilience defaults
@@ -108,8 +120,8 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: Troubleshoot continuous access evaluation
       href: howto-continuous-access-evaluation-troubleshoot.md
-    - name: FAQ
-      href: faqs.md
+  - name: Approved client app migration
+    href: migrate-approved-client-app.md
   - name: Custom controls
     href: controls.md
   - name: Classic policies
@@ -122,16 +134,18 @@
   items:
   - name: Office 365 application
     href: reference-office-365-application-contents.md
-  - name: Beta Graph APIs
+  - name: Microsoft Graph APIs
     items: 
-    - name: conditionalAccessPolicy API
+    - name: conditionalAccessPolicy
       href: /graph/api/resources/conditionalaccesspolicy
-    - name: namedLocation API
+    - name: namedLocation
       href: /graph/api/resources/namedlocation
-    - name: countryNamedLocation API
+    - name: countryNamedLocation
       href: /graph/api/resources/countrynamedlocation
-    - name: ipNamedLocation API
+    - name: ipNamedLocation
       href: /graph/api/resources/ipnamedlocation
+    - name: conditionalAccessTemplate
+      href: /graph/api/resources/conditionalaccesstemplate
 - name: Resources
   items:
   - name: Azure feedback forum

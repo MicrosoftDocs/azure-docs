@@ -1,9 +1,9 @@
 ---
-author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/06/2022
-ms.author: elkrieger
+ms.author: benmansheim
+author: bmansheim
 ---
 
 ## Default Log Analytics workspace for AKS
@@ -85,6 +85,6 @@ If the policy has already been assigned to a workspace, you'll see `Assignments 
 
    :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the dropdown menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
 
-1. Select **Review + create**.
+1. Select **Review + save**.
 
-1. Select **Create**.
+1. Select **Save**.

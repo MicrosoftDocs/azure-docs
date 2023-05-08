@@ -37,7 +37,7 @@ In this tutorial, you perform the following tasks:
   * Download or clone the SDK repo to your development machine.
   * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary.
 
-* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub. This article uses Azure IoT Explorer.
 
@@ -47,7 +47,7 @@ There are no other prerequisites for the Azure portal.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 
@@ -105,8 +105,8 @@ Now that you have a device ID and key, use the sample code to start sending devi
 >If you're following the Azure CLI steps for this tutorial, run the sample code in a separate session. That way, you can allow the sample code to continue running while you follow the rest of the CLI steps.
 
 1. If you didn't as part of the prerequisites, download or clone the [Azure IoT SDK for C# repo](https://github.com/Azure/azure-iot-sdk-csharp) from GitHub now.
-1. In the sample folder, navigate to the `/iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/` folder.
-1. Install the Azure IoT C# SDK and necessary dependencies as specified in the `SimulatedDevice.csproj` file:
+1. From the folder where you downloaded or cloned the SDK, navigate to the `azure-iot-sdk-csharp\iothub\device\samples\how to guides\HubRoutingSample` folder.
+1. Install the Azure IoT C# SDK and necessary dependencies as specified in the `HubRoutingSample.csproj` file:
 
    ```console
    dotnet restore

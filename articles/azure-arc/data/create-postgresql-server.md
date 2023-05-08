@@ -4,6 +4,7 @@ description: Create an Azure Arc-enabled PostgreSQL server from CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
+ms.custom: devx-track-azurecli
 author: dhanmm
 ms.author: dhmahaja
 ms.reviewer: mikeray
@@ -55,9 +56,9 @@ The main parameters should consider are:
 - **the name of the server** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
 
 - **The storage classes** you want your server to use. It is important you set the storage class right at the time you deploy a server as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
-    - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
-    - To set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
-    - The support of setting storage classes for the backups has been temporarily removed as we temporarily removed the backup/restore functionalities as we finalize designs and experiences.
+    - To set the storage class for the backups, indicate the parameter `--storage-class-backups` followed by the name of the storage class. Excluding this parameter disables automated backups
+    - To set the storage class for the data, indicate the parameter `--storage-class-data` followed by the name of the storage class.
+    - To set the storage class for the logs, indicate the parameter `--storage-class-logs` followed by the name of the storage class.
 
    > [!IMPORTANT]
    > If you need to change the storage class after deployment, extract the data, delete your server, create a new server, and import the data. 

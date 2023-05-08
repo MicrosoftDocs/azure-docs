@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for macOS
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for macOS.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 05/06/2023
 ms.author: daknappe
 ---
 
@@ -13,7 +13,7 @@ The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop 
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
-If you want to connect to Remote Desktop Services instead of Azure Virtual Desktop or a local PC, see [Connect to Remote Desktop Services with the Remote Desktop client for macOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop client for macOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
 ## Prerequisites
 
@@ -24,6 +24,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
 - A device running macOS 10.14 or later.
 
 - Download and install the Remote Desktop client from the [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
+
+>[!NOTE]
+>The macOS Remote Desktop client currently isn't distributed in the Mainland China region in the App Store.
 
 ## Subscribe to a workspace
 

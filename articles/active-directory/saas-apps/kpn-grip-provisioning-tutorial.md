@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure KPN Grip for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure KPN Grip for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to KPN Grip.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 0d2558a4-1c6c-44e0-bf4c-471da6920f5a
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: article
-ms.date: 02/17/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

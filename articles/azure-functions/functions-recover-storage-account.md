@@ -1,9 +1,8 @@
 ---
 title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
-
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/15/2022
 ---
 
 # Troubleshoot error: "Azure Functions Runtime is unreachable"
@@ -117,6 +116,10 @@ By default, the container in which your function app runs uses port `:80`. When 
 ## Host ID collision 
 
 Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).  
+
+## Read-only app settings
+
+Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state. 
 
 ## Next steps
 

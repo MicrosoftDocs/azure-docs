@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -25,7 +25,18 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
 
 ### Create a new .NET Core application
 
@@ -38,7 +49,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ## Code example
 
-Copy the following code into your *program.cs* file.
+Copy the following code into your *program.cs* file, and run the code.
 
 ```csharp
 using Azure;

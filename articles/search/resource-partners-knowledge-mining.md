@@ -7,7 +7,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 01/18/2023
 ---
 
 # Partner spotlight

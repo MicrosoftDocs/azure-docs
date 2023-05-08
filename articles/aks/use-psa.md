@@ -1,7 +1,6 @@
 ---
 title: Use Pod Security Admission in Azure Kubernetes Service (AKS)
 description: Learn how to enable and use Pod Security Admission with Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 08/08/2022
 

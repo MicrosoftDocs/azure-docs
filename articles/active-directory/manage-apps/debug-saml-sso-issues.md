@@ -10,6 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/27/2022
+ms.custom: enterprise-apps
 ---
 
 # Debug SAML-based single sign-on to applications
@@ -85,7 +86,7 @@ To resolve the error, follow these steps, or watch this [short video about how t
    - Claims issued in the token
    - Certificate used to sign the token.
 
-     For more information on the SAML response, see [Single Sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+     For more information on the SAML response, see [Single Sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 1. Now that you've reviewed the SAML response, see [Error on an application's page after signing in](application-sign-in-problem-application-error.md) for guidance on how to resolve the problem.
 1. If you're still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.

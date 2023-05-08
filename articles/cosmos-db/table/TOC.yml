@@ -18,15 +18,14 @@
       href: quickstart-python.md
 - name: Tutorials
   items:
-    - name: 1 - Migrate data
-      displayName: import
-      href: import.md
-    - name: 2 - Query data
+    - name: Query data
       href: tutorial-query.md
-    - name: 3 - Distribute data globally
+    - name: Distribute data globally
       href: tutorial-global-distribution.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
+    - name: KQL transformations for workspace data
+      href: ../tutorial-log-transformation.md
 - name: Samples
   items:
     - name: .NET
@@ -110,7 +109,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Partitioning
       items:
         - name: Partitioning overview
@@ -164,12 +163,14 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
-        - name: Manage periodic backup
+        - name: Periodic backup
           items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+            - name: Introduction
+              href: ../periodic-backup-restore-introduction.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -306,6 +307,10 @@
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer
           href: ../data-explorer.md
+    - name: Migrate data
+      items:
+        - name: Desktop data migration tool
+          href: ../how-to-migrate-desktop-tool.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
@@ -326,9 +331,9 @@
           href: ../resource-locks.md
         - name: Request quota increase
           href: ../sql/create-support-request-quota-increase.md
-    - name: Manage back up and restore
+    - name: Back up and restore
       items:
-        - name: Manage continuous backup
+        - name: Manage Continuous backup
           items:
             - name: Permissions and roles - Continuous backup
               href: ../continuous-backup-restore-permissions.md
@@ -338,12 +343,12 @@
               href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
-        - name: Manage periodic backup
+        - name: Periodic backup
           items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+            - name: Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
     - name: Security
       items:
         - name: Configure IP firewall
@@ -355,8 +360,8 @@
           href: ../how-to-configure-private-endpoints.md
         - name: Connect privately to an Azure Cosmos DB account
           href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Use Azure Key Vault to access data
-          href: ../access-secrets-from-keyvault.md
+        - name: Store credentials in Azure Key Vault
+          href: ../store-credentials-key-vault.md
         - name: Access Azure Key Vault with managed identity
           href: ../access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only
@@ -365,7 +370,7 @@
           href: ../how-to-setup-customer-managed-keys.md
         - name: Configure cross-tenant customer-managed keys
           href: ../how-to-setup-cross-tenant-customer-managed-keys.md
-        - name: Use a managed identity
+        - name: Use managed identities with Azure services
           href: ../how-to-setup-managed-identity.md
     - name: Enterprise readiness
       items:
@@ -397,8 +402,6 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts

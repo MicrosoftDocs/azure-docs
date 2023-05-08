@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 04/19/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -12,11 +12,29 @@ ms.subservice: files
 # What's new in Azure Files
 Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
+## What's new in 2023
+
+### 2023 quarter 2 (April, May, June)
+#### AD Kerberos authentication for Linux clients (SMB)
+
+Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+
+### 2023 quarter 1 (January, February, March)
+#### Nconnect for NFS Azure file shares
+
+Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+
+#### Improved Azure File Sync service availability
+
+Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
+Note: Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
+
 ## What's new in 2022
 
-### 2022 quarter 3 (July, August, September)
-#### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files (public preview)
-This [preview release](storage-files-identity-auth-azure-active-directory-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases with an easy, two-step portal experience (SMB only). Azure AD Kerberos allows Kerberos authentication for hybrid identities in Azure AD, reducing the need for customers to configure another domain service and allowing customers to authenticate with Azure Files without the need for line-of-sight to domain controllers. While the initial support is limited to hybrid user identities, which are identities created in AD DS and synced to Azure AD, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).
+### 2022 quarter 4 (October, November, December)
+#### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
+This [feature](storage-files-identity-auth-azure-active-directory-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for line-of-sight to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
@@ -47,8 +65,8 @@ For more information, see:
 - [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-#### NFS 4.1 protocol support is generally available
-Premium Azure file shares now support either the SMB or the NFS 4.1 protocols. NFS 4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFS 4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
+#### NFSv4.1 protocol support is generally available
+Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. NFSv4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFSv4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
 
 For more information, see:
 
@@ -93,13 +111,13 @@ For more information, see:
 - [Overview of SMB features in the Windows Server documentation](/windows-server/storage/file-server/file-server-smb-overview)
 
 ### 2021 quarter 2 (April, May, June)
-#### Premium, hot, and cool storage capacity reservations 
-Azure Files supports storage capacity reservations (also referred to as *reserve instances*). Storage capacity reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports capacity reservations on the premium, hot, and cool tiers. Capacity reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
+#### Premium, hot, and cool storage reservations 
+Azure Files supports storage reservations (also referred to as *reserved instances*). Azure Files Reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports Reservations on the premium, hot, and cool tiers. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 For more information, see:
 
 - [Understanding Azure Files billing](understanding-billing.md)
-- [Optimized costs for Azure Files with reserved capacity](files-reserve-capacity.md)
+- [Optimized costs for Azure Files with reservations](files-reserve-capacity.md)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### Improved portal experience for domain joining to Active Directory

@@ -24,7 +24,7 @@ Before you begin the installation, make sure you have the following items:
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- The OT sensor software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal).
+- The OT sensor software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal).
 
 - Traffic mirroring configured on your vSwitch. For more information, see [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md).
 
@@ -68,7 +68,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
+1. Continue with the [generic procedure for installing sensor software](../ot-deploy/install-software-ot-sensor.md).
 
 
 ## Next steps

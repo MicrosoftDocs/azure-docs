@@ -8,9 +8,9 @@ ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: bozhlin
 ms.reviewer: larryfr
-ms.custom: deploy, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, event-tier1-build-2022
 ---
 
 # How to package a registered model with Docker

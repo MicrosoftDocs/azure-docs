@@ -1,17 +1,14 @@
 ---
 title: Deploy Azure dedicated hosts
 description: Deploy VMs and scale sets to dedicated hosts.
-author: brittanyrowe
-ms.author: brittanyrowe
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+author: vamckMS
+ms.author: vakavuru
+ms.service: azure-dedicated-host
 ms.topic: how-to
 ms.workload: infrastructure
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 09/28/2021
 ms.reviewer: mattmcinnes
-
-
-
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
@@ -25,12 +22,11 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
-
 - Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
-
-- Currently dedicated hosts do not support 'ultra disks' on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (ultra disks are supported on these sizes for multi tenant VMs).
-
+- Additional [limitations](./dedicated-hosts.md#ultra-disk-support-for-virtual-machines-on-dedicated-hosts) would apply when using ultra disks on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 on a dedicated host.
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
+- Users can not select hardware capabilities like accelerated networking when creating a dedicated host.
+- Users would not be able to create VMs/VMSS with accelerated networking enabled on a dedicated host.
 
 ## Create a host group
 
@@ -179,6 +175,7 @@ If you set a fault domain count for your host group, you'll need to specify the 
 1. Select *myDedicatedHostsRG* as the **Resource group**.
 1. In **Instance details**, type *myHost* for the **Name** and select *East US* for the location.
 1. In **Hardware profile**, select *Standard Es3 family - Type 1* for the **Size family**, select *myHostGroup* for the **Host group** and then select *1* for the **Fault domain**. Leave the defaults for the rest of the fields.
+1. Leave the **Automatically replace host on failure** setting *Enabled* to automatically service heal the host in case of any host level failure.
 1. When you're done, select **Review + create** and wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host.
 
@@ -192,6 +189,7 @@ az vm host create \
    --name myHost \
    --sku DSv3-Type1 \
    --platform-fault-domain 1 \
+   --auto-replace true \
    -g myDHResourceGroup
 ```
 
@@ -206,7 +204,7 @@ $dHost = New-AzHost `
    -Location $location -Name myHost `
    -ResourceGroupName $rgName `
    -Sku DSv3-Type1 `
-   -AutoReplaceOnFailure 1 `
+   -AutoReplaceOnFailure True `
    -PlatformFaultDomain 1
 ```
 
@@ -296,13 +294,13 @@ When you deploy a scale set, you specify the host group.
 
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying a Linux image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image myImage \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \
@@ -617,21 +615,20 @@ Tags                   : {}
 
 ---
 
-## Restart a host (Preview)
+## Restart a host
 
 You can restart the entire host, meaning that the host's not **completely** powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
 
-Note: Host restart is in preview.
 
 ### [Portal](#tab/portal)
 1. Search for and select the host.
-1. In the top menu bar, select the **Restart** button. Note, this feature is in Preview.
+1. In the top menu bar, select the **Restart** button. 
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
 1. Once the restart has completed, the Host Status will return to **Host available**.
 
 ### [CLI](#tab/cli)
 
-Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart) (Preview).
+Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart).
 
 ```azurecli-interactive
 az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
@@ -645,7 +642,7 @@ az vm host get-instance-view --resource-group myResourceGroup --host-group myHos
 
 ### [PowerShell](#tab/powershell)
 
-Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) (Preview) command.
+Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) command.
 
 ```azurepowershell-interactive
 Restart-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost
@@ -736,4 +733,3 @@ Remove-AzResourceGroup -Name $rgName
 - For more information about this topic, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
-

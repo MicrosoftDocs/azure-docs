@@ -2,8 +2,8 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 08/08/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 03/17/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
 # Install Bicep tools
@@ -13,9 +13,10 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 | Tasks | Options | Bicep CLI installation |
 | ------ | ------- | ----------- |
 | Author | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
-|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## VS Code and Bicep extension
@@ -38,6 +39,15 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
 You can deploy your Bicep files directly from the VS Code editor. For more information, see [Deploy Bicep files from Visual Studio Code](deploy-vscode.md).
+
+## Visual Studio and Bicep extension
+
+To author Bicep file from Visual Studio, you need:
+
+- **Visual Studio** - If you don't already have Visual Studio, [install it](https://visualstudio.microsoft.com/).
+- **Bicep extension for Visual Studio**.  Visual Studio with the Bicep extension provides language support and resource autocompletion. The extension helps you create and validate Bicep files. Install the extension from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
+
+To walk through a tutorial, see [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
 
 ## Azure CLI
 
@@ -202,12 +212,20 @@ The `bicep install` and `bicep upgrade` commands don't work in an air-gapped env
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
     1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine. Rename file to **bicep.exe**.
 
+When using the [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2) on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`. See [CI/CD with Azure Pipelines and Bicep files](./add-template-to-azure-pipelines.md) for an example.
+
 ## Install the nightly builds
 
 If you'd like to try the latest pre-release bits of Bicep before they're released, see [Install nightly builds](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md).
 
 > [!WARNING]
 > These pre-release builds are much more likely to have known or unknown bugs.
+
+## Install the NuGet package
+
+The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it is public, it is not a supported package. Any dependency you take on this package will be done at your own risk and we reserve the right to push breaking changes to this package at any time.
+
+For more information about installing and consuming NuGet packages, see [Consume packages](/nuget/consume-packages/overview-and-workflow).
 
 ## Next steps
 

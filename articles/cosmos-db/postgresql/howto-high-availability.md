@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 01/30/2023
 ---
 
-# Configure high availability
+# Configure high availability in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

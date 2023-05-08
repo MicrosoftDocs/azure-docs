@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-face
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ms.devlang: csharp, golang, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
@@ -17,7 +17,7 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ---
 
 # Quickstart: Use the Face service
-
+[!INCLUDE [GDPR-related guidance](../includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
 ::: zone pivot="programming-language-csharp"

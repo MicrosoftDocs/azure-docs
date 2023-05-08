@@ -2,7 +2,7 @@
 title: Acquire a token to call a web API (single-page apps)
 description: Learn how to build a single-page application (acquire a token to call an API)
 services: active-directory
-author: negoe
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,14 +10,15 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2022
-ms.author: negoe
+ms.author: henrymbugua
+s.reviewer: negoe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Acquire a token to call an API
 
-The pattern for acquiring tokens for APIs with [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) is to first attempt a silent token request by using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in browser storage to see if a valid token exists and returns it. When no valid token is in the cache, it attempts to use its refresh token to get the token. If the refresh token's 24-hour lifetime has expired, MSAL.js will open a hidden iframe to silently request a new authorization code, which it will exchange for a new, valid refresh token. For more information about single sign-on (SSO) session and token lifetime values in Azure Active Directory (Azure AD), see [Token lifetimes](active-directory-configurable-token-lifetimes.md).
+The pattern for acquiring tokens for APIs with [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) is to first attempt a silent token request by using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in browser storage to see if a non-expired access token exists and returns it. If no access token is found or the access token found has expired, it attempts to use its refresh token to get a fresh access token. If the refresh token's 24-hour lifetime has also expired, MSAL.js will open a hidden iframe to silently request a new authorization code by leveraging the existing active session with Azure AD (if any), which will then be exchanged for a fresh set of tokens (access _and_ refresh tokens). For more information about single sign-on (SSO) session and token lifetime values in Azure AD, see [Token lifetimes](configurable-token-lifetimes.md). For more information on MSAL.js cache lookup policy, see: [Acquiring an Access Token](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/acquire-token.md#acquiring-an-access-token).
 
 The silent token requests to Azure AD might fail for reasons like a password change or updated conditional access policies. More often, failures are due to the refresh token's 24-hour lifetime expiring and [the browser blocking third party cookies](reference-third-party-cookies-spas.md), which prevents the use of hidden iframes to continue authenticating the user. In these cases, you should invoke one of the interactive methods (which may prompt the user) to acquire tokens:
 

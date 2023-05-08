@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/03/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -35,11 +35,11 @@ ms.custom: devx-track-csharp
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* You'll need a document file at a URL. For this project, you can use the sample forms provided in the table below for each feature:
+* You need a document file at a URL. For this project, you can use the sample forms provided in the following table for each feature:
 
     **Sample documents**
 
@@ -53,6 +53,9 @@ ms.custom: devx-track-csharp
     | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=prerequisites)
 
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
@@ -83,7 +86,7 @@ ms.custom: devx-track-csharp
     npm i @azure/ai-form-recognizer @azure/identity
     ```
 
-    * Your app's `package.json` file will be updated with the dependencies.
+    * Your app's `package.json` file is updated with the dependencies.
 
 1. Create a file named `index.js` in the application directory.
 
@@ -93,13 +96,16 @@ ms.custom: devx-track-csharp
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=setup)
+
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
-* The [prebuilt-read](#read-model) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+* The [prebuilt-read](#read-model) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. The layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
 
 * The [prebuilt-layout](#layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 
@@ -114,6 +120,9 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 * The [prebuilt-idDocument](#id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
 
 * The [prebuilt-businessCard](#business-card-model) model extracts key information from business card images.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue building the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=build-application)
 
 ## Read model
 
@@ -208,9 +217,10 @@ main().catch((error) => {
     process.exit(1);
 });
 
-
-
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-read)
 
 ### Read model output
 
@@ -281,7 +291,11 @@ async function main() {
     console.error("An error occurred:", error);
     process.exit(1);
   });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-layout)
 
 ### Layout model output
 
@@ -328,13 +342,17 @@ main().catch((error) => {
     console.error("An error occurred:", error);
     process.exit(1);
 });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-general-document)
 
 ### General document model output
 
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## W-2 model
+## W-2 tax model
 
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
@@ -408,7 +426,11 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-w2-tax)
 
 ### W-2 tax model output
 
@@ -471,7 +493,11 @@ main().catch((error) => {
   console.error("An error occurred:", error);
   process.exit(1);
 });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-invoice)
 
 ### Invoice model output
 
@@ -531,7 +557,11 @@ async function main() {
 main().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-receipt)
 
 ### Receipt model output
 
@@ -613,7 +643,11 @@ main().catch((error) => {
   console.error("An error occurred:", error);
   process.exit(1);
 });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-id-document)
 
 ### ID document model output
 
@@ -693,7 +727,11 @@ main().catch((error) => {
     console.error("An error occurred:", error);
     process.exit(1);
 });
+
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-business-card)
 
 ### Business card model output
 

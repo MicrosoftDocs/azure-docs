@@ -62,14 +62,14 @@ az spring app create -n user-service --assign-endpoint
 az spring app create -n recommendation-service
 az spring app create -n hystrix-turbine --assign-endpoint
 
-az spring app deploy -n user-service --jar-path user-service/target/user-service.jar
-az spring app deploy -n recommendation-service --jar-path recommendation-service/target/recommendation-service.jar
-az spring app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/hystrix-turbine.jar
+az spring app deploy -n user-service --artifact-path user-service/target/user-service.jar
+az spring app deploy -n recommendation-service --artifact-path recommendation-service/target/recommendation-service.jar
+az spring app deploy -n hystrix-turbine --artifact-path hystrix-turbine/target/hystrix-turbine.jar
 ```
 
 ## Verify your apps
 
-After all the apps are running and discoverable, access `user-service` with the path `https://<username>-user-service.azuremicroservices.io/personalized/1` from your browser. If the user-service can access `recommendation-service`, you should get the following output. Refresh the web page a few times if it doesn't work.
+After all the apps are running and discoverable, access `user-service` with the path `https://<Azure-Spring-Apps-instance-name>-user-service.azuremicroservices.io/personalized/1` from your browser. If the user-service can access `recommendation-service`, you should get the following output. Refresh the web page a few times if it doesn't work.
 
 ```json
 [{"name":"Product1","description":"Description1","detailsLink":"link1"},{"name":"Product2","description":"Description2","detailsLink":"link3"},{"name":"Product3","description":"Description3","detailsLink":"link3"}]

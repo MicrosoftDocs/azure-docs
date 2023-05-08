@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/26/2022
+ms.date: 03/13/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -78,6 +78,8 @@ The optional **RelyingParty** element contains the following elements:
 | UserJourneyBehaviors | 0:1 | The scope of the user journey behaviors. |
 | TechnicalProfile | 1:1 | A technical profile that's supported by the RP application. The technical profile provides a contract for the RP application to contact Azure AD B2C. |
 
+You need to create the **RelyingParty** child elements in the order presented in the preceding table.
+
 ## Endpoints
 
 The **Endpoints** element contains the following element:
@@ -144,7 +146,8 @@ The **UserJourneyBehaviors** element contains the following elements:
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 | ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
-
+When you use the above elements, you need add them to your **UserJourneyBehaviors** element in the order specified in the table. For example, the **JourneyInsights** element must be added before (above) the **ScriptExecution** element. 
+ 
 ### SingleSignOn
 
 The **SingleSignOn** element contains the following attributes:

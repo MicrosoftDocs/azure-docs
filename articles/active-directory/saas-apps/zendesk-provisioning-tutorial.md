@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure Zendesk for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zendesk for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zendesk.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 620f0aa6-42af-4356-85f9-04aa329767f3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Zendesk to support provisioning with Azure AD
 
-1. Log in to [Admin Center](https://support.zendesk.com/hc/en-us/articles/4408839227290#topic_hfg_dyz_1hb), click  **Apps and integrations** in the sidebar, then select **APIs > Zendesk APIs**.
+1. Log in to [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click  **Apps and integrations** in the sidebar, then select **APIs > Zendesk APIs**.
 1. Click the **Settings** tab, and make sure Token Access is **enabled**.
 1. Click the **Add API token** button to the right of **Active API Tokens**.The token is generated and displayed.
 1. Enter an **API token description**.

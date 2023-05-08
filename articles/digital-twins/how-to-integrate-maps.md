@@ -85,11 +85,11 @@ Replace the function code with the following code. It will filter out only updat
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
-You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), and one is your [Azure Maps stateset ID](../azure-maps/tutorial-creator-feature-stateset.md).
+You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-subscription-key-for-your-account), and one is your [Azure Maps stateset ID](../azure-maps/tutorial-creator-feature-stateset.md).
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <your-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
-az functionapp config appsettings set --name <your-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
+az functionapp config appsettings set --name <your-function-app-name> --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### View live updates in the map

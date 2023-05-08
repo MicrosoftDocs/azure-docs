@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.custom: references_regions, event-tier1-build-2022
-ms.date: 10/10/2022
+ms.date: 04/03/2023
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (Preview)
@@ -25,6 +25,7 @@ This guide covers how a data owner can delegate in Microsoft Purview management 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 ## Microsoft Purview configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data sources in Microsoft Purview for Data Use Management
 The Azure Storage resources need to be registered first with Microsoft Purview to later define access policies.
@@ -49,8 +50,16 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
+
+## Unpublish a data owner policy
+Follow this link for the steps to [unpublish a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#unpublish-a-policy).
+
+## Update or delete a data owner policy
+Follow this link for the steps to [update or delete a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#update-or-delete-a-policy).
+
 ## Data Consumption
 - Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.
+- The Copy and Clone commands in Azure Storage Explorer require additional IAM permissions to work in addition to the Allow Modify policy from Purview. Provide Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action permission in IAM to the Azure AD principal.
 - Sub-container access: Policy statements set below container level on a Storage account are supported. However, users will not be able to browse to the data asset using Azure portal's Storage Browser or Microsoft Azure Storage Explorer tool if access is granted only at file or folder level of the Azure Storage account. This is because these apps attempt to crawl down the hierarchy starting at container level, and the request fails because no access has been granted at that level. Instead, the App that requests the data must execute a direct access by providing a fully qualified name to the data object. The following documents show examples of how to perform a direct access. See also the blogs in the *Next steps* section of this how-to-guide.
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)

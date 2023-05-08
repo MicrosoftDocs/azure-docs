@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Jostle for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Jostle for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Jostle.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 6dbb744f-8b8e-4988-b293-ebe079c8c5c5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/05/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Change resource roles for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to change the resource roles for an existing access package in Azure Active Directory entitlement management.
+title: Change resource roles for an access package in entitlement management
+description: Learn how to change the resource roles for an existing access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/14/2020
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change resource roles for an access package in Azure AD entitlement management
+# Change resource roles for an access package in entitlement management
 
 As an access package manager, you can change the resources in an access package at any time without worrying about provisioning the user's access to the new resources, or removing their access from the previous resources. This article describes how to change the resource roles for an existing access package.
 
@@ -117,10 +117,10 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
 You can have Azure AD automatically assign users access to an Azure AD enterprise application, including both SaaS applications and your organization's applications integrated with Azure AD, when a user is assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application.
 
-Applications can have multiple roles. When you add an application to an access package, if that application has more than one role, you'll need to specify the appropriate role for those users in each access package. If you're developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
+Applications can have multiple app roles defined in their manifest. When you add an application to an access package, if that application has more than one app role, you'll need to specify the appropriate role for those users in each access package. If you're developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
 
 > [!NOTE]
-> If an application has multiple roles, and more than one role of that application are in an access package, then the user will receive all the roles.  If instead you want users to only have some of the roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of the roles.
+> If an application has multiple roles, and more than one role of that application are in an access package, then the user will receive all those application's roles.  If instead you want users to only have some of the application's roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of the application roles.
 
 Once an application role is part of an access package:
 
@@ -129,7 +129,7 @@ Once an application role is part of an access package:
 
 Here are some considerations when selecting an application:
 
-- Applications may also have groups assigned to their roles as well.  You can choose to add a group in place of an application role in an access package, however then the application will not be visible to the user as part of the access package in the My Access portal.
+- Applications may also have groups assigned to their app roles as well.  You can choose to add a group in place of an application role in an access package, however then the application will not be visible to the user as part of the access package in the My Access portal.
 - Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 - Applications which only support Personal Microsoft Account users for authentication, and do not support organizational accounts in your directory, do not have application roles and cannot be added to access package catalogs.
 
@@ -173,11 +173,56 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
 ## Add resource roles programmatically
 
-You can also add a resource role to an access package using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to:
+There are two ways to add a resource role to an access package programmatically, through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
+
+### Add resource roles to an access package with Microsoft Graph
+
+You can add a resource role to an access package using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to:
 
 1. [List the accessPackageResources in the catalog](/graph/api/entitlementmanagement-list-accesspackagecatalogs?tabs=http&view=graph-rest-beta&preserve-view=true) and [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?tabs=http&view=graph-rest-beta&preserve-view=true) for any resources that are not yet in the catalog.
 1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
 1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) for each resource role needed in the access package.
+
+### Add resource roles to an access package with Microsoft PowerShell
+
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  This script illustrates using the Graph `beta` profile.
+
+First, you would retrieve the ID of the catalog, and of the resources and their roles in that catalog that you wish to include in the access package, using a script similar to the following.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+
+$rsc = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
+$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc[0].Id + "')"
+$rr = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
+```
+
+Then, assign the resource roles to the access package.  For example, if you wished to include the second resource role of the first resource returned earlier as a resource role of an access package, you would use a script similar to the following.
+
+```powershell
+$apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
+
+$rparams = @{
+	AccessPackageResourceRole = @{
+	   OriginId = $rr[2].OriginId
+	   DisplayName = $rr[2].DisplayName
+	   OriginSystem = $rr[2].OriginSystem
+	   AccessPackageResource = @{
+	      Id = $rsc[0].Id
+	      ResourceType = $rsc[0].ResourceType
+	      OriginId = $rsc[0].OriginId
+	      OriginSystem = $rsc[0].OriginSystem
+	   }
+	}
+	AccessPackageResourceScope = @{
+	   OriginId = $rsc[0].OriginId
+	   OriginSystem = $rsc[0].OriginSystem
+	}
+}
+New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid -BodyParameter $rparams
+```
 
 ## Remove resource roles
 

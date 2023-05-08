@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/28/2022
+ms.date: 11/02/2022
 ms.author: jomondi
 ms.reviewer: sureshja
-ms.custom: mode-other
+ms.custom: enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal
 #Customer intent: As an administrator of an Azure AD tenant, I want to restore a soft deleted enterprise application.
 ---
@@ -53,19 +53,24 @@ To recover your enterprise application with its previous configurations, first d
 1. To view the recently deleted enterprise application, run the following command:
 
    ```powershell
-   Get-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b'
-   ```   
+   Get-AzureADMSDeletedDirectoryObject -Id <id>
+   ```
+
+Replace ID with the object ID of the service principal that you want to restore.
+ 
 :::zone-end
 
 :::zone pivot="ms-powershell"
 
-1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Administrator user account.
 
 1. To view the recently deleted enterprise applications, run the following command:
    
    ```powershell
-   Get-MgDirectoryDeletedItem -DirectoryObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Get-MgDirectoryDeletedItem -DirectoryObjectId <id>
    ```
+Replace ID with the object ID of the service principal that you want to restore.
+
 :::zone-end
 
 :::zone pivot="ms-graph"
@@ -77,7 +82,11 @@ To get the list of deleted enterprise applications in your tenant, run the follo
    ```http
    GET https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.servicePrincipal
    ```
-Record the ID of the enterprise application you want to restore.
+From the list of deleted service principals generated, record the ID of the enterprise application you want to restore.
+
+Alternatively, if you want to get the specific enterprise application that was deleted, fetch the deleted service principal and filter the results by the client's application ID (appId) property using the following syntax:
+
+`https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.servicePrincipal?$filter=appId eq '{appId}'`. Once you've retrieved the object ID of the deleted service principal, proceed to restore it.
 
 :::zone-end
 
@@ -89,8 +98,11 @@ Record the ID of the enterprise application you want to restore.
 
 
    ```powershell  
-   Restore-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Restore-AzureADMSDeletedDirectoryObject -Id <id>
    ```
+
+Replace ID with the object ID of the service principal that you want to restore.
+
 :::zone-end
 
 :::zone pivot="ms-powershell"
@@ -98,17 +110,44 @@ Record the ID of the enterprise application you want to restore.
 1. To restore the enterprise application, run the following command:
 
    ```powershell   
-   Restore-MgDirectoryObject -DirectoryObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Restore-MgDirectoryObject -DirectoryObjectId <id>
    ```
+
+Replace ID with the object ID of the service principal that you want to restore.
+
 :::zone-end
    
 :::zone pivot="ms-graph"
 
 1. To restore the enterprise application, run the following query:
    
+   # [HTTP](#tab/http)
    ```http
    POST https://graph.microsoft.com/v1.0/directory/deletedItems/{id}/restore
    ```
+
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/restore-directory-deleteditem-csharp-snippets.md)]
+   
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/restore-directory-deleteditem-javascript-snippets.md)]
+   
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/restore-directory-deleteditem-java-snippets.md)]
+   
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/restore-directory-deleteditem-go-snippets.md)]
+   
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/restore-directory-deleteditem-powershell-snippets.md)]
+   
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/restore-directory-deleteditem-php-snippets.md)]
+   
+   ---
+
+Replace ID with the object ID of the service principal that you want to restore.
+
 :::zone-end
 
 ## Permanently delete an enterprise application
@@ -121,7 +160,7 @@ Record the ID of the enterprise application you want to restore.
 To permanently delete a soft deleted enterprise application, run the following command:
 
 ```powershell
-Remove-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b'
+Remove-AzureADMSDeletedDirectoryObject -Id <id>
 ```
 :::zone-end
 
@@ -130,7 +169,7 @@ Remove-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b
 1. To permanently delete the soft deleted enterprise application, run the following command:
    
    ```powershell
-   Remove-MgDirectoryDeletedItem -DirectoryObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Remove-MgDirectoryDeletedItem -DirectoryObjectId <id>
    ``` 
 
 :::zone-end
@@ -139,9 +178,31 @@ Remove-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b
 
 To permanently delete a soft deleted enterprise application, run the following query in Microsoft Graph explorer
 
+# [HTTP](#tab/http)
 ```http
 DELETE https://graph.microsoft.com/v1.0/directory/deletedItems/{object-id}
 ```
+
+# [C#](#tab/csharp)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-directory-deleteditem-csharp-snippets.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-directory-deleteditem-javascript-snippets.md)]
+
+# [Java](#tab/java)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-directory-deleteditem-java-snippets.md)]
+
+# [Go](#tab/go)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-directory-deleteditem-go-snippets.md)]
+
+# [PowerShell](#tab/powershell)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-directory-deleteditem-powershell-snippets.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-directory-deleteditem-php-snippets.md)]
+
+---
+
 
 :::zone-end
 

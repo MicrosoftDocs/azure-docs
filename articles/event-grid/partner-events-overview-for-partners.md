@@ -2,7 +2,7 @@
 title: Partner Events overview for system owners who desire to become partners
 description: Provides an overview of the concepts and general steps to become a partner. 
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 04/10/2023
 ---
 
 # Partner Events overview for partners - Azure Event Grid
@@ -19,7 +19,7 @@ You can also create Event Grid resources to receive events from Azure Event Grid
 
 For either publishing events or receiving events, you create the same kind of Event Grid [resources](#resources-managed-by-partners) following these general steps. 
 
-1. Communicate your interest in becoming a partner by sending an email to [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). Once you contact us, we'll guide you through the onboarding process and help your service get an entry card on our [Azure Event Grid gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) so that your service can be found on the Azure portal. 
+1. Contact the Event Grid team at [askgrid@microsoft.com](mailto:askgrid@microsoft.com?subject=Interested&nbsp;in&nbsp;onboarding&nbsp;as&nbsp;an&nbsp;Event&nbsp;Grid&nbsp;partner) communicating your interest in becoming a partner. Once you contact us, we'll guide you through the onboarding process and help your service get an entry card on our [Azure Event Grid gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) so that your service can be found on the Azure portal. 
 2. Create a [partner registration](#partner-registration). This is a global resource and you usually need to create once.
 3. Create a [partner namespace](#partner-namespace). This resource exposes an endpoint to which you can publish events to Azure. When creating the partner namespace, provide the partner registration you created. 
 4. Customer authorizes you to create a [partner topic](concepts.md#partner-topics) in customer's Azure subscription. 
@@ -109,7 +109,7 @@ You have two options:
 
 ## References
 
-  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/main/specification/eventgrid/resource-manager/Microsoft.EventGrid/stable/2022-06-15/EventGrid.json)
+  * [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/eventgrid/resource-manager/Microsoft.EventGrid)
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2022-06-15/Microsoft.EventGrid.json)
   * [REST APIs](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces)

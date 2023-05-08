@@ -1,21 +1,20 @@
 ---
-title: What is BlobFuse2 (preview)?
-titleSuffix: Azure Blob Storage
-description: Get an overview of BlobFuse2 (preview) and how to use it, including migration options if you use BlobFuse v1.
+title: What is BlobFuse? - BlobFuse2
+titleSuffix: Azure Storage
+description: An overview of how to use BlobFuse to mount an Azure Blob Storage container through the Linux file system.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 12/02/2022
+ms.custom: engagement-fy23
 ---
 
-# What is BlobFuse2 (preview)?
+# What is BlobFuse? - BlobFuse2
 
-BlobFuse2 (preview) is a virtual file system driver for Azure Blob Storage. Use BlobFuse2 to access your existing Azure block blob data in your storage account through the Linux file system. BlobFuse2 also supports storage accounts that have a hierarchical namespace enabled.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure block blob data through the Linux file system.
 
 ## About the BlobFuse2 open source project
 
@@ -29,16 +28,16 @@ The open source BlobFuse2 project is on GitHub:
 
 ### Licensing
 
-The BlobFuse2 project is [licensed under MIT](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
+The BlobFuse2 project is [licensed under the MIT license](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
 
 ## Features
 
-A full list of BlobFuse2 features is in the [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md#features). These are some of the key tasks you can do by using BlobFuse2:
+A full list of BlobFuse2 features is in the [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md#features). These are some of the key tasks you can perform by using BlobFuse2:
 
-- Mount an Azure Blob Storage container or Azure Data Lake Storage Gen2 file system on Linux
-- Use basic file system operations like `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`
-- Use local file caching to improve subsequent access times
-- Gain insights into mount activities and resource usage by using BlobFuse2 Health Monitor
+- Mount an Azure Blob Storage container or Azure Data Lake Storage Gen2 file system on Linux.  (BlobFuse2 supports storage accounts with either flat namespaces or hierarchical namespace configured.)
+- Use basic file system operations like `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`.
+- Use local file caching to improve subsequent access times.
+- Gain insights into mount activities and resource usage by using BlobFuse2 Health Monitor.
 
 Other key features in BlobFuse2 include:
 
@@ -69,7 +68,7 @@ The [BlobFuse2 migration guide](https://github.com/Azure/azure-storage-fuse/blob
 
 ## Support
 
-BlobFuse2 is supported by Microsoft if it's used within the specified [limits](#limitations). If you encounter an issue in this preview version, [report it on GitHub](https://github.com/Azure/azure-storage-fuse/issues).
+BlobFuse2 is supported by Microsoft if it's used within the specified [limits](#limitations). If you encounter an issue, [report it on GitHub](https://github.com/Azure/azure-storage-fuse/issues).
 
 ## Limitations
 

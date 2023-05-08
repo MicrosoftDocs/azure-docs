@@ -5,11 +5,11 @@ description: 'This article describes how to use your local computer as a target 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: ssalgado
+ms.author: joburges
 author: ssalgadodev
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.custom: deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy models trained with Azure Machine Learning on your local machines 

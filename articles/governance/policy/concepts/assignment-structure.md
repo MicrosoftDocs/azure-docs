@@ -3,8 +3,8 @@ title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
 ms.date: 10/03/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Policy assignment structure
 
@@ -57,11 +57,11 @@ parameters:
             "suffix": {
                 "value": "-LC"
             }
-        }
+        },
         "identity": {
             "type": "SystemAssigned"
-        }
-        "resourceSelectors": []
+        },
+        "resourceSelectors": [],
         "overrides": []
     }
 }
@@ -114,7 +114,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
     ```json
     {
       "properties": {
-        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
+        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription.",
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
         "metadata": {
           "evidenceStorages": [

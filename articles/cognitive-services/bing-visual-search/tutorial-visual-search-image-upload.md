@@ -191,7 +191,7 @@ This application has an option to change these values. Add the following `<div>`
                 <option value="fr-CH">Switzerland (French)</option>
                 <option value="de-CH">Switzerland (German)</option>
                 <option value="zh-TW">Taiwan (Traditional Chinese)</option>
-                <option value="tr-TR">Turkey (Turkish)</option>
+                <option value="tr-TR">Türkiye (Turkish)</option>
                 <option value="en-GB">United Kingdom (English)</option>
                 <option value="en-US" selected>United States (English)</option>
                 <option value="es-US">United States (Spanish)</option>

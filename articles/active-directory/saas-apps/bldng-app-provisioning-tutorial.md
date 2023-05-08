@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Configure BLDNG APP for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BLDNG APP for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BLDNG APP.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 5ccc1176-c244-4003-8486-67586bcdf317
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

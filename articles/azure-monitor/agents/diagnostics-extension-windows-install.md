@@ -6,7 +6,7 @@ author: bwren
 ms.topic: conceptual
 ms.date: 07/12/2022
 ms.author: bwren 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.reviewer: luki
 ---
@@ -95,7 +95,7 @@ The protected settings are defined in the [PrivateConfig element](diagnostics-ex
 {
     "storageAccountName": "mystorageaccount",
     "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+    "storageAccountEndPoint": "https://core.windows.net"
 }
 ```
 
@@ -179,7 +179,7 @@ The following minimal example of a configuration file enables collection of diag
     "PrivateConfig": {
         "storageAccountName": "mystorageaccount",
         "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+        "storageAccountEndPoint": "https://core.windows.net"
     }
 }
 ```

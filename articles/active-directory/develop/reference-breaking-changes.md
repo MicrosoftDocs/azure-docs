@@ -65,7 +65,7 @@ Error 50105 (the current designation) is emitted when an unassigned user attempt
 
 The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring.
 
-As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
+As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
 
 You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105.
 
@@ -220,9 +220,9 @@ Today, `?e=    "f"&g=h` is parsed identically as `?e=f&g=h` - so `e` == `f`. Wit
 
 **Effective date**: July 26, 2019
 
-**Endpoints impacted**: Both [v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
+**Endpoints impacted**: Both v1.0 and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocol impacted**: [Client Credentials (app-only tokens)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+**Protocol impacted**: Client Credentials (app-only tokens)
 
 A security change took effect on July 26, 2019 changing the way app-only tokens (via the client credentials grant) are issued. Previously, applications were allowed to get tokens to call any other app, regardless of presence in the tenant or roles consented to for that application. This behavior has been updated so that for resources (sometimes called web APIs) set to be single-tenant (the default), the client application must exist within the resource tenant. Existing consent between the client and the API is still not required, and apps should still be doing their own authorization checks to ensure that a `roles` claim is present and contains the expected value for the API.
 

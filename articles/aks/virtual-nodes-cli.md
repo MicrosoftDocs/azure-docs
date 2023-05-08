@@ -2,7 +2,6 @@
 title: Create virtual nodes using Azure CLI
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
-services: container-service
 ms.topic: conceptual
 ms.date: 06/25/2022
 ms.custom: references_regions, devx-track-azurecli
@@ -57,6 +56,9 @@ az group create --name myResourceGroup --location westus
 ```
 
 ## Create a virtual network
+
+> [!IMPORTANT]
+> Virtual node requires a custom virtual network and associated subnet. It can't be associated with the same virtual network the AKS cluster is deployed to.
 
 Create a virtual network using the [az network vnet create][az-network-vnet-create] command. The following example creates a virtual network name *myVnet* with an address prefix of *10.0.0.0/8*, and a subnet named *myAKSSubnet*. The address prefix of this subnet defaults to *10.240.0.0/16*:
 
@@ -162,7 +164,7 @@ spec:
         - containerPort: 80
       nodeSelector:
         kubernetes.io/role: agent
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
         type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider

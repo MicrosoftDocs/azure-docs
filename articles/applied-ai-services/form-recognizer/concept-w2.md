@@ -7,39 +7,36 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 11/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
-# Automated W-2 form processing
+# Form Recognizer W-2 form model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-## Why is automated W-2 form processing important?
-
-Form W-2, also known as the Wage and Tax Statement, is sent by an employer to each employee and the Internal Revenue Service (IRS) at the end of the year. A W-2 form reports employees' annual wages and the amount of taxes withheld from their paychecks. The IRS also uses W-2 forms to track individuals' tax obligations. The Social Security Administration (SSA) uses the information on this and other forms to compute the Social Security benefits for all workers.
-
-## Form Recognizer W-2 form model
-
 The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported on [US Internal Revenue Service (IRS) tax forms](https://www.irs.gov/forms-pubs/about-form-w-2). A W-2 tax form is a multipart form divided into state and federal sections consisting of more than 14 boxes detailing an employee's income from the previous year. The W-2 tax form is a key document used in employees' federal and state tax filings, as well as other processes like mortgage loans and Social Security Administration (SSA) benefits. The Form Recognizer W-2 model supports both single and multiple standard and customized forms from 2018 to the present.
+
+## Automated W-2 form processing
+
+An employer sends form W-2, also known as the Wage and Tax Statement, to each employee and the Internal Revenue Service (IRS) at the end of the year. A W-2 form reports employees' annual wages and the amount of taxes withheld from their paychecks. The IRS also uses W-2 forms to track individuals' tax obligations. The Social Security Administration (SSA) uses the information on this and other forms to compute the Social Security benefits for all workers.
 
 ***Sample W-2 tax form processed using Form Recognizer Studio***
 
-:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample w-2 form processed in the Form Recognizer Studio.":::
+:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample W-2 processed in the Form Recognizer Studio.":::
 
 ## Development options
 
-The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following tools:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
 |**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
-### Try W-2 form data extraction
+### Try W-2 data extraction
 
-Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
+Try extracting data from W-2 forms using the Form Recognizer Studio. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -94,7 +91,7 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 | MedicareTaxWithheld | 6 | Number | Medicare tax with held | 1111 |
 | SocialSecurityTips | 7 | Number | Social security tips | 1111 |
 | AllocatedTips | 8 | Number | Allocated tips | 1111 |
-| VerificationCode | 9 | String | Verification Code on Form W-2 | A123-B456-C789-DXYZ |
+| Verification&#8203;Code | 9 | String | Verification Code on Form W-2 | A123-B456-C789-DXYZ |
 | DependentCareBenefits | 10 | Number | Dependent care benefits | 1111 |
 | NonqualifiedPlans | 11 | Number | The non-qualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred | 1111 |
 | AdditionalInfo |  | Array of objects | An array of LetterCode and Amount |  |
@@ -125,11 +122,6 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 
 ## Next steps
 
-* Complete a Form Recognizer quickstart:
-> [!div class="checklist"]
->
-> * [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
-> * [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

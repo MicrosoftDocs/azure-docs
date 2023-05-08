@@ -7,9 +7,8 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 08/06/2019
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.date: 03/16/2023
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Azure Disk Encryption scenarios on Windows VMs
@@ -295,7 +294,7 @@ You can remove the encryption extension using Azure PowerShell or the Azure CLI.
 - **Disable encryption with the Azure CLI:** To remove encryption, use the [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) command.
 
      ```azurecli-interactive
-     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForWindows"
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryption"
      ```
 
 ## Unsupported scenarios
@@ -311,14 +310,16 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Dynamic volumes.
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
+- iSCSI disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
 - Moving an encrypted VM to another subscription or region.
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - M-series VMs with Write Accelerator disks.
-- Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
-- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
+- Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
+- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
 - Encrypting VMs in failover clusters.
 - Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
+- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
 
 ## Next steps
 

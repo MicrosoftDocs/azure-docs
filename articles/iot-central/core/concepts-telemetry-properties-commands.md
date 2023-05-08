@@ -32,7 +32,7 @@ Each example shows a snippet from the device model that defines the type and exa
 > [!NOTE]
 > IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
@@ -44,13 +44,13 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 1. Select the **Raw data** tab:
 
-    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Raw data view":::
+    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/concepts-telemetry-properties-commands/raw-data.png":::
 
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
 ## Telemetry
 
-To learn more about the DTDL telemetry naming rules, see [DTDL > Telemetry](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry). You can't start a telemetry name using the `_` character.
+To learn more about the DTDL telemetry naming rules, see [DTDL > Telemetry](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#telemetry). You can't start a telemetry name using the `_` character.
 
 Don't create telemetry types with the following names. IoT Central uses these reserved names internally. If you try to use these names, IoT Central will ignore your data:
 
@@ -216,7 +216,7 @@ The following snippet from a device model shows the definition of a `geopoint` t
 ```
 
 > [!NOTE]
-> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 A device client should send the telemetry as JSON that looks like the following example. IoT Central displays the value as a pin on a map:
 
@@ -461,7 +461,7 @@ A device client should send the state as JSON that looks like the following exam
 
 ## Properties
 
-To learn more about the DTDL property naming rules, see [DTDL > Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). You can't start a property name using the `_` character.
+To learn more about the DTDL property naming rules, see [DTDL > Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#property). You can't start a property name using the `_` character.
 
 > [!NOTE]
 > The payload formats for properties applies to applications created on or after 07/14/2020.
@@ -624,7 +624,7 @@ The following snippet from a device model shows the definition of a `geopoint` p
 ```
 
 > [!NOTE]
-> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
 
@@ -896,7 +896,7 @@ The device should send the following JSON payload to IoT Central after it proces
 
 ## Commands
 
-To learn more about the DTDL command naming rules, see [DTDL > Command](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#command). You can't start a command name using the `_` character.
+To learn more about the DTDL command naming rules, see [DTDL > Command](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#command). You can't start a command name using the `_` character.
 
 If the command is defined in a component, the name of the command the device receives includes the component name. For example, if the command is called `getMaxMinReport` and the component is called `thermostat2`, the device receives a request to execute a command called `thermostat2*getMaxMinReport`.
 

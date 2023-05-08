@@ -51,7 +51,7 @@ This article is intended as a copy-and-paste exercise.
           "name": "installFSLogix",
           "runElevated": true,
           "runAsSystem": true,
-          "scriptUri": "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFSLogix.ps1"
+          "scriptUri": "https://raw.githubusercontent.com/azure/azvmimagebuilder/main/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
     ```
 - Comment your code: The VM Image Builder build log, *customization.log*, is verbose. If you comment your scripts by using 'write-host', they'll be sent to the logs, which should make troubleshooting easier.
 
@@ -139,7 +139,7 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 1. Assign permissions to the identity to distribute images. The following commands download and update the template with the previously specified parameters.
 
     ```azurepowershell-interactive
-    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/main/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
     $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
     # Download the config
@@ -190,7 +190,7 @@ Multi-session images are intended for pooled usage. Here's an example of the ima
 ```json
 "publisher": "MicrosoftWindowsDesktop",
 "offer": "Windows-10",
-"sku": "20h2-evd",
+"sku": "20h2-avd",
 "version": "latest"
 ```
 
@@ -214,7 +214,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer
 Now, download the template and configure it for your own use.
 
 ```azurepowershell-interactive
-$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/main/solutions/14_Building_Images_WVD/armTemplateWVD.json"
 $templateFilePath = "armTemplateWVD.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
@@ -231,7 +231,7 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 ```
 
-Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json). All the code is viewable.
+Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmimagebuilder/main/solutions/14_Building_Images_WVD/armTemplateWVD.json). All the code is viewable.
 
 
 ## Submit the template
@@ -304,5 +304,5 @@ If you no longer need the resources that were created during this process, you c
 
 ## Next steps
 
-To try more VM Image Builder examples, go to [GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).
+To try more VM Image Builder examples, go to [GitHub](https://github.com/azure/azvmimagebuilder/tree/main/quickquickstarts).
 

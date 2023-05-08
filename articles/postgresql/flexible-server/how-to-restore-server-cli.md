@@ -3,6 +3,7 @@ title: Restore Azure Database for PostgreSQL - Flexible Server with Azure CLI
 description: This article describes how to perform restore operations in Azure Database for PostgreSQL through the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
@@ -12,7 +13,9 @@ ms.date: 11/30/2021
 
 # Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
-[! INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
@@ -57,10 +60,10 @@ az postgres flexible-server restore --restore-time
 Restore a server from this ```2021-03-03T13:10:00Z``` backup snapshot.
 
 ```azurecli
-az postgres server restore \
+az postgres flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-05-05T13:10:00Z" \
+--restore-time "2021-05-05T13:10:00Z" \
 --source-server mydemoserver
 ```
 
@@ -77,4 +80,3 @@ After the restore is completed, you should perform the following tasks to get yo
 ## Next steps
 * Learn about [business continuity](concepts-business-continuity.md)
 * Learn about [backup & recovery](concepts-backup-restore.md)  
-

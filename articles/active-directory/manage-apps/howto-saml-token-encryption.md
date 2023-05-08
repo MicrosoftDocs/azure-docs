@@ -2,15 +2,17 @@
 title: SAML token encryption
 description: Learn how to configure Azure Active Directory SAML token encryption.
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/21/2022
-ms.author: alamaral
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Configure Azure Active Directory SAML token encryption

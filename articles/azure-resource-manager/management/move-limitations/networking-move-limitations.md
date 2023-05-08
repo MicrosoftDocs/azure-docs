@@ -2,31 +2,36 @@
 title: Move Azure Networking resources to new subscription or resource group
 description: Use Azure Resource Manager to move virtual networks and other networking resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/05/2023
 ---
 
 # Move networking resources to new resource group or subscription
 
 This article describes how to move virtual networks and other networking resources to a new resource group or Azure subscription.
 
-During the move, your networking resources will operate without interruption.
+During the move, your networking resources operate without interruption.
 
 If you want to move networking resources to a new region, see [Tutorial: Move Azure VMs across regions](../../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 ## Dependent resources
 
-> [!NOTE]
-> Any resource, including a VPN Gateway, that is associated with a public IP Standard SKU address must be disassociated from the public IP address before moving across subscriptions.
+When moving a resource, you must also move its dependent networking resources. However, any resource that is associated with a **Standard SKU** public IP address can't be moved across subscriptions. For example, you can't move a VPN Gateway that is associated with a **Standard SKU** public IP address to a new subscription.
 
-When moving a resource, you must also move its dependent resources (for example - public IP addresses, virtual network gateways, all associated connection resources). Local network gateways can be in a different resource group.
+To move a virtual machine with a network interface card to a new subscription, you must move all dependent resources. Move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways. If a virtual machine is associated with a **Standard SKU** public IP address, [disassociate the public IP address](../../../virtual-network/ip-services/remove-public-ip-address-vm.md) before moving across subscriptions.
 
-To move a virtual machine with a network interface card to a new subscription, you must move all dependent resources. Move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways.
+If you move the virtual network for an AKS cluster, the AKS cluster stops working. The local network gateways can be in a different resource group.
 
 For more information, see [Scenario for move across subscriptions](../move-resource-group-and-subscription.md#scenario-for-move-across-subscriptions).
 
 ## Peered virtual network
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
+
+## VPN Gateways
+
+You can't move VPN Gateways across resource groups or subscriptions if they are of Basic SKU. Basic SKU is only meant for test environment usage and doesn't support resource move operation.
+A virtual network gateway must always be in the same resource group as its virtual network, they can't be moved separately.
 
 ## Subnet links
 

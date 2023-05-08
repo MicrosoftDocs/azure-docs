@@ -109,7 +109,8 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	if err != nil {
 		panic(err)
 	}
-
+	defer sender.Close(context.TODO())
+	
 	batch, err := sender.NewMessageBatch(context.TODO(), nil)
 	if err != nil {
 		panic(err)

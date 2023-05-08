@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage Azure Synapse Analytics workspaces
 description: This guide describes how to connect to Azure Synapse Analytics workspaces in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Synapse Analytics workspace source.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -16,9 +16,9 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
 
 >[!NOTE]
 >Currently, Azure Synapse lake databases are not supported.
@@ -41,7 +41,10 @@ Only a user with at least a *Reader* role on the Azure Synapse workspace and who
 
 ### Steps to register
 
-1. Go to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. On the left pane, select **Sources**.
 1. Select **Register**.
 1. Under **Register sources**, select **Azure Synapse Analytics (multiple)**.
@@ -315,11 +318,18 @@ To create and run a new scan, do the following:
 
 ### Set up scan using API
 
-Here is an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
+Here's an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
 
 ```http
 PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview
 ```
+
+>[!IMPORTANT]
+> The collection_id is not the friendly name for the collection, a 5-character ID. For the root collection, the collection_id will be the name of the collection. For all sub-collections, it is instead the ID that can be found in one of two places:
+>
+> 1. The URL in the Microsoft Purview governance portal. Select the collection, and check the URL to find where it says collection=. That will be your ID. So, for our example below, the Investments collection has the ID 50h55c.
+>    :::image type="content" source="media/register-scan-synapse-workspace/find-collection-id.png" alt-text="Screenshot of the collection ID in the URL." lightbox="media/register-scan-synapse-workspace/find-collection-id.png" :::
+>1. You can [list child collection names](/rest/api/purview/accountdataplane/collections/list-child-collection-names) of the root collection to list the collections, and you'll use the 'name' instead of the 'friendly name'.
 
 ```json
 {
@@ -338,7 +348,7 @@ PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_sour
             "credentialType":"SqlAuth | ServicePrincipal | ManagedIdentity (if UAMI authentication)"
         },
         "collection":{
-            "referenceName":"{collection_name}",
+            "referenceName":"{collection_id}",
             "type":"CollectionReference"
         },
         "connectedVia":{

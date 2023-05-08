@@ -1,12 +1,12 @@
 ---
-title: Anomaly Detector JavaScript client library quickstart 
+title: Anomaly Detector JavaScript client library quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/13/2022
+ms.date: 03/14/2023
 ms.author: mbullwin
 ms.custom: devx-track-js
 ---
@@ -45,8 +45,9 @@ Create a `package.json` file with the following contents:
 {
   "dependencies": {
     "@azure/ai-anomaly-detector": "next",
+    "@azure-rest/ai-anomaly-detector": "next",
     "@azure/core-auth": "^1.3.0",
-    "csv-parse": "^4.4.0"
+    "csv-parse": "^5.3.0"
   }
 }
 ```
@@ -78,11 +79,11 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -122,22 +123,23 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
 Create a file named `index.js` and replace with the following code:
 
 ```javascript
-const { AnomalyDetectorClient, KnownTimeGranularity } = require("@azure/ai-anomaly-detector");
+const AnomalyDetector = require("@azure-rest/ai-anomaly-detector").default,
+  { isUnexpected } = require("@azure-rest/ai-anomaly-detector");
 const { AzureKeyCredential } = require("@azure/core-auth");
 
+const { parse } = require("csv-parse/sync");
 const fs = require("fs");
-const parse = require("csv-parse/lib/sync");
 
 // You will need to set this environment variables or edit the following values
 const apiKey = process.env["ANOMALY_DETECTOR_API_KEY"] || "";
 const endpoint = process.env["ANOMALY_DETECTOR_ENDPOINT"] || "";
-const datapath = "./request-data.csv";
+const timeSeriesDataPath = "./request-data.csv";
 
 function read_series_from_file(path) {
   let result = Array();
   let input = fs.readFileSync(path).toString();
   let parsed = parse(input, { skip_empty_lines: true });
-  parsed.forEach(function(e) {
+  parsed.forEach(function (e) {
     result.push({ timestamp: new Date(e[0]), value: Number(e[1]) });
   });
   return result;
@@ -145,24 +147,29 @@ function read_series_from_file(path) {
 
 async function main() {
   // create client
-  const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey));
+  const credential = new AzureKeyCredential(apiKey);
+  const client = AnomalyDetector(endpoint, credential);
 
   // construct request
-  const request = {
-    series: read_series_from_file(datapath),
-    granularity: KnownTimeGranularity.daily
+  const options = {
+    body: {
+      granularity: "daily",
+      imputeMode: "auto",
+      maxAnomalyRatio: 0.25,
+      sensitivity: 95,
+      series: read_series_from_file(timeSeriesDataPath),
+    },
+    headers: { "Content-Type": "application/json" },
   };
 
-  // get entire detect result
-  const result = await client.detectEntireSeries(request);
+  // get last detect result
+  const result = await client.path("/timeseries/entire/detect").post(options);
+  if (isUnexpected(result)) {
+    throw result;
+  }
 
-  if (
-    result.isAnomaly.some(function(anomaly) {
-      return anomaly === true;
-    })
-  ) {
-    console.log("Anomalies were detected from the series at index:");
-    result.isAnomaly.forEach(function(anomaly, index) {
+  if (result.body.isAnomaly) {
+    result.body.isAnomaly.forEach(function (anomaly, index) {
       if (anomaly === true) {
         console.log(index);
       }
@@ -170,11 +177,14 @@ async function main() {
   } else {
     console.log("There is no anomaly detected from the series.");
   }
+
 }
 
 main().catch((err) => {
   console.error("The sample encountered an error:", err);
 });
+
+module.exports = { main };
 ```
 
 ## Run the application
@@ -211,7 +221,7 @@ In the code above, we call the Anomaly Detector API to detect anomalies through 
 
 ## Clean up resources
 
-If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

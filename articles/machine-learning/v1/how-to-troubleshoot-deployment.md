@@ -5,11 +5,12 @@ description: Learn how to work around, solve, and troubleshoot some common Docke
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 08/15/2022
-author: blackmist
-ms.author: larryfr
+ms.date: 11/16/2022
+author: dem108
+ms.author: sehan
+ms.reviewer: larryfr
 ms.topic: troubleshooting
-ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
@@ -86,7 +87,7 @@ print(service.get_logs())
 
 If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](how-to-troubleshoot-deployment-local.md).
 
-## Azure Machine learning inference HTTP server
+## Azure Machine Learning inference HTTP server
 
 The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
 

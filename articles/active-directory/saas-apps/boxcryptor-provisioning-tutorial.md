@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Boxcryptor for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Boxcryptor for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Boxcryptor.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 656de6d6-399e-4346-a07e-0e5fefb0b4ee
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* Boxcryptor Single sign-on enabled [subscription](https://www.boxcryptor.com/pricing/for-teams).
+* Boxcryptor Single sign-on enabled [subscription](https://www.boxcryptor.com/for-teams/).
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

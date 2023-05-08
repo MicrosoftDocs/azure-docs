@@ -2,7 +2,7 @@
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 04/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -31,7 +31,7 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 # [In-process](#tab/in-process)
 
-The following example shows a Functions version 3.x function that uses a `CloudEvent`  binding parameter:
+The following example shows a Functions version 4.x function that uses a `CloudEvent`  binding parameter:
 
 ```cs
 using Azure.Messaging;
@@ -54,11 +54,11 @@ namespace Company.Function
 }
 ```
 
-The following example shows a Functions version 3.x function that uses an `EventGridEvent` binding parameter:
+The following example shows a Functions version 4.x function that uses an `EventGridEvent` binding parameter:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.EventGrid.Models;
+using Azure.Messaging.EventGrid;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 
@@ -80,7 +80,6 @@ The following example shows a function that uses a  `JObject`  binding parameter
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
@@ -99,7 +98,7 @@ namespace Company.Function
 ```
 # [Isolated process](#tab/isolated-process)
 
-When running your C# function in an isolated process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
+When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
 
@@ -321,7 +320,7 @@ def main(event: func.EventGridEvent):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
 
 # [In-process](#tab/in-process)
 
@@ -411,7 +410,7 @@ Requires you to define a custom type, or use a string. See the [Example section]
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process. 
+Functions version 1.x doesn't support the isolated worker process. 
 
 # [Extension v3.x](#tab/extensionv3/csharp-script)
 

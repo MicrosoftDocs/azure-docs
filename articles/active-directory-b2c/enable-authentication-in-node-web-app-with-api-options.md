@@ -29,7 +29,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 In the `.env` file of your web app, do the following:
 
 - Replace all instances of `tenant-name.b2clogin.com` with your custom domain. For example, replace `tenant-name.b2clogin.com`, to `login.contoso.com`.
-- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following configuration shows the app settings before the change: 
 
@@ -61,7 +61,7 @@ In the `index.js` file of your web API, do the following:
 
 - Replace all instances of `tenant-name.b2clogin.com` with your custom domain. For example, replace `tenant-name.b2clogin.com`, to `login.contoso.com`.
 
-- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following configuration shows the app settings before the change: 
 

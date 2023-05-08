@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
 author: likebupt
 ms.author: keli19
+ms.reviewer: lagayhar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -86,9 +87,9 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 1. Select ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png)**Settings** to the right of the canvas to open the **Settings** pane.
 
-1. Select **Create Azure ML compute instance**.
+1. Select **Create Azure Machine Learning compute instance**.
 
-    If you already have an available compute target, you can select it from the **Select Azure ML compute instance** drop-down to run this pipeline.
+    If you already have an available compute target, you can select it from the **Select Azure Machine Learning compute instance** drop-down to run this pipeline.
 
 1. Enter a name for the compute resource.
 
