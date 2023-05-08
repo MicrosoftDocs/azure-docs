@@ -98,7 +98,7 @@ additionalContent:
         - title: Customize the sign-in look and feel
           summary: Learn about how to personalize the end-user experience.
           url: /azure/active-directory/external-identities/customers/concept-branding-customers      
-    - title: Code samples for any application in the customer tenant 
+    - title: Quickstarts by app type in the customer tenant 
       items:
         # Card
         - title: Single-page app(SPA)
