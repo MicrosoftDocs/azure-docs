@@ -14,9 +14,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 This article shows you how to configure IP restriction rules in a Web Application Firewall (WAF) for Azure Front Door by using the Azure portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 
-An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. It does this by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format. There are two type of match variables in IP address match, **RemoteAddr** and **SocketAddr**. RemoteAddr is the original client IP that is usually sent via X-Forwarded-For request header. SocketAddr is the source IP address WAF sees. If your user is behind a proxy, SocketAddr is often the proxy server address.
+An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. It does this by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format. There are two types of match variables in IP address match, **RemoteAddr** and **SocketAddr**. RemoteAddr is the original client IP that is usually sent via the X-Forwarded-For request header. SocketAddr is the source IP address WAF sees. If your user is behind a proxy, SocketAddr is often the proxy server address.
 
-By default, your web application is accessible from the Internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you may create an IP matching rule that contains the list of IP addresses as matching values and sets operator to "Not" (negate is true) and the action to **Block**. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
+By default, your web application is accessible from the Internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you may create an IP matching rule that contains the list of IP addresses as matching values and sets the operator to "Not" (negate is true) and the action to **Block**. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
 
 ## Configure a WAF policy with the Azure portal
 
@@ -33,7 +33,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
    |Setting  |Value  |
    |---------|---------|
    |Policy for     |Global WAF (Front Door)|
-   |Front door tier| Select Premium or Standard to match you Front Door tier|
+   |Front door tier| Select Premium or Standard to match your Front Door tier|
    |Subscription     |Select your subscription|
    |Resource group     |Select the resource group where your Front Door is located.|
    |Policy name     |Type a name for your policy|
@@ -74,7 +74,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 ### Test your WAF policy
 
-1. After your WAF policy deployment completes, browse to your Front Door frontend host name.
+1. After your WAF policy deployment completes, browse to your Front Door frontend hostname.
 2. You should see your custom block message.
 
    :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="WAF rule test":::
@@ -140,7 +140,7 @@ az network front-door waf-policy rule match-condition add \
   ```
 
 ### Find the ID of a WAF policy
-Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
+Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with the unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -150,7 +150,7 @@ Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli
 
 ### Link a WAF policy to an Azure Front Door front-end host
 
-Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/network/front-door#az-network-front-door-update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
+Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/network/front-door#az-network-front-door-update) command. Replace *IPAllowPolicyExampleCLI* with the unique policy that you created earlier.
 
    ```azurecli
    az network front-door update \
