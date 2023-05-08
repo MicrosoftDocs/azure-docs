@@ -78,7 +78,7 @@ You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cr
 
 A function can also simplify a commonly used union. For example, you can save the following expression as a function called `unionSecurityEvent`:
 
-`union workspace("/subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName1").SecurityEvent, workspace("hard-to-remember-workspace-name-2").SecurityEvent`
+`union workspace("/subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName1").SecurityEvent, workspace("/subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName2").SecurityEvent`
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
