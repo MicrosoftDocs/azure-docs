@@ -87,6 +87,10 @@
       href: connect-with-azure-pipelines.md
     - name: Use DISA CAP
       href: documentation-government-ase-disa-cap.md
+  - name: Manage
+    items:
+    - name: Access EA billing account
+      href: documentation-government-howto-access-ea-billing-account.md
 - name: Compliance
   items:
   - name: Trusted Internet Connections with Azure
