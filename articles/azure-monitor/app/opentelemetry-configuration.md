@@ -31,8 +31,7 @@ Use one of the following three ways to configure the connection string:
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
-        //Uncomment the line below when setting the Application Insights Connection String via code
-        //options.ConnectionString = "<Your Connection String>";
+        options.ConnectionString = "<Your Connection String>";
     });
 
     var app = builder.Build();
