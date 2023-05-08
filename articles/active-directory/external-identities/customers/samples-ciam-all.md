@@ -32,24 +32,19 @@ These samples and how-to guides demonstrate how to integrate a single-page appli
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-<<<<<<< HEAD
-> | JavaScript, Vanilla | &#8226; [Sign in users and call an API](how-to-single-page-app-vanillajs-sample-sign-in) | [Vanilla SPA](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)    |
-> | JavaScript, Angular | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | [Angular SPA](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)    |
-> | JavaScript, React | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)| [React SPA](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)   |
+> | JavaScript, Vanilla | &#8226; [Sign in users](how-to-single-page-app-vanillajs-sample-sign-in.md) <br/> &#8226; *Sign in users and call an API* | &#8226; [Sign in users](how-to-single-page-app-vanillajs-prepare-tenant.md)    |
+> | JavaScript, Angular | &#8226; *Sign in users* <br/> &#8226; *Sign in users and call an API* | &#8226; *Sign in users*    |
+> | JavaScript, React | &#8226; [Sign in users](how-to-single-page-application-react-sample.md)<br/>&#8226; *Sign in users and call an API*| &#8226; [Sign in users](how-to-single-page-application-react-prepare-tenant.md)   |
 
 ### Web app
 
+These samples and how-to guides demonstrate how to write a web application that integrates with Azure AD for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-<<<<<<< HEAD
-> | JavaScript, Node/Express | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |  [Node/Express web app](how-to-web-app-node-sign-in-overview.md)  |
-> | ASP.NET Core | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  | [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)   |
-=======
-> | JavaScript, Node.js (Express) | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](how-to-web-app-node-sample-sign-in-call-api.md)  |  &#8226; [Node.js (Express) web app - Sign in](how-to-web-app-node-sign-in-overview.md)<br/> &#8226; [Node.js (Express) web app - Call an API](how-to-web-app-node-sign-in-call-api-overview.md)  |
-> | ASP.NET Core | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; *Call an API against a customer tenant*  | &#8226; [ASP.NET Core web app](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
->>>>>>> a71453c1bb87de0cd25690c4ed773897f93c4224
+> | JavaScript, Node.js (Express) | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sample-sign-in-call-api.md)  |  &#8226; [Sign in users](how-to-web-app-node-sign-in-overview.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sign-in-call-api-overview.md)  |
+> | ASP.NET Core | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; *Sign in users and call an API*  | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### Web API
 
@@ -58,7 +53,7 @@ These samples and how-to guides demonstrate how to protect a web API with the Mi
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | ASP.NET Core | ---  | &#8226; [ASP.NET Core web API](how-to-protect-web-api-dotnet-core-overview.md)   |
+> | ASP.NET Core | ---  | &#8226; [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md)   |
 
 ### Headless
 
@@ -67,8 +62,8 @@ These samples and how-to guides demonstrate how to write a headless application 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Node | &#8226; *Device code flow, sign in users*<br/> &#8226; *Call an API against a customer tenant*  | &#8226; *Node device code flow*   |
-> | .NET | &#8226; *Device code flow, sign in users*<br/> &#8226; *Call an API against a customer tenant*  | &#8226; *.NET device code flow*   |
+> | JavaScript, Node | &#8226; *Sign in users*<br/> &#8226; *Sign in users and call an API*  | &#8226; *Sign in users*   |
+> | .NET | &#8226; *Sign in users*<br/> &#8226; *Sign in users and call an API*  | &#8226; *Sign in users*   |
 
 
 ### Desktop
@@ -78,8 +73,8 @@ These samples and how-to guides demonstrate how to write a desktop application t
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Electron | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md)<br/>&#8226; *Call an API against a customer tenant* | ---   |
-> | ASP.NET (MAUI) | &#8226; *Sign in users*<br/>&#8226; *Call Microsoft Graph using MAUI* | ---   |
+> | JavaScript, Electron | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md)<br/>&#8226; *Sign in users and call an API* | ---   |
+> | ASP.NET (MAUI) | &#8226; *Sign in users*<br/>&#8226; *Sign in users and call an API* | ---   |
 
 ### Mobile
 
@@ -88,7 +83,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
-> | ASP.NET Core MAUI | &#8226; *Sign in users*<br/>&#8226; *Call Microsoft Graph using MAUI* |  ---  |
+> | ASP.NET Core MAUI | &#8226; *Sign in users*<br/>&#8226; *Sign in users and call an API* |  ---  |
 
 # [**By language/platform**](#tab/language)
 
@@ -97,7 +92,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Headless | &#8226; *Sign in users* <br/> &#8226; *Call an API against a customer tenant*  | &#8226; .*NET device code flow*   |
+> | Headless | &#8226; *Sign in users* <br/> &#8226; *Sign in users and call an API*  | &#8226; *Sign in users*   |
 
 
 ### ASP.NET Core
@@ -105,22 +100,16 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-<<<<<<< HEAD
-> | Headless | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management)  | [.NET device code flow](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management)   |
-> | Web API| &#8226; [Protect a web API on a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)  |  [ASP.NET core web API](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)  |
-> | Web app | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)    |
-=======
 > | Web API| ---  |  &#8226; [ASP.NET Core web API](how-to-protect-web-api-dotnet-core-overview.md)  |
-> | Web app | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; *Call an API against a customer tenant* | [ASP.NET Core web app](how-to-web-app-dotnet-sign-in-prepare-tenant.md)    |
->>>>>>> a71453c1bb87de0cd25690c4ed773897f93c4224
+> | Web app | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; *Sign in users and call an API* | [ASP.NET Core web app](how-to-web-app-dotnet-sign-in-prepare-tenant.md)    |
 
 ### .NET (MAUI)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Desktop | &#8226; *Sign in users* <br/>&#8226; *Call Microsoft Graph using MAUI* |  &#8226; *ASP.NET Core MAUI desktop app*  |
-> | Mobile | &#8226; *Sign in users*<br/>&#8226; *Call Microsoft Graph using MAUI* |  ---  |
+> | Desktop | &#8226; *Sign in users* <br/>&#8226; *Sign in users and call an API* |  ---  |
+> | Mobile | &#8226; *Sign in users*<br/>&#8226; *Sign in users and call an API* |  ---  |
 
 
 ### JavaScript, Vanilla
@@ -128,45 +117,41 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-<<<<<<< HEAD
-> | Single-page application | &#8226; [Sign in users and call an API](how-to-single-page-app-vanillajs-sample-sign-in) | [Vanilla SPA](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)  |
-=======
-> | *Single-page application* | &#8226; [Sign in users](how-to-single-page-app-vanillajs-sample-sign-in.md) <br/> &#8226; *Call an API against a customer tenant* | &#8226; [Vanilla SPA](how-to-single-page-app-vanillajs-prepare-tenant.md)  |
->>>>>>> a71453c1bb87de0cd25690c4ed773897f93c4224
+> | *Single-page application* | &#8226; [Sign in users](how-to-single-page-app-vanillajs-sample-sign-in.md) <br/> &#8226; *Sign in users and call an API* | &#8226; [Sign in users](how-to-single-page-app-vanillajs-prepare-tenant.md)  |
 
 ### JavaScript, Angular
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Single-page application | &#8226; *Sign in users* <br/> &#8226; *Call an API against a customer tenant* | &#8226; *Angular SPA*    |
+> | Single-page application | &#8226; *Sign in users* <br/> &#8226; *Sign in users and call an API* | &#8226; *Sign in users*    |
 
 ### JavaScript, React
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Single-page application| &#8226; [Sign in users](how-to-single-page-application-react-sample.md)<br/>&#8226; *Call an API against a customer tenant* | &#8226; [React SPA](how-to-single-page-application-react-prepare-tenant.md)   |
+> | Single-page application| &#8226; [Sign in users](how-to-single-page-application-react-sample.md)<br/>&#8226; *Sign in users and call an API* | &#8226; [Sign in users](how-to-single-page-application-react-prepare-tenant.md)   |
 
 ### JavaScript, Node
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Headless | &#8226; *Device code flow, sign in users* <br/> &#8226; *Call an API against a customer tenant*  |  &#8226; *Node device code flow*  |
+> | Headless | &#8226; *Sign in users* <br/> &#8226; *Sign in users and call an API*  |  &#8226; *Sign in users*  |
 
 ### JavaScript, Node.js (Express)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Web app |&#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](how-to-web-app-node-sample-sign-in-call-api.md)  | &#8226; [Node.js (Express) web app - Sign in](how-to-web-app-node-sign-in-overview.md)<br/> &#8226; [Node.js (Express) web app - Call an API](how-to-web-app-node-sign-in-call-api-overview.md)   |
+> | Web app |&#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sample-sign-in-call-api.md)  | &#8226; [Sign in users](how-to-web-app-node-sign-in-overview.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sign-in-call-api-overview.md)   |
 
 ### JavaScript, Electron
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Desktop | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md) <br/>&#8226; *Call an API against a customer tenant*|  ---  |
+> | Desktop | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md) <br/>&#8226; *Sign in users and call an API*|  ---  |
 
 ---

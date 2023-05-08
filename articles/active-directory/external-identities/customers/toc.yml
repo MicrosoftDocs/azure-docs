@@ -59,7 +59,7 @@ items:
                       href: how-to-web-app-node-sample-sign-in.md
                     - name: Sign in users and call an API
                       href: how-to-web-app-node-sample-sign-in-call-api.md
-                - name: ASP.NET
+                - name: ASP.NET Core
                   items:
                     - name: Sign in users
                       href: how-to-web-app-dotnet-sample-sign-in.md
