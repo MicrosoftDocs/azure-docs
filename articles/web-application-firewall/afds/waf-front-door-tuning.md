@@ -25,7 +25,7 @@ First, ensure you’ve read the [Front Door WAF overview](afds-overview.md) and 
  
 The purpose of WAF logs is to show every request that is matched or blocked by the WAF. It is a collection of all evaluated requests that are matched or blocked. If you notice that the WAF blocks a request that it shouldn't (a false positive), you can do a few things. First, narrow down, and find the specific request. If desired, you can [configure a custom response message](./waf-front-door-configure-custom-response-code.md) to include the `trackingReference` field to easily identify the event and perform a log query on that specific value. Look through the logs to find the specific URI, timestamp, or client IP of the request. When you find the related log entries, you can begin to act on false positives. 
  
-For example, say you have a legitimate traffic containing the string `1=1` that you want to pass through your WAF. Here's what the request looks like:
+For example, say you have legitimate traffic containing the string `1=1` that you want to pass through your WAF. Here's what the request looks like:
 
 ```
 POST http://afdwafdemosite.azurefd.net/api/Feedbacks HTTP/1.1
@@ -64,7 +64,7 @@ AzureDiagnostics
  
 In the `requestUri` field, you can see the request was made to `/api/Feedbacks/` specifically. Going further, we find the rule ID `942110` in the `ruleName` field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
  
-Then, by checking the `action` field, we see that this rule is set to block requests upon matching, and we confirm that the request was in fact blocked by the WAF because the `policyMode` is set to `prevention`. 
+Then, by checking the `action` field, we see that this rule is set to block requests upon matching, and we confirm that the request was blocked by the WAF because the `policyMode` is set to `prevention`. 
  
 Now, let's check the information in the `details` field. This is where you can see the `matchVariableName` and the `matchVariableValue` information. We learn that this rule was triggered because someone input *1=1* in the `comment` field of the web app.
 
