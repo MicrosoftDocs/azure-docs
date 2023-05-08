@@ -29,7 +29,7 @@ The following error message might appear in your logs: `org.springframework.cont
 The message indicates one of two likely problems:
 
 * One of the beans or one of its dependencies is missing.
-* One of the bean properties is missing or invalid. In this case, "java.lang.IllegalArgumentException" will likely be displayed.
+* One of the bean properties is missing or invalid. In this case, "java.lang.IllegalArgumentException" is displayed.
 
 Service bindings might also cause application start failures. To query the logs, use keywords that are related to the bound services. For instance, let's assume that your application has a binding to a MySQL instance that's set to local system time. If the application fails to start, the following error message might appear in the log:
 
@@ -93,7 +93,7 @@ If *some instances* are experiencing high CPU or memory usage, check the instanc
 
 For more information, see [Metrics for Azure Spring Apps](./concept-metrics.md).
 
-If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This will help you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This helps you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
@@ -124,7 +124,7 @@ But if you try to set up the Azure Spring Apps service instance by using the [Az
 
 If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-The name of the Azure Spring Apps service instance will be used for requesting a subdomain name under `azureapps.io`, so the setup will fail if the name conflicts with an existing one. You might find more details in the activity logs.
+The name of the Azure Spring Apps service instance is used for requesting a subdomain name under `azureapps.io`, so the setup fails if the name conflicts with an existing one. You might find more details in the activity logs.
 
 ### I can't deploy a .NET Core app
 
@@ -132,7 +132,7 @@ You can't upload a *.zip* file for a .NET Core Steeltoe app by using the Azure p
 
 When you deploy your application package by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
 
-Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process will stop responding or you will receive an error message.
+Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process stops responding or you receive an error message.
 
 ### I can't deploy a JAR package
 
@@ -146,7 +146,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 az spring app show-deploy-log --name <app-name>
 ```
 
-Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you will receive an error message similar to the following: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
+Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
 
 ### I can't deploy a source package
 
@@ -176,28 +176,27 @@ To learn more about Azure Log Analytics, see [Get started with Log Analytics in 
 
 ### I want to inspect my application's environment variables
 
-Environment variables inform the Azure Spring Apps framework, ensuring that Azure understands where and how to configure the services that make up your application. Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.
+Environment variables inform the Azure Spring Apps framework, ensuring that Azure understands where and how to configure the services that make up your application. Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems. You can use the Spring Boot Actuator endpoint to review your environment variables.
 
 > [!WARNING]
-> This procedure exposes your environment variables by using your test endpoint.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
+> This procedure exposes your environment variables by using your test endpoint. Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
 
-1. Go to `https://<your application test endpoint>/actuator/health`. To find out the test endpoint, please refer to [Verify app through test endpoint](https://learn.microsoft.com/en-us/azure/spring-apps/concept-manage-monitor-app-spring-boot-actuator#verify-app-through-test-endpoint).
+1. Go to `https://<your-application-test-endpoint>/actuator/health`. To find the test endpoint, see the [Verify app through test endpoint](concept-manage-monitor-app-spring-boot-actuator.md#verify-app-through-test-endpoint) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
 
-   * A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
-   * If the response is negative, include the following dependency in your *POM.xml* file:
+   A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled. If the response is negative, include the following dependency in your *POM.xml* file:
 
-     ```xml
-     <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-actuator</artifactId>
-     </dependency>
-     ```
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+   ```
 
-1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and look for the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*`.
+1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and look for the configuration page of your application. Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*`.
 
 1. Restart your application.
 
-1. Go to `https://<your application test endpoint>/actuator/env` and inspect the response.  It should look like this:
+1. Go to `https://<your-application-test-endpoint>/actuator/env` and inspect the response. It should look like this:
 
    ```json
    {
@@ -213,10 +212,10 @@ Environment variables inform the Azure Spring Apps framework, ensuring that Azur
    }
    ```
 
-Look for the child node named `systemEnvironment`.  This node contains your application's environment variables.
+Look for the child node named `systemEnvironment`. This node contains your application's environment variables.
 
 > [!IMPORTANT]
-> Remember to reverse the exposure of your environment variables before making your application accessible to the public.  Go to the Azure portal, look for the configuration page of your application, and delete this environment variable:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
+> Remember to reverse the exposure of your environment variables before making your application accessible to the public. Go to the Azure portal, look for the configuration page of your application, and delete this environment variable:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
 
 ### I can't find metrics or logs for my application
 
@@ -242,7 +241,7 @@ If your application logs can be archived to a storage account but not sent to Az
 Creating an Azure Spring Apps Enterprise tier instance fails with error code "112039". Check the detailed error message for below for more information:
 
 * **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Apps Enterprise tier purchase a SaaS offer from VMware.
-  
+
   You must register the Microsoft.SaaS resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 * **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address is not in the supported location.
