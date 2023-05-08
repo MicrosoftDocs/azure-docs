@@ -226,8 +226,8 @@ items:
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
         href: availability-zones-disaster-recovery.md
-      - name: Scaling with Azure Event Grid
-        href: scaling-with-azure-event-grid.md
+      - name: Throughput units in Azure Event Grid
+        href: throughput-units-azure-event-grid.md
       - name: Security
         items:
         - name: Security baseline

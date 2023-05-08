@@ -1,13 +1,13 @@
 ---
-title: Scaling with Azure Event Grid
+title: Throughput units in Azure Event Grid
 description: This article describes how Azure Event Grid scales
 author: robece
 ms.topic: conceptual
 ms.author: robece
-ms.date: 05/23/2023
+ms.date: 05/08/2023
 ---
 
-# Scaling with Azure Event Grid
+# Throughput units in Azure Event Grid
 
 With the release of the Azure Event Grid namespaces there's a new Standard tier that influences scaling on Azure Event Grid.
 
