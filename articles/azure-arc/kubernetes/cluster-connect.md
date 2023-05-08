@@ -260,7 +260,7 @@ You should now see a response from the cluster containing the list of all pods u
 
 ## Known limitations
 
-When making requests to the Kubernetes cluster, if the Azure AD entity used is a part of more than 200 groups, you may see the following error:
+When making requests to the Kubernetes cluster, if the Azure AD SPN entity used is a part of more than 200 groups, you may see the following error:
 
 `You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported.`
 
