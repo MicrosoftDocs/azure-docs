@@ -328,12 +328,14 @@
           items:
             - name: Permissions and roles - Continuous backup
               href: ../continuous-backup-restore-permissions.md
-            - name: Get the latest restorable timestamp
-              href: ../get-latest-restore-timestamp.md
-            - name: Restore an account - Continuous backup
-              href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
+            - name: Restore
+              items:
+                - name: Get the latest restorable timestamp
+                  href: ../get-latest-restore-timestamp.md
+                - name: Restore an account - Continuous backup
+                  href: ../restore-account-continuous-backup.md
         - name: Periodic backup
           items:
             - name: Update storage redundancy
