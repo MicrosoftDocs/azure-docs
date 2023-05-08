@@ -99,11 +99,22 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
     kubectl get nodes
     ```
 
-   You should see output listing all the nodes in your cluster. Make sure the status for all nodes shows *Ready*.
+3. The following output example shows the nodes in your cluster. Make sure the status for all nodes shows *Ready*:
+
+    ```output
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-nodepool1-34832848-vmss000000   Ready    agent   80m   v1.25.6
+    aks-nodepool1-34832848-vmss000001   Ready    agent   80m   v1.25.6
+    aks-nodepool1-34832848-vmss000002   Ready    agent   80m   v1.25.6
+    ```
+    
+    Take note of the name of your node pool. In this example, it would be **nodepool1**.
 
 ## Label the node pool
 
-Find your node pool name and run the following command to label the node pool. Remember to replace `<nodepool_name>` with the name of your node pool.
+Next, you must update your node pool label to associate the node pool with the correct IO engine for Azure Container Storage.
+
+Run the following command to update the label. Remember to replace `<nodepool_name>` with the name of your node pool from the previous step.
 
 ```azurecli-interactive
 az aks nodepool update --resource-group myContainerStorageRG --cluster-name myAKSCluster --name <nodepool_name> --labels openebs.io/engine=io.engine
