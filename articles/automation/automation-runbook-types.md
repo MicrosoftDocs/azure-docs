@@ -213,7 +213,7 @@ Following are the limitations of Python runbooks
 - The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
 
-# [Python 3.8 (preview)](#tab/py38)
+# [Python 3.8 (GA)](#tab/py38)
 
 - You must be familiar with Python scripting.
 - For Python 3.8 modules, use wheel files targeting cp38-amd64.
