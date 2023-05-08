@@ -4,7 +4,7 @@ description: Understand planning for an Azure Elastic SAN deployment. Learn abou
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/07/2023
+ms.date: 05/08/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -40,7 +40,7 @@ Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Sa
 
 ## Networking
 
-In the Elastic SAN Preview, you can configure connections to volume groups over both public [Azure Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
+In the Elastic SAN Preview, you can configure access to volume groups over both public [Azure Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
 To allow network access, you must [enable a service endpoint for Azure Storage](elastic-san-networking.md#enable-storage-service-endpoint) or a [private endpoint](elastic-san-networking.md#enable-private-endpoint) in your virtual network. Then [setup a network rule](elastic-san-networking.md#managing-virtual-network-rules) on the volume group for any service endpoints. You don't need a network rule to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints. You can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
 

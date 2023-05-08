@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview, a service that enables yo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/07/2023
+ms.date: 05/08/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
@@ -26,6 +26,8 @@ Each volume group supports up to 200 virtual network rules.
 ## Enable Storage service endpoint
 
 In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable service point for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+
+In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable a service endpoint for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork). Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
