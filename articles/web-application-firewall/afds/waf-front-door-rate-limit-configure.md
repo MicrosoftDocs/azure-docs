@@ -56,7 +56,7 @@ You decide to create a rate limiting rule that restricts each socket IP address 
    - **Name:** Enter the name of your Front Door profile.
    - **Tier:** Select *Standard* or *Premium*. For this scenario, both tiers support rate limiting.
    - **Endpoint name:** Front Door endpoints must have globally unique names, so provide a unique name for your endpoint.
-   - **Origin type** and **Origin host name:** Select the origin application that you want to protect with your rate limiting rule.
+   - **Origin type** and **Origin hostname:** Select the origin application that you want to protect with your rate limiting rule.
 
 1. Next to **WAF policy**, select **Create new**.
 
