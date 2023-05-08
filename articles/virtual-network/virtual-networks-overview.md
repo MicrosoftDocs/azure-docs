@@ -11,7 +11,7 @@ ms.author: allensu
 
 # What is Azure Virtual Network?
 
-Azure Virtual Network is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is similar to a traditional network that you'd operate in your own data center. An Azure Virtual Network brings with it extra benefits of Azure's infrastructure such as scale, availability, and isolation.
+Azure Virtual Network is the fundamental building block for your private network in Azure. A virtual network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is similar to a traditional network that you'd operate in your own data center. An Azure Virtual Network brings with it extra benefits of Azure's infrastructure such as scale, availability, and isolation.
 
 ## Why use an Azure Virtual network?
 Azure virtual network enables Azure resources to securely communicate with each other, the internet, and on-premises networks. 
