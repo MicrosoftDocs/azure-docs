@@ -478,6 +478,8 @@ items:
         href: custom-disaster-recovery-client-side.md
       - name: How to configure multiple sessions for an MQTT client
         href: mqtt-establishing-multiple-sessions-per-client.md
+      - name: Troubleshoot MQTT runtime issues
+        href: mqtt-troubleshoot-errors.md
     - name: Reference
       items:
       - name: Monitoring data reference (MQTT delivery)
