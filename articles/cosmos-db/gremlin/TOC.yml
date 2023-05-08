@@ -332,10 +332,10 @@
               href: ../migrate-continuous-backup.md
             - name: Restore
               items:
+                - name: Restore to a different account
+                  href: ../restore-account-continuous-backup.md
                 - name: Get the latest restorable timestamp
                   href: ../get-latest-restore-timestamp.md
-                - name: Restore an account - Continuous backup
-                  href: ../restore-account-continuous-backup.md
         - name: Periodic backup
           items:
             - name: Update storage redundancy
