@@ -19,8 +19,6 @@ Integrating Jupyter Notebook with a Log Analytics workspace lets you create a mu
 
 In this tutorial, we integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
-> [!NOTE]
-> Azure Monitor Logs also provides [built-in KQL machine learning analysis capabilities](../logs/bring-your-own-machine-learning.md#machine-learning-in-azure-monitor-logs).  
 ## Process overview
 
 In this tutorial, you learn how to: 
@@ -30,7 +28,7 @@ In this tutorial, you learn how to:
 > * Prepare data for model training 
 > * Train and test regression models on historical data
 > * Score new data, or predict new values, using a trained model and identify anomalies
-> * Ingest anomalies into a custom table in your Log Analytics workspace (optional) 
+> * Ingest anomalies into a custom table in your Log Analytics workspace for further analysis (optional) 
 
 > [!NOTE]
 > Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
@@ -43,13 +41,15 @@ In this tutorial, you learn how to:
 - Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). 
 
 ## Prerequisites 
-In this tutorial, you need:
+For this tutorial, you need:
 
-- An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md) with:
+- Basic familiarity with Python and machine learning concepts like training, testing, and regression models.
 
-    - A CPU compute instance.  
-    - A kernel set to Python 3.8 or higher.
+- An [Azure Machine Learning workspace with a CPU compute instance](../../machine-learning/quickstart-create-resources.md) with:
+
     - [A notebook](../../machine-learning/quickstart-run-notebooks.md#create-a-new-notebook). 
+    - A kernel set to Python 3.8 or higher.
+
 - The following roles and permissions: 
 
     - In **Azure Monitor Logs**: The **Logs Analytics Contributor** role to read data from and send data to your Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).
@@ -62,7 +62,7 @@ In this tutorial, you need:
 
 |Source| Tool | Description |
 |---| --- | --- |
-|Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
+|Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) |Lets you run read-only queries on data in Azure Monitor Logs. |
 ||[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
 ||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API. Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional)|
 ||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
