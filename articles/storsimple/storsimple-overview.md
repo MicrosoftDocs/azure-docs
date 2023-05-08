@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.custom: devx-track-azurepowershell
 ms.workload: TBD
-ms.date: 08/22/2022
-ms.author: timlt
+ms.date: 05/02/2023
+ms.author: alkohli
+ROBOTS: NOINDEX
 ---
 # StorSimple 8000 series: a hybrid cloud storage solution
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+> [!CAUTION]
+> **ACTION REQUIRED:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. We're no longer updating this content regularly. Check the Microsoft Product Lifecycle for information about how this product, service, technology, or API is supported.
 
 ## Overview
 Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is an efficient, cost-effective, and easy to manage storage area network (SAN) solution that eliminates many of the issues and expenses that are associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of management tools for a seamless view of all enterprise storage, including cloud storage. The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only.

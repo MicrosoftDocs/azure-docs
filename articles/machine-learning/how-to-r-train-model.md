@@ -3,6 +3,7 @@ title: Train R models
 titleSuffix: Azure Machine Learning
 description: 'Learn how to train your machine learning model with R for use in Azure Machine Learning.'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
