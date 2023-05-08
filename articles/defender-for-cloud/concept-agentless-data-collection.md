@@ -131,9 +131,6 @@ Agentless scanning is included in Defender Cloud Security Posture Management (CS
 
 > [!NOTE]
 > AWS charges for retention of disk snapshots. Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes), but you may be charged by AWS a minimal overhead cost for the disk snapshots storage.
-> Estimated costs:
-> - For the short retention of disk snapshots - a ballpark estimate is $0.1 per month for a VM with 30GB disk size.
-> - If encryption is used - $1 / region / month for key storage as part of handling encrypted disks
 
 ### How are VM snapshots secured?
 
