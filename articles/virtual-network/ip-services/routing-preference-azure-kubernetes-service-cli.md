@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial #Required; leave this attribute/value as-is., devx-track-azurecli 
+ms.custom: template-tutorial
 ms.devlang: azurecli
 ---
 

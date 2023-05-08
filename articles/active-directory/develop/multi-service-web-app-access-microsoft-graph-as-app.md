@@ -144,6 +144,7 @@ Run the install commands.
 
 ```dotnetcli
 dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Graph
 ```
 
 #### Package Manager Console
@@ -153,6 +154,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 Run the install commands.
 ```powershell
 Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Graph
 ```
 
 ### Example
@@ -162,9 +164,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Azure.Identity;​
-using Microsoft.Graph.Core;​​
-using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging;
+using Microsoft.Graph;
+using Azure.Identity;
 
 ...
 
@@ -178,27 +180,18 @@ public async Task OnGetAsync()
     var credential = new ChainedTokenCredential(
         new ManagedIdentityCredential(),
         new EnvironmentCredential());
-    var token = credential.GetToken(
-        new Azure.Core.TokenRequestContext(
-            new[] { "https://graph.microsoft.com/.default" }));
 
-    var accessToken = token.Token;
+    string[] scopes = new[] { "https://graph.microsoft.com/.default" };
+
     var graphServiceClient = new GraphServiceClient(
-        new DelegateAuthenticationProvider((requestMessage) =>
-        {
-            requestMessage
-            .Headers
-            .Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+        credential, scopes);
 
-            return Task.CompletedTask;
-        }));
-
-    // MSGraphUser is a DTO class being used to hold User information from the graph service client call
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {
-        var users =await graphServiceClient.Users.Request().GetAsync();
-        foreach(var u in users)
+        //var users = await graphServiceClient.Users.Request().GetAsync();
+        var users = await graphServiceClient.Users.GetAsync();
+        foreach (var u in users.Value)
         {
             MSGraphUser user = new MSGraphUser();
             user.userPrincipalName = u.UserPrincipalName;
@@ -209,7 +202,7 @@ public async Task OnGetAsync()
             msGraphUsers.Add(user);
         }
     }
-    catch(Exception ex)
+    catch (Exception ex)
     {
         string msg = ex.Message;
     }

@@ -43,7 +43,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    | Property | Value |
    | ----- | ----- |
    | **Connectivity configuration** | Choose the endpoints that devices can use to connect to your IoT hub. Accept the default setting, **Public access**, for this example. You can change this setting after the IoT hub is created. For more information, see [Managing public network access for your IoT hub](../articles/iot-hub/iot-hub-devguide-endpoints.md). |
-   | **Minimum TLS Version** | Select the minimum TLS version to be supported by your IoT hub. Once the IoT hub is created, this value can't be changed. Accept the default setting, **1.0**, for this example. |
+   | **Minimum TLS Version** | Select the minimum [TLS version](../articles/iot-hub/iot-hub-tls-support.md#tls-12-enforcement-available-in-select-regions) to be supported by your IoT hub. Once the IoT hub is created, this value can't be changed. Accept the default setting, **1.0**, for this example. |
 
    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screen capture that shows how to choose the endpoints that can connect to a new IoT hub.":::
 

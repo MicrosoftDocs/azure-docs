@@ -153,7 +153,7 @@ reactspalocal/
 
 ### Adding the sign in experience
 
-1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a popup or redirect.
+1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect.
 
    ```javascript 
    import React from "react";

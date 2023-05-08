@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Custom template document model

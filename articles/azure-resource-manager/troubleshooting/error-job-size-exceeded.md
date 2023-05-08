@@ -2,6 +2,7 @@
 title: Job size exceeded error
 description: Describes how to troubleshoot errors for job size exceeded or if the template is too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
+ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 04/05/2023
 ---
 

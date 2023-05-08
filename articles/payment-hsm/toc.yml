@@ -6,17 +6,8 @@
   - name: Payment HSM overview
     href: overview.md
 
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: CLI
-    href: quickstart-cli.md
-  - name: PowerShell
-    href: quickstart-powershell.md
-  - name: ARM template
-    href: quickstart-template.md
-
 - name: Tutorials
+  expanded: true
   items:
   - name: 1. Create a payment HSM
     items:
@@ -30,6 +21,15 @@
     href: access-payshield-manager.md
   - name: 3. Delete a commissioned payment HSM
     href: remove-payment-hsm.md
+
+- name: Quickstarts
+  items:
+  - name: CLI
+    href: quickstart-cli.md
+  - name: PowerShell
+    href: quickstart-powershell.md
+  - name: ARM template
+    href: quickstart-template.md
 
 - name: Get started
   items:
@@ -59,6 +59,8 @@
     href: solution-design.md
   - name: Fastpathenabled
     href: fastpathenabled.md
+  - name: Azure Payment HSM traffic inspection
+    href: inspect-traffic.md
 
 - name: Support
   items:
