@@ -159,7 +159,7 @@ If you have already installed Visual Studio 2022:
 
     You see the template ASP.NET Core 7.0 web app displayed in the page.
     
-    :::image type="content" source=""media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
+    :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
     
 :::zone-end
 
