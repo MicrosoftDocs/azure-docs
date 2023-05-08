@@ -28,7 +28,7 @@ Adding secure sign-in to your app and setting up a customer identity and access 
 
 | Step | Action | Description |
 |---------|---------|---------|
-|**1**     |      **Create a customer tenant**   | - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.</br>- Or, [start a free trial](https://aka.ms/ciam-free-trial). </br>Learn more in [Step 1: Create a customer tenant](#step-1-create-a-customer-tenant) later in this article. |
+|**1**     |      **Create a customer tenant**   | - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.</br>- Or, [start a free ](https://aka.ms/ciam-free-). </br>Learn more in [Step 1: Create a customer tenant](#step-1-create-a-customer-tenant) later in this article. |
 |**2**     |      **Register your application**   | - [Register your application](how-to-register-ciam-app.md) with Azure Active Directory.</br>Learn more in [Step 2: Register your application](#step-2-register-your-application) later in this article.   |
 |**3**     |    **Integrate a sign-in flow with your app**.     | - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md). </br>- [Add your application](how-to-user-flow-add-application.md) to the user flow. </br>Learn more in [Step 3: Integrate a sign-in flow with your app](#step-3-integrate-a-sign-in-flow-with-your-app) later in this article.  |
 |**4**     |    **Customize and secure your sign-in**     |  - [Customize branding](concept-branding-customers.md). </br>- [Add identity providers](concept-authentication-methods-customers.md).  </br>- [Add attributes to collect](how-to-define-custom-attributes.md) and map claims to the token. </br>- [Add multifactor authentication](concept-security-customers.md).  </br>Learn more in [Step 4: Customize and secure your sign-in](#step-4-customize-and-secure-your-sign-in) later in this article.   |
@@ -42,7 +42,7 @@ The rest of this article explains each of these steps in more detail and outline
 A customer tenant is the first resource you need to create to get started with Azure AD for customers. A customer tenant, separate from your workforce tenant, represents your customer-facing app, resources, and directory of customer accounts. You create a tenant specifically for your customer-facing apps and services, and you manage accounts and resources in the dedicated customer tenant. Register your customer-facing apps in this tenant, and manage customer identities and access in the dedicated directory, separate from your workforce tenant.
 
 > [!NOTE]
-> If you don't have an Azure AD account and want to try out Azure AD for customers, you can [start a free trial](https://aka.ms/ciam-free-trial).
+> If you don't have an Azure AD account and want to try out Azure AD for customers, you can [start a free ](https://aka.ms/ciam-free-).
 
 Following are some planning considerations for your new customer tenant:
 
@@ -54,7 +54,7 @@ Following are some planning considerations for your new customer tenant:
 **To create a customer tenant**:
 
 - You can [create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center. You can set your correct geographic location and your domain name at this step.
-- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial).
+- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-).
 
 ## Step 2: Register your application
 
@@ -123,6 +123,6 @@ Following are planning considerations for configuring company branding, language
 - **Security and governance**. Learn about [security and governance](concept-security-customers.md) features available in your customer tenant, such as Identity Protection and Identity Governance.
 
 ## Next steps
-- [Start a free trial](https://aka.ms/ciam-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
+- [Start a free ](https://aka.ms/ciam-free-) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
 - [Find samples and guidance for integrating your app](samples-ciam-all.md).
 - See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

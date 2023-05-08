@@ -21,7 +21,7 @@ This how-to guide demonstrates how to prepare your Azure Active Directory (Azure
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
