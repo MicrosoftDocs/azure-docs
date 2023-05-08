@@ -66,7 +66,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |ASC_Portal|Microsoft Defender for Cloud.|
 |ASI_Portal|Sentinel.|
 |AzureAutomation|[Azure Automation.](https://azure.microsoft.com/products/automation)|
-|AzureMonitorLogsConnector|[Azure Monitor Logs Connector.](https://learn.microsoft.com/connectors/azuremonitorlogs/)|
+|AzureMonitorLogsConnector|[Azure Monitor Logs Connector](../../connectors/connectors-azure-monitor-logs.md).|
 |csharpsdk|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
 |Draft-Monitor|[Log alert creation in the Azure Portal.](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
 |Grafana|[Grafana connector.](https://learn.microsoft.com/azure/azure-monitor/visualize/grafana-plugin)|
