@@ -1,7 +1,7 @@
 ---
-title: Collect production data from models deployed for real-time inferencing (preview)
+title: Collect production data from models deployed to a real-time endpoint
 titleSuffix: Azure Machine Learning
-description: Collect inference data from your model deployed to a real-time endpoint on Azure Machine Learning to monitor its performance in production.
+description: Collect inference data from your model deployed to a real-time endpoint on AzureML to monitor its performance in production.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,56 +13,47 @@ ms.reviewer: mopeakande
 ms.custom: template-how-to-pattern
 ---
 
-# Collect production data from models deployed for real-time inferencing (preview)
+# Collect production data from models deployed to a real-time endpoint
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+In this article, you will learn how to collect production inference data from your model deployed to an AzureML managed online endpoint or Kubernetes online endpoint. Azure Machine Learning stores the logged inference data in Azure blob storage. Data collection can be enabled for new deployments and existing deployments for online endpoints.
 
-In this article, you'll learn how to collect production inference data from a model deployed to an Azure Machine Learning managed online endpoint or Kubernetes online endpoint.
+Data collected with the provided Python SDK is automatically registered as a data asset in your AzureML workspace. This data asset can be used for model monitoring.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-Azure Machine Learning **Data collector** logs inference data in Azure blob storage. You can enable data collection for new or existing online endpoint deployments.
-
-Data collected with the provided Python SDK is automatically registered as a data asset in your Azure Machine Learning workspace. This data asset can be used for model monitoring.
-
-If you are interested in collecting production inference data for a MLFlow model deployed to a real-time endpoint, doing so can be done with a single toggle. To learn how to do this, see [Data collection for MLFlow models](#data-collection-for-mlflow-models).
-
-In this article, you'll learn to:
-
-> [!div class="checklist"]
-> * Do ...
-> * Do ...
-> * Do ...
+If you are interested in collecting production inference data for a MLFlow model deployed to a real-time endpoint, doing so can be done with a single toggle. To learn how to do this, see [Data collection for MLFlow models](how-to-collect-production-data.md)
 
 ## Prerequisites
 
-# [Azure CLI](#tab/azure-cli)
+To collect production inference data from your deployed model, you must first complete the following steps:
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* An Azure Machine Learning workspace.
+* The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
+* The Azure Machine Learning [CLI v2](how-to-configure-cli.md).
+* Register a model in AzureML to use for your deployment. You may already have a model (or models) registered. To learn how to register a model, see [this article](how-to-manage-models.md).
+* Create an AzureML online endpoint. You may already have an online endpoint (or online endpoints) created. To learn how to create an online endpoint, see [this article](how-to-deploy-online-endpoints.md).
 
-* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+Additionally, you will need to:
 
-# [Python](#tab/python)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+- Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+# [Python SDK](#tab/python)
 
-* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-
+- Install the Azure Machine Learning SDK for Python
+    
+    ```bash
+    pip install azure-ai-ml azure-identity
+    ```
 ---
 
-* Have a registered model that you can use for deployment. If you haven't already registered a model, see [Register your model as an asset in Machine Learning](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli).
-
-* Create an Azure Machine Learning online endpoint. If you don't have an existing online endpoint, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
-
-## Perform custom logging for model monitoring
+## Custom logging for model monitoring
 
 Data collection with custom logging allows you to log pandas DataFrames directly from your scoring script, before, during, and after any data transformations. With custom logging, tabular data is logged in real-time to your workspace Blob storage, where it can be seamlessly consumed by your model monitors.
 
 ### Update your scoring script (`score.py`)
 
-First, you will need to add custom logging code to your scoring script (`score.py`). You can view the PyPI page for the data collector SDK [here](https://pypi.org/project/azureml-ai-monitoring/). 
+First, you will need to add custom logging code to your scoring script (`score.py`). You can view the comprehensive PyPI page for the data collector SDK [here](https://pypi.org/project/azureml-ai-monitoring/).
 
 Open the scoring file and add the following line at the top to import the `azure-ai-monitoring` package:
 
@@ -72,8 +63,7 @@ from azure.ai.monitoring import Collector
 
 Next, in your `init()` function, declare your data collection variables (up to five data collection variables are supported):
 
-> [!NOTE]
-> If you use the names `model_inputs` and `model_outputs` for your `Collector` objects, the model monitoring system will automatically recognize the automatically registered data assets, which will provide for a more seamless model monitoring experience.
+> **Note**: If you use the names `model_inputs` and `model_outputs` for your `Collector` objects, the model monitoring system will automatically recognize the automatically registered data assets, which will provide for a more seamless model monitoring experience.
 
 ```python
 global inputs_collector, outputs_collector
@@ -81,7 +71,7 @@ inputs_collector = Collector(name='model_inputs')
 outputs_collector = Collector(name='model_outputs')
 ```
 
-By default, an exception is raised if there is a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run on logging failure. For instance, 
+By default, an exception is raised if there is a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run on logging failure. For instance, using the following `on_error` will log the error rather than an exception being thrown: 
 
 ```python
 inputs_collector = Collector(name='model_inputs', on_error=lambda e: logging.info("ex:{}".format(e)))
@@ -95,8 +85,9 @@ result = model.predict(data)
 outputs_collector.collect(result, context)
 ```
 
-> [!NOTE]
-> Currently, only pandas DataFrames can be logged with the `collect()` API. If the data is not in DataFrame format when passed to `collect()`, it will not be logged to storage and an error will be reported.
+> **Note**: Currently, only pandas DataFrames can be logged with the `collect()` API. If the data is not in DataFrame format when passed to `collect()`, it will not be logged to storage and an error will be reported.
+
+Here is an example of a full scoring script (`score.py`) utilizing the custom logging Python SDK:
 
 ```python
 import pandas as pd
@@ -139,16 +130,229 @@ def predict(input_df):
   return output_df
 ```
 
-### Update your dependencies 
+### Update your dependencies
 
+Before creating your deployment with the updated scoring script, create your environment with base image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04` and the appropriate conda dependencies, then build the environment:
 
-### Update your deployment yaml 
+```yml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy=1.23.5
+  - pandas=1.5.2
+  - pip=22.3.1
+  - pip:
+      - azureml-defaults==1.38.0
+      - requests==2.28.1
+      - azureml-ai-monitoring~=0.1.0b1
+      - azureml-inference-server-http
+name: model-env
+```
 
-## Log payload
+### Update your deployment yaml
 
+Next, we will create the deployment YAML. Include the `data_collector` attribute and enable collection for `model_inputs` and `model_outputs`, which are the names we gave our `Collector` objects earlier via. the custom logging Python SDK:
 
-## Collect data for MLFlow models
+```yml
+data_collector:
+  collections:
+    model_inputs:
+      enabled: 'True'
+    model_outputs:
+      enabled: 'True'
+```
 
-If you are deploying a MLFlow model to an Azure Machine Learning online endpoint, enabling production inference data collection can be done with single toggle if you are deploying from the StudioUI. 
+Here is an example of a comprehensive deployment YAML for a managed online endpoints deployment. Please update the deployment YAML according to your scenario.
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: blue
+endpoint_name: my_endpoint
+model: azureml:iris_mlflow_model@latest
+environment:
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+  conda_file: model/conda.yaml
+code_configuration:
+  code: scripts
+  scoring_script: score.py
+instance_type: Standard_F2s_v2
+instance_count: 1
+data_collector:
+  collections:
+    model_inputs:
+      enabled: 'True'
+    model_outputs:
+      enabled: 'True'
+```
+
+Optionally, you can adjust the following additional parameters for your `data_collector`:
+
+- `data_collector.rolling_rate`: The rate to partition the data in storage. Value can be: Minute, Hour, Day, Month, Year
+- `data_collector.sampling_rate`: The percentage, represented as a decimal rate, of data to collect. For instance, a value of 1.0 represents collecting 100% of data.
+- `data_collector.collections.<collection_name>.data.name`: 
+- `data_collector.collections.<collection_name>.data.path`: The full Azure Machine Learning datastore path where the collected data should be registered as a data asset.
+- `data_collector.collections.<collection_name>.data.version`: The version of the data asset to be registered with the collected data in Blob storage.
+-
+Deploy the model with custom logging enabled:
+
+```bash
+$ az ml online-deployment create -f deployment.YAML
+```
+
+For more information on how to format your deployment YAML for data collection (along with default values) with kubernetes online endpoints, see [here](reference-yaml-deployment-kubernetes-online.md). For more information on how to format your deployment YAML for data collection with managed online endpoints, see [here](reference-yaml-deployment-managed-online.md).
+
+### Blob storage output/format
+
+By default, the collected data will be stored at the following path in your workspace Blob storage: `azureml://datastores/workspaceblobstore/paths/modelDataCollector`. The final path in Blob will be appended with `{endpoint_name}/{deployment_name}/{collection_name}/{yyyy}/{MM}/{dd}/{HH}/{instance_id}.jsonl`. Each line in the file is a JSON object representing a single inference request/response that was logged.
+
+**Note**: `collection_name` refers to the MDC data collection name (e.g., "model_inputs" or "model_outputs"). `instance_id` is a unique id identifying the grouping of data which was logged.
+
+The collected data will follow the schema shown below. The collected data is available from the `data` key and additional metadata is provided.
+
+**Note**: Line-breaks are shown only for readability. In your collected .jsonl files, there won't be any line breaks.
+
+```json
+{"specversion":"1.0",
+"id":"725aa8af-0834-415c-aaf5-c76d0c08f694",
+"source":"/subscriptions/636d700c-4412-48fa-84be-452ac03d34a1/resourceGroups/mire2etesting/providers/Microsoft.MachineLearningServices/workspaces/mirmasterws/onlineEndpoints/localdev-endpoint/deployments/localdev",
+"type":"azureml.inference.inputs",
+"datacontenttype":"application/json",
+"time":"2022-12-01T08:51:30Z",
+"data":[{"label":"DRUG","pattern":"aspirin"},{"label":"DRUG","pattern":"trazodone"},{"label":"DRUG","pattern":"citalopram"}],
+"correlationid":"3711655d-b04c-4aa2-a6c4-6a90cbfcb73f","xrequestid":"3711655d-b04c-4aa2-a6c4-6a90cbfcb73f",
+"modelversion":"default",
+"collectdatatype":"pandas.core.frame.DataFrame",
+"agent":"monitoring-sdk/0.1.2",
+"contentrange":"bytes 0-116/117"}
+```
+
+#### Large payloads
+
+If the payload of your data is greater than 256kb, there will be an event in the `{instance_id}.jsonl` file contained within the `{endpoint_name}/{deployment_name}/request/.../{instance_id}.jsonl` path which points to a raw file path, which should have the following path: `blob_url/{blob_container}/{blob_path}/{endpoint_name}/{deployment_name}/{rolled_time}/{instance_id}.jsonl`. The collected data will exist at this path.
+
+#### Binary data
+
+With collected binary data, we show the raw file directly, with `instance_id` as the file name. Binary data is placed in the same folder as the request source group path, based on the `rolling_rate`. The following example reflects the path in the data field. Format is json; line breaks are only shown only for readability:
+
+```json
+{
+"specversion":"1.0",
+"id":"ba993308-f630-4fe2-833f-481b2e4d169a",
+"source":"/subscriptions//resourceGroups//providers/Microsoft.MachineLearningServices/workspaces/ws/onlineEndpoints/ep/deployments/dp",
+"type":"azureml.inference.request",
+"datacontenttype":"text/plain",
+"time":"2022-02-28T08:41:07Z",
+"data":"https://masterws0373607518.blob.core.windows.net/modeldata/mdc/%5Byear%5D%5Bmonth%5D%5Bday%5D-%5Bhour%5D_%5Bminute%5D/ba993308-f630-4fe2-833f-481b2e4d169a",
+"path":"/score?size=1",
+"method":"POST",
+"contentrange":"bytes 0-80770/80771",
+"datainblob":"true"
+}
+```
+
+#### Viewing the data in the StudioUI
+
+To view the collected data in Blob storage from the StudioUI, start by navigating to the **Data** tab in your AzureML workspace:
+
+:::image type="content" source="./media/how-to-collect-production-data/datastores.png" alt-text="Screenshot highlights Data page in AzureML workspace":::
+
+Then, navigate to **Datastores** and select on your **workspaceblobstore (Default)**:
+
+:::image type="content" source="./media/how-to-collect-production-data/workspaceblobstore.png" alt-text="Screenshot highlights Datastores page in AzureML workspace":::
+
+Lastly, utilize the **Browse** menu to view the collected production data: 
+
+:::image type="content" source="./media/how-to-collect-production-data/dataview.png" alt-text="Screenshot highlights tree structure of data in Datastore":::
+
+## Payload logging
+
+In addition to custom logging with the provided Python SDK, you can collect request and response HTTP payload data directly without the need to augment your scoring script (`score.py`). To enable payload logging, in your deployment YAML, use the names `request` and `response`:
+
+```yml
+$schema: http://azureml/sdk-2-0/OnlineDeployment.json
+
+endpoint_name: my_endpoint 
+name: blue 
+model: azureml:my-model-m1:1 
+environment: azureml:env-m1:1 
+data_collector:
+   collections:
+       request:
+           enabled: 'True'
+       response:
+           enabled: 'True'
+```
+
+Deploy the model with payload logging enabled:
+
+```bash
+$ az ml online-deployment create -f deployment.YAML
+```
+
+**Note**: With payload logging, the collected data is not guaranteed to be in tabular format. Because of this, if you want to use collected payload data with model monitoring, you will be required to provide a pre-processing component to make the data tabular. If you are interested in a seamless model monitoring experience, we recommend using the [custom logging Python SDK](#custom-logging-for-model-monitoring).
+
+As your deployment is utilized, the collected data will flow to your workspace Blob storage. Here is an example of a HTTP request collected JSON:
+
+```json
+{"specversion":"1.0",
+"id":"19790b87-a63c-4295-9a67-febb2d8fbce0",
+"source":"/subscriptions/d511f82f-71ba-49a4-8233-d7be8a3650f4/resourceGroups/mire2etesting/providers/Microsoft.MachineLearningServices/workspaces/mirmasterenvws/onlineEndpoints/localdev-endpoint/deployments/localdev",
+"type":"azureml.inference.request",
+"datacontenttype":"application/json",
+"time":"2022-05-25T08:59:48Z",
+"data":{"data": [  [1,2,3,4,5,6,7,8,9,10], [10,9,8,7,6,5,4,3,2,1]]},
+"path":"/score",
+"method":"POST",
+"contentrange":"bytes 0-59/*",
+"correlationid":"f6e806c9-1a9a-446b-baa2-901373162105","xrequestid":"f6e806c9-1a9a-446b-baa2-901373162105"}
+```
+
+Here is an example of a HTTP response collected JSON:
+
+```json
+{"specversion":"1.0",
+"id":"bbd80e51-8855-455f-a719-970023f41e7d",
+"source":"/subscriptions/d511f82f-71ba-49a4-8233-d7be8a3650f4/resourceGroups/mire2etesting/providers/Microsoft.MachineLearningServices/workspaces/mirmasterenvws/onlineEndpoints/localdev-endpoint/deployments/localdev",
+"type":"azureml.inference.response",
+"datacontenttype":"application/json",
+"time":"2022-05-25T08:59:48Z",
+"data":[11055.977245525679, 4503.079536107787],
+"contentrange":"bytes 0-38/39",
+"correlationid":"f6e806c9-1a9a-446b-baa2-901373162105","xrequestid":"f6e806c9-1a9a-446b-baa2-901373162105"}
+```
+
+## Data collection for MLFlow models
+
+If you are deploying a MLFlow model to an AzureML online endpoint, enabling production inference data collection can be done with single toggle from the StudioUI. If data collection is toggled, we will auto-instrument your scoring script with custom logging code to ensure that the production data is logged to your workspace Blob storage. The data can then be used by your model monitors to monitor the performance of your MLFlow model in production.
+
+To enable production data collection, while you are deploying your model, under the **Deployment** tab, select **Enabled** for **Data collection (preview)**:
+
+:::image type="content" source="./media/how-to-collect-production-data/mlflow-ncd.png" alt-text="Screenshot highlights Data collector enabled in the deployment set-up in the StudioUI.":::
+
+After enabling data collection, production inference data will be logged to your AzureML workspace blob storage and two data assets will be created with names `<endpoint_name>-<deployment_name>-model_inputs` and `<endpoint_name>-<deployment_name>-model_outputs`. These data assets will be updated in real-time as your deployment is utilized in production, and can be used by your model monitors to monitor the performance of your model in production.
+
+## Data collection debugging
+
+You can view the container logs for the data collector from the CLI with the following command:
+
+```bash
+$ az ml online-deployment get-logs --endpoint-name my_endpoint --name blue --container model-data-collector
+```
+
+These logs will be output as plain text. They come from the user container, with the format of the logs determined by the base image that the client uses. Logs will be onboarded to customers log table under the name “DataCollectionLogs”. For Blob, it will read data from the storage account using sdk/code/ui/etc (whatever the storage account supports).
+
+Example of logs in plaintext:
+
+```Bash
+Apr  14 05:03:05  INFO  using user assigned identity ,"UAI":"92548dd6-4ff8-424c-80e4-c881fdd695d5"
+Apr  14 04:57:58  ERROR Unable to connect to eventhub: adal: Refresh request failed. Status Code = '500'. Response body: getting MSI Token faild, http status code: 400  , resource: https:\/\/eventhubs.azure.net\/  , clinet_id: 92548dd6-4ff8-424c-80e4-c881fdd695d5  , response body: {\"error\":\"invalid_request\",\"error_description\":\"Identity not found\"} Endpoint http:\/\/10.0.0.4:8911\/v1\/token\/msi\/imds?api-version=2017-09-01&clientid=92548dd6-4ff8-424c-80e4-c881fdd695d5&resource=https%3A%2F%2Feventhubs.azure.net%2F
+```
 
 ## Next steps
+
+To learn how to monitor the performance of your models with the collected production inference data, see the following articles below:
+
+- [Model monitoring with AzureML](concept-model-monitoring.md)
+- [How to monitor your models](how-to-monitor-model-performance.md)
+- [What are Azure Machine Learning endpoints?](concept-endpoints.md)
