@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-The DataChannel feature API enables real-time messaging during audio and video calls. With this DataChannel feature API, you can now easily integrate chat and data exchange functionalities into the applications, providing a semaless communication experience for users.
+The DataChannel feature API enables real-time messaging during audio and video calls. With this DataChannel feature API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users.
 
 Here are the key features:
 
@@ -33,7 +33,7 @@ For more details and a deeper understanding of the feature, please refer to the 
 In this example, we will demonstrate how to create a chat application that enables sending and receiving text messages among participants in a group call.
 
 ### Create a DataChannelSender object
-First you need to create a DataChannelSender object to send messages. In this chat application, we suggest to assign a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 10000 for chat messages and 10001 for image transfers.
+First you need to create a DataChannelSender object to send messages. In this chat application, we suggest to assign a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 10000 for chat messages..
 
 ```js
 const dataChannel = call.feature(Features.DataChannel);
@@ -83,10 +83,10 @@ dataChannel.on('dataChannelReceiverCreated', receiver => {
 ### Set participants
 
 To specify the recipients for your messages, you can use `DataChannelSender.setParticipants` API. The sender object will maintain the most recent participant list you provide.
-The participant type is `CommunicationIdentifier`, which you can obtain from `remoteParticipant.identifier`. For more information, please refer to https://learn.microsoft.com/en-us/azure/communication-services/how-tos/calling-sdk/manage-calls?pivots=platform-web#access-remote-participant-properties.
+The participant type is `CommunicationIdentifier`, which you can obtain from `remoteParticipant.identifier`. For more information, please refer to [Access remote participant properties](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/calling-sdk/manage-calls?pivots=platform-web#access-remote-participant-properties).
 
 ```js
-const user = call.remoteParticipants[0]; // assume the user wants to send a message to one of the remoteParticipants
+const user = call.remoteParticipants[0]; // assume the user wants to send a message to the first participant in the remoteParticipants list
 messageSender.setParticipants([user.identifier]);
 ```
 Please note that the participant list is limited to 64 participants. If the participant list is an empty array, the SDK will broadcast the message to all participants in the call.
