@@ -31,10 +31,10 @@ Queries that specify either the **TenantId**, or both **TenantId** and **UserId*
 
 ## Guidance on choosing hierarchical partition keys
 
-When choosing your hierarchical partition keys, it is important to keep the following general partitioning concepts in mind depending on your workload:
-For all containers, your partition keys should:
+Hierarchical partition keys are highly recommended to users that may have multi-tenant applications. This is because hierarchical partitions allows users to scale beyond the logical partition key limit of 20 GB. If your current partition key or a single partition key is frequently hitting 20 GB, hierarchical partitions are a great choice for your workload. When choosing your hierarchical partition keys, it is important to keep the following general partitioning concepts in mind depending on your workload:
+For all containers, the full path of your hierarchical partition key should:
 
--	Have a high cardinality. In other words, the property should have a wide range of possible values.
+-	Have a high cardinality. In other words, the full path of the hierarchical partition should have a wide range of possible values.
 -	Spread request unit (RU) consumption and data storage evenly across all logical partitions. This spread ensures even RU consumption and storage distribution across your physical partitions.
 
 For large read-heavy workloads, we recommend choosing hierarchical partition keys that appear frequently in your queries. For example, a workload that frequently runs queries to filter out specific user sessions in a multi-tenant application can benefit from hierarchical partition keys of TenantId, UserId, and SessionId in that order. Queries can be efficiently routed to only the relevant physical partitions by including the partition key in the filter predicate. For more guidance on partition keys for read-heavy workloads, visit the [relevant section in our partition documentation.](partitioning-overview.md).
