@@ -60,4 +60,6 @@ For more information about Azure Load Balancer inbound NAT rules, see:
 
 * [Tutorial: Migrate from Inbound NAT Pools to NAT Rules](load-balancer-nat-pool-migration.md) 
 
+* [Tutorial: Migrate from Inbound NAT Pools to NAT Rules](load-balancer-nat-pool-migration.md) 
+
 
