@@ -156,7 +156,9 @@ public async Task<IActionResult> Profile()
 >
 > Most Azure web APIs provide an SDK that simplifies calling the API as is the case for Microsoft Graph.
 
-# [ASP.NET](tab/aspnet)
+
+# [ASP.NET](#tab/aspnet)
+
 
 When you use *Microsoft.Identity.Web*, you have three usage options for calling an API:
 

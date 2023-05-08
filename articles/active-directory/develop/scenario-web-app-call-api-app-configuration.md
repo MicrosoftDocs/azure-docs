@@ -257,7 +257,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
 1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
-   ```csharp
+  ```csharp
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Identity.Client;
   using Microsoft.Identity.Web;
@@ -295,7 +295,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
           }
       }
   }
-   ```
+  ```
 
 ### Option 2: Call a downstream web API other than Microsoft Graph
 
