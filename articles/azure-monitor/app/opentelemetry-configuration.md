@@ -430,8 +430,12 @@ The following OpenTelemetry configurations can be accessed through environment v
 
 ### [.NET](#tab/net)
 
-- `APPLICATIONINSIGHTS_CONNECTION_STRING`. Set this to the connection string for your Application Insights resource.
-- `APPLICATIONINSIGHTS_STATSBEAT_DISABLED`. Set this to `true` to opt-out of internal telemetry.
+| Environment variable       | Description                                        |
+| -------------------------- | -------------------------------------------------- |
+| `APPLICATIONINSIGHTS_CONNECTION_STRING` | Set this to the connection string for your Application Insights resource. |
+| `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` | Set this to `true` to opt-out of internal telemetry. |
+| `OTEL_RESOURCE_ATTRIBUTES` | Key-value pairs to be used as resource attributes. See the [Resource SDK specification](https://github.com/open-telemetry/opentelemetry-specification/blob/v1.5.0/specification/resource/sdk.md#specifying-resource-information-via-an-environment-variable) for more details. |
+| `OTEL_SERVICE_NAME`        | Sets the value of the `service.name` resource attribute. If `service.name` is also provided in `OTEL_RESOURCE_ATTRIBUTES`, then `OTEL_SERVICE_NAME` takes precedence. |
 
 ### [Java](#tab/java)
 
