@@ -311,25 +311,29 @@ Use Azure PowerShell to restore a deleted container or database (including child
     > [!NOTE]
     > Listing all the restorable database deletion events allows you allows you to choose the right container in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
 
-1. Trigger a restore operation for a deleted database.
+1. Trigger a restore operation for a deleted database with `Restore-AzCosmosDBSqlDatabase`.
 
     ```azurepowershell
-    Restore-AzCosmosDBSqlDatabase  `
-    -AccountName "my-pitr-sql-account" `
-    -ResourceGroupName "my-rg" `
-    -Name "my-database"  `
-    -RestoreTimestampInUtc "2022-08-25T07:16:20Z"  
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        Name = "<database-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBSqlDatabase @parameters
     ```
 
-1. Trigger a restore operation for a deleted container.
+1. Trigger a restore operation for a deleted container with `Restore-AzCosmosDBSqlContainer`.
 
     ```azurepowershell
-    Restore-AzCosmosDBSqlContainer ` 
-    -AccountName "my-pitr-sql-account" `
-    -ResourceGroupName "my-rg"  `
-    -DatabaseName "my-database" `
-    -Name "my-container"  `
-    -RestoreTimestampInUtc "2022-08-25T07:16:20Z"  
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        DatabaseName = "<database-name>"
+        Name = "<container-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBSqlContainer @parameters 
     ```
 
 :::zone-end
@@ -357,25 +361,29 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosDBMongoDBRestorableCollection @parameters      
     ```
 
-1. Trigger a restore operation for a deleted database.
+1. Trigger a restore operation for a deleted database with `Restore-AzCosmosDBMongoDBDatabase`.
 
     ```azurepowershell
-    Restore-AzCosmosDBMongoDBDatabase  `
-    -AccountName "my-pitr-mongodb-account" `
-    -ResourceGroupName "my-rg"  `
-    -Name "my-database"  `
-    -RestoreTimestampInUtc "2022-08-25T07:16:20Z"  
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        Name = "<database-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBMongoDBDatabase @parameters 
     ```
 
-1. Trigger a restore operation for a deleted collection.
+1. Trigger a restore operation for a deleted collection with `Restore-AzCosmosDBMongoDBCollection`.
 
     ```azurepowershell
-    Restore-AzCosmosDBMongoDBContainer   `
-    -AccountName "my-pitr-mongodb-account" `
-    -ResourceGroupName "my-rg"  `
-    -DatabaseName "my-database" `
-    -Name "my-collection"  `
-    -RestoreTimestampInUtc "2022-08-25T07:16:20Z"   
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        DatabaseName = "<database-name>"
+        Name = "<collection-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBMongoDBCollection @parameters   
     ```
 
 :::zone-end
@@ -403,25 +411,29 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbGremlinRestorableGraph @parameters      
     ```
 
-1. Trigger a restore operation for a deleted database.
+1. Trigger a restore operation for a deleted database with `Restore-AzCosmosDBGremlinDatabase`.
 
     ```azurepowershell
-    Restore-AzCosmosDBGremlinDatabase    `
-    -AccountName "my-pitr-gremlin-account" `
-    -ResourceGroupName "my-rg"  `
-    -Name "my-database"  `
-    -RestoreTimestampInUtc "2023-08-25T07:16:20Z"  
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        Name = "<database-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBGremlinDatabase @parameters
     ```
 
-1. Trigger a restore operation for a deleted graph.
+1. Trigger a restore operation for a deleted graph with `Restore-AzCosmosDBGremlinGraph`.
 
     ```azurepowershell
-    Restore-AzCosmosDBGremlinGraph    `
-    -AccountName "my-pitr-gremlin-account" `
-    -ResourceGroupName "my-rg"  `
-    -DatabaseName "my-database" `
-    -Name "my-graph"  `
-    -RestoreTimestampInUtc "2022-08-25T07:16:20Z"   
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        DatabaseName = "<database-name>"
+        Name = "<graph-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBGremlinGraph @parameters 
     ```
 
 :::zone-end
@@ -438,14 +450,16 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbTableRestorableTable @parameters
     ```
 
-1. Trigger a restore operation for a deleted table.
+1. Trigger a restore operation for a deleted table with `Restore-AzCosmosDBTable`.
 
     ```azurepowershell
-    Restore-AzCosmosDBTable    `
-    -AccountName "my-pitr-Table-account" `
-    -ResourceGroupName "my-rg"  `
-    -Name "my-table"  `
-    -RestoreTimestampInUtc "2023-08-25T07:16:20Z"  
+    $parameters = @{
+        ResourceGroupName = "<resource-group-name>"
+        AccountName = "<account-name>"
+        Name = "<table-name>"
+        RestoreTimestampInUtc = "<timestamp>"
+    }
+    Restore-AzCosmosDBTable @parameters
     ```
 
 :::zone-end
