@@ -3,7 +3,7 @@ title: Train and evaluate a regression model for detecting anomalies in Azure Mo
 description: This tutorial shows how to use Jupyter Notebook to explore data and fit a custom machine learning algorithm to detect anomalies in Azure Monitor Logs. 
 ms.service: azure-monitor
 ms.topic: tutorial 
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.date: 02/28/2023
@@ -15,9 +15,9 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. 
 
-By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, [without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
+Integrating Jupyter Notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
-In this tutorial, you integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline on data in Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
+In this tutorial, we integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
 > [!NOTE]
 > Azure Monitor Logs also provides [built-in KQL machine learning analysis capabilities](../logs/bring-your-own-machine-learning.md#machine-learning-in-azure-monitor-logs).  
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 >- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
-- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which you can be overcome to a certain degree by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb). 
+- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which you can overcome to a certain degree by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb). 
 - Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). 
 
 ## Prerequisites 
