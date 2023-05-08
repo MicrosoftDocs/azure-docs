@@ -60,7 +60,6 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 <!--Datasheet Links-->
 <!--Marketplace Links -->
 [credativ_marketplace]:https://azuremarketplace.microsoft.com/de-de/marketplace/apps?search=credativ&page=1
-[newt_marketplace]:
 
 <!--Press links-->
 
