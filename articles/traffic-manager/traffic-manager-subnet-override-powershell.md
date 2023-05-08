@@ -28,7 +28,7 @@ There are two types of routing profiles that support subnet overrides:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- For this guide you will need an App Service and a Traffic Manager profile. To learn more see, [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
+- For this guide you will need an App Service and a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -70,13 +70,13 @@ To create a Traffic Manager subnet override, you can use Azure PowerShell to add
 
 ### Update Endpoint 
 
-    Once the ranges are added, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
+Once the ranges are added, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
-    ```powershell
+```powershell
 
-    Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
-    ```
+```
 
 ### Remove IP address range from Endpoint
 
@@ -109,13 +109,12 @@ To create a Traffic Manager subnet override, you can use Azure PowerShell to add
 
 ### Update Endpoint
 
-     Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
+Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
-    ```powershell
+```powershell
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
-    Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
-
-    ```
+```
 
 
 ## Next steps
