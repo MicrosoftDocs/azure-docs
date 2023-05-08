@@ -66,8 +66,8 @@ In the following example, the `GraphBeta` section specifies these settings.
 }
 ```
 > [!NOTE]
-> You can propose a collection of client credentials, including credential-less solution like workload identity federation for Azure Kubernetes. 
-> Previous versions of Microsoft.Identity.Web used to express the client secret in a single property "ClientSecret" instead of "ClientCredentials". This is still supported for backwards compatibility but you cannot use both the "ClientSecret" property, and the "ClientCredentials" collection.
+> You can propose a collection of client credentials, including a credential-less solution like workload identity federation for Azure Kubernetes. 
+> Previous versions of Microsoft.Identity.Web expressed the client secret in a single property "ClientSecret" instead of "ClientCredentials". This is still supported for backwards compatibility but you cannot use both the "ClientSecret" property, and the "ClientCredentials" collection.
 
 Instead of a client secret, you can provide a client certificate. The following code snippet shows using a certificate stored in Azure Key Vault.
 
@@ -299,7 +299,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
 
 ### Option 2: Call a downstream web API other than Microsoft Graph
 
-To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides `.AddDownstreamWebApi()`, which requests tokens and calls the downstream web API.
+To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides `.AddDownstreamApi()`, which requests tokens and calls the downstream web API.
 
    ```csharp
   using Microsoft.Extensions.DependencyInjection;
