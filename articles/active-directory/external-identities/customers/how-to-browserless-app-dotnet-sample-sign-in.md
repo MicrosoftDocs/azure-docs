@@ -115,4 +115,4 @@ Console.WriteLine($"You signed in as {result.Account.Username}");
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Build your own ASP.NET browserless app and sign in users >](how-to-browserless-app-dotnet-sign-in-prepare-tenant.md)
+> [Build your own ASP.NET browserless app and sign in users >](how-to-browserless-app-dotnet-sign-in-overview.md)
