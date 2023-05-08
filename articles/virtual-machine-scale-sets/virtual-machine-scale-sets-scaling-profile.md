@@ -21,15 +21,15 @@ Virtual machine scale sets allow you to define a scaling profile or template whi
 
 When you increase the capacity or instance count of the scale set, the scale set will add new virtual machines to the set based on the configuration defined in the profile. Scale sets with a scaling profile are also eligible for orchestrations such as reimaging, rolling upgrades, instance repair, automatic OS updates.
 
-> [!NOTE] 
+> [!IMPORTANT] 
 > Virtual machine scaling profile settings are required for scale sets in Uniform Orchestration Mode, and optional for scale sets in Flexible Orchestration Mode.
 
 ## Create a scale set with a scaling profile
-By default, scale sets are created with a virtual machine scaling profile. See quickstart and tutorials for examples.
+By default, scale sets are created with a virtual machine scaling profile. See [quickstart](quick-create-portal.md) and [tutorials](tutorial-create-and-manage-cli.md) for examples.
 
 ## Create a scale set without a scaling profile
 
-Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. Scale sets without a scaling profile is useful in cases where you need complete control over all VM properties, need to follow your own VM naming conventions, you want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
+Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. It is useful to create a scale set without a scaling profile when you need complete control over all VM properties, need to follow your own VM naming conventions, you want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
 
 |Feature |Virtual machine scale sets (no scaling profile) |Availablity Sets |
 | -------- | :--------: | :--------: |
@@ -37,7 +37,7 @@ Virtual machine scale sets in Flexible Orchestration Mode can optionally be crea
 |Supports Availability Zones|Yes|No|
 |Maximum Aligned Fault Domains Count|3|3|
 |Add new VM to set |Yes|Yes|
-|Add Vm to specific fault domain|Yes|No|
+|Add VM to specific fault domain|Yes|No|
 |Maximum Update Domain count|N/A. Update domains are deprecated|20|
 
 Once you have created the virtual machine scale set, you can manually attach virtual machines.
@@ -72,3 +72,8 @@ $vmss = New-AzVmss `
 
 > [!NOTE]
 > You cannot create a virtual machine scale set without a scaling profile in the Azure portal
+
+## Next steps
+You can [create a new virtual machine scale set with a scaling profile with the Azure portal](quick-create-portal.md).
+
+If you have created a virtual machine scale set without a scaling profile, you can [manually attach a virtual machine](virtual-machine-scale-sets-attach-detach-vm.md).

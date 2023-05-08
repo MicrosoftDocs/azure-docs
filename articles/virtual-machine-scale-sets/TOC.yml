@@ -88,7 +88,7 @@
     href: virtual-machine-scale-sets-instance-protection.md
   - name: Working with large uniform scale sets
     href: virtual-machine-scale-sets-placement-groups.md
-  - name: Attach VM to a scale set
+  - name: Attach VMs to a scale set
     href: virtual-machine-scale-sets-attach-detach-vm.md
 - name: Availability
   items: 

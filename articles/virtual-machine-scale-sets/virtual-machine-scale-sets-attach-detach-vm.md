@@ -11,20 +11,25 @@ ms.reviewer: jushiman
 
 # Attach VM to a scale set
 
-You can attach a standalone virtual machine to a scale set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over how instances naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify operating system, VM size, networking configuration, on-demand or Spot priority, etc.
+You can attach a standalone virtual machine to a scale set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify paramaters like operating system, networking configuration, on-demand or Spot priority, and VM size.
 
 > [!IMPORTANT]
 > You can only attach VMs to a scale set in **Flexible orchestration mode**.  Learn more about [Orchestration modes](./virtual-machine-scale-sets-orchestration-modes.md).
 
 ## Attach a new VM to a scale set
 
-Attach a virtual machine to a virtual machine scale set at the time of VM creation by specifying the virtualMachineScaleSet property.
+Attach a virtual machine to a virtual machine scale set at the time of VM creation by specifying the `virtualMachineScaleSet` property. 
+
+> [!NOTE]
+> Attaching a virtual machine to virtual machine scale set does not by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
+
 
 ### Azure portal
 
-1. Start the Create Virtual Machine wizard.
-1. On the **Basics** tab, open the **Availability options** dropdown and select **Virtual machine scale set**
-1. On the **Virtual machine scale set** dropdown, select the scale set to which you want to add this virtual machine.
+1. Go to **Virtual Machines**.
+1. Select **+Create** > **Azure virtual machine**.
+1. In the **Basics** tab, open the **Availability options** dropdown and select **Virtual machine scale set**.
+1. In the **Virtual machine scale set** dropdown, select the scale set to which you want to add this virtual machine.
 1. Optionally, specify the Availability zone or Fault domain to place the VM.
 
 ### Azure CLI
@@ -56,9 +61,8 @@ New-AzVm `
 ### Limits to attaching to a virtual machine scale set
 
 - The VM must be in the same resource group as the scale set.
-- If the scale set is regional (no availability zones specified), the virtual machine must also be regional. If the scale set is zonal or spans multiple zones (one or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you can't create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
+- If the scale set is regional (no availability zones specified), the virtual machine must also be regional. 
+- If the scale set is zonal or spans multiple zones (one or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you can't create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
 - The scale set must be in Flexible orchestration mode, and the singlePlacementGroup property must be false.
-- You must attach the VM at the time of VM creation. You can't attach an existing VM to a scale set
+- You must attach the VM at the time of VM creation. You can't attach an existing VM to a scale set.
 - You can't detach a VM from a scale set.
-
-
