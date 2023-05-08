@@ -98,7 +98,7 @@ additionalContent:
         - title: Customize the sign-in look and feel
           summary: Learn about how to personalize the end-user experience.
           url: /azure/active-directory/external-identities/customers/concept-branding-customers      
-    - title: Configure code samples for any application in the customer tenant 
+    - title: Code samples for any application in the customer tenant 
       items:
         # Card
         - title: Single-page app(SPA)
@@ -108,9 +108,13 @@ additionalContent:
         - title: Web app
           summary: A "classic" web app that runs on a server.
           url: how-to-web-app-node-sample-sign-in.md
+        # Card
+        - title: Web API
+          summary: Web API that is called from a web app or from a web client.
+          url: how-to-protect-web-api-dotnet-core-overview          
           # Card
         - title: Headless app
-          summary: a web app without a user interface.
+          summary: A web app without a user interface.
           url: ../../develop/console-app-quickstart.md  
         # Card
         - title: Desktop app
