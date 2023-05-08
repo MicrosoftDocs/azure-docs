@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/07/2023
+ms.date: 05/08/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,7 +20,23 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
+- [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
+
+### Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud
+
+We revised the JIT (Just-In-Time) rules to align with the Microsoft Defender for Cloud brand. We changed the naming conventions for Azure Firewall and NSG (Network Security Group) rules. 
+
+The changes are listed as follows:
+
+| Description | Old Name |New Name  |
+|---|---|---|
+| JIT rule names (allow and deny) in NSG (Network Security Group) | SecurityCenter-JITRule | MicrosoftDefenderForCloud-JITRule
+| JIT rule descriptions in NSG | ASC JIT Network Access rule | MDC JIT Network Access rule |
+|JIT firewall rule collection names | ASC-JIT | MDC-JIT |
+|JIT firewall rules names | ASC-JIT | MDC-JIT
+
+Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
 
 ### Two Defender for DevOps recommendations now include Azure DevOps scan findings
 
