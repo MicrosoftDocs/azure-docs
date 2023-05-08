@@ -59,10 +59,26 @@ While the OT network sensor automatically learns the subnets in your network, we
     |**Clear all**     |  Clear all currently defined subnets.      |
     |**Auto subnet learning**     |  Selected by default. Clear this option to define your subnets manually instead of having them automatically detected by your OT sensor as new devices are detected.     |
     |**Resolve all Internet traffic as internal/private**     | Select to consider all public IP addresses as private, local addresses. If selected, public IP addresses are treated as local addresses, and alerts aren't sent about unauthorized internet activity.  <br><br>This option reduces notifications and alerts received about external addresses.      |
-    |**ICS subnet**     |   Read-only. ICS/OT subnets are marked automatically when the system recognizes OT activity or protocols.  |
+    |**ICS subnet**     |   Read-only. ICS/OT subnets are marked automatically when the system recognizes OT activity or protocols. If there is an OT subnet not being recognized, you can [Manually define a subnet as ICS](#manually-define-a-subnet-as-ics).  |
     |**Segregated**     |   Select to show this subnet separately when displaying the device map according to Purdue level.  |
 
 1. When you're done, select **Save** to save your updates.
+
+### Manually define a subnet as ICS
+
+If you have a subnet that is not being detected automatically as an ICS subnet by the sensor, you can manually change the device type of any of the devices in that subnet to an ICS device type, and then the entire subnet will be detected and marked by the sensor as an ICS subnet.
+
+**To manually change the device type to update the subnet**:
+
+1. In the sensor console, go to **Device inventory**.
+
+1. In the grid, select a device from the relevant subnet, and then select **Edit** in the tool bar at the top of the page.
+
+1. In the **Type** field, select a device type from the dropdown list that is listed under **ICS** or **IoT**.
+
+The subnet will now be marked as an ICS subnet in the sensor.  
+
+For more information on editing device details, see [Edit device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details).
 
 ## Customize port and VLAN names
 
