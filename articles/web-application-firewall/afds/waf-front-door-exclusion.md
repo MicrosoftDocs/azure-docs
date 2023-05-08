@@ -1,6 +1,6 @@
 ---
 title: Web application firewall exclusion lists in Azure Front Door
-description: This article provides information on exclusion lists configuration in Azure Front Door.
+description: This article provides information on exclusion list configuration in Azure Front Door.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 Sometimes the Front Door Web Application Firewall (WAF) might block a legitimate request. As part of tuning your WAF, you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
-For example, Azure Active Directory provides tokens that are used for authentication. When used in a request header, these tokens can contain special characters that might trigger a false positive detection by one or more WAF rules. You can add the header to an exclusion list, which tells the WAF to ignore the header. The WAF still inspects the rest of the request for suspicious content.
+For example, Azure Active Directory provides tokens that are used for authentication. When used in a request header, these tokens can contain special characters that might trigger a false positive detection by one or more WAF rules. You can add the header to an exclusion list, which tells the WAF to ignore the header. The WAF still inspects the rest of the requests for suspicious content.
 
 ## Exclusion scopes
 
@@ -53,11 +53,11 @@ You can specify an exact request header, body, cookie, or query string attribute
 
 ### Case sensitivity
 
-Header and cookie names are case insensitive. Query strings, POST arguments, and JSON arguments are case sensitive.
+Header and cookie names are case insensitive. Query strings, POST arguments, and JSON arguments are case-sensitive.
 
 ### Body contents inspection
 
-Some of the managed rules evaluate the raw payload of the request body, before it's parsed into POST arguments or JSON arguments. So, in some situations you might see log entries with a matchVariableName of `InitialBodyContents` or `DecodedInitialBodyContents`.
+Some of the managed rules evaluate the raw payload of the request body before it's parsed into POST arguments or JSON arguments. So, in some situations, you might see log entries with a matchVariableName of `InitialBodyContents` or `DecodedInitialBodyContents`.
 
 For example, suppose you create an exclusion with a match variable of *Request body POST args* and a selector to identify and ignore POST arguments named *FOO*. You'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, if a POST argument named *FOO* contains text that triggers a rule, the log might show the detection in the initial body contents. You can't currently create exclusions for initial body contents.
 
