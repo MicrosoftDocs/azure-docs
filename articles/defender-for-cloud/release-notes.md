@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 05/08/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -22,6 +22,7 @@ Updates in May include:
 
 - [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
 - [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
+- [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -57,6 +58,13 @@ The changes are listed as follows:
 |JIT firewall rules names | ASC-JIT | MDC-JIT
 
 Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
+
+### Deprecation of legacy standards in compliance dashboard
+
+Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](https://learn.microsoft.com/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards. 
+We have fully deprecated support of [PCI DSS](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+
+Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ## April 2023
 
