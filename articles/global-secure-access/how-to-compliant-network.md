@@ -74,9 +74,9 @@ After administrators confirm the policy settings using [report-only mode](howto-
 ## Try your compliant network policy
 
 1. On an end-user device with the [NaaS client installed and running](how-to-install-windows-client.md)
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://<yourcompanyname>.sharepoint.com/](http://<yourcompanyname>.sharepoint.com/), this should allow you access to resources.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://yourcompanyname.sharepoint.com/](http://yourcompanyname.sharepoint.com/), this should allow you access to resources.
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://<yourcompanyname>.sharepoint.com/](http://<yourcompanyname>.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://yourcompanyname.sharepoint.com/](http://yourcompanyname.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
 
 ## Next steps
 
