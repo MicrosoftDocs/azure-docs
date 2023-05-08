@@ -253,7 +253,7 @@ If you plan to refer to the cold tier by using code in a custom application, you
 | SDK | Minimum version |
 |---|---|
 | [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
-| [Java](/java/api/overview/azure/storage-blob-readme) | 12.15.0 |
+| [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
 
