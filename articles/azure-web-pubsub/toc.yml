@@ -103,6 +103,8 @@
           href: howto-troubleshoot-network-trace.md
         - name: Capture resource logs
           href: howto-troubleshoot-resource-logs.md
+        - name: Common issues
+          href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
     - name: Scale

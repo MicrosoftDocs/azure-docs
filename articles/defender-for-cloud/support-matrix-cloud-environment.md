@@ -2,9 +2,7 @@
 title: Microsoft Defender for Cloud support across cloud types
 description: Review Defender for Cloud features and plans supported across different clouds
 ms.topic: limits-and-quotas
-author: bmansheim
-ms.author: benmansheim
-ms.date: 03/08/2023
+ms.date: 05/01/2023
 ---
 
 # Defender for Cloud support for commercial/government clouds
@@ -26,7 +24,6 @@ In the support table, **NA** indicates that the feature is not available.
 [Agent/extension deployment](monitoring-components.md) | GA | GA | GA
 [Asset inventory](./asset-inventory.md) | GA | GA | GA
 [Azure Workbooks support](./custom-dashboards-azure-workbooks.md) | GA | GA | GA
-[Microsoft Defender for Cloud Apps integration](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
 **DEFENDER FOR CLOUD PLANS** | | | 
 **[Agentless discovery for Kubernetes](concept-agentless-containers.md)** | Public preview | NA | NA
 **[Agentless vulnerability assessments for container images.](concept-agentless-containers.md)**<br/><br/> Including registry scanning (up to 20 unique images per billable resources) | Public preview | NA | NA

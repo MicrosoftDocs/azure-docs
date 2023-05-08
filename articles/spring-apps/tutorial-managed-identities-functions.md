@@ -81,7 +81,7 @@ Use the following steps to enable Azure Active Directory authentication to acces
 1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Azure AD directory - Multi-tenant**.
 1. Set **Unauthenticated requests** to **HTTP 401 Unauthorized: recommended for APIs**. This setting ensures that all unauthenticated requests are denied (401 response).
 
-   :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the settings page for adding an identity provider. This page highlights the 'supported account types' setting set to the 'Any Azure AD directory Multi tenant' option and also highlights the 'Unauthenticated requests' setting set to the 'HTTP 401 Unauthorized recommended for APIs' option." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
+   :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Support account types and Unauthenticated requests highlighted." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
 
 1. Select **Add**.
 

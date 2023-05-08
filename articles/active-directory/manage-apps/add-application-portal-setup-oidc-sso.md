@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 04/14/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Add an OpenID Connect-based single sign-on application

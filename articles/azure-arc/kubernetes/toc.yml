@@ -106,7 +106,7 @@
     items:
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
-    - name: Use Azure AD RBAC for authorization checks
+    - name: Use Azure RBAC for authorization checks
       displayName: azure active directory, identity, access
       href: azure-rbac.md
   - name: Manage your cluster

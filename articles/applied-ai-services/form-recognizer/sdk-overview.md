@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/25/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -81,15 +80,14 @@ implementation("com.azure:azure-ai-formrecognizer:4.0.6")
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-npm i @azure/ai-form-recognizer
+npm i @azure/ai-form-recognizer@4.0.0
 ```
 
 ### [Python](#tab/python)
 
 ```python
-pip install azure-ai-formrecognizer
+pip install azure-ai-formrecognizer==3.2.0
 ```
-
 ---
 
 ### 2. Import the SDK client library into your application

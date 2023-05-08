@@ -1,5 +1,5 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Storage
+title: Migrate applications to use passwordless authentication with Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
@@ -12,11 +12,9 @@ ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Migrate an application to use passwordless connections with Azure Storage
+# Migrate an application to use passwordless connections with Azure Blob Storage
 
-Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use passwords or secret keys create security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
-
-The following tutorial explains how to migrate an existing application to connect to Azure Storage to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
+[!INCLUDE [storage-passwordless-intro](../../../includes/passwordless/migration-guide/storage-passwordless-intro.md)]
 
 ## Configure roles and users for local development authentication
 
