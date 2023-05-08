@@ -14,9 +14,9 @@ ms.date: 01/01/2023
 
 Connectors are used to define and configure the network access between an organization's on-premises or cloud environment into the Azure Modeling and Simulation Workbench chamber. The connector supports protocols established through VPN, Azure Express Route, or network Access Control Lists.
 
-## VNet
+## VPN or Azure Express Route
 
-For organizations who have an Azure network setup to manage access for their employees, they can have strict controls of the VNet and Subnet addresses used for connecting into the chamber. At creation time of the connector, the Workbench Owner (Subscription Owner) can connect a virtual network with VPN gateway and/or ExpressRoute gateway to establish a secure connection from your on-premises network to the chamber. The VNet selection can be dynamically configured to disconnect or connect to a different virtual network.
+For organizations who have an Azure network setup to manage access for their employees, they can have strict controls of the VNet and Subnet addresses used for connecting into the chamber. At creation time of the connector, the Workbench Owner can connect a virtual network with VPN gateway and/or ExpressRoute gateway to establish a secure connection from your on-premises network to the chamber. The VNet selection can be dynamically configured to disconnect or connect to a different virtual network.
 
 ## Network Access Control Lists
 
@@ -29,5 +29,7 @@ For those organizations who don't have an Azure network setup, or prefer to use 
 Choose an article to know more:
 
 - [Workbench](./concept-workbench.md)
+
+- [User Personas](./concept-user-personas.md)
 
 - [Chamber](./concept-chamber.md)

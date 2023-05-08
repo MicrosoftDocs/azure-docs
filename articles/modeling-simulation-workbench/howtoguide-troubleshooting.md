@@ -103,9 +103,9 @@ If you see a blue sign-in screen when navigating to your chamber's remote deskto
 1. You must be a Workbench Owner to approve a data download request. A Workbench Owner will have Subscription Owner or Subscription Contributor role assigned to them.
 1. You cannot be the same user who requested the download. See [approve download](./howtoguide-download-data.md).
 
-### Data download from chamber not working
+### Data export from chamber not working
 
-If you're unable to download data from chamber using the SAS URI.
+If you're unable to export data from chamber using the SAS URI.
 
 1. Check the networking and chamber connector settings for the chamber. Validate your network access.
     1. If you're connecting in through an allow listed IP address, validate your current Public IP is listed.

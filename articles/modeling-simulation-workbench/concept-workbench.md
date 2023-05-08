@@ -18,7 +18,7 @@ For the Microsoft Azure Modeling and Simulation Workbench user, the workbench pr
 
 ## Workbench components
 
-A workbench hosts Azure resources in a closed environment of virtual machines, storage devices, and databases. A workbench is the parent container for [chamber](./concept-chamber.md) objects that run HPC applications and workloads in isolated environments.
+A workbench hosts Azure resources in a closed environment of virtual machines, storage devices, and databases. A workbench is the parent container for [chamber](./concept-chamber.md) objects that run engineering applications and workloads in isolated environments.
 
 Multiple teams can work on shared projects within a workbench using Modeling and Simulation Workbench's collaborative and secure design environment.
 
@@ -26,7 +26,7 @@ The chamber and connector have its own admin that manages the space, the compone
 
 ## Workbench infrastructure
 
-The infrastructure of the Azure Modeling and Simulation Workbench is optimized for compute and memory intensive applications. The workbenches ensure maximum throughput and performance for HPC workloads, supported by high performance file systems and efficient job scheduling.
+The infrastructure of the Azure Modeling and Simulation Workbench is optimized for compute and memory intensive applications. The workbenches ensure maximum throughput and performance for engineering workloads, supported by high performance file systems and efficient job scheduling.
 
 The workbench includes the following types of components:
 
@@ -36,7 +36,7 @@ Azure offers varied classes of virtual machines (VMs) that span diverse memory-t
 
 ### Storage
 
-Key storage components work together to provide high performance for HPC workflows. The storage service enables you to migrate and run enterprise file applications.
+Key storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications.
 
 ### Networking
 
@@ -50,10 +50,4 @@ The Azure virtual network enables over-provisioned network resources with high b
 
 ## Next steps
 
-- [What's next - Chamber](./concept-chamber.md)
-
-Choose an article to know more:
-
-- [Chamber](./concept-chamber.md)
-
-- [Connector](./concept-connector.md)
+- [What's next - User Personas](./concept-user-personas.md)

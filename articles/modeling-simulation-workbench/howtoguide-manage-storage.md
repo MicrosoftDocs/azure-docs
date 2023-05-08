@@ -65,5 +65,5 @@ As a Chamber Admin, you can resize your storage to increase or decrease the stor
 
 As a Chamber Admin, you can change the performance tier for your storage.
 
-- You can set storage performance tier to a 'higher' performance tier at any time, for example, from standard to premium, or premium to ultra is allowed.
-- You can set the storage performance tier to a 'lower' tier, for example, from ultra to premium or premium to standard, after the cool-down period. The Azure Net App Files cool-down period is one week from time storage was created, or from the time the storage tier was last increased.
+- You can set storage performance tier to a 'higher' performance tier at any time, for example, from standard to ultra is allowed.
+- You can set the storage performance tier to a 'lower' tier, for example, from ultra to standard, after the cool-down period. The Azure Net App Files cool-down period is one week from time storage was created, or from the time the storage tier was last increased.

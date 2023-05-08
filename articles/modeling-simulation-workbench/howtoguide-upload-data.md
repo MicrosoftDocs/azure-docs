@@ -1,18 +1,18 @@
 ---
-title: How to upload data into an Azure Modeling and Simulation Workbench chamber
-description: Learn how to upload data to chamber in Azure Modeling and Simulation Workbench
+title: How to import data into an Azure Modeling and Simulation Workbench chamber
+description: Learn how to import data to chamber in Azure Modeling and Simulation Workbench
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As a Modeling and Simulation Workbench chamber user, I want to upload data into my chamber
+# Customer intent: As a Modeling and Simulation Workbench chamber user, I want to import data into my chamber
 ---
 
-# How to upload data into an Azure Modeling and Simulation Workbench chamber
+# How to import data into an Azure Modeling and Simulation Workbench chamber
 
-This article explains how to upload data into a chamber.
+This article explains how to import data into a chamber.
 <!--- SCREENSHOT OF CHAMBER --->
 
 Get started with Azure Modeling and Simulation Workbench (preview) to run your design applications in a secure and managed environment in Azure. This guide shows you how to use the Azure portal to upload files to a Modeling and Simulation Workbench chamber.
@@ -40,7 +40,7 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 
 1. In the **Upload File** popup, copy the Upload URL.
 
-1. Using the AzCopy command, upload your file. for example, `azcopy copy <sourceFilePath> <uploadURL>`
+1. Using the AzCopy command, upload your file. for example, `azcopy copy <sourceFilePath> "<uploadURL>"`
 
 1. The customer is able to see the uploaded file resource with source filename under **Chamber | Data Pipeline | File**.
 
@@ -48,10 +48,10 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 
   > [!IMPORTANT]
   >
-  > If you are uploading multiple smaller files, it is recommended to zip or tarball into a single file.
+  > If you are importing multiple smaller files, it is recommended to zip or tarball into a single file.
   >
   > GB sized tarballs/zipped files supported, depending on your connection type and network speed.
 
 ## Next steps
 
-To learn how to download data from an Azure Modeling and Simulation Workbench chamber, check [How to Download Data](./howtoguide-download-data.md)
+To learn how to export data from an Azure Modeling and Simulation Workbench chamber, check [How to Export Data](./howtoguide-download-data.md)

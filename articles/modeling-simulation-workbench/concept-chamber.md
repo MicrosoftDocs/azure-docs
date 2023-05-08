@@ -14,7 +14,7 @@ ms.date: 01/01/2023
 
 ## Chamber - an introduction
 
-For the Azure Modeling and Simulation Workbench user, the chamber component offers a full-featured, secure, isolated, and optimized environment for running HPC applications and workloads. The environment is secured and isolated by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [connector](./concept-connector.md) exists per chamber, supporting protocols established through VPN, Azure Express Route, or Network Access Control Lists.
+For the Azure Modeling and Simulation Workbench user, the chamber component offers a full-featured, secure, isolated, and optimized environment for running engineering applications and workloads. The environment is secured and isolated by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [connector](./concept-connector.md) exists per chamber, supporting protocols established through VPN, Azure Express Route, or allowlisted Public IP addresses.
 
 In Azure Modeling and Simulation Workbench, the term chamber describes a group of connected computers (nodes) working together as a single system. Only provisioned users can access the chamber environment. User provisioning is done at the chamber component utilizing IAM [(Access Control)](/azure/role-based-access-control/role-assignments-portal) Cross-team and/or cross-organization individuals can collaborate on the same projects through the chambers. Multifactor (MFA) authentication enabled through Azure AD enhances your organizations security and is recommended.
 
@@ -23,29 +23,6 @@ In Azure Modeling and Simulation Workbench, the term chamber describes a group o
 - On-demand chambers are nested to Modeling and Simulation [Workbench](./concept-workbench.md) resource.
 
 ## Chamber features
-
-A Workbench Owner can:
-
-- Create and administer chambers
-- Provision users within a chamber by inviting, removing or changing user's roles within the chamber
-- Approve Data Out requests
-
-A Workbench Owner will have 'Owner' role assignment, or 'Contributor' and 'User Access Administrator' role assignments.
-
-The Workbench Owner is responsible for the following chamber activities:
-
-- Create/Delete of chambers
-- Assigning User Role Assignments for chamber access, either Chamber Admin or Chamber User. There should be at least one Chamber Admin per chamber
-- Removing User Role Assignments for chamber access
-- Approval or Rejection of Data Out/Data Egress Requests
-
-The Chamber Admin is responsible for the following chamber activities:
-
-- Requesting and/or Downloading of Data Out/Data Egress requests
-- Install and manage applications and licenses
-- Installation and configuration of tools related to compute, network, and storage within the chamber
-
-Chamber users can execute HPC workloads, scripts, and schedulers based on their access permissions to chamber storages. They can utilize the [data pipeline](./concept-data-pipeline.md), bringing data into the chamber and requesting data to be extracted from chamber.
 
 ### Right-sizing
 
@@ -69,4 +46,4 @@ Choose an article to know more:
 
 - [Workbench](./concept-workbench.md)
 
-- [Connector](./concept-connector.md)
+- [User Personas](./concept-user-personas.md)
