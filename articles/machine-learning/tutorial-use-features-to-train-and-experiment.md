@@ -46,27 +46,27 @@ You'll learn how to:
 
 #### Start the spark session
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=start-spark-session)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=start-spark-session)]
 
 #### Set up the samples root directory
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=root-dir)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=root-dir)]
 
 #### Initialize the project workspace CRUD client
 
 The tutorial notebook will run from this current workspace
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=init-ws-crud-client)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=init-ws-crud-client)]
 
 #### Initialize the feature store CRUD client
 
 Ensure you update the `featurestore_name` to reflect what you created in part 1 of this tutorial
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=init-fs-crud-client)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=init-fs-crud-client)]
 
 #### Initialize the feature store SDK client
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=init-fs-core-sdk)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=init-fs-core-sdk)]
 
 ## Step 1: Enable recurrent materialization on the `transactions` featureset
 
@@ -85,11 +85,11 @@ In tutorial part 2, we enabled materialization, and we performed backfill on the
 
 As explained in earlier parts of this tutorial, once data is materialized (backfill / recurrent materialization), feature retrieval will use the materialized data by default.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=enable-recurrent-mat-txns-fset)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=enable-recurrent-mat-txns-fset)]
 
 ### (Optional) Save the feature set asset yaml with the updated settings
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=dump-txn-fset-with-mat-yaml)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=dump-txn-fset-with-mat-yaml)]
 
 ### Track status of the recurrent materialization jobs in the feature store studio UI
 
@@ -112,7 +112,7 @@ The batch-inference has these steps:
 > [!Note]
 > We use a job for batch inference in this example. You can also use Azure ML's batch endpoints.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=run-batch-inf-pipeline)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=run-batch-inf-pipeline)]
 
 ### Inspect the batch inference output data
 
@@ -124,7 +124,7 @@ The batch-inference has these steps:
 
 Explanation: Since we did not provide `name` or `version` values of `inference_step` in the batch inference pipeline (/project/fraud_mode/pipelines/batch_inference_pipeline.yaml) outputs, the system created an untracked data asset with a guid as name and version as 1. In the next cell, we'll derive and then display the data path from the asset.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4.%20batch_inference.ipynb?name=inspect-batch-inf-output-data)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=inspect-batch-inf-output-data)]
 
 ## Cleanup
 

@@ -80,7 +80,7 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
 
 #### Set up the root directory for the samples
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=root-dir)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=root-dir)]
 
 > [!Note]
 > Feature store Vs Project workspace: You'll use a feature store to reuse features across projects. You'll use a project workspace (the current workspace) to train and inference models, by leveraging features from feature stores. Many project workspaces can share and reuse the same feature store.
@@ -109,17 +109,17 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
 
 Set name, location, and other values for the feature store
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=fs-params)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=fs-params)]
 
 ### Step 1b: Create the feature store
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=create-fs)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=create-fs)]
 
 ### Step 1c: Initialize AzureML feature store core SDK client
 
 As explained above, this develops and consumes features
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=init-fs-core-sdk)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=init-fs-core-sdk)]
 
 ## Step 2: Prototype and develop a transaction rolling aggregation feature set in this notebook
 
@@ -128,7 +128,7 @@ As explained above, this develops and consumes features
 > [!Note]
 > This notebook uses sample data hosted in a publicly-accessible blob container. It can only be read into Spark with a `wasbs` driver. When you create feature sets using your own source data, please host them in an adls gen2 account, and use an `abfss` driver in the data path.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=explore-txn-src-data)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=explore-txn-src-data)]
 
 ### Step 2b: Locally develop a transactions feature set
 
@@ -149,7 +149,7 @@ We'll create these rolling window aggregate features:
 
 See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts-url-todo) and [transformation concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-transformation-concepts-todo) to learn more about the feature set and transformations.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=develop-txn-fset-locally)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=develop-txn-fset-locally)]
 
 ## Step 3: Register a feature-store entity
 
@@ -157,13 +157,13 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 ### Step 3a: Explore the transactions source data
 
-As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=init-fset-crud-client)] searches for the feature store we created in an earlier step. Here, we cannot reuse the same ml_client used above because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. In the he below one is scoped at feature store level.
+As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=init-fset-crud-client)] searches for the feature store we created in an earlier step. Here, we cannot reuse the same ml_client used above because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. In the he below one is scoped at feature store level.
 
 ### Step 3a: Register the `account` entity with the feature store
 
 Create an account entity that has the join key `accountID`, of type string.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=register-acct-entity)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=register-acct-entity)]
 
 ## Step 4: Register the transaction feature set with the feature store
 
@@ -171,7 +171,7 @@ You register a feature set with the feature store so that you can share and reus
 
 You also register a feature set asset with the feature store. This has a reference to the feature retrieval spec, and offers version, materialization, etc. as additional properties.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=register-txn-fset)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=register-txn-fset)]
 
 ### Explore the feature store UI
 
@@ -192,23 +192,23 @@ First, we'll explore the observation data. Observation data typically involves t
 
 See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts-link-todo) to learn more about core concepts, including observation data.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=load-obs-data)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=load-obs-data)]
 
 ### Step 5c: Get the registered feature set and list its features
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=get-txn-fset)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=get-txn-fset)]
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=print-txn-fset-sample-values)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=print-txn-fset-sample-values)]
 
 ### Step 5d: Select features and generate training data
 
 Here, we'll select features that will become part of the training data, and we'll use the feature store sdk to generate the training data.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=select-features-and-gen-training-data)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=select-features-and-gen-training-data)]
 
 A point-in-time join appends the features to the training data.
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1.%20hello_world.ipynb?name=pitjoin)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=pitjoin)]
 
 This tutorial built the training data with features from feature store. You can save it to storage for later use, or you can run model training on it directly.
 
