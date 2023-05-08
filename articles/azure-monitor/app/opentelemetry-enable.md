@@ -136,12 +136,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(
-
-//Uncomment the line below when setting the Application Insights Connection String via code
-//options => options.ConnectionString = "<Your Connection String>"
-
-);
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+    //Uncomment the line below when setting the Application Insights Connection String via code
+    options.ConnectionString = "<Your Connection String>";
+});
 
 var app = builder.Build();
 
@@ -487,7 +485,7 @@ The following table represents the currently supported custom telemetry types:
 | Language                                  | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
