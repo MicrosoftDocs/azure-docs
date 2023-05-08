@@ -60,13 +60,13 @@ These apps do not use **Config Server**, so there is no need to set up **Config 
 ```azurecli
 az configure --defaults group=<resource-group-name> spring=<Azure-Spring-Apps-instance-name>
 
-az spring app create -n user-service --assign-endpoint
-az spring app create -n recommendation-service
-az spring app create -n hystrix-turbine --assign-endpoint
+az spring app create --name user-service --assign-endpoint
+az spring app create --name recommendation-service
+az spring app create --name hystrix-turbine --assign-endpoint
 
-az spring app deploy -n user-service --artifact-path user-service/target/user-service.jar
-az spring app deploy -n recommendation-service --artifact-path recommendation-service/target/recommendation-service.jar
-az spring app deploy -n hystrix-turbine --artifact-path hystrix-turbine/target/hystrix-turbine.jar
+az spring app deploy --name user-service --artifact-path user-service/target/user-service.jar
+az spring app deploy --name recommendation-service --artifact-path recommendation-service/target/recommendation-service.jar
+az spring app deploy --name hystrix-turbine --artifact-path hystrix-turbine/target/hystrix-turbine.jar
 ```
 
 ## Verify your apps
