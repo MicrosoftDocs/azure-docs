@@ -39,12 +39,10 @@ Install *Az.Workloads** powershell module by running below command.
     ```
 
 - Create or Use an existing Virtual Network for Azure Montior for SAP solutions(AMS) which has access to the Source SAP systems Virtual Network. 
-- Create a new subnet in AMS virtual network delegated to Microsoft.Web/serverFarms as below.
+- Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms" as shown below.
 
-**Check with Mohit on how to add a diagram
-
-   ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-portal/azure-monitor-quickstart-1-new.png)
-
+   ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/SubnetCreation.png)
+   
 ## Create a resource group
 
 Create an [Azure resource group](../../azure-resource-manager/management/overview.md) by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
@@ -55,19 +53,11 @@ The following example creates a resource group with the specified name and in th
 New-AzResourceGroup -Name Contoso-AMS-RG -Location <myResourceLocation>
 ```
 
-## SAP monitor
+## Azure Monitor for SAP - Montior Creation
 
 To create an SAP monitor, use the [New-AzWorkloadsSapLandscapeMonitor](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadssaplandscapemonitor?view=azps-9.7.1) cmdlet. The following example creates an SAP monitor for the specified subscription, resource group, and resource name.
 
-*Check with Mohit if we need workspace id details
-
 ```azurepowershell-interactive
-$Workspace = New-AzOperationalInsightsWorkspace -ResourceGroupName contoso-RG -Name sapmonitor-test -Location myResourceLocation -Sku Standard
-
-$WorkspaceKey = Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName contoso-RG -Name contoso-sapmonitor
-
-# Create Azure Monitor for SAP Resource
-
 $monitor_name = 'Contoso-AMS-Monitor'
 $rg_name = 'Contoso-AMS-RG'
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -75,6 +65,7 @@ $location = 'eastus'
 $managed_rg_name = 'MRG_Contoso-AMS-Monitor'
 $subnet_id = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ams-vnet-rg/providers/Microsoft.Network/virtualNetworks/ams-vnet-eus/subnets/Contoso-AMS-Monitor'
 $route_all = 'RouteAll'
+
 New-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -Location $location -AppLocation $location -ManagedResourceGroupName $managed_rg_name -MonitorSubnet $subnet_id -RoutingPreference $route_all
 ```
 
@@ -222,7 +213,7 @@ To retrieve properties of a provider instance, use the [Get-AzWorkloadsProviderI
 Get-AzWorkloadsProviderInstance -ResourceGroupName contoso-RG -SapMonitorName contoso-sapmonitor
 ```
 
-## Clean up resources
+## Clean up of resources
 
 If the resources created in this article aren't needed, you can delete them by running the following examples.
 
