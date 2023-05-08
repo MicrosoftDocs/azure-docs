@@ -49,7 +49,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Export your Custom Named Entity Recognition model
 
-Before you proceed with creating the docker image, you will need to export your own trained model to expose it to your container. Use the following command to extract your model and replace the placeholders below with your own values:
+Before you proceed with running the docker image, you will need to export your own trained model to expose it to your container. Use the following command to extract your model and replace the placeholders below with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
@@ -69,7 +69,7 @@ curl --location --request PUT '{ENDPOINT_URI}/language/authoring/analyze-tex
 
 ## Get the container image with `docker pull`
 
-The Custom Named Entity Recognition container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `keyphrase`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase`.
+The Custom Named Entity Recognition container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `customner`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/customner`.
 
 To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/customner/about).
 
@@ -88,7 +88,6 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-> * The sentiment analysis and language detection containers use v3 of the API, and are generally available. The Custom Named Entity Recognition container uses v2 of the API, and is in preview.
 
 To run the *Custom Named Entity Recognition* container, execute the following `docker run` command. Replace the placeholders below with your own values:
 
