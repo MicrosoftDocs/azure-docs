@@ -22,8 +22,8 @@ This article explains how to set up a staging deployment by using the blue-green
 
 ## Prerequisites
 
-- Azure Spring Apps instance on a Standard pricing tier
-- [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+- An existing Azure Spring Apps instance on a Standard pricing tier.
+- [Azure CLI](/cli/azure/install-azure-cli).
 
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, make a change in a public-facing portion of the application to differentiate your staging deployment from the production deployment.
 
@@ -34,7 +34,7 @@ To set up blue-green deployment in Azure Spring Apps, follow the instructions in
 
 ## Install the Azure CLI extension
 
-Install the Azure Spring Apps extension for the Azure CLI by using the following command:
+Install the [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI by using the following command:
 
 ```azurecli
 az extension add --name spring
