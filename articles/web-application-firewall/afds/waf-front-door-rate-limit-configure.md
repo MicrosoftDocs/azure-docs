@@ -5,8 +5,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 10/05/2022
-ms.author: victorh 
+ms.date: 05/08/2023
+ms.author: arpitjain099
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
 ---
