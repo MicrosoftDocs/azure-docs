@@ -20,7 +20,24 @@ A connection string in Application Insights defines the target location for send
 
 ### [.NET](#tab/net)
 
-Currently unavailable.
+Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
+
+```csharp
+using Azure.Monitor.OpenTelemetry.AspNetCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+    //Uncomment the line below when setting the Application Insights Connection String via code
+    //options.ConnectionString = "<Your Connection String>";
+});
+
+var app = builder.Build();
+
+app.Run();
+```
 
 ### [Java](#tab/java)
 
