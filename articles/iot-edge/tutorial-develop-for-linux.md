@@ -1271,7 +1271,7 @@ In this tutorial, you set up Visual Studio Code on your development machine and 
 You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Debug Azure IoT Edge modules using Visual Studio Code](debug-module-vs-code.md)
+> [Debug Azure IoT Edge modules](debug-module-vs-code.md)
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Custom Vision Service](tutorial-deploy-custom-vision.md)
