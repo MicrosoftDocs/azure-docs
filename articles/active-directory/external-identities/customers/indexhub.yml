@@ -118,10 +118,10 @@ additionalContent:
           url: ../../develop/console-app-quickstart.md  
         # Card
         - title: Desktop app
-          summary: App with a native user interface which runs on a desktop, laptop or notebook.
+          summary: App with a native user interface that runs on a desktop, laptop or notebook.
           url: how-to-desktop-app-electron-sample-sign-in.md   
           # Card
         - title: Mobile app
-          summary: App with a native user interface which runs on a mobile device.
+          summary: App with a native user interface that runs on a mobile device.
           url: ../../develop/mobile-app-quickstart.md             
 ## BAND 2 - ADDITIONAL CONTENT END ##########################################################################################################################
