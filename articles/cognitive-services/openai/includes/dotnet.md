@@ -23,6 +23,9 @@ keywords:
 - The current version of <a href="https://dotnet.microsoft.com/download/dotnet-core" target="_blank">.NET Core</a>
 - An Azure OpenAI Service resource with the `text-davinci-003` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
+
 ## Set up
 
 ### Create a new .NET Core application
@@ -103,6 +106,9 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](TODO: ADD FORM LINK)
+
 ## Create .NET application
 
 From the project directory, open the *program.cs* file and replace with the following code:
@@ -144,6 +150,10 @@ Chatbot:
 
 Microsoft was founded on April 4, 1975
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](TODO: UPDATE LINK)
+
 
 ## Clean up resources
 

@@ -21,7 +21,12 @@ keywords:
 - The following Python libraries: os, requests, json
 - An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-## Retrieve key and endpoint
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
+
+## Set up
+
+### Retrieve key and endpoint
 
 To successfully make a call against Azure OpenAI, you'll need the following:
 
@@ -69,6 +74,9 @@ echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environm
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 ---
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](TODO: ADD FORM LINK)
 
 ## Create a new Python application
 
@@ -139,6 +147,10 @@ The output from the completions API will look as follows.
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](TODO: UPDATE LINK)
+
 
 The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
