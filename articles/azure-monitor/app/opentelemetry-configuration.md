@@ -20,7 +20,7 @@ A connection string in Application Insights defines the target location for send
 
 ### [.NET](#tab/net)
 
-Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
+Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
 
 ```csharp
 using Azure.Monitor.OpenTelemetry.AspNetCore;
