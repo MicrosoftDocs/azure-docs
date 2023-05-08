@@ -42,7 +42,7 @@ To use cross-region service endpoints, it might be necessary to delete existing 
 
 ## Private endpoints
 
-Azure Private Link enables you to access an Elastic SAN volume group securely over a [private endpoint](private-endpoint-overview.md) from a virtual network. The private endpoint uses a separate set of IP addresses from the VNet address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
+Azure Private Link enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network. The private endpoint uses a separate set of IP addresses from the VNet address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
 
 Using a private endpoint has several advantages over using service endpoints, including:
 
