@@ -34,7 +34,7 @@ After configuring endpoints, network rules can be configured to further control 
 
 Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network. The service endpoint routes traffic from the virtual network over an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the volume group that allow requests to be received from specific subnets in a virtual network.
 
-To use a service endpoint with your Elastic SAN, you must enable it within the virtual network where you want to grant access. The service endpoint names for storage are:
+To use a service endpoint with your Elastic SAN, you must enable it within the virtual network where you want to grant access. The service endpoint names for Azure Storage are:
 
 - **Microsoft.Storage** - classic Azure Storage endpoints
 - **Microsoft.Storage.Global** - new cross-region Azure Storage endpoints
@@ -77,9 +77,9 @@ For details on how to define network rules, see [Managing virtual network rules]
 
 After you have enabled the desired endpoints and granted access in your network rules, you are ready to configure your clients to connect to the appropriate Elastic SAN volumes. For more details on how to configure client connections, see:
 
-> [Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
-> [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
-> [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
+- [Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+- [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
+- [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
 
 > [!NOTE]
 > If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
