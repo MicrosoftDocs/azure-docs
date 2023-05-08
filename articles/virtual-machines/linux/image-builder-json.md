@@ -1079,8 +1079,10 @@ The default version numbering schema is `latest`. The latest schema has an addit
 
 versioning properties:
 - **scheme** - Generate new version number for distribution. `Latest` or `Source` are two possible values.
-- **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `latest`.
-
+- **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `Latest`. For example, in a gallery with the following versions published: 0.1.1, 0.1.2, 1.0.0, 1.0.1, 1.1.0, 1.1.1, 1.2.0, 2.0.0, 2.0.1, 2.1.0
+    - With major not set or major set to 2, The `Latest` scheme generates version 2.1.1
+    - With major set to 1, the Latest scheme generates version 1.1.2
+    - With major set to 0, the Latest scheme generates version 0.1.3
 
 ## Properties: source
 
