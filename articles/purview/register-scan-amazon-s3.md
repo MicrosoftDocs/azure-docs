@@ -34,7 +34,7 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 ### Known limitations
 
-When scanning Amazon S3 of Glacier storage classes, schema extraction, classification and sensitivity lables are not supported.
+When scanning Amazon S3 of Glacier storage classes, schema extraction, classification and sensitivity labels are not supported.
 
 Microsoft Purview private endpoints are not supported when scanning Amazon S3.
 
