@@ -207,7 +207,7 @@ items:
         href: ./hdinsight-scaling-best-practices.md
       - name: Autoscale clusters
         href: ./hdinsight-autoscale-clusters.md
-      - name: Custom Configure Autoscale
+      - name: Custom configure Autoscale
         href: ./how-to-custom-configure-hdinsight-autoscale.md 
       - name: Use external metadata stores
         href: ./hdinsight-use-external-metadata-stores.md
