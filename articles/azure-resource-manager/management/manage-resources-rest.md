@@ -1,25 +1,18 @@
 ---
 title: Manage resources - REST
-description: Use REST opeartions with Azure Resource Manager to manage your resources. Shows how to read, deploy, and delete resources. 
+description: Use REST operations with Azure Resource Manager to manage your resources. Shows how to read, deploy, and delete resources. 
 ms.topic: conceptual
 ms.author: jehunte
 ms.date: 04/26/2023
 ---
 # Manage Azure resources by using the REST API
 
-Learn how to use the REST API for [Azure Resource Manager](overview.md) to manage your Azure resources. For a comprehensive reference of how to structure Azure REST calls, see [Getting Started with REST](https://learn.microsoft.com/rest/api/azure/). View the [Resource Management REST API reference](https://learn.microsoft.com/rest/api/resources/) for more details on the available operations.
-
-
-Other articles about managing resources:
-
-- [Manage Azure resources by using the Azure portal](manage-resources-portal.md)
-- [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md)
-- [Manage Azure resources by using Azure CLI](manage-resources-cli.md)
+Learn how to use the REST API for [Azure Resource Manager](overview.md) to manage your Azure resources. For a comprehensive reference of how to structure Azure REST calls, see [Getting Started with REST](/rest/api/azure/). View the [Resource Management REST API reference](/rest/api/resources/) for more details on the available operations.
 
 ## Obtain an access token
 To make a REST API call to Azure, you first need to obtain an access token. Include this access token in the headers of your Azure REST API calls using the "Authorization" header and setting the value to "Bearer {access-token}".
 
-If you will need to programatically retreive new tokens as part of your application, you can obtain an access token by [Registering your client application with Azure AD](https://learn.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad).
+If you will need to programatically retreive new tokens as part of your application, you can obtain an access token by [Registering your client application with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
 
 If you are getting started and want to test Azure REST APIs using your individual token, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
 
@@ -60,7 +53,7 @@ curl  -H "Authorization: Bearer $token" -H 'Content-Type: application/json' -X G
 ```
 
 
-With the authentication step, this looks like:
+With the authentication step, this example looks like:
 ### [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
 token=$(az account get-access-token --query accessToken --output tsv)
@@ -82,7 +75,7 @@ You can deploy Azure resources directly by using the REST API, or deploy a Resou
 
 ### Deploy a resource
 
-The following REST operation creates a storage account. To see this example in more detail, see [Create an Azure Storage account with the REST API](https://learn.microsoft.com/rest/api/storagerp/storage-sample-create-account). Complete reference documentation for the Storage Resource Provider and additional samples are available in the [Storage Resource Provider REST API Reference](https://learn.microsoft.com/rest/api/storagerp/).
+The following REST operation creates a storage account. To see this example in more detail, see [Create an Azure Storage account with the REST API](/rest/api/storagerp/storage-sample-create-account). Complete reference documentation and samples for the Storage Resource Provider are available in the [Storage Resource Provider REST API Reference](/rest/api/storagerp/).
 
 ```http
 PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2018-02-01 HTTP/1.1
@@ -101,7 +94,7 @@ Host: management.azure.com
 
 ### Deploy a template
 
-The following operations deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md). For the API reference of this call, see [Deployments - Create Or Update](https://learn.microsoft.com/rest/api/resources/deployments/create-or-update?tabs=HTTP).
+The following operations deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md). For the API reference of this call, see [Deployments - Create Or Update](/rest/api/resources/deployments/create-or-update).
 
 
 ```http
@@ -152,7 +145,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn more about Azure Resource Manager's supported REST operations, see [Azure Resource Manager REST reference](https://learn.microsoft.com/rest/api/resources/).
+- To learn more about Azure Resource Manager's supported REST operations, see [Azure Resource Manager REST reference](/rest/api/resources/).
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).
