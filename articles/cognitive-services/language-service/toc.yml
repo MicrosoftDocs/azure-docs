@@ -202,6 +202,18 @@ items:
       href: custom-named-entity-recognition/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-named-entity-recognition/fail-over.md
+    - name: Use Custom NER containers
+      items:
+      - name: Use Custom NER Docker containers
+        href: custom-named-entity-recognition/how-to/use-containers.md
+      - name: Configure containers
+        href: concepts/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities

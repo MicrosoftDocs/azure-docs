@@ -3,27 +3,25 @@ title: Use Docker containers for Custom Named Entity Recognition on-premises
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Docker containers for Custom Named Entity Recognition on-premises.
 services: cognitive-services
-author: jboback
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/11/2023
-ms.author: jboback
-ms.custom: language-service-custom-named-entity-recognition, ignite-fall-2021
+ms.date: 05/08/2023
+ms.author: aahi
+ms.custom: language-service-custom-named-entity-recognition
 keywords: on-premises, Docker, container, natural language processing
 ---
 
 # Install and run Custom Named Entity Recognition containers
 
 
-Containers enable you to host the Custom Named Entity Recognition API on your own infrastructure using your own trained model. If you have security or data governance requirements that can't be fulfilled by calling Custom Named Entity Recognition remotely, then containers might be a good option.
-
+Containers enable you to host the Custom Named Entity Recognition API on your own infrastructure using your own trained model. If you have security or data governance requirements that can't be fulfilled by calling Custom Named Entity Recognition remotely, then containers might be a good option. Custom Named Entity Recognition containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, Custom Named Entity Recognition, and language detection.
 
 > [!NOTE]
 > * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data and service limits](../../concepts/data-limits.md).
 
-Containers enable you to run the Custom Named Entity Recognition APIs in your own environment and are great for your specific security and data governance requirements. The Custom Named Entity Recognition containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, Custom Named Entity Recognition, and language detection.
 
 ## Prerequisites
 
@@ -39,11 +37,11 @@ Containers enable you to run the Custom Named Entity Recognition APIs in your ow
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the available Custom Named Entity Recognition containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for Custom Named Entity Recognition containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
-| **Custom Named Entity Recognition**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
+| **Custom Named Entity Recognition**   | 1 core, 2 GB memory | 1 core, 4 GB memory |15 | 30| 
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -125,8 +123,6 @@ This command:
 The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `http://localhost:5000`, for container APIs.
-
-<!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
 
