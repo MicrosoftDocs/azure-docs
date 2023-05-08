@@ -32,9 +32,9 @@ These samples and how-to guides demonstrate how to integrate a single-page appli
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Vanilla | &#8226; [Sign in users](how-to-single-page-app-vanillajs-sample-sign-in.md) <br/> &#8226; *Sign in users and call an API* | &#8226; [Sign in users](how-to-single-page-app-vanillajs-prepare-tenant.md)    |
+> | JavaScript, Vanilla | &#8226; [Sign in users](how-to-single-page-app-vanillajs-sample-sign-in.md) <br/> &#8226; *Sign in users and call an API* | Sign in users<br/>&#8226; [Overview](../../develop/web-api-quickstart.md?context=/azure/active-directory/external-identities/customers/context/customers-context)  <br/> &#8226; [Prepare a tenant](how-to-single-page-app-vanillajs-prepare-tenant.md) <br/> &#8226; [Prepare the app](how-to-single-page-app-vanillajs-prepare-app.md) <br/> &#8226; [Configure the app for authentication](how-to-single-page-app-vanillajs-configure-authentication.md) <br/> &#8226; [Sign in and sign out](how-to-single-page-app-vanillajs-sign-in-sign-out.md) |
 > | JavaScript, Angular | &#8226; *Sign in users* <br/> &#8226; *Sign in users and call an API* | &#8226; *Sign in users*    |
-> | JavaScript, React | &#8226; [Sign in users](how-to-single-page-application-react-sample.md)<br/>&#8226; *Sign in users and call an API*| &#8226; [Sign in users](how-to-single-page-application-react-prepare-tenant.md)   |
+> | JavaScript, React | &#8226; [Sign in users](how-to-single-page-application-react-sample.md)<br/>&#8226; *Sign in users and call an API*| &#8226; [Sign in users](../../develop/web-api-quickstart.md?context=/azure/active-directory/external-identities/customers/context/customers-context)   |
 
 ### Web app
 
