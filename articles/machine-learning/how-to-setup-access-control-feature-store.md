@@ -29,15 +29,15 @@ To control access to these resources, create the following roles. For each role,
 
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
-|`Feature store admin`     |who can create/update/delete feature store         | [RBAC permission required for Featurestore Admin](#rbac-permission-required-for-featurestore-admin)        |
-|`Featureset consumer`     |who can use defined feature sets in their machine learning lifecycle.     |[RBAC permission required for Featureset consumer](#rbac-permission-required-for-featureset-consumer)         |
-|`Featureset developer`    |who can create/update feature sets, or set up materializations such as backfill and recurrent jobs.    | [RBAC permission required for Featureset developer](#rbac-permission-required-for-featureset-developer)        |
+|`feature store admin`     |who can create/update/delete feature store         | [Permissions required for the `feature store admin` role](#permissions-required-for-the-feature-store-admin-role)        |
+|`feature set consumer`     |who can use defined feature sets in their machine learning lifecycle.     |[Permissions required for the `feature set consumer` role](#permissions-required-for-the-feature-set-consumer-role)        |
+|`feature set developer`    |who can create/update feature sets, or set up materializations such as backfill and recurrent jobs.    | [Permissions required for the `feature set developer` role](#permissions-required-for-the-feature-set-developer-role)        |
 
 If materialization is enabled on your feature store, you must also create the following role:
 
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
-|`Featurestore Materialization managed identity`    | The Azure user assigned managed identity used by feature store materialization jobs for data access. This is required if the feature store enables materialization        | [RBAC permission required for `Featurestore Materialization managed identity`](#rbac-permission-required-for-featurestore-materialization-managed-identity)        |
+|`feature store materialization managed identity`    | The Azure user assigned managed identity used by feature store materialization jobs for data access. This is required if the feature store enables materialization        | [Permissions required for the `feature store materialization managed identity` role](#permissions-required-for-the-feature-store-materialization-managed-identity-role)        |
 
 For information on creating roles, refer to the article [Create custom role](how-to-assign-roles.md#create-custom-role)
 
@@ -50,7 +50,7 @@ The following resources are involved for granting access:
 - Users' Azure storage accounts that have the source data of feature sets
 
 
-## Permissions required for the feature store admin role
+## Permissions required for the `feature store admin` role
 
 To create and/or delete a managed feature store, we recommend using the built-in `Contributor` and `User Access Administrator` roles on the resource group. In addition, the `Feature store admin` role requires at least the following permissions.
 
@@ -72,7 +72,7 @@ When provisioning a feature store, a few other resources will also be provisione
 - Microsoft.ManagedIdentity/userAssignedIdentities/write
 
 
-## Permissions required for the Featureset consumer role
+## Permissions required for the `feature set consumer` role
 
 To consume feature sets defined in the feature store, use the following build-in roles:
 
@@ -97,7 +97,7 @@ If you want to avoid using the `AzureML Data Scientist` role, you can use these 
 | the feature store | Microsoft.MachineLearningServices/workspaces/jobs/read |
 
 
-## Permissions required for the Featureset developer role
+## Permissions required for the `feature set developer` role
 
 To develop feature sets in the feature store, use the following built-in roles.
 
@@ -119,9 +119,9 @@ If you want to avoid using the `AzureML Data Scientist` role, you can use these 
 | the feature store | Microsoft.MachineLearningServices/workspaces/featurestoreentities/action |
 
 
-## Permissions required for the `Featurestore Materialization managed identity`
+## Permissions required for the `feature store materialization managed identity` role
 
-In addition to all of the permissions required by the `Featureset consumer` role, grant the following built-in roles:
+In addition to all of the permissions required by the `feature set consumer` role, grant the following built-in roles:
 
 |Scope| Action/Role |
 |----|------|
