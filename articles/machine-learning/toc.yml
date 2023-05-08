@@ -711,6 +711,12 @@
               displayName: designer, data, import, dataset, datastore
               href: ./v1/how-to-designer-import-data.md
         # end v1
+    - name: Managed feature store
+      items:
+        - name: Manage access to managed feature store
+          href: how-to-setup-access-control-feature-store.md
+        - name: Troubleshoot managed feature store errors
+          href: troubleshooting-managed-feature-store.md
     - name: Train models
       items:
         - name: Train a model (SDK, CLI, REST)
