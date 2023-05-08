@@ -179,7 +179,7 @@ Configure a CNAME record that points from your custom domain name (for example, 
 > Some domain registrars only allow you to map subdomains when using a CNAME record, such as `www.contoso.com`, and not root names, such as `contoso.com`. For more information on CNAME records, see the documentation provided by your registrar or [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035).
 
 > [!CAUTION]
-> Currently, if you are using the free, managed certificate and you use Cloudflare as your DNS provider, API Management doesn't automatically renew the certificate if you've enabled DNS proxy on the CNAME record. Make sure that DNS proxy isn't enabled on the CNAME record. 
+> Currently, if you are using the free, managed certificate and you use Cloudflare as your DNS provider, make sure that DNS proxy isn't enabled on the CNAME record. API Management doesn't automatically renew the certificate if you've enabled DNS proxy on the CNAME record. 
 
 ### TXT record 
 
