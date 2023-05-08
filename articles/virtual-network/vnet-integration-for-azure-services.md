@@ -28,7 +28,7 @@ Virtual network integration provides Azure services the benefits of network isol
 
 When you deploy dedicated Azure services in a virtual network, you can communicate with the service resources privately, through private IP addresses.
 
-:::image type="content" source="./media/virtual-network-for-azure-services/deploy-service-into-virtual network.png" alt-text="Diagram of deploy dedicated Azure services into virtual networks.":::
+:::image type="content" source="./media/virtual-network-for-azure-services/deploy-service-into-vnet.png" alt-text="Diagram of deploy dedicated Azure services into virtual networks.":::
 
 Deploying a dedicated Azure service into your virtual network provides the following capabilities:
 
