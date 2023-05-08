@@ -75,31 +75,31 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
 ```CMD
-setx OPENAI_API_BASE "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('OPENAI_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
 ```
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('OPENAI_API_BASE', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
 ```
 
 # [Bash](#tab/bash)
 
 ```Bash
-echo export OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ```Bash
-echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 ---
 
@@ -112,8 +112,8 @@ using Azure;
 using Azure.AI.OpenAI;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
-string key = GetEnvironmentVariable("OPENAI_API_KEY");
+string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
 
 // Enter the deployment name you chose when you deployed the model.
 string engine = "text-davinci-003";
