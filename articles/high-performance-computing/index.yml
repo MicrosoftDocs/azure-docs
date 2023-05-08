@@ -144,8 +144,8 @@ conceptualContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
-      summary: Learn more about Azure HPC with a variety of video content # < 160 chars (Optional; Remove if not applicable.)
+    - title: Additional HPC Content # < 60 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with a variety of conferences and video content # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Business Strategy
@@ -177,14 +177,6 @@ additionalContent:
               url: https://www.youtube.com/watch?v=LGkQi7BDf6w
             - text: "Day 1 - (3) UCX on Azure HPC and AI Clusters"
               url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
-
-
-# Super Computing Announcement included
-
-# HPC-related Conferences
-additionalContent:
-  # Supports up to 4 subsections
-  sections:
     - title: HPC Conferences # < 60 chars (optional)
       #summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
       items:
