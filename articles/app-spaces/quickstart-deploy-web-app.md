@@ -10,7 +10,7 @@ ms.date: 05/05/2023
 
 # Quickstart: Deploy a web app with Azure App Spaces
 
-In this quickstart, learn how to connect to GitHub and deploy your web app to the recommended Azure services with Azure App Spaces. For more information, see [Azure App Spaces overview](overview.md).
+In this quickstart, you learn to connect to GitHub and deploy your web app to the recommended Azure services with Azure App Spaces. For more information, see [Azure App Spaces overview](overview.md).
 
 ## Prerequisites
 
