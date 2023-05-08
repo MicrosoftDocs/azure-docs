@@ -22,7 +22,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
  ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 
-You can have multiple service instances within a single Azure subscription, but the Azure Spring Apps Service is easiest to use when all of the Apps that make up a business app reside within a single service instance. One reason is that the Apps are likely to communicate each other. They can easily do that by using Eureka service registry in the service instance.
+You can have multiple service instances within a single Azure subscription, but the Azure Spring Apps Service is easiest to use when all of the Apps that make up a business app reside within a single service instance. One reason is that the Apps are likely to communicate with each other. They can easily do that by using Eureka service registry in the service instance.
 
 Azure Spring Apps standard tier allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
 
