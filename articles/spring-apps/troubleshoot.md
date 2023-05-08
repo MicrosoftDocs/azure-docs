@@ -181,7 +181,7 @@ Environment variables inform the Azure Spring Apps framework, ensuring that Azur
 > [!WARNING]
 > This procedure exposes your environment variables by using your test endpoint.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
 
-1. Go to `https://<your application test endpoint>/actuator/health`.
+1. Go to `https://<your application test endpoint>/actuator/health`. To find out the test endpoint, please refer to [Verify app through test endpoint](https://learn.microsoft.com/en-us/azure/spring-apps/concept-manage-monitor-app-spring-boot-actuator#verify-app-through-test-endpoint).
 
    * A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
    * If the response is negative, include the following dependency in your *POM.xml* file:
