@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 05/08/2023
 ms.author: danlep
 ---
 
@@ -29,7 +29,7 @@ API Management supports other client-side and service-side authentication and au
 
 Here's a brief explanation of authentication and authorization in the context of access to APIs:
 
-* **Authentication** - The process of verifying the identity of a user or app that accesses the API. Authentication may be done through credentials such as username and password or a certificate, or through single sign-on (SSO) or other methods.
+* **Authentication** - The process of verifying the identity of a user or app that accesses the API. Authentication may be done through credentials such as username and password, or a certificate, or through single sign-on (SSO) or other methods.
 
 * **Authorization** - The process of determining whether a user or app has permission to access a particular API, often through a token-based protocol such as OAuth 2.0.
 
@@ -38,7 +38,7 @@ Here's a brief explanation of authentication and authorization in the context of
 
 ## OAuth 2.0 concepts
 
-[OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749) is a standard authorization framework that is widely used to secure access to resources such as web APIs. OAuth 2.0 restricts actions of what a client app can perform on resources on behalf of the user, without ever sharing the user's credentials. While OAuth 2.0 is not an authentication protocol, it's often used with OpenID Connect (OIDC), which extends OAuth 2.0 by providing user authentication and SSO functionality.
+[OAuth 2.0](https://oauth.net/2) is a standard authorization framework that is widely used to secure access to resources such as web APIs. OAuth 2.0 restricts actions of what a client app can perform on resources on behalf of the user, without ever sharing the user's credentials. While OAuth 2.0 is not an authentication protocol, it's often used with OpenID Connect (OIDC), which extends OAuth 2.0 by providing user authentication and SSO functionality.
 
 ### OAuth flow
 
@@ -91,7 +91,7 @@ There are different reasons for wanting to do this. For example:
 
     After API Management has successfully validated the token received from the caller, it then needs to obtain an access token for the backend API using its own context, or context derived from the calling application. This scenario can be accomplished using either: 
 
-    * A custom policy to obtain an onward access token valid for the backend API from a configured identity provider.
+    * A custom policy such as [send-request](send-request-policy.md) to obtain an onward access token valid for the backend API from a configured identity provider. 
 
     * The API Management instance's own identity – passing the token from the API Management resource's system-assigned or user-assigned [managed identity](authentication-managed-identity-policy.md) to the backend API. 
 
@@ -104,9 +104,9 @@ In the following example, a subscription key is used between the client and the 
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API authorization." border="false":::
 
-With an API authorization, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Authorizations simplify token management in multiple scenarios. For example:
+With an API authorization, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Authorizations simplify token management in multiple scenarios, such as:
 
-* A client app might need to authorize to multiple SaaS backends, for example to resolve multiple fields using GraphQL resolvers.
+* A client app might need to authorize to multiple SaaS backends to resolve multiple fields using GraphQL resolvers.
 * Users authenticate to API Management by SSO from their identity provider, but authorize to a backend SaaS provider (such as LinkedIn) using a common organizational account
 
 Examples:
@@ -115,14 +115,15 @@ Examples:
 * [Create an authorization with the GitHub API](authorizations-how-to-github.md)
 
 ## Other options to secure APIs
-Although authorization is preferred and OAuth 2.0 has become the dominant method of enabling strong authorization for APIs, API Management enables other mechanisms to secure or restrict access between client and gateway (client side) or between gateway and backend (service side). Depending on the organization's requirements, these may be used to supplement OAuth 2.0. Alternatively, configure them independently if the calling applications or backend APIs are legacy or don't yet support OAuth. 
+
+While authorization is preferred and OAuth 2.0 has become the dominant method of enabling strong authorization for APIs, API Management provides several other mechanisms to secure or restrict access between client and gateway (client side) or between gateway and backend (service side). Depending on the organization's requirements, these may be used to supplement OAuth 2.0. Alternatively, configure them independently if the calling applications or backend APIs are legacy or don't yet support OAuth. 
 
 ### Client side options
 
 |Mechanism  |Description  |Considerations  |
 |---------|---------|---------|
 |[Mutual TLS](api-management-howto-mutual-certificates-for-clients.md)     |   [Validate certificate](validate-client-certificate-policy.md) presented by the connecting client and check certificate properties against a certificate managed in API Management     |  Certificate may be stored in a key vault.       |
-|[Subscription key](api-management-subscriptions.md)     |  Limit access to one or more APIs based on an API Management subscription      |  We recommend using a subscription (API) key *in addition to* another method of authentication or authorization. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, for example, tracking individual customers' API usage.       |
+|[Subscription key](api-management-subscriptions.md)     |  Limit access to one or more APIs based on an API Management [subscription](api-management-howto-create-subscriptions.md)      |  We recommend using a subscription (API) key *in addition to* another method of authentication or authorization. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, for example, tracking individual customers' API usage.       |
 |[Restrict caller IPs](ip-filter-policy.md)     | Filter (allow/deny) calls from specific IP addresses or address ranges.        |  Use to restrict access to certain users or organizations, or to traffic from upstream service such as [Front Door](front-door-api-management.md).       |
 
 
