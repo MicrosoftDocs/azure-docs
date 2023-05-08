@@ -89,7 +89,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | Maximum RU/s per container | 20,000* |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum storage per container (API for NoSQL, MongoDB, Table, and Gremlin)| 1 TB  |
-| Maximum storage per container (API for Cassandra)| 30 GB (default)¹  |
+| Maximum storage per container (API for Cassandra)| 1 TB  |
 
 *Maximum RU/sec availability is dependent on data stored in the container. See, [Serverless Performance](serverless-performance.md)
 
