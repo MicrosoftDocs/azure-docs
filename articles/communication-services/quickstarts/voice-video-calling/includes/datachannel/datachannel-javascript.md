@@ -83,7 +83,7 @@ dataChannel.on('dataChannelReceiverCreated', receiver => {
 ### Set participants
 
 To specify the recipients for your messages, you can use `DataChannelSender.setParticipants` API. The sender object will maintain the most recent participant list you provide.
-The participant type is `CommunicationIdentifier`, which you can obtain from `remoteParticipant.identifier`. For more information, please refer to [Access remote participant properties](../../../../how-tos/calling-sdk/manage-calls?pivots=platform-web#access-remote-participant-properties).
+The participant type is `CommunicationIdentifier`, which you can obtain from `remoteParticipant.identifier`. For more information, please refer to [Access remote participant properties](../../how-tos/calling-sdk/manage-calls?pivots=platform-web#access-remote-participant-properties).
 
 ```js
 const user = call.remoteParticipants[0]; // assume the user wants to send a message to the first participant in the remoteParticipants list
