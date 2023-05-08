@@ -17,9 +17,9 @@ When you make changes to your functions code project, you need to rebuild the cu
 
 # [Azure Container Registry](#tab/acr)
 
-    ```console
-    az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.1 .
-    ```
+```console
+az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.1 .
+```
 
 Replace `<REGISTRY_NAME>` with your Container Registry instance and `<LOGIN_SERVER>` with the login server name.
 
