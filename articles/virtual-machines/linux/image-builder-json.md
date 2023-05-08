@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM JSON template to use with A
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 04/21/2023
+ms.date: 05/08/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
