@@ -61,9 +61,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 ## <a id="powershell"></a>Migrate using PowerShell
 
 1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps).
-
-3. Next, run the following steps:
-
+2. Next, run the following steps:
     1. Connect to your Azure account:
 
        ```azurepowershell-interactive
