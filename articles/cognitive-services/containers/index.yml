@@ -46,7 +46,7 @@ landingContent:
   linkLists:
       - linkListType: how-to-guide
         links:
-        - url: ../language-service/sentiment-analysis/how-to/use-containers.md
+        - url: ../language-service/opinion-mining/how-to/use-containers.md
           text: Sentiment Analysis
         - url: ../language-service/key-phrase-extraction/how-to/use-containers.md
           text: Key phrase extraction
