@@ -57,31 +57,31 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
 ```CMD
-setx OPENAI_API_BASE "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('OPENAI_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
 ```
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('OPENAI_API_BASE', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
 ```
 
 # [Bash](#tab/bash)
 
 ```Bash
-echo export OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ```Bash
-echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 ---
 
@@ -96,9 +96,9 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
     import os
     import openai
     openai.api_type = "azure"
-    openai.api_base = os.getenv("OPENAI_API_BASE") 
+    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
     openai.api_version = "2023-03-15-preview"
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
     response = openai.ChatCompletion.create(
         engine="gpt-35-turbo", # engine = "deployment_name".
@@ -113,6 +113,9 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
     print(response)
     print(response['choices'][0]['message']['content'])
     ```
+
+    > [!IMPORTANT]
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file:
 
