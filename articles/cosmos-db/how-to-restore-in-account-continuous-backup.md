@@ -19,7 +19,10 @@ Azure Cosmos DB's point-in-time in-account restore feature helps you to recover 
 
 ## Prerequisites
 
-TODO
+- An existing Azure Cosmos DB account.
+  - If you have an Azure subscription, [create a new account](nosql/how-to-create-account.md?tabs=azure-portal).
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
 
 ## Restore a deleted container or database
 
@@ -466,7 +469,130 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager)
 
-TODO
+You can restore deleted containers and databases using an Azure Resource Manager template.
+
+1. Create or locate an Azure Cosmos DB resource in your template. Here's a generic example of a resource.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "name": "msdocs-example-arm",
+          "type": "Microsoft.DocumentDB/databaseAccounts",
+          "apiVersion": "2022-02-15-preview",
+          "location": "West US",
+          "properties": {
+            "locations": [
+              {
+                "locationName": "West US"
+              }
+            ],
+            "backupPolicy": {
+              "type": "Continuous"
+            },
+            "databaseAccountOfferType": "Standard"
+          }
+        }
+      ]
+    }    
+    ```
+
+1. Update the Azure Cosmos DB resource in your template by:
+
+    - Setting `properties.createMode` to `restore`.
+
+    - Defining a `properties.restoreParameters` object.
+
+    - Setting `properties.restoreParameters.restoreMode` to `PointInTime`.
+
+    - Setting `properties.restoreParameters.restoreTimestampInUtc` to a UTC timestamp.
+
+    - Setting `properties.restoreParameters.restoreSource` to the **instance identifier** of the account that is the source of the restore operation.
+
+    :::zone pivot="api-nosql"
+
+    ```json
+    {
+      "properties": {
+        "name": "<name-of-database-or-container>",
+        "restoreParameters": {
+          "restoreSource": "<source-account-instance-id>",
+          "restoreMode": "PointInTime",
+          "restoreTimestampInUtc": "<timestamp>"
+        },
+        "createMode": "Restore"
+      }
+    }
+    ```
+
+    :::zone-end
+
+    :::zone pivot="api-mongodb"
+
+    ```json
+    {
+      "properties": {
+        "name": "<name-of-database-or-collection>",
+        "restoreParameters": {
+          "restoreSource": "<source-account-instance-id>",
+          "restoreMode": "PointInTime",
+          "restoreTimestampInUtc": "<timestamp>"
+        },
+        "createMode": "Restore"
+      }
+    }
+    ```
+
+    :::zone-end
+
+    :::zone pivot="api-gremlin"
+
+    ```json
+    {
+      "properties": {
+        "name": "<name-of-database-or-graph>",
+        "restoreParameters": {
+          "restoreSource": "<source-account-instance-id>",
+          "restoreMode": "PointInTime",
+          "restoreTimestampInUtc": "<timestamp>"
+        },
+        "createMode": "Restore"
+      }
+    }
+    ```
+
+    :::zone-end
+
+    :::zone pivot="api-table"
+
+    ```json
+    {
+      "properties": {
+        "name": "<name-of-table>",
+        "restoreParameters": {
+          "restoreSource": "<source-account-instance-id>",
+          "restoreMode": "PointInTime",
+          "restoreTimestampInUtc": "<timestamp>"
+        },
+        "createMode": "Restore"
+      }
+    }
+    ```
+
+    :::zone-end
+
+    > [!NOTE]
+    > Use [`az cosmosdb restorable-database-account list`](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list) to retrieve a list of instance identifiers for all live and deleted restorable database accounts.
+
+1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).  
+
+```azurecli-interactive
+az deployment group create \
+    --resource-group <resource-group-name> \
+    --template-file <template-filename>
+```
 
 ---
 
@@ -486,7 +612,7 @@ Not supported yet.
 
 ## Next steps
 
-* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
-* [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
-* [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
-* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
+- Enable continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+- [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
+- [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
+- [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
