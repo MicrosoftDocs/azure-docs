@@ -58,11 +58,11 @@ The **Azure AD application activity (preview)** report shows the list of applica
 
 It's possible that activity for a deleted application may appear in the report if the activity took place during the selected date range and before the application was deleted. Other scenarios could include a user attempting to sign in to an application that doesn't have a service principal associated with the app. For these types of scenarios, you may need to review the audit logs or sign-in logs to investigate further.
 
-Select the **View sign in activity** link for an application to view more details. The sign-in graph per application counts interactive user sign-ins. The details of any sign-in failures appears below the table. 
+To view the details of the sign-in activity for an application, select the **View sign-in activity** link for the application.
 
 ![Screenshot shows Usage and insights for Application activity where you can select a range and view sign-in activity for different apps.](./media/concept-usage-insights-report/usage-insights-overview.png)
 
-Select a day in the application usage graph to see a detailed list of the sign-in activities for the application. This detailed list is actually the sign-in log with the filter set to the selected application and date.
+The sign-in activity graph uses interactive user sign-ins. Select a day in the application usage graph to see a detailed list of the sign-in activities for the application. This detailed list is actually the sign-in log with the filter set to the selected application and date. The details of any sign-in failures appears below the table. 
 
 ![Screenshot of the sign-in activity details for a selected application.](./media/concept-usage-insights-report/application-activity-sign-in-detail.png)
 
@@ -110,7 +110,14 @@ Looking for the status of an authentication registration or reset event of a use
 
 ### Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last service principal sign-in activity for an application. Service principal activities for the last month are provided in this report. This report supports the [expiring service principal credential recommendation](recommendation-renew-expiring-service-principal-credential.md). 
+The Service principal sign-in activity (preview) report provides the last activity date for every service principal. Provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used used in an app-only or delegated context. Service principal activities for the last month are provided in this report.
+
+![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png)
+
+Select the **View more details** link to locate the client and object IDs for the application as well as specific service principal sign-in activity.
+
+![Screenshot of the service principal sign-in activity details.](./media/concept-usage-insights-report/service-principal-sign-in-activity-details.png)
+
 
 The `servicePrincipalSignInActivity` reports can be viewed using Microsoft Graph in Graph Explorer.
 
@@ -120,11 +127,43 @@ Add the following query to retrieve the service principal sign-in activity, then
 GET https://graph.microsoft.com/beta/reports/servicePrincipalSignInActivities/{id}
 ```
 
+The following is an example of the response:
+
+```json
+{
+     "@odata.context": "https://graph.microsoft.com/beta/$metadata#reports/servicePrincipalSignInActivities",
+     "id": "ODNmNDUyOTYtZmI4Zi00YWFhLWEzOTktYWM1MTA4NGUwMmI3",
+     "appId": "83f45296-fb8f-4aaa-a399-ac51084e02b7",    
+     "delegatedClientSignInActivity": {
+          "lastSignInDateTime": "2021-01-01T00:00:00Z",
+          "lastSignInRequestId": "2d245633-0f48-4b0e-8c04-546c2bcd61f5"
+     },
+     "delegatedResourceSignInActivity": {
+          "lastSignInDateTime": "2021-02-01T00:00:00Z",
+          "lastSignInRequestId": "d2b4c623-f930-42b5-9519-7851ca604b16"
+     },
+     "applicationAuthenticationClientSignInActivity": {
+          "lastSignInDateTime": "2021-03-01T00:00:00Z",
+          "lastSignInRequestId": "b71f24ec-f212-4306-b2ae-c229e15805ea"
+     },
+     "applicationAuthenticationResourceSignInActivity": {
+          "lastSignInDateTime": "2021-04-01T00:00:00Z",
+          "lastSignInRequestId": "53e6981f-2272-4deb-972c-c8272aca986d"
+     },
+     "lastSignInActivity": {
+          "lastSignInDateTime": "2021-04-01T00:00:00Z",
+          "lastSignInRequestId": "cd9733e8-d75a-468f-a63d-6e82bd48c05e"
+     }
+}
+```
+
 For more information, see [Service principal activity in Microsoft Graph](/graph/api/resources/serviceprincipalsigninactivity?view=graph-rest-beta&preserve-view=true).
 
 ### Application credential activity (preview)
 
-The Application credential activity (preview) report helps ensure your application credentials are current. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place. This report supports the [expiring application credential recommendation](recommendation-renew-expiring-application-credential.md) and [remove unused credentials from apps recommendation](recommendation-remove-unused-credential-from-apps.md). 
+The Application credential activity (preview) report provides the last credential activity date for every application credential. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place. 
+
+To view the details of the application credential activity, select the **View more details** link. These details include the application object, service principal, and resource IDs. You can also see if the credential origin is the application or the service principal. 
 
 Application credential activity can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can get the application credential sign-in activity by entity `id`, `keyId`, and `appId` .
 
@@ -137,6 +176,27 @@ To get started, follow these instructions to work with `appCredentialSignInActiv
 
     ```http
     GET https://graph.microsoft.com/beta/reports/appCredentialSignInActivities/{id}
+    ```
+The following is an example of the response:
+
+    ```json
+       {
+        "@odata.type": "#microsoft.graph.appCredentialSignInActivity",
+        "id": "ODNmNDUyOTYtZmI4Zi00YWFhLWEzOTktYWM1MTA4NGUwMmI3fGFwcGxpY2F0aW9u",
+        "keyId": "83f45296-fb8f-4aaa-a399-ac51084e02b7",
+        "keyType": "certificate",
+        "keyUsage": "sign",
+        "appId": "f4d9654f-0305-4072-878c-8bf266dfe146",
+        "appObjectId": "6920caa5-1cae-4bc8-bf59-9c0b8495d240",
+        "servicePrincipalObjectId": "cf533854-9fb7-4c01-9c0e-f68922ada8b6",
+        "resourceId": "a89dc091-a671-4da4-9fcf-3ef06bdf3ac3",
+        "credentialOrigin": "application",
+        "expirationDate": "2021-04-01T21:36:48-8:00",
+        "signInActivity": {
+            "lastSignInDateTime": "2021-04-01T00:00:00-8:00",
+            "lastSignInRequestId": "b0a282a3-68ec-4ec8-aef0-290ed4350271"
+        }
+       }   
     ```
 
 For more information, see [Application credential activity in Microsoft Graph](/graph/api/resources/appcredentialsigninactivity?view=graph-rest-beta&preserve-view=true).
