@@ -36,7 +36,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Integrate an app
+    - name: Integrate apps
       expanded: true
       items: 
         - name: Configure code samples
@@ -177,18 +177,14 @@ items:
         items:
           - name: Create a customer tenant in the admin center
             href: how-to-create-customer-tenant-portal.md
-      - name: Add your app
-        items:
-          - name: Register an app
-            href: how-to-register-ciam-app.md
-      - name: Create user flows
-        items:
-          - name: Add a sign-up and sign-in flow
-            href: how-to-user-flow-sign-up-sign-in-customers.md
-          - name: Add an application to the user flow
-            href: how-to-user-flow-add-application.md
-          - name: Enable password reset
-            href: how-to-enable-password-reset-customers.md
+      - name: Register an app
+        href: how-to-register-ciam-app.md
+      - name: Add a sign-up and sign-in flow
+        href: how-to-user-flow-sign-up-sign-in-customers.md
+      - name: Add an application to the user flow
+        href: how-to-user-flow-add-application.md
+      - name: Enable password reset
+        href: how-to-enable-password-reset-customers.md
       - name: Configure identity providers
         items:
           - name: Google federation
@@ -208,17 +204,14 @@ items:
           items:
             - name: Define custom attributes for user flows
               href: how-to-define-custom-attributes.md
-    - name: Extend
-      expanded: true
-      items:
-      - name: Token issuance start event
-        items:
-        - name: About custom authentication extensions
-          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Configure a custom claims provider token issuance event
-          href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Troubleshoot your custom claims provider API
-          href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Add claims from external systems
+          items:
+           - name: About custom authentication extensions
+             href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+           - name: Configure a custom claims provider token issuance event
+             href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+           - name: Troubleshoot your custom claims provider API
+             href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
     - name: Secure
       expanded: true
       items:
@@ -233,7 +226,6 @@ items:
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
 - name: Reference
-  expanded: true
   items:
     - name: Default user permissions
       href: reference-user-permissions.md
