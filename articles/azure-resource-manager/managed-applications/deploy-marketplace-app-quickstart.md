@@ -1,8 +1,6 @@
 ---
 title: Deploy an Azure Marketplace managed application
 description: Describes how to deploy an Azure Marketplace managed application using Azure portal.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: quickstart
 ms.date: 04/25/2023
 ---
@@ -52,7 +50,7 @@ To get a managed application from the Azure portal, use the following steps.
 
    :::image type="content" source="media/deploy-marketplace-app-quickstart/portal-setup.png" alt-text="Screenshot that shows the form's Setup your portal tab to deploy the managed application.":::
 
-   - **Website name**: Enter a name that meets the criteria specified on the form, like _demotrainingsite_. Your website name should be globally unique across Azure. 
+   - **Website name**: Enter a name that meets the criteria specified on the form, like _demotrainingsite_. Your website name should be globally unique across Azure.
    - **Organization name**: Enter your organization's name.
    - **Contact email addresses**: Enter at least one valid email address.
 
@@ -62,7 +60,7 @@ To get a managed application from the Azure portal, use the following steps.
    :::image type="content" source="media/deploy-marketplace-app-quickstart/portal-setup-login.png" alt-text="Screenshot that shows the form's Setup your login type tab to deploy the managed application.":::
 
    - **Login type**: For this example, select **Mobile**.
-   - **Org admin's mobile number**: Enter a valid mobile phone number including the country/region code, in the format _+1 1234567890_. The phone number is used to sign in to the training site. 
+   - **Org admin's mobile number**: Enter a valid mobile phone number including the country/region code, in the format _+1 1234567890_. The phone number is used to sign in to the training site.
 
 1. Select **Next: Review + create**.
 1. After **Validation passed** is displayed, verify the information is correct.
@@ -72,7 +70,7 @@ To get a managed application from the Azure portal, use the following steps.
 
 1. Select **Create**.
 
-The deployment begins and because many resources are created, the Azure deployment takes about 20 minutes to finish. You can verify the Azure deployments before the website becomes available. 
+The deployment begins and because many resources are created, the Azure deployment takes about 20 minutes to finish. You can verify the Azure deployments before the website becomes available.
 
 ## Verify the managed application deployment
 
@@ -90,7 +88,7 @@ After the managed application deployment is finished, you can verify the resourc
 
    :::image type="content" source="media/deploy-marketplace-app-quickstart/mrg-apps.png" alt-text="Screenshot of the managed resource group that that highlights the deployments and list of deployed resources.":::
 
-1. To review the publisher's permissions in the managed resource group, select **Access Control (IAM)** > **Role assignments**. 
+1. To review the publisher's permissions in the managed resource group, select **Access Control (IAM)** > **Role assignments**.
 
    You can also verify the **Deny assignments**.
 
@@ -102,7 +100,7 @@ After the deployment is completed, from the managed resource group, you can go t
 
    :::image type="content" source="media/deploy-marketplace-app-quickstart/app-service.png" alt-text="Screenshot of the App Service with the website link highlighted.":::
 
-The site might respond with a page that the deployment is still processing. 
+The site might respond with a page that the deployment is still processing.
 
    :::image type="content" source="media/deploy-marketplace-app-quickstart/deployment-message.png" alt-text="Screenshot that shows the website deployment is in progress.":::
 
@@ -112,7 +110,7 @@ When your website is available, a default sign-in page is displayed. You can sig
 
 When you're finished with the managed application, you can delete the resource groups and that removes all the Azure resources you created. For example, in this quickstart you created the resource groups _demo-marketplace-app_ and a managed resource group with the prefix _mrg-microsoft-community-training_.
 
-When you delete the **demo-marketplace-app** resource group, the managed application, managed resource group, and all the Azure resources are deleted. 
+When you delete the **demo-marketplace-app** resource group, the managed application, managed resource group, and all the Azure resources are deleted.
 
 1. Go to the **demo-marketplace-app** resource group and **Delete resource group**.
 

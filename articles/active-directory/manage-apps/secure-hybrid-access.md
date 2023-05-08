@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/17/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 # Secure hybrid access: Protect legacy apps with Azure Active Directory
 

@@ -112,7 +112,7 @@ To check the status of the AzResourceProvider registration, you can run the Azur
 
 1. In the Diagnostic settings tab, select **Add diagnostic setting**.
 2. Type a Diagnostic setting name.
-3. Select **Azure Firewall Fat Flow Log** under **Categories** and any other logs you want to be supported in the firewall.
+3. Select **Azure Firewall Flow Trace Log** under **Categories** and any other logs you want to be supported in the firewall.
 4. In Destination details, select  **Send to Log Analytics** workspace
    1. Choose your desired Subscription and preconfigured Log Analytics workspace.
    1. Enable **Resource specific**.
