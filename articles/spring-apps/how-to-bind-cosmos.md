@@ -65,17 +65,19 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 #### Use the Azure CLI
 
-Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database by using the `az spring connection create` command, as shown in the following example:
+Use the Azure CLI to configure your Spring app to connect to a Cosmos NoSQL Database by using the `az spring connection create` command, as shown in the following example. Be sure to replace the variables in the example with actual values.
 
 > [!NOTE]
 > Updating Azure Cosmos DB database settings can take a few minutes to complete.
+
+> [!NOTE]
+> If you're using Cosmos Cassandra, use `--key_space` instead of `--database`. If you're using Cosmos Table, use `--table` instead of `--database`. For more information, see [Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md).
 
 ```azurecli
 az spring connection create cosmos-sql \
     --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
     --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
     --app $APP_NAME \
-    --deployment $DEPLOYMENT_NAME \
     --target-resource-group $COSMOSDB_RESOURCE_GROUP \
     --account $COSMOSDB_ACCOUNT_NAME \
     --database $DATABASE_NAME \
@@ -84,8 +86,6 @@ az spring connection create cosmos-sql \
 
 > [!NOTE]
 > If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider.
->
-> If you're using Cosmos Cassandra, use a `--key_space` instead of `--database`.
 
 > [!TIP]
 > Run the command `az spring connection list-support-types --output table` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.

@@ -146,6 +146,18 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
+    - name: Advanced email sending
+      items:
+        - name: Send email to multiple recipients
+          href: quickstarts/email/send-email-advanced/send-email-to-multiple-recipients.md
+        - name: Send email with attachments
+          href: quickstarts/email/send-email-advanced/send-email-with-attachments.md
+        - name: Manually poll for email status
+          href: quickstarts/email/send-email-advanced/manually-poll-for-email-status.md
+        - name: Throw an exception when sending tier limit is reached
+          href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
+        - name: Use email object model for payload
+          href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with ACS Management SDKs
@@ -231,6 +243,8 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Closed captions for Teams Interoperability
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
     - name: Call recording
       items:
       - name: Record a call
@@ -247,26 +261,34 @@ items:
       items:
       - name: Diagnose your network
         href: concepts/developer-tools/network-diagnostic.md 
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose client issues
         href: concepts/voice-video-calling/user-facing-diagnostics.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose media quality issues
         href: concepts/voice-video-calling/media-quality-sdk.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Ensure precall readiness
         href: concepts/voice-video-calling/pre-call-diagnostics.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Get users ready for their call with UI Library
         items:
         - name: Call readiness overview
           href: tutorials/call-readiness/call-readiness-overview.md
+          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
         - name: 1. Ensure user is on a supported browser
           href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
         - name: 2. Request camera and microphone permissions
           href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
+          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -299,10 +321,12 @@ items:
         href: concepts/analytics/enable-logging.md
       - name: Voice and Video insights
         href: concepts/analytics/insights/voice-and-video-insights.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call Recording insights
         href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
         href: concepts/analytics/query-call-logs.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Chat
@@ -359,6 +383,8 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: How to secure webhook endpoint
+        href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Call recording
       items:
       - name: Record a call
@@ -557,12 +583,16 @@ items:
         href: concepts/rooms/room-concept.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
+    - name: Enable Closed captions
+      href: concepts/interop/enable-closed-captions.md      
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
     - name: Video constraints
       href: concepts/voice-video-calling/video-constraints.md
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Events
       items:
       - name: Overview
@@ -573,8 +603,10 @@ items:
       items:
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Web best practices
         href: concepts/best-practices.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
         href: concepts/call-flows.md
       - name: Call flow topologies
@@ -584,6 +616,7 @@ items:
       items:
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
     - name: Analytics
       items:
       - name: Call logs
