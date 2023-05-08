@@ -19,14 +19,14 @@ This article describes how to configure your Azure Arc-enabled Kubernetes cluste
 
 The following configurations are supported:
 
-+ Azure Monitor Managed Prometheus supports monitoring Azure Arc-enabled Kubernetes. For more information see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
++ Azure Monitor Managed Prometheus supports monitoring Azure Arc-enabled Kubernetes. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
 + Docker.
 + Moby.
 + CRI compatible container runtimes such CRI-O.
 
-Windows is not currently supported. 
+Windows isn't currently supported.
 
-## Pre-requisites listed under the generic cluster extensions documentation
+## Prerequisites listed under the generic cluster extensions documentation
 
 + An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md). 
 + The cluster must use managed identity authentication. 
@@ -98,7 +98,7 @@ az k8s-extension create\
 
 You can use the following optional parameters with the previous commands:
 
---configurationsettings. AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist is a comma-separated list of Kubernetes annotations keys used in the resource's labels metric. By default, the metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single * can be provided per resource instead to allow any annotations, but it has severe performance implications. 
+--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist is a comma-separated list of Kubernetes annotations keys used in the resource's labels metric. By default, the metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single * can be provided per resource instead to allow any annotations, but it has severe performance implications. 
 
 --configurationSettings. AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList is a comma-separated list of more Kubernetes label keys that is used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them. A single asterisk (*) can be provided per resource instead to allow any labels, but it has severe performance implications.  
 
@@ -134,7 +134,7 @@ az k8s-extension create \
 
 :::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/arc-enabled-k8s-onboarding.png" alt-text="A screenshot of the monitoring onboarding page for Azure Arc-enabled kubernetes clusters.":::
 
-### [Resource manager](#tab/resource-manager)
+### [Resource Manager](#tab/resource-manager)
 
 ### Prerequisites
 
@@ -175,6 +175,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
 1. Download the parameter file at https://aka.ms/azureprometheus-arc-arm-template-parameters and save it as existingClusterParam.json.
 
 1. Edit the following fields' values in the parameter file.
+
    |Parameter|Value |
    |---|---|
    |azureMonitorWorkspaceResourceId |Resource ID for the Azure Monitor    workspace. Retrieve from the JSON view on the Overview page for the Azure    Monitor workspace. |
@@ -225,7 +226,7 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can check the status of the installation using the Azure portal or CLI. Successful installations show the status as `Installed`.
 
-#### Azure Portal
+#### Azure portal
 
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installation.
 
