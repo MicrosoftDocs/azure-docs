@@ -80,7 +80,7 @@ sections:
       - question: |
           What is the SLA on this product?  
         answer: |
-          Previews are excluded from service level agreements. Read the full license term through Azure Monitor for SAP solutions marketplace image.
+          Online Services provided free of charge are excluded from service level agreements. Read Licensing Document for Online Services document on Microsoft Website.  
 
       - question: |
           Can I monitor my entire landscape through this solution?  
