@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Content Safety public preview
 
-The Azure Content Safety is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content. Follow a [quickstart](./quickstart.md) to get started.
+The Azure Content Safety is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content. Follow a [quickstart](./quickstart-text.md) to get started.
 
 ## Cognitive Services updates
 

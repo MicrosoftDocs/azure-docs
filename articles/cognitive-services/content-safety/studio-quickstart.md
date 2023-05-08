@@ -67,4 +67,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 Next, get started using Content Safety through the REST APIs or a client SDK, so you can seamlessly integrate the service into you application.
 
 > [!div class="nextstepaction"]
-> [Quickstart: REST API and client SDKs](./quickstart.md)
+> [Quickstart: REST API and client SDKs](./quickstart-text.md)

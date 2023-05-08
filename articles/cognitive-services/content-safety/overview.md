@@ -27,7 +27,7 @@ You may want to build content filtering software into your app to comply with re
 
 This documentation contains the following article types:  
 
-* **[Quickstarts](./quickstart.md)** are getting-started instructions to guide you through making requests to the service.  
+* **[Quickstarts](./quickstart-text.md)** are getting-started instructions to guide you through making requests to the service.  
 * **[How-to guides](./how-to/use-custom-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
 * **[Concepts](concepts/content-flags.md)** provide in-depth explanations of the service functionality and features.  
 
@@ -123,4 +123,4 @@ If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback 
 Follow a quickstart to get started.
 
 > [!div class="nextstepaction"]
-> [Content Safety quickstart](./quickstart.md)
+> [Content Safety quickstart](./quickstart-text.md)

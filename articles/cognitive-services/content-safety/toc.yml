@@ -15,8 +15,10 @@ items:
   items:
   - name: Content Safety Studio
     href: studio-quickstart.md
-  - name: REST API and client SDKs
-    href: quickstart.md
+  - name: Text moderation
+    href: quickstart-text.md
+  - name: Image moderation
+    href: quickstart-image.md
 - name: Samples 
   items: 
   - name: Content Safety samples

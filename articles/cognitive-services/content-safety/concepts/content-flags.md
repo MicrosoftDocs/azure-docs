@@ -92,4 +92,4 @@ This section describes what each severity level indicates in each category.
 Follow a quickstart to get started using Content Safety in your application.
 
 > [!div class="nextstepaction"]
-> [Content Safety quickstart](../quickstart.md)
+> [Content Safety quickstart](../quickstart-text.md)
