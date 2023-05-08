@@ -13,7 +13,7 @@ ms.custom: references_regions, ignite-2022
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)
 
-[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
+[!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
 
@@ -28,11 +28,7 @@ You may need to copy data within your Azure Cosmos DB account if you want to ach
 
 Intra-account container copy jobs can be [created and managed using CLI commands](how-to-container-copy.md).
 
-## Get started
-
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
-
-## Overview of steps needed to do container copy
+## How to do container copy?
 
 1. Create the target Azure Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
 2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
@@ -134,7 +130,7 @@ Currently, container copy is supported in the following regions:
 * Error - Owner resource doesn't exist
 
     If the job creation fails with the error *"Owner resource doesn't exist"*, it means that the target container wasn't created or was mis-spelt.
-    Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-container-copy)
+    Make sure the target container is created before running the job as specified in the [overview section.](#how-to-do-container-copy)
 
     ```output
     "code": "404",
