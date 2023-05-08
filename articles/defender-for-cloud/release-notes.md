@@ -20,8 +20,31 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
+- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
 - [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
+- [Onboard selected AWS regions](#onboard-selected-aws-regions)
+- [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
+
+### Agentless scanning now supports encrypted disks in AWS
+
+Agentless scanning for VMs now supports processing of instances with encrypted disks in AWS, using both CMK and PMK.
+
+This extended support increases coverage and visibility over your cloud estate without impacting your running workloads. Support for encrypted disks maintains the same zero impact method on running instances.
+
+- For new customers enabling agentless scanning in AWS - encrypted disks coverage is built in and supported by default.
+- For existing customers that already have an AWS connector with agentless scanning enabled, you'll need to reapply the CloudFormation stack to your onboarded AWS accounts to update and add the new permissions that are required to process encrypted disks. The updated CloudFormation template includes new assignments that allow Defender for Cloud to process encrypted disks.
+
+You can learn more about the [permissions used to scan AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+
+**To re-apply your CloudFormation stack**:
+
+1. Go to Defender for Cloud environment settings and open your AWS connector.
+1. Navigate to the **Configure Access** tab.
+1. Select **Click to download the CloudFormation template**.
+1. Navigate to your AWS environment and apply the updated template.
+
+Learn more about [agentless scanning](concept-agentless-data-collection.md) and [enabling agentless scanning in AWS](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
 
 ### Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud
 
@@ -37,6 +60,53 @@ The changes are listed as follows:
 |JIT firewall rules names | ASC-JIT | MDC-JIT
 
 Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
+
+### Onboard selected AWS regions
+
+To help you manage your AWS CloudTrail costs and compliance needs, you can now select which AWS regions to scan when you add or edit a cloud connector.
+You can now scan selected specific AWS regions or all available regions (default), when you onboard your AWS accounts to Defender for Cloud.
+Learn more at [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
+
+### Multiple changes to identity recommendations
+
+The following recommendations are now released as General Availability (GA) and are replacing the V1 recommendations that are now deprecated.
+
+#### General Availability (GA) release of identity recommendations V2
+
+The V2 release of identity recommendations introduces the following enhancements:
+- The scope of the scan has been expanded to include all Azure resources, not just subscriptions. Which enables security administrators to view role assignments per account.
+- Specific accounts can now be exempted from evaluation. Accounts such as break the glass or service accounts can be excluded by security administrators.
+- The scan frequency has been increased from 24 hours to 12 hours, thereby ensuring that the identity recommendations are more up-to-date and accurate. 
+
+The following security recommendations are available in GA and replace the V1 recommendations:
+
+|Recommendation | Assessment Key|
+|--|--|
+| Accounts with owner permissions on Azure resources should be MFA enabled | 6240402e-f77c-46fa-9060-a7ce53997754 |
+| Accounts with write permissions on Azure resources should be MFA enabled | c0cb17b2-0607-48a7-b0e0-903ed22de39b |
+| Accounts with read permissions on Azure resources should be MFA enabled | dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c |
+| Guest accounts with owner permissions on Azure resources should be removed | 20606e75-05c4-48c0-9d97-add6daa2109a |
+| Guest accounts with write permissions on Azure resources should be removed | 0354476c-a12a-4fcc-a79d-f0ab7ffffdbb |
+| Guest accounts with read permissions on Azure resources should be removed | fde1c0c9-0fd2-4ecc-87b5-98956cbc1095 |
+| Blocked accounts with owner permissions on Azure resources should be removed | 050ac097-3dda-4d24-ab6d-82568e7a50cf |
+| Blocked accounts with read and write permissions on Azure resources should be removed | 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
+
+#### Deprecation of identity recommendations V1
+
+The following security recommendations are now deprecated:
+
+| Recommendation | Assessment Key |
+|--|--|
+| MFA should be enabled on accounts with owner permissions on subscriptions | 94290b00-4d0c-d7b4-7cea-064a9554e681 |
+| MFA should be enabled on accounts with write permissions on subscriptions | 57e98606-6b1e-6193-0e3d-fe621387c16b |
+| MFA should be enabled on accounts with read permissions on subscriptions | 151e82c5-5341-a74b-1eb0-bc38d2c84bb5 |
+| External accounts with owner permissions should be removed from subscriptions | c3b6ae71-f1f0-31b4-e6c1-d5951285d03d |
+| External accounts with write permissions should be removed from subscriptions | 04e7147b-0deb-9796-2e5c-0336343ceb3d |
+| External accounts with read permissions should be removed from subscriptions | a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b |
+| Deprecated accounts with owner permissions should be removed from subscriptions | e52064aa-6853-e252-a11e-dffc675689c2 |
+| Deprecated accounts should be removed from subscriptions | 00c6d40b-e990-6acf-d4f3-471e747a27c4 |
+
+We recommend updating your custom scripts, workflows, and governance rules to correspond with the V2 recommendations.
 
 ### Two Defender for DevOps recommendations now include Azure DevOps scan findings
 
@@ -192,9 +262,9 @@ will both be available until the [Log Analytics agent is deprecated on August 31
 
 The new recommendation `System updates should be installed on your machines (powered by Update management center)`, has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Management Center (Preview). This remediation process is still in Preview. 
 
-The new recommendation `System updates should be installed on your machines (powered by Update management center)`, isn't expected to affect your Secure Score, as it will have the same results as the old recommendation `System updates should be installed on your machines`.
+The new recommendation `System updates should be installed on your machines (powered by Update management center)`, isn't expected to affect your Secure Score, as it has the same results as the old recommendation `System updates should be installed on your machines`.
 
-The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can remediate the negative effect with the available [Fix button](implement-security-recommendations.md). 
+The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) has a negative effect on your Secure Score. You can remediate the negative effect with the available [Fix button](implement-security-recommendations.md). 
 
 ### Defender for APIs (Preview)
 
@@ -381,7 +451,7 @@ Updates in January include:
 
 ### The Endpoint protection (Microsoft Defender for Endpoint) component is now accessed in the Settings and monitoring page
 
-To access Endpoint protection navigate to **Environment settings** > **Defender plans** > **Settings and monitoring**. From here you can set Endpoint protection to **On**. You can also see all of the other components that are managed.
+To access Endpoint protection, navigate to **Environment settings** > **Defender plans** > **Settings and monitoring**. From here you can set Endpoint protection to **On**. You can also see all of the other components that are managed.
 
 Learn more about [enabling Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) on your servers with Defender for Servers.
 

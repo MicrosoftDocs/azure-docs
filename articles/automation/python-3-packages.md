@@ -16,7 +16,7 @@ For information on managing Python 2 packages, see [Manage Python 2 packages](./
 
 ## Default Python packages
 
-To support Python 3.8 (preview) runbooks in the Automation service, Azure package 4.0.0 is installed by default in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
+To support Python 3.8 runbooks in the Automation service, Azure package 4.0.0 is installed by default in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
 
 Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
 
@@ -33,11 +33,11 @@ The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software
 
 Select a Python version:
 
-#### [Python 3.8 (preview)](#tab/py3)
+#### [Python 3.8](#tab/py3)
 
 | Filename part | Description |
 |---|---|
-|cp38|Automation supports **Python 3.8 (preview)** for Cloud jobs.|
+|cp38|Automation supports **Python 3.8** for Cloud jobs.|
 |amd64|Azure sandbox processes are **Windows 64-bit** architecture.|
 
 For example:
@@ -78,21 +78,21 @@ Perform the following steps using a 64-bit Linux machine with Python 3.10.x and 
 
    :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file for Python 3.8 (preview) and **.whl** file for Python 3.10 (preview). 
-1. Enter a name and select the **Runtime Version** as Python 3.8 (preview) or Python 3.10 (preview).
+1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file for Python 3.8 and **.whl** file for Python 3.10 (preview). 
+1. Enter a name and select the **Runtime Version** as Python 3.8 or Python 3.10 (preview).
    > [!NOTE]
    > Currently, Python 3.10 (preview) runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central, and Gov clouds.               
 1. Select **Import**.
 
-   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8 (preview) Package page with an uploaded tar.gz file selected.":::
+   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8 Package page with an uploaded tar.gz file selected.":::
 
 After a package has been imported, it's listed on the Python packages page in your Automation account. To remove a package, select the package and click **Delete**.
 
-:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3.8 (preview) packages page after a package has been imported.":::
+:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3.8 packages page after a package has been imported.":::
 
 ### Import a package with dependencies
 
-You can import a Python 3.8 (preview) package and its dependencies by importing the following Python script into a Python 3 runbook, and then running it.
+You can import a Python 3.8 package and its dependencies by importing the following Python script into a Python 3 runbook, and then running it.
 
 ```cmd
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
@@ -165,9 +165,9 @@ for package in installed_packages_list:
     print(package)
 ```
 
-### Python 3.8 (preview) PowerShell cmdlets
+### Python 3.8 PowerShell cmdlets
 
-#### Add new Python 3.8 (preview) package
+#### Add new Python 3.8 package
 
 ```python
 New-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name requires.io -ContentLinkUri https://files.pythonhosted.org/packages/7f/e2/85dfb9f7364cbd7a9213caea0e91fc948da3c912a2b222a3e43bc9cc6432/requires.io-0.2.6-py2.py3-none-any.whl 
@@ -185,7 +185,7 @@ LastModifiedTime      : 9/26/2022 1:37:13 PM +05:30
 ProvisioningState     : Creating 
 ```
 
-#### List all Python 3.8 (preview) packages
+#### List all Python 3.8 packages
 
 ```python
 Get-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja 
@@ -242,13 +242,13 @@ LastModifiedTime      : 9/22/2022 5:03:42 PM +05:30
 ProvisioningState     : Succeeded 
 ```
 
-#### Remove Python 3.8 (preview) package
+#### Remove Python 3.8 package
 
 ```python
 Remove-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name sockets 
 ```
 
-#### Update Python 3.8 (preview) package
+#### Update Python 3.8 package
 
 ```python
 Set-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name requires.io -ContentLinkUri https://files.pythonhosted.org/packages/7f/e2/85dfb9f7364cbd7a9213caea0e91fc948da3c912a2b222a3e43bc9cc6432/requires.io-0.2.6-py2.py3-none-any.whl 
