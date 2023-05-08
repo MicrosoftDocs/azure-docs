@@ -1239,7 +1239,12 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md
+          items: 
+            - name: Job
+              href: reference-yaml-schedule.md
+            - name: Monitor
+              href: reference-yaml-monitor.md
+
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
