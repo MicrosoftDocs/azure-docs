@@ -108,9 +108,9 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `data_segment.feature_values` | Array | list of feature values used to filter for data segment | | |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `numerical` metric `population_stability_index` with threshold of `0.02` and `categorical` metric `normalized_wasserstein_distance' with threshold of `0.02`|
- ! `metric_thresholds.applicable_feature_type` | String | Feathre type that the metric will be applied to. | `numerical` or `categorical`| |
- | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
- | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
+| `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
+| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
+| `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
  #### Prediction Drift
 
@@ -130,9 +130,9 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `numerical` metric `population_stability_index` with threshold of `0.02` and `categorical` metric `normalized_wasserstein_distance' with threshold of `0.02`|
- ! `metric_thresholds.applicable_feature_type` | String | Feathre type that the metric will be applied to. | `numerical` or `categorical`| |
- | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
- | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
+|`metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
+| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
+| `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
  #### Data Quality
 
@@ -172,10 +172,10 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `training` |  |
 | `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
-| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains |
+| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `normalized_discounted_cumulative_gain` metric with threshold of `0.02`|
  ! `metric_thresholds.applicable_feature_type` | String | Feathre type that the metric will be applied to. | `all_feature_types` | `all feature_types` |
  | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | `normalized_discounted_cumulative_gain` | `normalized_discounted_cumulative_gain' |
- | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
+ | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | `0.02` |
 
 
 ## Remarks
