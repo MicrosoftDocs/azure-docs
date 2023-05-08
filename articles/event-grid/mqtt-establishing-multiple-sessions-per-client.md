@@ -14,12 +14,13 @@ In this guide, you learn how to establish multiple sessions for a single client 
 ## Prerequisites
 - You have an Event Grid namespace created.  Refer to this [Quickstart - Publish and subscribe on a MQTT topic](mqtt-publish-and-subscribe-portal.md) to create the namespace, subresources, and to publish/subscribe on a topic.
 
-## Multi-Session Support
+## Multi-Session support
 
 To create multiple sessions per client, provide the client authentication name in the Username property of the CONNECT packet.  Then you can provide the session ID in the Client Identifier (ClientID) property of the CONNECT packet.
 
-- If the Username property isn't present in the CONNECT packet, the service uses the value in ClientID as the single session identifier.  You can't create multiple sessions for the client.
+- If the Username property isn't provided in the CONNECT packet, you can't create multiple sessions for the client.
 - ClientID field can't be empty.
+- ClientID needs to be unique across all the clients in a namespace
 
 If a client tries to take over another client's active session by presenting its session name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time to client A, Client B's connection request is rejected.
 

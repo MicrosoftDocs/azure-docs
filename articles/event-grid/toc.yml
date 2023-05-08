@@ -1,8 +1,6 @@
 items:
   - name: Azure Event Grid Documentation
     href: index.yml
-  - name: Switch to Event Grid on Kubernetes documentation
-    href: kubernetes/index.yml
   - name: Overview
     items:
     - name: What is Event Grid?
@@ -11,8 +9,14 @@ items:
       href: whats-new.md
   - name: Pull and push delivery using HTTP
     items:
+    - name: Overview
+      items:
+      - name: Pull and push delivery overview
+        href: pull-and-push-delivery-overview.md
     - name: Quickstarts
       items:
+      - name: Publish and subscribe using namespace topics
+        href: publish-events-using-namespace-topics.md
       - name: Publish and subscribe using custom topics
         items:
         - name: Custom events to Event Grid Viewer app
@@ -144,6 +148,8 @@ items:
             href: event-schema-data-box.md
           - name: Azure Data Manager for Agriculture
             href: event-schema-data-manager-for-agriculture.md
+          - name: Azure Event Grid Namespace
+            href: event-schema-event-grid-namespace.md
           - name: Azure Event Hubs
             href: event-schema-event-hubs.md
           - name: Azure Health Data Services
@@ -417,8 +423,10 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-  - name: Publish and subscribe messages using MQTT 
+  - name: Publish and subscribe to messages using MQTT 
     items:
+    - name: Overview
+      href: mqtt-overview.md
     - name: Quickstarts
       items:
       - name: Publish and subscribe on an MQTT topic using CLI
@@ -431,19 +439,40 @@ items:
         href: mqtt-routing-to-event-hubs-cli.md
       - name: Route MQTT messages to Event Hubs using portal
         href: mqtt-routing-to-event-hubs-portal.md
+    - name: Samples
+      href: /samples/browse/?term=MQTT+Application
     - name: Concepts
       items:
-      - name: Event Grid namespace terminology
+      - name: Terminology
         href: mqtt-event-grid-namespace-terminology.md
-      - name: Azure Event Grid Namespace MQTT client authentication
-        href: mqtt-client-authentication.md
-      - name: Clients and client groups
-        href: mqtt-clients-and-client-groups.md
+      - name: MQTT client authentication
+        href: mqtt-client-authentication.md      
+      - name: Access control for MQTT clients
+        href: mqtt-access-control.md
+      - name: MQTT clients
+        href: mqtt-clients.md
+      - name: Client groups
+        href: mqtt-client-groups.md      
+      - name: Topic spaces
+        href: mqtt-topic-spaces.md
+      - name: Routing MQTT messages
+        href: mqtt-routing.md
+        items:
+        - name: Routing event schema
+          href: mqtt-routing-event-schema.md
+        - name: Filtering routed MQTT messages
+          href: mqtt-routing-filtering.md
+        - name: Routing enrichments
+          href: mqtt-routing-enrichment.md
+      - name: MQTT support
+        href: mqtt-support.md
+      - name: MQTT clients life cycle events
+        href: mqtt-client-life-cycle-events.md
     - name: How-to guides
       items:
       - name: Create and manage namespaces
         href: create-view-manage-namespaces.md
-      - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
+      - name: MQTT client authentication using certificate chain
         href: mqtt-certificate-chain-client-authentication.md
       - name: Customer enabled disaster recovery
         href: custom-disaster-recovery-client-side.md
@@ -453,3 +482,6 @@ items:
       items:
       - name: Monitoring data reference (MQTT delivery)
         href: monitor-mqtt-delivery-reference.md
+  - name: Event Grid on Kubernetes documentation
+    href: kubernetes/index.yml
+

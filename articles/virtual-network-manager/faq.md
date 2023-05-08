@@ -92,7 +92,11 @@ Should a regional outage occur, all configurations applied to current resources 
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
-Yes, you can choose to override and delete an existing peering already created, or allow them to coexist with those created by Azure Virtual Network Manager.
+Yes, Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deployments using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+
+### Can I migrate an existing hub and spoke topology to Azure Virtual Network Manager?
+
+Yes, 
 
 ### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
 
