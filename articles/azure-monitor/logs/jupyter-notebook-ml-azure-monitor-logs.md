@@ -257,23 +257,23 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 
     1. Upload this sample file to define the table schema:
     
-    ```json
-    [
-      {     
-        "TimeGenerated": "2023-03-19T19:56:43.7447391Z",    
-        "ActualUsage": 40.1,    
-        "PredictedUsage": 45.1,    
-        "Anomalies": -1,    
-        "DataType": "AzureDiagnostics"     
-      } 
-    ]
-    ```
+        ```json
+        [
+          {     
+            "TimeGenerated": "2023-03-19T19:56:43.7447391Z",    
+            "ActualUsage": 40.1,    
+            "PredictedUsage": 45.1,    
+            "Anomalies": -1,    
+            "DataType": "AzureDiagnostics"     
+          } 
+        ]
+        ```
     
     1. Paste this transformation into the **Transformation editor** to define a new `AnomalyTimeGenerated` column, which indicates when the anomaly was detected and sets the `TimeGenerated` column to the time at which the data is ingested into your Log Analytics workspace: 
     
-    ```kusto
-    source | extend AnomalyTimeGenerated = todatetime(TimeGenerated) | extend TimeGenerated = now() 
-    ```
+        ```kusto
+        source | extend AnomalyTimeGenerated = todatetime(TimeGenerated) | extend TimeGenerated = now() 
+        ```
 
  
 1. Define variables you need to pass in the call to the Logs Ingestion API:
