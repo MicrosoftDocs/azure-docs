@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 This article provides the best practices in securing your Azure Active Directory B2C (Azure AD B2C) solution. To build your identity solution using Azure AD B2C involves many components that you should consider protecting and monitoring.  
 
-Depending on your solution, you will have one or more of the following components in scope:
+Depending on your solution, you have one or more of the following components in scope:
 
 - [Azure AD B2C authentication endpoints](./protocols-overview.md)
 - [Azure AD B2C user flows or custom policies](./user-flow-overview.md)
@@ -32,7 +32,7 @@ All of the above components must be protected and monitored to ensure your users
 
 ## How to secure your solution
 
-Your identity solution will use multiple components to provide a smooth sign in experience. Each component is listed in the following table with the recommended protection mechanism.
+Your identity solution uses multiple components to provide a smooth sign in experience. Each component is listed in the following table with the recommended protection mechanism.
 
 |Component |Endpoint|Why|How to protect|
 |----|----|----|----|
@@ -59,12 +59,12 @@ The following table provides an overview of the different protection mechanisms 
   
 [![Screenshot shows Azure AD B2C security architecture diagram.](./media/security-architecture/security-architecture-high-level.png)](./media/security-architecture/security-architecture-high-level.png#lightbox)
 
-## Protecting your External REST API's
+## Protecting your External REST APIs
 
 Azure AD B2C may connect to your external systems via the API Connectors, or the REST API technical profile. These endpoints must be protected to handle the rate limits which Azure AD B2C exposes them to. You can prevent malicious requests to your REST APIs by better protecting the Azure AD B2C authentication endpoints. You can protect these endpoints with a WAF and AFD.
   
 ## Scenario 1: How to secure your Sign In experience
-After creating a sign-in experience, or user flow, you'll need to protect particular components of your flow from malicious activity depdning on which components it uses. Take the following sign in flow, with these attributes as an example:
+After creating a sign-in experience, or user flow, you'll need to protect particular components of your flow from malicious activity depending on which components it uses. Take the following sign in flow, with these attributes as an example:
 
 - Local account email and password authentication
 - Azure AD Multi-Factor Authentication using SMS or phone call
@@ -81,9 +81,9 @@ The following table shows the components, which require protection, and associat
 [![Screenshot shows Azure AD B2C security architecture diagram to protect sign-in.](./media/security-architecture/protect-sign-in.png)](./media/security-architecture/protect-sign-in.png#lightbox)
   
 ## Scenario 2: How to secure your sign up experience
-After creating a sign-up experience, or user flow, you will need to protect particular components of your flow from malicious activity depdning on which components it uses. Take the following sign up flow, with these attributes as an example:
+After creating a sign-up experience, or user flow, you need to protect particular components of your flow from malicious activity depending on which components it uses. Take the following sign up flow, with these attributes as an example:
 
-- Local account email and password sign up
+- Local account email and password sign-up
 - Email verification via email OTP
 - Azure AD Multi-Factor Authentication using SMS or phone call
 
@@ -96,7 +96,7 @@ The following table shows the components, which require protection, and associat
 |Email OTP|NA|WAF and AFD|
 |Multi-factor authentication controls|NA|Authenticator app|
 
-In this scenario, the introduction of the WAF and AFD protection mechanisms will protect both the Azure AD B2C authenticaiton endpoints and the Email OTP components.
+In this scenario, the introduction of the WAF and AFD protection mechanisms protect both the Azure AD B2C authentication endpoints and the Email OTP components.
   
 ![Azure AD B2C security architecture diagram.](./media/security-architecture/protect-sign-up.png)
 
@@ -104,9 +104,9 @@ In this scenario, the introduction of the WAF and AFD protection mechanisms will
 
 ## Next steps 
 
-- [Configure a Web application firewall](./partner-akamai) to protect Azure AD B2C authentication endpoints.
-- [Configure Fraud prevention with Dynamics](./partner-dynamics-365-fraud-protection) to protect your authentication experiences.
-- [Investigate risk with Identity Protection in Azure AD B2C](./identity-protection-investigate-risk) to discover, investigate, and remediate identity-based risks.
-- [Securing phone-based multi-factor authentication (MFA)](./phone-based-mfa) to protect your phone based multi-factor authentication.
-- [Configure Identity Protection](./conditional-access-user-flow) to protect your sign in experience.
-- [Configure Monitoring and alerting](./azure-monitor) to be alerted to any threats.
+- [Configure a Web application firewall](./partner-akamai.md) to protect Azure AD B2C authentication endpoints.
+- [Configure Fraud prevention with Dynamics](./partner-dynamics-365-fraud-protection.md) to protect your authentication experiences.
+- [Investigate risk with Identity Protection in Azure AD B2C](./identity-protection-investigate-risk.md) to discover, investigate, and remediate identity-based risks.
+- [Securing phone-based multi-factor authentication (MFA)](./phone-based-mfa.md) to protect your phone based multi-factor authentication.
+- [Configure Identity Protection](./conditional-access-user-flow.md) to protect your sign in experience.
+- [Configure Monitoring and alerting](./azure-monitor/md) to be alerted to any threats.
