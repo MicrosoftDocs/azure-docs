@@ -6,8 +6,8 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 04/25/2023
-ms.author: dlepow
+ms.date: 05/08/2023
+ms.author: danlep
 ---
 
 # Secure access to the API Management developer portal

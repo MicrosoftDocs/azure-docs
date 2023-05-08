@@ -21,7 +21,7 @@ API authentication and authorization in API Management involve securing the end-
 API Management supports other client-side and service-side authentication and authorization mechanisms that supplement OAuth 2.0 or that are useful when OAuth 2.0 authorization for APIs isn't possible.
 
 > [!NOTE]
-> Other API Management components use different mechanisms to secure and restrict user access:
+> Other API Management components have separate mechanisms to secure and restrict user access:
 > * For managing the API Management instance through the Azure control plane, API Management relies on Azure AD and Azure [role-based access control (RBAC)](api-management-role-based-access-control.md).
 > * The API Management developer portal supports [several options](secure-developer-portal-access.md) to facilitate secure user sign-up and sign-in.
 
@@ -34,7 +34,7 @@ Here's a brief explanation of authentication and authorization in the context of
 * **Authorization** - The process of determining whether a user or app has permission to access a particular API, often through a token-based protocol such as OAuth 2.0.
 
 > [!NOTE]
-> Access to APIs should also be secured using TLS to protect the credentials or tokens that are used for authentication or authorization.
+> To supplement authentication and authorization, access to APIs should also be secured using TLS to protect the credentials or tokens that are used for authentication or authorization.
 
 ## OAuth 2.0 concepts
 
