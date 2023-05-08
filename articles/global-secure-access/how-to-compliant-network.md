@@ -20,9 +20,9 @@ In Microsoft's implementation, we allow administrators to enforce user, device, 
 
 :::image type="content" source="media/concept-conditional-access/global-secure-access-overview.png" alt-text="Diagram showing NaaS conceptual traffic flow." lightbox="media/concept-conditional-access/global-secure-access-overview.png":::
 
-**Compliant network is tenant specific.**
+These compliant network locations are specific to each tenant. Branch locations or clients for one organization do not appear in another's.
 
-### Prerequisites
+## Prerequisites
 
 * A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
@@ -46,6 +46,8 @@ To enable the required setting to allow source IP restoration an administrator m
 > If your organization has active Conditional Access policies based on compliant network, and you disable network access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable network access signaling, first disable or delete the corresponding Conditional Access policies. 
 
 ## Protect Exchange and SharePoint Online behind the compliant network
+
+The follwoing example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from a network location like a branch office or client with the Global Secure Access client installed.
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

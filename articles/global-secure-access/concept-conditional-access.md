@@ -5,7 +5,7 @@ description:
 ms.service: network-access
 ms.subservice: 
 ms.topic: 
-ms.date: 05/04/2023
+ms.date: 05/08/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Global Secure Access and Conditional Access
 
-Global Secure Access enlightens Conditional Access in multiple ways to help organizations improve their security posture and adopt Zero Trust principles.
+Global Secure Access enlightens Conditional Access in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the polies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements.
 
 ## Source IP restoration
 
@@ -26,23 +26,15 @@ To enable source IP restoration see the article, [Enabling source IP restoration
 
 Integrations with the new Global Secure Access client allow profiling of network traffic from endpoints as a way to consistently enforce policy. This functionality surfaces in Conditional Access as a new assignment that policies can target called traffic profiles. 
 
-In the preview, we support the Microsoft 365 traffic profile wich contains... (NEED A GOOD DESCRIPTION TO GO HERE OF WHAT THAT IS AND DOES)
+In the preview, we support the Microsoft 365 traffic profile wich contains... NEED A GOOD DESCRIPTION TO GO HERE OF WHAT THAT IS AND DOES
 
 ## Conditional Access on compliant network
-
-**Compliant network is tenant specific.**
 
 Network traffic coming from Global Secure Access clients or configured branch offices to resources can be identified in Conditional Access policies. This ability is surfaced as a location condition called **All Compliant Network locations**. This location is used in the same way IP ranges or countries would, without the overhead of updating and redefining individual ranges. This location can be included or excluded in Conditional Access policies to meet organizational requirements. [Branch office networks](NEED-LINK-TO-DOC) and endpoints running the [Global Secure Access client]((how-to-install-windows-client.md)) appear in this location.
 
 For example, you may only want users to access certain sensitive applications that don't support modern authentication when they are on this compliant network.
 
-## Other stuff 
-
-CA Policiy still works as normal,....
-
-CAE still works as normal... link to doc
-
-Continuous access evaluation (CAE) introduced real time enformcent of events like accounts being disabled or risk elevation. Integration of CAE with Global Secure Access features extends the functionality to any endpoint. [CAE DOC LINK HERE](conditional-access/)
+These compliant network locations are specific to each tenant. Branch locations or clients for one organization do not appear in another's.
 
 ## Next steps
 

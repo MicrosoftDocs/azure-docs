@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Enabling source IP restoration
 
-Source IP functionality restores the end user’s IP in various locations. Without it enabled downstream services like Exchange Online, SharePoint Online, and others see 147.x.x.x addresses from Global Secure Access. 
+Source IP functionality restores the end user’s IP in various locations. Without it enabled downstream services like Exchange Online, SharePoint Online, and others see addresses from Global Secure Access. 
 
 ## Prerequisites
 
@@ -47,3 +47,5 @@ This functionality allows downstream applications like SharePoint Online and Exc
 Sign-in log data may take a few minutes to appear, this delay is normal as there's some processing that must take place.
 
 ## Next steps
+
+TBD
