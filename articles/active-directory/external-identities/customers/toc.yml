@@ -185,6 +185,8 @@ items:
         items:
           - name: Add a sign-up and sign-in flow
             href: how-to-user-flow-sign-up-sign-in-customers.md
+          - name: Add an application to the user flow
+            href: how-to-user-flow-add-application.md
           - name: Enable password reset
             href: how-to-enable-password-reset-customers.md
       - name: Configure identity providers

@@ -25,7 +25,7 @@ Email sign-up is enabled by default in your local account identity provider sett
 
 - **Sign-in**: After the customer signs up and creates an account, they can sign in by entering their email address and password.
 
-- **Password reset**: If you enable email and password sign-in, a password reset link will appear on the password page. If the customer forgets their password, selecting this link will send a one-time passcode to their email address. After verification, the customer can choose a new password.
+- **Password reset**: If you enable email and password sign-in, a password reset link appears on the password page. If the customer forgets their password, selecting this link sends a one-time passcode to their email address. After verification, the customer can choose a new password.
 
    :::image type="content" source="media/concept-authentication-methods-customers/email-password-sign-in.png" alt-text="Screenshots of the email with password sign-in screens." border="false":::
 
@@ -42,7 +42,7 @@ Email with one-time passcode is an option in your local account identity provide
    :::image type="content" source="media/concept-authentication-methods-customers/email-passcode-sign-in.png" alt-text="Screenshots of the email with one-time passcode sign-in screens." border="false":::
 
 > [!NOTE]
-> If you want to enable [multifactor authentication (MFA)](how-to-multifactor-authentication-customers.md), set your local account authentication method to **Email with password**. If you set your local account option to **Email with one-time passcode**, customers who use this method won't be able to sign in because the one-time passcode is already their first-factor sign-in method andcan't be used as a second factor. Currently, other verification methods aren't available for customer scenarios.
+> If you want to enable [multifactor authentication (MFA)](how-to-multifactor-authentication-customers.md), set your local account authentication method to **Email with password**. If you set your local account option to **Email with one-time passcode**, customers who use this method won't be able to sign in because the one-time passcode is already their first-factor sign-in method and can't be used as a second factor. Currently, other verification methods aren't available for customer scenarios.
 
 When you [create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email one-time passcode** is one of the local account options.
 
