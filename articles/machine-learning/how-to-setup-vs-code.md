@@ -3,7 +3,8 @@ title: Set up Visual Studio Code extension (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
-author: ssalgadodev
+ms.reviewer: ssalgado 
+author: tbombach
 ms.author: tbombach
 ms.service: machine-learning
 ms.subservice: core
@@ -23,6 +24,8 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 - Train machine learning models
 - Debug machine learning experiments locally
 - Schema-based language support, autocompletion and diagnostics for specification file authoring
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -64,7 +67,7 @@ Choosing a default Azure Machine Learning workspace enables the following when a
 
 If you don't have a workspace, create one. For more information, see [manage Azure Machine Learning resources with the VS Code extension](how-to-manage-resources-vscode.md).
 
-To choose your default workspace, select the **Set Azure ML Workspace** button on the Visual Studio Code status bar and follow the prompts to set your workspace.
+To choose your default workspace, select the **Set Azure Machine Learning Workspace** button on the Visual Studio Code status bar and follow the prompts to set your workspace.
 
 Alternatively, use the `> Azure ML: Set Default Workspace` command in the command palette and follow the prompts to set your workspace.
 

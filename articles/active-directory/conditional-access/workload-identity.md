@@ -4,31 +4,32 @@ description: Protecting workload identities with Conditional Access policies
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: workload-identities
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 04/04/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: dawoo
+ms.reviewer: swethar
 
 ms.collection: M365-identity-device-management
 ---
 # Conditional Access for workload identities 
 
-Conditional Access policies have historically applied only to users when they access apps and services like SharePoint online or the Azure portal. We are now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability  Conditional Access for workload identities. 
+Conditional Access policies have historically applied only to users when they access apps and services like SharePoint online or the Azure portal. We're now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability Conditional Access for workload identities. 
 
-A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
+A [workload identity](../workload-identities/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
-- Can’t perform multi-factor authentication.
+- Can’t perform multifactor authentication.
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
 
 These differences make workload identities harder to manage and put them at higher risk for compromise.
 
 > [!IMPORTANT]
-> Conditional Access policies can be scoped to to service principals in Azure AD with Workload Identities Premium licenses. 
+> Workload Identities Premium licenses are required to create or modify Conditional Access policies scoped to service principals. 
+> In directories without appropriate licenses, existing Conditional Access policies for workload identities will continue to function, but can't be modified. For more information, see [Microsoft Entra Workload Identities](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).  
 
 > [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 
@@ -46,9 +47,9 @@ Create a location based Conditional Access policy that applies to service princi
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **What does this policy apply to?**, select **Workload identities (Preview)**.
+   1. Under **What does this policy apply to?**, select **Workload identities**.
    1. Under **Include**, choose **Select service principals**, and select the appropriate service principals from the list.
-1. Under **Cloud apps or actions**, select **All cloud apps**. The policy will apply only when a service principal requests a token.
+1. Under **Cloud apps or actions**, select **All cloud apps**. The policy applies only when a service principal requests a token.
 1. Under **Conditions** > **Locations**, include **Any location** and exclude **Selected locations** where you want to allow access.
 1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
 1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
@@ -65,10 +66,10 @@ Create a risk-based Conditional Access policy that applies to service principals
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **What does this policy apply to?**, select **Workload identities (Preview)**.
+   1. Under **What does this policy apply to?**, select **Workload identities**.
    1. Under **Include**, choose **Select service principals**, and select the appropriate service principals from the list.
-1. Under **Cloud apps or actions**, select **All cloud apps**. The policy will apply only when a service principal requests a token.
-1. Under **Conditions** > **Service principal risk (Preview)**
+1. Under **Cloud apps or actions**, select **All cloud apps**. The policy applies only when a service principal requests a token.
+1. Under **Conditions** > **Service principal risk**
    1. Set the **Configure** toggle to **Yes**.
    1. Select the levels of risk where you want this policy to trigger.
    1. Select **Done**.

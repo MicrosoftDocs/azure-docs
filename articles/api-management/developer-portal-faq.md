@@ -10,7 +10,7 @@ ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 02/04/2022
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # API Management developer portal - frequently asked questions
@@ -68,7 +68,7 @@ Most configuration changes (for example, VNet, sign-in, product terms) require [
 
 ## <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
-The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s).
+The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](cors-policy.md) on your API(s).
 
 You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
 

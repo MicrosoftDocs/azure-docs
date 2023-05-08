@@ -34,12 +34,15 @@ Execute steps listed in [Tutorial: Downlink data from NASA's AQUA public satelli
 The above tutorial provides a walkthrough for scheduling a contact with Aqua and collecting the direct broadcast data on an Azure VM.
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-vm-and-network-to-receive-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-aqua-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
 >   - **Size:** Standard_D8s_v5 or higher
->   - **IP Address:** Ensure that the VM has at least one standard public IP address
+>   - **IP Address:** Ensure that the VM has internet access for downloading tools by having one standard public IP address
+
+> [!TIP]
+> The Public IP Address here is only for internet connectivity not Contact Data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 At the end of this step, you should have the raw direct broadcast data saved as ```.bin``` files under the ```~/aquadata``` folder on the ```receiver-vm```. 
 
@@ -88,7 +91,7 @@ sudo yum groups install "GNOME Desktop"
 ```
 Start VNC server:
 ```bash
-vncsever
+vncserver
 ```
 Enter a password when prompted.
 
@@ -97,6 +100,9 @@ Port forward the vncserver port (5901) over SSH to your local machine:
 ```bash
 ssh -L 5901:localhost:5901 azureuser@receiver-vm
 ```
+> [!NOTE]
+> Use either public IP address of VM DNS name to replace receiver-Vm in this command.
+
 1. On your local machine, download and install [TightVNC Viewer](https://www.tightvnc.com/download.php). 
 1. Start the TightVNC Viewer and connect to ```localhost:5901```. 
 1. Enter the vncserver password you entered in the previous step. 
@@ -107,7 +113,9 @@ From the GNOME Desktop, go to **Applications** > **Internet** > **Firefox** to s
 
 Log on to the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=325&type=software) website and download the **RT-STPS** installation files and the **IPOPP downloader script** under software downloads. The downloaded files will land under ~/Downloads.
 
-Alternatively, you can download the installation files on your local machine first and then upload to a container in Azure Storage. Then use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to download to your ```receiver-vm```. 
+> [!NOTE]
+> Use the same machine to download and run
+> `downloader_DRL-IPOPP_4.1.sh.`
 
 ### Install RT-STPS
 ```bash

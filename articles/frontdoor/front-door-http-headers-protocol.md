@@ -1,13 +1,12 @@
 ---
-title: Protocol support for HTTP headers in Azure Front Door | Microsoft Docs
+title: Protocol support for HTTP headers in Azure Front Door
 description: This article describes HTTP header protocols that Front Door supports.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/31/2022
+ms.date: 01/16/2023
 ms.author: duau
 ---
 
@@ -15,7 +14,7 @@ ms.author: duau
 
 This article outlines the protocol that Front Door supports with parts of the call path (see image). In the following sections, you'll find information about HTTP headers supported by Front Door.
 
-:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Azure Front Door HTTP headers protocol":::
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Diagram showing client making request to Front Door, which is forwarded to the backend. The response is sent from Front Door to the client." border="false":::
 
 > [!IMPORTANT]
 > Front Door doesn't certify any HTTP headers that aren't documented here.
@@ -45,12 +44,12 @@ Azure Front Door includes headers for an incoming request unless they're removed
 
 ## From the Front Door to the client
 
-Any headers sent to Azure Front Door from the backend are also passed through to the client. The following are headers sent from the Front Door to clients.
+Any headers sent to Azure Front Door from the backend are also passed through to the client. Front Door also attaches the following headers to all responses to the client:
 
 | Header  | Example and description |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door, which is critical for troubleshooting as it's used to search access logs.|
-| X-Cache | *X-Cache:* This header describes the caching status of the request <br/> - *X-Cache: TCP_HIT*: The first byte of the request is a cache hit in the Front Door edge. <br/> - *X-Cache: TCP_REMOTE_HIT*: The first byte of the request is a cache hit in the regional cache (origin shield layer) but a miss in the edge cache. <br/> - *X-Cache: TCP_MISS*: The first byte of the request is a cache miss, and the content is served from the origin. <br/> - *X-Cache: PRIVATE_NOSTORE*: Request can't be cached as Cache-Control response header is set to either private or no-store. <br/> - *X-Cache: CONFIG_NOCACHE*: Request is configured to not cache in the Front Door profile. |
+| X-Cache | *X-Cache:* This header describes the caching status of the request. For more information, see [Caching with Azure Front Door](front-door-caching.md#response-headers). |
 
 ### Optional debug response headers
 

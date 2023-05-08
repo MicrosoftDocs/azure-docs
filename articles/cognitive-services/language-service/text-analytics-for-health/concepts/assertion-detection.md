@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # Assertion detection
 
-The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. Text Analytics for health supports three categories of assertion detection for entities in the text: 
+The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions, which can have critical implications if misrepresented. Text Analytics for health supports three categories of assertion detection for entities in the text: 
 
 * Certainty
 * Conditional
@@ -23,10 +23,10 @@ The meaning of medical content is highly affected by modifiers, such as negative
 
 ## Assertion output
 
-Text Analytics for health returns assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect, and containing a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
+Text Analytics for health returns assertion modifiers, which are informative attributes assigned to medical concepts that provide a deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect and containing a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value. In other words, if no assertion is returned, the implied assertion is the default value.
 
 **CERTAINTY**  – provides information regarding the presence (present vs. absent) of the concept and how certain the text is regarding its presence (definite vs. possible).
-*	**Positive** [Default]: the concept exists or happened.
+* **Positive** [Default]: the concept exists or has happened.
 * **Negative**: the concept does not exist now or never happened.
 * **Positive_Possible**: the concept likely exists but there is some uncertainty.
 * **Negative_Possible**: the concept’s existence is unlikely but there is some uncertainty.
@@ -39,7 +39,7 @@ Text Analytics for health returns assertion modifiers, which are informative att
 
 **ASSOCIATION** – describes whether the concept is associated with the subject of the text or someone else.
 *	**Subject** [Default]: the concept is associated with the subject of the text, usually the patient.
-*	**Someone_Else**: the concept is associated with someone who is not the subject of the text.
+*	**Other**: the concept is associated with someone who is not the subject of the text.
 
 
 Assertion detection represents negated entities as a negative value for the certainty category, for example:

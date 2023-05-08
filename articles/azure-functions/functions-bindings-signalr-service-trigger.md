@@ -1,12 +1,12 @@
 ---
 title: Azure Functions SignalR Service trigger binding
 description: Learn to send SignalR Service messages from Azure Functions.
-author: chenyl
+author: Y-Sindo
 ms.topic: reference
 ms.devlang: csharp, javascript, python
 ms.custom: devx-track-csharp
-ms.date: 11/29/2021
-ms.author: chenyl
+ms.date: 01/13/2023
+ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -71,13 +71,10 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows a SignalR trigger that reads a message string from one hub using a SignalR trigger and writes it to a second hub using an output binding. The data required to connect to the output binding is obtained as a `MyConnectionInfo` object from an input binding defined using a `SignalRConnectionInfo` attribute. 
+The following sample shows a C# function that receives a message event from clients and logs the message content.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="12-31":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
 
-The `MyConnectionInfo` and `MyMessage` classes are defined as follows:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="34-46":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -116,10 +113,10 @@ public static void Run(InvocationContext invocation, string message, ILogger log
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-SignalR trigger isn't currently supported for Java. 
-::: zone-end 
- 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+SignalR trigger isn't currently supported for Java.
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
 Here's binding data in the *function.json* file:
 
@@ -147,12 +144,12 @@ module.exports = async function (context, invocation) {
     context.log(`Receive ${context.bindingData.message} from ${invocation.ConnectionId}.`)
 };
 ```
-::: zone-end  
-::: zone pivot="programming-language-powershell" 
- 
+::: zone-end
+::: zone pivot="programming-language-powershell"
+
 Complete PowerShell examples are pending.
-::: zone-end 
-::: zone pivot="programming-language-python"  
+::: zone-end
+::: zone pivot="programming-language-python"
 
 Here's the Python code:
 
@@ -165,8 +162,8 @@ def main(invocation) -> None:
     invocation_json = json.loads(invocation)
     logging.info("Receive {0} from {1}".format(invocation_json['Arguments'][0], invocation_json['ConnectionId']))
 ```
-::: zone-end 
- 
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
@@ -201,7 +198,7 @@ The following table explains the properties of the `SignalRTrigger` attribute.
 
 C# script uses a function.json file for configuration instead of attributes.
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property |Description|
 |---------|-----------------------|
@@ -216,15 +213,15 @@ The following table explains the binding configuration properties for C# script 
 
 ---
 
-::: zone-end 
-::: zone pivot="programming-language-java" 
- 
+::: zone-end
+::: zone pivot="programming-language-java"
+
 ## Annotations
 
-There isn't currently a supported Java annotation for a SignalR trigger.  
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python" 
- 
+There isn't currently a supported Java annotation for a SignalR trigger.
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -240,11 +237,11 @@ The following table explains the binding configuration properties that you set i
 |**parameterNames**| (Optional) A list of names that binds to the parameters. |
 |**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
-::: zone-end  
+::: zone-end
 
 See the [Example section](#example) for complete examples.
 
-## Usage 
+## Usage
 
 ### Payloads
 
@@ -277,7 +274,7 @@ Say you have a JavaScript SignalR client trying to invoke method `broadcast` in 
 await connection.invoke("broadcast", message1, message2);
 ```
 
-After you set `parameterNames`, the names you defined correspond to the arguments sent on the client side. 
+After you set `parameterNames`, the names you defined correspond to the arguments sent on the client side.
 
 ```cs
 [SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]

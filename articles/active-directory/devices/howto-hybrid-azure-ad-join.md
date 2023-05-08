@@ -122,11 +122,11 @@ Organizations can test hybrid Azure AD join on a subset of their environment bef
 
 Some organizations may not be able to use Azure AD Connect to configure AD FS. The steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
 
-### Government cloud
+### US Government cloud (inclusive of GCCHigh and DoD)
 
 For organizations in [Azure Government](https://azure.microsoft.com/global-infrastructure/government/), hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
-- `https://enterpriseregistration.microsoftonline.us`
+- `https://enterpriseregistration.windows.net` **and** `https://enterpriseregistration.microsoftonline.us`
 - `https://login.microsoftonline.us`
 - `https://device.login.microsoftonline.us`
 - `https://autologon.microsoft.us` (If you use or plan to use seamless SSO)

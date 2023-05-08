@@ -15,7 +15,10 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Deploy a Custom Speech model
 
-In this article, you'll learn how to deploy an endpoint for a Custom Speech model. With the exception of [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.  
+In this article, you'll learn how to deploy an endpoint for a Custom Speech model. With the exception of [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.
+
+> [!TIP]
+> A hosted deployment endpoint isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 You can deploy an endpoint for a base or custom model, and then [update](#change-model-and-redeploy-endpoint) the endpoint later to use a better trained model.
 

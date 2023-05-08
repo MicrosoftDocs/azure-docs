@@ -4,10 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how deep learning relates to machine learning and AI. In Azure Machine Learning, use deep learning models for fraud detection, object detection, and more.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
+ms.reviewer: lagayhar
 ms.date: 11/04/2022
 ms.custom: contperf-fy21q1,contperfq1
 ---

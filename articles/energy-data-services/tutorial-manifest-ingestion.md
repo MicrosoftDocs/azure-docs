@@ -1,24 +1,24 @@
 ---
-title: Microsoft Energy Data Services - Steps to perform a manifest-based file ingestion #Required; page title is displayed in search results. Include the brand.
-description: This tutorial shows you how to perform Manifest ingestion #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - Steps to perform a manifest-based file ingestion
+description: This tutorial shows you how to perform Manifest ingestion
+author: bharathim
+ms.author: bselvaraj
+ms.service: energy-data-services
+ms.topic: tutorial
 ms.date: 08/18/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 
-#Customer intent: As a customer, I want to learn how to use manifest ingestion so that I can load manifest information into the Microsoft Energy Data Services Preview instance.
+#Customer intent: As a customer, I want to learn how to use manifest ingestion so that I can load manifest information into the Azure Data Manager for Energy Preview instance.
 ---
 
 # Tutorial: Sample steps to perform a manifest-based file ingestion
 
-Manifest ingestion provides the capability to ingest manifests into Microsoft Energy Data Services Preview instance
+Manifest ingestion provides the capability to ingest manifests into Azure Data Manager for Energy Preview instance
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Ingest sample manifests into the Microsoft Energy Data Services Preview instance using Postman
+> * Ingest sample manifests into the Azure Data Manager for Energy Preview instance using Postman
 > * Search for storage metadata records created during the manifest ingestion using Postman
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -26,9 +26,9 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 Before beginning this tutorial, the following prerequisites must be completed:
-### Get Microsoft Energy Data Services Preview instance details
+### Get Azure Data Manager for Energy Preview instance details
 
-* Microsoft Energy Data Services Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create a Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
+* Azure Data Manager for Energy Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create an Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
 * For this tutorial, you will need the following parameters:
 
   | Parameter          | Value to use             | Example                               | Where to find these values?           |
@@ -38,8 +38,8 @@ Before beginning this tutorial, the following prerequisites must be completed:
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  | Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search and select *Azure Active Directory > Properties > Tenant ID* in the Azure portal. |
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  | Same as App ID or Client_ID mentioned above |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  | Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a refresh token and save it. This refresh token is required later to generate a user token. |
-  | DNS                | URI                      | `<instance>`.energy.Azure.com         | Overview page of Microsoft Energy Data Services instance|
-  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  | Overview page of Microsoft Energy Data Services instance|
+  | DNS                | URI                      | `<instance>`.energy.Azure.com         | Overview page of Azure Data Manager for Energy Preview instance|
+  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  | Overview page of Azure Data Manager for Energy Preview instance|
 
 * Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
 
@@ -52,7 +52,7 @@ Before beginning this tutorial, the following prerequisites must be completed:
   * [Manifest Ingestion postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
     > [!NOTE]
     >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-* Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details)
+* Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Azure Data Manager for Energy Preview instance details](#get-azure-data-manager-for-energy-preview-instance-details)
 * The Postman collection for manifest ingestion contains multiple requests, which will have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
   :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the Postman environment." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png":::
@@ -67,7 +67,7 @@ Before beginning this tutorial, the following prerequisites must be completed:
 
 :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure Postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png":::
 
-## Ingest sample manifests into the Microsoft Energy Data Services Preview instance using Postman
+## Ingest sample manifests into the Azure Data Manager for Energy Preview instance using Postman
 
   1. **Get a user token** - Generate the User token, which will be used to authenticate further API calls.
   2. **Create a legal tag** - Create a legal tag that will be added to the Manifest data for data compliance purpose

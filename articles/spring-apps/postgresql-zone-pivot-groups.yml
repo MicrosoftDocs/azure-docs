@@ -1,0 +1,11 @@
+# YamlMime:ZonePivotGroups
+groups:
+# Owner: xiaofanzhou
+- id: passwordless-postgresql
+  title: Azure Database for PostgreSQL use passwordless connection
+  prompt: Choose the Azure Database for PostgreSQL server to use
+  pivots:
+  - id: postgresql-passwordless-single-server
+    title: Single Server
+  - id: postgresql-passwordless-flexible-server
+    title: Flexible Server

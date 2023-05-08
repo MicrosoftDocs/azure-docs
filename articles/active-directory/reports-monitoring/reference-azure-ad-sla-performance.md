@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SLA performance | Microsoft Docs
+title: Azure Active Directory SLA performance
 description: Learn about the Azure AD SLA performance
 services: active-directory
 author: shlipsey3
@@ -44,20 +44,20 @@ To help you plan for moving workloads to Azure AD, we publish past SLA performan
 
 The SLA attainment is truncated at three places after the decimal. Numbers are not rounded up, so actual SLA attainment is higher than indicated. 
 
-| Month     | 2021    | 2022    |
-| ---       | ---     | ---     |
-| January   |         | 99.998% |
-| February  | 99.999% | 99.999% |
-| March     | 99.568% | 99.998% |
-| April     | 99.999% | 99.999% |
-| May       | 99.999% | 99.999% |
-| June      | 99.999% | 99.999% |
-| July      | 99.999% | 99.999% |
-| August    | 99.999% | 99.999% |
-| September | 99.999% | 99.998% |
-| October   | 99.999% | 99.999% |
-| November  | 99.998% | 99.999% |
-| December  | 99.978% |         |
+| Month     | 2021    | 2022    | 2023    |
+| ---       | ---     | ---     | ---     |
+| January   |         | 99.998% | 99.998% |
+| February  | 99.999% | 99.999% | 99.999% |
+| March     | 99.568% | 99.998% | 99.999% |
+| April     | 99.999% | 99.999% | 99.999% |
+| May       | 99.999% | 99.999% | |
+| June      | 99.999% | 99.999% | |
+| July      | 99.999% | 99.999% | |
+| August    | 99.999% | 99.999% | |
+| September | 99.999% | 99.998% | |
+| October   | 99.999% | 99.999% | |
+| November  | 99.998% | 99.999% | |
+| December  | 99.978% | 99.999% | |
 
 ### How is Azure AD SLA measured? 
 

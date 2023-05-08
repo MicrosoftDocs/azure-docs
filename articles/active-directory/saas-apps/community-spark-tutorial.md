@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Community Spark | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Community Spark'
 description: Learn how to configure single sign-on between Azure Active Directory and Community Spark.
 services: active-directory
 author: jeevansd

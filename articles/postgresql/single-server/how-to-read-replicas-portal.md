@@ -4,14 +4,16 @@ description: Learn how to manage read replicas Azure Database for PostgreSQL - S
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 06/24/2022
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
@@ -34,7 +36,7 @@ To configure the right level of logging, use the Azure replication support param
 
 ## Prepare the primary server
 
-1. In the Azure portal, select an existing Azure Database for PostgreSQL server to use as a master.
+1. In the Azure portal, select an existing Azure Database for PostgreSQL server to use as a primary.
 
 2. From the server's menu, select **Replication**. If Azure replication support is set to at least **Replica**, you can create read replicas.
 
@@ -84,7 +86,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 > [!IMPORTANT]
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >
-> Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
+> Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the primary.
 
 ## Stop replication
 
@@ -174,7 +176,7 @@ The **Max Lag Across Replicas** metric shows the lag in bytes between the primar
 
 ### Replica Lag metric
 
-The **Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your master, the metric reflects this time lag.
+The **Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your primary, the metric reflects this time lag.
 
 1. In the Azure portal, select the Azure Database for PostgreSQL read replica.
 

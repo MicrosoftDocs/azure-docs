@@ -2,12 +2,9 @@
 title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
-ms.date: 10/18/2022
-ms.custom: references_region
+ms.date: 4/2/2023
+ms.custom: references_region, devx-track-azurepowershell
 ms.reviewer: shseth
-
 ---
 
 # Azure Monitor agent on Windows client devices
@@ -15,6 +12,9 @@ This article provides instructions and guidance for using the client installer f
 
 Using the new client installer described here, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
 Both the [extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
+
+> [!NOTE]
+> This article provides specific guidance for installing the Azure Monitor agent on Windows client devices, subject to [limitations below](#limitations). For standard installation and management guidance for the agent, refer [the agent extension management guidance here](./azure-monitor-agent-manage.md)
 
 ### Comparison with virtual machine extension
 Here is a comparison between client installer and VM extension for Azure Monitor agent:
@@ -41,6 +41,11 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
 | On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
+## Limitations
+1. The Windows client installer supports latest Windows machines only that are **Azure AD joined** or hybrid Azure AD joined. More information under [prerequisites](#prerequisites) below
+2. The Data Collection rules can only target the Azure AD tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
+3. No support for Windows machines connected via **Azure private links** 
+4. The agent installed using the Windows client installer is designed mainly for Windows desktops or workstations that are **always connected**. While the agent can be installed via this method on laptops, it is not optimized for battery consumption and network limitations on a laptop.
 
 ## Prerequisites
 1. The machine must be running Windows client OS version 10 RS4 or higher.
@@ -57,7 +62,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
 	[![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
-2. Open an elevated admin command prompt window and update path to the location where you downloaded the installer.
+2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command:
 	```cli
 	msiexec /i AzureMonitorAgentClientSetup.msi /qn
@@ -83,11 +88,11 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 6. Proceed to create the monitored object that you'll associate data collection rules to, for the agent to actually start operating.
 
 > [!NOTE]
->  The agent installed with the client installer currently doesn't support updating configuration once it is installed. Uninstall and reinstall AMA to update its configuration.
+>  The agent installed with the client installer currently doesn't support updating local agent settings once it is installed. Uninstall and reinstall AMA to update above settings.
 
 
 ## Create and associate a 'Monitored Object'
-You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with.
+You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single AAD tenant**.
 Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
 The image below demonstrates how this works:
 
@@ -180,11 +185,11 @@ Now we associate the Data Collection Rules (DCR) to the Monitored Object by crea
 
 **Request URI**
 ```HTTP
-PUT https://management.azure.com/{MOResourceId}/providers/microsoft.insights/datacollectionruleassociations/assoc?api-version=2021-04-01
+PUT https://management.azure.com/{MOResourceId}/providers/microsoft.insights/datacollectionruleassociations/{associationName}?api-version=2021-09-01-preview
 ```
 **Sample Request URI**
 ```HTTP
-PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}/providers/microsoft.insights/datacollectionruleassociations/assoc?api-version=2021-04-01
+PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}/providers/microsoft.insights/datacollectionruleassociations/{associationName}?api-version=2021-09-01-preview
 ```
 
 **URI Parameters**
@@ -213,12 +218,11 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 | `dataCollectionRuleID` | The resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
 
 
-### Using PowerShell
+### Using PowerShell for onboarding
 ```PowerShell
 $TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
 $SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
 $ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
-$DCRName = "CollectWindowsOSlogs" #Your Data collection rule name
 
 Connect-AzAccount -Tenant $TenantID
 
@@ -252,10 +256,10 @@ $body = @"
 }
 "@
 
-$request = "https://management.azure.com/providers/microsoft.insights/providers/microsoft.authorization/roleassignments/$newguid`?api-version=2021-04-01-preview"
+$requestURL = "https://management.azure.com/providers/microsoft.insights/providers/microsoft.authorization/roleassignments/$newguid`?api-version=2021-04-01-preview"
 
 
-Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body
+Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
 
 
 ##########################
@@ -263,24 +267,27 @@ Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body
 #2. Create Monitored Object
 
 # "location" property value under the "body" section should be the Azure region where the MO object would be stored. It should be the "same region" where you created the Data Collection Rule. This is the location of the region from where agent communications would happen.
-
-$request = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
-$body = @'
+$Location = "eastus" #Use your own loacation
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+$body = @"
 {
     "properties":{
-        "location":"eastus"
+        "location":`"$Location`"
     }
 }
-'@
+"@
 
-$Respond = Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body -Verbose
+$Respond = Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body -Verbose
 $RespondID = $Respond.id
 
 ##########################
 
 #3. Associate DCR to Monitored Object
+#See reference documentation https://learn.microsoft.com/en-us/rest/api/monitor/data-collection-rule-associations/create?tabs=HTTP
+$associationName = "assoc01" #You can define your custom associationname, must change the association name to a unique name, if you want to associate multiple DCR to monitored object
+$DCRName = "dcr-WindowsClientOS" #Your Data collection rule name
 
-$request = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations/assoc?api-version=2021-04-01"
+$requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations/$associationName`?api-version=2021-09-01-preview"
 $body = @"
         {
             "properties": {
@@ -290,10 +297,49 @@ $body = @"
 
 "@
 
-Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body
+Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
+
+#(Optional example). Associate another DCR to Monitored Object
+#See reference documentation https://learn.microsoft.com/en-us/rest/api/monitor/data-collection-rule-associations/create?tabs=HTTP
+$associationName = "assoc02" #You must change the association name to a unique name, if you want to associate multiple DCR to monitored object
+$DCRName = "dcr-PAW-WindowsClientOS" #Your Data collection rule name
+
+$requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations/$associationName`?api-version=2021-09-01-preview"
+$body = @"
+        {
+            "properties": {
+                "dataCollectionRuleId": "/subscriptions/$SubscriptionID/resourceGroups/$ResourceGroup/providers/Microsoft.Insights/dataCollectionRules/$DCRName"
+            }
+        }
+
+"@
+
+Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
+
+#4. (Optional) Get all the associatation.
+$requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations?api-version=2021-09-01-preview"
+(Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method get).value
+
+
 ```
 
+### Using PowerShell for offboarding
+```PowerShell
+#This will remove the monitor object
+$TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
+$SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
+$ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
 
+Connect-AzAccount -Tenant $TenantID
+
+#Select the subscription
+Select-AzSubscription -SubscriptionId $SubscriptionID
+
+#Delete monitored object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+#Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
+
+```
 
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
@@ -329,11 +375,15 @@ In order to update the version, install the new version you wish to update to.
 3. The 'ServiceLogs' folder contains log from AMA Windows Service, which launches and manages AMA processes
 4. 'AzureMonitorAgent.MonitoringDataStore' contains data/logs from AMA processes.
 
-### Common issues
+### Common installation issues
 
 #### Missing DLL
 - Error message: "There's a problem with this Windows Installer package. A DLL required for this installer to complete could not be run. …"
 - Ensure you have installed [C++ Redistributable (>2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) before installing AMA:
+
+#### Not AAD joined
+Error message: "Tenant and device ids retrieval failed"
+1. Run the command `dsregcmd /status`. This should produce the output as `AzureAdJoined : YES` in the 'Device State' section. If not, join the device with an AAD tenant and try installation again. 
 
 #### Silent install from command prompt fails
 Make sure to start the installer on administrator command prompt. Silent install can only be initiated from the administrator command prompt.
@@ -342,7 +392,6 @@ Make sure to start the installer on administrator command prompt. Silent install
 - If There's an option to try again, do try it again
 - If retry from uninstaller doesn't work, cancel the uninstall and stop Azure Monitor Agent service from Services (Desktop Application)
 - Retry uninstall
-
 #### Force uninstall manually when uninstaller doesn't work
 - Stop Azure Monitor Agent service. Then try uninstalling again. If it fails, then proceed with the following steps
 - Delete AMA service with "sc delete AzureMonitorAgent" from admin cmd
@@ -351,6 +400,8 @@ Make sure to start the installer on administrator command prompt. Silent install
 - Delete AMA data/logs. They're stored in `C:\Resources\Azure Monitor Agent` by default
 - Open Registry. Check `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Monitor Agent`. If it exists, delete the key.
 
+### Post installation/Operational issues
+Once the agent is installed successfully (i.e. you see the agent service running but don't see data as expected), you can follow standard troubleshooting steps listed here for [Windows VM](./azure-monitor-agent-troubleshoot-windows-vm.md) and [Windows Arc-enabled server](azure-monitor-agent-troubleshoot-windows-arc.md) respectively.
 
 ## Questions and feedback
 Take this [quick survey](https://forms.microsoft.com/r/CBhWuT1rmM) or share your feedback/questions regarding the client installer.

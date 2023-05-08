@@ -15,7 +15,7 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Create a Custom Speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
+Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
 
 ## Create a project
 

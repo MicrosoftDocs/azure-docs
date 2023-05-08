@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 04/24/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -33,11 +33,11 @@ For example, if the initial authentication type is set to Mixed, the EA will be 
 These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > [!NOTE]
-> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
-> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## Azure Enterprise portal hierarchy
 
@@ -138,6 +138,8 @@ Each account requires a unique work, school, or Microsoft account. For more info
 
 There can be only one account owner per account. However, there can be multiple accounts in an EA enrollment. Each account has a unique account owner.
 
+For different Azure AD accounts, it can take more than 30 minutes for permission settings to take effect.
+
 ### Service administrator
 
 The service administrator role has permissions to manage services in the Azure portal and assign users to the coadministrator role.
@@ -174,11 +176,12 @@ The following sections describe the limitations and capabilities of each role.
 |Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
 |View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
-|Purchase reservations|✔|✘|✔|✘|✘|✘|✘|
+|Purchase reservations|✔|✘⁶|✔|✘|✘|✘|✘|
 |Create and manage subscriptions and subscription permissions|✘|✘|✘|✘|✘|✔|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
+- ⁶ A subscription owner or reservation purchaser may purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation purchase enabled flag.  Enterprise administrators may purchase and manage reservations and savings plans across the billing account.  Enterprise administrators (read-only) may view all purchased reservations and savings plans.  Neither EA administrator role is governed by the reservation purchase enabled flag.  While the Enterprise Admin (read-only) role holder is not permitted to make purchases, as it is not governed by reservation purchase enabled, if a user with that role also holds either a subscription owner or reservation purchaser permission, that user may purchase reservations and savings plans even if the reservation purchase enabled flag is set to false
 
 ## Add a new enterprise administrator
 
@@ -203,11 +206,11 @@ Direct EA admins can add department admins in the Azure portal. For more informa
 |View department spending quotas|✔|✔|✔|✘|✘|✘|✔|
 |Set department spending quotas|✔|✘|✘|✘|✘|✘|✘|
 |View organization's EA price sheet|✔|✔|✔|✘|✘|✘|✔|
-|View usage and cost details|✔|✔|✔|✔⁶|✔⁶|✔⁷|✔|
+|View usage and cost details|✔|✔|✔|✔⁷|✔⁷|✔⁸|✔|
 |Manage resources in Azure portal|✘|✘|✘|✘|✘|✔|✘|
 
-- ⁶ Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
-- ⁷ Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
+- ⁷ Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
+- ⁸ Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
 
 ## See pricing for different user roles
 

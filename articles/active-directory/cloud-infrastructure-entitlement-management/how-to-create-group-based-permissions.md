@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 02/03/2023
 ms.author: jfields
 ---
 
@@ -33,15 +33,15 @@ This article describes how you can create  and manage group-based permissions in
 1. Select **Next**
 
 1. If you selected **Admin for all Authorization System Types**
-    - Select Identities for each Authorization System that you would like members of this group to Request on.
+    - Select Identities to add for each Authorization System. Added Identities will have access to submit requests from the **Remediation** tab.
 
 1. If you selected **Admin for selected Authorization System Types**
     - Select **Viewer**, **Controller**, or **Approver** for the **Authorization System Types** you want.
-    - Select **Next** and then select Identities for each Authorization System that you would like members of this group to Request on.
+    - Select **Next** and then select Select Identities to add for each Authorization System. Added Identities will have access to submit requests from the **Remediation** tab.
 
 1. If you select **Custom**, select the **Authorization System Types** you want.
     - Select **Viewer**, **Controller**, or **Approver** for the **Authorization Systems** you want.
-    - Select **Next** and then select Identities for each Authorization System that you would like members of this group to Request on.
+    - Select **Next** and then select Select Identities to add for each Authorization System. Added Identities will have access to submit requests from the **Remediation** tab.
 
 1. Select **Save**, The following message appears: **New Group Has been Created Successfully.**
 1. To see the group you created in the **Groups** table, refresh the page.

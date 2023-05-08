@@ -57,7 +57,7 @@ The preceding code snippet displays output similar to the following example cons
 
 ## Does database exist?
 
-The PyMongo driver for Python creates a database if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database) as shown in the following code snippet.
+The PyMongo driver for Python creates a database if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](./custom-commands.md) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](./custom-commands.md#create-database) as shown in the following code snippet.
 
 To see if the database already exists before using it, get the list of current databases with the [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
 
@@ -83,7 +83,7 @@ The preceding code snippet displays output similar to the following example cons
 
 ## Get database object instance
 
-If a database doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. The pattern is shown above in the section [Does database exist?](#does-database-exist).
+If a database doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](./custom-commands.md) to manage data stored in Azure Cosmos DB’s API for MongoDB. The pattern is shown above in the section [Does database exist?](#does-database-exist).
 
 When working with PyMongo, you access databases using attribute style access on MongoClient instances. Once you have a database instance, you can use database level operations as shown below.
 

@@ -5,8 +5,8 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 06/08/2022
 ms.service: confidential-ledger
+ms.custom: devx-track-azurepowershell
 ms.topic: quickstart
-
 ---
 
 # Quickstart: Create a confidential ledger using Azure PowerShell

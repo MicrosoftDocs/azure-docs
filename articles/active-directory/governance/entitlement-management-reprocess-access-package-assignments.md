@@ -1,5 +1,5 @@
 ---
-title: Reprocess assignments for an access package in entitlement management - Microsoft Entra
+title: Reprocess assignments for an access package in entitlement management
 description: Learn how to reprocess assignments for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/25/2021
+ms.date: 01/26/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management

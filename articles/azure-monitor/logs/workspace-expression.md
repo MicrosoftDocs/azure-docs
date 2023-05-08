@@ -4,7 +4,7 @@ description: The workspace expression is used in an Azure Monitor log query to r
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/06/2022
+ms.date: 04/20/2023
 
 ---
 
@@ -23,38 +23,33 @@ The `workspace` expression is used in an Azure Monitor query to retrieve data fr
 
 | Identifier | Description | Example
 |:---|:---|:---|
-| Resource Name | Human readable name of the workspace (also known as "component name") | workspace("contosoretail") |
-| Qualified Name | Full name of the workspace in the form: "subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| ID | GUID of the workspace | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
-| Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
+| ID | GUID of the workspace | workspace("00000000-0000-0000-0000-000000000000") |
+| Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
 ## Notes
 
 * You must have read access to the workspace.
+* Identifying a workspace by its ID or Azure Resource ID is strongly recommended since unique, removes ambiguity, and more performant.
 * A related expression is `app` that allows you to query across Application Insights applications.
 
 ## Examples
 
 ```Kusto
-workspace("contosoretail").Update | count
+workspace("00000000-0000-0000-0000-000000000000").Update | count
 ```
 ```Kusto
-workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count
-```
-```Kusto
-workspace("/subscriptions/e427267-5645-4c4e-9c67-3b84b59a6982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
 ```
 ```Kusto
 union 
-(workspace("myworkspace").Heartbeat | where Computer contains "Con"),
-(app("myapplication").requests | where cloud_RoleInstance contains "Con")
+( workspace("00000000-0000-0000-0000-000000000000").Heartbeat | where Computer == "myComputer"),
+(app("00000000-0000-0000-0000-000000000000").requests | where cloud_RoleInstance == "myRoleInstance")
 | count  
 ```
 ```Kusto
 union 
-(workspace("myworkspace").Heartbeat), (app("myapplication").requests)
-| where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests) | where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
 ```
 
 ## Next steps

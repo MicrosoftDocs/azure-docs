@@ -1,5 +1,5 @@
 ---
-title: "Authentication on batch endpoints"
+title: "Authorization on batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how authentication works on Batch Endpoints.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Authentication on batch endpoints
+# Authorization on batch endpoints
 
 Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it. 
 
@@ -21,7 +21,7 @@ Batch endpoints support Azure Active Directory authentication, or `aad_token`. T
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 
-## How authentication works
+## How authorization works
 
 To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
 
@@ -42,14 +42,14 @@ You can either use one of the [built-in security roles](../role-based-access-con
 The following examples show different ways to start batch deployment jobs using different types of credentials:
 
 > [!IMPORTANT] 
-> When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure ML studio. Please use the Azure ML CLI v2 instead for job creation.
+> When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure Machine Learning studio. Please use the Azure Machine Learning CLI v2 instead for job creation.
 
 ### Running jobs using user's credentials
 
 In this case, we want to execute a batch endpoint using the identity of the user currently logged in. Follow these steps:
 
 > [!NOTE]
-> When working on Azure ML studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
+> When working on Azure Machine Learning studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
 
 # [Azure CLI](#tab/cli)
 
@@ -67,7 +67,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [Python](#tab/sdk)
 
-1. Use the Azure ML SDK for Python to log in using either interactive or device authentication:
+1. Use the Azure Machine Learning SDK for Python to log in using either interactive or device authentication:
 
     ```python
     from azure.ai.ml import MLClient
@@ -147,7 +147,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
 
-1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine learning is `https://ml.azure.com`. The request would look as follows:
+1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine Learning is `https://ml.azure.com`. The request would look as follows:
     
     __Request__:
     

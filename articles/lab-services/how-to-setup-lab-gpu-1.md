@@ -9,7 +9,7 @@ ms.service: lab-services
 
 # Set up GPU virtual machines in labs contained within lab accounts
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+[!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how to do the following tasks:
 

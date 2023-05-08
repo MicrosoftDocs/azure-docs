@@ -45,7 +45,7 @@
 - name: Reference
   items:
   - name: REST API
-    href: /rest/api/storageimportexport/jobs
+    href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/MicrosoftAzureImportExportAPIMigrationGuide_20221206.pdf
   - name: Azure PowerShell
     href: /powershell/module/Az.ImportExport
 - name: Resources

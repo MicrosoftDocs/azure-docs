@@ -42,7 +42,7 @@ When a custom model or base model expires, it is no longer available for transcr
 
 |Transcription route  |Expired model result  |Recommendation  |
 |---------|---------|---------|
-|Custom endpoint|Speech recognition requests will fall back to the most recent base model for the same [locale](language-support.md?tabs=stt-tts). You will get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
+|Custom endpoint|Speech recognition requests will fall back to the most recent base model for the same [locale](language-support.md?tabs=stt). You will get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
 |Batch transcription |[Batch transcription](batch-transcription.md) requests for expired models will fail with a 4xx error. |In each [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. |
 
 
@@ -111,7 +111,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To get the training and transcription expiration dates for a base model, use the [Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) request to get available base models for all locales.
+To get the training and transcription expiration dates for a base model, use the [Models_GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) request to get available base models for all locales.
 
 Make an HTTP GET request using the model URI as shown in the following example. Replace `BaseModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

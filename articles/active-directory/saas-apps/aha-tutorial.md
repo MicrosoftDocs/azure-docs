@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Aha! | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Aha!'
 description: Learn how to configure single sign-on between Azure Active Directory and Aha!.
 services: active-directory
 author: jeevansd

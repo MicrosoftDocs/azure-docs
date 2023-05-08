@@ -15,7 +15,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 This release corresponds to REST API version 2022-06-15, which includes the following features:
 
 - [Partner Events - General Availability (GA)](partner-events-overview-for-partners.md)
-- [Data residency for topics and domains](/azure/event-grid/event-grid-faq#where-does-azure-event-grid-store-data-).
+- [Data residency for topics and domains](faq.yml#where-does-azure-event-grid-store-data-).
 
 ## Microsoft.Azure.Management.EventGrid version 7.0.0 (REST API version 2021-12)
 This release corresponds to REST API version 2021-12-01, which includes the following features:
@@ -67,7 +67,7 @@ This release corresponds to REST API version 2021-06-01-preview, which includes 
         - NumberNotInRange
         - IsNullOrUndefined
         - IsNotNull
-- [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+- [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-for-cloudevents)
         
 
 ## 6.0.0 (2020-06)
@@ -78,7 +78,6 @@ This release corresponds to REST API version 2021-06-01-preview, which includes 
     - [Cloud event V10 schema](cloud-event-schema.md)
     - [Service Bus topic as destination](handler-service-bus.md)
     - [Azure function as destination](handler-functions.md)
-    - [Webhook batching](./edge/delivery-output-batching.md)
     - [Secure webhook (Azure Active Directory support)](secure-webhook-delivery.md)
     - [Ip filtering](configure-firewall.md)
     - [Private Link Service support](configure-private-endpoints.md)

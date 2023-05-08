@@ -1,19 +1,15 @@
 ---
 title: Get Azure recommendations for your SQL Server migration
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to get SKU recommendation when you migrate SQL Server databases to the Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, or Azure SQL Database.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
 ms.date: 02/22/2022
+ms.service: dms
+ms.topic: conceptual
 ms.custom: references_regions
 ---
 
-# Get Azure recommendations to migrate your SQL Server database (preview)
+# Get Azure recommendations to migrate your SQL Server database
 
 Learn how to use the unified experience in the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to assess your database requirements, get right-sized SKU recommendations for Azure resources, and migrate your SQL Server databases to Azure.
 
@@ -21,7 +17,7 @@ Before you migrate your SQL Server databases to Azure, it's important to assess 
 
 It's equally important to identify the right-sized Azure resource to migrate to so that your database workload performance requirements are met with minimal cost.
 
-The Azure SQL Migration extension for Azure Data Studio provides both the assessment and SKU recommendations when you're trying to choose the best option to migrate your SQL Server databases to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, or Azure SQL Database (preview). The extension has an intuitive interface to help you efficiently run the assessment and generate recommendations.
+The Azure SQL Migration extension for Azure Data Studio provides both the assessment and SKU recommendations when you're trying to choose the best option to migrate your SQL Server databases to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, or Azure SQL Database. The extension has an intuitive interface to help you efficiently run the assessment and generate recommendations.
 
 > [!NOTE]
 > Assessment and the Azure recommendation feature in the Azure SQL Migration extension for Azure Data Studio supports source SQL Server instances running on Windows or Linux.

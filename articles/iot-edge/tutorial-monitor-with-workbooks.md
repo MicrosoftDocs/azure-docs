@@ -4,7 +4,7 @@ description: Learn how to monitor IoT Edge modules and devices using Azure Monit
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.date: 08/13/2021
+ms.date: 9/22/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

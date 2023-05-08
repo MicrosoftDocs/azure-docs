@@ -2,34 +2,33 @@
 title: Migrate to the Microsoft Authentication Library (MSAL)
 description: Learn about the differences between the Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) and how to migrate to MSAL.
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/03/2022
-ms.author: jmprieur
-ms.reviewer: saeeda
+ms.date: 12/29/2022
+ms.author: dmwendia
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, has-adal-ref
-# Customer intent: As an application developer, I want to learn about MSAL library so I can migrate my ADAL applications to MSAL.
+# Customer intent: As an application developer, I want to learn about MSAL so I can migrate my ADAL applications to MSAL.
 ---
 
 # Migrate applications to the Microsoft Authentication Library (MSAL)
 
 If any of your applications use the Azure Active Directory Authentication Library (ADAL)  for authentication and authorization functionality, it's time to migrate them to the [Microsoft Authentication Library (MSAL)](msal-overview.md#languages-and-frameworks).
 
-- All Microsoft support and development for ADAL, including security fixes, ends in December, 2022.
-- There are no ADAL feature releases or new platform version releases planned prior to December, 2022.
+- All Microsoft support and development for ADAL, including security fixes, ends in June 2023.
+- There are no ADAL feature releases or new platform version releases planned prior to June 2023.
 - No new features have been added to ADAL since June 30, 2020.
 
 > [!WARNING]
-> If you choose not to migrate to MSAL before ADAL support ends in December, 2022, you put your app's security at risk. Existing apps that use ADAL will continue to work after the end-of-support date, but Microsoft will no longer release security fixes on ADAL.
+> If you choose not to migrate to MSAL before ADAL support ends in June 2023, you put your app's security at risk. Existing apps that use ADAL will continue to work after the end-of-support date but Microsoft will no longer release security fixes on ADAL. Learn more in [the official announcement](https://aka.ms/adal-eos).
 
 ## Why switch to MSAL?
 
-To understand 'Why MSAL?', it's important to first understand the differences between Microsoft identity platform (v2.0) and Azure Active Directory (v1.0) endpoints. The v1.0 endpoint is used by Azure AD Authentication Library (ADAL) while the v2.0 endpoint is used by Microsoft Authentication Library (MSAL). If you've developed apps against the v1.0 endpoint in the past, you're likely using ADAL. Since the v2.0 endpoint has changed significantly enough, the new library (MSAL) was built for the new endpoint entirely. 
+If you've developed apps against Azure Active Directory (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly enough, the new library (MSAL) was built for the new endpoint entirely.
 
 The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 
@@ -44,7 +43,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Features|MSAL|ADAL|
 |---------|---------|---------|
 |**Security**|||
-|Security fixes beyond December, 2022|![Security fixes beyond December, 2022 - MSAL provides the feature][y]|![Security fixes beyond December, 2022 - ADAL doesn't provide the feature][n]|
+|Security fixes beyond June 2023|![Security fixes beyond June 2023 - MSAL provides the feature][y]|![Security fixes beyond June 2023 - ADAL doesn't provide the feature][n]|
 | Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - MSAL provides the feature][y]|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - ADAL doesn't provide the feature][n]|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - MSAL provides the feature][y]|![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - ADAL doesn't provide the feature][n]|
 |**User accounts and experiences**|||
@@ -83,7 +82,7 @@ MSAL Supports a wide range of application types and scenarios. Please refer to [
 ADAL to MSAL Migration Guide for different platforms are available in the following link.
 - [Migrate to MSAL iOS and MacOS](migrate-objc-adal-msal.md)
 - [Migrate to MSAL Java](migrate-adal-msal-java.md)
-- [Migrate to MSAL .Net](msal-net-migration.md)
+- [Migrate to MSAL .NET](msal-net-migration.md)
 - [Migrate to MSAL Node](msal-node-migration.md)
 - [Migrate to MSAL Python](migrate-python-adal-msal.md)   
 

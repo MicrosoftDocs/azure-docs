@@ -4,7 +4,7 @@ description: Enable the container protections of Microsoft Defender for Containe
 ms.topic: how-to
 author: bmansheim
 ms.author: benmansheim
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 zone_pivot_groups: k8s-host
 ms.date: 10/30/2022
 ---

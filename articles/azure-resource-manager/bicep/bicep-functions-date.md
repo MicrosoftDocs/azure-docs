@@ -4,6 +4,7 @@ description: Describes the functions to use in a Bicep file to work with dates.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 05/03/2022
 ---
 

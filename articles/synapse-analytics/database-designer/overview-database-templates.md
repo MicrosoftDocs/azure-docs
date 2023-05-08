@@ -50,7 +50,7 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **Fund Management** - For companies that manage investment funds for investors.
 * **Genomics** - For companies acquiring and analyzing genomic data about human beings or other species.
 * **Government** - For organizations controlling, regulating or providing services to a country/region, state or province, or community.
-* **Healthcare Insurance** - For organizations providing insurance to cover healthcare needs (sometimes know as Payors).
+* **Healthcare Insurance** - For organizations providing insurance to cover healthcare needs (sometimes known as Payors).
 * **Healthcare Provider** - For organizations providing healthcare services.
 * **Life Insurance & Annuities** - For companies that provide life insurance, sell annuities, or both.
 * **Manufacturing** - For companies engaged in discrete manufacturing of a wide range of products.

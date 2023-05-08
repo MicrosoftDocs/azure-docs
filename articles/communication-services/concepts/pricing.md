@@ -22,6 +22,8 @@ Calling and screen-sharing services are charged on a per minute per participant 
 
 Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
+Calls charged with precision to a millisecond. For example, if a call lasts 30 seconds, the charge will be $0.02.
+
 ### Pricing example: Group audio/video call using JS and iOS SDKs
 
 Alice made a group call with her colleagues, Bob, and Charlie. Alice and Bob used the JS SDKs, Charlie iOS SDKs.

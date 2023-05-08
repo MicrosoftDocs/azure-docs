@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Virtual Desktop glossary - Azure
+title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
 services: virtual-desktop
 author: Heidilohr
@@ -25,9 +25,6 @@ Available sessions shows the number of available sessions in the host pool. The 
 ## Client operating system (OS)
 
 The client operating system (OS) shows which version of the OS end-users accessing Azure Virtual Desktop resources are currently using. The client OS also shows which version of the web (HTML) client and the full Remote Desktop client the users have. For a full list of Windows OS versions, see [Operating System Version](/windows/win32/sysinfo/operating-system-version).
-
->[!IMPORTANT]
->Windows 7 support will end on January 10, 2023. The client OS version for Windows 7 is Windows 6.1.
 
 ## Connection success
 
@@ -164,13 +161,16 @@ Time to connect has two stages:
 
 When monitoring time to connect, keep in mind the following things:
 
-- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service data:
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a remote application scenario.
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
-  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
+  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp. For timing, consider the first app launch only)
 
-  For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe).
+For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a remote application to launch based on the time taken to launch the first instance of the shell app for a connection.
+  
+>[!NOTE]
+>If a user launches more than one remote application, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
 
 - Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
 

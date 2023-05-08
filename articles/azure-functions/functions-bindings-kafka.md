@@ -2,7 +2,7 @@
 title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
 ms.topic: reference
-ms.date: 05/14/2022
+ms.date: 01/12/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -94,6 +94,7 @@ The following properties, which are inherited from the [Apache Kafka C/C++ clien
 |Property  | Applies to | librdkafka equivalent |
 |---------|---------|---------| 
 | AutoCommitIntervalMs	| Trigger | `auto.commit.interval.ms` |
+| AutoOffsetReset | Trigger	| `auto.offset.reset` | 
 | FetchMaxBytes	| Trigger | `fetch.max.bytes` |
 | LibkafkaDebug	| Both | `debug` |
 | MaxPartitionFetchBytes	| Trigger | `max.partition.fetch.bytes` |

@@ -8,7 +8,7 @@ ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure VM Image Builder permissions by using the Azure CLI
@@ -21,7 +21,7 @@ If you want VM Image Builder to distribute images, you need to create a user-ass
 
 You must set up permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios by using the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a user-assigned managed identity
 
@@ -75,7 +75,7 @@ For VM Image Builder to build images from source custom images, the service must
 Here's how you build from an existing custom image:
 
 ```Actions
-Microsoft.Compute/galleries/read
+Microsoft.Compute/images/read
 ```
 
 Here's how you build from an existing Azure Compute Gallery version:

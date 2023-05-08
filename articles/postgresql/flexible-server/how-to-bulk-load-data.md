@@ -90,7 +90,7 @@ To create an unlogged table or change an existing table to an unlogged table, us
 
 Before you begin an initial data load on the flexible server, we recommend that you:
 
-- Disable high availability on the server. You can enable it after the initial load is completed on master/primary.
+- Disable high availability on the server. You can enable it after the initial load is completed on the primary.
 - Create read replicas after the initial data load is completed.
 - Make logging minimal or disable it altogether during initial data loads (for example: disable pgaudit, pg_stat_statements, query store).
 

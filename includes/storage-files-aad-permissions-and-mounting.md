@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 12/07/2022
+ ms.date: 01/24/2023
  ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -144,8 +144,32 @@ if ($connectTestResult.TcpTestSucceeded) {
 }
 ```
 
+You can also use the `net-use` command from a Windows prompt to mount the file share. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
+```
+
 ## Mount the file share from a non-domain-joined VM
 
 Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN to allow this connectivity. The user accessing the file share must have an identity and credentials (an Azure AD identity synced from Azure AD to Azure AD DS) in the Azure AD DS managed domain.
 
-When mounting the file share, the user must provide explicit credentials such as **DOMAINNAME\username** where DOMAINNAME is the Azure AD DS domain and username is the identity’s user name in Azure AD DS. This will help route Kerberos ticket requests from the client to the correct domain controller in the Azure AD DS domain.
+To mount a file share from a non-domain-joined VM, the user must either:
+
+- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Azure AD DS domain and **username** is the identity’s user name in Azure AD DS, or
+- Use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name.
+
+Using one of these approaches will allow the client to contact the domain controller in the Azure AD DS domain to request and receive Kerberos tickets.
+
+For example:
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
+```
+
+or
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
+```
+

@@ -4,7 +4,7 @@ description: Learn what log sources might be appropriate for Basic Log ingestion
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 04/25/2022
+ms.date: 01/05/2023
 ms.custom: 
 ---
 # Log sources to use for Basic Logs ingestion

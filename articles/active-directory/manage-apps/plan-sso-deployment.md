@@ -2,16 +2,17 @@
 title: Plan a single sign-on deployment
 description: Plan the deployment of single sign-on in Azure Active Directory.
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2022
-ms.author: alamaral
+ms.date: 03/20/2023
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, enterprise-apps
 # Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application in Azure Active Directory.
 ---
 
@@ -20,10 +21,10 @@ ms.custom: has-adal-ref
 This article provides information that you can use to plan your [single sign-on (SSO)](what-is-single-sign-on.md) deployment in Azure Active Directory (Azure AD). When you plan your SSO deployment with your applications in Azure AD, you need to consider the following questions:
 
 - What are the administrative roles required for managing the application?
-- Does the certificate need to be renewed?
+- Does the Security Assertion Markup Language (SAML) application certificate need to be renewed?
 - Who needs to be notified of changes related to the implementation of SSO?
 - What licenses are needed to ensure effective management of the application?
-- Are shared user accounts used to access the application?
+- Are shared and guest user accounts used to access the application?
 - Do I understand the options for SSO deployment?
 
 ## Administrative Roles
@@ -32,17 +33,17 @@ Always use the role with the fewest permissions available to accomplish the requ
 
 | Persona | Roles | Azure AD role (if necessary) |
 | ------- | ----- | --------------------------- |
-| Help desk admin | Tier 1 support | None |
-| Identity admin | Configure and debug when issues involve Azure AD | Global admin |
+| Help desk admin | Tier 1 support view the sign-in logs to resolve issues.  | None |
+| Identity admin | Configure and debug when issues involve Azure AD | Cloud Application Administrator |
 | Application admin | User attestation in application, configuration on users with permissions | None |
-| Infrastructure admins | Certificate rollover owner | Global admin |
+| Infrastructure admins | Certificate rollover owner | Cloud Application Administrator |
 | Business owner/stakeholder | User attestation in application, configuration on users with permissions | None |
 
 To learn more about Azure AD administrative roles, see [Azure AD built-in roles](../users-groups-roles/directory-assign-admin-roles.md).
 
 ## Certificates
 
-When you enable federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. 
+When you enable federation on SAML application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. 
 
 You change that certificate duration in the Azure portal. Make sure to document the expiration and know how you'll manage your certificate renewal. It’s important to identify the right roles and email distribution lists involved with managing the lifecycle of the signing certificate. The following roles are recommended:
 

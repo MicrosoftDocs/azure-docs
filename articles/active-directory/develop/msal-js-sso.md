@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/25/2021
+ms.date: 01/16/2023
 ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev, has-adal-ref
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to learn about enabling single sign on experiences with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
 ---
 
 # Single sign-on with MSAL.js
 
-Single sign-on (SSO) provides a more seamless experience by reducing the number of times your users are asked for their credentials. Users enter their credentials once, and the established session can be reused by other applications on the device without further prompting.
+Single sign-on (SSO) provides a more seamless experience by reducing the number of times a user is asked for credentials. Users enter their credentials once, and the established session can be reused by other applications on the same device without further prompting.
 
-Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. These two mechanisms (i.e. Azure AD session cookie and MSAL cache) are independent of each other, but works together to provide SSO behavior.
+Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. The two mechanisms, Azure AD session cookie and Microsoft Authentication Library (MSAL) cache, are independent of each other but work together to provide SSO behavior.
 
 ## SSO between browser tabs for the same app
 
-When a user has your application open in several tabs and signs in on one of them, they can be signed into the same app open on the other tabs without being prompted. To do so, you'll need to set the *cacheLocation* in MSAL.js configuration object to `localStorage` as shown below.
+When a user has an application open in several tabs and signs in on one of them, they can be signed into the same app open on other tabs without being prompted. To do so, you'll need to set the *cacheLocation* in MSAL.js configuration object to `localStorage` as shown in the following example:
 
 ```javascript
 const config = {
@@ -43,7 +43,7 @@ In this case, application instances in different browser tabs make use of the sa
 
 ## SSO between different apps
 
-When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. In particular, MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, then the user is prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
+When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. In particular, MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, they're then prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
 
 ### With user hint
 
@@ -136,7 +136,7 @@ try {
 
 ### Without user hint
 
-You can attempt to use the `ssoSilent` method without passing any `account`, `sid` or `login_hint` as shown in the code below:
+You can attempt to use the `ssoSilent` method without passing any `account`, `sid` or `login_hint` as shown in the following code:
 
 ```javascript
 const request = {
@@ -156,13 +156,13 @@ try {
 }
 ```
 
-However, there's a likelihood of silent sign-in errors if the application has multiple users in a single browser session or if the user has multiple accounts for that single browser session. You may see the following error in the case of multiple accounts:
+However, there's a likelihood of silent sign-in errors if the application has multiple users in a single browser session or if the user has multiple accounts for that single browser session. The following error may be displayed if multiple accounts are available:
 
 ```txt
 InteractionRequiredAuthError: interaction_required: AADSTS16000: Either multiple user identities are available for the current request or selected account is not supported for the scenario.
 ```
 
-The error indicates that the server couldn't determine which account to sign into, and will require either one of the parameters above (`account`, `login_hint`, `sid`) or an interactive sign-in to choose the account.
+The error indicates that the server couldn't determine which account to sign into, and will require either one of the parameters in the previous example (`account`, `login_hint`, `sid`) or an interactive sign-in to choose the account.
 
 ## Considerations when using `ssoSilent`
 
@@ -170,8 +170,8 @@ The error indicates that the server couldn't determine which account to sign int
 
 For better performance and to help avoid issues, set the `redirectUri` to a blank page or other page that doesn't use MSAL.
 
-- If your application users only popup and silent methods, set the `redirectUri` on the `PublicClientApplication` configuration object.
-- If your application also uses redirect methods, set the `redirectUri` on a per-request basis.
+- If the application users only popup and silent methods, set the `redirectUri` on the `PublicClientApplication` configuration object.
+- If the application also uses redirect methods, set the `redirectUri` on a per-request basis.
 
 ### Third-party cookies
 
@@ -185,7 +185,7 @@ To resolve the error, the user must create an interactive authentication request
 
 ## Negating SSO with prompt=login
 
-If you like Azure AD to prompt the user for entering their credentials despite there being an active session with the authorization server, you can use the **login** prompt parameter in requests with MSAL.js. See [MSAL.js prompt behavior](msal-js-prompt-behavior.md) for more.
+If you prefer Azure AD to prompt the user for entering their credentials despite an active session with the authorization server, you can use the **login** prompt parameter in requests with MSAL.js. See [MSAL.js prompt behavior](msal-js-prompt-behavior.md) for more.
 
 ## Sharing authentication state between ADAL.js and MSAL.js
 
@@ -220,4 +220,4 @@ For more information about SSO, see:
 
 - [MSAL.js prompt behavior](msal-js-prompt-behavior.md)
 - [Optional token claims](active-directory-optional-claims.md)
-- [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
+- [Configurable token lifetimes](configurable-token-lifetimes.md)

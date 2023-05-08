@@ -3,14 +3,12 @@ title: Migrate to Connection Monitor from Connection Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor from Connection Monitor.
 services: network-watcher
-documentationcenter: na
-author: vinynigam
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 06/30/2021
-ms.author: vinigam
+ms.author: halkazwini
 ms.custom: engagement-fy23
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---

@@ -67,7 +67,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
     }
     ```
     
-In your tenant, you'll need separate app registrations for the web app and the web API. For app registration and exposing the web API scope, follow the steps in the scenario [A web app that authenticates users and calls web APIs](/scenario-web-app-call-api-overview).
+In your tenant, you'll need separate app registrations for the web app and the web API. For app registration and exposing the web API scope, follow the steps in the scenario [A web app that authenticates users and calls web APIs](./scenario-web-app-call-api-overview.md).
 
 For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
 

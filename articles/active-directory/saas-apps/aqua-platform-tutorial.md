@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 12/26/2022
 ms.author: jeedes
 
 ---
@@ -62,11 +62,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type the value:
-    `urn:amazon:cognito:sp:us-east-1_voZ9dTvpW`
+    a. In the **Identifier** textbox, type one of the following values:
 
-    b. In the **Reply URL** textbox, type the URL:
-    `https://cloudsploit.auth.us-east-1.amazoncognito.com/saml2/idpresponse`
+    | Environment | URL |
+    |---------|---------|
+    | us-east-1 |`urn:amazon:cognito:sp:us-east-1_voZ9dTvpW` |
+    | Asia-1 |`urn:amazon:cognito:sp:ap-southeast-1_7AUN22FiF` |
+    | EU-1 | `urn:amazon:cognito:sp:eu-central-1_RAierVJ6g` |
+    | ASIA-2 | `urn:amazon:cognito:sp:ap-northeast-2_n4Oo1PAlV` |
+
+    b. In the **Reply URL** textbox, type one of the following URLs:
+
+    | Environment | URL |
+    |---------|---------|
+    | us-east-1 |`https://cloudsploit.auth.us-east-1.amazoncognito.com/saml2/idpresponse` |
+    | Asia-1 | `https://auth-sg-prod.auth.ap-southeast-1.amazoncognito.com/saml2/idpresponse` |
+    | EU-1 | `https://auth-eu-prod.auth.eu-central-1.amazoncognito.com/saml2/idpresponse` |
+    | ASIA-2 | `https://auth-kr-prod.auth.ap-northeast-2.amazoncognito.com/saml2/idpresponse` |
 
     c. In the **Sign on URL** textbox, type the URL:
     `https://cloud.aquasec.com/sso`
@@ -102,11 +114,11 @@ In this section, you create a user called Britta Simon in Aqua Platform. Work wi
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Aqua Platform Sign on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Aqua Platform Sign-on URL where you can initiate the login flow. 
 
-* Go to Aqua Platform Sign on URL directly and initiate the login flow from there.
+* Go to Aqua Platform Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Aqua Platform tile in the My Apps, this will redirect to Aqua Platform Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Aqua Platform tile in the My Apps, this will redirect to Aqua Platform Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 

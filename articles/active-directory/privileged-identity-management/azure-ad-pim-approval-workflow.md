@@ -1,5 +1,5 @@
 ---
-title: Approve or deny requests for Azure AD roles in PIM - Azure AD | Microsoft Docs
+title: Approve or deny requests for Azure AD roles in PIM
 description: Learn how to approve or deny requests for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -178,7 +178,7 @@ Here's some information about workflow notifications:
 - Global admins and Privileged role admins are notified when an approved user becomes active in their role.
 
 >[!NOTE]
->A Global admin or Privileged role admin who believes that an approved user should not be active can remove the active role assignment in Privileged Identity Management. Although administrators are not notified of pending requests unless they are an approver, they can view and cancel any pending requests for all users by viewing pending requests in Privileged Identity Management.
+>A Global Administrator or Privileged role admin who believes that an approved user should not be active can remove the active role assignment in Privileged Identity Management. Although administrators are not notified of pending requests unless they are an approver, they can view and cancel any pending requests for all users by viewing pending requests in Privileged Identity Management.
 
 ## Next steps
 

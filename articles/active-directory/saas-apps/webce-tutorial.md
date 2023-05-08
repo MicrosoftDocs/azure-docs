@@ -14,7 +14,7 @@ ms.author: jeedes
 
 ---
 
-# Azure Active Directory SSO integration with WebCE
+# Tutorial: Azure Active Directory SSO integration with WebCE
 
 In this article, you'll learn how to integrate WebCE with Azure Active Directory (Azure AD). WebCE offers self-study online continuing education and pre-license training courses for a variety of professional licenses and designations. When you integrate WebCE with Azure AD, you can:
 
@@ -59,18 +59,14 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a URL using one of the following patterns:
-
-    | **Identifier** |
-    |---------------|
-    | `https://www.webce.com/<RootPortalFolder>` |
-    | `https://www.webce.com` |
+    a. In the **Identifier** textbox, type a URL using the following pattern:
+    `https://www.webce.com`
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://www.webce.com/<RootPortalFolder>/login/saml20`
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
-    `https://www.webce.com/<RootPortalFolder>/login/saml20`
+    `https://www.webce.com/<RootPortalFolder>/login`
 
     > [!Note]
     > These values are not the real. Update these values with the actual Identifer, Reply URL and Sign on URL. Contact [WebCE Client support team](mailto:CustomerService@WebCE.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -95,11 +91,11 @@ In this section, a user called B.Simon is created in WebCE. WebCE supports just-
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to WebCE Sign on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to WebCE Sign-on URL where you can initiate the login flow. 
 
-* Go to WebCE Sign on URL directly and initiate the login flow from there.
+* Go to WebCE Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the WebCE tile in the My Apps, this will redirect to WebCE Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the WebCE tile in the My Apps, this will redirect to WebCE Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 

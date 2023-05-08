@@ -1,5 +1,5 @@
 ---
-title: Certificate-based authentication with federation on iOS - Azure Active Directory
+title: Certificate-based authentication with federation on iOS
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication for Azure Active Directory in solutions with iOS devices
 
 services: active-directory

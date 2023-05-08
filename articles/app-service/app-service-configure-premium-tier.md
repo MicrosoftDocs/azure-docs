@@ -23,9 +23,6 @@ To scale-up an app to Premium V3, you need to have an Azure App Service app that
 
 The Premium V3 tier is available for both native and custom containers, including both Windows containers and Linux containers.
 
-> [!NOTE]
-> Any Windows containers running in the **Premium Container** tier during the preview period continue to function as is, but the **Premium Container** tier will continue to remain in preview. The Premium V3 tier is the official replacement for the **Premium Container** tier. 
-
 Premium V3 is available in some Azure regions and availability in additional regions is being added continually. To see if it's available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md):
 
 ```azurecli-interactive
@@ -71,7 +68,7 @@ If your operation finishes successfully, your app's overview page shows that it'
 
 ### If you get an error
 
-Some App Service plans can't scale up to the PremiumV3 tier if the underlying App Service deployment doesn’t support PremiumV3. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
+Some App Service plans can't scale up to the **PremiumV3** tier, or to a newer SKU within **PremiumV3**, if the underlying App Service deployment doesn’t support the requested **PremiumV3** SKU. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
 
 <a name="unsupported"></a>
 
@@ -86,18 +83,13 @@ If your app runs in an App Service deployment where Premium V3 isn't available, 
 
     In the **Clone app** page, you can create an App Service plan using Premium V3 in the region you want, and specify the app settings and configuration that you want to clone.
  
-
-## Moving from Premium Container to Premium V3 SKU
-
-The Premium Container SKU will be retired on **30th June 2022**.  You should move your applications to the **Premium V3 SKU** ahead of this date. Use the clone functionality in the Azure App Service CLI experience to [move your application from your Premium Container App Service Plan to a new Premium V3 App Service plan](https://aka.ms/pcsku). 
-
 ## Automate with scripts
 
 You can automate app creation in the Premium V3 tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 ### Azure CLI
 
-The following command creates an App Service plan in _P1V3_. You can run it in the Cloud Shell. The options for `--sku` are P1V3, _P2V3_, and _P3V3_.
+The following command creates an App Service plan in _P1V3_. You can run it in the Cloud Shell. The options for `--sku` are _P0V3_, _P1V3_, _P2V3_, _P3V3_, _P1mV3_, _P2mV3_, _P3mV3_, _P4mV3_, and _P5mV3_.
 
 ```azurecli-interactive
 az appservice plan create \

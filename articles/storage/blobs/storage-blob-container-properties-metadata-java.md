@@ -7,13 +7,13 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 12/22/2022
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Manage container properties and metadata using the Java client library
+# Manage container properties and metadata with Java
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
@@ -23,7 +23,7 @@ Blob containers support system properties and user-defined metadata, in addition
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-Metadata name/value pairs are valid HTTP headers, and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names, valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
+    Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 ## Retrieve container properties
 
@@ -41,8 +41,6 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 - [setMetadata](/java/api/com.azure.storage.blob.blobcontainerclient)
 
-The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, the Blob service returns status code 400 (Bad Request).
-
 Setting container metadata overwrites all existing metadata associated with the container. It's not possible to modify an individual name-value pair.
 
 The following code example sets metadata on a container:
@@ -57,10 +55,22 @@ The following example reads in metadata values:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerPropertiesMetadata.java" id="Snippet_ReadContainerMetadata":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerPropertiesMetadata.java)
-- [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md)
+To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
+
 - [Get Container Properties](/rest/api/storageservices/get-container-properties) (REST API)
 - [Set Container Metadata](/rest/api/storageservices/set-container-metadata) (REST API)
 - [Get Container Metadata](/rest/api/storageservices/get-container-metadata) (REST API)
+
+The `getProperties` method retrieves container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerPropertiesMetadata.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]

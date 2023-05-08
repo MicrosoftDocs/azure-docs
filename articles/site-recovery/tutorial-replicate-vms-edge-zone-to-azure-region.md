@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/14/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 
 ---
 
@@ -33,7 +33,7 @@ Here the primary location is an Azure Public MEC and secondary location is the p
     Get-InstalledModule -Name Az
     ```
 
-- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
+- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix.md#linux).
 
 ## Replicate Virtual machines running in an Azure Public MEC to Azure region
 

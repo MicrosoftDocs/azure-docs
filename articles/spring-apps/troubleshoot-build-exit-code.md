@@ -6,6 +6,7 @@ ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 10/24/2022
 ms.author: yili7
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot common build issues in Azure Spring Apps
@@ -31,7 +32,7 @@ The following list describes some common exit codes:
 
   - The builder you're using doesn't support the language your project used.
 
-    If you're using the default builder, check the language the default builder supports. For more information, see the [Default Builder and Tanzu Buildpacks](how-to-enterprise-build-service.md#default-builder-and-tanzu-buildpacks) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+    If you're using the default builder, check the language the default builder supports. For more information, see the [Use the default builder to deploy an app](how-to-enterprise-build-service.md#use-the-default-builder-to-deploy-an-app) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
     If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
 
@@ -71,7 +72,7 @@ The following list describes some common exit codes:
 
     Retry to fix the issue.
 
- If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy static files in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-static-file.md).
+ If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
 ## Next steps
 

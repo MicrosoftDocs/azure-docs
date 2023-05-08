@@ -1,5 +1,5 @@
 ---
-title: Auditing and reporting a B2B collaboration user - Azure AD
+title: Auditing and reporting a B2B collaboration user
 description: Guest user properties are configurable in Azure Active Directory B2B collaboration
 
 services: active-directory
@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 11/24/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: engagement-fy23, M365-identity-device-management

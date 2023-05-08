@@ -1,6 +1,6 @@
 ---
 title: Create projects in multiple languages -question answering
-description: In this tutorial, you will learn how to create projects/knowledge bases with multiple languages.
+description: In this tutorial, you will learn how to create projects with multiple languages.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > * Create a project that supports English
 > * Create a project that supports German
 
-This tutorial will walk through the process of creating projects/knowledge bases in multiple languages. We use the [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) URL to create projects in German and English. We then deploy the project and use the question answering REST API to query and get answers to FAQs in the desired language.
+This tutorial will walk through the process of creating projects in multiple languages. We use the [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) URL to create projects in German and English. We then deploy the project and use the question answering REST API to query and get answers to FAQs in the desired language.
 
 ## Create project in German
 
@@ -50,7 +50,7 @@ To be able to create a project in more than one language, the multiple language 
     | URL | https://support.microsoft.com/de-de/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98 |
     | Classify file structure | Auto-detect |
     
-    Question answering reads the document and extracts question answer pairs from the source URL to create the project/knowledge base in the German language. If you select the link to the source, the knowledge base page opens where we can edit the contents.
+    Question answering reads the document and extracts question answer pairs from the source URL to create the project in the German language. If you select the link to the source, the project page opens where we can edit the contents.
     
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of UI with German questions and answers](../media/multiple-languages/german-language.png) ]( ../media/multiple-languages/german-language.png#lightbox)
@@ -78,11 +78,11 @@ We now repeat the above steps from before but this time select English and provi
     | URL | https://support.microsoft.com/en-us/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98 |
     | Classify file structure | Auto-detect |
 
-## Deploy and query knowledge base
+## Deploy and query project
 
-We are now ready to deploy the two project/knowledge bases and query them in the desired language using the question answering REST API. Once a project is deployed, the following page is shown which provides details to query the knowledge base.
+We are now ready to deploy the two project and query them in the desired language using the question answering REST API. Once a project is deployed, the following page is shown which provides details to query the project.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of UI with English questions and answers](../media/multiple-languages/get-prediction-url.png) ](../media/multiple-languages/get-prediction-url.png#lightbox)
 
-The language for the incoming user query can be detected with the [Language Detection API](../../language-detection/how-to/call-api.md) and the user can call the appropriate endpoint and knowledge base depending on the detected language.
+The language for the incoming user query can be detected with the [Language Detection API](../../language-detection/how-to/call-api.md) and the user can call the appropriate endpoint and project depending on the detected language.

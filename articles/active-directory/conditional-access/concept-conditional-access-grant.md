@@ -1,12 +1,12 @@
 ---
-title: Grant controls in Conditional Access policy - Azure Active Directory
+title: Grant controls in Conditional Access policy
 description: Grant controls in an Azure Active Directory Conditional Access policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 02/16/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -30,7 +30,7 @@ The control for blocking access considers any assignments and prevents access ba
 
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
-- [Require multifactor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require multifactor authentication (Azure AD Multifactor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require authentication strength (Preview)](#require-authentication-strength-preview)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
@@ -45,9 +45,9 @@ When administrators choose to combine these options, they can use the following 
 
 By default, Conditional Access requires all selected controls.
 
-### Require Multi-Factor Authentication
+### Require Multifactor Authentication
 
-Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multi-factor Authentication. You can find more information about deploying Azure AD Multi-Factor Authentication in [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multifactor Authentication. You can find more information about deploying Azure AD Multifactor Authentication in [Planning a cloud-based Azure AD Multifactor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies.
 
@@ -79,7 +79,7 @@ You can use the Microsoft Defender for Endpoint app with the approved client app
 
 Organizations can choose to use the device identity as part of their Conditional Access policy. Organizations can require that devices are hybrid Azure AD joined by using this checkbox. For more information about device identities, see [What is a device identity?](../devices/overview.md).
 
-When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the required grant control for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **Require Multi-Factor Authentication** control instead.
+When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the required grant control for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **Require Multifactor Authentication** control instead.
 
 The **Require hybrid Azure AD joined device** control:
    - Only supports domain-joined Windows down-level (before Windows 10) and Windows current (Windows 10+) devices.
@@ -94,7 +94,6 @@ To apply this grant control, the device must be registered in Azure AD, which re
 The following client apps support this setting, this list isn't exhaustive and is subject to change::
 
 - Microsoft Azure Information Protection
-- Microsoft Bookings
 - Microsoft Cortana
 - Microsoft Dynamics 365
 - Microsoft Edge
@@ -114,7 +113,6 @@ The following client apps support this setting, this list isn't exhaustive and i
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
-- Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
 - Microsoft To-Do
@@ -144,10 +142,12 @@ Applications must have the Intune SDK with policy assurance implemented and must
 
 The following client apps are confirmed to support this setting, this list isn't exhaustive and is subject to change:
 
+- Adobe Acrobat Reader mobile app
 - iAnnotate for Office 365
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow Mobile
 - Microsoft Launcher
 - Microsoft Lists
 - Microsoft Office
@@ -168,6 +168,7 @@ The following client apps are confirmed to support this setting, this list isn't
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
 - Notate for Intune
+- Provectus - Secure Contacts
 - Yammer (Android, iOS, and iPadOS)
 
 This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.
@@ -191,7 +192,7 @@ When user risk is detected, administrators can employ the user risk policy condi
 When a user is prompted to change a password, they'll first be required to complete multifactor authentication. Make sure all users have registered for multifactor authentication, so they're prepared in case risk is detected for their account.  
 
 > [!WARNING]
-> Users must have previously registered for self-service password reset before triggering the user risk policy.
+> Users must have previously registered for multifactor authentication before triggering the user risk policy.
 
 The following restrictions apply when you configure a policy by using the password change control:  
 

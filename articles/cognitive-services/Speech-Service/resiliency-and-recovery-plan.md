@@ -101,7 +101,7 @@ Custom Voice doesn't support automatic failover. Handle real-time synthesis fail
 
 When custom voice real-time synthesis fails, fail over to a public voice (client sample code: [GitHub: custom voice failover to public voice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L899)).
 
-Check the [public voices available](language-support.md?tabs=stt-tts). You can also change the sample code above if you would like to fail over to a different voice or in a different region.
+Check the [public voices available](language-support.md?tabs=tts). You can also change the sample code above if you would like to fail over to a different voice or in a different region.
 
 **Option 2: Fail over to custom voice on another region.**
 

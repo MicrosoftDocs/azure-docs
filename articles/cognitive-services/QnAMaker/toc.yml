@@ -161,7 +161,7 @@
       - name: Reference Documentation
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker
       - name: SDK
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
+        href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-go
     - name: JavaScript

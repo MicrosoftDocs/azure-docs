@@ -167,7 +167,7 @@ __Message logged__: ValueError: No objects to concatenate.
 
 __Reason__: All the files in the generated mini-batch are either corrupted or unsupported file types. Remember that MLflow models support a subset of file types as documented at [Considerations when deploying to batch inference](how-to-mlflow-batch.md?#considerations-when-deploying-to-batch-inference).
 
-__Solution__: Go to the file `logs/usr/stdout/<process-number>/process000.stdout.txt` and look for entries like `ERROR:azureml:Error processing input file`. If the file type is not supported, please review the list of supported files. You may need to change the file type of the input data or customize the deployment by providing a scoring script as indicated at [Using MLflow models with a scoring script](how-to-mlflow-batch.md?#using-mlflow-models-with-a-scoring-script).
+__Solution__: Go to the file `logs/usr/stdout/<process-number>/process000.stdout.txt` and look for entries like `ERROR:azureml:Error processing input file`. If the file type is not supported, please review the list of supported files. You may need to change the file type of the input data or customize the deployment by providing a scoring script as indicated at [Using MLflow models with a scoring script](how-to-mlflow-batch.md?#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 ### There is no succeeded mini batch item returned from run()
 

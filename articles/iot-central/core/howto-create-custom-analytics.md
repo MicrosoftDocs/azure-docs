@@ -7,9 +7,7 @@ ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-
-
+ms.custom: mvc, devx-track-azurecli
 # Solution developer
 ---
 
@@ -26,7 +24,7 @@ In this how-to guide, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Run the Script
 

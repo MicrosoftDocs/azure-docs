@@ -3,10 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 12/21/2022
-author: v-amallick
+ms.date: 12/23/2022
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -462,7 +462,7 @@ To resolve this issue:
 
 **Error message**: Operation failed as the target subscription specified for restore is not registered to the Azure Recovery Services Resource Provider.  
 
-**Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore.
+**Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should register the Subscription to Recovery Services Resource Provider.
  
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM 
 

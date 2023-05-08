@@ -1,10 +1,10 @@
 ---
-title: Integrate Microsoft Sentinel and Microsoft Purview  | Microsoft Docs
+title: Integrate Microsoft Sentinel and Microsoft Purview
 description: This tutorial describes how to use the **Microsoft Sentinel** data connector and solution for **Microsoft Purview** to enable data sensitivity insights, create rules to monitor when classifications have been detected, and get an overview about data found by Microsoft Purview, and where sensitive data resides in your organization.
-author: batamig
+author: limwainstein
 ms.topic: tutorial
-ms.date: 02/08/2022
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Tutorial: Integrate Microsoft Sentinel and Microsoft Purview (Public Preview)
@@ -80,7 +80,7 @@ Diagnostics settings send log events only after a full scan is run, or when a ch
 
 1. Select **Save**.
 
-For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections).
+For more information, see [Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections](connect-services-diagnostic-setting-based.md).
 
 **To run a Microsoft Purview scan and view data in Microsoft Sentinel**:
 

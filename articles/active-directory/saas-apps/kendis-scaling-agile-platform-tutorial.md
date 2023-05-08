@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis - Azure AD Integration | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis'
 description: Learn how to configure single sign-on between Azure Active Directory and Kendis - Azure AD Integration.
 services: active-directory
 author: jeevansd
@@ -14,7 +14,7 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis - Azure AD Integration
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis
 
 In this tutorial, you'll learn how to integrate Kendis - Azure AD Integration with Azure Active Directory (Azure AD). When you integrate Kendis - Azure AD Integration with Azure AD, you can:
 

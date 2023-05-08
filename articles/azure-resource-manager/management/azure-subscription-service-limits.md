@@ -9,7 +9,7 @@ ms.date: 12/13/2022
 
 This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas.
 
-To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](../../cost-management-billing/cost-management-billing-overview.md).
+To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](../../cost-management-billing/cost-management-billing-overview.md).
 
 ## Managing limits
 
@@ -105,6 +105,18 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
+## Azure Communications Gateway limits
+
+Some of the following default limits and quotas can be increased. To request a change, create a [change request](../../communications-gateway/request-changes.md) stating the limit you want to change.
+
+[!INCLUDE [communications-gateway-general-restrictions](../../communications-gateway/includes/communications-gateway-general-restrictions.md)]
+
+Azure Communications Gateway also has limits on the SIP signaling.
+
+[!INCLUDE [communications-gateway-sip-size-restrictions](../../communications-gateway/includes/communications-gateway-sip-size-restrictions.md)]
+
+[!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
+
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
@@ -124,6 +136,10 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 ## Azure Database for PostgreSQL
 
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
+
+## Azure Deployment Environments limits
+
+[!INCLUDE [Deployment Environments limits](../../../includes/deployment-environments-limits.md)]
 
 ## Azure Functions limits
 
@@ -269,7 +285,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Event Grid limits
 
-[!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
+[!INCLUDE [event-grid-limits](../../../articles/event-grid/includes/limits.md)]
 
 ## Event Hubs limits
 [!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
@@ -335,6 +351,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
+### Azure Network Watcher limits
+
+[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
+
 ### Azure Route Server limits
 
 [!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
@@ -346,10 +366,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### NAT Gateway limits
 
 [!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
-
-### Network Watcher limits
-
-[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
 ### Private Link limits
 

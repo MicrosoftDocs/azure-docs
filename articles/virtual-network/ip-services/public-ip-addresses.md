@@ -13,6 +13,9 @@ ms.author: allensu
 
 # Public IP addresses
 
+>[!Important]
+>On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
+
 Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. 
@@ -46,9 +49,9 @@ The following table shows the property a public IP can be associated to a resour
 | Top-level resource | IP Address association | Dynamic IPv4 | Static IPv4 | Dynamic IPv6 | Static IPv6 |
 | --- | --- | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes | Yes | Yes | Yes |
-| Public Load Balancer |Front-end configuration |Yes | Yes | Yes |Yes |
-| Virtual Network Gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
-| Virtual Network Gateway (ER) |Gateway IP configuration |Yes | No | Yes (preview) |No |
+| Public Load balancer |Front-end configuration |Yes | Yes | Yes |Yes |
+| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
+| Virtual Network gateway (ER) |Gateway IP configuration |Yes | Yes | Yes (preview) |No |
 | NAT gateway |Gateway IP configuration |No |Yes | No |No |
 | Application Gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
@@ -133,7 +136,7 @@ Public IP addresses with a standard SKU can be created as non-zonal, zonal, or z
 
 A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
-In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.
+In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  A public IP's availability zone can't be changed after the public IP's creation.
 
 > [!NOTE]
 > All basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a basic SKU to standard SKU remains non-zonal.
@@ -178,7 +181,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Forward DNS for IPv6 is supported for Azure public DNS. Reverse DNS isn't supported.
 
-* Routing Preference and cross-region load balancer aren't supported.
+* Routing Preference Internet isn't supported.
 
 For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 

@@ -8,8 +8,8 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -23,7 +23,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
-| **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Do not use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
+| **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Don't use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use per device authentication credentials using SaS tokens](#authn-sas-tokens)</li></ul> |
 | **Azure Trust Boundary** | <ul><li>[Enable Azure AD Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric Trust Boundary** | <ul><li>[Restrict anonymous access to Service Fabric Cluster](#anon-access-cluster)</li><li>[Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate](#fabric-cn-nn)</li><li>[Use AAD to authenticate clients to service fabric clusters](#aad-client-fabric)</li><li>[Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)](#fabric-cert-ca)</li></ul> |
@@ -56,7 +56,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Applications that explicitly authenticate users must handle failed authentication scenarios securely.The authentication mechanism must:</p><ul><li>Deny access to privileged resources when authentication fails</li><li>Display a generic error message after failed authentication and access denied occurs</li></ul><p>Test for:</p><ul><li>Protection of privileged resources after failed logins</li><li>A generic error message is displayed on failed authentication and access denied event(s)</li><li>Accounts are disabled after an excessive number of failed attempts</li><ul>|
+| Details | <p>Applications that explicitly authenticate users must handle failed authentication scenarios securely. The authentication mechanism must:</p><ul><li>Deny access to privileged resources when authentication fails</li><li>Display a generic error message after failed authentication and access denied occurs</li></ul><p>Test for:</p><ul><li>Protection of privileged resources after failed logins</li><li>A generic error message is displayed on failed authentication and access denied event(s)</li><li>Accounts are disabled after an excessive number of failed attempts</li><ul>|
 
 ## <a id="step-up-adaptive-authn"></a>Enable step up or adaptive authentication
 
@@ -78,7 +78,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution would not be possible than it is always recommended to enforce a step-up or adaptive authentication for logging in into the administrative interface |
+| Details | The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution wouldn't be possible then it's always recommended to enforce a step-up or adaptive authentication for logging in into the administrative interface |
 
 ## <a id="forgot-pword-fxn"></a>Implement forgot password functionalities securely
 
@@ -89,7 +89,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>The first thing is to verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over. Second, you should not lock out the users account whilst the process of getting a new password is in progress.</p><p>This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack. Third, whenever the new password request was set in progress, the message you display should be generalized in order to prevent username enumeration. Fourth, always disallow the use of old passwords and implement a strong password policy.</p> |
+| Details | <p>The first thing is to verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over. Second, you shouldn't lock out the users account whilst the process of getting a new password is in progress.</p><p>This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack. Third, whenever the new password request was set in progress, the message you display should be generalized in order to prevent username enumeration. Fourth, always disallow the use of old passwords and implement a strong password policy.</p> |
 
 ## <a id="pword-account-policy"></a>Ensure that password and account policy are implemented
 
@@ -111,7 +111,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | All error messages should be generalized in order to prevent username enumeration. Also sometimes you cannot avoid information leaking in functionalities such as a registration page. Here you need to use rate-limiting methods like CAPTCHA to prevent an automated attack by an attacker. |
+| **Steps** | All error messages should be generalized in order to prevent username enumeration. Also sometimes you can't avoid information leaking in functionalities such as a registration page. Here you need to use rate-limiting methods like CAPTCHA to prevent an automated attack by an attacker. |
 
 ## <a id="win-authn-sql"></a>When possible, use Windows Authentication for connecting to SQL Server
 
@@ -144,7 +144,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [SQL Server password policy](/previous-versions/sql/sql-server-2012/ms161959(v=sql.110)) |
-| **Steps** | When using SQL Server Authentication, logins are created in SQL Server that are not based on Windows user accounts. Both the user name and the password are created by using SQL Server and stored in SQL Server. SQL Server can use Windows password policy mechanisms. It can apply the same complexity and expiration policies used in Windows to passwords used inside SQL Server. |
+| **Steps** | When using SQL Server Authentication, logins are created in SQL Server that aren't based on Windows user accounts. Both the user name and the password are created by using SQL Server and stored in SQL Server. SQL Server can use Windows password policy mechanisms. It can apply the same complexity and expiration policies used in Windows to passwords used inside SQL Server. |
 
 ## <a id="autn-contained-db"></a>Do not use SQL Authentication in contained databases
 
@@ -177,7 +177,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
-| **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that is not easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
+| **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that isn't easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Restrict anonymous access to Service Fabric Cluster
 
@@ -359,7 +359,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Token cache serialization in MSAL.NET](../../active-directory/develop/msal-net-token-cache-serialization.md)  |
-| **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](https://learn.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc.md).</p>|
+| **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](/aspnet/core/tutorials/first-mvc-app/start-mvc).</p>|
 
 ## <a id="tokenreplaycache-msal"></a>Ensure that TokenReplayCache is used to prevent the replay of MSAL authentication tokens
 

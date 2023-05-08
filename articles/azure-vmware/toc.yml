@@ -6,6 +6,8 @@
     href: introduction.md
   - name: What's new
     href: azure-vmware-solution-platform-updates.md
+  - name: Known issues
+    href: azure-vmware-solution-known-issues.md
 - name: Get started
   items:
   - name: 1 - Plan the deployment
@@ -16,7 +18,7 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
-  - name: 5 - Configure on-premises HCX Connector
+  - name: 5 - Configure on-premises VMware HCX Connector
     href: configure-vmware-hcx.md
   - name: 6 - Uninstall VMware HCX in Azure VMware Solution
     href: uninstall-vmware-hcx.md
@@ -44,6 +46,8 @@
     href: concepts-identity.md
   - name: API Management
     href: concepts-api-management.md
+  - name : Azure Hybrid benefit
+    href: sql-server-hybrid-benefit.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
   - name: Internet connectivity design considerations
@@ -54,10 +58,14 @@
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Run command
+  - name: Run Command
     href: concepts-run-command.md
-  - name: Security recommendations
-    href: concepts-security-recommendations.md
+  - name: Security
+    items:
+    - name: Security recommendations
+      href: concepts-security-recommendations.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
@@ -90,7 +98,7 @@
         href: backup-azure-vmware-solution-virtual-machines.md
     - name: Disaster recovery using Azure Site Recovery
       items:
-      - name: Prepare Azure
+      - name: Prepare Azure Site Recovery
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Prepare Azure VMware Solution
         href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -110,7 +118,7 @@
     href: create-placement-policy.md
   - name: Configure GitHub Enterprise Server
     href: configure-github-enterprise-server.md
-  - name: Configure Identity
+  - name: Configure identity
     items:
     - name: Configure external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
@@ -120,7 +128,7 @@
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
+    - name: Enable Public IP on the NSX-T Data Center Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
@@ -132,9 +140,9 @@
       href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configure DNS forwarder
       href: configure-dns-azure-vmware-solution.md
-    - name: Configure HCX network extension
+    - name: Configure VMware HCX network extension
       href: configure-hcx-network-extension.md
-    - name: HCX Mobility Optimized Networking (MON) guidance 
+    - name: VMware HCX Mobility Optimized Networking (MON) guidance 
       href: vmware-hcx-mon-guidance.md
     - name: Configure NSX-T Data Center network components
       href: configure-nsx-network-components-azure-portal.md
@@ -154,14 +162,14 @@
     href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy disaster recovery using JetStream DR software
-      href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
     - name: Deploy Zerto disaster recovery
       href: deploy-zerto-disaster-recovery.md
+    - name: Deploy disaster recovery using JetStream DR software
+      href: deploy-disaster-recovery-using-jetstream.md
   - name: Deploy virtual desktops
     items:
     - name: Deploy Horizon on Azure VMware Solution
@@ -170,6 +178,14 @@
       href: azure-vmware-solution-citrix.md
   - name: Deploy vSAN stretched clusters (Preview)
     href: deploy-vsan-stretched-clusters.md
+  - name: Migrate Microsoft SQL Server workloads
+    items:  
+    - name: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
+      href: migrate-sql-server-standalone-cluster.md
+    - name: Migrate SQL Server failover cluster to Azure VMware Solution
+      href: migrate-sql-server-failover-cluster.md
+    - name: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
+      href: migrate-sql-server-always-on-cluster.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -200,24 +216,26 @@
       href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
-    - name: Configure HCX network extension
+    - name: Configure VMware HCX network extension
       href: configure-hcx-network-extension.md
-    - name: Configure HCX network extension high availability
+    - name: Configure VMware HCX network extension high availability
       href: configure-hcx-network-extension-high-availability.md
-    - name: Configure vRealize Operations
+    - name: Configure VMware vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
-    - name: Enable HCX access over the internet
+    - name: Enable VMware HCX access over the internet
       href: enable-hcx-access-over-internet.md
-    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
+    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
-    - name: Upgrade HCX on Azure VMware Solution
+    - name: Upgrade VMware HCX on Azure VMware Solution
       href: upgrade-hcx-azure-vmware-solutions.md
+    - name: Use VMware HCX Run Commands 
+      href: use-hcx-run-commands.md
 - name: Resources
   items:
   - name: Learning paths
@@ -263,7 +281,7 @@
   - name: Pricing
     items:
       - name: Azure VMware Solution pricing        
-        href: https://azure.microsoft.com/en-us/pricing/details/azure-vmware/
+        href: https://azure.microsoft.com/pricing/details/azure-vmware/
       - name: Azure pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA

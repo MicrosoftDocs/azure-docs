@@ -1,5 +1,5 @@
 ---
-title: Preparing for Azure AD Provisioning to Active Directory Lightweight Directory Services (preview)
+title: Preparing for Azure AD Provisioning to Active Directory Lightweight Directory Services
 description: This document describes how to configure Azure AD to provision users into Active Directory Lightweight Directory Services as an example of an LDAP directory.
 services: active-directory
 author: billmath

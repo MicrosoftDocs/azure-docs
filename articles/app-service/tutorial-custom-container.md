@@ -234,7 +234,7 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 This tutorial requires version 2.0.80 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
   - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker might require a computer restart.
 
 After installing Docker, open a terminal window and verify that the docker is installed:
@@ -1088,10 +1088,10 @@ What you learned:
 
 ::: zone-end
 
-In the next tutorial, you learn how to map a custom DNS name to your app.
+In the next tutorial, you learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

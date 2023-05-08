@@ -49,8 +49,8 @@ The country/region value is set as part of the Azure AD directory creation proce
 
 Follow these steps to view a per-user device sync status report.
 
-1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
-1. Select **Azure Active Directory** > **Users** > **All users**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Browse to **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
 1. Select **View devices syncing settings and app data** to show sync status.
 1. Devices syncing for the user are shown and can be downloaded.

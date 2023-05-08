@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SoSafe | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SoSafe'
 description: Learn how to configure single sign-on between Azure Active Directory and SoSafe.
 services: active-directory
 author: jeevansd
