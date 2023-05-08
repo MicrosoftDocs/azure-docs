@@ -66,9 +66,9 @@ items:
             - name: Headless app
               items:
                 - name: ASP.NET - sign in users
-                  href: how-to-headless-app-dotnet-sample-sign-in.md
+                  href: how-to-browserless-app-dotnet-sample-sign-in.md
                 - name: Node.js - sign in users
-                  href: how-to-headless-app-nodejs-sample-sign-in.md
+                  href: how-to-browserless-app-dotnet-sample-sign-in.md
             - name: Desktop app
               items:
                 - name: Electron
@@ -168,7 +168,15 @@ items:
                 - name: Node​ - Sign in users
                   href: ../../develop/tutorial-v2-nodejs-console.md
                 - name: .NET​ - Sign in users
-                  href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
+                  items:
+                    - name: Overview
+                      href: how-to-browserless-app-dotnet-sign-in-overview.md
+                    - name: Prepare tenant 
+                      href: how-to-browserless-app-dotnet-sign-in-prepare-tenant.md
+                    - name: Prepare app 
+                      href: how-to-browserless-app-dotnet-sign-in-prepare-app.md
+                    - name: Add sign-in
+                      href: how-to-browserless-app-dotnet-sign-in-sign-in.md
             - name: Desktop app
               items: 
                 - name: .NET MAUI - Sign in users

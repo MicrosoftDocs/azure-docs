@@ -1,6 +1,6 @@
 ---
-title: Sign in users to an ASP.NET Core headless app using Microsoft Entra
-description: Learn about how to Sign in users in your ASP.NET Core headless application by using Microsoft Entra.
+title: Sign in users to an ASP.NET browserless app using Microsoft Entra
+description: Learn about how to Sign in users in your ASP.NET browserless application by using Microsoft Entra.
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -10,25 +10,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/08/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my ASP.NET Core headless app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my ASP.NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users to an ASP.NET Core headless app using Microsoft Entra 
+# Sign in users to an ASP.NET browserless app using Microsoft Entra
 
-In this series of articles, you learn how to sign in users to your ASP.NET Core headless application. The articles guide yopu throuygh the steps of building an application that authenticates users against Azure Active Directory (Azure AD) for Customers using the device code flow.
+In this series of articles, you learn how to sign in users to your ASP.NET browserless app. The articles guide you through the steps of building an app that authenticates users against Azure Active Directory (Azure AD) for Customers using the device code flow.
 
 The article series is broken down into the following steps:
 
 1. Overview (this article)
-1. [Prepare your tenant](how-to-headless-app-dotnet-sign-in-prepare-tenant.md)
-1. [Sign in user](how-to-headless-app-dotnet-sign-in-user.md)
+1. [Prepare your tenant](how-to-browserless-app-dotnet-sign-in-prepare-tenant.md)
+1. [Sign in user](how-to-browserless-app-dotnet-sign-in-user.md)
 
 ## Prerequisites
 
-- [ASP.NET Core 7](https://dotnet.microsoft.com/download/dotnet/7.0).
+- [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0).
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
@@ -44,11 +44,11 @@ The Microsoft identity platform supports the [device authorization grant](https:
 
 For more information, see [device code flow in the Microsoft identity platform](/azure/active-directory/develop/v2-oauth2-device-code).
 
-If you want to run a sample ASP.NET Core headless app to get a feel of how things work, complete the steps in [Sign in users in a sample ASP.NET Core headless app](./how-to-headless-app-dotnet-sample-sign-in.md)
+If you want to run a sample ASP.NET browserless app to get a feel of how things work, complete the steps in [Sign in users in a sample ASP.NET browserless app](./how-to-browserless-app-dotnet-sample-sign-in.md)
 
 ## Next steps
 
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Prepare your Azure AD for customers tenant >](how-to-headless-app-dotnet-sign-in-prepare-tenant.md)
+> [Prepare your Azure AD for customers tenant >](how-to-browserless-app-dotnet-sign-in-prepare-tenant.md)
