@@ -49,19 +49,21 @@
           href: howto-websocket-connect.md
         - name: Create reliable Websocket clients
           href: howto-develop-reliable-clients.md
+        - name: Generate client access URL
+          href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
-        - name: Create `WebPubSubServiceClient` with Azure Identity
+        - name: Use server SDK with Azure Identity
           items:
-            - name: Create `WebPubSubServiceClient` with Azure Identity and .NET
+            - name: Use server SDK with Azure Identity and .NET
               href: howto-create-serviceclient-with-net-and-azure-identity.md
-            - name: Create `WebPubSubServiceClient` with Azure Identity and Java
+            - name: Use server SDK with Azure Identity and Java
               href: howto-create-serviceclient-with-java-and-azure-identity.md
-            - name: Create `WebPubSubServiceClient` with Azure Identity and JavaScript
+            - name: Use server SDK with Azure Identity and JavaScript
               href: howto-create-serviceclient-with-javascript-and-azure-identity.md
-            - name: Create `WebPubSubServiceClient` with Azure Identity and Python
+            - name: Use server SDK with Azure Identity and Python
               href: howto-create-serviceclient-with-python-and-azure-identity.md
     - name: Monitor
       items:
@@ -89,6 +91,8 @@
               href: howto-authorize-from-application.md
             - name: Authorize from managed identities
               href: howto-authorize-from-managed-identity.md
+            - name: Disable local authentication
+              href: howto-disable-local-auth.md
         - name: Custom domain
           href: howto-custom-domain.md
     - name: Troubleshooting
@@ -99,6 +103,8 @@
           href: howto-troubleshoot-network-trace.md
         - name: Capture resource logs
           href: howto-troubleshoot-resource-logs.md
+        - name: Common issues
+          href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
     - name: Scale

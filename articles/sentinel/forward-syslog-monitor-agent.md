@@ -1,6 +1,6 @@
 ---
-title: Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
-description: Monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
+title: Tutorial - Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
+description: In this tutorial, you'll learn how to monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
@@ -121,7 +121,7 @@ In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is r
 
    ```kusto
    Heartbeat
-   | where Computer == "vm-ubuntu"
+   | where Computer == "vm-linux"
    | take 10
    ```
 
@@ -179,7 +179,7 @@ After you configured your linux-based device to send logs to your VM, verify tha
 
    ```kusto
    Syslog
-   | where Computer == "vm-ubuntu"
+   | where Computer == "vm-linux"
    | summarize by HostName
    ```
 

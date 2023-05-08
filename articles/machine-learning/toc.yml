@@ -66,22 +66,33 @@
         - name: "Upgrade from ACI web services to managed online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-managed-online-endpoints.md
-- name: Quickstart
+- name: Setup
   expanded: true
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
-    - name: Run Jupyter notebooks
-      href: quickstart-run-notebooks.md
+- name: Quickstart
+  expanded: true
+  items:
+    - name: Get started with Azure ML
+      href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
   items:
-    - name: Azure Machine Learning in a day
-      href: tutorial-azure-ml-in-a-day.md
-    - name: Build models
+    - name: Start with the basics
       items:
-        - name: Create production ML pipelines
+        - name: Prepare and explore data
+          href: tutorial-explore-data.md
+        - name: Develop on a cloud workstation
+          href: tutorial-cloud-workstation.md
+        - name: Train a model
+          href: tutorial-train-model.md
+        - name: Deploy a model
+          href: tutorial-deploy-model.md
+        - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
+    - name: Build models
+      items: 
         - name: Automated ML
           items:
             - name: Object detection with AutoML (SDK)
@@ -101,9 +112,7 @@
             - name: 2. Deploy the model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
-    - name: Visual Studio Code
-      items:
-        - name: Train a TensorFlow image classification model
+        - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
     # v1
     - name: Python get started (Day 1)
@@ -397,6 +406,8 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
+        - name: Securely attach Azure Databricks
+          href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
@@ -592,6 +603,16 @@
         - name: Create data assets
           displayName: Create data assets
           href: how-to-create-data-assets.md
+        - name: Create data assets by importing data from external sources
+          items:
+            - name: Create connections to external data sources (preview)
+              displayName: Create connections to external data sources (preview)
+              href: how-to-connection.md
+            - name: Import data (preview)
+              displayName: Import data (preview)
+              href: how-to-import-data-assets.md
+            - name: Manage imported data (preview)
+              href: how-to-manage-imported-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -600,12 +621,6 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
-            - name: Import data
-              displayName: Import data
-              href: how-to-import-data-assets.md
-            - name: Use connections
-              displayName: Use connections
-              href: how-to-connection.md
             - name: Working with Tables (mltable)
               displayName: Working with Tables (mltable)
               href: how-to-mltable.md
@@ -625,8 +640,10 @@
               href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
-        - name: Prepare data with Apache Spark
+        - name: Prepare data with Apache Spark (preview)
           items:
+            - name: Configure Apache Spark jobs 
+              href: quickstart-spark-jobs.md
             - name: Submit Spark jobs in Azure Machine Learning
               displayName: Submit Spark jobs in Azure Machine Learning
               href: how-to-submit-spark-jobs.md
@@ -1051,7 +1068,7 @@
                   href: how-to-deploy-mlflow-model-spark-jobs.md
     - name: Manage the ML lifecycle (MLOps)
       items:
-        - name: Setup MLOps with Azure DevOps
+        - name: Set up MLOps with Azure DevOps
           href: how-to-setup-mlops-azureml.md
         - name: Setup MLOps with GitHub
           href: how-to-setup-mlops-github-azure-ml.md
@@ -1086,6 +1103,8 @@
               href: how-to-use-parallel-job-in-pipeline.md
             - name: How to use pipeline component in pipeline
               href: how-to-use-pipeline-component.md
+            - name: How to debug pipeline reuse issues
+              href: how-to-debug-pipeline-reuse-issues.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1255,19 +1274,21 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
-            - name: AutoML Image Classification
+            - name: Automated ML Forecasting command job YAML schema
+              href: reference-automated-ml-forecasting.md
+            - name: Automated ML Image Classification
               href: reference-automl-images-cli-classification.md
-            - name: AutoML Image Instance Segmentation
+            - name: Automated ML Image Instance Segmentation
               href: reference-automl-images-cli-instance-segmentation.md
-            - name: AutoML Image Multilabel Classification
+            - name: Automated ML Image Multilabel Classification
               href: reference-automl-images-cli-multilabel-classification.md
-            - name: AutoML Image Object Detection
+            - name: Automated ML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
-            - name: AutoML NLP Text Classification
+            - name: Automated ML NLP Text Classification
               href: reference-automl-nlp-cli-text-classification.md
-            - name: AutoML NLP Multilabel Classification
+            - name: Automated ML NLP Multilabel Classification
               href: reference-automl-nlp-cli-multilabel-classification.md
-            - name: AutoML NLP NER
+            - name: Automated ML NLP NER
               href: reference-automl-nlp-cli-ner.md
         - name: Datastore
           items:
@@ -1307,8 +1328,6 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Automated ML Forecasting command job YAML schema
-      href: reference-automated-ml-forecasting.md
     - name: Kubernetes cluster configuration
       href: reference-kubernetes.md
     - name: Designer component reference

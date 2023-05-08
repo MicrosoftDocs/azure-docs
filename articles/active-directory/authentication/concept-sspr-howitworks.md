@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/19/2023
 
 ms.author: justinha
 author: justinha
@@ -241,9 +241,3 @@ To get started with SSPR, complete the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
-
-The following articles provide additional information regarding password reset through Azure AD:
-
-[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Azure AD authentication methods available and quantity required"
-[Registration]: ./media/concept-sspr-howitworks/configure-registration-options.png "Configure SSPR registration options in the Azure portal"
-[Writeback]: ./media/concept-sspr-howitworks/on-premises-integration.png "On-premises integration for SSPR in the Azure portal"

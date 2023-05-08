@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign Azure resource roles in Privileged Identity Management
 
-With Azure AD Privileged Identity Management (Azure AD PIM), part of Microsoft Entra, can manage the built-in Azure resource roles, and custom roles, including (but not limited to):
+With Azure AD Privileged Identity Management (Azure AD PIM), part of Microsoft Entra, you can manage the built-in Azure resource roles, and custom roles, including (but not limited to):
 
 - Owner
 - User Access Administrator
@@ -225,6 +225,5 @@ Follow these steps to update or remove an existing role assignment.
 
 ## Next steps
 
-- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Configure Azure resource role settings in Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)

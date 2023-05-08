@@ -189,7 +189,7 @@ Extension attributes in the Graph API are named by using the convention `extensi
 Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
 
 ```json
-    "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
 The following data types are supported when defining an attribute in a schema extension:

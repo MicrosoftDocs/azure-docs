@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/29/2023
+ms.date: 04/18/2023
 ms.author: banders
 ---
 
@@ -29,7 +29,10 @@ You need the following permissions to create subscriptions for an EA:
 
 ## Create an EA subscription
 
-Use the following information to create an EA subscription.
+An account owner uses the following information to create an EA subscription.
+
+>[!NOTE]
+> If you want to create an Enterprise Dev/Test subscription, an enterprise administrator must enable account owners to create them. Otherwise, the option to create them isn't available. To enable the dev/test offer for an enrollment, see [Enable the enterprise dev/test offer](direct-ea-administration.md#enable-the-enterprise-devtest-offer).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Subscriptions** and then select **Add**.  

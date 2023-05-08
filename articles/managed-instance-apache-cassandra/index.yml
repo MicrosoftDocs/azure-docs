@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Managed Instance for Apache Cassandra?
             url: introduction.md
+          - text: Management Operations
+            url: management-operations.md            
       - linkListType: get-started
         links:
           - text: Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra
@@ -49,6 +51,8 @@ landingContent:
             url: create-multi-region-cluster.md            
           - text: Deploy a Spark cluster with Azure Databricks
             url: deploy-cluster-databricks.md 
+          - text: Search using Lucene Index
+            url: search-lucene-index.md             
       - linkListType: concept
         links:
           - text: Security overview
