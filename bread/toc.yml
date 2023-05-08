@@ -168,9 +168,6 @@
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
-  - name: Azure Databricks
-    tocHref: /azure/azure-databricks/
-    topicHref: /azure/azure-databricks/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
