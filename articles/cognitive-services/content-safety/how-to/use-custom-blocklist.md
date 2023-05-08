@@ -30,7 +30,7 @@ The default AI classifiers are sufficient for most content moderation needs. How
 
 ## Analyze text with a custom blocklist
 
-You can create custom lists of blocked items to use with the Text API. The following steps help you get started.
+You can create custom blocklists to use with the Text API. The following steps help you get started.
 
 The below fields must be included in the url:
 
@@ -114,7 +114,7 @@ The response code should be `201` and the URL to get the created list should be 
 > 
 > There will be some delay after you add or edit a blockItem before it takes effect on text analysis, usually **not more than five minutes**.
 
-### Analyze text with a custom list
+### Analyze text with a custom blocklist
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
@@ -156,9 +156,9 @@ The JSON response will contain a `"blocklistMatchResults"` that indicates any ma
 ```
 
 
-## Other custom list operations
+## Other custom blocklist operations
 
-This section contains more operations to help you manage and use the custom list feature.
+This section contains more operations to help you manage and use the custom blocklist feature.
 
 ### Get all blockItems in a list
 
@@ -188,7 +188,7 @@ The status code should be `200` and the response body should look like this:
 }
 ```
 
-### Get all custom lists
+### Get all blocklists
 
 Copy the cURL command below to a text editor and make the following changes:
 
@@ -215,7 +215,7 @@ The status code should be `200`. The JSON response looks like this:
 ```
 
 
-### Delete a blockItem from a list
+### Remove a blockItem from a list
 
 > [!NOTE]
 >
