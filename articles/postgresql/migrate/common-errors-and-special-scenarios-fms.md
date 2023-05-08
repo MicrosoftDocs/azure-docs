@@ -8,7 +8,10 @@ ms.date: 05/01/2023
 ms.service: postgresql
 ms.topic: conceptual
 ---
+
 # Common errors and special scenarios for PostgreSQL Single Server to Flexible using the FMS migration tool.
+
+This articles explains common errors and special scenarios for PostgreSQL Single Server to Flexible using the FMS migration tool. 
 
 ## Custom DNS
 
@@ -26,12 +29,12 @@ ms.topic: conceptual
     OR
     Reach out to Microsoft, and we enable the server for outbound connections for the selected DNS addresses.
 
-## Allow-list extensions
+## Allowlist extensions
 
 - Symptom
-    Error message appears as "Extensions plpgsql, pg_stat_statements, pg_buffercache aren't allowlisted on target server" or
+    Error message appears as "Extensions plpgsql, pg_stat_statements, pg_buffercache aren't allowlisted on target server."
 
-    :::image type="content" source="media/common-errors-and-special-scenarios-fms/allow-list-extensions-common-errors-postgresql.png" alt-text="Screenshot of scenario for allow listing extensions" lightbox="media/common-errors-and-special-scenarios-fms/allow-list-extensions-common-errors-postgresql.png":::
+    :::image type="content" source="media/common-errors-and-special-scenarios-fms/allow-list-extensions-common-errors-postgresql.png" alt-text="Screenshot of scenario for allow listing extensions." lightbox="media/common-errors-and-special-scenarios-fms/allow-list-extensions-common-errors-postgresql.png":::
 
 - Root Cause
 
@@ -54,12 +57,12 @@ ms.topic: conceptual
 
     Add IP addresses in the Firewall rules in the Networking tab of the Flex Server.
 
-    :::image type="content" source="media/common-errors-and-special-scenarios-fms/ip-addresses-common-errors-postgresql.png" alt-text="Screenshot of ip addresses" lightbox="media/common-errors-and-special-scenarios-fms/ip-addresses-common-errors-postgresql.png":::
+    :::image type="content" source="media/common-errors-and-special-scenarios-fms/ip-addresses-common-errors-postgresql.png" alt-text="Screenshot of ip addresses." lightbox="media/common-errors-and-special-scenarios-fms/ip-addresses-common-errors-postgresql.png":::
 
-## Migration to Flex server with Burtsable SKU isn't Supported
+## Migration to Flex server with Burstable SKU isn't Supported
 
 - Error Message
-    Migration to Flex server with Burtsable SKU isn't Supported.
+    Migration to Flex server with Burstable SKU isn't Supported.
 
 - Root Cause
 
