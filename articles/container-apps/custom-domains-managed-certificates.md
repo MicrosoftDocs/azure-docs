@@ -74,7 +74,7 @@ The requirements are:
 
         | Record type | Host | Value |
         |--|--|--|
-        | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
+        | CNAME | The subdomain (for example, `www`) | The automatically generated `<appname>.<region>.azurecontainerapps.io` domain of your container app |
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
 
 1. Select **Validate**.
