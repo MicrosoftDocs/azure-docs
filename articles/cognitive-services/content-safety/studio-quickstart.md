@@ -34,7 +34,7 @@ In this quickstart, get started with the Content Safety service using Content Sa
 
 The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
-The **Use blocklist** tab on the right lets you create, edit, and add a custom list of blocked terms to the moderation workflow. If you have a blocklist enabled when you run the test, you'll get a **Blocklist detection** panel under **Results**. It reports any matched with the blocklist.
+The **Use blocklist** tab on the right lets you create, edit, and add a custom blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you'll get a **Blocklist detection** panel under **Results**. It reports any matched with the blocklist.
 
 ## Analyze image content
 
@@ -44,6 +44,16 @@ The **Use blocklist** tab on the right lets you create, edit, and add a custom l
 1. Select **Run test**.
 
 The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
+
+## Monitor online activity
+
+The [Monitor online activity](https://contentsafety.cognitive.azure.com/monitor) page lets you view your API usage and trends. You can choose which **Media type** to monitor, between image and text. You can choose the **Granularity** to change the visualizations, either **Auto**, **Hourly** or **Daily**. You can also specify the time range that you want to check by selecting **Show data for the last __**.
+
+In the **Reject rate per category** chart, you can also adjust the severity thresholds for each category.
+
+:::image type="content" source="media/thresholds.png" alt-text="Screenshot of the severity thresholds table.":::
+
+You can also edit blocklists if you want to change some terms, based in the **Top 10 blocked terms** chart.
 
 ## Clean up resources
 
