@@ -5,7 +5,7 @@ description: Learn how to copy a blob with TypeScript in Azure Storage by using 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/04/2023
+ms.date: 05/08/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

@@ -5,7 +5,7 @@ description: Learn how to copy a blob in Azure Storage by using the JavaScript c
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/03/2023
+ms.date: 05/08/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
