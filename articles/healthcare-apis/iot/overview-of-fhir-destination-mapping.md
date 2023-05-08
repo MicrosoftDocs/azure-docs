@@ -49,6 +49,10 @@ CollectionFhir is the root template type used by the MedTech service FHIR destin
 
 :::image type="content" source="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service FHIR destination mapping template and code architecture." lightbox="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png":::
 
+### CodeValueFhir
+
+CodeValueFhir is currently the only template supported in the FHIR destination mapping.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [string](https://www.hl7.org/fhir/datatypes.html#string). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
+
 |Element|Description|Required| 
 |:------|:----------|:-------|
 |**typeName**| The type of measurement this template should bind to. Note: There should be at least one device mapping template that has this same `typeName`. The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that is evaluated with a FHIR destination mapping template that has the same `typeName`.|True|
@@ -62,10 +66,6 @@ CollectionFhir is the root template type used by the MedTech service FHIR destin
 |**components**|One or more components to create on the observation.|True when the `value` element isn't used instead.|
 |**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|False|
 |**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
-
-### CodeValueFhir
-
-CodeValueFhir is currently the only template supported in the FHIR destination mapping.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [string](https://www.hl7.org/fhir/datatypes.html#string). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
 
 #### Value types
 
@@ -167,7 +167,6 @@ We're using this FHIR destination mapping for the transformation stage:
     }
   ]
 }
-
 ```
 
 The resulting FHIR Observation will look like this after the transformation stage:
