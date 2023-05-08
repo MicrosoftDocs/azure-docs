@@ -1,6 +1,6 @@
 ---
 title: Configure WAF custom rules & Default Rule Set for Azure Front Door
-description: Learn how to configure a WAF policy consist of both custom and managed rules for an existing Front Door endpoint.
+description: Learn how to configure a WAF policy consisting of both custom and managed rules for an existing Front Door endpoint.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -33,7 +33,7 @@ You can install [Azure PowerShell](/powershell/azure/) on your local machine and
 Connect-AzAccount
 
 ```
-Before install Front Door module, make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
+Before installing the Front Door module, make sure you have the current version of PowerShellGet installed. Run the below command and reopen PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
@@ -67,7 +67,7 @@ $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -Oper
 $BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
-## Create a custom rule based on size constraint
+## Create a custom rule based on the size constraint
 
 The following example creates a rule blocking requests with Url that is longer than 100 characters using Azure PowerShell:
 ```powershell-interactive
