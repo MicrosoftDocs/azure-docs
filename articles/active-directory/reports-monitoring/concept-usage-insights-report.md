@@ -22,26 +22,28 @@ With the Azure Active Directory (Azure AD) **Usage and insights** reports, you c
 *	What are the top sign-in errors for each application?
 *   What was the date of the last sign-in for an application?
 
-## Access Usage & insights 
+## Prerequisites
 
-Accessing the data from Usage and insights requires:
+To access the data from Usage and insights you must have:
 
 * An Azure AD tenant
 * An Azure AD premium (P1/P2) license to view the sign-in data
-* A user in the Global Administrator, Security Administrator, Security Reader, or Reports Reader roles.
+* A user in the Reports Reader, Security Reader, Security Administrator, or Global Administrator role.
 
-To access Usage & insights:
+## Access Usage and insights 
+
+You can access the Usage and insights reports from the Azure portal and using Microsoft Graph.
+
+### To access Usage & insights in the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
 1. Go to **Azure Active Directory** > **Usage & insights**.
 
 The **Usage & insights** reports are also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
 
-## View the Usage & insights reports
+### To access Usage & insights using Microsoft Graph:
 
-The Usage & insights reports use sign-in data to provide helpful information an application usage and authentication methods. You can view these reports in the Azure portal. Go to **Azure Active Directory** and select **Usage and insights** from the **Monitoring** menu.
-
-You can also work with these reports using Microsoft Graph in Graph Explorer. The reports can be viewed and managed using Microsoft Graph on the `/beta` endpoint.
+The reports can be viewed and managed using Microsoft Graph on the `/beta` endpoint in Graph Explorer.
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
