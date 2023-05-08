@@ -4,27 +4,20 @@ description: This article explains how you, as a SOC manager, can audit the hist
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/24/2022
+ms.date: 05/08/2023
 ---
 
 # Audit and track changes to incident tasks in Microsoft Sentinel
 
+[Incident tasks](incident-tasks.md) ensure comprehensive and uniform treatment of incidents across all SOC personnel. Task lists are typically defined according to determinations made by senior analysts or SOC managers, and put into practice using automation rules or playbooks.
+
+Your analysts can see the list of tasks they need to perform for a particular incident on the incident details page, and mark them complete as they go. Analysts can also create their own tasks on the spot, manually, right from within the incident.
+
 This article explains how you, as a SOC manager, can audit the history of Microsoft Sentinel incident tasks, and track the changes made to them throughout their life cycle, in order to gauge the efficacy of your task assignments and their contribution to your SOC's efficiency and proper functioning.
-
-
-[Incident tasks](incident-tasks.md) are typically created automatically by either automation rules or playbooks set up by senior analysts or SOC managers, but lower-level analysts can create their own tasks on the spot, manually, right from within the incident.
-
-Your analysts can see the list of tasks they need to perform for a particular incident on the incident details page, and mark them complete as they go.
 
 > [!IMPORTANT]
 >
 > The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-## Prerequisites
-
-The **Microsoft Sentinel Responder** role is required to create automation rules and to view and edit incidents, both of which are necessary to add, view, and edit tasks.
-
-***YL: IS THIS REQUIRED FOR VIEWING THE SECURITYINCIDENT TABLE IN LOG ANALYTICS AS WELL?***
 
 ## Structure of Tasks array in the SecurityIncident table
 
@@ -62,7 +55,7 @@ Apart from the **Incident tasks workbook**, you can audit task activity by query
 
     You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results so that we only see the tasks for a single incident, and we'll also add a `project` statement so that we see only those fields that will be useful for our purposes, without a lot of clutter.
 
-    (Learn more about using Kusto Query Language.)
+    [Learn more about using Kusto Query Language](kusto-overview.md).
 
     ```kusto
     SecurityIncident
@@ -119,7 +112,19 @@ When we come back to **Logs** and run the query yet again, we'll see another new
 
 ## View active tasks belonging to a closed incident
 
+The following query allows you to see if an incident was closed but not all its assigned tasks were completed. This knowledge can help you verify that any remaining loose ends in your investigation were brought to a conclusion&mdash;all relevant parties were notified, all comments were entered, all responses were verified, and so on.
 
+```kusto
+SecurityIncident
+| summarize arg_max(TimeGenerated, *) by IncidentNumber
+| where Status == 'Closed'
+| mv-expand Tasks
+| evaluate bag_unpack(Tasks)
+| summarize arg_max(lastModifiedTimeUtc, *) by taskId
+| where status !in ('Completed', 'Deleted')
+| project TaskTitle = ['title'], TaskStatus = ['status'], createdTimeUtc, lastModifiedTimeUtc = column_ifexists("lastModifiedTimeUtc", datetime(null)), TaskCreator = ['createdBy'].name, lastModifiedBy, IncidentNumber, IncidentOwner = Owner.userPrincipalName
+| order by lastModifiedTimeUtc desc
+```
 
 
 ## Next steps
