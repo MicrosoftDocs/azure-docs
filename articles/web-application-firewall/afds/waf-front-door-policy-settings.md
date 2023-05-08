@@ -1,5 +1,5 @@
 ---
-title: Policy settings for Web Application Firewall with Azure Front Door
+title: Policy Settings for Web Application Firewall with Azure Front Door
 description: Learn Web Application Firewall (WAF).
 author: vhorne
 ms.service: web-application-firewall
@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Policy settings for Web Application Firewall on Azure Front Door
 
-A Web Application Firewall (WAF) policy allows you to control access to your web applications by a set of custom and managed rules. The WAF policy name must be unique. You will receive a validation error if you try to use an existing name. There are multiple policy level settings that apply to all rules specified for that policy as described in this article.
+A Web Application Firewall (WAF) policy allows you to control access to your web applications by a set of custom and managed rules. The WAF policy name must be unique. You will receive a validation error if you try to use an existing name. There are multiple policy-level settings that apply to all rules specified for that policy as described in this article.
 
 ## WAF state
 
@@ -23,7 +23,7 @@ A WAF policy for Front Door can be in one of the following two states:
 
 WAF policy can be configured to run in the following two modes:
 
-- **Detection mode** When run in detection mode, WAF does not take any actions other than monitor and log the request and its matched WAF rule to WAF logs. Turn on logging diagnostics for Front Door (when using portal, this can be achieved by going to the **Diagnostics** section in the Azure portal).
+- **Detection mode** When run in detection mode, WAF does not take any actions other than monitor and log the request, and it's matched the WAF rule to WAF logs. Turn on logging diagnostics for Front Door (when using the portal, this can be achieved by going to the **Diagnostics** section in the Azure portal).
 
 - **Prevention mode** When configured to run in prevention mode, WAF takes the specified action if a request matches a rule. Any matched requests are also logged in the WAF logs.
 
@@ -39,7 +39,7 @@ You can define a custom response status code and response message when a request
 - 406    Not acceptable
 - 429    Too many requests
 
-Custom response status code and response message is a policy level setting. Once it is configured, all blocked requests get the same custom response status and response message.
+Custom response status code and response message is a policy-level setting. Once it is configured, all blocked requests get the same custom response status and response message.
 
 ## URI for redirect action
 
