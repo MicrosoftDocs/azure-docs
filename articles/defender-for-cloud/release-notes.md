@@ -20,7 +20,28 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
-   -  [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
+- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
+- [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
+
+### Agentless scanning now supports encrypted disks in AWS
+
+Agentless scanning for VMs now supports processing of instances with encrypted disks in AWS, using both CMK and PMK.
+
+This extended support increases coverage and visibility over your cloud estate without impacting your running workloads. Support for encrypted disks maintains the same zero impact method on running instances.
+
+- For new customers enabling agentless scanning in AWS - encrypted disks coverage is built-in and supported by default.
+- For existing customers that already have an AWS connector with agentless scanning enabled, you will need to re-apply the CloudFormation stack to your onboarded AWS accounts to update and add the new permissions that are required to process encrypted disks. The updated CloudFormation template includes new assignments that allow Defender for Cloud to process encrypted disks.
+
+You can learn more about the [permissions used to scan AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+
+**To re-apply your CloudFormation stack**:
+
+1. Go to Defender for Cloud environment settings and open your AWS connector.
+1. Navigate to the **Configure Access** tab.
+1. Select **Click to download the CloudFormation template**.
+1. Navigate to your AWS environment and apply the updated template.
+
+Learn more about [agentless scanning](concept-agentless-data-collection.md) and [enabling agentless scanning in AWS](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
 
 ### Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud
 
@@ -62,7 +83,6 @@ Agentless Container Posture allows security teams to identify security risks in
 Agentless Container Posture offers container vulnerability assessments that, combined with attack path analysis, enable security teams to prioritize and zoom into specific container vulnerabilities. You can also use cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
 
 Learn more at [Agentless Container Posture (Preview)](concept-agentless-containers.md).
-- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
 
 ### Unified Disk Encryption recommendation (preview)
 
@@ -99,7 +119,7 @@ The following App Service language monitoring policies have been deprecated due 
 | [Function apps that use Python should use the latest 'Python version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) | 7238174a-fd10-4ef0-817e-fc820a951d73 |
 | [App Service apps that use PHP should use the latest 'PHP version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3)| 7261b898-8a84-4db8-9e04-18527132abb3 |
 
-Customers can use alternative built-in policies to monitor any specified language version for their App Services.
+Customers can use alternative built-in policies to monitor any specified language version for their App Services. 
 
 These policies are no longer available in Defender for Cloud's built-in recommendations. You can [add them as custom recommendations](create-custom-recommendations.md) to have Defender for Cloud monitor them.
 
@@ -122,6 +142,7 @@ The following three alerts for the Defender for Resource Manager plan have been 
 - `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
 
 In a scenario where activity from a suspicious IP address is detected, one of the following Defenders for Resource Manager plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
+
 
 ### Alerts automatic export to Log Analytics workspace have been deprecated
 
