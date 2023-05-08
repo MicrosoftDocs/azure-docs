@@ -43,11 +43,11 @@ The samples and tutorials require that you provide the account ID and a key. For
 "accountSettings": {
     "arrAccountId": "<fill in the account ID from the Azure portal>",
     "arrAccountKey": "<fill in the account key from the Azure portal>",
-    "region": "<select from available regions>"
+    "arrAccountDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
 },
 ```
 
-See the [list of available regions](../reference/regions.md) for filling out the *region* option.
+See the [list of available regions](../reference/regions.md) for filling out the *arrAccountDomain* option. If you're running on a nonpublic Azure region, you have to specify the full url to the account authentication service in your region.
 
 The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the portal as described in the following steps:
 

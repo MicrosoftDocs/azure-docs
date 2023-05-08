@@ -128,11 +128,10 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
     "accountSettings": {
         "arrAccountId": "8*******-****-****-****-*********d7e",
         "arrAccountKey": "R***************************************l04=",
-        "region": "<your-region>"
+        "arrAccountDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
     },
     "renderingSessionSettings": {
-        "vmSize": "standard",
-        "maxLeaseTime": "1:00:00"
+        "remoteRenderingDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
     },
     "assetConversionSettings": {
         "localAssetDirectoryPath": "D:\\tmp\\robot",
@@ -148,7 +147,9 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
 }
 ```
 
-The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
+The configuration within the **accountSettings** group (account ID, key and domain) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
+
+A full configuration of the **renderingSessionSettings** group (domain, vmSize and maxLeaseTime) can be seen in [Powershell Example scripts](../samples/powershell-example-scripts.md). The vmSize and maxLeaseTime are not important for conversion and can be omitted, as they will not affect the outcome of the conversion.
 
 Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 The value for **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.

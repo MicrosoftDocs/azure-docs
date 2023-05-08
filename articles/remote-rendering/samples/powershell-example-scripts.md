@@ -55,10 +55,10 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
     "accountSettings": {
         "arrAccountId": "<fill in the account ID from the Azure Portal>",
         "arrAccountKey": "<fill in the account key from the Azure Portal>",
-        "arrAccountDomain": "<select from available regions or specify the full url>"
+        "arrAccountDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
     },
     "renderingSessionSettings": {
-        "remoteRenderingDomain": "<select from available regions or specify the full url>",
+        "remoteRenderingDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>",
         "vmSize": "<select standard or premium>",
         "maxLeaseTime": "<hh:mm:ss>"
     },
