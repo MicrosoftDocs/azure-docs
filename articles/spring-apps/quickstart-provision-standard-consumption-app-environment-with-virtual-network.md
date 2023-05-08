@@ -66,7 +66,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
    :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps environment page for an Azure Spring Apps instance with Create new highlighted for Azure Container Apps environment." lightbox="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png":::
 
-1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
+1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name**, choose the plan and set **Zone redundancy** to **Enabled**.
 
    :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Basics tab selected." lightbox="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png":::
 
@@ -170,6 +170,13 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    | `location`                          | The Azure location where the environment is to deploy.                                                                                                                                     |
    | `infrastructure-subnet-resource-id` | The Resource ID of a subnet for infrastructure components and user application containers.                                                                                                 |
    | `internal-only`                     | (Optional) Sets the environment to use only internal IP addresses available in the custom virtual network instead of a public static IP. (Requires the infrastructure subnet resource ID.) |
+
+1. (Optional) Create a dedicated workload profile:
+
+    ```azurecli
+    az containerapp env workload-profile set -g $RESOURCE_GROUP -n $AZURE_CONTAINER_APPS_ENVIRONMENT
+        --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+    ```
 
 ---
 

@@ -199,6 +199,29 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
        --assign-endpoint true
    ```
 
+## (Optional) Create an app in your Azure Spring Apps instance with dedicated workload profiles
+
+[Dedicated workload profiles](../container-apps/workload-profiles-overview.md) support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
+
+```azurecli
+az containerapp env workload-profile set -n ${AZURE_CONTAINER_APPS_ENVIRONMENT}
+   --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+```
+
+And use the following command to specify the workload profile on Azure Spring Apps:
+
+```azurecli-interactive
+az spring app create \
+   --service ${AZURE_SPRING_APPS_INSTANCE} \
+   --name ${APP_NAME} \
+   --cpu 1 \
+   --memory 2Gi \
+   --instance-count 2 \
+   --runtime-version Java_17 \
+   --assign-endpoint true \
+   --workload-profile my-wlp
+```
+
 ## Bind the Service Bus to Azure Spring Apps and deploy the app
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
