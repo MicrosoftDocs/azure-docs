@@ -49,21 +49,21 @@ CollectionFhir is the root template type used by the MedTech service FHIR destin
 
 ### CodeValueFhir
 
-CodeValueFhir is currently the only template supported in FHIR destination mapping.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [string](https://www.hl7.org/fhir/datatypes.html#string). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
+CodeValueFhir is currently the only template supported in the FHIR destination mapping.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [string](https://www.hl7.org/fhir/datatypes.html#string). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
 
 |Element|Description|Required| 
 |:------|:----------|:-------|
-|**typeName**| The type of measurement this template should bind to. There should be at least one device mapping template that has this same `typeName`.|TBD|
+|**typeName**| The type of measurement this template should bind to. Note: There should be at least one device mapping template that has this same `typeName`. The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same `typeName`.|True|
 |**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).|TBD Note: `periodInterval` is required when the Observation type is "SampledData" and is ignored for any other Observation types.| 
 |**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.|TBD|
 |**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|TBD|
-|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` property.|TBD|
-|**codes[].system**|The system for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).|TBD|
-|**codes[].display**|The display for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).|TBD|
-|**value**|The value to extract and represent in the observation. For more information, see [Value types](#value-types).|TBD|
-|**components**|*Optional:* One or more components to create on the observation.|TBD|
+|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
+|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
+|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
+|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|TBD|
+|**components**|One or more components to create on the observation.|TBD|
 |**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|TBD|
-|**components[].value**|The value to extract and represent in the component. For more information, see [Value types](#value-types).|TBD|
+|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|TBD|
 
 :::image type="content" source="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service FHIR destination mapping template and code architecture." lightbox="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png":::
 
@@ -73,7 +73,7 @@ All CodeValueFhir templates' `value` element contains these elements:
 
 |Element|Description|Required|
 |:------|:----------|:-------|
-|**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "string" depending on the value type.|TBD|
+|**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "String" depending on the value type.|TBD|
 |**valueName**|Name of the value.|TBD|
 
 These value types are supported in the MedTech service FHIR destination mapping:
@@ -105,13 +105,13 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 |:------|:----------|:-------|
 |**text**|Plain text representation.|TBD|
 |**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|TBD|
-|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` property.|TBD|
-|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` property.|TBD|
-|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` property.|TBD|
+|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
+|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
+|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
 
 #### String
 
-Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type creates a single, point in time, Observation. If new a value arrives that contains the same device identifier, measurement type, and timestamp, the previous Observation is updated to the new value. No other elements are defined.
+Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type creates a single, point in time, Observation. If a new value arrives that contains the same device identifier, measurement type, and timestamp, the previous Observation is updated to the new value. No other elements are defined.
 
 ### Example
 
