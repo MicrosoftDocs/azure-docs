@@ -91,7 +91,7 @@ The following table shows a summary of the different features in Online and Batc
 | Managed network isolation<sup>1</sup> | Yes                              | No                             |
 | Customer-managed keys                 | Yes                              | No                             |
 
-- <sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows managing the networking configuration of the endpoint independently from the Azure Machine Learning workspace configuration.
+<sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows managing the networking configuration of the endpoint independently from the Azure Machine Learning workspace configuration.
 
 #### Deployments
 
@@ -111,8 +111,8 @@ The following table shows a summary of the different features in Online and Batc
 | Overcapacity management       | Throttling                       | Queuing                                  |
 | Test deployments locally      | Yes                              | No                                       |
 
-- <sup>1</sup> *Inference server* makes reference to the serving technology that takes request, process them, and creates a response. The inference server also dictates the format of the input and the expected outputs.
-- <sup>2</sup> *Autoscale* makes reference to the ability of dynamically scaling up or down the deployment's allocated resources based on its load. Online and Batch Deployments use different strategies. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc), batch endpoints scale up or down based on the amount of jobs created.
+<sup>1</sup> *Inference server* makes reference to the serving technology that takes request, process them, and creates a response. The inference server also dictates the format of the input and the expected outputs.
+<sup>2</sup> *Autoscale* makes reference to the ability of dynamically scaling up or down the deployment's allocated resources based on its load. Online and Batch Deployments use different strategies. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc), batch endpoints scale up or down based on the amount of jobs created.
 
 ## Developer interfaces
 
