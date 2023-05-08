@@ -444,6 +444,7 @@ For example, moving a virtual machine could require moving seven resource types 
   * storageAccounts
 
 Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
+In general, a virtual network gateway must always be in the same resource group as its virtual network, they can't be moved separately.
 
 **Question: What does the error code "RequestDisallowedByPolicy" mean?**
 
