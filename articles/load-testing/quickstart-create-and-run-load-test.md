@@ -36,7 +36,7 @@ To create a Load Testing resource:
 
 ## Create a load test
 
-# [Virtual users](#tab/virtual_users)
+## [Virtual users](#tab/virtual_users)
 
 Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
