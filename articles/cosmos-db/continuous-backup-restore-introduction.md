@@ -127,7 +127,7 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 
 Currently the point in time restore functionality has the following limitations:
 
-* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. API for Cassandra isn't supported now.
+* Azure Cosmos DB APIs for SQL, MongoDB, Gremlin and Table supported for continuous backup. API for Cassandra isn't supported now.
 
 * Multi-regions write accounts aren't supported.
 

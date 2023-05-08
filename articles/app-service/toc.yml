@@ -381,6 +381,8 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Scale app
       items:
+        - name: Scale out automatically
+          href: manage-automatic-scaling.md      
         - name: Scale up server capacity
           href: manage-scale-up.md
         - name: Configure PremiumV3 tier
@@ -407,7 +409,7 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Back up and restore
+        - name: Backup and restore
           href: manage-backup.md
         - name: Clone an app
           href: app-service-web-app-cloning.md

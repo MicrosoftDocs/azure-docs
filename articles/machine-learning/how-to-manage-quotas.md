@@ -8,7 +8,7 @@ ms.subservice: core
 author: SimranArora904
 ms.author: siarora
 ms.reviewer: larryfr
-ms.date: 11/28/2022
+ms.date: 04/28/2023
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -99,21 +99,21 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 
 ### Azure Machine Learning managed online endpoints
 
-Azure Machine Learning managed online endpoints have limits described in the following table. 
+Azure Machine Learning managed online endpoints have limits described in the following table. These are regional limits, meaning that you can use up to these limits per each region you are using.
 
-| **Resource** | **Limit** |
-| --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
-| Number of endpoints per subscription | 50 |
-| Number of deployments per subscription | 200 |
-| Number of deployments per endpoint | 20 |
-| Number of instances per deployment | 20 <sup>2</sup> |
-| Max request time-out at endpoint level  | 90 seconds |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> |
+| **Resource** | **Limit** | **Allows exception** |
+| --- | --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
+| Number of endpoints per subscription | 50 | Yes |
+| Number of deployments per subscription | 200 | Yes |
+| Number of deployments per endpoint | 20 | Yes |
+| Number of instances per deployment | 20 <sup>2</sup> | Yes |
+| Max request time-out at endpoint level  | 90 seconds | - |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | Yes |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 

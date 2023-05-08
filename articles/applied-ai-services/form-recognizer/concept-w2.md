@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 11/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Form Recognizer W-2 form model
