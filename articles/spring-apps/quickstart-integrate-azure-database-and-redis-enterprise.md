@@ -191,7 +191,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Use the following commands to retrieve the database connection information and update the Order Service application:
+1. Use the following command to retrieve the database connection information:
 
    ```azurecli
    POSTGRES_CONNECTION_STR=$(az spring connection show \
@@ -199,11 +199,14 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --connection order_service_db \
-       --app order-service | jq '.configurations[0].value' -r)
+       --app order-service \
+       | jq '.configurations[0].value' -r)
    ```
-   
+
    > [!NOTE]
-   > If you encounter SSL verification exception with Nofsql 6.0, please change SSL mode from `Require` to `VerifyFull`, see more from https://www.npgsql.org/doc/release-notes/6.0.html.
+   > If you get an SSL verification exception with Nofsql 6.0, be sure to change the SSL mode from `Require` to `VerifyFull`. For more information, see the [Npgsql 6.0 Release Notes](https://www.npgsql.org/doc/release-notes/6.0.html).
+
+1. Use the following command to update the Order Service application:
 
    ```azurecli
    az spring app update \
