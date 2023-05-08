@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 05/08/2023
 ---
 
-## Azure Stack Edge use case parameters
+### Azure Stack Edge use case parameters
 
 Azure Stack Edge is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. The solution provides hardware as a service and seamless cloud-to-edge experiences.
 
