@@ -62,7 +62,7 @@ Where we used this helper function to read the value of an environment variable:
 
 #### [REST API](#tab/rest)
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. See [Select a mode ](./background-removal.md&tabs=rest#select-a-mode) section for another query string you add to this URL.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
 
 ---
 
@@ -170,7 +170,7 @@ The following code calls the Image Analysis API and saves the resulting segmente
 
 #### [REST](#tab/rest)
 
-The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream.
+The service returns a `200` HTTP response on success with `Content-Type: image/png`, and the body contains the returned PNG image in the form of a binary stream.
 
 ---
 
