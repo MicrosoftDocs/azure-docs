@@ -25,6 +25,7 @@ The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the
 [!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md
 )]
 
+
 ## Use cases
 
 The Pro 2 series is designed for deployment in edge locations such as retail, telecommunications, manufacturing, or even healthcare. Here are the various scenarios where Azure Stack Edge Pro 2 can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
