@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Use Azure Machine Learning labeling in Language Studio
 
-Labeling data is an important part of preparing your dataset. Using the labeling experience in Azure Machine Learning Studio, you can experience easier collaboration, more flexibility, and the ability to [outsource labeling tasks](/azure/machine-learning/how-to-outsource-data-labeling) to external labeling vendors from the [Azure Market Place](https://azuremarketplace.microsoft.com/en-US/marketplace/consulting-services?search=AzureMLVend). You can use Azure Machine Learning labeling for:
+Labeling data is an important part of preparing your dataset. Using the labeling experience in Azure Machine Learning, you can experience easier collaboration, more flexibility, and the ability to [outsource labeling tasks](/azure/machine-learning/how-to-outsource-data-labeling) to external labeling vendors from the [Azure Market Place](https://azuremarketplace.microsoft.com/en-US/marketplace/consulting-services?search=AzureMLVend). You can use Azure Machine Learning labeling for:
 * [custom text classification](../custom-text-classification/overview.md) 
 * [custom named entity recognition](../custom-named-entity-recognition/overview.md) 
 
@@ -36,7 +36,7 @@ Before you can connect your labeling project to Azure Machine Learning, you need
 * Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
 * Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
     * Language support is provided by the Azure Machine Learning [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true&branch=main#azureml-automl-core-constants-textdnnlanguages-supported).
-* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Be sure that the Azure Machine Learning workspace has the storage blob data reader permission on the storage account. The workspace needs to have been linked to the storage account in the creation process in the Azure Portal, to create a new Workspace you can do so through this [link](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices).
+* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Be sure that the Azure Machine Learning workspace has the storage blob data reader permission on the storage account. The workspace needs to have been linked to the storage account during the creation process in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices).
 * Switching between the two labeling experiences isn't instantaneous. It may take time to successfully complete the operation.
 
 ## Import your Azure Machine Learning labels into Language Studio
@@ -55,9 +55,9 @@ Language Studio supports the JSONL file format used by Azure Machine Learning. I
 
 Before you connect to Azure Machine Learning, you need an Azure Machine Learning account with a pricing plan that can accommodate the compute needs of your project. See the [prerequisites section](#prerequisites) to make sure that you have successfully completed all the requirements to start connecting your Language Studio project to Azure Machine Learning.
 
-1.	Navigate to the Azure Portal to your Azure Blob Storage account connected to your language resource.
-2.	Ensure that the "Storage Blob Data Contributor" role is assigned to your AML workspace within the role assignments for yout Azure Blob Storage account. 
-3.	Navigate to your project in the Language Studio and from the left navigation menu of your project, select **Data labeling**.
+1.	Use the [Azure portal](https://portal.azure.com/) to navigate to the Azure Blob Storage account connected to your language resource.
+2.	Ensure that the *Storage Blob Data Contributor* role is assigned to your AML workspace within the role assignments for your Azure Blob Storage account. 
+3.	Navigate to your project in [Language Studio](https://language.azure.com/). From the left navigation menu of your project, select **Data labeling**.
 4.	Select **use Azure Machine Learning to label** in either the **Data labeling** description, or under the **Activity pane**. 
 
     :::image type="content" source="./media/azure-machine-learning-selection.png" alt-text="A screenshot showing the location of the Azure Machine Learning link." lightbox="./media/azure-machine-learning-selection.png":::
@@ -69,7 +69,7 @@ Before you connect to Azure Machine Learning, you need an Azure Machine Learning
 1. In the window that appears, follow the prompts. Select the Azure Machine Learning workspace you’ve created previously under the same Azure subscription. Enter a name for the new Azure Machine Learning project that will be created to enable labeling in Azure Machine Learning.
 
     >[!TIP]
-    > Make sure your workspace is linked to the same Azure Blob Storage account and Language resource before continuing. You can create a new workspace and link to your storage account through the [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices). Ensure that the storage account 
+    > Make sure your workspace is linked to the same Azure Blob Storage account and Language resource before continuing. You can create a new workspace and link to your storage account through the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices). Ensure that the storage account 
 
 1. (Optional) Turn on the vendor labeling toggle to use labeling vendor companies. Before choosing the vendor labeling companies, contact the vendor labeling companies on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=AzureMLVend) to finalize a contract with them. For more information about working with vendor companies, see [How to outsource data labeling](/azure/machine-learning/how-to-outsource-data-labeling). 
 
