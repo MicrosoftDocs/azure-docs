@@ -77,7 +77,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
     6. Frontend IP Configuration Names
     7. Backend Pool Names
     8. Health Probe Names
-    9. Data Disk Names: default, hanaData, hanaLog, usrSap, hanaShared
+    9. Data Disk Names: default, hanaData or hana/data, hanaLog or hana/log, usrSap or usr/sap, hanaShared or hana/shared, backup
     10. Shared Storage Account Name
     11. Shared Storage Account Private End Point Name
 
