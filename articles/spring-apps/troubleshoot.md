@@ -39,7 +39,7 @@ To fix this error, go to the `server parameters` of your MySQL instance, and cha
 
 ### My application crashes or throws an unexpected error
 
-When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to *App management* in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
+When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
 
 * If the status is *Running* but the discovery status is not *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
@@ -220,7 +220,7 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 ### I can't find metrics or logs for my application
 
-Go to **App management** to ensure that the application statuses are *Running* and *UP*.
+Go to **Apps** to ensure that the application statuses are *Running* and *UP*.
 
 Check to see whether *JMX* is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
 
