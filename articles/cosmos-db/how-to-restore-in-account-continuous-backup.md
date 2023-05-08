@@ -63,7 +63,7 @@ Use the Azure portal to restore a deleted container or database (including child
     > [!NOTE]
     > The event feed will display certain resources as **"Not restorable"**. The feel will provide more information why the resource cannot be restored.In most cases, you will be required to restore the parent database before you can restore any of its child containers.
 
-1. After initiating a restore operation, track the operation using the notifications area of the Azure portal. The notification provides the status of the resource being restored. While restore is in progress, the status of the container will be **Creating**. After the restore operation completes, the status will change to **Online**.
+1. After initiating a restore operation, track the operation using the notifications area of the Azure portal. The notification provides the status of the resource being restored. While restore is in progress, the status of the container is **Creating**. After the restore operation completes, the status will change to **Online**.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     > [!NOTE]
     > Listing all the restorable database deletion events allows you allows you to choose the right container in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
 
-1. Trigger a restore operaton for a deleted database.
+1. Trigger a restore operation for a deleted database.
 
     ```azurepowershell
     Restore-AzCosmosDBSqlDatabase  `
@@ -135,7 +135,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     -RestoreTimestampInUtc "2022-08-25T07:16:20Z"  
     ```
 
-1. Trigger a restore operaton for a deleted container.
+1. Trigger a restore operation for a deleted container.
 
     ```azurepowershell
     Restore-AzCosmosDBSqlContainer ` 
@@ -171,7 +171,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosDBMongoDBRestorableCollection @parameters      
     ```
 
-1. Trigger a restore operaton for a deleted database.
+1. Trigger a restore operation for a deleted database.
 
     ```azurepowershell
     Restore-AzCosmosDBMongoDBDatabase  `
@@ -181,7 +181,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     -RestoreTimestampInUtc "2022-08-25T07:16:20Z"  
     ```
 
-1. Trigger a restore operaton for a deleted collection.
+1. Trigger a restore operation for a deleted collection.
 
     ```azurepowershell
     Restore-AzCosmosDBMongoDBContainer   `
@@ -217,7 +217,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbGremlinRestorableGraph @parameters      
     ```
 
-1. Trigger a restore operaton for a deleted database.
+1. Trigger a restore operation for a deleted database.
 
     ```azurepowershell
     Restore-AzCosmosDBGremlinDatabase    `
@@ -227,7 +227,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     -RestoreTimestampInUtc "2023-08-25T07:16:20Z"  
     ```
 
-1. Trigger a restore operaton for a deleted graph.
+1. Trigger a restore operation for a deleted graph.
 
     ```azurepowershell
     Restore-AzCosmosDBGremlinGraph    `
@@ -252,7 +252,7 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbTableRestorableTable @parameters
     ```
 
-1. Trigger a restore operaton for a deleted table.
+1. Trigger a restore operation for a deleted table.
 
     ```azurepowershell
     Restore-AzCosmosDBTable    `
@@ -272,4 +272,4 @@ TODO
 
 ## Track the status of a restore operation
 
-When a point-in-time restore is triggered for a deleted container or database, the operation will be identified as an **InAccount** restore operation on the resource. To get a list of restore operations for a specific resource, filter the Activity Log of the account using the search filter `InAccount Restore Deleted` and a time filter. The resulting list includes the `UserPrincipalName` field that identifies the user that triggered the restore operation. For more information on how to access activity logs, see [Auditing point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
+When a point-in-time restore is triggered for a deleted container or database, the operation is identified as an **InAccount** restore operation on the resource. To get a list of restore operations for a specific resource, filter the Activity Log of the account using the search filter `InAccount Restore Deleted` and a time filter. The resulting list includes the `UserPrincipalName` field that identifies the user that triggered the restore operation. For more information on how to access activity logs, see [Auditing point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
