@@ -28,8 +28,9 @@ You can use service tags to define network access controls on [network security
 
 ### Regional IP ranges
 Because IoT Hub IP rules do not support Service Tags, you have to use AzureDeviceUpdate Service Tag IP prefixes instead. Because this tag is currently global, we are providing the following table for convenience. Please note that location is that of Device Update resources.  
+
 | Location | IP ranges |
-|:---:|:---:|  
+| --- | --- |  
 | Australia East | 20.211.71.192/26,20.53.47.16/28,20.70.223.192/26,104.46.179.224/28,20.92.5.128/25,20.92.5.128/26 |
 | East US | 20.119.27.192/26,20.119.28.128/26,20.62.132.240/28,20.62.135.128/27,20.62.135.160/28,20.59.77.64/26,20.59.81.64/26,20.66.3.208/28 |
 | East US 2 | 20.119.155.192/26,20.62.59.16/28,20.98.195.192/26,20.40.229.32/28,20.98.148.192/26,20.98.148.64/26 |
