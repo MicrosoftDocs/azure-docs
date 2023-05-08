@@ -137,13 +137,13 @@ In the scenario where multiple NICs are configured, you need to determine which 
 Use the following process to identify the mapping between configured network interface and its associated virtual interface. This process validates that accelerated networking is enabled for a specific NIC on your Linux machine and display the physical ingress speed the NIC can potentially achieve. 
 
 1. Execute the `ip a` command: 
-    :::image type="content" alt-text="Output of ip a command." source="../media/azure-netapp-files/ip-a-command-output.png":::
+    :::image type="content" alt-text="Screenshot of output of ip a command." source="../media/azure-netapp-files/ip-a-command-output.png":::
 1. List the `/sys/class/net/` directory of the NIC ID you are verifying (`eth0` in the example) and `grep` for the word lower:
     ```bash
     ls /sys/class/net/eth0 | grep lower lower_eth1
     ```
 1. Execute the `ethtool` command against the ethernet device identified as the lower device in the previous step.
-    :::image type="content" alt-text="Output of settings for eth1." source="../media/azure-netapp-files/ethtool-output.png":::
+    :::image type="content" alt-text="Screenshot of output of settings for eth1." source="../media/azure-netapp-files/ethtool-output.png":::
 
 #### Azure VM: Network vs. disk bandwidth limits 
 
@@ -155,7 +155,7 @@ A level of expertise is required when reading Azure VM performance limits docume
 
 A sample chart is shown for reference:
 
-:::image type="content" alt-text="Sample chart data." source="../media/azure-netapp-files/sample-chart.png":::
+:::image type="content" alt-text="Table showing sample chart data." source="../media/azure-netapp-files/sample-chart.png":::
 
 ### Azure NetApp Files 
 
@@ -299,28 +299,28 @@ There are several tools that can be used to assess these workload opportunities:
 
 When identifying Oracle Exadata workloads to migrate to the cloud, consider the following questions and data points:
 
-1. Is the workload consuming multiple Exadata features, outside of hardware benefits? 
-    1. Smart scans 
-    1. Storage indices 
-    1. Flash cache 
-    1. Flash logging 
-    1. Hybrid columnar compression 
-1. Is the workload using Exadata offloading efficiently? In the top time foreground events, what is the ratio (more than 10% of DB time) of workload using: 
-    1. Cell smart table scan (optimal) 
-    1. Cell multiblock physical read (less optimal) 
-    1. Cell single block physical read (least optimal) 
-1. Hybrid Columnar Compression (HCC/EHCC): What is the compressed vs. uncompressed ratios: 
-    1. Is the database spending over 10% of database time on compressing and decompressing data? 
-    1. Inspect the performance gains for predicates using the compression in queries: is the value gained worth it versus the amount saved with compression? 
-1. Cell Physical IO: Inspect the savings provided from: 
-    1. the amount directed to the DB node to balance CPU. 
-    1. identifying the number of bytes returned by smart scan. These values can be subtracted in IO for the percentage of cell single block physical reads once it migrates off Exadata. 
-1. Note the number of logical reads from cache. Determine if flash cache will be required in a cloud IaaS solution for the workload. 
-1. Compare the physical read and write total bytes to the amount performed total in cache. Can memory be raised to eliminate physical read requirements (it's common for some to shrink down SGA to force offloading for Exadata)? 
-1. In **System Statistics**, identify what objects are impacted by what statistic. If tuning SQL, further indexing, partitioning, or other physical tuning may optimize the workload dramatically. 
-1. Inspect **Initialization Parameters** for underscore (_) or deprecated parameters, which should be justified due to database level impact they may be causing on performance.
+* Is the workload consuming multiple Exadata features, outside of hardware benefits? 
+    * Smart scans 
+    * Storage indices 
+    * Flash cache 
+    * Flash logging 
+    * Hybrid columnar compression 
+* Is the workload using Exadata offloading efficiently? In the top time foreground events, what is the ratio (more than 10% of DB time) of workload using: 
+    * Cell smart table scan (optimal) 
+    * Cell multiblock physical read (less optimal) 
+    * Cell single block physical read (least optimal) 
+* Hybrid Columnar Compression (HCC/EHCC): What is the compressed vs. uncompressed ratios: 
+    * Is the database spending over 10% of database time on compressing and decompressing data? 
+    * Inspect the performance gains for predicates using the compression in queries: is the value gained worth it versus the amount saved with compression? 
+* Cell physical IO: Inspect the savings provided from: 
+    * the amount directed to the DB node to balance CPU. 
+    * identifying the number of bytes returned by smart scan. These values can be subtracted in IO for the percentage of cell single block physical reads once it migrates off Exadata. 
+* Note the number of logical reads from cache. Determine if flash cache will be required in a cloud IaaS solution for the workload. 
+* Compare the physical read and write total bytes to the amount performed total in cache. Can memory be raised to eliminate physical read requirements (it's common for some to shrink down SGA to force offloading for Exadata)? 
+* In **System Statistics**, identify what objects are impacted by what statistic. If tuning SQL, further indexing, partitioning, or other physical tuning may optimize the workload dramatically. 
+* Inspect **Initialization Parameters** for underscore (_) or deprecated parameters, which should be justified due to database level impact they may be causing on performance.
 
-## Exadata Server Configuration  
+## Exadata server configuration  
 
 In Oracle version 12.2 and above, an Exadata specific addition will be included in the AWR global report. This report has sections that provide exceptional value to a migration from Exadata. 
 * Exadata version and system details 
@@ -335,7 +335,9 @@ In Oracle version 12.2 and above, an Exadata specific addition will be included 
         * A `^` and a light yellow background indicate an outlier value above the high range
         * The top cells by percentage CPU are display and are in descending order of percentage CPU
         * Average: 39.34% CPU, 28.57% user, 10.77% sys
-        :::image type="content" alt-text="Table of top cells by percentage CPU." source="../media/azure-netapp-files/exadata-top-cells.png":::
+
+        :::image type="content" alt-text="Table showing top cells by percentage CPU." source="../media/azure-netapp-files/exadata-top-cells.png":::
+
 * Single cell physical block reads 
 * Flash cache usage 
 * Temp IO  
@@ -355,7 +357,7 @@ Right-sizing involves removing the hardware from the traditional lift and shift 
 
 Microsoft Oracle subject matter experts have estimated that more than 80% of Oracle databases are over-provisioned and experience either the same cost or savings going to the cloud if they take the time to right-size the Oracle database workload before migrating to the cloud. This assessment requires the database specialists on the team to shift their mindset on how they may have performed capacity planning in the past, but it's worth the stakeholder's investment in the cloud and the business’s cloud strategy. 
 
-## Next Steps 
+## Next steps 
 
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) 
 * [Solution architectures using Azure NetApp Files - Oracle](azure-netapp-files-solution-architectures.md#oracle)
