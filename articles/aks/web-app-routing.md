@@ -69,12 +69,12 @@ Import the SSL certificate into Azure Key Vault.
 az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
 ```
 
-### Import certificate to Azure Key Vault with password if specified while exporting the SSL cert 
+### Import certificate to Azure Key Vault 
 
-Import the SSL certificate into Azure Key Vault with password
+Import the SSL certificate into Azure Key Vault
 
 ```azurecli-interactive
-az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx --password <Password>
+az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
 ```
 
 ### Create an Azure DNS zone
