@@ -207,7 +207,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -222,10 +222,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
         }
         } 
         "databaseAccountOfferType": "Standard"
-        }
-        ]
-        }
-
+        } }
 ```
 
 Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
