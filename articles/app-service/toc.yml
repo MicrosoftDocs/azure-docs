@@ -239,7 +239,7 @@
     - name: Authentication overview
       href: overview-authentication-authorization.md
     - name: Enable authentication quickstart
-      href: scenario-secure-app-authentication-app-service.md          
+      href: scenario-secure-app-authentication-app-service.md
     - name: Configure identity providers
       items:
         - name: Use Azure AD
@@ -567,13 +567,3 @@
         href: ip-address-change-outbound.md
       - name: TLS/SSL address
         href: ip-address-change-ssl.md
-- name: (To delete)
-  items:
-    - name: Deploy static HTML site - delete
-      href: quickstart-html.md
-    - name: Deploy with template
-      href: deploy-complex-application-predictably.md
-    - name: Resource Manager template guidance - delete
-      href: deploy-resource-manager-template.md
-    - name: Enable authentication quickstart (dup)
-      href: scenario-secure-app-authentication-app-service-as-user.md
