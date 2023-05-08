@@ -404,6 +404,8 @@ items:
       href: essentials/data-platform-metrics.md
     - name: Custom metrics
       href: essentials/metrics-custom-overview.md
+    - name: Metrics REST API
+      href: essentials/metrics-store-custom-rest-api.md
     - name: Prometheus metrics
       items: 
       - name: Overview
@@ -412,22 +414,61 @@ items:
       - name: FAQ
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
-        href: essentials/azure-monitor-workspace-overview.md
-      - name: Manage Azure Monitor workspaces
-        href: essentials/azure-monitor-workspace-manage.md
-      - name: Enable on AKS cluster
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md      
-      - name: Rule groups
+        items: 
+        - name: Overview
+          displayName: Prometheus
+          href: essentials/azure-monitor-workspace-overview.md
+        - name: Manage
+          displayName: Prometheus
+          href: essentials/azure-monitor-workspace-manage.md
+      - name: Managed agent on AKS cluster
+        items:
+        - name: Enable on AKS cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-enable.md
+        - name: Customize collection
+          items:
+          - name: Default configuration
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-default.md
+          - name: Custom configuration
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-configuration.md
+          - name: Create and validate custom scrape config
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-validate.md
+          - name: Minimal ingestion profile
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-configuration-minimal.md
+          - name: High scale
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-scale.md
+          - name: Send to multiple metric workspaces
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-multiple-workspaces.md
+        - name: Troubleshoot collection
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-troubleshoot.md
+      - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
-      - name: Query Prometheus metrics in workbooks
-        displayName: Prometheus
-        href: essentials/prometheus-workbooks.md
-      - name: Query Prometheus using the API and PromQL
-        displayName: Prometheus
-        href: essentials/prometheus-api-promql.md
-      - name: Remote-write
+      - name: Query Prometheus metrics
+        items:
+        - name: Query using Grafana
+          items: 
+          - name: Configure Grafana with managed system identity
+            displayName: Prometheus
+            href: essentials/prometheus-grafana.md
+          - name: Configure Grafana with Azure Active Directory
+            displayName: Prometheus
+            href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
+        - name: Query using Azure workbooks
+          displayName: Prometheus
+          href: essentials/prometheus-workbooks.md
+        - name: Query using the API and PromQL
+          displayName: Prometheus
+          href: essentials/prometheus-api-promql.md
+      - name: Enable remote write
         items:
         - name: Overview
           displayName: Prometheus,remote-write
@@ -438,37 +479,6 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
-      - name: Configure Grafana with managed system identity
-        displayName: Prometheus
-        href: essentials/prometheus-grafana.md
-      - name: Configure Grafana with Azure Active Directory
-        displayName: Prometheus
-        href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
-      - name: Troubleshoot collection
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-troubleshoot.md
-      - name: Customize collection
-        items:
-        - name: Default configuration
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-default.md
-        - name: High scale
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-scale.md
-        - name: Custom configuration
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-validate.md
-        - name: Minimal ingestion profile
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
-        - name: Send to multiple metric workspaces
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-multiple-workspaces.md
-    - name: Metrics REST API
-      href: essentials/metrics-store-custom-rest-api.md
   - name: Logs
     items:
     - name: Overview
@@ -883,6 +893,13 @@ items:
           href: profiler/profiler-trackrequests.md
         - name: Troubleshooting
           href: profiler/profiler-troubleshooting.md
+      - name: Code Optimizations
+        displayName: opt insights, optimization insights, code optimization, perflens
+        items:
+        - name: Overview
+          href: insights/code-optimizations.md
+        - name: Troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
       - name: Snapshot Debugger
         items:
         - name: Overview

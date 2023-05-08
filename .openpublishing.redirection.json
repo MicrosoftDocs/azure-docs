@@ -6489,6 +6489,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/create-run-as-account.md",
+            "redirect_url": "/azure/automation/enable-managed-identity-for-automation",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/automation/automation-scope-configurations-change-tracking.md",
             "redirect_url": "/azure/automation/change-tracking/manage-scope-configurations.md",
             "redirect_document_id": false
