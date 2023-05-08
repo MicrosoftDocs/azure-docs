@@ -1059,7 +1059,7 @@ az resource show \
 ## Properties: versioning
 
 The **versioning** property is an enum with two possible values:
-- **latest** - New monotonically increasing schema per design
+- **latest** - New strictly increasing schema per design
 - **source** - Schema based upon the version number of the source image.
 
 The default version numbering schema is `latest`. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version. 
