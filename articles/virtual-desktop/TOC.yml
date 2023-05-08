@@ -210,6 +210,8 @@
             href: app-attach-image-prep.md
           - name: Set up a file share
             href: app-attach-file-share.md
+          - name: Use Azure NetApp Files and MSIX app attach
+            href: create-netapp-files.md
           - name: Set up the MSIXMGR tool
             href: app-attach-msixmgr.md
           - name: MSIXMGR tool parameters
@@ -254,8 +256,6 @@
           href: create-host-pools-user-profile.md
         - name: Use Azure NetApp Files
           href: create-fslogix-profile-container.md
-        - name: Use Azure NetApp Files and MSIX app attach
-          href: create-netapp-files.md
         - name: Use Azure Files and Active Directory
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD
@@ -288,7 +288,7 @@
         href: customize-rdp-properties.md
       - name: Configure load-balancing method
         href: configure-host-pool-load-balancing.md
-      - name: Set personal desktop assignment type
+      - name: Configure personal desktop assignment
         href: configure-host-pool-personal-desktop-assignment-type.md
       - name: Configure a validation environment
         href: configure-validation-environment.md

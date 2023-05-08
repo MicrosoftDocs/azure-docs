@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/17/2023
+ms.date: 04/25/2023
 ms.author: juliako
 ---
 
@@ -19,6 +19,10 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Deprecated functionality
 
 ## April 2023
+
+### Resource Health support
+
+Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Azure Video Indexer resources. Azure Resource Health also helps with diagnosing and solving problems and you can set alerts to be notified whenever your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
 
 ### The animation character recognition model has been retired
 
@@ -695,7 +699,7 @@ Status code 409 will now be returned from [Re-Index Video](https://api-portal.vi
     Azure Video Indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal.
 * New languages supported for speech-to-text (STT)
 
-    Azure Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    Azure Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK regional language (en-GB), and English Australian regional language (en-AU).
 
     For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
 

@@ -198,18 +198,24 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
-  - name: Policy applicability
-    displayName: policy, applicability, scope
-    href: ./concepts/policy-applicability.md
-  - name: Policy attestation
-    displayName: manual policy, compliance, attestation
-    href: ./concepts/attestation-structure.md
-  - name: React to policy state change events
-    displayName: event grid, subject, topic, subscription
-    href: ./concepts/event-overview.md
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md
+  - name: Applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Compliance states
+    displayName: compliance, states, evaluation
+    href: ./concepts/compliance-states.md
+  - name: Attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
+  - name: Remediation structure
+    displayName: remediate, remediation task, deployment, deployIfNotExist, modify
+    href: ./concepts/remediation-structure.md
+  - name: React to policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./concepts/event-overview.md
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md

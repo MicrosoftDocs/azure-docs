@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/20/2023
+ms.date: 4/24/2023
 ---
 
 # What's new in Azure VMware Solution
@@ -21,11 +21,11 @@ Introducing Run Commands for VMware HCX on Azure VMware Solution. You can use th
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
 
-**HCX Enterprise Edition - Default**
+**VMware HCX Enterprise Edition - Default**
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
-**Log analytics - monitor Azure VMware Solution**
+**Azure Log analytics - monitor Azure VMware Solution**
 
 The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
@@ -48,6 +48,10 @@ You can use Azure NetApp Files volumes as a file share for Azure VMware Solution
 Stretched clusters for Azure VMware Solution, provides 99.99% uptime for mission critical applications that require the highest availability.
 
 For more information, see [Azure Migration and Modernization blog](https://techcommunity.microsoft.com/t5/azure-migration-and/bg-p/AzureMigrationBlog). 
+
+## January 2023
+
+Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter and NSX.
 
 ## November 2022
 
@@ -131,7 +135,7 @@ All new Azure VMware Solution private clouds are now deployed with NSX-T Data Ce
  
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
 
-For more information on this NSX-T Data Center version, see [VMware NSX-T Data Center [!INCLUDE [nsxt-version](includes/nsxt-version.md)] Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
+For more information on this NSX-T Data Center version, see [VMware NSX-T Data Center 3.1.1 Release Notes](https://docs.vmware.com/en/VMware-NSX/3.1/rn/VMware-NSX-T-Data-Center-311-Release-Notes.html).
 
 ## May 2021
 
@@ -157,8 +161,9 @@ Azure VMware Solution will apply the [VMware ESXi 6.7, Patch Release ESXi670-202
 
 Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html), will also be applied **through March 15, 2021**.
  
-   >[!NOTE]
-   >This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
+>[!NOTE]
+>This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+

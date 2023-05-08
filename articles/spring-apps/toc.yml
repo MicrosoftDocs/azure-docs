@@ -44,7 +44,7 @@ items:
       href: quickstart-sample-app-introduction.md
     - name: Provision a service instance
       href: quickstart-provision-service-instance.md
-    - name: Set up configuration server
+    - name: Set up Config Server
       href: quickstart-setup-config-server.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps.md
