@@ -43,7 +43,7 @@ You can specify the target load with a quick test by using either of two options
 - Virtual users: simulate a total number of virtual users for the specified load test duration.
 - Requests per second: simulate a total number of requests per second, based on an estimated response time.
 
-## [Virtual users](#tab/virtual_users)
+## [Virtual users](#tab/virtual-users)
 
 
 1. Go to the **Overview** page of your Azure Load Testing resource.
@@ -96,6 +96,8 @@ You can specify the target load with a quick test by using either of two options
 1. Select **Run test** to create and start the load test.
 
     :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-rps.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying requests per second.":::
+
+---
 
 
 > [!NOTE]
