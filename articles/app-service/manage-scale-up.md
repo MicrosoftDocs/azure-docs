@@ -40,7 +40,7 @@ For information about the pricing and features of individual App Service plans, 
 ## Scale up your pricing tier
 
 > [!NOTE]
-> To scale up to **PremiumV3** tier, see [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md).
+> To scale up to Premium V3 tier, see [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md).
 >
 
 1. In your browser, open the [Azure portal][portal].
@@ -51,7 +51,7 @@ For information about the pricing and features of individual App Service plans, 
 
 1. Select one of the pricing tiers and select **Select**.
 
-    :::image type="content" source="media/app-service-configure-premium-tier/create-plan-select-tier.png" alt-text="Screenshot showing how to pick a pricing plan when scaling up an app.":::
+  :::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
 
     When the operation is complete, you see a notification pop-up with a green success check mark.
 
@@ -85,7 +85,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 ## More resources
 
 * [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
-* [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
+* [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

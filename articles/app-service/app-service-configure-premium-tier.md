@@ -1,6 +1,6 @@
 ---
-title: Configure PremiumV3 tier
-description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new PremiumV3 pricing tier.
+title: Configure Premium V3 tier
+description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V3 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
@@ -9,17 +9,17 @@ ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
-# Configure PremiumV3 tier for Azure App Service
+# Configure Premium V3 tier for Azure App Service
 
-The new Premium V3 pricing tier gives you faster processors, SSD storage, and quadruple the memory-to-core ratio of the existing pricing tiers (double the **PremiumV2** tier). With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in Premium V3 tier or scale up an app to Premium V3 tier.
+The new Premium V3 pricing tier gives you faster processors, SSD storage, and quadruple the memory-to-core ratio of the existing pricing tiers (double the Premium V2 tier). With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in Premium V3 tier or scale up an app to Premium V3 tier.
 
 ## Prerequisites
 
-To scale-up an app to Premium V3, you need to have an Azure App Service app that runs in a pricing tier lower than Premium V3, and the app must be running in an App Service deployment that supports PremiumV3.
+To scale-up an app to Premium V3, you need to have an Azure App Service app that runs in a pricing tier lower than Premium V3, and the app must be running in an App Service deployment that supports Premium V3.
 
 <a name="availability"></a>
 
-## PremiumV3 availability
+## Premium V3 availability
 
 The Premium V3 tier is available for both native and custom containers, including both Windows containers and Linux containers.
 
@@ -31,7 +31,7 @@ az appservice list-locations --sku P1V3
 
 <a name="create"></a>
 
-## Create an app in PremiumV3 tier
+## Create an app in Premium V3 tier
 
 The pricing tier of an App Service app is defined in the [App Service plan](overview-hosting-plans.md) that it runs on. You can create an App Service plan by itself or or create it as part of app creation.
 
@@ -46,9 +46,9 @@ To see all the Premium V3 options, select **Explore pricing plans**, then select
 > [!IMPORTANT] 
 > If you don't see a Premium V3 plan as an option, or if the options are greyed out, then Premium V3 likely isn't available in the underlying App Service deployment that contains the App Service plan. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
 
-## Scale up an existing app to PremiumV3 tier
+## Scale up an existing app to Premium V3 tier
 
-Before scaling an existing app to Premium V3 tier, make sure that Premium V3 is available. For information, see [PremiumV3 availability](#availability). If it's not available, see [Scale up from an unsupported resource group and region combination](#unsupported).
+Before scaling an existing app to Premium V3 tier, make sure that Premium V3 is available. For information, see [Premium V3 availability](#availability). If it's not available, see [Scale up from an unsupported resource group and region combination](#unsupported).
 
 Depending on your hosting environment, scaling up may require extra steps. 
 
@@ -60,15 +60,15 @@ In the left navigation of your App Service app page, select **Scale up (App Serv
 
 Select one of the Premium V3 plans and select **Select**.
 
-:::image type="content" source="media/app-service-configure-premium-tier/create-plan-select-tier.png" alt-text="Screenshot showing how to pick a Premium V3 pricing plan when scaling up an app.":::
+:::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
 
 If your operation finishes successfully, your app's overview page shows that it's now in a Premium V3 tier.
 
-![Screenshot showing the PremiumV3 pricing tier on your app's overview page.](media/app-service-configure-premium-tier/finished.png)
+![Screenshot showing the Premium V3 pricing tier on your app's overview page.](media/app-service-configure-premium-tier/finished.png)
 
 ### If you get an error
 
-Some App Service plans can't scale up to the **PremiumV3** tier, or to a newer SKU within **PremiumV3**, if the underlying App Service deployment doesn’t support the requested **PremiumV3** SKU. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
+Some App Service plans can't scale up to the Premium V3 tier, or to a newer SKU within Premium V3, if the underlying App Service deployment doesn’t support the requested Premium V3 SKU. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
 
 <a name="unsupported"></a>
 
@@ -108,7 +108,7 @@ The following command creates an App Service plan in _P1V3_. The options for `-W
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `
-    -Tier "PremiumV3" `
+    -Tier "Premium V3" `
     -WorkerSize "Small"
 ```
 
