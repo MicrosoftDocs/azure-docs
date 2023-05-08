@@ -5,8 +5,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 02/07/2023
-ms.author: victorh
+ms.date: 05/08/2023
+ms.author: arpitjain099
 zone_pivot_groups: front-door-tiers
 ---
 
