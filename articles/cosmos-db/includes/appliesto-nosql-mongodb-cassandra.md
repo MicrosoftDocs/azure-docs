@@ -10,6 +10,6 @@ APPLIES TO:
 :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
 NoSQL
 :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
-Cassandra
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
 MongoDB
+:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+Cassandra
