@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Storage Queues.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/03/2023
+ms.date: 05/08/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -53,7 +53,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `QueueClient` to connect to Azure Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `QueueClient` to connect to Azure Queue Storage. Update your code to match the following example:
 
    ```csharp
    var credential = new DefaultAzureCredential();
@@ -63,6 +63,85 @@ The Azure Identity client library, for each of the following ecosystems, provide
         new Uri($"https://<storage-account-name>.queue.core.windows.net/<queue-name>"),
         new DefaultAzureCredential());
    ```
+
+## [Java](#tab/java)
+
+1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
+    1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+    1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+
+1. At the top of your file, add the following code:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+1. Identify the locations in your code that create a `QueueClient` object to connect to Azure Queue Storage. Update your code to match the following example:
+
+    ```java
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .build();
+
+    // TODO: Update the <storage-account-name> and <queue-name> placeholders.
+    QueueClient queueClient = new QueueClientBuilder()
+        .endpoint("https://<storage-account-name>.queue.core.windows.net/")
+        .queueName("<queue-name>")
+        .credential(credential)
+        .buildClient();
+    ```
+
+## [Node.js](#tab/nodejs)
+
+1. To use `DefaultAzureCredential` in a Node.js application, install the `@azure/identity` package:
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```nodejs
+    import { DefaultAzureCredential } from "@azure/identity";
+    ```
+
+1. Identify the locations in your code that create a `QueueClient` object to connect to Azure Queue Storage. Update your code to match the following example:
+
+    ```nodejs
+    const credential = new DefaultAzureCredential();
+    
+    // TODO: Update the <storage-account-name> and <queue-name> placeholders.
+    const queueClient = new QueueClient(
+      "https://<storage-account-name>.queue.core.windows.net/<queue-name>",
+      credential
+    );
+    ```
+
+## [Python](#tab/python)
+
+1. To use `DefaultAzureCredential` in a Python application, install the `azure-identity` package:
+    
+    ```bash
+    pip install azure-identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Identify the locations in your code that create a `QueueClient` to connect to Azure Queue Storage. Update your code to match the following example:
+
+    ```python
+    credential = DefaultAzureCredential()
+
+    # TODO: Update the <storage-account-name> and <queue-name> placeholders.
+    queue_client = QueueClient(
+        account_url = "https://<storage-account-name>.blob.core.windows.net",
+        queue_name = "<queue-name>",
+        credential = credential
+    )
+    ```
 
 ---
 
@@ -166,27 +245,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-### Update the application code
-
-You need to configure your application code to look for the specific managed identity you created when it's deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
-
-1. On the managed identity overview page, copy the client ID value to your clipboard.
-1. Update the `DefaultAzureCredential` object to specify this managed identity client ID:
-
-    ## [.NET](#tab/dotnet)
-    
-    ```csharp
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    var credential = new DefaultAzureCredential(
-        new DefaultAzureCredentialOptions
-        {
-            ManagedIdentityClientId = "<managed-identity-client-id>"
-        });
-    ```
-
-    ---
-
-1. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/storage-passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 
