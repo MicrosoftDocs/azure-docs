@@ -54,4 +54,4 @@ If you've already registered a web application in the Microsoft Entra admin cent
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare your Node.js web app >](how-to-web-app-node-sign-in-prepare-app.md)
+> [Start building your Node.js web app >](how-to-web-app-node-sign-in-prepare-app.md)

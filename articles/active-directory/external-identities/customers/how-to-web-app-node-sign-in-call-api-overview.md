@@ -22,9 +22,9 @@ In this article, you learn how to create your Node.js web app that calls your we
 
 To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](../../develop/microsoft-identity-web.md) respectively.
 
-We've organized this article into four separate articles so it's easy for you to follow:
+We've organized the content into four separate articles so it's easy for you to follow:
 
-- [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) tenant guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
+- [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
 
 - [Prepare your web application and API](how-to-web-app-node-sign-in-call-api-prepare-app.md) guides you how to set up your Node.js client app and web API.
 
@@ -75,4 +75,4 @@ If you want to run a sample Node.js web application that calls a sample web API 
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Prepare your Azure AD for customers tenant >](how-to-web-app-node-sign-in-call-api-prepare-tenant.md)
+> [Prepare your Azure AD for customers tenant for authentication >](how-to-web-app-node-sign-in-call-api-prepare-tenant.md)

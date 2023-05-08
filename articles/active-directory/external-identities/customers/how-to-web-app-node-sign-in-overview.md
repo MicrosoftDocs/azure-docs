@@ -20,7 +20,7 @@ ms.custom: developer
 
 In this article, you learn how to sign in users in your own Node.js web application that you build. You add authentication to your web application against your Azure Active Directory (Azure AD) for customers tenant. 
 
-We've broken down this article into three separate articles so it's easy for you to follow: 
+We've organized the content into three separate articles so it's easy for you to follow: 
 
 - [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-prepare-tenant.md) tenant guides you how to register your app and configure user flows in the Microsoft Entra admin center.
 
@@ -60,4 +60,4 @@ If you want to run a sample Node.js web application to get a feel of how things 
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Prepare your Azure AD for customers tenant >](how-to-web-app-node-sign-in-prepare-tenant.md)
+> [Prepare your Azure AD for customers tenant for authentication >](how-to-web-app-node-sign-in-prepare-tenant.md)

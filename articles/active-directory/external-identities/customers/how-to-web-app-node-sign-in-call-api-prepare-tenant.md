@@ -87,4 +87,4 @@ In this step, you create the web and the web API application registrations, and 
 Next, learn how to prepare your web application and API.
 
 > [!div class="nextstepaction"]
-> [Prepare your web application and API >](how-to-web-app-node-sign-in-call-api-prepare-app.md)
+> [Start building your web application and API >](how-to-web-app-node-sign-in-call-api-prepare-app.md)
