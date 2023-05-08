@@ -5,8 +5,8 @@ services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
 ms.custom: devx-track-azurepowershell, devx-track-bicep
-ms.date: 10/18/2022
-ms.author: jodowns
+ms.date: 05/08/2023
+ms.author: arpitjain099
 ms.topic: conceptual
 zone_pivot_groups: web-application-firewall-configuration
 ---
