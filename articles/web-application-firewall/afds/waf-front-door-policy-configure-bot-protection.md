@@ -6,8 +6,8 @@ ms.service: web-application-firewall
 ms.custom: devx-track-bicep
 ms.topic: article
 services: web-application-firewall
-ms.date: 11/10/2022
-ms.author: victorh
+ms.date: 05/08/2023
+ms.author: arpitjain099
 zone_pivot_groups: web-application-firewall-configuration
 ---
 
