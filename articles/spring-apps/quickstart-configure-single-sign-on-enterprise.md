@@ -170,6 +170,7 @@ To complete the single sign-on experience, use the following steps to deploy the
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern identity/default \
        --source-path apps/acme-identity \
+       --build-env BP_JVM_VERSION=17 \
        --env "JWK_URI=<jwk-uri>"
    ```
 
