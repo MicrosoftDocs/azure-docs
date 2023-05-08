@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Use Azure Machine Learning labeling in Language Studio
 
-Labeling data is an important part of preparing your dataset. Using the labeling experience in Azure Machine Learning, you can experience easier collaboration, more flexibility, and the ability to [outsource labeling tasks](/azure/machine-learning/how-to-outsource-data-labeling) to external labeling vendors from the [Azure Market Place](https://azuremarketplace.microsoft.com/en-US/marketplace/consulting-services?search=AzureMLVend). You can use Azure Machine Learning labeling for:
+Labeling data is an important part of preparing your dataset. Using the labeling experience in Azure Machine Learning, you can experience easier collaboration, more flexibility, and the ability to [outsource labeling tasks](/azure/machine-learning/how-to-outsource-data-labeling) to external labeling vendors from the [Azure Market Place](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=AzureMLVend). You can use Azure Machine Learning labeling for:
 * [custom text classification](../custom-text-classification/overview.md) 
 * [custom named entity recognition](../custom-named-entity-recognition/overview.md) 
 
@@ -127,6 +127,6 @@ Disconnecting your project from Azure Machine Learning is a permanent, irreversi
 1. Select **Project settings** from the navigation menu on the left in Language Studio.
 1. Select the **Disconnect from Azure Machine Learning** button from the **Manage Azure Machine Learning connections** section.
 
-## Next Steps
+## Next steps
 Learn more about labeling your data for [Custom Text Classification](../custom-text-classification/how-to/tag-data.md) and [Custom Named Entity Recognition](../custom-named-entity-recognition/how-to/tag-data.md).
 
