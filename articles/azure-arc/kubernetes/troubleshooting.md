@@ -64,6 +64,17 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
 
+
+### OBO Service
+
+If you have gotten overage claim please check below things in order:
+
+1. Are you using SPN which is part of more than 200 AAD groups? If yes, then, please create another SPN with membership in less than 200 AAD groups.
+
+1. Have you configured oubound proxy envrionment? If yes then, please check if this endpoint https://<region>.obo.arc.azure.com:8084/ is whitelisted.
+
+1. If you are using AAD user entity and #2 is also satisfied then, please file a support ticket for follow up.
+
 ## Connecting Kubernetes clusters to Azure Arc
 
 Connecting clusters to Azure Arc requires access to an Azure subscription and `cluster-admin` access to a target cluster. If you can't reach the cluster, or if you have insufficient permissions, connecting the cluster to Azure Arc will fail. Make sure you've met all of the [prerequisites to connect a cluster](quickstart-connect-cluster.md#prerequisites).
