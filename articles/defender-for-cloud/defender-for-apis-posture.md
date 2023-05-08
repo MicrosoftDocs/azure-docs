@@ -5,7 +5,7 @@ author: elazark
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 05/08/2023
 ---
 # Investigate API findings, recommendations, and alerts
 
