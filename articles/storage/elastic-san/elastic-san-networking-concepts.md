@@ -77,7 +77,7 @@ For details on how to define network rules, see [Managing virtual network rules]
 
 After you have enabled the desired endpoints and granted access in your network rules, you are ready to configure your clients to connect to the appropriate Elastic SAN volumes. For more details on how to configure client connections, see:
 
-- [Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+- [Connect to Elastic SAN Preview volumes - AKS](elastic-san-connect-aks.md)
 - [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
 - [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
 
