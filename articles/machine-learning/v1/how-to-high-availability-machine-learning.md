@@ -194,7 +194,7 @@ The following artifacts can be exported and imported between workspaces by using
 
 ### Workspace deletion
 
-If you accidentally deleted your workspace, you might able to recover it. For recovery steps, see [Recover workspace data after accidental deletion with soft delete (Preview)](concept-soft-delete.md). 
+If you accidentally deleted your workspace, you might able to recover it. For recovery steps, see [Recover workspace data after accidental deletion with soft delete (Preview)](../concept-soft-delete.md). 
 
 Even if your workspace cannot be recovered, you may still be able to retrieve your notebooks from the workspace-associated Azure storage resource by following these steps:
 * In the [Azure portal](https://portal.azure.com) navigate to the storage account that was linked to the deleted Azure Machine Learning workspace.
