@@ -1,5 +1,5 @@
 ---
-title: "Four Part Tutorial: Training (preview)"
+title: "Four Part Tutorial: Features and the machine learning lifecycle (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial. 
 services: machine-learning
@@ -15,7 +15,7 @@ ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial #3: Experiment and train models using features (preview)
+# Tutorial #4: Features and the machine learning lifecycle (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -47,17 +47,17 @@ Here in Tutorial part 3, you'll learn how to:
 
 #### Start the spark session
 
-[Start the spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=start-spark-session)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3.%20training.ipynb?name=start-spark-session)]
 
 #### Set up the samples root directory
 
-[Start the samples root directory code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=root-dir)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3.%20training.ipynb?name=root-dir)]
 
 #### Initialize the project workspace CRUD client
 
 The tutorial notebook will run from this current workspace
 
-[Initialize the project workspace CRUD client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/3.%20training.ipynb?name=init-ws-crud-client)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3.%20training.ipynb?name=init-ws-crud-client)]
 
 #### Initialize the feature store CRUD client
 

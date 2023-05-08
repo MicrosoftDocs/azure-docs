@@ -1,5 +1,5 @@
 ---
-title: "Four Part Tutorial: Backfill (preview)"
+title: "Four Part Tutorial: Enable Materialization and Backfill Feature Data (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial. 
 services: machine-learning
@@ -57,27 +57,27 @@ Before you proceed with this article, make sure you cover these prerequisites:
       * Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` from your local device
       * Increase the session time out (idle time) to avoid frequent prerequisite re-runs
 
-[Start the Spark session code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=start-spark-session)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=start-spark-session)]
 
 #### Set up the root directory for the samples
 
-[Set up the root directory for the samples code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=root-dir)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=start-root-dir)]
 
 #### Initialize the project workspace CRUD client
 
 The tutorial notebook will run from this current workspace
 
-[Initialize the project workspace CRUD client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=init-ws-crud-client)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=init-ws-crud-client)]
 
 #### Initialize the feature store CRUD client
 
 Ensure you update the `featurestore_name` value to reflect what you created in part 1 of this tutorial
 
-[Initialize the feature store CRUD client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=init-fs-crud-client)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=init-fs-crud-client)]
 
 #### Initialize the feature store core SDK client
 
-[Initialize the feature store core SDK client code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=init-fs-core-sdk)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=init-fs-core-sdk)]
 
 #### Set up offline materialization store
 
@@ -88,21 +88,21 @@ You can create a new gen2 storage account and container, or re-use an existing o
 > [!Note]
 > This code sets up utility functions that create storage and user assigned identity. These utility functions use standard azure SDKs. They are provided here to keep the tutorial concise. However, do not use this approach for production purposes, because it might not implement best practices.
 
-[Set up utility functions code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=setup-utility-fns)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=setup-utility-fns)]
 
 ##### Set the values for the adls gen 2 storage that will become a materialization store
 
 You can optionally override the default settings
 
-[Set values for the adls gen 2 storage code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=set-offline-store-params)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=set-offline-store-params)]
 
 ##### Storage container (option 1): re-use an existing storage container
 
-[Storage container (option 1) code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=use-existing-storage)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=use-existing-storage)]
 
 ##### Storage container (option 2): create a new existing storage container
 
-[Storage container (option 2) code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=create-new-storage)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=create-new-storage)]
 
 #### Setup user assigned managed identity (UAI)
 
@@ -110,15 +110,15 @@ In part 3 of the tutorial, system managed materialization jobs - for example, re
 
 ##### Set values for UAI
 
-[Set values for UAI code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=set-uai-params)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=set-uai-params)]
 
 ##### User-assigned managed identity (option 1): create a new one
 
-[User-assigned managed identity (option 1) code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=create-new-uai)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=create-new-uai)]
 
 ##### User-assigned managed identity (option 2): reuse an existing managed identity
 
-[User-assigned managed identity (option 2) code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=use-existing-uai)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=use-existing-uai)]
 
 ##### Grant RBAC permission to the user assigned managed identity (UAI)
 
@@ -132,7 +132,7 @@ This UAI will be assigned to the feature store shortly. It requires the followin
 
 This utility function code assigns the first two roles to the UAI. In this example, "Storage accounts of source data" does not apply, because we read the sample data from a public access blob storage resource. If you have your own data sources, then you should assign the required roles to the UAI. To learn more about access control, see the [**BAD URL! access control document**](https://github.com/Azure/featurestore-prp/blob/c5a2cd10abada95309036e45d4acd3e47f0a4559/featurestore_sample/access-control-doc-url-todo)
 
-[Grant RBAC permission to the user assigned managed identity (UAI) code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=grant-rbac-to-uai)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=grant-rbac-to-uai)]
 
 ##### Grant your user account the "Blob data reader" role on the offline store
 
@@ -142,21 +142,21 @@ Learn how to get your AAD object id from the Azure portal at [this](https://lear
 
 To learn more about access control, see access control document.
 
-[Grant your user account the "Blob data reader" role code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=grant-rbac-to-user-identity)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=grant-rbac-to-user-identity)]
 
 ## Step 1: Enable offline store on the feature store by attaching offline materialization store and UAI
 
-[Enable offline store on the feature store code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=enable-offline-store)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=enable-offline-store)]
 
 ## Step 2: Enable offline materialization on transactions feature set
 
 Once materialization is enabled on a feature set, you can perform backfill (described in this part of the tutorial), or you can schedule recurrent materialization jobs (described in the next part of the tutorial)
 
-[Enable offline materialization on transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=enable-offline-mat-txns-fset)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=enable-offline-mat-txns-fset)]
 
 As another option, you can save the the above feature set asset as a yaml resource
 
-[Save the feature set asset as a yaml resource code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=dump-txn-fset-yaml)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=dump-txn-fset-yaml)]
 
 ## Step 3: Backfill data for the transactions feature set
 
@@ -165,11 +165,11 @@ As explained earlier in this tutorial, materialization involves computation of t
 > [!Note]
 > Determination of the backfill data window is important. It must match the training data window. For example, to train with two years of data, you must retrieve features for that same window. Therefore, backfill for a two year window.
 
-[Backfill data for the transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=backfill-txns-fset)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=backfill-txns-fset)]
 
 Let's print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. We retrieved the training and inference data with The `get_offline_features()` method retrieved the training / inference data, and this method uses the materialization store by default.
 
-[Print sample data for the transactions feature set code sample](~/azureml-examples-featurestore/sdk/python/featurestore_sample/2.%20backfill.ipynb?name=sample-txns-fset-data)
+[!notebook-python[](~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2.%20backfill.ipynb?name=sample-txns-fset-data)]
 
 ## Cleanup
 
