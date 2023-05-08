@@ -5,9 +5,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 1/6/2022
+ms.date: 05/08/2023
 ms.author: mbender
-ms.custom: template-how-to, contperf-fy21q1
+ms.custom: template-how-to, contperf-fy21q1, engagement-fy23
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer
@@ -97,10 +97,7 @@ Ensure that the VM can receive health probe requests from Azure Load Balancer.
 
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked unavailable. The load balancer stops sending new flows to that VM.
 
-## Scenarios with outbound rules
-		
-
-### Outbound rules scenarios
+## Outbound rules scenarios
 
 
 * Configure outbound connections to a specific set of public IPs or prefix.
