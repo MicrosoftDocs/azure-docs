@@ -198,7 +198,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request GET '<endpoint>/contentsafety/text/lists?api-version=2022-12-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/blocklists?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -214,6 +214,28 @@ The status code should be `200`. The JSON response looks like this:
 ]
 ```
 
+### Get a blocklist by name
+
+Copy the cURL command below to a text editor and make the following changes:
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
+
+```shell
+cURL --location '<endpoint>contentsafety/text/blocklists/<your_list_id>?api-version=2023-04-30-preview' \
+--header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
+--data ''
+```
+
+The status code should be `200`. The JSON response looks like this:
+
+```json
+{
+    "blocklistName": "string",
+    "description": "string"
+}
+```
 
 ### Remove a blockItem from a list
 
