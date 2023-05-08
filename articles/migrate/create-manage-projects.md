@@ -68,7 +68,10 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 If you already have a project and you want to create an additional project, do the following:  
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
-2. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
+
+   Image with boarder: :::image type="Destination port range" source="media/destination-port-range.png" alt-text="Screenshot of destination port range.":::
+   
+3. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
     :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Screenshot containing Create Project button.":::
 
