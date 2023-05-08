@@ -36,7 +36,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Integrate an app
+    - name: Integrate apps
       expanded: true
       items: 
         - name: Configure code samples
@@ -69,7 +69,12 @@ items:
               items:
                 - name: Electron
                   href: how-to-desktop-app-electron-sample-sign-in.md
+                - name: .NET MAUI
+                  href: how-to-desktop-app-maui-sample-sign-in.md
             - name: Mobile app
+              items:
+                - name: Android (.NET MAUI)
+                  href: how-to-mobile-app-maui-sample-sign-in.md
               href: ../../develop/mobile-app-quickstart.md
         - name: Build and integrate apps
           items: 
