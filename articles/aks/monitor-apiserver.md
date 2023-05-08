@@ -2,7 +2,7 @@
 title: Monitor and query Azure Kubernetes Service (AKS) apiserver requests
 description: This article describes how to monitor Azure Kubernetes Service (AKS) kube-audit to query the various types of requests to apiserver.
 ms.topic: article
-ms.date: 04/12/2023
+ms.date: 05/08/2023
 
 ---
 
