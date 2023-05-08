@@ -46,7 +46,7 @@ Billing for Azure Data Manager for Energy Preview is enabled. During Preview, th
 
 ### Available on Azure Marketplace
 
-You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftEnergyDataServices?tab=Overview) to create an Azure Data Manager for Energy Preview instance in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
+You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureDataManagerforEnergy?tab=Overview) to create an Azure Data Manager for Energy Preview resource in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
 
 ### Support for Petrel Data Services
 Azure Data Manager for Energy Preview supports [Petrel Data Services](overview-ddms.md#) that allows you to use [Petrel](https://www.software.slb.com/products/petrel) from SLB&trade; with Azure Data Manager from Energy as its data store. You can view your Petrel projects, liberate data from Petrel, and collaborate in real time with data permanently stored in Azure Data Manager for Energy. 
