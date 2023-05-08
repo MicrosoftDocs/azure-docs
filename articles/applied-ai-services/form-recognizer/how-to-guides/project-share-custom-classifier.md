@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Share custom model projects using Form Recognizer Studio
