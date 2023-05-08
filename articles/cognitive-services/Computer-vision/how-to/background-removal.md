@@ -105,6 +105,8 @@ When analyzing a remote image, you specify the image's URL by formatting the req
 
 To analyze a local image, you'd put the binary image data in the HTTP request body. The **Content-Type** should be `application/octet-stream` or `multipart/form-data`.
 
+---
+
 ## Select a mode
 
 ### [C#](#tab/csharp)
@@ -182,26 +184,9 @@ The API returns an image the same size as the original for the `foregroundMattin
 
 ## Error codes
 
-#### [C#](#tab/csharp)
+[!INCLUDE [Image Analysis Error Codes](../includes/image-analysis-error-codes-40.md)]
 
-#### [Python](#tab/python)
-
-#### [C++](#tab/cpp)
-
-#### [REST](#tab/rest)
-
-See the following list of possible errors and their causes:
-
-- `400 - InvalidRequest`
-    - `Value for mode is invalid.` Ensure you have selected exactly one of the valid options for the `mode` parameter.
-    - `This operation is not enabled in this region.` Ensure that your resource is in one of the geographic regions where the API is supported.
-    - `The image size is not allowed to be zero or larger than {number} bytes.` Ensure your image is within the specified size limits.
-    - `The image dimension is not allowed to be smaller than {min number of pixels} and larger than {max number of pixels}`. Ensure both dimensions of the image are within the specified dimension limits.
-    - `Image format is not valid.` Ensure the input data is a valid JPEG, GIF, TIFF, BMP, or PNG image.
-- `500`
-    - `InternalServerError.` The processing resulted in an internal error.
-- `503`
-    - `ServiceUnavailable.` The service is unavailable.
+---
 
 ## Next steps
 
