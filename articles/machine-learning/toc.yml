@@ -183,12 +183,6 @@
           href: concept-what-is-managed-feature-store.md
         - name: Top-level entities in managed feature store
           href: concept-top-level-entities-in-managed-feature-store.md
-        - name: Feature transformations and best practices
-          href: concept-feature-transformations.md
-        - name: Feature materialization
-          href: concept-feature-materialization.md
-        - name: Offline feature retrieval
-          href: concept-feature-retrieval.md
     - name: Train models
       items:
         - name: Model training

@@ -15,7 +15,9 @@ ms.custom: template-concept
 
 # Understanding top-level entities in managed feature store
 
-This document explains the top level entities of the managed feature store. To understand features and the problems we're trying to solve, read the article [What is managed feature store?](concept-what-is-managed-feature-store.md)
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+This document explains the top level entities in the managed feature store. To understand features and the problems we're trying to solve, read the article [What is managed feature store?](concept-what-is-managed-feature-store.md)
 
 
 ## Feature store
@@ -49,3 +51,8 @@ A feature retrieval specification is a portable definition of a list of features
 Using a feature retrieval specification and the built-in feature retrieval component are optional: you can directly use `get_offline_features()` API if you prefer.
 
 Learn more in part #3 of the tutorial.
+
+## Next steps
+
+- 
+- 

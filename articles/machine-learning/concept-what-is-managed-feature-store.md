@@ -25,10 +25,10 @@ Managed features store provides the following capabilities: discovery and reuse 
 Features are the input data for your model. For data-driven use cases in an enterprise context, features are often transformations on historical data (simple aggregates, window aggregates, row level transforms). For example, consider a machine learning model for customer churn. The inputs to the model could include customer interaction data like  `7day_transactions_sum` (number of transactions in the past 30 days) or `7day_complaints_sum` (number of complaints in the past 7 days). Note that both are aggregate functions that are computed on the past 7 day data.
 
 ## User stories addressed by the managed feature store
-* “As a machine learning professional (data scientist, machine learning engineer, etc.), I want to __search and reuse features created by my team to avoid redundant work and deliver consistent predictions__”
-* “As a machine learning professional I want to create __new features with ability for transformations__ so that I can address feature engineering requirements with agility”
-* “As a machine learning professional I want __the system to operationalize and manage the feature engineering pipelines required for transformation and materialization__ so that my team is freed from the operational aspects”
-* “As a machine learning professional I want to __use same feature pipeline that is used for training data generation to be used for inference__ to have online/offline consistency and to avoid training/serving skew
+* As a machine learning professional (data scientist, machine learning engineer, etc.), I want to __search and reuse features created by my team to avoid redundant work and deliver consistent predictions__
+* As a machine learning professional I want to create __new features with ability for transformations__ so that I can address feature engineering requirements with agility.
+* As a machine learning professional I want __the system to operationalize and manage the feature engineering pipelines required for transformation and materialization__ so that my team is freed from the operational aspects.
+* As a machine learning professional I want to __use same feature pipeline that is used for training data generation to be used for inference__ to have online/offline consistency and to avoid training/serving skew.
 
 ## Use managed feature store from Azure Machine Learning and other machine learning platforms
 
@@ -113,11 +113,11 @@ Materialization is the process of computing feature values for a given feature w
 ## Users types and responsibilities
 
 Following are the kind of users who use the feature store:
-1. __Feature producers__ (for example, Data scientist, Data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
+1. __Feature producers__ (for example, dta scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
     * Managing lifecycle of features: From creation to retirement/archival
     * Setting up materialization and backfill of features
     * Monitoring feature freshness and quality
-1. __Feature consumers__ (for example, Data scientist and machine learning engineers): They work primarily with in a project workspace and use features: 
+1. __Feature consumers__ (for example, data scientist and machine learning engineers): They work primarily with in a project workspace and use features: 
     * Discovering features for reuse in model
     * Experimenting with features during training to see if it improves model performance
     * Setting up training/inference pipelines to use the features
@@ -128,3 +128,10 @@ Following are the kind of users who use the feature store:
     * Managing costs
 
 In many organizations same person may wear multiple hats. For for example, the same person can both be a feature producer and consumer.
+
+## Next steps
+
+- [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md)
+- [Offline feature retrieval using point-in-time join](concept-feature-retrieval.md)
+- [Feature materialization on time-series features](concept-feature-materialization.md)
+- [Feature transformations](concept-feature-transformations.md)
