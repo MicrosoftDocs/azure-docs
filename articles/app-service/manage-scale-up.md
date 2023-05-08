@@ -3,7 +3,7 @@ title: Scale up features and capacities
 description: Learn how to scale up an app in Azure App Service. Get more CPU, memory, disk space, and extra features.
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 05/08/2023
 ms.custom: seodec18
 
 ---
@@ -41,11 +41,13 @@ For information about the pricing and features of individual App Service plans, 
 
 1. In your browser, open the [Azure portal][portal].
 
-1. In your App Service app page, from the left menu, select **Scale Up (App Service plan)**.
-   
-3. Choose your tier, and then select **Apply**. Select the different categories (for example, **Production**) and also **See additional options** to show more tiers.
-   
-    ![Navigate to scale up your Azure app.][ChooseWHP]
+1. In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
+
+    ![Screenshot showing how to scale up your app service plan.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+
+1. Select one of the pricing tiers and select **Select**.
+
+    :::image type="content" source="media/app-service-configure-premium-tier/create-plan-select-tier.png" alt-text="Screenshot showing how to pick a pricing plan when scaling up an app.":::
 
     When the operation is complete, you see a notification pop-up with a green success check mark.
 
