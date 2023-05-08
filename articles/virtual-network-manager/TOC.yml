@@ -100,7 +100,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=load-balancer
+    href: https://azure.microsoft.com/resources/samples/?service=virtual-network-manager
   - name: Azure PowerShell
     href: /powershell/module/az.network#networking
   - name: Azure CLI
