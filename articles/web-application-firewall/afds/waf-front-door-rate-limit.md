@@ -5,21 +5,21 @@ author: johndowns
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 04/20/2023
-ms.author: jodowns
+ms.date: 05/08/2023
+ms.author: arpitjain099
 ---
 
 # What is rate limiting for Azure Front Door Service?
 
-Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. The socket IP address is the address of the client that initiated the TCP connection to Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and the Front Door. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
+Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. The socket IP address is the address of the client that initiated the TCP connection to the Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and the Front Door. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short period.
 
-Rate limits can be defined at the socket IP address level or the remote address level. If you have multiple clients accessing your Front Door from different socket IP addresses, they'll each have their own rate limits applied. The socket IP address is the source IP address the WAF sees. If your user is behind a proxy, socket IP address is often the proxy server address. Remote address is the original client IP that is usually sent via the X-Forwarded-For request header.
+Rate limits can be defined at the socket IP address level or the remote address level. If you have multiple clients accessing your Front Door from different socket IP addresses, they'll each have their rate limits applied. The socket IP address is the source IP address the WAF sees. If your user is behind a proxy, the socket IP address is often the proxy server address. The remote address is the original client IP that is usually sent via the X-Forwarded-For request header.
 
 ## Configure a rate limit policy
 
 Rate limiting is configured by using [custom WAF rules](./waf-front-door-custom-rules.md).
 
-When you configure a rate limit rule, you specify the *threshold*: the number of web requests allowed from each socket IP address within a time period of either one minute or five minutes.
+When you configure a rate limit rule, you specify the *threshold*: the number of web requests allowed from each socket IP address within a period of either one minute or five minutes.
 
 You also must specify at least one *match condition*, which tells Front Door when to activate the rate limit. You can configure multiple rate limits that apply to different paths within your application.
 
