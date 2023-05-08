@@ -40,11 +40,11 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
-|**Scenario**| :white_check_mark: Anomaly detection, root cause, and time series analysis <br> | :white_check_mark: Anomaly detection and root cause analysis <br> :white_check_mark: [Advanced analysis and AIOPs scenarios](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs)  |
+|**Scenario**| :white_check_mark: Anomaly detection, root cause, and time series analysis <br> | :white_check_mark: Anomaly detection, root cause, and time series analysis <br> :white_check_mark: [Advanced analysis and AIOPs scenarios](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs)  |
 |**Advantages**|🔹Gets you started very quickly.<br>🔹No data science knowledge and programming skills required.<br>🔹 Optimal performance and cost savings. |🔹Supports larger scales.<br>🔹Enables advanced, more complex scenarios.<br>🔹Flexibility in choosing libraries, models, parameters.|
 |**Service limits and data volumes** |[Azure portal](../service-limits.md#azure-portal) or [Query API log query limits](../service-limits.md#la-query-api) depending on whether you're working in the portal or using the API, for example, from a notebook.| [Query API log query limits](../service-limits.md#la-query-api) if you query data in Azure Monitor Logs as part of your [machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). Otherwise, no Azure service limits. Can support larger data volumes.|
 |**Integration**|None required. Run using [Log Analytics](../logs/log-analytics-tutorial.md) in the Azure portal or from an [integrated Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md).|Requires integration with a tool, such as [Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md), or other Azure services, like [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
-|**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces latency when querying or exporting data, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
+|**Performance**|Optimal performance, using the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces latency when querying or exporting data, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
 |**Model type** |Linear regression model and other models supported by KQL time series functions with a set of configurable parameters.|Completely customizable machine learning model.  |
 |**Cost**|No extra cost.| Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for [exporting data](../logs/logs-data-export.md#pricing-model), ingesting scored data into Azure Monitor Logs, and the use of other Azure services.|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
@@ -103,3 +103,5 @@ Learn more about:
 
 - [Azure Monitor Logs](../logs/data-platform-logs.md).
 - [Azure Monitor Insights and curated visualizations](../insights/insights-overview.md).
+|AzureMonitorLogsConnector|[Azure Monitor Logs Connector.](https://learn.microsoft.com/en-ca/azure/azure-portal/azure-portal-dashboards)|
+|AzureMonitorLogsConnector|[Azure Monitor Logs Connector.](../../azure-portal/azure-portal-dashboards.md)|
