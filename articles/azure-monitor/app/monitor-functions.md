@@ -46,12 +46,12 @@ Your Java functions might have slow startup times if you adopted this feature be
 
 1. Check to see if the following settings exist and remove them:
 
-```
-XDT_MicrosoftApplicationInsights_Java -> 1
-ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
-```
+    ```
+    XDT_MicrosoftApplicationInsights_Java -> 1
+    ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
+    ```
 
-1. Enable the latest version by adding this setting:
+2. Enable the latest version by adding this setting:
     
     ```
     APPLICATIONINSIGHTS_ENABLE_AGENT: true
@@ -65,7 +65,7 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
     ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
     ```
 
-1. Enable the latest version by adding this setting:
+2. Enable the latest version by adding this setting:
     
     ```
     APPLICATIONINSIGHTS_ENABLE_AGENT: true
