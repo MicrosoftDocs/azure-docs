@@ -36,9 +36,15 @@ To create a Load Testing resource:
 
 ## Create a load test
 
+Azure Load Testing enables you to quickly create a load test from the Azure portal by specifying the target web application URL and the basic load testing parameters. The service abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
+
+You can specify the target load with a quick test by using either of two options:
+
+- Virtual users: simulate a total number of virtual users for the specified load test duration.
+- Requests per second: simulate a total number of requests per second, based on an estimated response time.
+
 ## [Virtual users](#tab/virtual_users)
 
-Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
 1. Go to the **Overview** page of your Azure Load Testing resource.
 
@@ -60,11 +66,10 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. Select **Run test** to create and start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-vu.png" alt-text="Screenshot that shows quickstart test page.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-vu.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying virtual users.":::
 
-# [Requests per second (RPS)](#tab/rps)
+## [Requests per second (RPS)](#tab/rps)
 
-Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
 1. Go to the **Overview** page of your Azure Load Testing resource.
 
@@ -78,19 +83,19 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. Select **Requests per second** load specification method.
 
-1. (Optional) Update the **Target Requests per second (RPS)** to the load that you want to generate in terms of requests per second. 
+1. (Optional) Update the **Target Requests per second (RPS)** to the load that you want to generate. 
 
-    The maximum load that can be generated depends on the response time of the endpoint during the load test. Azure Load Testing provisions multiple test engines and configures the virtual users as required to generate the required load. The number of virtual users simulated is calculated using the formula: Virtual users = (RPS * max response time) / 1000
+    The maximum load that the service can generate depends on the response time of the endpoint during the load test. Azure Load Testing uses the response time to provision multiple test engines and configure the target number of virtual users needed to generate the required load. The number of virtual users is calculated using the formula: Virtual users = (RPS * max response time) / 1000
 
-1. (Optional) Update the **Response time (milliseconds)** to the response time of the endpoint. 
+1. (Optional) Update the **Response time (milliseconds)** to the estimated response time of the endpoint.
 
-    Response time during the load test is expected to be higher than normal. Provide a value higher than the maximum observed response time for the endpoint. 
+    The endpoint response time during the load test is expected to be higher than normal. Provide a value higher than the maximum observed response time for the endpoint. 
     
 1. (Optional) Update the **Test duration** and **Ramp up time** for the test.
 
 1. Select **Run test** to create and start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-rps.png" alt-text="Screenshot that shows quickstart test page.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-rps.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying requests per second.":::
 
 
 > [!NOTE]
