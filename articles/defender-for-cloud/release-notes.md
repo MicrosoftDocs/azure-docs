@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 04/27/2023
+ms.date: 05/04/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,48 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## May 2023
+
+Updates in May include:
+
+- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
+- [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
+
+### Agentless scanning now supports encrypted disks in AWS
+
+Agentless scanning for VMs now supports processing of instances with encrypted disks in AWS, using both CMK and PMK.
+
+This extended support increases coverage and visibility over your cloud estate without impacting your running workloads. Support for encrypted disks maintains the same zero impact method on running instances.
+
+- For new customers enabling agentless scanning in AWS - encrypted disks coverage is built-in and supported by default.
+- For existing customers that already have an AWS connector with agentless scanning enabled, you will need to re-apply the CloudFormation stack to your onboarded AWS accounts to update and add the new permissions that are required to process encrypted disks. The updated CloudFormation template includes new assignments that allow Defender for Cloud to process encrypted disks.
+
+You can learn more about the [permissions used to scan AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+
+**To re-apply your CloudFormation stack**:
+
+1. Go to Defender for Cloud environment settings and open your AWS connector.
+1. Navigate to the **Configure Access** tab.
+1. Select **Click to download the CloudFormation template**.
+1. Navigate to your AWS environment and apply the updated template.
+
+Learn more about [agentless scanning](concept-agentless-data-collection.md) and [enabling agentless scanning in AWS](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
+
+### Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud
+
+We revised the JIT (Just-In-Time) rules to align with the Microsoft Defender for Cloud brand. We changed the naming conventions for Azure Firewall and NSG (Network Security Group) rules. 
+
+The changes are listed as follows:
+
+| Description | Old Name |New Name  |
+|---|---|---|
+| JIT rule names (allow and deny) in NSG (Network Security Group) | SecurityCenter-JITRule | MicrosoftDefenderForCloud-JITRule
+| JIT rule descriptions in NSG | ASC JIT Network Access rule | MDC JIT Network Access rule |
+|JIT firewall rule collection names | ASC-JIT | MDC-JIT |
+|JIT firewall rules names | ASC-JIT | MDC-JIT
+
+Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
 
 ## April 2023
 
@@ -93,8 +135,6 @@ You can see a list of all of the [alerts available for Resource Manager](alerts-
 
 ### Three alerts in the Defender for Resource Manager plan have been deprecated
 
-**Estimated date for change: March 2023**
-
 The following three alerts for the Defender for Resource Manager plan have been deprecated:
 
 - `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
@@ -162,7 +202,7 @@ The new recommendation `System updates should be installed on your machines (pow
 
 The new recommendation `System updates should be installed on your machines (powered by Update management center)`, isn't expected to affect your Secure Score, as it will have the same results as the old recommendation `System updates should be installed on your machines`.
 
-The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can be remediated the effect with the available [Fix button](implement-security-recommendations.md). 
+The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can remediate the negative effect with the available [Fix button](implement-security-recommendations.md). 
 
 ### Defender for APIs (Preview)
 
@@ -349,7 +389,7 @@ Updates in January include:
 
 ### The Endpoint protection (Microsoft Defender for Endpoint) component is now accessed in the Settings and monitoring page
 
-In our continuing efforts to simplify your Defender for Cloud configuration experience, we moved the configuration for Endpoint protection (Microsoft Defender for Endpoint) component from the **Environment settings** > **Integrations** page to the **Environment settings** > **Defender plans** > **Settings and monitoring** page, where the other components are managed as well. There's no change to the functionality other than the location in the portal.
+To access Endpoint protection navigate to **Environment settings** > **Defender plans** > **Settings and monitoring**. From here you can set Endpoint protection to **On**. You can also see all of the other components that are managed.
 
 Learn more about [enabling Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) on your servers with Defender for Servers.
 

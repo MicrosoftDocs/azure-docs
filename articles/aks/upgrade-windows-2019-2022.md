@@ -58,7 +58,7 @@ Once you update the nodeSelector on the YAML file, you should also update the co
 
 If you have an application deployed already, follow the recommended steps to deploy a new node pool with Windows Server 2022 nodes. Once deployed, your environment will show Windows Server 2019 and 2022 nodes, with the workloads running on the 2019 nodes:
 
-```console
+```bash
 kubectl get nodes -o wide
 ```
 This command shows all nodes on your AKS cluster with extra details on the output:
@@ -76,7 +76,7 @@ akswspool000002                     Ready    agent   5h37m   v1.23.8   10.240.0.
 
 With the Windows Server 2022 node pool deployed and the YAML file configured, you can now deploy the new version of the YAML:
 
-```console
+```bash
 kubectl apply -f <filename>
 ```
 
@@ -88,7 +88,7 @@ service/sample unchanged
 ```
 At this point, AKS starts the process of terminating the existing pods and deploying new pods to the Windows Server 2022 nodes. You can check the status of your deployment by running:
 
-```console
+```bash
 kubectl get pods -o wide
 ```
 This command returns the status of the pods on the default namespace. You might need to change the command above to list the pods on specific namespaces. 
