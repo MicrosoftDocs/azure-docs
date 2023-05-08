@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message to multiple recipients
 
-To send an email message to multiple recipients, add an object for each recipient type and an object for each recipient. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+To send an email message to multiple recipients, add an object for each recipient type and an object for each recipient. These addresses can be added as `To`, `CC`, or `BCC` recipients. Optionally, add an email address to the `replyTo` property if you want to receive any replies.
 
 ```javascript
 const message = {
@@ -52,7 +52,13 @@ const message = {
         displayName: "BCC Customer 2",
       }
     ]
-  }
+  },
+  replyTo: [
+    {
+      address: "replyToCustomer1@domain.com",
+      displayName: "ReplyTo Customer 1",
+    }
+  ]
 };
 
 const poller = await emailClient.beginSend(message);
