@@ -1,20 +1,20 @@
 ---
-title: Create Azure Functions that runs in a custom container
-description: Learn how to create Azure Functions running on a custom Linux image.
+title: Create a function that runs in a container (Azure Functions)
+description: Learn how to create an Azure Functions function app running in a Linux container and then how to publish the image to a container registry.
 ms.date: 05/05/2023
 ms.topic: quickstart
 ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli, devdivchpfy22"
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Quickstart: Create a function that runs in a custom container 
+# Quickstart: Create a function that runs in a container 
 
-In this article, you use Azure Functions tools to create your project code as a function app in a custom Docker container using a language-specific Linux base image. Make sure to choose your language of choice at the top of the article. 
+In this article, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
 
-You also publish your custom image to a container registry, such as Azure Container Registry or DockerHub. There are several options for deploying function apps in a custom container: Azure Functions hosting, Azure Container Apps, and Kubernetes, such as Azure Arc. Subsequent articles show you how to host your custom container function app. 
+You also publish your container image to a container registry, such as Azure Container Registry or DockerHub. There are several options for deploying containerized function apps, including Azure Container Apps. Subsequent articles show you how to host your containerized function app. 
 
 ::: zone pivot="programming-language-other"
-Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of a custom container.
+Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of your own container.
 ::: zone-end
 
 You can complete this quickstart on any computer running Windows, macOS, or Linux. 
@@ -24,7 +24,7 @@ You can complete this quickstart on any computer running Windows, macOS, or Linu
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
-To publish the custom function app image you create, you also need a registry account.
+To publish the containerized function app image you create, you also need a registry account.
 
 # [Azure Container Registry](#tab/acr)
 
@@ -119,7 +119,7 @@ func init --worker-runtime custom --docker
 ```
 ::: zone-end
 
-The `--docker` option generates a *Dockerfile* for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
 Navigate into the project folder:
@@ -378,7 +378,7 @@ Docker Hub is a container registry that hosts images and provides image and cont
 
 ## Next steps
 
-Now that you have your function app running in a custom container available in a container registry, you can deploy the image  to one of several Azure environments:
+Now that you have an image of your containerized function app available in a container registry, you can deploy the image to one of several Azure hosting environments:
 
 # [Azure Functions](#tab/functions)
 
@@ -391,8 +391,7 @@ Your custom container runs on a Linux [Premium plan](functions-premium-plan.md) 
 
 Your custom container runs in [Azure Container Apps](../container-apps/overview.md).
 
->[!NOTE] 
-> Support for running Azure Functions in Azure Container Apps is currently in preview.  
+[!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)] 
 
 > [!div class="nextstepaction"]
 > [Deploy to Azure Container Apps](./functions-deploy-custom-container-aca.md)

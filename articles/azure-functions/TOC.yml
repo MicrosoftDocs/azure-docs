@@ -89,30 +89,6 @@
           - name: Visual Studio Code
             displayName: Go, Rust, quickstart, get started
             href: create-first-function-vs-code-other.md
-        - name: Containers
-          items: 
-            - name: Azure Arc (preview)
-              items:
-                - name: Default container
-                  displayName: Arc, container, Kubernetes
-                  href: create-first-function-arc-cli.md
-                - name: Custom container
-                  displayName: Arc, container, Kubernetes, Docker
-                  href: create-first-function-arc-custom-container.md
-            - name: Custom containers
-              items: 
-                - name: Create a custom container
-                  href: functions-create-function-linux-custom-image.md
-                  displayName: container, Docker, ACA, Arc
-                - name: Deploy to Azure Container Apps (preview)
-                  href: functions-deploy-custom-container-aca.md 
-                  displayName: container, Docker, ACA 
-                - name: Deploy to Azure Arc (preview)
-                  displayName: Arc, container, Kubernetes, Docker
-                  href: create-first-function-arc-custom-container.md
-                - name: Deploy to Azure App Service
-                  href: functions-deploy-custom-container.md 
-                  displayName: container, Docker 
         - name: Resource Manager
           items:
           - name: Bicep
@@ -121,6 +97,17 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
+        - name: Azure Arc (preview)
+          items:
+            - name: Code-only publishing
+              displayName: Arc, container, Kubernetes
+              href: create-first-function-arc-cli.md
+            - name: Custom container
+              displayName: Arc, container, Kubernetes, Docker
+              href: functions-create-function-linux-custom-image.md?tabs=azure-arc
+        - name: Azure Container Apps (preview)
+          href: functions-create-function-linux-custom-image.md?tabs=container-apps
+          displayName: container, Docker, ACA 
     - name: Connect to storage
       items:
         - name: C#
@@ -319,8 +306,8 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Containers
-          href: functions-containers.md   
+        - name: Azure Container Apps hosting (preview)
+          href: functions-container-apps-hosting.md   
     - name: Deployment options
       href: functions-deployment-technologies.md 
     - name: Events and messaging
@@ -511,8 +498,16 @@
           href: functions-continuous-deployment.md
         - name: Deployment slots
           href: functions-deployment-slots.md
-        - name: Custom container deployments 
-          href: functions-how-to-custom-container.md 
+        - name: Containers  
+          items:
+          - name: Work with containers 
+            href: functions-how-to-custom-container.md 
+          - name: Deploy to Azure Container Apps (preview) 
+            href: functions-how-to-custom-container.md 
+          - name: Deploy to Azure Arc (preview)
+            href: create-first-function-arc-custom-container.md
+          - name: Deploy to Azure App Service
+            href: functions-deploy-custom-container.md 
         - name: Build and deploy using Azure Pipelines
           href: functions-how-to-azure-devops.md
         - name: Build and deploy using GitHub Actions

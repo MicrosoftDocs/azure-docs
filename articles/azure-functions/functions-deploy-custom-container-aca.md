@@ -12,8 +12,7 @@ In this article, you deploy the custom Linux container with your function app to
 
 Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
-> [!NOTE]
-> Support for deploying custom function app containers to Azure Container Apps is currently in preview. 
+[!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
 Other options for deploying your custom container app to Azure include:
 
