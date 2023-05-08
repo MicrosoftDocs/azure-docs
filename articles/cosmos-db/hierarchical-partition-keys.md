@@ -41,7 +41,11 @@ For large read-heavy workloads, we recommend choosing hierarchical partition key
 
 ## Using item ID in hierarchy 
 
-If your container has a property that has a large range of possible values, it is likely a great partition key choice for the last level of your hierarchy. One possible example of this is the **item ID**. The system property item ID exists in every item in your container. If you are unsure whether you need to add a second or third hierarchical partition key, adding item ID as another level will guarantee that you do not exceed the logical partition key limit of 20 GB. For more information on choosing item ID as a partition key, visit our [partitioning documentation.](partitioning-overview.md).
+If your container has a property that has a large range of possible values, it is likely a great partition key choice for the last level of your hierarchy. One possible example of this is the **item ID**. The system property item ID exists in every item in your container. If you are unsure whether you need to add a second or third hierarchical partition key, adding item ID as another level will guarantee that you can scale beyond the logical partition key limit of 20 GB for the first or first and second level of keys. 
+
+For example, suppose we have a container for a multi-tenant workload partitioned by TenantId and UserId. If it is possible for a single combination of TenantId and UserId to exceed 20 GB, then partitioning with three levels of keys, where the 3rd level key has high cardinality - e.g. a GUID is recommended. It is unlikely that the combination of TenantId, UserId, and a GUID will exceed 20 GB, so the combination of TenantId and UserId can effectively scale beyond 20 GB.
+
+For more information on choosing item ID as a partition key, visit our [partitioning documentation.](partitioning-overview.md).
 
 ## Getting started
 
