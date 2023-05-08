@@ -18,7 +18,7 @@ ms.custom: devx-track-js, ignite-2022, devguide-js
 
 [!INCLUDE[Samples selector](includes/samples-selector.md)]
 
-Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [Javascript SDK for Azure CosmosDB](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos/samples) GitHub repository. This article provides:
+Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [JavaScript SDK for Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos/samples) GitHub repository. This article provides:
 
 - Links to the tasks in each of the Node.js example project files.
 - Links to the related API reference content.
