@@ -1,11 +1,11 @@
 ---
 title: Overview of the MedTech service FHIR destination mapping - Azure Health Data Services
-description: This article provides an overview of the MedTech service FHIR destination mapping.
+description: Learn about the MedTech service FHIR destination mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/24/2023
+ms.date: 05/08/2023
 ms.author: jasteppe
 ---
 
@@ -53,17 +53,17 @@ CodeValueFhir is currently the only template supported in the FHIR destination m
 
 |Element|Description|Required| 
 |:------|:----------|:-------|
-|**typeName**| The type of measurement this template should bind to. Note: There should be at least one device mapping template that has this same `typeName`. The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same `typeName`.|True|
-|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).|TBD Note: `periodInterval` is required when the Observation type is "SampledData" and is ignored for any other Observation types.| 
-|**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.|TBD|
-|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|TBD|
-|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
-|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
-|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
-|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|TBD|
-|**components**|One or more components to create on the observation.|TBD|
-|**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|TBD|
-|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|TBD|
+|**typeName**| The type of measurement this template should bind to. Note: There should be at least one device mapping template that has this same `typeName`. The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that is evaluated with a FHIR destination mapping template that has the same `typeName`.|True|
+|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).|True when the Observation type is "SampledData"; False for other Observation types.| 
+|**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.|False|
+|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|True|
+|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
+|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
+|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
+|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|True when the `component` element isn't used instead.|
+|**components**|One or more components to create on the observation.|True when the `value` element isn't used instead.|
+|**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|False|
+|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used.|
 
 :::image type="content" source="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service FHIR destination mapping template and code architecture." lightbox="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png":::
 
@@ -73,8 +73,8 @@ All CodeValueFhir templates' `value` element contains these elements:
 
 |Element|Description|Required|
 |:------|:----------|:-------|
-|**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "String" depending on the value type.|TBD|
-|**valueName**|Name of the value.|TBD|
+|**valueType**|Type of the value. This value would be `SampledData`, `Quantity`, `CodeableConcept`, or `String` depending on the value type.|True|
+|**valueName**|Name of the value.|True|
 
 These value types are supported in the MedTech service FHIR destination mapping:
 
@@ -84,8 +84,8 @@ Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHI
 
 |Element|Description|Required| 
 |:------|:----------|:-------|
-|**defaultPeriod**|The default period in milliseconds to use.|TBD|
-|**unit**|The unit to set on the origin of the SampledData. |TBD|
+|**defaultPeriod**|The default period in milliseconds to use.|True|
+|**unit**|The unit to set on the origin of the SampledData. |True|
 
 #### Quantity
 
@@ -93,9 +93,9 @@ Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data
 
 |Element|Description|Required|
 |:------|:----------|:-------| 
-|**unit**|Unit representation.|TBD|
-|**code**|Coded form of the unit.|TBD|
-|**system**|System that defines the coded unit form.|TBD|
+|**unit**|Unit representation.|True|
+|**code**|Coded form of the unit.|True|
+|**system**|System that defines the coded unit form.|True|
 
 #### CodeableConcept
 
@@ -103,11 +103,11 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 |Element|Description|Required|
 |:------|:----------|:-------|
-|**text**|Plain text representation.|TBD|
-|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|TBD|
-|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
-|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
-|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|TBD|
+|**text**|Plain text representation.|True|
+|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|True|
+|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
+|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
+|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
 
 #### String
 
@@ -244,7 +244,7 @@ To learn how to use CalculatedContent with the MedTech service device mapping, s
 To learn how to use IotJsonPathContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md)
+> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontent-mappings.md)
 
 To learn how to use custom functions with the MedTech service device mapping, see
 
