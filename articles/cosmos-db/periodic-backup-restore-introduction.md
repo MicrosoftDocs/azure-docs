@@ -11,7 +11,7 @@ ms.date: 04/02/2023
 ms.custom: ignite-2022
 ---
 
--- # Periodic backup and restore in Azure Cosmos DB
+# Periodic backup and restore in Azure Cosmos DB
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
@@ -78,6 +78,7 @@ With Azure Cosmos DB API for NoSQL accounts, you can also maintain your own back
 ### Azure Data Factory
 
 Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically to a storage solution of your choice.
+
 
 ### Azure Cosmos DB change feed
 
