@@ -50,7 +50,7 @@ Job function roles allow management of specific Azure resources. For example, th
 
 ### Privileged administrator roles
 
-Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources. The following roles are considered privileged and apply to all resource types.
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. The following roles are considered privileged and apply to all resource types.
 
 | Role | Description |
 | --- | --- |
