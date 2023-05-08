@@ -43,7 +43,7 @@ Lab users connect to their lab virtual machine through a load balancer.  Lab vir
 
 Inbound rules on the load balancer forward the connection, depending on the operating system, to either port 22 (SSH) or port 3389 (RDP) of the lab virtual machine. A network security group (NSG) blocks external traffic to any other port.
 
-If you configured the lab to use [advanced networking](how-to-connect-vnet-injection.md), then each lab uses the subnet that was connected to the lab plan and delegated to Azure Lab Services. In this case, you're responsible for creating a [network security group with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-delegated-subnet-with-nsg) to the lab virtual machines.
+If the lab is using [advanced networking](how-to-connect-vnet-injection.md), then each lab is using the same subnet that was delegated to Azure Lab Services and connected to the lab plan. You're also responsible for creating an [NSG with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-the-subnet-with-the-network-security-group) so lab users can connect to their VMs.
 
 ## Access control to the lab virtual machines
 

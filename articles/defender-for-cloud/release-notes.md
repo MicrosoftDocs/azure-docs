@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/02/2023
+ms.date: 05/08/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,6 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in May include:
 
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
+- [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
 
 ### New alert in Defender for Key Vault
 
@@ -28,12 +30,46 @@ Defender for Key Vault has the following new alert:
 
 | Alert (alert type) | Description | MITRE tactics | Severity |
 |---|---|:-:|---|
-| **Key vault unusual IP access - unusual IP accessing key vault**<br>(KV_UnusualAccessSuspiciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern may be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
+| **Unusual access to the key vault from a suspicious IP (Non-Microsoft or External)**<br>(KV_UnusualAccessSuspiciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern may be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
 
 For all of the available alerts, see [Alerts for Azure Key Vault](alerts-reference.md#alerts-azurekv).
 
-## April 2023
+### Agentless scanning now supports encrypted disks in AWS
 
+Agentless scanning for VMs now supports processing of instances with encrypted disks in AWS, using both CMK and PMK.
+
+This extended support increases coverage and visibility over your cloud estate without impacting your running workloads. Support for encrypted disks maintains the same zero impact method on running instances.
+
+- For new customers enabling agentless scanning in AWS - encrypted disks coverage is built-in and supported by default.
+- For existing customers that already have an AWS connector with agentless scanning enabled, you will need to re-apply the CloudFormation stack to your onboarded AWS accounts to update and add the new permissions that are required to process encrypted disks. The updated CloudFormation template includes new assignments that allow Defender for Cloud to process encrypted disks.
+
+You can learn more about the [permissions used to scan AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+
+**To re-apply your CloudFormation stack**:
+
+1. Go to Defender for Cloud environment settings and open your AWS connector.
+1. Navigate to the **Configure Access** tab.
+1. Select **Click to download the CloudFormation template**.
+1. Navigate to your AWS environment and apply the updated template.
+
+Learn more about [agentless scanning](concept-agentless-data-collection.md) and [enabling agentless scanning in AWS](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
+
+### Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud
+
+We revised the JIT (Just-In-Time) rules to align with the Microsoft Defender for Cloud brand. We changed the naming conventions for Azure Firewall and NSG (Network Security Group) rules. 
+
+The changes are listed as follows:
+
+| Description | Old Name |New Name  |
+|---|---|---|
+| JIT rule names (allow and deny) in NSG (Network Security Group) | SecurityCenter-JITRule | MicrosoftDefenderForCloud-JITRule
+| JIT rule descriptions in NSG | ASC JIT Network Access rule | MDC JIT Network Access rule |
+|JIT firewall rule collection names | ASC-JIT | MDC-JIT |
+|JIT firewall rules names | ASC-JIT | MDC-JIT
+
+Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
+
+## April 2023
 Updates in April include:
 
 - [Agentless Container Posture in Defender CSPM (Preview)](#agentless-container-posture-in-defender-cspm-preview)
@@ -176,7 +212,7 @@ The new recommendation `System updates should be installed on your machines (pow
 
 The new recommendation `System updates should be installed on your machines (powered by Update management center)`, isn't expected to affect your Secure Score, as it will have the same results as the old recommendation `System updates should be installed on your machines`.
 
-The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can be remediated the effect with the available [Fix button](implement-security-recommendations.md). 
+The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can remediate the negative effect with the available [Fix button](implement-security-recommendations.md). 
 
 ### Defender for APIs (Preview)
 
