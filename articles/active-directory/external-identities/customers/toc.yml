@@ -79,8 +79,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-app-vanillajs-prepare-tenant.md
                         - name: Prepare app
