@@ -27,6 +27,7 @@ Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-94
 
 ### Fixed
 
+- Fixed an issue that could cause the guest configuration service (gc_service) to repeatedly crash and restart on Linux systems
 - Resolved a rare condition under which the guest configuration service (gc_service) could consume excessive CPU resources
 - Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
 - Reduced how long network checks wait before determining a network endpoint is unreachable

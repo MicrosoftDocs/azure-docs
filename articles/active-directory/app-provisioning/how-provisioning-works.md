@@ -88,7 +88,7 @@ originalUserPrincipalName = alias_theirdomain#EXT#@yourdomain
 
 ## Provisioning cycles: Initial and incremental
 
-When Azure AD is the source system, the provisioning service uses the [Use delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
+When Azure AD is the source system, the provisioning service uses the [delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
 
 ### Initial cycle
 

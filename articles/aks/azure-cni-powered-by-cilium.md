@@ -27,9 +27,6 @@ Azure CNI Powered by Cilium can be deployed using two different methods for assi
 
 - assign IP addresses from a VNet (similar to existing Azure CNI with Dynamic Pod IP Assignment)
 - assign IP addresses from an overlay network (similar to Azure CNI Overlay mode)
- 
-> [!NOTE]
-> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. For more information, see [Azure CNI Overlay networking](./azure-cni-overlay.md).
 
 If you aren't sure which option to select, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
 
@@ -45,7 +42,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Available only for Linux and not for Windows.
 * Cilium L7 policy enforcement is disabled.
 * Hubble is disabled.
-* Not yet configured for compatibility with Istio ([Istio issue #27619](https://github.com/istio/istio/issues/27619)).
+* Not compatible with Istio or other sidecar-based service meshes ([Istio issue #27619](https://github.com/istio/istio/issues/27619)).
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 * Multiple Kubernetes services can't use the same host port with different protocols (for example, TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
@@ -148,6 +145,10 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 - *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
 
     `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
+
+- *Does AKS configure CPU or memory limits on the Cilium daemonset?*
+
+    No, AKS does not configure CPU or memory limits on the Cilium daemonset because Cilium is a critical system component for pod networking and network policy enforcement.
 
 ## Next steps
 

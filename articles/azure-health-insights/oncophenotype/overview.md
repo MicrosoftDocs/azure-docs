@@ -1,5 +1,5 @@
 ---
-title: What is Onco Phenotype - Project Health Insights
+title: What is Onco Phenotype (Preview)
 titleSuffix: Project Health Insights
 description: Enable healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 services: azure-health-insights
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# What is Onco Phenotype - Project Health Insights
+# What is Onco Phenotype (Preview)?
 
-Onco Phenotype is an AI model that’s offered within the context of the broader Project Health Insights. It augments traditional clinical Natural Language Processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
+Onco Phenotype is an AI model that’s offered within the context of the broader Project Health Insights. It augments traditional clinical natural language processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 
 
 > [!IMPORTANT] 
@@ -52,4 +52,4 @@ For the Public Preview, you can select the Free F0 SKU. The official pricing wil
 Get started using the Onco Phenotype model:
 
 >[!div class="nextstepaction"]
-> [deploy the service via the portal](../deploy-portal.md) 
+> [Deploy the service via the portal](../deploy-portal.md) 

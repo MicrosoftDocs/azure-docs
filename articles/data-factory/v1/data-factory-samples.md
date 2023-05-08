@@ -6,6 +6,7 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 04/12/2023
 ---

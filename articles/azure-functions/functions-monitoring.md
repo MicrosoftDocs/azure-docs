@@ -121,7 +121,7 @@ See the developer guide for your language to learn more about writing logs from 
 
 + [C# (.NET class library)](functions-dotnet-class-library.md#logging)
 + [Java](functions-reference-java.md#logger)
-+ [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
++ [JavaScript](functions-reference-node.md#logging) 
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
 

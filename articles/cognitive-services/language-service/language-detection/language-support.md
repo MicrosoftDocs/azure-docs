@@ -104,7 +104,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Nepali              | `ne`          | 2021-01-05                   |
 | Norwegian           | `no`          |                              |
 | Norwegian Nynorsk   | `nn`          |                              |
-| Oriya               | `or`          |                              |
+| Odia                | `or`          |                              |
 | Pasht               | `ps`          |                              |
 | Persian             | `fa`          |                              |
 | Polish              | `pl`          |                              |
@@ -156,11 +156,12 @@ If you have content expressed in a less frequently used language, you can try La
 |---------------------|---------------|------------------------------|
 | Assamese            | `as`          | 2022-10-01                   |
 | Bengali             | `bn`          | 2022-10-01                   |
-| Gujarati            | `Gu`          | 2022-10-01                   |
+| Gujarati            | `gu`          | 2022-10-01                   |
 | Hindi               | `hi`          | 2022-10-01                   |
 | Kannada             | `kn`          | 2022-10-01                   |
 | Malayalam           | `ml`          | 2022-10-01                   |
-| Oriya               | `or`          | 2022-10-01                   |
+| Marathi             | `mr`          | 2022-10-01                   |
+| Odia                | `or`          | 2022-10-01                   |
 | Punjabi             | `pa`          | 2022-10-01                   |
 | Tamil               | `ta`          | 2022-10-01                   |
 | Telugu              | `te`          | 2022-10-01                   |

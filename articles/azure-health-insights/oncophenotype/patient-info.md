@@ -14,13 +14,13 @@ ms.author: behoorne
 
 # Onco Phenotype patient info
 
-The Onco Phenotype currently can receive patient information in the form of ```Unstructured clinical notes```.
+The Onco Phenotype currently can receive patient information in the form of unstructured clinical notes.
 The payload should contain a ```patients``` section with one or more objects where the ```data``` property contains one or more JSON object of ```kind``` "note". 
                       
 
 ## Example request
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence. In this example, the Onco Phenotype model receives patient information in the form of unstructured clinical notes
+In this example, the Onco Phenotype model receives patient information in the form of unstructured clinical notes.
 
 ```json
 {

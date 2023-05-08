@@ -44,5 +44,5 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: support and help options
+          - text: Support and help options
             url: support-and-help.md

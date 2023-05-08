@@ -435,6 +435,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-featurestore",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "featurestore/pup",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
@@ -969,6 +975,12 @@
       "branch_mapping": {}
     },
     {
+		"path_to_root": "azure-load-testing-samples",
+		"url": "https://github.com/Azure-Samples/azure-load-testing-samples",
+		"branch": "main",
+		"branch_mapping": {}
+	  },
+	  {
       "path_to_root": "microsoft-graph",
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
@@ -994,6 +1006,7 @@
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.azure-arc-data.json",
   ".openpublishing.redirection.azure-attestation.json",
+  ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",

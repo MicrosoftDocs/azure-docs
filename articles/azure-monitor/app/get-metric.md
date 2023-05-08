@@ -31,11 +31,11 @@ Throttling is a concern because it can lead to missed alerts. The condition to t
 In summary, we recommend `GetMetric()` because it does pre-aggregation, it accumulates values from all the `Track()` calls, and sends a summary/aggregate once every minute. The `GetMetric()` method can significantly reduce the cost and performance overhead by sending fewer data points while still collecting all relevant information.
 
 > [!NOTE]
-> Only the .NET and .NET Core SDKs have a `GetMetric()` method. If you're using Java, see [Sending custom metrics using micrometer](./java-standalone-config.md#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics). For JavaScript and Node.js, you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python, you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics, but the metrics implementation is different.
+> Only the .NET and .NET Core SDKs have a `GetMetric()` method. If you're using Java, see [Sending custom metrics using micrometer](./java-standalone-config.md#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics). For JavaScript and Node.js, you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python, you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics, but the metrics implementation is different.
 
 ## Get started with GetMetric
 
-For our examples, we're going to use a basic .NET Core 3.1 worker service application. If you want to replicate the test environment used with these examples, follow steps 1-6 in the [Monitoring worker service article](worker-service.md#net-core-lts-worker-service-application). These steps add Application Insights to a basic worker service project template. The concepts apply to any general application where the SDK can be used, including web apps and console apps.
+For our examples, we're going to use a basic .NET Core 3.1 worker service application. If you want to replicate the test environment used with these examples, follow steps 1-6 in the [Monitoring worker service article](worker-service.md#net-core-worker-service-application). These steps add Application Insights to a basic worker service project template. The concepts apply to any general application where the SDK can be used, including web apps and console apps.
 
 ### Send metrics
 
@@ -105,14 +105,14 @@ This single telemetry item represents an aggregate of 41 distinct metric measure
 
 If we examine our Application Insights resource in the **Logs (Analytics)** experience, the individual telemetry item would look like the following screenshot.
 
-![Screenshot that shows the Log Analytics query view.](./media/get-metric/log-analytics.png)
+:::image type="content" source="./media/get-metric/log-analytics.png" lightbox="./media/get-metric/log-analytics.png" alt-text="Screenshot that shows the Log Analytics query view.":::
 
 > [!NOTE]
 > While the raw telemetry item didn't contain an explicit sum property/field once ingested, we create one for you. In this case, both the `value` and `valueSum` property represent the same thing.
 
 You can also access your custom metric telemetry in the [_Metrics_](../essentials/metrics-charts.md) section of the portal as both a [log-based and custom metric](pre-aggregated-metrics-log-metrics.md). The following screenshot is an example of a log-based metric.
 
-![Screenshot that shows the Metrics explorer view.](./media/get-metric/metrics-explorer.png)
+:::image type="content" source="./media/get-metric/metrics-explorer.png" lightbox="./media/get-metric/metrics-explorer.png" alt-text="Screenshot that shows the Metrics explorer view.":::
 
 ### Cache metric reference for high-throughput usage
 
@@ -177,15 +177,15 @@ The examples in the previous section show zero-dimensional metrics. Metrics can 
 
 Running the sample code for at least 60 seconds results in three distinct telemetry items being sent to Azure. Each item represents the aggregation of one of the three form factors. As before, you can further examine in the **Logs (Analytics)** view.
 
-![Screenshot that shows the Log Analytics view of multidimensional metric.](./media/get-metric/log-analytics-multi-dimensional.png)
+:::image type="content" source="./media/get-metric/log-analytics-multi-dimensional.png" lightbox="./media/get-metric/log-analytics-multi-dimensional.png" alt-text="Screenshot that shows the Log Analytics view of multidimensional metric.":::
 
 In the metrics explorer:
 
-![Screenshot that shows Custom metrics.](./media/get-metric/custom-metrics.png)
+:::image type="content" source="./media/get-metric/custom-metrics.png" lightbox="./media/get-metric/custom-metrics.png" alt-text="Screenshot that shows Custom metrics.":::
 
 Notice that you can't split the metric by your new custom dimension or view your custom dimension with the metrics view.
 
-![Screenshot that shows splitting support.](./media/get-metric/splitting-support.png)
+:::image type="content" source="./media/get-metric/splitting-support.png" lightbox="./media/get-metric/splitting-support.png" alt-text="Screenshot that shows splitting support.":::
 
 By default, multidimensional metrics within the metric explorer aren't turned on in Application Insights resources.
 
@@ -198,11 +198,11 @@ After you've made that change and sent new multidimensional telemetry, you can s
 > [!NOTE]
 > Only newly sent metrics after the feature was turned on in the portal will have dimensions stored.
 
-![Screenshot that shows applying splitting.](./media/get-metric/apply-splitting.png)
+:::image type="content" source="./media/get-metric/apply-splitting.png" lightbox="./media/get-metric/apply-splitting.png" alt-text="Screenshot that shows applying splitting.":::
 
 View your metric aggregations for each `FormFactor` dimension.
 
-![Screenshot that shows form factors.](./media/get-metric/formfactor.png)
+:::image type="content" source="./media/get-metric/formfactor.png" lightbox="./media/get-metric/formfactor.png" alt-text="Screenshot that shows form factors.":::
 
 ### Use MetricIdentifier when there are more than three dimensions
 
@@ -306,7 +306,7 @@ SeverityLevel.Error);
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Learn more](./worker-service.md) about monitoring worker service applications.
 * Use [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).

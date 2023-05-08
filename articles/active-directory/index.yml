@@ -144,16 +144,12 @@ additionalContent:
           summary: Manage customer identity and access management (CIAM) for your app.
           url: ../active-directory-b2c/index.yml
         # Card
-        - title: Cloud sync
-          summary: Create and manage user identities in Azure AD using Azure AD Connect cloud sync.
-          url: ./cloud-sync/index.yml
-        # Card
         - title: Application provisioning
           summary: Create and manage user identities in applications by provisioning from Azure AD.
           url: ./app-provisioning/index.yml
         # Card
         - title: Hybrid identity
-          summary: Create a user identity that can access both on-premises and cloud resources by using Azure AD Connect.
+          summary: Create a user identity that can access both on-premises and cloud resources.
           url: ./hybrid/index.yml
         # Card
         - title: Multi-tenant organizations

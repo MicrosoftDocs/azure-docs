@@ -251,6 +251,6 @@ For more information on uploading and updating models and environments, see [Reg
 
 ## Next steps
 
-- For information on using VS Code with Azure Machine Learning, see [Connect to compute instance in Visual Studio Code (preview)](../how-to-set-up-vs-code-remote.md)
+- For information on using VS Code with Azure Machine Learning, see [Launch Visual Studio Code remotely connected to a compute instance (preview)](../how-to-launch-vs-code-remote.md)
 - For more information on managing environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
 - To learn about accessing data from your datastore, see [Connect to storage services on Azure](how-to-access-data.md).

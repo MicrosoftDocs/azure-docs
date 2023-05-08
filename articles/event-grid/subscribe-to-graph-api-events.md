@@ -1,11 +1,12 @@
 ---
-title: Azure Event Grid - Subscribe to Microsoft Graph API events 
+title: Receive Microsoft Graph change notifications through Azure Event Grid (preview) 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 ms.topic: how-to
 ms.date: 09/01/2022
 ---
 
-# Subscribe to events published by Microsoft Graph API
+# Receive Microsoft Graph change notifications through Azure Event Grid (preview)
+
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the resources for which events are available through Graph API. For every resource, events for create, update and delete state changes are supported. 
 
 > [!IMPORTANT]
@@ -26,7 +27,7 @@ This article describes steps to subscribe to events published by Microsoft Graph
 
 
 ## Why should I use Microsoft Graph API as a destination?
-Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
+Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/webhooks#receiving-change-notifications) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
 - You're developing an event-driven solution that requires events from Azure Active Directory, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 - You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
@@ -94,8 +95,8 @@ Here are some of the key headers and payload properties:
 
 When you create a Graph API subscription with a `notificationUrl` bound to Event Grid, a partner topic is created in your Azure subscription. For that partner topic, you [configure event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events. 
 
-#### Microsoft Graph API Explorer
-For quick tests and to get to know the API, you could use the [Microsoft Graph API explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs. 
+#### Test APIs using Graph Explorer
+For quick tests and to get to know the API, you could use the [Graph Explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Microsoft Graph SDKs. 
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
 

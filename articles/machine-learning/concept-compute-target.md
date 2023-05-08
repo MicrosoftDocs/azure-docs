@@ -59,6 +59,8 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
+
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
 
@@ -72,7 +74,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 > [!NOTE]
 > To avoid charges when the compute is idle:
-> * For compute *cluster* make sure the minimum number of nodes is set to 0.
+> * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md) (preview).
 > * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown).
 
 ### Supported VM series and sizes
