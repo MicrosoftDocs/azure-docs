@@ -1,6 +1,6 @@
 ---
 title: Azure Web Application Firewall on Azure Front Door DRS rule groups and rules
-description: This article  provides information on Web Application Firewall DRS rule groups and rules.
+description: This article provides information on Web Application Firewall DRS rule groups and rules.
 ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
@@ -10,7 +10,7 @@ ms.date: 10/25/2022
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. The default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 ## Default rule sets
 
@@ -28,13 +28,13 @@ The Azure-managed Default Rule Set (DRS) includes rules against the following th
 
 The version number of the DRS increments when new attack signatures are added to the rule set.
 
-DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions per rule. The available actions are: [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
+DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions per rule. The available actions are [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set. For more information, see [Web Application Firewall (WAF) with Front Door exclusion lists](./waf-front-door-exclusion.md).
 
-By default, DRS versions 2.0 and above will leverage anomaly scoring when a request matches a rule, DRS versions earlier than 2.0 blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
+By default, DRS versions 2.0 and above will leverage anomaly scoring when a request matches a rule, DRS versions earlier than 2.0 block requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 
-Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
+Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
 ### Microsoft Threat Intelligence Collection rules
 
@@ -53,13 +53,13 @@ When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that mat
 | Warning | 3 |
 | Notice | 2 |
 
-When you configure your WAF, you can decide how the WAF handles requests that exceed the anomaly score threshold of 5. The three anomaly score action options are block, log, or redirect. The anomaly score action you select at time of configuration will be applied to all requests that exceed the anomaly score threshold.
+When you configure your WAF, you can decide how the WAF handles requests that exceed the anomaly score threshold of 5. The three anomaly score action options are block, log, or redirect. The anomaly score action you select at the time of configuration will be applied to all requests that exceed the anomaly score threshold.
 
 For example, if the anomaly score is 5 or greater on a request, and the WAF is in Prevention mode with the anomaly score action set to block, the request is blocked. If the anomaly score is 5 or greater on a request, and the WAF is in Detection mode, the request is logged but not blocked.
 
-A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with anomaly score action set to block, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered it will show a "matched" action in the logs. If the anomly score is 5 or greater, there will be a separate rule triggered with the anomaly score action configured for the rule set. Default anomaly score action is block which will result in log entry with action “blocked”.
+A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with anomaly score action set to block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered it will show a "matched" action in the logs. If the anomaly score is 5 or greater, there will be a separate rule triggered with the anomaly score action configured for the rule set. The default anomaly score action is block which will result in a log entry with the action “blocked”.
 
-When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
+When your WAF uses an older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independent of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matches.
 
 The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
