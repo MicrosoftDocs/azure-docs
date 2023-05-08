@@ -1,5 +1,5 @@
 ---
-title: Best practices for Web Application Firewall on Azure Front Door
+title: Best Practices for Web Application Firewall on Azure Front Door
 description: In this article, you learn about the best practices for using the web application firewall with Azure Front Door.
 services: web-application-firewall
 author: johndowns
@@ -18,31 +18,31 @@ This article summarizes best practices for using the web application firewall (W
 
 ### Enable the WAF
 
-For internet-facing applications, we recommend you enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+For internet-facing applications, we recommend you enable a web application firewall (WAF) and configure it to use managed rules. When you use WAF and Microsoft-managed rules, your application is protected from a range of attacks.
 
 ### Tune your WAF
 
 The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning might involve creating [rule exclusions](waf-front-door-exclusion.md) to reduce false positive detections.
 
-While you tune your WAF, consider using [detection mode](waf-front-door-policy-settings.md#waf-mode), which logs requests and the actions the WAF would normally take, but doesn't actually block any traffic.
+While you tune your WAF, consider using [detection mode](waf-front-door-policy-settings.md#waf-mode), which logs requests and the actions the WAF would normally take, but doesn't block any traffic.
 
 For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md).
 
 ### Use prevention mode
 
-After you've tuned your WAF, you should configure it to [run in prevention mode](waf-front-door-policy-settings.md#waf-mode). By running in prevention mode, you ensure the WAF actually blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but provides no protection.
+After you've tuned your WAF, you should configure it to [run in prevention mode](waf-front-door-policy-settings.md#waf-mode). By running in prevention mode, you ensure the WAF blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but provides no protection.
 
 ### Define your WAF configuration as code
 
 When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions by using the Azure portal, then when you upgrade your WAF to use a newer ruleset version, you need to reconfigure the same exceptions against the new ruleset version. This process can be time-consuming and error-prone.
 
-Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using the Azure CLI, Azure PowerShell, Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
+Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using the Azure CLI, Azure PowerShell, Bicep, or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
 
 ## Managed ruleset best practices
 
 ### Enable default rule sets
 
-Microsoft's default rule sets are designed to protect your application by detecting and blocking common attacks. The rules are based on a various sources including the OWASP top 10 attack types and information from Microsoft Threat Intelligence.
+Microsoft's default rule sets are designed to protect your application by detecting and blocking common attacks. The rules are based on various sources including the OWASP top 10 attack types and information from Microsoft Threat Intelligence.
 
 For more information, see [Azure-managed rule sets](afds-overview.md#azure-managed-rule-sets).
 
@@ -73,7 +73,7 @@ For more information, see the following resources:
 
 It's usually a good practice to set your rate limit threshold to be quite high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
  
-High rate limit thresholds avoid blocking legitimate traffic, while still providing protection against extremely high numbers of requests that might overwhelm your infrastructure. 
+High rate limit thresholds avoid blocking legitimate traffic, while still protecting extremely high numbers of requests that might overwhelm your infrastructure. 
 
 ## Geo-filtering best practices
 
