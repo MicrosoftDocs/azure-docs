@@ -70,7 +70,7 @@ Microsoft Sentinel supports a [multiple workspace incident view](./multiple-work
 
 You can query [multiple workspaces](../azure-monitor/logs/cross-workspace-query.md), allowing you to search and correlate data from multiple workspaces in a single query.
 
-- Use the [workspace(*<Identifier>*) expression](../azure-monitor/logs/workspace-expression.md) to refer to a table in a different workspace. **See [important information](../azure-monitor/logs/workspace-expression.md#syntax) about the use of identifier formats to ensure proper performance.**
+- Use the [workspace(*`<identifier>`*) expression](../azure-monitor/logs/workspace-expression.md) to refer to a table in a different workspace. **See [important information](../azure-monitor/logs/workspace-expression.md#syntax) about the use of identifier formats to ensure proper performance.**
 
 - Use the [union operator](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the workspace() expression to apply a query across tables in multiple workspaces.
 
