@@ -133,7 +133,7 @@ For more information, see [Update user - Microsoft Graph v1.0](https://learn.mic
 >[!NOTE]
 >If user assignment is not required to access the application, you may skip this step. 
 
-If user assignment is required in Azure AD for application access and/or role assignment, the user must be assigned to the application, or else the user won't be able to gain access regardless of successful authentication. To achieve this, you should make another API call to add the invited external user to a specific group. The group can be assigned to the application and mapped to a specific application role.  
+If user assignment is required in Azure AD for application access and/or role assignment, the user must be assigned to the application, or else the user is unable to gain access regardless of successful authentication. To achieve this, you should make another API call to add the invited external user to a specific group. The group can be assigned to the application and mapped to a specific application role.  
 
 For example:
 
