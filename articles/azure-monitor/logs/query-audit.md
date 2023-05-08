@@ -60,7 +60,7 @@ An audit record is created each time a query is run. If you send the data to a L
 ### Request Client App
 | RequestClientApp | Description |
 |:---|:---|
-|AAPBI|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
+|AAPBI|[Log Analytics integration with Power BI](../logs/log-powerbi.md).|
 |AppAnalytics|Experiences of Log Analytics in the Azure portal.|
 |AppInsightsPortalExtension|[Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-data-sources#logs) or [Application insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview).|
 |ASC_Portal|Microsoft Defender for Cloud.|
