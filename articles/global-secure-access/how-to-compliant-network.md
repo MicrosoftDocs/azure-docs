@@ -1,6 +1,6 @@
 ---
-title: Conditional Access strict continuous access evaluation control.
-description: Use continuous access evaluation to control Zero Trust network access to resources.
+title: Enable compliant network check with Conditional Access
+description: Require known compliant network locations with Conditional Access.
 
 ms.service: network-access
 ms.subservice: 
@@ -79,3 +79,5 @@ After administrators confirm the policy settings using [report-only mode](howto-
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://<yourcompanyname>.sharepoint.com/](http://<yourcompanyname>.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
 
 ## Next steps
+
+TBD

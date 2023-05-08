@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Enable source IP restoration
+description: Learn how to enable source IP restoration to ensure source IP match in downstream resources.
 
 ms.service: network-access
 ms.subservice: 

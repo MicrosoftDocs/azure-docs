@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Global Secure Access and Conditional Access
+description: Understand network based controls avaialbe for Conditional Access policy
 
 ms.service: network-access
 ms.subservice: 
