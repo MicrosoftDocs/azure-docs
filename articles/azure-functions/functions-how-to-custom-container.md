@@ -3,18 +3,45 @@ title: Working with custom containers and Azure Functions
 description: Learn how to work with your Azure Functions code published as a custom Linux image.
 ms.date: 05/05/2023
 ms.topic: how-to
-zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Working with custom containers and Azure Functions
 
 This article shows you how to work with function apps deployed as custom Linux containers. To learn more about container deployments of Azure Functions, see [Azure Functions Linux container deployment](./functions-containers.md). 
 
-Unless otherwise noted, the content applies to all function apps running in custom containers, regarless of the Azure hosting environment. 
+Unless otherwise noted, the content applies to all function apps running in custom containers, regardless of the Azure hosting environment. 
 
-## Work with images
+## Update an image in the registry
 
-You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image.
+When you make changes to your functions code project, you need to rebuild the custom container locally and republish the updated image to your chosen container registry. The following command rebuilds the image from the root folder with an updated version number and pushed to your registry:    
+
+# [Azure Container Registry](#tab/acr)
+
+    ```console
+    az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.1 .
+    ```
+
+Replace `<REGISTRY_NAME>` with your Container Registry instance and `<LOGIN_SERVER>` with the login server name.
+
+# [Docker Hub](#tab/docker)
+
+    ```console
+    docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.1 .
+    docker push <DOCKER_ID>/azurefunctionsimage:v1.0.1
+    ```
+
+Replace `<DOCKER_ID>` with your Docker Hub account ID.
+
+---
+
+At this point, you need to update the deployment to use the new image. You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
+
+## Work with images in Azure Functions
+
+When your function app container is deployed from a registry, Functions maintains information about the source image. Use the following commands to get data about the image or change the deployment image used:
+
+ +  [`az functionapp config container show`](/cli/azure/functionapp/config/container#az-functionapp-config-container-show): returns information about the image used for deployment. 
+ +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): Change the image used for deployment.
 
 ## Enable continuous deployment to Azure
 
@@ -59,7 +86,7 @@ SSH enables secure communication between a container and a client. With SSH enab
     FROM mcr.microsoft.com/azure-functions/node:4-node18-appservice
     ```
 
-    This example uses the SSH-enabled version of the Node.js version 18 base image. Visit the [Azure Functions base image repos](https://mcr.microsoft.com/en-us/catalog?search=functions) to verify that you are using the latest version of the SSH-enabled base image.
+    This example uses the SSH-enabled version of the Node.js version 18 base image. Visit the [Azure Functions base image repos](https://mcr.microsoft.com/en-us/catalog?search=functions) to verify that you're using the latest version of the SSH-enabled base image.
     
 1. Rebuild the image by using the `docker build` command, replace the `<docker_id>` with your Docker Hub account ID, as in the following example.
 
@@ -82,90 +109,6 @@ SSH enables secure communication between a container and a client. With SSH enab
 1. After a connection is established with your container, run the `top` command to view the currently running processes.
 
     :::image type="content" source="media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png" alt-text="Screenshot that shows Linux top command running in an SSH session.":::
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
-
-## Write to Azure Queue Storage
-
-Azure Functions lets you connect your functions to other Azure services and resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
-
-This section shows you how to integrate your function with an Azure Queue Storage. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
-
-[!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
-::: zone-end
-
-::: zone pivot="programming-language-csharp"  
-## Register binding extensions
-::: zone-end 
-
-[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
-
-[!INCLUDE [functions-add-output-binding-cli](../../includes/functions-add-output-binding-cli.md)]
-
-::: zone pivot="programming-language-csharp"  
-[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]  
-::: zone-end  
-::: zone pivot="programming-language-java" 
-[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
-::: zone-end  
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
-
-## Add code to use the output binding
-
-With the queue binding defined, you can now update your function to write messages to the queue using the binding parameter.
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
-::: zone-end  
-
-::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
-::: zone-end  
-
-::: zone pivot="programming-language-typescript"  
-[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
-::: zone-end  
-
-::: zone pivot="programming-language-powershell"  
-[!INCLUDE [functions-add-output-binding-powershell](../../includes/functions-add-output-binding-powershell.md)]  
-::: zone-end
-
-::: zone pivot="programming-language-csharp"  
-[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
-::: zone-end 
-
-::: zone pivot="programming-language-java"
-[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
-
-[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
-::: zone-end
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
-## Update the image in the registry
-
-1. In the root folder, run `docker build` again, and this time update the version in the tag to `v1.0.1`. As before, replace `<docker_id>` with your Docker Hub account ID.
-
-    ```console
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
-    ```
-
-1. Push the updated image back to the repository with `docker push`.
-
-    ```console
-    docker push <docker_id>/azurefunctionsimage:v1.0.1
-    ```
-
-1. Because you configured continuous delivery, updating the image in the registry again automatically updates your function app in Azure.
-
-## View the message in the Azure Storage queue
-
-In a browser, use the same URL as before to invoke your function. The browser must display the same response as before, because you didn't modify that part of the function code. The added code, however, wrote a message using the `name` URL parameter to the `outqueue` storage queue.
-
-[!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
-
-::: zone-end
 
 ## Next steps
 
