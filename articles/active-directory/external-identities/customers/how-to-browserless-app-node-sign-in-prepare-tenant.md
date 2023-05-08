@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Node.js headless application by using Microsoft Entra - Prepare tenant
-description: Learn how to configure a headless application to sign in and sign out users by using Microsoft Entra - Prepare tenant
+title: Sign in users in a sample Node.js browserless application by using Microsoft Entra - Prepare tenant
+description: Learn how to configure a browserless application to sign in and sign out users by using Microsoft Entra - Prepare tenant
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -13,24 +13,24 @@ ms.topic: how-to
 ms.date: 04/30/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js headless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js headless application by using Microsoft Entra - Prepare your tenant
+# Sign in users in your own Node.js browserless application by using Microsoft Entra - Prepare your tenant
 
 In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. To prepare your tenant, you do the following tasks:
 
-- Register a headless application in the Microsoft Entra admin center. 
+- Register a browserless application in the Microsoft Entra admin center. 
 
 - Create a sign in and sign out user flow in Microsoft Entra admin center.
 
-- Associate your headless application with the user flow. 
+- Associate your browserless application with the user flow. 
 
 After you complete the tasks, you'll collect an *Application (client) ID* and a *Directory (tenant) ID*.
 
-If you've already registered a headless application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your Node.js headless app](how-to-headless-app-node-sign-in-prepare-app.md).
+If you've already registered a browserless application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your Node.js browserless app](how-to-browserless-app-node-sign-in-prepare-app.md).
 
-## Register the headless app
+## Register the browserless app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-enable-public-client-flow](./includes/register-app/enable-public-client-flow.md)]  
@@ -43,7 +43,7 @@ If you've already registered a headless application in the Microsoft Entra admin
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
 
-## Associate the headless application with the user flow
+## Associate the browserless application with the user flow
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
@@ -52,4 +52,4 @@ If you've already registered a headless application in the Microsoft Entra admin
 Prepare your app to sign in users in an Azure AD for customers tenant:
 
 > [!div class="nextstepaction"]
-> [Prepare your app to sign in users >](how-to-headless-app-node-sign-in-prepare-app.md)
+> [Prepare your app to sign in users >](how-to-browserless-app-node-sign-in-prepare-app.md)

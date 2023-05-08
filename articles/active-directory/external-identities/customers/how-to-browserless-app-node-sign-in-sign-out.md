@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Node.js headless application by using Microsoft Entra - Add sign-in and sign-out
-description: Learn how to configure a headless application to sign in and sign out users using Microsoft Entra.
+title: Sign in users in a sample Node.js browserless application by using Microsoft Entra - Add sign-in and sign-out
+description: Learn how to configure a browserless application to sign in and sign out users using Microsoft Entra.
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 04/30/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js headless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Add code to sign in users in a Node.js headless application. 
+# Add code to sign in users in a Node.js browserless application. 
 
-To sign in users in a Node.js headless application, you implement the device code flow by following these steps:
+To sign in users in a Node.js browserless application, you implement the device code flow by following these steps:
 
  - Create the MSAL configuration object
  - Import the required modules
@@ -39,7 +39,7 @@ const { LogLevel } = require('@azure/msal-node');
 const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-        authority: `https://Enter_the_Tenant_Name_Here.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
+        authority: `https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
     },
     system: {
         loggerOptions: {
@@ -56,7 +56,7 @@ The `msalConfig` object contains a set of configuration options that can be used
 
 - `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
 
-- `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to read tenant details.
+- `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md).
 
 In the configuration object, you also add `LoggerOptions`, which contains two options:
 
@@ -142,9 +142,9 @@ getTokenDeviceCode(msalInstance).then(response => {
 Now that we're done building the app, we can test it by following these steps:
 
 
-1. In your terminal, ensure you're in project directory where you created your application. For example, *ciam-node-headless-app*. 
+1. In your terminal, ensure you're in project directory where you created your application. For example, *ciam-node-browserless-app*. 
 
-1. Use the steps in [Run and test the headless app](how-to-headless-app-node-sample-sign-in.md?#run-and-test-sample-headless-app) article to test your headless app.
+1. Use the steps in [Run and test the browserless app](how-to-browserless-app-node-sample-sign-in.md?#run-and-test-sample-browserless-app) article to test your browserless app.
 
 
 ## Next steps 

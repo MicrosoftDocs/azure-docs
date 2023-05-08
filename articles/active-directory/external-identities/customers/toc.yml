@@ -61,12 +61,12 @@ items:
                   items:
                     - name: Sign in users
                       href: ../../develop/web-api-quickstart.md
-            - name: Headless app
+            - name: Browserless app
               items: 
               - name: Node.js 
                 items: 
                   - name: Sign in users
-                    href: how-to-headless-app-node-sample-sign-in.md
+                    href: how-to-browserless-app-node-sample-sign-in.md
               - name: .NET
                 items: 
                   - name: Sign in users
@@ -153,20 +153,20 @@ items:
                     - name: Test API
                       href: ../../develop/tutorial-v2-asp-webapp.md
 
-            - name: Headless app
+            - name: Browserless app
               items: 
                 - name: Node.js
                   items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: how-to-headless-app-node-sign-in-overview.md
+                          href: how-to-browserless-app-node-sign-in-overview.md
                         - name: Prepare tenant 
-                          href: how-to-headless-app-node-sign-in-prepare-tenant.md
+                          href: how-to-browserless-app-node-sign-in-prepare-tenant.md
                         - name: Prepare app 
-                          href: how-to-headless-app-node-sign-in-prepare-app.md
+                          href: how-to-browserless-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
-                          href: how-to-headless-app-node-sign-in-sign-out.md
+                          href: how-to-browserless-app-node-sign-in-sign-out.md
                 - name: .NET​ - Sign in users
                   href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
             - name: Desktop app
