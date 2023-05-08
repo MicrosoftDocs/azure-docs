@@ -430,7 +430,8 @@ The following OpenTelemetry configurations can be accessed through environment v
 
 ### [.NET](#tab/net)
 
-Currently unavailable.
+- `APPLICATIONINSIGHTS_CONNECTION_STRING`. Set this to the connection string for your Application Insights resource.
+- `APPLICATIONINSIGHTS_STATSBEAT_DISABLED`. Set this to `true` to opt-out of internal telemetry.
 
 ### [Java](#tab/java)
 
