@@ -116,7 +116,7 @@ The **Queries** tab contains hunting queries specific to this hunt. These querie
 #### Add a query to the hunt
 1. Select **Query Actions** > **add queries to hunt**
 1. Select the queries you want to add.
-    :::image type="content" source="media/hunts/add-queries-to-hunt.png" alt-text="Screenshot shows query actions menu in the queries tab page.":::
+    :::image type="content" source="media/hunts/add-queries-to-hunt.png" alt-text="Screenshot shows query actions menu in the queries tab page." lightbox="media/hunts/add-queries-to-hunt.png":::
 
 #### Run queries
 1. Select :::image type="icon" source="media/hunts/run.png"::: **Run all queries** or choose specific queries and select :::image type="icon" source="media/hunts/run.png"::: **Run selected queries**.
@@ -212,6 +212,7 @@ Option 2: Use the hunts **Actions**.
     :::image type="content" source="media/hunts/create-incident-actions-menu.png" alt-text="Screenshot showing hunts actions menu from the bookmarks window.":::
 
 1. During the **Add bookmarks** step, use the **Add bookmark** action to choose bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
+1. After the incident is created, it will be linked under the **Related incidents** list for that hunt.
 
 
 ## Update status
