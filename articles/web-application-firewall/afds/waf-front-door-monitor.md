@@ -1,5 +1,5 @@
 ---
-title: Azure Web Application Firewall monitoring and logging
+title: Azure Web Application Firewall Monitoring and logging
 description: Learn Web Application Firewall (WAF) with FrontDoor monitoring and logging
 author: vhorne
 ms.service: web-application-firewall
@@ -24,7 +24,7 @@ To access your WAF's metrics:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door profile.
 1. Select the **Monitoring**/**Metrics** tab on the left.
-1. Add the **WebApplicationFirewallRequestCount** to track number of requests that match WAF rules.
+1. Add the **WebApplicationFirewallRequestCount** to track the number of requests that match WAF rules.
 
 Custom filters can be created based on action types and rule names. Metrics include requests with all actions except *Log*.
 
@@ -32,13 +32,13 @@ Custom filters can be created based on action types and rule names. Metrics incl
 
 ## Logs and diagnostics
 
-Azure Front Door's WAF provides detailed reporting on each request, and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+Azure Front Door's WAF provides detailed reporting on each request and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
 
 Logs aren't enabled by default. You need to explicitly enable logs. You can configure logs in the Azure portal by using the **Diagnostic settings** tab.
 
 ![Screenshot of the Azure portal showing how to enable the WAF logs.](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs.  For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md). 
+If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine-tune rules and exclude any data that you want to be excluded from the logs.  For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md). 
 
 Front Door provides two types of logs: access logs and WAF logs.
 
