@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 3/27/2023
+ms.date: 05/08/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -24,7 +24,7 @@ The IP address of your Azure Load Balancer. It's the point of contact for client
 
 The nature of the IP address determines the **type** of load balancer created. Private IP address selection creates an internal load balancer. Public IP address selection creates a public load balancer.
 
-|  | Public load balancer  | Internal load balancer |
+| | **Public load balancer**  | **Internal load balancer** |
 | ---------- | ---------- | ---------- |
 | **Frontend IP configuration**| Public IP address | Private IP address|
 | **Description** | A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.| An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the frontend IP addresses of a virtual network that are load balanced. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint, meaning an internal load balancer can't accept incoming traffic from the internet. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources. |
