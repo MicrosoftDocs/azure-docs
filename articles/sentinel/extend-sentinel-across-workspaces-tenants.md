@@ -74,11 +74,11 @@ You can query [multiple workspaces](../azure-monitor/logs/cross-workspace-query.
 
 - Use the [union operator](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the workspace() expression to apply a query across tables in multiple workspaces.
 
-You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cross-workspace queries. For example, if a reference to a workspace is long, you may want to save the expression `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` as a function called `SecurityEventCustomerA`. You can then write queries as `SecurityEventCustomerA | where ...` .
+You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cross-workspace queries. For example, if a reference to a workspace is long, you may want to save the expression `workspace("/subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName").SecurityEvent` as a function called `SecurityEventCustomerA`. You can then write queries as `SecurityEventCustomerA | where ...` .
 
 A function can also simplify a commonly used union. For example, you can save the following expression as a function called `unionSecurityEvent`:
 
-`union workspace("hard-to-remember-workspace-name-1").SecurityEvent, workspace("hard-to-remember-workspace-name-2").SecurityEvent`
+`union workspace("/subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName1").SecurityEvent, workspace("/subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName2").SecurityEvent`
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 

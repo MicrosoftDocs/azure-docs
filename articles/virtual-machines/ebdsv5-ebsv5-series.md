@@ -108,7 +108,7 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 | Standard_E32bs_v5 | 32 | 256 | 32 | 88000/2500 | 120000/4000 |117920/2500 |160000/4000 | 8 | 16000 |
 | Standard_E48bs_v5 | 48 | 384 | 32 | 132000/4000 | 150000/5000 | 160000/4000| 160000/4000| 8 | 16000 |
 | Standard_E64bs_v5 | 64 | 512 | 32 | 176000/5000 | 200000/5000 | 160000/4000|160000/4000 | 8 | 20000 | 
-| Standard_E96bs_v5 | 96 | 672 | 32 | 260000/75000 | 260000/8000 | 260000/6500|260000/6500 | 8 | 25000 |
+| Standard_E96bs_v5 | 96 | 672 | 32 | 260000/7500 | 260000/8000 | 260000/6500|260000/6500 | 8 | 25000 |
 | Standard_E112ibs_v5 | 112| 672 | 64 | 260000/8000 | 260000/8000 | 260000/6500|260000/6500 | 8 | 40000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
