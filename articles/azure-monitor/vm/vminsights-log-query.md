@@ -452,8 +452,8 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Computer Heartbeat                        | | |
 | Memory      | AvailableMB           | Memory Available Bytes                    | Megabytes      | memorySizeMB - Total memory size|
-| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - Id of the device<br>bytes - Total sent bytes |
-| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - Id of the device<br>bytes - Total received bytes |
+| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - ID of the device<br>bytes - Total sent bytes |
+| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - ID of the device<br>bytes - Total received bytes |
 | Processor   | UtilizationPercentage | Processor Utilization Percentage          | Percent        | totalCpus - Total CPUs |
 | LogicalDisk | WritesPerSecond       | Logical Disk Writes Per Second            | CountPerSecond | mountId - Mount ID of the device |
 | LogicalDisk | WriteLatencyMs        | Logical Disk Write Latency Millisecond    | MilliSeconds   | mountId - Mount ID of the device |
