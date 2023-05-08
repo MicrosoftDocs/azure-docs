@@ -1233,6 +1233,31 @@ source: {
 
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
+The following JSON sets the source image as the latest image version in an [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
+
+> [!NOTE]
+> The Direct Shared Gallery is currently in preview availability.
+
+# [JSON](#tab/json)
+
+```json
+    source: {
+      "type": "SharedImageVersion",      
+      "imageVersionId": "/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest"      
+    },
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'SharedImageVersion'
+  imageVersionId: '/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest'
+}
+```
+- imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
+---
+
 ## Properties: stagingResourceGroup
 
 The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service creates for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
