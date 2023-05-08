@@ -18,7 +18,7 @@ The Azure Functions hosting plan you choose dictates the following behaviors:
 * The resources available to each function app instance.
 * Support for advanced functionality, such as Azure Virtual Network connectivity.
 
-In addition to Azure Functions hosting, custom function app containers can also be deployed to Kubernetes clusters and to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Functions Linux container deployment](./functions-containers.md).  
+In addition to Azure Functions hosting, custom function app containers can also be deployed to Kubernetes clusters and to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md).  
 
 This article provides a detailed comparison between the various hosting plans, including container-based hosting options.
 

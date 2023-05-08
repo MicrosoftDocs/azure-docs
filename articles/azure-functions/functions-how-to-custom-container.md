@@ -7,9 +7,7 @@ ms.topic: how-to
 
 # Working with custom containers and Azure Functions
 
-This article shows you how to work with function apps deployed as custom Linux containers. To learn more about container deployments of Azure Functions, see [Azure Functions Linux container deployment](./functions-containers.md). 
-
-Unless otherwise noted, the content applies to all function apps running in custom containers, regardless of the Azure hosting environment. 
+This article shows you the support that Azure Functions provides for working with function apps deployed as containers. Unless otherwise noted, the content applies to all function apps running in containers, regardless of the Azure hosting environment. To learn more about containerized function apps deployed to Azure Container Apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md). 
 
 ## Update an image in the registry
 
@@ -114,6 +112,6 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 The following articles provide more information about deploying and managing custom containers:
 
-+ [Azure Functions Linux container deployment](./functions-containers.md)
++ [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)
 + [Scale and hosting options](functions-scale.md)
 + [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
