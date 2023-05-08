@@ -7,10 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/24/2022
+ms.date: 05/08/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
+
+[!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md
+)]
+
 # What is Azure Stack Edge Pro 2?
 
 Azure Stack Edge Pro 2 is a new generation of an AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.

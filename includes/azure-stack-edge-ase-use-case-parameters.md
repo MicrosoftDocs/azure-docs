@@ -16,7 +16,7 @@ This overview provides use case parameters in place for all new Azure Stack Edge
 
 For workload partners who utilize Azure Stack Edge as an infrastructure platform to validate their solution. 
 
-End customers Azure Stack Edge to run one of the validated workloads. We continue to support these partners, their solutions, and their end customers.
+End customers use Azure Stack Edge to run one of the validated workloads. We continue to support these partners, their solutions, and their end customers.
 
 - [Azure Private MEC / Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core/#overview>) - Offers simple, scalable, and secure deployment of private 5G core networks within the Azure private multi-access edge compute (MEC) solution. There's an additional screening process to be approved as an Azure PMEC customer.
 - [Azure Orbital Cloud Access](https://azure.microsoft.com/solutions/space/#overview) (for US government solutions) - Azure Orbital Cloud Access brings connectivity from the cloud wherever businesses and public sector organizations need it most. Azure Orbital Cloud Access enables low-latency, one hop access to the cloud from anywhere on the planet, making it easier to bring satellite-based communications into your enterprise cloud operation.
