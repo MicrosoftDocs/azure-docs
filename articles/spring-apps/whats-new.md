@@ -22,7 +22,7 @@ This page is updated quarterly, so revisit it regularly.  For older updates, ref
 
 ## March 2023
 The following updates are now available in both basic/standard and enterprise plan:
-- **Source code assessment for migration**: Assess your existing on-premise Spring applications for their readiness to migrate to Azure Spring Apps with Cloud Suitability Analyzer. The tool will provide you information on what types of changes will be needed for migration, and how much effort will be involved. [Learn more.](http://aka.ms/cloud-suitability-analyzer)
+- **Source code assessment for migration**: Assess your existing on-premise Spring applications for their readiness to migrate to Azure Spring Apps with Cloud Suitability Analyzer. The tool will provide you information on what types of changes will be needed for migration, and how much effort will be involved. [Learn more.](https://aka.ms/cloud-suitability-analyzer)
 
 The following updates are now available in the enterprise plan:
 - **Use Tanzu Build Service in Azure Spring Apps Enterprise plan**: Tanzu Build Service in the Enterprise plan is the entry point to containerize user applications from both source code and artifacts. Besides current limited options, below options to be added:

@@ -40,11 +40,11 @@ The following updates are now available in the enterprise plan:
 ## September 2022
 The following updates are now available to help customers reduce adoption barriers and pricing frictions to take full advantage of the capabilities offered by Azure Spring Apps Enterprise.
 
-- **Price Reduction**: We have reduced the base unit of Azure Spring Apps Standard and Enterprise to 6 vCPUs and 12 GB of Memory and reduced the overage prices for vCPU and Memory. [Learn more.](https://azure.microsoft.com/en-us/pricing/details/spring-apps/)
+- **Price Reduction**: We have reduced the base unit of Azure Spring Apps Standard and Enterprise to 6 vCPUs and 12 GB of Memory and reduced the overage prices for vCPU and Memory. [Learn more.](https://azure.microsoft.com/pricing/details/spring-apps/)
 
-- **Monthly Free Grant**: The first 50 vCPU-hours and 100 memory GB hours are free each month. [Learn more.](https://azure.microsoft.com/en-us/pricing/details/spring-apps/)
+- **Monthly Free Grant**: The first 50 vCPU-hours and 100 memory GB hours are free each month. [Learn more.](https://azure.microsoft.com/pricing/details/spring-apps/)
 
 You can compare the price change from [Price Reduction](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058).
 
 ## Older updates
-For older updates, refer to the [Azure Updates for Azure Spring Apps](https://azure.microsoft.com/en-us/updates/?query=azure%20spring).
+For older updates, refer to the [Azure Updates for Azure Spring Apps](https://azure.microsoft.com/updates/?query=azure%20spring).
