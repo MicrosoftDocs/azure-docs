@@ -36,6 +36,7 @@ Available to US government entities and their partners only. See more informatio
   - Speech translation
 - **Unsupported features:**
   - Custom Voice
+  - Custom Commands
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
@@ -128,6 +129,7 @@ Available to organizations with a business presence in China. See more informati
   - Speech translator
 - **Unsupported features:**
   - Custom Voice
+  - Custom Commands
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 

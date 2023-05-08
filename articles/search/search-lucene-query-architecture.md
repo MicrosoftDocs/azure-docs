@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 For this request, the search engine does the following operations:
 
-1. Filters out documents where the price is at least $60 and less than $300.
+1. Finds documents where the price is at least $60 and less than $300.
 
 2. Executes the query. In this example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""` (users typically don't enter punctuation, but including it in the example allows us to explain how analyzers handle it). 
 

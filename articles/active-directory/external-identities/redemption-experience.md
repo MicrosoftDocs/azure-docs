@@ -1,6 +1,6 @@
 ---
 
-title: Invitation redemption in B2B collaboration - Azure AD
+title: Invitation redemption in B2B collaboration
 description: Describes the Azure AD B2B collaboration invitation redemption experience for end users, including the agreement to privacy terms.
 
 services: active-directory

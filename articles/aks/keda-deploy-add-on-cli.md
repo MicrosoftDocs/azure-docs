@@ -3,10 +3,9 @@ title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using Az
 description: Use Azure CLI to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 author: raorugan
 ms.author: raorugan
-ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 10/10/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using Azure CLI
@@ -183,7 +182,7 @@ You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
-[aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
+[aks-firewall-requirements]: outbound-rules-control-egress.md#azure-global-required-network-rules
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda]: https://keda.sh/

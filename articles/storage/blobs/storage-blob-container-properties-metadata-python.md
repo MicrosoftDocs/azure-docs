@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: pauljewell
 ms.devlang: python
-ms.custom: devx-track-python, devguide-pythons
+ms.custom: devx-track-python, devguide-python
 ---
 
 # Manage container properties and metadata with Python
@@ -23,7 +23,7 @@ Blob containers support system properties and user-defined metadata, in addition
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-- **Metadata names**: Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
+    Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 ## Retrieve container properties
 

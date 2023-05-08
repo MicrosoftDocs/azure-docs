@@ -11,44 +11,216 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/20/2023
+ms.date: 4/27/2023
 ms.author: gunnarc
+ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-
-## January 2023 Guest OS
-
->[!NOTE] 
-
->The January Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the January Guest OS. This list is subject to change. 
+## April 2023 Guest OS
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 23-01 |  [5022289]  |  Latest Cumulative Update(LCU) | 5.77 | Jan 10, 2023 |
-|  Rel 23-01 |  [5019958]  |  IE Cumulative Updates | 2.133, 3.120, 4.113 | Nov 8, 2022 |
-|  Rel 23-01 |  [5022291]  |  Latest Cumulative Update(LCU) | 7.21 | Jan 10, 2023 |
-|  Rel 23-01 |  [5022286]  |  Latest Cumulative Update(LCU) | 6.53 | Jan 10, 2023 |
-|  Rel 23-01 |  [5020861]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 2.133 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020869]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 2.133 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020862]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 4.113 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020868]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 4.113 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020859]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 3.120 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020867]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 3.120 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020866]  |  .NET Framework 4.7.2 Cumulative Update LKG | 6.53 | Dec 13, 2022 |
-|  Rel 23-01 |  [5020877]  |  .NET Framework 4.8 Security and Quality Rollup LKG | 7.21 | Dec 13, 2022 |
-|  Rel 23-01 |  [5022338]  |  Monthly Rollup | 2.133 | Jan 10, 2023 |
-|  Rel 23-01 |  [5022348]  |  Monthly Rollup | 3.120 | Jan 10, 2023 |
-|  Rel 23-01 |  [5022352]  |  Monthly Rollup | 4.113 | Jan 10, 2023 |
-|  Rel 23-01 |  [5016263]  |  Servicing Stack update LKG | 3.120 | Jul 12, 2022 |
-|  Rel 23-01 |  [5018922]  |  Servicing Stack update LKG | 4.113 | Oct 11, 2022 |
-|  Rel 23-01 |  [4578013]  |  OOB Standalone Security Update | 4.113 | Aug 19, 2020 |
-|  Rel 23-01 |  [5017396]  |  Servicing Stack update LKG | 5.77 | Sep 13, 2022 |
-|  Rel 23-01 |  [5017397]  |  Servicing Stack update LKG | 2.133 | Sep 13, 2022 |
-|  Rel 23-01 |  [4494175]  |  Microcode | 5.77 | Sep 1, 2020 |
-|  Rel 23-01 |  [4494174]  |  Microcode | 6.53 | Sep 1, 2020 |
+|  Rel 23-04 |  [5025228]  |  Latest Cumulative Update(LCU) | [5.80] | Apr 11, 2023 |
+|  Rel 23-04 |  [5022835]  |  IE Cumulative Updates | [2.136], [3.124], [4.116] | Feb 14, 2023 |
+|  Rel 23-04 |  [5025230]  |  Latest Cumulative Update(LCU) | [7.24] | Apr 11, 2023 |
+|  Rel 23-04 |  [5025229]  |  Latest Cumulative Update(LCU) | [6.56] | Apr 11, 2023 |
+|  Rel 23-04 |  [5022523]  |  .NET Framework 3.5 Security and Quality Rollup LKG  | [2.136] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022515]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG  | [2.136] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022525]  |  .NET Framework 3.5 Security and Quality Rollup LKG  | [4.116] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022513]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG  | [4.116] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022574]  |  .NET Framework 3.5 Security       and Quality Rollup LKG  | [3.124] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022512]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG  | [3.124] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022511]  |  . NET Framework 4.7.2 Cumulative Update LKG  | [6.56] | Feb 14, 2023 |
+|  Rel 23-04 |  [5022507]  |  .NET Framework 4.8 Security and Quality Rollup LKG  | [7.24] | Feb 14, 2023 |
+|  Rel 23-04 |  [5025279]  |  Monthly Rollup  | [2.136] | Apr 11, 2023 |
+|  Rel 23-04 |  [5025287]  |  Monthly Rollup  | [3.124] | Apr 11, 2023 |
+|  Rel 23-04 |  [5025285]  |  Monthly Rollup  | [4.116] | Apr 11, 2023 |
+|  Rel 23-04 |  [5023791]  |  Servicing Stack Update LKG  | [3.124] | Mar 14, 2023 |
+|  Rel 23-04 |  [5023790]  |  Servicing Stack Update LKG  | [4.116] | Mar 14, 2022 |
+|  Rel 23-04 |  [4578013]  |  OOB Standalone Security Update  | [4.116] | Aug 19, 2020 |
+|  Rel 23-04 |  [5023788]  |  Servicing Stack Update LKG  | [5.80] | Mar 14, 2023 |
+|  Rel 23-04 |  [5017397]  |  Servicing Stack Update LKG  | [2.136] | Sep 13, 2022 |
+|  Rel 23-04 |  [4494175]  |  Microcode  | [5.80] | Sep 1, 2020 |
+|  Rel 23-04 |  [4494174]  |  Microcode  | [6.56] | Sep 1, 2020 |
+|  Rel 23-04 |  5025314  |  Servicing Stack Update  | [7.24] |  |
+
+[5025228]: https://support.microsoft.com/kb/5025228
+[5022835]: https://support.microsoft.com/kb/5022835
+[5025230]: https://support.microsoft.com/kb/5025230
+[5025229]: https://support.microsoft.com/kb/5025229
+[5022523]: https://support.microsoft.com/kb/5022523
+[5022515]: https://support.microsoft.com/kb/5022515
+[5022525]: https://support.microsoft.com/kb/5022525
+[5022513]: https://support.microsoft.com/kb/5022513
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022512]: https://support.microsoft.com/kb/5022512
+[5022511]: https://support.microsoft.com/kb/5022511
+[5022507]: https://support.microsoft.com/kb/5022507
+[5025279]: https://support.microsoft.com/kb/5025279
+[5025287]: https://support.microsoft.com/kb/5025287
+[5025285]: https://support.microsoft.com/kb/5025285
+[5023791]: https://support.microsoft.com/kb/5023791
+[5023790]: https://support.microsoft.com/kb/5023790
+[4578013]: https://support.microsoft.com/kb/4578013
+[5023788]: https://support.microsoft.com/kb/5023788
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.136]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.124]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.116]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.80]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.56]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.24]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## March 2023 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 23-03 |  [5023697]  |  Latest Cumulative Update(LCU) | [5.79] | Mar 14, 2023 |
+|  Rel 23-03 |  [5022835]  |  IE Cumulative Updates | [2.135], [3.122], [4.115] | Feb 14, 2023 |
+|  Rel 23-03 |  [5023705]  |  Latest Cumulative Update(LCU) | [7.23] | Mar 14, 2023 |
+|  Rel 23-03 |  [5023702]  |  Latest Cumulative Update(LCU) | [6.55] | Mar 14, 2023 |
+|  Rel 23-03 |  [5022523]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.135] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022515]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [2.135] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022574]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.115] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022513]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [4.115] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022574]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.122] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022512]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [3.122] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022511]  |  . NET Framework 4.7.2 Cumulative Update  | [6.55] | Feb 14, 2023 |
+|  Rel 23-03 |  [5022507]  |  .NET Framework 4.8 Security and Quality Rollup  | [7.23] | Feb 14, 2023 |
+|  Rel 23-03 |  [5023769]  |  Monthly Rollup  | [2.135] | Mar 14, 2023 |
+|  Rel 23-03 |  [5023756]  |  Monthly Rollup  | [3.122] | Mar 14, 2023 |
+|  Rel 23-03 |  [5023765]  |  Monthly Rollup  | [4.115] | Mar 14, 2023 |
+|  Rel 23-03 |  [5023791]  |  Servicing Stack Update  | [3.122] | Mar 14, 2023 |
+|  Rel 23-03 |  [5023790]  |  Servicing Stack update | [4.115] | Mar 14, 2022 |
+|  Rel 23-03 |  [4578013]  |  OOB Standalone Security Update  | [4.115] | Aug 19, 2020 |
+|  Rel 23-03 |  [5023788]  |  Servicing Stack Update | [5.79] | Mar 14, 2023 |
+|  Rel 23-03 |  [5017397]  |  Servicing Stack Update LKG  | [2.135] | Sep 13, 2022 |
+|  Rel 23-03 |  [4494175]  |  Microcode  | [5.79] | Sep 1, 2020 |
+|  Rel 23-03 |  [4494174]  |  Microcode  | [6.55] | Sep 1, 2020 |
+|  Rel 23-03 |  5023793  |  Servicing Stack Update  | [7.23] |  |
+
+[5023697]: https://support.microsoft.com/kb/5023697
+[5022835]: https://support.microsoft.com/kb/5022835
+[5023705]: https://support.microsoft.com/kb/5023705
+[5023702]: https://support.microsoft.com/kb/5023702
+[5022523]: https://support.microsoft.com/kb/5022523
+[5022515]: https://support.microsoft.com/kb/5022515
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022513]: https://support.microsoft.com/kb/5022513
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022512]: https://support.microsoft.com/kb/5022512
+[5022511]: https://support.microsoft.com/kb/5022511
+[5022507]: https://support.microsoft.com/kb/5022507
+[5023769]: https://support.microsoft.com/kb/5023769
+[5023756]: https://support.microsoft.com/kb/5023756
+[5023765]: https://support.microsoft.com/kb/5023765
+[5023791]: https://support.microsoft.com/kb/5023791
+[5023790]: https://support.microsoft.com/kb/5023790
+[4578013]: https://support.microsoft.com/kb/4578013
+[5023788]: https://support.microsoft.com/kb/5023788
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.135]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.122]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.115]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.79]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.55]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.23]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+
+## February 2023 Guest OS
+ 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 23-02 |  [5022838]  |  Latest Cumulative Update(LCU) | [5.78] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022835]  |  IE Cumulative Updates | [2.134], [3.121], [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022842]  |  Latest Cumulative Update(LCU) | [7.22] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022840]  |  Latest Cumulative Update(LCU) | [6.54] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022523]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.134] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022515]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [2.134] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022525]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022513]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022574]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022512]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022511]  |  . NET Framework 4.7.2 Cumulative Update  | [6.54] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022507]  |  .NET Framework 4.8 Security and Quality Rollup  | [7.22] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022872]  |  Monthly Rollup  | [2.134] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022903]  |  Monthly Rollup  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022899]  |  Monthly Rollup  | [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022923]  |  Servicing Stack Update  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5018922]  |  Servicing Stack update LKG  | [4.114] | Oct 11, 2022 |
+|  Rel 23-02 |  [4578013]  |  OOB Standalone Security Update  | [4.114] | Aug 19, 2020 |
+|  Rel 23-02 |  [5017396]  |  Servicing Stack Update LKG  | [5.78] | Sep 13, 2022 |
+|  Rel 23-02 |  [5017397]  |  Servicing Stack Update LKG  | [2.134] | Sep 13, 2022 |
+|  Rel 23-02 |  [4494175]  |  Microcode  | [5.78] | Sep 1, 2020 |
+|  Rel 23-02 |  [4494174]  |  Microcode  | [6.54] | Sep 1, 2020 |
+|  Rel 23-02 |  5022947  |  Servicing Stack Update  | [7.22] |  |
+
+[5022838]: https://support.microsoft.com/kb/5022838
+[5022835]: https://support.microsoft.com/kb/5022835
+[5022842]: https://support.microsoft.com/kb/5022842
+[5022840]: https://support.microsoft.com/kb/5022840
+[5022523]: https://support.microsoft.com/kb/5022523
+[5022515]: https://support.microsoft.com/kb/5022515
+[5022525]: https://support.microsoft.com/kb/5022525
+[5022513]: https://support.microsoft.com/kb/5022513
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022512]: https://support.microsoft.com/kb/5022512
+[5022511]: https://support.microsoft.com/kb/5022511
+[5022507]: https://support.microsoft.com/kb/5022507
+[5022872]: https://support.microsoft.com/kb/5022872
+[5022903]: https://support.microsoft.com/kb/5022903
+[5022899]: https://support.microsoft.com/kb/5022899
+[5022923]: https://support.microsoft.com/kb/5022923
+[5018922]: https://support.microsoft.com/kb/5018922
+[4578013]: https://support.microsoft.com/kb/4578013
+[5017396]: https://support.microsoft.com/kb/5017396
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.134]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.121]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.114]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.78]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.54]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.22]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+
+## January 2023 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 23-01 |  [5022289]  |  Latest Cumulative Update(LCU) | [5.77] | Jan 10, 2023 |
+|  Rel 23-01 |  [5019958]  |  IE Cumulative Updates | [2.133], [3.120], [4.113] | Nov 8, 2022 |
+|  Rel 23-01 |  [5022291]  |  Latest Cumulative Update(LCU) | [7.21] | Jan 10, 2023 |
+|  Rel 23-01 |  [5022286]  |  Latest Cumulative Update(LCU) | [6.53] | Jan 10, 2023 |
+|  Rel 23-01 |  [5020861]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [2.133] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020869]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | [2.133] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020862]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [4.113] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020868]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | [4.113] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020859]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [3.120] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020867]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | [3.120] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020866]  |  .NET Framework 4.7.2 Cumulative Update LKG | [6.53] | Dec 13, 2022 |
+|  Rel 23-01 |  [5020877]  |  .NET Framework 4.8 Security and Quality Rollup LKG | [7.21] | Dec 13, 2022 |
+|  Rel 23-01 |  [5022338]  |  Monthly Rollup | [2.133] | Jan 10, 2023 |
+|  Rel 23-01 |  [5022348]  |  Monthly Rollup | [3.120] | Jan 10, 2023 |
+|  Rel 23-01 |  [5022352]  |  Monthly Rollup | [4.113] | Jan 10, 2023 |
+|  Rel 23-01 |  [5016263]  |  Servicing Stack update LKG | [3.120] | Jul 12, 2022 |
+|  Rel 23-01 |  [5018922]  |  Servicing Stack update LKG | [4.113] | Oct 11, 2022 |
+|  Rel 23-01 |  [4578013]  |  OOB Standalone Security Update | [4.113] | Aug 19, 2020 |
+|  Rel 23-01 |  [5017396]  |  Servicing Stack update LKG | [5.77] | Sep 13, 2022 |
+|  Rel 23-01 |  [5017397]  |  Servicing Stack update LKG | [2.133] | Sep 13, 2022 |
+|  Rel 23-01 |  [4494175]  |  Microcode | [5.77] | Sep 1, 2020 |
+|  Rel 23-01 |  [4494174]  |  Microcode | [6.53] | Sep 1, 2020 |
 
 [5022289]: https://support.microsoft.com/kb/5022289
 [5019958]: https://support.microsoft.com/kb/5019958
@@ -72,6 +244,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5017397]: https://support.microsoft.com/kb/5017397
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.133]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.120]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.113]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.77]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.53]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.21]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 
 ## December 2022 Guest OS
@@ -3039,7 +3217,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-139 |[3199720] |Security Update for Windows Kernel |2.57 |Nov 8.2016 |
 | MS16-140 |[3193479] |Security Update For Boot Manager |5.3, 4.38, 3.45 |Nov 8, 2016 |
 | MS16-142 |[3198467] |Cumulative Security Update for Internet Explorer |2.57, 4.38, 5.3 |Nov 8, 2016 |
-| N/A |[3192321] |Turkey ends DST observance |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| N/A |[3192321] |Türkiye ends DST observance |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | N/A |[3185330] |October 2016 security monthly quality rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
 | N/A |[3192403] |October 2016 Preview of Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
 | N/A |[3177467] |Servicing stack update for Windows 7 SP1 and Windows Server 2008 R2 SP1: September 20, 2016 |2.57 |Nov 8, 2016 |

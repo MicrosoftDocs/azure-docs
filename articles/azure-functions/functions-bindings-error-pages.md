@@ -68,7 +68,12 @@ Starting with version 3.x of the Azure Functions runtime, you can define retry p
 
 The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
 
-A retry policy is evaluated when a Timer, Kafka, or Event Hubs-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. Event Hubs checkpoints won't be written until the retry policy for the execution has finished. Because of this behavior, progress on the specific partition is paused until the current batch has finished.
+A retry policy is evaluated when a Timer, Kafka, or Event Hubs-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. 
+
+> [!IMPORTANT]
+> Event Hubs checkpoints won't be written until the retry policy for the execution has finished. Because of this behavior, progress on the specific partition is paused until the current batch has finished.
+>
+> The Event Hubs v5 extension supports additional retry capabilities for interactions between the Functions host and the event hub.  Please refer to the `clientRetryOptions` in [the Event Hubs section of the host.json](functions-bindings-event-hubs.md#host-json) file for more information.
 
 #### Retry strategies
 
@@ -116,7 +121,20 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/fixed-delay)
 
-Retry policies aren't yet supported when they're running in an isolated worker process.
+```csharp
+[Function("EventHubsFunction")]
+[FixedDelayRetry(5, "00:00:10")]
+[EventHubOutput("dest", Connection = "EventHubConnectionAppSetting")]
+public static string Run([EventHubTrigger("src", Connection = "EventHubConnectionAppSetting")] string[] input,
+    FunctionContext context)
+{
+// ...
+}
+  ```
+|Property  | Description |
+|---------|-------------| 
+|MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
 # [C# script](#tab/csharp-script/fixed-delay)
 

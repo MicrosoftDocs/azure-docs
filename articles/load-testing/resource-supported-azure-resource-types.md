@@ -10,14 +10,11 @@ author: ntrogh
 ms.date: 01/04/2022
 ---
 
-# Supported Azure resource types for monitoring in Azure Load Testing Preview
+# Supported Azure resource types for monitoring in Azure Load Testing
 
-Learn which Azure resource types Azure Load Testing Preview supports for server-side monitoring. You can select specific metrics for each resource type to track and report on for a load test.
+Learn which Azure resource types Azure Load Testing supports for server-side monitoring. You can select specific metrics for each resource type to track and report on for a load test.
 
 To learn how to configure your load test, see [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Supported Azure resource types
 
@@ -42,7 +39,7 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Key Vault
 * Service Bus
 * Static Web Apps
-* Storage Accounts: Azure Blog Storage/Azure Files/Azure Table Storage/Queue Storage
+* Storage Accounts: Azure Blob Storage/Azure Files/Azure Table Storage/Queue Storage
 * Storage Accounts (classic): Azure Files/Azure Table Storage/Queue Storage
 * Traffic Manager profile
 * Virtual Machine Scale Sets
@@ -51,5 +48,4 @@ This section lists the Azure resource types that Azure Load Testing supports for
 ## Next steps
 
 * Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
-* Learn how to [Get more insights from App Service diagnostics](./how-to-appservice-insights.md).
 * Learn how to [Compare multiple test runs](./how-to-compare-multiple-test-runs.md).

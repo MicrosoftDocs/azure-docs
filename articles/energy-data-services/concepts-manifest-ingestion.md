@@ -1,16 +1,16 @@
 ---
-title: Microsoft Energy Data Services Preview manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
-description: This article describes manifest ingestion concepts #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview manifest ingestion concepts
+description: This article describes manifest ingestion concepts
+author: bharathim
+ms.author: bselvaraj
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Manifest-based ingestion concepts
-Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata about datasets in Microsoft Energy Data Services Preview instance. This metadata is indexed by the system and allows the end-user to search the datasets.
+Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata about datasets in Azure Data Manager for Energy Preview instance. This metadata is indexed by the system and allows the end-user to search the datasets.
 
 Manifest-based file ingestion is an opaque ingestion that do not parse or understand the file contents. It creates a metadata record based on the manifest and makes the record searchable.
 
@@ -41,7 +41,7 @@ Any arrays are ordered. should there be interdependencies, the dependent items m
 
 ## Manifest-based file ingestion workflow
 
-Microsoft Energy Data Services Preview instance has out-of-the-box support for Manifest-based file ingestion workflow. `Osdu_ingest` Airflow DAG is pre-configured in your instance.
+Azure Data Manager for Energy Preview instance has out-of-the-box support for Manifest-based file ingestion workflow. `Osdu_ingest` Airflow DAG is pre-configured in your instance.
 
 ### Manifest-based file ingestion workflow components
 The Manifest-based file ingestion workflow consists of the following components:
@@ -54,7 +54,7 @@ The Manifest-based file ingestion workflow consists of the following components:
 * **Search Service** is used to perform referential integrity check during the manifest ingestion process.
 
 ### Pre-requisites
-Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Microsoft Energy Data Services instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
+Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Azure Data Manager for Energy Preview instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
 
 ### Workflow sequence
 The following illustration provides the Manifest-based file ingestion workflow:

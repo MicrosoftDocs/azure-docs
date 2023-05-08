@@ -69,7 +69,7 @@ A resource directory has one or more resources to share. In this step, you creat
     | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group will be the target resource for entitlement management. The group should be empty of members to start.
+4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package
@@ -141,6 +141,15 @@ An *access package* is a bundle of resources that a team or project needs and is
 1. Leave **Require approval** set to **No**.
 
 1. For **Enable requests**, select **Yes** to enable this access package to be requested as soon as it's created.
+
+1. To add a Verified ID requirement to the access package, select on **Add issuer** in the **Required Verified IDs** section. If you don't have the Verified ID service set up in your tenant, navigate to the **Verified ID** section of the Azure portal.
+
+    :::image type="content" source="media/entitlement-management-access-package-first/verified-id-picker.png" alt-text="Screenshot of the Verified ID picker selection.":::
+
+1. Search for an issuer in the dropdown and select the credential type you want users to present when requesting access.
+
+    > [!NOTE]   
+    > If you select multiple issuers / credential types, users requesting access will be required to present **all** of the credential types you have included in this policy. To give users the option of presenting one of many credential types, please include each acceptable option in a separate policy. 
 
 1. Select **Next** to open the **Requestor information** tab.
 
@@ -260,7 +269,7 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 
 To set up group writeback for Microsoft 365 groups in access packages, you must complete the following prerequisites:
 
-- Set up group writeback in the Azure Active Directory admin center. 
+- Set up group writeback in the Azure portal. 
 - The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
 - Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-enable.md) for Azure AD Connect. 
  
@@ -268,7 +277,7 @@ Using group writeback, you can now sync Microsoft 365 groups that are part of ac
 
 1. Create an Azure Active Directory Microsoft 365 group.
 
-1. Set the group to be written back to on-premises Active Directory. For instructions, see [Group writeback in the Azure Active Directory admin center](../enterprise-users/groups-write-back-portal.md). 
+1. Set the group to be written back to on-premises Active Directory. For instructions, see [Group writeback in the Azure portal](../enterprise-users/groups-write-back-portal.md). 
 
 1. Add the group to an access package as a resource role. See [Create a new access package](entitlement-management-access-package-create.md#resource-roles) for guidance. 
 

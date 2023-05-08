@@ -6,7 +6,6 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2022
 ms.author: duau
@@ -16,8 +15,9 @@ ms.custom: mode-ui
 
 # Quickstart: Create an Azure Front Door profile - Azure portal
 
+In this quickstart, you'll learn how to create an Azure Front Door profile using the Azure portal. You can create an Azure Front Door profile through *Quick create* with basic configurations or through the *Custom create* which allows a more advanced configuration. 
 
-In this quickstart, you'll learn how to create an Azure Front Door profile using the Azure portal. You can create an Azure Front Door profile through *Quick Create* with basic configurations or through the *Custom create* which allows a more advanced configuration. With *Custom create*, you deploy two App services. Then, you create the Azure Front Door profile using the two App services as your origin. Lastly, you'll verify connectivity to your App services using the Azure Front Door frontend hostname.
+With *Custom create*, you deploy two App services. Then, you create the Azure Front Door profile using the two App services as your origin. Lastly, you'll verify connectivity to your App services using the Azure Front Door frontend hostname.
 
 ## Prerequisites
 
@@ -62,11 +62,15 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create Front Door profile - Custom Create
 
+In the previous tutorial, you created an Azure Front Door profile through *Quick create*, which created your profile with basic configurations.
+
+You'll now create an Azure Front Door profile using *Custom create* and deploy two App services that your Azure Front Door profile will use as your origin.
+
 ### Create two Web App instances
 
 If you already have services to use as an origin, skip to [create a Front Door for your application](#create-a-front-door-for-your-application).
 
-In this example, we create two Web App instances that is deployed in two different Azure regions. Both web application instances will run in *Active/Active* mode, so either one can service incoming traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
+In this example, we create two Web App instances that are deployed in two different Azure regions. Both web application instances will run in *Active/Active* mode, so either one can service incoming traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
 Use the following steps to create two Web Apps used in this example.
 
@@ -92,7 +96,7 @@ Use the following steps to create two Web Apps used in this example.
 
 1. Select **Review + create**, review the summary, and then select **Create**. Deployment of the Web App can take up to a minute.
 
-1. After your create the first Web App, create a second Web App. Use the same settings as above, except for the following settings:
+1. After you create the first Web App, create a second Web App. Use the same settings as above, except for the following settings:
 
     | Setting | Description |
     |--|--|
@@ -103,7 +107,7 @@ Use the following steps to create two Web Apps used in this example.
 
 ### Create a Front Door for your application
 
-Configure Azure Front Door to direct user traffic based on lowest latency between the two Web Apps origins. You will also secure your Azure Front Door with a Web Application Firewall (WAF) policy. 
+Configure Azure Front Door to direct user traffic based on lowest latency between the two Web Apps origins. You'll also secure your Azure Front Door with a Web Application Firewall (WAF) policy. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  

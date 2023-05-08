@@ -60,7 +60,7 @@ When educators sign in to the Lab Services portal, they are prompted for their e
 
 ![Error message](./media/how-to-configure-student-usage/cant-find-account.png)
 
-To sign up for a Microsoft account, educators should go to [http://signup.live.com](http://signup.live.com).  
+To sign up for a Microsoft account, educators should go to [https://signup.live.com](https://signup.live.com).  
 
 ### Using a GitHub Account
 

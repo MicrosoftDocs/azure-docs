@@ -3,7 +3,7 @@ title: Administrative template for Azure Virtual Desktop
 description: Learn how to use the administrative template for Azure Virtual Desktop with Group Policy to configure settings.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 02/02/2023
 ms.author: daknappe
 ---
 # Administrative template for Azure Virtual Desktop
@@ -44,7 +44,7 @@ To add the administrative template, select a tab for your scenario and follow th
 
 1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop, as shown in the following screenshot:
 
-   :::image type="content" source="media/administrative-template-group-policy.png" alt-text="Screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template-group-policy.png":::
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
 # [Local Group Policy](#tab/local-group-policy)
 
@@ -56,7 +56,7 @@ To add the administrative template, select a tab for your scenario and follow th
 
 1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop, as shown in the following screenshot:
 
-   :::image type="content" source="media/administrative-template-group-policy.png" alt-text="Screenshot of the Local Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template-group-policy.png":::
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Local Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
 ---
 

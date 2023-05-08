@@ -3,9 +3,8 @@ title: Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure K
 description: Learn how to use the Azure Key Vault Provider for Secrets Store CSI Driver to integrate secrets stores with Azure Kubernetes Service (AKS).
 author: nickomang 
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: how-to 
-ms.date: 01/26/2023
+ms.date: 02/10/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -45,7 +44,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
 2. Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability using the [`az aks create`][az-aks-create] command with the `azure-keyvault-secrets-provider` add-on.
 
     ```azurecli-interactive
-    az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
+    az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
     ```
 
 3. A user-assigned managed identity, named `azureKeyvaultSecretsProvider`, is created by the add-on to access Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
@@ -116,7 +115,7 @@ In addition to an AKS cluster, you'll need an Azure key vault resource that stor
 The Secrets Store CSI Driver allows for the following methods to access an Azure key vault:
 
 * An [Azure Active Directory pod identity][aad-pod-identity] (preview)
-* An [Azure Active Directory workload identity][aad-workload-identity] (preview)
+* An [Azure Active Directory workload identity][aad-workload-identity]
 * A user-assigned or system-assigned managed identity
 
 Follow the instructions in [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods] for your chosen method.

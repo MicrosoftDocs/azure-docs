@@ -4,7 +4,7 @@ description: Learn how to create a Java function from the command line, then pub
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-java, devx-track-azurecli, mode-api
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -191,6 +191,8 @@ A function app and related resources are created in Azure when you first deploy 
     + Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your _artifactId_, appended with a randomly generated number.
     
     The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 

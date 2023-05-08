@@ -103,7 +103,7 @@ Some features are subject to regional availability. If you require any of follow
 
 Other features that have regional constraints:
 
-+ ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones)
++ [Availability Zones](search-reliability.md#availability-zones)
 + [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
 
 ## Choose a tier

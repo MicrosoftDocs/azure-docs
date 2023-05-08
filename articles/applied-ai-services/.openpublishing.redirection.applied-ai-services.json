@@ -150,6 +150,16 @@
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/build-training-data-set.md",
             "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/try-form-recognizer-studio",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/form-recognizer-studio-overview.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/studio-overview",
+            "redirect_document_id": true
           }
      ]
 }

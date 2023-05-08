@@ -42,6 +42,9 @@ To connect your Azure Cosmos DB account to Compass, you can follow the below ste
 
     :::image type="content" source="./media/connect-using-compass/mongodb-compass-detect.png" alt-text="Screenshot shows a dialog box explaining that your have a connection string on your clipboard.":::
 
+    > [!NOTE]
+    > If Compass does not automatically detect your connection string, you can still manually paste it into the application.
+
 5. Upon clicking **Yes** in the above step, your details from the connection string will be automatically populated. Remove the value automatically populated in the **Replica Set Name** field to ensure that is left blank.
 
     :::image type="content" source="./media/connect-using-compass/mongodb-compass-replica.png" alt-text="Screenshot shows the Replica Set Name text box.":::

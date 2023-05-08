@@ -4,6 +4,7 @@ description: This article describes how to move from classic to modernized VMwar
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: jsuri
+ms.service: site-recovery
 ms.topic: how-to
 ms.date: 01/13/2023
 ms.custom: engagement-fy23

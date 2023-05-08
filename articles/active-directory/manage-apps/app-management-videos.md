@@ -12,6 +12,7 @@ ms.workload: identity
 ms.date: 05/31/2022
 ms.author: jomondi
 ms.reviewer: celested
+ms.custom: enterprise-apps
 ---
 
 # Application management videos
@@ -47,7 +48,7 @@ ___
         >[!Video https://www.youtube.com/embed/19v7WSt9HwU]
     :::column-end:::
      :::column:::
-        2 - [How do I grant admin consent in the Azure AD portal](https://www.youtube.com/watch?v=LSYcelwdhHI&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=5)(1:19)
+        2 - [How do I grant admin consent in the Azure portal](https://www.youtube.com/watch?v=LSYcelwdhHI&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=5)(1:19)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/LSYcelwdhHI]

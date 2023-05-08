@@ -41,7 +41,8 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * Resources managed by Microsoft in your subscription can’t transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
-* Workspace with customer-managed key doesn't currently support v2 online endpoint and batch endpoint.
+* OS disk of machine learning compute can't be encrypted with customer-managed key, but can be encrypted with Microsoft-managed key if the workspace is created with `hbi_workspace` parameter set to `TRUE`. For more details, see [Data encryption](concept-data-encryption.md#machine-learning-compute).
+* Workspace with customer-managed key doesn't currently support v2 batch endpoint.
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -114,7 +115,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
 | Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 | Azure Resource Manager</br>template | [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-| REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+| REST API | [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
 Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
 
@@ -166,4 +167,4 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 * [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
 * [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 * [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-* [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |

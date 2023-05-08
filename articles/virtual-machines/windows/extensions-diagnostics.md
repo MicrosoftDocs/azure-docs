@@ -10,9 +10,8 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: mamccrea
-ms.custom:  devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 # Azure Diagnostics Extension for Windows VMs
 

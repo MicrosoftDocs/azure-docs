@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with A Cloud Guru | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with A Cloud Guru'
 description: Learn how to configure single sign-on between Azure Active Directory and A Cloud Guru.
 services: active-directory
 author: jeevansd

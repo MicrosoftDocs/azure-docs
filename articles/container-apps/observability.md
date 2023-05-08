@@ -2,12 +2,12 @@
 title: Observability in Azure Container Apps
 description: Monitor your running app in Azure Container Apps
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/29/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Observability in Azure Container Apps
@@ -18,7 +18,7 @@ These features include:
 
 |Feature  |Description  |
 |---------|---------|
-|[Log streaming](log-streaming.md) | View streaming console logs from a container in near real-time. |
+|[Log streaming](log-streaming.md) | View streaming system and console logs from a container in near real-time. |
 |[Container console](container-console.md) | Connect to the Linux console in your containers to debug your application from inside the container. |
 |[Azure Monitor metrics](metrics.md)| View and analyze your application's compute and network usage through metric data. |
 |[Application logging](logging.md) | Monitor, analyze and debug your app using log data.|

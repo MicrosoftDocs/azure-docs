@@ -16,7 +16,7 @@ services: iot-edge
 
 Azure Pipelines includes a built-in Azure IoT Edge task that helps you adopt DevOps with your Azure IoT Edge applications. This article demonstrates how to use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
 
-![Diagram - CI and CD branches for development and production](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
+:::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/model.png" alt-text="Diagram of the continuous integration and continuous development branches for development and production .":::
 
 In this article, you learn how to use the built-in [Azure IoT Edge tasks](/azure/devops/pipelines/tasks/build/azure-iot-edge) for Azure Pipelines to create build and release pipelines for your IoT Edge solution. Each Azure IoT Edge task added to your pipeline implements one of the following four actions:
 
@@ -56,25 +56,25 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/{your organization}`) and open the project that contains your IoT Edge solution repository.
 
-    ![Open your DevOps project](./media/how-to-continuous-integration-continuous-deployment-classic/initial-project.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/initial-project.png" alt-text="Screenshot that shows how to open your DevOps project.":::
 
 2. From the left pane menu in your project, select **Pipelines**. Select **Create Pipeline** at the center of the page. Or, if you already have build pipelines, select the **New pipeline** button in the top right.
 
-    ![Create a new build pipeline](./media/how-to-continuous-integration-continuous-deployment-classic/add-new-pipeline.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-new-pipeline.png" alt-text="Screenshot that shows how to create a new build pipeline.":::
 
 3. At the bottom of the **Where is your code?** page, select **Use the classic editor**. If you wish to use YAML to create your project's build pipelines, see the [YAML guide](how-to-continuous-integration-continuous-deployment.md).
 
-    ![Select Use the classic editor](./media/how-to-continuous-integration-continuous-deployment-classic/create-without-yaml.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/create-without-yaml.png" alt-text="Screenshot that shows how to use the classic editor.":::
 
 4. Follow the prompts to create your pipeline.
 
    1. Provide the source information for your new build pipeline. Select **Azure Repos Git** as the source, then select the project, repository, and branch where your IoT Edge solution code is located. Then, select **Continue**.
 
-      ![Select your pipeline source](./media/how-to-continuous-integration-continuous-deployment-classic/pipeline-source.png)
+      :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/pipeline-source.png" alt-text="Screenshot showing how to select your pipeline source.":::
 
    2. Select **Empty job** instead of a template.
 
-      ![Start with an empty job for your build pipeline](./media/how-to-continuous-integration-continuous-deployment-classic/start-with-empty-build-job.png)
+      :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/start-with-empty-build-job.png" alt-text="Screenshot showing how to start with an empty job for your build pipeline.":::
 
 5. Once your pipeline is created, you are taken to the pipeline editor. Here, you can change the pipeline's name, agent pool, and agent specification.
 
@@ -157,7 +157,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 11. Open the **Triggers** tab and check the box to **Enable continuous integration**. Make sure the branch containing your code is included.
 
-    ![Turn on continuous integration trigger](./media/how-to-continuous-integration-continuous-deployment-classic/configure-trigger.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/configure-trigger.png" alt-text="Screenshot showing how to turn on continuous integration trigger.":::
 
 12. Select **Save** from the **Save & queue** dropdown.
 

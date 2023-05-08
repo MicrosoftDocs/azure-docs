@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use SDK to create and manage knowledge base - custom question answering"
-description: This quickstart shows you how to create and manage your knowledge base using custom question answering.
+title: "Quickstart: Use SDK to create and manage project - custom question answering"
+description: This quickstart shows you how to create and manage your project using custom question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
@@ -14,6 +14,9 @@ zone_pivot_groups: custom-qna-quickstart
 ---
 
 # Quickstart: question answering
+
+> [!NOTE]
+> Are you looking to migrate your workloads from QnA Maker? See our [migration guide](../how-to/migrate-qnamaker-to-question-answering.md) for information on feature comparisons and migration steps.
 
 Get started with the custom question answering client library. Follow these steps to install the package and try out the example code for basic tasks.
 

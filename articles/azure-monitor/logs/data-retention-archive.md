@@ -30,7 +30,7 @@ You can access archived data by [running a search job](search-jobs.md) or [resto
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
 
-When you shorten an existing retention policy, it takes 30 days for Azure Monitor to remove data, to prevent data loss in error configuration, and let you revert it. You can [purge data](#purge-retained-data) immediately when required. 
+When you shorten an existing retention policy, Azure Monitor waits 30 days before removing the data, so you can revert the change and prevent data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
 
 ## Configure the default workspace retention policy
 
@@ -150,13 +150,13 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 
 # [PowerShell](#tab/PowerShell-1)
 
-Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
 
 ```powershell
 Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName AzureMetrics -RetentionInDays 30 -TotalRetentionInDays 730
 ```
 
-To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet with the `-RetentionInDays` and `-TotalRetentionInDays` parameters set to `-1`.
+To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet with the `-RetentionInDays` and `-TotalRetentionInDays` parameters set to `-1`.
 
 For example:
 
@@ -205,7 +205,7 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 # [PowerShell](#tab/PowerShell-2)
 
-To get the retention policy of a particular table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable?view=azps-9.1.0) cmdlet.
+To get the retention policy of a particular table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable) cmdlet.
 
 For example:
 

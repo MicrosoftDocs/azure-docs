@@ -5,7 +5,7 @@ author: SteveLasker
 ms.topic: article
 ms.author: stevelas
 ms.date: 10/11/2022
-ms.custom:
+ms.custom: devx-track-azurecli
 ---
 
 # How to consume and maintain public content with Azure Container Registry Tasks

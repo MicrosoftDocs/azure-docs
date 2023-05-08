@@ -7,7 +7,7 @@ ms.reviewer: imotiwala, prpasunu
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 12/07/2022
+ms.date: 05/03/2023
 ---
 
 # Troubleshoot: Azure Synapse Link for SQL initial snapshot issues 
@@ -73,7 +73,7 @@ For example:
     6.    For **Problem type**, select **Data Sync, Replication, CDC and Change Tracking**.
     7.    For **Problem subtype**, select **Transactional Replication**.
     
-:::image type="content" source="media/troubleshoot-sql-snapshot-issues/sql-snapshot-issues-support-request.png" alt-text="A screenshot of the Azure portal where a New support request has been prepared.":::
+   :::image type="content" source="media/troubleshoot-sql-snapshot-issues/sql-snapshot-issues-support-request.png" alt-text="A screenshot of the Azure portal where a New support request has been prepared.":::
 
 ## Next steps
 

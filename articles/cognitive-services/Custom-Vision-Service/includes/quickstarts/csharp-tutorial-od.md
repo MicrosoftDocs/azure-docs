@@ -3,6 +3,7 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
+ms.topic: include
 ---
 
 Get started with the Custom Vision client library for .NET. Follow these steps to install the package and try out the example code for building an object detection model. You'll create a project, add tags, train the project on sample images, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.

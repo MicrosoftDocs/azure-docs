@@ -2,8 +2,8 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 11/15/2022
-ms.custom: devx-track-js, devx-track-azurepowershell
+ms.date: 04/06/2023
+ms.custom: devx-track-js
 ms.reviewer: saars
 ---
 
@@ -73,18 +73,18 @@ If you need to modify the behavior for only a single Application Insights resour
 
 1. Select **Deploy**.
 
-    ![Screenshot that shows the Deploy button.](media/ip-collection/deploy.png)
+    :::image type="content" source="media/ip-collection/deploy.png" lightbox="media/ip-collection/deploy.png" alt-text="Screenshot that shows the Deploy button.":::
 
 1. Select **Edit template**.
 
-    ![Screenshot that shows the Edit button, along with a warning about the resource group.](media/ip-collection/edit-template.png)
+    :::image type="content" source="media/ip-collection/edit-template.png" lightbox="media/ip-collection/edit-template.png" alt-text="Screenshot that shows the Edit button, along with a warning about the resource group.":::
 
     > [!NOTE]
     > If you experience the error shown in the preceding screenshot, you can resolve it. It states: "The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group." Temporarily select a different resource group from the dropdown list and then re-select your original resource group.
 
 1. In the JSON template, locate `properties` inside `resources`. Add a comma to the last JSON field, and then add the following new line: `"DisableIpMasking": true`. Then select **Save**.
 
-    ![Screenshot that shows the addition of a comma and a new line after the property for request source.](media/ip-collection/save.png)
+    :::image type="content" source="media/ip-collection/save.png" lightbox="media/ip-collection/save.png" alt-text="Screenshot that shows the addition of a comma and a new line after the property for request source.":::
 
 1. Select **Review + create** > **Create**.
 
@@ -126,13 +126,19 @@ Content-Length: 54
 }
 ```
 
+### Powershell
+
+The Powershell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+
+```powershell
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
+```
+
+For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](https://learn.microsoft.com/powershell/module/az.applicationinsights/update-azapplicationinsights)
+
 ## Telemetry initializer
 
-If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field.
-
-# [.NET](#tab/net)
-
-### ASP.NET or ASP.NET Core
+If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field. The code for this class is the same across .NET versions.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -160,11 +166,32 @@ namespace MyWebApp
 > [!NOTE]
 > If you can't access `ISupportProperties`, make sure you're running the latest stable release of the Application Insights SDK. `ISupportProperties` is intended for high cardinality values. `GlobalProperties` is more appropriate for low cardinality values like region name and environment name.
 
-### Enable the telemetry initializer for ASP.NET
+
+# [.NET 6.0+](#tab/framework)
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+builder.services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
+```
+
+# [.NET 5.0](#tab/dotnet5)
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
+}
+```
+
+# [ASP.NET Framework](#tab/dotnet6)
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
-
 
 namespace MyWebApp
 {
@@ -180,18 +207,7 @@ namespace MyWebApp
 
 ```
 
-### Enable the telemetry initializer for ASP.NET Core
-
-You can create your telemetry initializer the same way for ASP.NET Core as for ASP.NET. To enable the initializer, use the following example for reference:
-
-```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
- public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
-}
-```
+---
 
 # [Node.js](#tab/nodejs)
 

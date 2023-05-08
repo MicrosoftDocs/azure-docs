@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 04/15/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -21,39 +21,70 @@ ms.custom: it-pro
 > Cross-tenant synchronization is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article describes the keys steps to configure cross-tenant synchronization using Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Azure portal, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+This article describes the key steps to configure cross-tenant synchronization using Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Azure portal, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 :::image type="content" source="./media/common/configure-diagram.png" alt-text="Diagram that shows cross-tenant synchronization between source tenant and target tenant." lightbox="./media/common/configure-diagram.png":::
 
 ## Prerequisites
 
-- A source [Azure AD tenant](../develop/quickstart-create-new-tenant.md) with a Premium P1 or P2 license
-- A target [Azure AD tenant](../develop/quickstart-create-new-tenant.md) with a Premium P1 or P2 license
-- An account in the source tenant with the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant provisioning
-- An account in the target tenant with the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure the cross-tenant synchronization policy
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-## Step 1: Sign in to the target tenant and consent to permissions
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization.
+- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration.
+- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
+
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
+- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
+
+## Step 1: Sign in to tenants and consent to permissions
+
+![Icon for the source tenant.](./media/common/icon-tenant-source.png) ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Source and target tenants**
 
 These steps describe how to use Microsoft Graph Explorer (recommended), but you can also use Postman, or another REST API client.
 
 1. Start [Microsoft Graph Explorer tool](https://aka.ms/ge).
 
-1. Sign in to the target tenant.
+1. Sign in to the source tenant.
 
-1. Select **Modify permissions**.
+1. Select your profile and then select **Consent to permissions**.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure-graph/graph-explorer-profile.png" alt-text="Screenshot of Graph Explorer profile with Consent to permissions link." lightbox="./media/cross-tenant-synchronization-configure-graph/graph-explorer-profile.png":::
+
+1. Consent to the following required permissions:
+
+    - `Policy.Read.All`
+    - `Policy.ReadWrite.CrossTenantAccess`
+    - `Application.ReadWrite.All`
+    - `Directory.ReadWrite.All`
+
+    If you see a **Need admin approval** page, you'll need to sign in with a user that has been assigned the Global Administrator role to consent.
+
+1. Start another instance of [Microsoft Graph Explorer tool](https://aka.ms/ge).
+
+1. Sign in to the target tenant.
 
 1. Consent to the following required permissions:
 
     - `Policy.Read.All`
     - `Policy.ReadWrite.CrossTenantAccess`
 
+1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs:
+
+    - Source tenant ID: {sourceTenantId}
+    - Target tenant ID: {targetTenantId}
+
 ## Step 2: Enable user synchronization in the target tenant
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-1. Use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant.
+1. In the target tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
+
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
 
@@ -62,7 +93,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "3d0f5dec-5d3d-455c-8016-e2af1ae4d31a",
+      "tenantId": "{sourceTenantId}"
     }
     ```
     
@@ -73,7 +104,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "3d0f5dec-5d3d-455c-8016-e2af1ae4d31a",
+      "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
+      "tenantId": "{sourceTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -94,15 +126,18 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-1. Use the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API to enable user synchronization in the target tenant.
+1. Use the [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true) API to enable user synchronization in the target tenant.
+
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing policy. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/3d0f5dec-5d3d-455c-8016-e2af1ae4d31a/identitySynchronization
+    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}/identitySynchronization
     Content-type: application/json
     
     {
+       "displayName": "Fabrikam",
        "userSyncInbound": 
         {
           "isSyncAllowed": true
@@ -120,12 +155,12 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-1. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API to automatically redeem invitations and suppress consent prompts for inbound access.
+1. In the target tenant, use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API to automatically redeem invitations and suppress consent prompts for inbound access.
 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/3d0f5dec-5d3d-455c-8016-e2af1ae4d31a
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}
     Content-Type: application/json
     
     {
@@ -147,9 +182,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Sign in to the source tenant.
+1. In the source tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
 
-2. Use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant.
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
 
@@ -158,7 +193,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+      "tenantId": "{targetTenantId}"
     }
     ```
     
@@ -169,7 +204,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+      "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
+      "tenantId": "{targetTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -190,12 +226,12 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-3. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API to automatically redeem invitations and suppress consent prompts for outbound access.
+1. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API to automatically redeem invitations and suppress consent prompts for outbound access.
 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/376a1f89-b02f-4a85-8252-2974d1984d14
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{targetTenantId}
     Content-Type: application/json
     
     {
@@ -236,6 +272,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-type: application/json
     
     {
+        "@odata.context": "https://graph.microsoft.com/beta/$metadata#microsoft.graph.applicationServicePrincipal",
         "application": {
             "objectId": "{objectId}",
             "appId": "{appId}",
@@ -259,7 +296,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
             "appId": "{appId}",
             "appDisplayName": "Fabrikam",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "appOwnerTenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+            "appOwnerTenantId": "{targetTenantId}",
             "appRoleAssignmentRequired": true,
             "displayName": "Fabrikam",
             "errorUrl": null,
@@ -311,7 +348,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "credentials": [
             {
                 "key": "CompanyId",
-                "value": "376a1f89-b02f-4a85-8252-2974d1984d14"
+                "value": "{targetTenantId}"
             },
             {
                 "key": "AuthenticationType",
@@ -327,7 +364,112 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     HTTP/1.1 204 No Content
     ```
 
-## Step 7: Assign a user to the configuration
+## Step 7: Create a provisioning job in the source tenant
+
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
+
+In the source tenant, to enable provisioning, create a provisioning job.
+
+1. Determine the [synchronization template](/graph/api/resources/synchronization-synchronizationtemplate?view=graph-rest-beta&preserve-view=true) to use, such as `Azure2Azure`.
+
+    A template has pre-configured synchronization settings. 
+    
+1. In the source tenant, use the [Create synchronizationJob](/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&preserve-view=true) API to create a provisioning job based on a template.
+
+    **Request**
+    
+    ```http
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs
+    Content-type: application/json
+    
+    { 
+        "templateId": "Azure2Azure"
+    }
+    ```
+    
+    **Response**
+    
+    ```http
+    HTTP/1.1 201 Created
+    Content-type: application/json
+    
+    {
+        "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('{servicePrincipalId}')/synchronization/jobs/$entity",
+        "id": "{jobId}",
+        "templateId": "Azure2Azure",
+        "schedule": {
+            "expiration": null,
+            "interval": "PT40M",
+            "state": "Disabled"
+        },
+        "status": {
+            "countSuccessiveCompleteFailures": 0,
+            "escrowsPruned": false,
+            "code": "Paused",
+            "lastExecution": null,
+            "lastSuccessfulExecution": null,
+            "lastSuccessfulExecutionWithExports": null,
+            "quarantine": null,
+            "steadyStateFirstAchievedTime": "0001-01-01T00:00:00Z",
+            "steadyStateLastAchievedTime": "0001-01-01T00:00:00Z",
+            "troubleshootingUrl": null,
+            "progress": [],
+            "synchronizedEntryCountByType": []
+        },
+        "synchronizationJobSettings": [
+            {
+                "name": "AzureIngestionAttributeOptimization",
+                "value": "False"
+            },
+            {
+                "name": "LookaheadQueryEnabled",
+                "value": "False"
+            }
+        ]
+    }
+    ```
+
+## Step 8: Save your credentials
+
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
+
+1. In the source tenant, use the [synchronization: secrets](/graph/api/synchronization-synchronization-secrets?view=graph-rest-beta&preserve-view=true) API to save your credentials.
+
+    **Request**
+    
+    ```http
+    PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/secrets 
+    Content-Type: application/json
+    
+    { 
+        "value": [ 
+            { 
+                "key": "CompanyId", 
+                "value": "{targetTenantId}" 
+            },
+            {
+                "key": "AuthenticationType",
+                "value": "SyncPolicy"
+            },
+            {
+                "key": "SyncNotificationSettings",
+                "value": "{\"Enabled\":false,\"DeleteThresholdEnabled\":false,\"HumanResourcesLookaheadQueryEnabled\":false}"
+            },
+            {
+                "key": "SyncAll",
+                "value": "false"
+            }
+        ]
+    }
+    ```
+    
+    **Response**
+    
+    ```http
+    HTTP/1.1 204 No Content
+    ```
+
+## Step 9: Assign a user to the configuration
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -367,117 +509,13 @@ For cross-tenant synchronization to work, at least one internal user must be ass
     }
     ```
 
-## Step 8: Create a provisioning job in the source tenant
-
-![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
-
-In the source tenant, to enable provisioning, create a provisioning job.
-
-1. Determine the [synchronization template](/graph/api/resources/synchronization-synchronizationtemplate?view=graph-rest-beta&preserve-view=true) to use, such as `Azure2Azure`.
-
-    A template has pre-configured synchronization settings. 
-    
-1. In the source tenant, use the [Create synchronizationJob](/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&preserve-view=true) API to create a provisioning job based on a template.
-
-    **Request**
-    
-    ```http
-    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs
-    Content-type: application/json
-    
-    { 
-        "templateId": "Azure2Azure"
-    }
-    ```
-    
-    **Response**
-    
-    ```http
-    HTTP/1.1 201 Created
-    Content-type: application/json
-    
-    {
-        "id": "{jobId}",
-        "templateId": "Azure2Azure",
-        "schedule": {
-            "expiration": null,
-            "interval": "PT40M",
-            "state": "Disabled"
-        },
-        "status": {
-            "countSuccessiveCompleteFailures": 0,
-            "escrowsPruned": false,
-            "code": "Paused",
-            "lastExecution": null,
-            "lastSuccessfulExecution": null,
-            "lastSuccessfulExecutionWithExports": null,
-            "quarantine": null,
-            "steadyStateFirstAchievedTime": "0001-01-01T00:00:00Z",
-            "steadyStateLastAchievedTime": "0001-01-01T00:00:00Z",
-            "troubleshootingUrl": null,
-            "progress": [],
-            "synchronizedEntryCountByType": []
-        },
-        "synchronizationJobSettings": [
-            {
-                "name": "AzureIngestionAttributeOptimization",
-                "value": "False"
-            },
-            {
-                "name": "LookaheadQueryEnabled",
-                "value": "False"
-            }
-        ]
-    }
-    ```
-
-## Step 9: Save your credentials
-
-![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
-
-1. Use the [synchronization: secrets](/graph/api/synchronization-synchronization-secrets?view=graph-rest-beta&preserve-view=true) API to save your credentials.
-
-    **Request**
-    
-    ```http
-    PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/secrets 
-    Content-Type: application/json
-    
-    { 
-        "value": [ 
-            { 
-                "key": "CompanyId", 
-                "value": "376a1f89-b02f-4a85-8252-2974d1984d14" 
-            },
-            {
-                "key": "AuthenticationType",
-                "value": "SyncPolicy"
-            },
-            {
-                "key": "SyncNotificationSettings",
-                "value": "{\"Enabled\":false,\"DeleteThresholdEnabled\":false,\"HumanResourcesLookaheadQueryEnabled\":false}"
-            },
-            {
-                "key": "SyncAll",
-                "value": "false"
-            }
-        ]
-    }
-    ```
-    
-    **Response**
-    
-    ```http
-    HTTP/1.1 204 No Content
-    ```
-
 ## Step 10: Test provision on demand
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
-1. Use the [synchronizationJob: provisionOnDemand](/graph/api/synchronization-synchronizationjob-provision-on-demand?view=graph-rest-beta&preserve-view=true) API to provision a test user on demand.
+1. In the source tenant, use the [synchronizationJob: provisionOnDemand](/graph/api/synchronization-synchronizationjob-provision-on-demand?view=graph-rest-beta&preserve-view=true) API to provision a test user on demand.
 
     **Request**
     
@@ -504,7 +542,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Now that the provisioning job is configured, use the [Start synchronizationJob](/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&preserve-view=true) API to start the provisioning job.
+1. Now that the provisioning job is configured, in the source tenant, use the [Start synchronizationJob](/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&preserve-view=true) API to start the provisioning job.
 
     **Request**
     
@@ -523,7 +561,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Now that the provisioning job is running, use the [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&preserve-view=true) API to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
+1. Now that the provisioning job is running, in the source tenant, use the [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&preserve-view=true) API to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
 
     **Request**
     
@@ -613,7 +651,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
             {
                 "id": "{id}",
                 "activityDateTime": "2022-12-11T00:40:37Z",
-                "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+                "tenantId": "{targetTenantId}",
                 "jobId": "{jobId}",
                 "cycleId": "{cycleId}",
                 "changeId": "{changeId}",
@@ -721,12 +759,57 @@ Either the signed-in user doesn't have sufficient privileges, or you need to con
 
 **Solution**
 
-1. Make sure you're assigned the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role or another Azure AD role with privileges.
+1. Make sure you're assigned the required roles. See [Prerequisites](#prerequisites) earlier in this article.
 
-2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions:
+2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to tenants and consent to permissions](#step-1-sign-in-to-tenants-and-consent-to-permissions) earlier in this article.
 
-    - `Policy.Read.All`
-    - `Policy.ReadWrite.CrossTenantAccess`
+#### Symptom - Request_MultipleObjectsWithSameKeyValue error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Request_MultipleObjectsWithSameKeyValue
+message: Another object with the same value for property tenantId already exists.
+message: A conflicting object with one or more of the specified property values is present in the directory.
+```
+
+**Cause**
+
+You are likely trying to create a configuration or object that already exists, possibly from a previous configuration.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` request to list the existing object.
+
+1. If you have an existing object, instead of making a create request using `POST` or `PUT`, you might need to make an update request using `PATCH`, such as:
+
+    - [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true)
+    - [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true)
+
+#### Symptom - Directory_ObjectNotFound error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Directory_ObjectNotFound
+message: Unable to read the company information from the directory.
+```
+
+**Cause**
+
+You are likely trying to update an object that doesn't exist using `PATCH`.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` request to verify the object doesn't exist.
+
+1. If object doesn't exist, instead of making an update request using `PATCH`, you might need to make a create request using `POST` or `PUT`, such as:
+
+    - [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true)
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 01/26/2023
+ms.date: 03/15/2023
 ms.topic: conceptual
 ---
 
@@ -36,19 +36,11 @@ For example, if you specified the wrong location, or subscription during deploym
 
 To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
 
-### Failure due to previous deployments
+### Connection closed before server preface received
 
-If Arc resource bridge is deployed multiple times, an old token or expired credentials left on the management machine may cause future deployments to fail.
+When there are multiple attempts to deploy Arc resource bridge, expired credentials left on the management machine may cause future deployments to fail. The error will contain the message `Unavailable desc = connection closed before server preface received`. This error will surface in various `az arcappliance` commands including `validate`, `prepare` and `delete`.
 
-To prevent this from happening, be sure to run the `az arcappliance delete` command after any failed deployment, or to delete the current bridge before attempting another deployment. The delete command must be run with the latest `arcappliance` Azure CLI extension. To ensure that you have the latest version installed on your machine, run the following command:
-
-```azurecli
-az extension update --name arcappliance
-```
-
-If all components of Arc resource bridge are not completely deleted, the residual token or expired credentials may cause future deployments to fail. When this is the case, the error will contain the message `Unavailable desc = connection closed before server preface received` to surface when various `az arcappliance` commands are run, including `prepare` and `delete`.
-
-To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be deleted from the management machine. You can delete these manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and/or `.wssd\kva` folders. After they are deleted, retry the command that failed.
+To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be manually deleted from the management machine. Depending on where  the deployment errored, there may not be a kva folder to delete. You can delete these folders manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and `.wssd\kva` folders. After they are deleted, retry the command that failed.
 
 ### Token refresh error
 
@@ -83,6 +75,16 @@ To resolve this problem, delete the resource bridge, register the providers, the
 
 > [!NOTE]
 > Partner products (such as Arc-enabled VMware vSphere) may have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
+
+### Expired credentials in the appliance VM
+
+Arc resource bridge consists of an appliance VM that is deployed to the on-premise infrastructure. The appliance VM maintains a connection to the control center of the fabric using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the control center. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+
+To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
+
+### Back-off pulling image error
+
+When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM is unable to reach the URL specified in the error. To resolve this issue, make sure the appliance VM [meets all requirements](system-requirements.md#appliance-vm-requirements), including internet access, and is able to reach the [required allowlist URLs](network-requirements.md).
 
 ## Networking issues
 
@@ -145,9 +147,9 @@ To resolve the error, one or more network misconfigurations may need to be addre
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
 
-## Azure-Arc enabled VMs on Azure Stack HCI issues
+## Azure Arc-enabled VMs on Azure Stack HCI issues
 
-For general help resolving issues related to Azure-Arc enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
+For general help resolving issues related to Azure Arc-enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
 
 ### Authentication handshake failure
 

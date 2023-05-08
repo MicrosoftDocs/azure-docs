@@ -3,11 +3,11 @@ title: Handling an Azure service disruption that impacts Azure Cloud Services (c
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services (classic)

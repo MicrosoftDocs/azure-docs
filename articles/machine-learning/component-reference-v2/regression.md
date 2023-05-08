@@ -24,7 +24,7 @@ Use this component to create a machine learning model that is based on the AutoM
 
 This model requires a training dataset. Validation and test datasets are optional. 
 
-AutoML creates a number of pipelines in parallel that try different algorithms and parameters for your model. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. You are able to choose the metric you want the model to optimize for. The better the score for the chosen metric the better the model is considered to "fit" your data. You are able to define an exit criteria for the experiment. The exit criteria will be model with a specific training score you want AutoML to find. It will stop once it hits the exit criteria defined. This component will then output the best model that has been generated at the end of the run for your dataset. Visit this link for more information on [exit criteria (termination policy)](/how-to-auto-train-image-models#early-termination-policies).
+AutoML creates a number of pipelines in parallel that try different algorithms and parameters for your model. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. You are able to choose the metric you want the model to optimize for. The better the score for the chosen metric the better the model is considered to "fit" your data. You are able to define an exit criteria for the experiment. The exit criteria will be model with a specific training score you want AutoML to find. It will stop once it hits the exit criteria defined. This component will then output the best model that has been generated at the end of the run for your dataset. Visit this link for more information on [exit criteria (termination policy)](../how-to-auto-train-image-models.md#early-termination-policies).
 
 
 
@@ -40,13 +40,13 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
     Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](../how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](../how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](/how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
+    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](../how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](/how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](../v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
     
     1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML.
@@ -65,4 +65,4 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
 
 ## Next steps
 
-See the [set of components available](/component-reference.md) to Azure Machine Learning. 
+See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning. 

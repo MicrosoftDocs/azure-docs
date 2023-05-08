@@ -4,6 +4,7 @@ description: A tutorial about how to use Azure Web PubSub service and Azure Stat
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/03/2022
 ---
@@ -184,8 +185,7 @@ You're very close to complete. The last step is to configure Web PubSub transfer
       -n "my-awps-swa" \
       -g "my-awps-swa-group" \
       --hub-name "sample_swa" \
-      --event-handler url-template=https://$STATIC_WEB_APP/api/{event} user-event-pattern="*" \
-      --event-handler url-template=https://$STATIC_WEB_APP/api/{event} system-event="connect"
+      --event-handler url-template=https://$STATIC_WEB_APP/api/{event} user-event-pattern="*" system-event="connect"
     ```
 
 Now you're ready to play with your website **<YOUR_STATIC_WEB_APP>**. Copy it to browser and select **Continue** to start chatting with your friends.

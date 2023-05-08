@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Glint Inc | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Glint Inc'
 description: Learn how to configure single sign-on between Azure Active Directory and Glint Inc.
 services: active-directory
 author: jeevansd

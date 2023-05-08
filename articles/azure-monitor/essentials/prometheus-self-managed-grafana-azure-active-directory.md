@@ -14,7 +14,7 @@ ms.date: 11/04/2022
 For information on using Grafana with managed system identity, see [Configure Grafana using managed system identity](./prometheus-grafana.md).
 ## Azure Active Directory authentication
 
-To set up Azure Active Directory authentication, follow the steps bellow:
+To set up Azure Active Directory authentication, follow the steps below:
 1. Register an app with Azure Active Directory.
 1. Grant access for the app to your Azure Monitor workspace.
 1. Configure your self-hosted Grafana with the app's credentials.

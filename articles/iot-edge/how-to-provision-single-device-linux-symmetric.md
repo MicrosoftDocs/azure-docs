@@ -5,8 +5,9 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 9/12/2022
+ms.date: 04/25/2023
 ms.author: patricka
+ms.reviewer: mattmcinnes
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
@@ -76,7 +77,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
-   sudo iotedge config mp --connection-string `PASTE_DEVICE_CONNECTION_STRING_HERE`
+   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
    This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
@@ -124,13 +125,13 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    A successful status response shows the `aziot` services as running or ready.
 
-If you need to troubleshoot the service, retrieve the service logs.
+1. If you need to troubleshoot the service, retrieve the service logs.
 
    ```bash
    sudo iotedge system logs
    ```
 
-Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device.
 
    ```bash
    sudo iotedge check
@@ -158,7 +159,7 @@ Use the `check` tool to verify configuration and connection status of the device
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
-   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal.":::   
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal." lightbox="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png":::   
 
    Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
