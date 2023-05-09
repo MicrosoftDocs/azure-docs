@@ -277,7 +277,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [ASP.NET](#tab/aspnet)
 
-Microsoft.Identity.Web.OWIN simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/9fdcf15c66819b31b1049955eed5d3e5391656f5/src/Microsoft.Identity.Web.OWIN/AppBuilderExtension.cs#L95) for details on how this works.
+*Microsoft.Identity.Web.OWIN* simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/9fdcf15c66819b31b1049955eed5d3e5391656f5/src/Microsoft.Identity.Web.OWIN/AppBuilderExtension.cs#L95) for details on how this works.
 
 # [Java](#tab/java)
 
