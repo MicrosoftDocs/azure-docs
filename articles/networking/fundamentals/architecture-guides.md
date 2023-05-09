@@ -77,7 +77,6 @@ The following table includes articles that describe how to protect your network 
 | [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis) | Describes how to Azure Application Gateway to restrict and protect access to APIs hosted in Azure API Management. |
 | [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain) | Describes how to extend an on-premises Active Directory Domain Services (AD DS) environment to Azure by deploying domain controllers in an Azure virtual network. |
 | [Securing PaaS deployments](/azure/security/fundamentals/paas-deployments) | Provide general guidance for securing PaaS deployments in Azure. |
-| [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) | Describes how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. |
 
 ## Next steps
 
