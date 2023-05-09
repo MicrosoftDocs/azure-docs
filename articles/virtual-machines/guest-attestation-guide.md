@@ -1,51 +1,24 @@
 ---
-title: Guest Attestation Installation Guide
+title: Guest attestation installation guide
 description: How to leverage the guest attestation extension to secure boot your VM. How to handle traffic blocking 
 author: Howie425
 ms.author: howieasmerom
-ms.service: Trusted Launch
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.service: virtual-machines
+ms.subservice: trusted-launch
+ms.topic: conceptual 
 ms.date: 04/25/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept 
 ---
-
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
 
 # Guest Attestation Extension Overview
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
-
-To help Trusted Launch better prevent bootkits and rootkit attack  on virtual machines, Secure Boot + vTPM with the guest attestation extension is used to monitor boot integrity. This attestation is critical to provide validity of a platform’s states. A vTPM is used to perform remote attestation by the cloud, identify advanced threat patterns, and cryptographically certify that your VM booted correctly. If your [Azure Trusted Virtual Machines](trusted-launch.md), has Secure Boot and vTPM enables and attestation extensions installed, Microsoft Defender for Cloud will check the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, [see the trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#MicrosoftforCloudintegration).
-
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+To help Trusted Launch better prevent bootkits and rootkit attack  on virtual machines, Secure Boot + vTPM with the guest attestation extension is used to monitor boot integrity. This attestation is critical to provide validity of a platform’s states. A vTPM is used to perform remote attestation by the cloud, identify advanced threat patterns, and cryptographically certify that your VM booted correctly. If your [Azure Trusted Virtual Machines](trusted-launch.md), has Secure Boot and vTPM enables and attestation extensions installed, Microsoft Defender for Cloud will check the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, [see the trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
 
 **Prerequistes**
-<!-- add your content here -->
+
 An Active Azure Subscription + Trusted Launch Virtual Machine
 
 **Verify Integrity Monitoring is Enabled**
-
 
 1. To verify if your virtual machines has enabled integrity monitoring. Sign in to the Azure [portal](https://portal.azure.com).
 1. Select the resource (**Virtual Machines**) that you want to see has the features.
@@ -57,13 +30,11 @@ An Active Azure Subscription + Trusted Launch Virtual Machine
 
 This will install the guest attestation extension, which can be referred through settings within the extensions + applications tab.
 
-
-
 **QuickStart Template**
 
 You can deploy the guest attestation extension for trusted launch VMs using a quickstart template:
 
-# [Guest Attestation - Windows](#tab/json)
+# [Windows](#tab/windows)
 
 ```json
  {
@@ -98,7 +69,7 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 }       
 ```
 
-# [Guest Attestation - Linux](#tab/json)
+# [Linux](#tab/linux)
 
 ```json
  {
@@ -134,7 +105,7 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 ```
 
-## Troubleshooting Guide for Guest Attestation Extension  Installation
+## Troubleshooting guide for Guest Attestation Extension installation
 
 **Symptoms**
 
@@ -159,7 +130,6 @@ To unblock traffic using an NSG with service tags, to set allow rules for Micros
 * Users can configure their source type, service, destination port ranges, protocol, priority, and name.
 
 This service tag is a global endpoint that will unblock Microsoft Azure Attestation traffic in any region.  
-
 
 ## Next steps
 

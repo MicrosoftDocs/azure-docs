@@ -1,3 +1,4 @@
+---
 title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
 author: lakmeedee
@@ -38,18 +39,18 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#Regions).
+1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#regions).
 1. For **Security type** select **Trusted launch virtual machines**. This will make three more options appear - **Secure boot**, **vTPM**, and **Integrity Monitoring** . Select the appropriate options for your deployment. To learn more about [integrity monitoring (guest attestation extension) installation](guest-attestation-guide.md).
-    :::image type="content" source="trusted-launch/tvm-popup.png" alt-text="Screenshot showing the options for Trusted Launch.":::
-1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [trusted launch](trusted-launch.md#VMSizesSupported).
+    :::image type="content" source="./media/trusted-launch/tvm-popup.png" alt-text="Screenshot showing the options for Trusted Launch.":::
+1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [trusted launch](trusted-launch.md##virtual-machines-sizes-supported).
    > [!TIP]
    > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **Security type** filter to **Trusted Launch**.
-13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#VMSizesSupported).
+13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md##virtual-machines-sizes-supported).
 14.	Fill in the **Administrator account** information and then **Inbound port rules**.
 15.	At the bottom of the page, select **Review + Create**
 16.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
-    :::image type="content" source="trusted-launch/tvm-complete.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
+    :::image type="content" source="./media/trusted-launch/tvm-complete.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
 
 
 It will take a few minutes for your VM to be deployed.
@@ -172,7 +173,7 @@ You can deploy trusted launch VMs using a quickstart template:
 10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the image definition.
 11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
 12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#virtual-machines-sizes-supported).
 14. The image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
 15. Fill in the **Administrator account** information and then **Inbound port rules**.
 16. At the bottom of the page, select **Review + Create**
@@ -341,11 +342,11 @@ New-AzVM `
 
 For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
-:::image type="content" source="trusted-launch/security-type-enabled.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
+:::image type="content" source="./media/trusted-launch/security-type-enabled.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
 To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot, vTPM, and Integrity Monitoring from the **Security type** section. Select **Save** at the top of the page when you are done.
 
-:::image type="content" source="trusted-launch/verify-intergrity-boot-on.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
+:::image type="content" source="./media/trusted-launch/verify-intergrity-boot-on.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 
 If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect.
 

@@ -20,8 +20,6 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 > [!IMPORTANT]
 > Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
 
-
-
 ## Benefits
 
 - Securely deploy virtual machines with verified boot loaders, OS kernels, and drivers.
@@ -29,7 +27,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Gain insights and confidence of the entire boot chain’s integrity.
 - Ensure workloads are trusted and verifiable.
 
-## Virtual Machines Sizes Supported
+## Virtual machines sizes supported
 
 | Type | VM Sizes | Sizes not supported yet.
 |:--- |:--- |:--- |
@@ -42,7 +40,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](generation-2.md) and Trusted Launch VMs.
 
-## Operating System Supported
+## Operating systems supported
 
 | OS | Version |
 |:--- |:--- |
@@ -59,7 +57,7 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 
 *variations of this operating system is supported.
 
-## Additional Information 
+## Additional information
 
 **Regions**:
 - All public regions
@@ -68,8 +66,8 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 **Pricing**:
 No additional cost to existing VM pricing.
 
-## Unsupported Features
-- Azure Site Recovery (coming soon)
+## Unsupported features
+- Azure Site Recovery (coming soon)defender for
 - Ultra disk, PV2 (coming soon)
 - Managed Image
 - High Performance Compute VM Sizes
@@ -92,7 +90,6 @@ Trusted launch uses the vTPM to perform remote attestation by the cloud. This is
 HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. This ensures such executable code can't be modified once it is allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
 With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
-
 
 ## Microsoft Defender for Cloud integration
 
@@ -164,7 +161,7 @@ Trusted launch supports ephemeral OS disks. Note that, while using ephemeral dis
 
 ### How can I find VM sizes that support Trusted launch?
 
-See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#Virtual-Machines-Sizes-Supported).
+See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes-supported).
 
 The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
 
