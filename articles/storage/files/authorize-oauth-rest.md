@@ -279,10 +279,10 @@ If you haven't already done so, [install the latest version of Azure CLI](/cli/a
 
 For more information refer to the latest CLI documentation for supported commands:
 
-- [az storage file](/cli/azure/storage/file?view=azure-cli-latest)
-- [az storage directory](/cli/azure/storage/directory?view=azure-cli-latest)
-- [az storage share list-handle](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-list-handle)
-- [az storage share close-handle](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-close-handle)
+- [az storage file](/cli/azure/storage/file)
+- [az storage directory](/cli/azure/storage/directory)
+- [az storage share list-handle](/cli/azure/storage/share#az-storage-share-list-handle)
+- [az storage share close-handle](/cli/azure/storage/share#az-storage-share-close-handle)
 ---
 
 ## See also
