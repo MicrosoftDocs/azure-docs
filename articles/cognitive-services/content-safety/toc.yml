@@ -23,6 +23,14 @@ items:
   items: 
   - name: Content Safety samples
     href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety/samples
+- name: Responsible use of AI
+  items:
+  - name: Transparency note
+    href: /legal/cognitive-services/content-safety/transparency-note?context=/azure/cognitive-services/content-safety/context/context
+  - name: Code of conduct
+    href: /legal/cognitive-services/content-safety/code-of-conduct?context=/azure/cognitive-services/content-safety/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/cognitive-services/content-safety/context/context
 - name: How-to guides
   items:
   - name: Use a blocklist
