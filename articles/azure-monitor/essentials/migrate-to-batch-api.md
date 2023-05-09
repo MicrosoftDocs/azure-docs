@@ -12,10 +12,10 @@ ms.author: edbaynash
 # How to migrate from the metrics API to the getBatch API
 
 Heavy use of the [metrics API](https://learn.microsoft.com/rest/api/monitor/metrics/list?
-tabs=HTTP) can result in throttling or performance problems. Migrating to the [metrics:Batch](https://learn.microsoft.com/rest/api/monitor/metrics-data-plane/batch?tabs=HTTP) API allows you to query multiple resources in a single REST request. The two APIs share a common set of query parameter and response formats that make migration easy.
+tabs=HTTP) can result in throttling or performance problems. Migrating to the [metrics:getBatch](https://learn.microsoft.com/rest/api/monitor/metrics-data-plane/batch?tabs=HTTP) API allows you to query multiple resources in a single REST request. The two APIs share a common set of query parameter and response formats that make migration easy.
 
 ## Request format 
- The metrics:Batch API request has the following format:
+ The metrics:getBatch API request has the following format:
  ```http
 POST /subscriptions/subscriptionId/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-03-01-preview
 Host: <region>.metrics.monitor.azure.com
@@ -627,7 +627,7 @@ The individual metrics API requires a user have the [Monitoring Reader](https://
 While the data plane batch API is designed to help mitigate throttling problems, 529 error codes still occur which indicates that the metrics backend is currently throttling some customers. The recommended action is to implement an exponential backoff retry scheme.
 
 ## Paging 
-Paging is not supported but the metrics:Batch API. The most common use-case for this API is frequently calling every few minutes for the same metrics and resources for the latest timeframe. Low latency is an important consideration so many customers parallelize their queries as much as possible. Paging forces customers into a sequential calling pattern that introduces additional query latency. In scenarios where requests return volumes of metric data where paging would be beneficial, it's recommended to split the query into multiple parallel queries.
+Paging is not supported but the metrics:getBatch API. The most common use-case for this API is frequently calling every few minutes for the same metrics and resources for the latest timeframe. Low latency is an important consideration so many customers parallelize their queries as much as possible. Paging forces customers into a sequential calling pattern that introduces additional query latency. In scenarios where requests return volumes of metric data where paging would be beneficial, it's recommended to split the query into multiple parallel queries.
 
 ## Billing
 Yes all metrics data plane and batching calls are billed. For more information, see [Basic Log Search Queries](https://azure.microsoft.com/pricing/details/monitor/#pricing)
