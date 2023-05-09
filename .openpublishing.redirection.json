@@ -7554,13 +7554,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-bindings-triggers-python.md",
-            "redirect_url": "/azure/azure-functions/functions-reference-python?pivots=python-mode-decorators#triggers-and-inputs",
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
-            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-triggers-python.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-python?pivots=python-mode-decorators#triggers-and-inputs",
             "redirect_document_id": false
         },
         {
