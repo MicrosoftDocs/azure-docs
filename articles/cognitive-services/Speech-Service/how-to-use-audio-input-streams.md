@@ -27,7 +27,7 @@ Identify the format of the audio stream. The format must be supported by the Spe
 
 Supported audio samples are:
 
-  - PCM format (int-16)
+  - PCM format (int-16, signed)
   - One channel
   - 16 bits per sample, 8,000 or 16,000 samples per second (16,000 bytes or 32,000 bytes per second)
   - Two-block aligned (16 bit including padding for a sample)
@@ -41,7 +41,7 @@ int samplesPerSecond = 16000; // or 8000
 var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
 ```
 
-Make sure that your code provides the RAW audio data according to these specifications. Also, make sure that 16-bit samples arrive in little-endian format. Signed samples are also supported. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
+Make sure that your code provides the RAW audio data according to these specifications. Also, make sure that 16-bit samples arrive in little-endian format. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
 ## Create your own audio input stream class
 
