@@ -65,6 +65,11 @@ items:
                       href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: ../../develop/console-app-quickstart.md
+            - name: Daemon, service
+              items:
+                - name: Node.js - Call an API
+                  href: how-to-daemon-node-sample-call-api.md
+                  displayName: client credentials grant
             - name: Desktop app
               items:
                 - name: Electron
@@ -91,8 +96,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
@@ -156,16 +159,8 @@ items:
                   href: ../../develop/tutorial-v2-nodejs-console.md
                 - name: .NET​ - Sign in users
                   href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
-            - name: Desktop app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
-                - name: Electron​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-desktop.md
-            - name: Mobile app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
+            - name: Daemon, service
+              href: how-to-daemon-node-sample-call-api.md
     - name: Authenticate and authorize
       expanded: true
       items:
