@@ -275,8 +275,6 @@ When you provide a model as input to the feature retrieval step, it expects that
 
 The fix the issue, package the `feature_retrieval_spec.yaml` in the root folder of the model artifact folder, before registering the model.
 
-Find details in the [Package Feature Retrieval Spec](./how-to-package-feature-retrieval-spec.md) doc regarding how to package the `feature_retrieval_spec.yaml` with model.
-
 #### Observation Data isn't joined with any feature values
 
 #### Symptom

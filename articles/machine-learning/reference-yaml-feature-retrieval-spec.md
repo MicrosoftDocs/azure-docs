@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) feature retrieval specification YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) feature store YAML schema.
+description: Reference documentation for the CLI (v2) feature retrieval specification YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata

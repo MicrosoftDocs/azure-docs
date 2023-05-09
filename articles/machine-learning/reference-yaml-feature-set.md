@@ -35,7 +35,7 @@ ms.custom: cliv2
 | tags | object | Dictionary of tags for the feature set. |  |  |
 | materialization_settings | object | Feature set materialization setting. |  |  |
 | materialization_settings.offline_enabled | boolean | Whether materialing feature values to an offline storage is enabled. | True, False |  |
-| materialization_settings.schedule | object | The materialization schedule. Please see [definition](https://learn.microsoft.com/azure/machine-learning/reference-yaml-schedule?view=azureml-api-2&preserve-view=true) |  |  |
+| materialization_settings.schedule | object | The materialization schedule. Please see [CLI (v2) schedule YAML schema](reference-yaml-schedule.md) |  |  |
 | materialization_settings.schedule.frequency | string | **Required** if schedule is configured. Enum to describe the frequency of a recurrence schedule. | Day, Hour, Minute, Week, Month | day |
 | materialization_settings.schedule.interval | integer | **Required** if schedule is configured. The interval between recurrent jobs. |  |  |
 | materialization_settings.schedule.time_zone | string | The schedule trigger time zone. |  |  |
