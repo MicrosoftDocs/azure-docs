@@ -14,9 +14,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version. 
 
-- The first revision is automatically created when you deploy your container app.
-- New revisions are automatically created when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
+- The first revision is automatically provisioned when you deploy your container app.
+- New revisions are automatically provisioned when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
 - While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes, which apply to all revisions.
+- You can create new revisions by updating a previous revision.
 - You can retain up to 100 revisions, giving you a historical record of your container app updates.
 - You can run multiple revisions concurrently.
 - You can split external HTTP traffic between active revisions.
@@ -35,6 +36,42 @@ You can use revisions to:
 - Split traffic between revisions for [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 - Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [BlueGreenDeployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
+## Revision lifecycle
+
+Revisions go through the following states:
+
+- _Provisioning_: 
+    When a new revision is first created, it is "provisioning."  This measures the time between creation (iniital request) and being being ready to accept work.  Replica provisioning status values include:
+
+    - _Provisioning:_ It's being provisioned.
+
+    - _Provisioned:_ The app has been provisioned. This is a final state.
+
+    - _Provisioning failed:_ The app failed to provision.  
+
+- _Running_ 
+
+    After the revision is provisioned, it is running. This can be monitored by the running status, which is the status of a revision after a successful provision. Running statuses include:
+
+    - _Running:_ The revision is running; no issues have been identified.
+
+    - _Unhealthy:_ The revision has encountered a problem. Causes and urgency vary; use the revision running status to learn more.
+    
+        Common issues include:
+
+        - Container crashing
+        - Resource quota exceeded
+        - Image access issues, such as [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster).
+
+    - _Failed:_ Critical errors cause revisions to fail.  The running state provides details. 
+ 
+        Common causes include:
+        - Terminated
+        - Exit code 137
+- _Inactive:_ A revision can be set to active or inactive. 
+    
+    When revisions are deactivated, they remain in a list of up to 100 inactive revisions.  Inactive revisions do not have provisioning or running states.  
+ 
 The following diagram shows a container app with two revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
