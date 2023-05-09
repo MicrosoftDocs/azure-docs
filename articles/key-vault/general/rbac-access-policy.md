@@ -12,13 +12,13 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 ---
 # Azure role-based access control (Azure RBAC) vs. access policies
 
-Azure Key Vault offers two authorization systems: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which woperates on both the management plane and the data plane.
+Azure Key Vault offers two authorization systems: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane.
 
-**Azure role-based access control (Azure RBAC)** is built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+Azure RBAC is built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
-The **access policy model**, on the other hand, is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope.
+The access policy model, on the other hand, is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope.
 
-## Data plan access control recommendation
+## Data plane access control recommendation
 
 Azure RBAC is the default and recommended authorization system for the Azure Key Vault data plane. It offers several advantages over access policies:
 - Unified access control model for Azure resources by using the same API across Azure services
@@ -30,7 +30,7 @@ However, it has two disadvantages when compared to access policies:
 - Latency. It can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
 - Limited number of role assignments. Azure RBAC allows only 2000 roles assignments across all services per subscription versus 1024 access policies per Key Vault
 
-To transition your key vaults from access policies to RBAC, see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
+To transition your Key Vault data plane access control from access policies to RBAC, see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
 
 ## Learn more
 
