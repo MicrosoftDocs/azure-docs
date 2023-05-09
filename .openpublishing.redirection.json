@@ -1594,6 +1594,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/front-door-application-security.md",
+            "redirect_url": "/azure/frontdoor/web-application-firewall",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -6486,6 +6492,11 @@
         {
             "source_path_from_root": "/articles/automation/automation-vm-inventory.md",
             "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/create-run-as-account.md",
+            "redirect_url": "/azure/automation/enable-managed-identity-for-automation",
             "redirect_document_id": false
         },
         {
