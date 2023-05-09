@@ -43,14 +43,14 @@ The following diagram depicts the architecture that testing was completed agains
 
 The following diagram shows a 100% randomly selected workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a submillisecond DB file sequential read event latency. With a database block size of 8K that amounts to approximately 6,800 MiB/s of storage throughput. 
 
-:::image type="content" alt-text="Diagram of single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png" lightbox="../media/azure-netapp-files/single-host-random-performance-chart.png":::
+:::image type="content" alt-text="Chart showing single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png" lightbox="../media/azure-netapp-files/single-host-random-performance-chart.png":::
 
 
 #### Single-host throughput 
 
 The following diagram demonstrates that, for bandwidth intensive sequential IO workloads such as full table scans or RMAN activities, Azure NetApp Files can deliver the full bandwidth capabilities of the E104ids_v5 VM itself. 
 
-:::image type="content" alt-text="Diagram of single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Bar chart showing single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
 
 >[!NOTE]
 >As the compute instance is at the theoretical maximum of its bandwidth, adding additional application concurrency results only in increased client-side latency. This results in SLOB2 workloads exceeding the targeted completion timeframe therefore thread count was capped at six. 
