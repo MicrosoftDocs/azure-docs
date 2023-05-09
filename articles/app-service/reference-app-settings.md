@@ -226,7 +226,7 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 # [PHP](#tab/php)
 
 | Setting name | Description | Example|
-|-|-|-|
+|----|-----|-----|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
 0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
 | `PHP_ZENDEXTENSIONS` | For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
