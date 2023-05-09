@@ -667,3 +667,7 @@ __Inbound__ rules:
 
 * Once you enable managed virtual network isolation of your workspace, you can't disable it.
 * Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
+
+## Next steps
+
+* [Troubleshoot managed virtual network](how-to-troubleshoot-managed-network.md).

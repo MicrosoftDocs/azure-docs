@@ -369,6 +369,8 @@
         - name: Use managed virtual network
           displayName: vnet, workspace, network isolation
           href: how-to-managed-network.md
+        - name: Troubleshoot managed virtual network
+          href: how-to-troubleshoot-managed-network.md
         - name: Use Azure Virtual Network
           items:
           - name: Secure workspace resources
