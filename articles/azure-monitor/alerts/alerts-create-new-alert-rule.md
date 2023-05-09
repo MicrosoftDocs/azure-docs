@@ -243,6 +243,19 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
 
+1. (Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert payload to add more information to the payload. Add the property **Name** and **Value** for the custom property you want included in the payload.
+
+    You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
+
+    The format for extracting values from the common schema, use a "$", and then the path of the common schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+
+    For example, you could use these values in the **custom properties** to utilize data from the payload.
+
+    |Custom properties name  |Custom properties value  |Result  |
+    |---------|---------|---------|
+    |AdditionalDetails|Evaluation windowStartTime: ${data.alertContext.condition.windowStartTime}. windowEndTime: ${data.alertContext.condition.windowEndTime}|AdditionalDetails": "Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"         |
+    |Alert ${data.essentials.monitorCondition} reason     |“${data.alertContext.condition.allOf[0].metricName} ${data.alertContext.condition.allOf[0].operator}${data.alertContext.condition.allOf[0].threshold} ${data.essentials.monitorCondition}. The value is ${data.alertContext.condition.allOf[0].metricValue}"         |Examples of the results could be: <br> - Alert Resolved reason": "Percentage CPU GreaterThan5 Resolved. The value is 3.585 <br>Percentage CPU GreaterThan5 Fired. The value is 10.585  |
+
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
@@ -261,15 +274,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, you can set several options.
+    1. (Optional) In the **Advanced options** section, you can select **Automatically resolve alerts** to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.
 
-        |Field |Description |
-        |---------|---------|
-        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
 
     ### [Log alert](#tab/log)
 
@@ -285,36 +292,28 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
     ### [Resource Health alert](#tab/resource-health)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     
     ### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
         
     ---
 
