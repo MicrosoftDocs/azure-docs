@@ -1019,6 +1019,21 @@ The following JSON sets the source image as the latest image version for an imag
     },
     }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+properties: {
+  source: {
+    type: 'SharedImageVersion'
+    imageVersionId: '/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest'
+    exactVersion: '<replace with exact ARM resource id of the image version>'
+  }
+}
+```
+
+---
+
 SharedImageVersion properties:
 
 - **imageVersionId** - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
