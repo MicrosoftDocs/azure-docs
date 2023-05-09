@@ -156,6 +156,7 @@ When routing intent is enabled on the hub, static routes corresponding to the co
 > Any static routes in the defaultRouteTable containing prefixes that aren't exact matches with 0.0.0.0/0 or the RFC1918 super-nets (10.0.0.0/8, 192.168.0.0/16 and 172.16.0.0/12) are automatically consolidated into a single static route, named **private_traffic**. Prefixes in the defaultRouteTable that match RFC1918 supernets or 0.0.0.0/0 are always automatically removed once routing intent is configured, regardless of the policy type.
 
 For example, consider the scenario where the defaultRouteTable has the following routes prior to configuring routing intent:
+
 | Route Name | Prefixes | Next Hop Resource| 
 |--|--|--|
 | private_traffic |  192.168.0.0/16, 172.16.0.0/12, 40.0.0.0/24, 10.0.0.0/24| Azure Firewall | 
