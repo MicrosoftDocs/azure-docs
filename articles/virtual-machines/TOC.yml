@@ -1613,7 +1613,7 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Guest attestation installation guide
+    - name: Guest attestation extention
       href: guest-attestation-guide.md
  
   - name: Just-in-time access
