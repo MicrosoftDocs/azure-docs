@@ -34,6 +34,20 @@ ms.topic: conceptual
   **Is there any performance impact when upgrading to a new version of Azure Container Storage?**  
   If you leave autoupgrade turned on (recommended), you might experience temporary I/O latency during the upgrade process. If you turn off autoupgrade and install the new version manually, there won't be any impact; however, you won't get the benefit of automatic upgrades and instant access to new features.
 
+* <a id="azure-container-storage-uninstall"></a>
+  **How do I uninstall Azure Container Storage?**  
+  To uninstall Azure Container Storage, you can delete the `k8s-extension` by running the following Azure CLI command. Be sure to replace `<cluster-name>`, `<resource-group>`, and `<name>` with your own values (`<name>` should be the value you specified for the --name parameter when you installed Azure Container Storage).
+  
+  ```azurecli-interactive
+  az k8s-extension delete --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <extension-name>
+  ```
+  
+  You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group:
+  
+  ```azurecli-interactive
+  az group delete --name <resource-group>
+  ```
+
 ## Billing and pricing
 
 * <a id="azure-container-storage-billing"></a>

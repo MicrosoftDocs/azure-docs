@@ -118,7 +118,7 @@ Once the PVC is created, it's ready for use by a pod.
 
 ## Deploy a pod and attach a persistent volume
 
-Create a pod using Fio (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
+Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 

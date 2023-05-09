@@ -1,6 +1,6 @@
 ---
-title: Quickstart for configuring and using Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to configure and use Azure Container Storage Preview with Azure Kubernetes Service. You'll end up with two new storage classes that you can use for your Kubernetes workloads.
+title: Quickstart for installing and configuring Azure Container Storage Preview with Azure Kubernetes Service (AKS)
+description: Learn how to install and configure Azure Container Storage Preview for use with Azure Kubernetes Service. You'll end up with new storage classes that you can use for your Kubernetes workloads.
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
@@ -9,8 +9,8 @@ ms.author: kendownie
 ms.subservice: container-storage
 ---
 
-# Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to configure and use Azure Container Storage with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md), using Azure Disks as back-end storage. At the end, you'll have new storage classes and a pod that you can use for your Kubernetes workloads.
+# Quickstart: Install Azure Container Storage Preview for use with Azure Kubernetes Service
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to configure and use Azure Container Storage for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). At the end, you'll have new storage classes that you can use for your Kubernetes workloads, and you can then create a storage pool using one of three block storage options.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -38,18 +38,16 @@ An Azure resource group is a logical group that holds your Azure resources that 
 > [!IMPORTANT]
 > Azure Container Storage Preview is only available in *eastus*, *westus2*, *westus3*, and *westeurope* regions.
 
-The following example creates a resource group named *myContainerStorageRG* in the *eastus* region.
-
-1. Set your subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command.
+1. Set your subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
 
    ```azurecli-interactive
-   az account set --subscription <your-subscription-id>
+   az account set --subscription <subscription-id>
    ```
 
-2. Create a resource group using the `az group create` command.
+2. Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
 
    ```azurecli-interactive
-   az group create --name myContainerStorageRG --location eastus
+   az group create --name <resource-group-name> --location <location>
    ```
 
    If the resource group was created successfully, you'll see output similar to this:
@@ -67,14 +65,26 @@ The following example creates a resource group named *myContainerStorageRG* in t
    }
    ```
 
+## Choose a data storage option
+
+Before you create your cluster, it's best if you understand which back-end storage option you'll ultimately choose to create your storage pool. This is because different storage services work best with different virtual machine (VM) types as cluster nodes.
+
+- **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)**: Azure Elastic SAN preview is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
+
+- **[Azure Disks](../../virtual-machines/managed-disks-overview.md)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
+
+- **[Ephemeral OS Disk](../../virtual-machines/ephemeral-os-disks.md)**: This option uses local storage resources (NVMe) on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
+
+If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a general purpose VM such as **standard_ds4_v2** for your cluster nodes. If you intend to use Ephemeral OS Disk, choose an [L series](../../virtual-machines/sizes-storage.md) storage optimized VM such as **standard_l8s_v3**.
+
 ## Create AKS cluster
 
-Create a Linux-based AKS cluster using the `az aks create` command. The following example creates a cluster named *myAKSCluster* with three nodes and enables a system-assigned managed identity.
+You'll need a node pool of at least three VMs. We recommend that each VM have a minimum of four virtual CPUs (vCPUs).
 
-You'll need a node pool of at least three virtual machines (VMs). We recommend that each VM have a minimum of four virtual CPUs (vCPUs). We'll use the **standard_l8s_v3** VM size for this Quickstart.
+Run the following command to create a Linux-based AKS cluster and enable a system-assigned managed identity. Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. For this Quickstart, we'll create a cluster with three nodes.
 
 ```azurecli-interactive
-az aks create -g myContainerStorageRG -n myAKSCluster --node-count 3 -s standard_l8s_v3 --generate-ssh-keys
+az aks create -g <resource-group> -n <cluster-name> --node-count 3 -s <vm-type> --generate-ssh-keys
 ```
 
 The deployment will take a few minutes to complete.
@@ -92,7 +102,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
     * Uses `~/.kube/config`, the default location for the Kubernetes configuration file. You can specify a different location for your Kubernetes configuration file using the *--file* argument.
 
     ```azurecli-interactive
-    az aks get-credentials --resource-group myContainerStorageRG --name myAKSCluster
+    az aks get-credentials --resource-group <resource-group> --name <cluster-name>
     ```
 
 2. Verify the connection to your cluster using the `kubectl get` command. This command returns a list of the cluster nodes.
@@ -116,10 +126,10 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
 
 Next, you must update your node pool label to associate the node pool with the correct IO engine for Azure Container Storage.
 
-Run the following command to update the label. Remember to replace `<nodepool_name>` with the name of your node pool from the previous step.
+Run the following command to update the label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool from the previous step.
 
 ```azurecli-interactive
-az aks nodepool update --resource-group myContainerStorageRG --cluster-name myAKSCluster --name <nodepool_name> --labels openebs.io/engine=io.engine
+az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool-name> --labels openebs.io/engine=io.engine
 ```
 
 > [!TIP]
@@ -127,10 +137,10 @@ az aks nodepool update --resource-group myContainerStorageRG --cluster-name myAK
 
 ## Assign Contributor role to AKS managed identity
 
-In order to allow Azure Container Storage to provision storage, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
-1. Locate and select your AKS cluster (*myAKSCluster*) and select **Settings** > **Properties** from the left navigation.
+1. Locate and select your AKS cluster. Select **Settings** > **Properties** from the left navigation.
 1. Under **Infrastructure resource group**, you should see a link to the resource group that AKS created when you created the cluster. Select it.
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
@@ -138,192 +148,31 @@ In order to allow Azure Container Storage to provision storage, you must assign 
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
-1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended. For this Quickstart, it would be `myAKSCluster-agentpool`.
+1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
 1. Select **Review + assign**.
 
 ## Install Azure Container Storage
 
-The initial install uses Azure Arc CLI commands to download a new extension. The `--name` value can be whatever you want. During installation, you might be asked to install the `k8s-extension`. Select **Y**.
+The initial install uses Azure Arc CLI commands to download a new extension. Replace `<cluster-name>` and `<resource-group>` with your own values. The `<name>` value can be whatever you want; it's just a label for the extension you're installing.
+
+During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace acstor
+az k8s-extension create --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <name> --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace acstor
 ```
 
 Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says **Succeeded**:
 
 ```azurecli-interactive
-az k8s-extension list --cluster-name myAKSCluster --resource-group myContainerStorageRG --cluster-type managedClusters
+az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type managedClusters
 ```
 
-## Create a storage pool utilizing Azure Disks
-
-Now you'll need to create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool for Azure Disks.
-
-> [!NOTE]
-> This Quickstart uses Azure managed disks for back-end storage. Depending on your requirements, you can use [Azure Ephemeral OS disk (NVMe)](use-container-storage-with-local-disk.md) or [Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md) instead.
-
-1. Run `code acstor-storagepool.yaml` to create a YAML manifest file.
-
-2. Paste in the following code. The `name` value can be whatever you want. 
-
-   ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
-   kind: StoragePool
-   metadata:
-     name: azuredisk
-     namespace: acstor
-   spec:
-     poolType:
-       csi: {}
-     resources:
-       limits: {"storage": 5Ti}
-       requests: {"storage": 1Ti}
-   ```
-
-3. Apply the YAML manifest file to create the storage pool.
-   
-   ```azurecli-interactive
-   kubectl apply -f acstor-storagepool.yaml 
-   ```
-   
-   When storage pool creation is complete, you'll see a message like:
-   
-   ```output
-   storagepool.containerstorage.azure.com/azuredisk created
-   ```
-   
-   You can also run this command to check the status of the storage pool:
-   
-   ```azurecli-interactive
-   kubectl describe sp azuredisk -n acstor
-   ```
-
-## Display the available storage classes
-
-When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
-
-Run `kubectl get sc` to display the available storage classes. You should see output that includes the following.
-
-```output
-azure-disk-sc-for-mayastor
-azurecontainerstorage-single-replica
-```
-
-## Create a persistent volume claim
-
-A persistent volume claim is used to automatically provision storage based on a storage class. Follow these steps to create a persistent volume claim. 
-
-1. Run `code acstor-pvc.yaml` to create a YAML manifest file.
-
-2. Paste in the following code. The `name` value can be whatever you want. 
-
-   ```yml
-   apiVersion: v1
-   kind: PersistentVolumeClaim
-   metadata:
-     name: azurediskpvc
-   spec:
-     accessModes:
-       - ReadWriteOnce
-     storageClassName: azuredisk # replace with the name of your storage class if different
-     resources:
-       requests:
-         storage: 100Gi
-   ```
-
-3. Apply the YAML manifest file to create the persistent volume claim.
-   
-   ```azurecli-interactive
-   kubectl apply -f acstor-pvc.yaml
-   ```
-   
-   You should see output similar to:
-   
-   ```output
-   persistentvolumeclaim/azurediskpvc created
-   ```
-   
-   You can verify the status of the persistent volume claim by running the following command:
-   
-   ```azurecli-interactive
-   kubectl describe pvc azurediskpvc
-   ```
-
-Once the persistent volume claim is created, it's ready for use by a pod.
-
-## Deploy a pod and attach a persistent volume
-
-Create a pod using Fio (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
-
-1. Run `code acstor-pod.yaml` to create a YAML manifest file.
-
-2. Paste in the following code.
-
-   ```yml
-   kind: Pod
-   apiVersion: v1
-   metadata:
-     name: fiopod
-   spec:
-     nodeSelector:
-       openebs.io/engine: io.engine
-     volumes:
-       - name: azurediskpv
-         persistentVolumeClaim:
-           claimName: azurediskpvc
-     containers:
-       - name: fio
-         image: nixery.dev/shell/fio
-         args:
-           - sleep
-           - "1000000"
-         volumeMounts:
-           - mountPath: "/volume"
-             name: azurediskpv
-   ```
-
-3. Apply the YAML manifest file to deploy the pod.
-   
-   ```azurecli-interactive
-   kubectl apply -f acstor-pod.yaml
-   ```
-   
-   You should see output similar to the following:
-   
-   ```output
-   pod/fiopod created
-   ```
-   
-4. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
-   
-   ```azurecli-interactive
-   kubectl describe pod fiopod
-   kubectl describe pvc azurediskpvc
-   ```
-   
-5. Check fio testing to see its current status:
-   
-   ```azurecli-interactive
-   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
-   ```
-   
-You now have a pod with storage that you can use for your Kubernetes workloads.
-
-## Clean up resources
-
-To uninstall Azure Container Storage, you can delete the `k8s-extension` by running the following command:
-
-```azurecli-interactive
-az k8s-extension delete --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage
-```
-
-You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group:
-
-```azurecli-interactive
-az group delete --name myContainerStorageRG
-```
+Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [What is Azure Container Storage?](container-storage-introduction.md)
+Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
+
+- [Use Azure Container Storage Preview with Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md)
+- [Use Azure Container Storage Preview with Azure Disks](use-container-storage-with-managed-disks.md)
+- [Use Azure Container Storage with Azure Ephemeral OS disk (NVMe)](use-container-storage-with-local-disk.md)
