@@ -1089,6 +1089,34 @@ az resource show \
 > [!NOTE]
 > Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you'll lose the VHD.
 
+The following JSON distributes the image as a VHD to a custom storage account.
+
+# [JSON](#tab/json)
+
+```json
+"distribute": [
+  {
+    "type": "VHD",
+    "uri": "<replace with Azure storage URI>"
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+distribute: [
+  {
+    type: 'VHD'
+    uri: '<replace with Azure storage URI>'
+  }
+]
+```
+
+---
+
+- **uri**- Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+
 ## Properties: versioning
 
 The **versioning** property is an enum with two possible values:
