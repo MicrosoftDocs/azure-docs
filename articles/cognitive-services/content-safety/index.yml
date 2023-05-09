@@ -63,8 +63,8 @@ landingContent:
             url: quickstart-text.md?pivots=programming-language-rest
       - linkListType: how-to-guide
         links:
-          - text: Use a custom blocklist
-            url: how-to/use-custom-blocklist.md
+          - text: Use a blocklist
+            url: how-to/use-blocklist.md
 
   - title: Reference
     linkLists:

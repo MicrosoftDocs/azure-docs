@@ -34,7 +34,7 @@ In this quickstart, get started with the Content Safety service using Content Sa
 
 The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
-The **Use blocklist** tab on the right lets you create, edit, and add a custom blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you'll get a **Blocklist detection** panel under **Results**. It reports any matched with the blocklist.
+The **Use blocklist** tab on the right lets you create, edit, and add a blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you'll get a **Blocklist detection** panel under **Results**. It reports any matched with the blocklist.
 
 ## Analyze image content
 

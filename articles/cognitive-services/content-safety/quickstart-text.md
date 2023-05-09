@@ -51,7 +51,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-Next, learn how to use custom blocklists to customize your text moderation process.
+Next, learn how to use blocklists to customize your text moderation process.
 
 > [!div class="nextstepaction"]
-> [Use custom blocklists](./how-to/use-custom-blocklist.md)
+> [Use blocklists](./how-to/use-custom-blocklist.md)

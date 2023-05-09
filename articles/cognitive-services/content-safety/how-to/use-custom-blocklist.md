@@ -1,5 +1,5 @@
 ---
-title: "Use custom blocklists"
+title: "Use blocklists"
 titleSuffix: Azure Cognitive Services
 description: Learn how to customize text moderation in Content Safety by using your own list of blocked terms.
 services: cognitive-services
@@ -14,7 +14,7 @@ keywords:
 ---
 
 
-# Use a custom blocklist
+# Use a blocklist
 
 > [!CAUTION]
 > The sample data in this guide may contain offensive content. User discretion is advised.
@@ -28,9 +28,9 @@ The default AI classifiers are sufficient for most content moderation needs. How
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
-## Analyze text with a custom blocklist
+## Analyze text with a blocklist
 
-You can create custom blocklists to use with the Text API. The following steps help you get started.
+You can create blocklists to use with the Text API. The following steps help you get started.
 
 The below fields must be included in the url:
 
@@ -114,7 +114,7 @@ The response code should be `201` and the URL to get the created list should be 
 > 
 > There will be some delay after you add or edit a blockItem before it takes effect on text analysis, usually **not more than five minutes**.
 
-### Analyze text with a custom blocklist
+### Analyze text with a blocklist
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
@@ -156,9 +156,9 @@ The JSON response will contain a `"blocklistMatchResults"` that indicates any ma
 ```
 
 
-## Other custom blocklist operations
+## Other blocklist operations
 
-This section contains more operations to help you manage and use the custom blocklist feature.
+This section contains more operations to help you manage and use the blocklist feature.
 
 ### Get all blockItems in a list
 
