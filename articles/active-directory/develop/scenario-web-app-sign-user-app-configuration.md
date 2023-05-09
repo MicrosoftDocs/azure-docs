@@ -183,15 +183,12 @@ For simplicity in this article, the client secret is stored in the configuration
 
 The configuration parameters are set in *.env* as environment variables:
 
-```bash
-CLIENT_ID=<client id>
-CLIENT_SECRET=<client secret>
-TENANT_ID=<tenant id>
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/.env.sample" highlight="4,5,10":::
+
 
 Those environment variables are referenced in *app_config.py*:
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,9":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,10":::
 
 The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
 
