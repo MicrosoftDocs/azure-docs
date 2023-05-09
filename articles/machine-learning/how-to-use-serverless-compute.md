@@ -112,10 +112,8 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
     ```python
     from azure.ai.ml import command
-    # Handle to the workspace
-    from azure.ai.ml import MLClient
-    # Authentication package
-    from azure.identity import DefaultAzureCredential
+    from azure.ai.ml import MLClient     # Handle to the workspace
+    from azure.identity import DefaultAzureCredential    # Authentication package
     from azure.ai.ml.entities import ResourceConfiguration
     from azure.ai.ml.entities import ManagedIdentityConfiguration
 
@@ -247,10 +245,8 @@ You can override these defaults.  If you want to specify the VM type or number o
 
     ```python
     from azure.ai.ml import command
-    # Handle to the workspace
-    from azure.ai.ml import MLClient
-    # Authentication package
-    from azure.identity import DefaultAzureCredential
+    from azure.ai.ml import MLClient    # Handle to the workspace
+    from azure.identity import DefaultAzureCredential    # Authentication package
     credential = DefaultAzureCredential()
     # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
     ml_client = MLClient(
@@ -286,10 +282,8 @@ Here's an example of all fields specified including identity.
 
 ```python
 from azure.ai.ml import command
-# Handle to the workspace
-from azure.ai.ml import MLClient
-# Authentication package
-from azure.identity import DefaultAzureCredential
+from azure.ai.ml import MLClient      # Handle to the workspace
+from azure.identity import DefaultAzureCredential     # Authentication package
 from azure.ai.ml.entities import ResourceConfiguration
 from azure.ai.ml.entities import UserIdentityConfiguration 
 
