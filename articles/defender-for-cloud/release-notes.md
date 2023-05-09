@@ -131,11 +131,11 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 ### New default setting for Defender for Servers vulnerability assessment solution
 
-Vulnerability assessment solutions are essential to safeguard machines from cyberattacks and data breaches.
+Vulnerability assessment (VA) solutions are essential to safeguard machines from cyberattacks and data breaches.
 
 Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a built-in solution in the Defender for Servers plan that doesn't have a VA solution selected.
 
-By having MDVM enabled by default, every subscription is ensured a vulnerability assessment solution wherever one was missing. 
+If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
 
 ## April 2023
 
