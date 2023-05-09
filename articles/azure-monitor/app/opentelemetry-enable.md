@@ -136,12 +136,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(
-
-//Uncomment the line below when setting the Application Insights Connection String via code
-//options => options.ConnectionString = "<Your Connection String>"
-
-);
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -487,7 +482,7 @@ The following table represents the currently supported custom telemetry types:
 | Language                                  | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
@@ -746,45 +741,6 @@ private static IEnumerable<Measurement<int>> GetThreadState(Process process)
     foreach (ProcessThread thread in process.Threads)
     {
         yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
-    }
-}
-```
-
-
-```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
-public class Program
-{
-    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
-
-    public static void Main()
-    {
-        using var meterProvider = Sdk.CreateMeterProviderBuilder()
-            .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
-            .Build();
-
-        var process = Process.GetCurrentProcess();
-        
-        ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
-
-        System.Console.WriteLine("Press Enter key to exit.");
-        System.Console.ReadLine();
-    }
-    
-    private static IEnumerable<Measurement<int>> GetThreadState(Process process)
-    {
-        foreach (ProcessThread thread in process.Threads)
-        {
-            yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
-        }
     }
 }
 ```
@@ -1314,11 +1270,11 @@ To add span attributes, use either of the following two ways:
 * Add a custom span processor.
 
 > [!TIP]
-> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
+> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) and the [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) itself. They can select anything from it and store it as an attribute.
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 1. Use a custom processor:
 
