@@ -13,6 +13,8 @@ Following are few configurations that can be tuned to custom configure HDInsight
 > [!NOTE]
 >This is applicable for 4.0 and 5.0 stacks.
 
+## Configuration 
+
 |Configuration|Description|Default value|Applicable cluster/Autoscale type|Remarks|
 |----|----|----|----|----|
 |yarn.4_0.graceful.decomm.workaround.enable|Enable YARN graceful decommissioning|Loadware autoscale – True Scheduled autoscale - True|Hadoop/Spark |If this config is disabled, YARN puts nodes in decommissioned state directly from running state without waiting for the applications using the node to finish. This action might lead to applications getting killed abruptly when nodes are decommissioned. Read more about job resiliency in YARN [here](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/GracefulDecommission.html)|
