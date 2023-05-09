@@ -7844,8 +7844,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md.md",
-            "redirect_url": "/azure/azure-maps/elevation-data-services",
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
             "redirect_document_id": false
         },
         {
