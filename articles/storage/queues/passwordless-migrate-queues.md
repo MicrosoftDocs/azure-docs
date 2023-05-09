@@ -75,7 +75,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```go
     import (
-	    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	  "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     )
     ```
 
