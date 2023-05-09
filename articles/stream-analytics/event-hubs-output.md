@@ -61,7 +61,6 @@ The following image is of the expected output message properties inspected in Ev
 
 Exactly once delivery is supported in Event Hub output by default. Regardless of your input, Stream Analytics guarantees no data loss or no duplicates in Event Hub output, across user-initiated restarts from last output time, preventing duplicates from being produced. This greatly simplifies the streaming pipeline by not having to monitor, implement, and troubleshoot deduplication logic.
 
-Please note that exactly once delivery is not supported when the partition key is specified.
 
 ## Next steps
 
