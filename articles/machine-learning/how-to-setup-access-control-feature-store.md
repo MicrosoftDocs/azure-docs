@@ -27,6 +27,22 @@ Azure Machine Learning supports role-based access control for the following mana
 
 To control access to these resources, consider the user types below. For each user type, the identity can be either an Azure Active Directory identity, a service principal, or an Azure managed identity (both system managed and user assigned).
 
+- __Feature set developers__ (for example, dta scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
+    - Managing lifecycle of features: From creation to retirement/archival
+    - Setting up materialization and backfill of features
+    - Monitoring feature freshness and quality
+- __Feature set consumers__ (for example, data scientist and machine learning engineers): They work primarily with in a project workspace and use features: 
+    - Discovering features for reuse in model
+    - Experimenting with features during training to see if it improves model performance
+    - Setting up training/inference pipelines to use the features
+- __Feature store Admins__: They're typically responsible for:
+    - Managing lifecycle of feature store (creation to retirement)
+    - Managing lifecycle of user access to feature store
+    - Configuring feature store: quota and storage (offline/online stores)
+    - Managing costs
+
+The permissions required for each user type are described in the following tables:
+
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
 |`feature store admin`     |who can create/update/delete feature store         | [Permissions required for the `feature store admin` role](#permissions-required-for-the-feature-store-admin-role)        |
