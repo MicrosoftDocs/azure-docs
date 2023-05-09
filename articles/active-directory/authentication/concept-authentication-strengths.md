@@ -146,19 +146,18 @@ In general, when there are multiple Conditional Access policies applicable for a
 
 #### How multiple Conditional Access authentication strength policies are evaluated for registering security info 
 
-For security info registration, the authentication strength evaluation is treated differently – authentication strengths that targets the user action of “registering security info” are preferred over other authentication strength policies that target “all cloud apps”. All other grant controls (such as “Require device to be marked as compliant”) from other Conditional Access policies in scope for the sign-in will apply as usual.  
+For security info registration, the authentication strength evaluation is treated differently – authentication strengths that target the user action of **Registering security info** are preferred over other authentication strength policies that target **All cloud apps**. All other grant controls (such as **Require device to be marked as compliant**) from other Conditional Access policies in scope for the sign-in will apply as usual.  
 
 For example, let’s assume Contoso would like to require their users to always sign in with a phishing-resistant authentication method and from a compliant device. Contoso also wants to allow new employees to register these authentication methods using a Temporary Access Pass (TAP). TAP can’t be used on any other resource. To achieve this goal, the admin can take the following steps: 
 
-Create a custom authentication strength named "Bootstrap and recovery" that includes the Temporary Access Pass authentication combination, it can also include any of the phishing-resistant MFA methods.  
+1. Create a custom authentication strength named **Bootstrap and recovery** that includes the Temporary Access Pass authentication combination, it can also include any of the phishing-resistant MFA methods.  
+1. Create a Conditional Access policy which targets **All cloud apps** and requires **Phishing-resistant MFA** authentication strength AND **Require compliant device** grant controls. 
+1. Create a Conditional Access policy that targets the **Register security information** user action and requires the **Bootstrap and recovery** authentication strength. 
 
-Create a Conditional Access policy which targets “all cloud apps” and requires "Phishing-resistant MFA" authentication strength AND "Require compliant device" grant controls. 
+As a result, users on a compliant device would be able to use a Temporary Access Pass to register FIDO2 security keys and then use the newly registered FIDO2 security key to authenticate to other resources (such as Outlook). 
 
-Create a Conditional Access policy that targets the "Register security information" user action and requires the "Bootstrap and recovery" authentication strength. 
-
-As a result, users on a compliant device would be able to use a Temporary Access Pass to register FIDO2 security keys and then use the newly registered FIDO2 security key to authenticate to other resources (such as Outlook) . 
-
-Note: if multiple conditional access policies target the “register security information” user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
+>[!NOTE] 
+>If multiple conditional access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
 
 
 
