@@ -24,6 +24,7 @@ Updates in May include:
 - [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
 - [Onboard selected AWS regions](#onboard-selected-aws-regions)
 - [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)
+- [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -106,6 +107,13 @@ The following security recommendations are now deprecated:
 | Deprecated accounts should be removed from subscriptions | 00c6d40b-e990-6acf-d4f3-471e747a27c4 |
 
 We recommend updating your custom scripts, workflows, and governance rules to correspond with the V2 recommendations.
+
+### Deprecation of legacy standards in compliance dashboard
+
+Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](https://learn.microsoft.com/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards. 
+We have fully deprecated support of [PCI DSS](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+
+Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ## April 2023
 
