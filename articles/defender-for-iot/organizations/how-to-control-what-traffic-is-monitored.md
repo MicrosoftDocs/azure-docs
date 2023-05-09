@@ -66,7 +66,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 
 ### Manually define a subnet as ICS
 
-If you have a subnet that is not being detected automatically as an ICS subnet by the sensor, you can manually change the device type of any of the devices in that subnet to an ICS device type, and then the entire subnet will be detected and marked by the sensor as an ICS subnet.
+If you have a subnet that is not being detected automatically as an ICS subnet by the sensor, you can manually change the device type of any of the devices in that subnet to an ICS device type, and then the entire subnet will be detected and marked by the sensor as an ICS subnet. The device type must be changed in the sensor, as a change made to the device type in the cloud will not change the subnet to ICS.
 
 **To manually change the device type to update the subnet**:
 
