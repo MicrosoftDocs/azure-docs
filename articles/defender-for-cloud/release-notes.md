@@ -137,6 +137,8 @@ Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a
 
 If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
 
+Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
+
 ## April 2023
 
 Updates in April include:
