@@ -59,7 +59,11 @@ You need to have your planogram data in a specific JSON format. See the sections
 }
 ```
 
-Quantities in the planogram JSON schema are in nonspecific units. They can be in inches, centimeters, or any other unit of measurement. The matching algorithm calculates the relationship between the photo analysis units (pixels) and the planogram units.
+The X and Y coordinates are relative to a top-left origin, and the width and height extend each bounding box down and to the right. The following diagram shows examples of the coordinate system.
+
+:::image type="content" source="../media/shelf/planogram-coordinates.png" alt-text="Diagram of a shelf image with fixtures and products highlighted and their coordinates shown.":::
+
+Quantities in the planogram schema are in nonspecific units. They can correspond to inches, centimeters, or any other unit of measurement. The matching algorithm calculates the relationship between the photo analysis units (pixels) and the planogram units.
 
 ### Planogram API Model
 
