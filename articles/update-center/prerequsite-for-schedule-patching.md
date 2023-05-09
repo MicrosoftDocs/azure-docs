@@ -109,7 +109,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
           "patchMode": "AutomaticByPlatform", 
           "automaticByPlatformSettings":{ 
             "bypassPlatformSafetyChecksOnUserSchedule":true 
-        } 
+          } 
         } 
       } 
     } 
@@ -135,8 +135,8 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
            "patchMode": "AutomaticByPlatform", 
            "automaticByPlatformSettings":{ 
              "bypassPlatformSafetyChecksOnUserSchedule":true 
-          } 
-        } 
+            } 
+         } 
       } 
     } 
   } 
