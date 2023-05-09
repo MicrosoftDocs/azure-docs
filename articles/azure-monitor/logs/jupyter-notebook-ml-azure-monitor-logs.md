@@ -37,8 +37,8 @@ In this tutorial, you learn how to:
 >- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
-- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which you can overcome to a certain degree by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb). 
-- Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). 
+- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which you can work around to a certain degree if you [split larger queries into multiple smaller queries](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb). 
+
 
 ## Prerequisites 
 For this tutorial, you need:
@@ -119,13 +119,6 @@ To be able to query data in your Log Analytics workspace from your notebook:
     logs_query_client = LogsQueryClient(credential)
     ```
 1. Define the functions you'll use to call your Log Analytics workspace, query your data, and visualize the data in a graph.  
-
-    The code snippet below defines three functions:
-
-    - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a pandas DataFrame (`my_data`).  
-    - `execQueryDemoWorkspace(query)` - Executes the same query on the Log Analytics demo workspace by calling the Azure Log Analytics POST API directly and stores the response in a pandas DataFrame (`my_data`).
-    - `showGraph(df, title)` - Creates a graph that plots the `TimeGenerated` values in the DataFrame on the x-axis and the `ActualUsage` values on the y-axis using Plotly.
-   
     
 ## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
