@@ -20,7 +20,7 @@ There are two types of compute resources in Azure Container Apps: apps and jobs.
 
 Apps are services that run continuously. If a replica in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process messages from a queue.
 
-Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually or on a schedule. Examples of jobs include batch processes that run on demand and scheduled tasks.
+Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or as a response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
 ## Jobs preview limitations
 
@@ -38,6 +38,11 @@ The jobs preview has the following limitations:
     
 - Only supported in the Consumption plan
 - Logs are currently unavailable for scheduled jobs
+- The following features are not supported:
+    - Volume mounts
+    - Dapr
+    - Azure Key Vault references in secrets
+    - Ingress and related features such as custom domains and SSL certificates
 
 ## Job trigger types
 
@@ -45,6 +50,7 @@ A job's trigger type determines how the job is started. The following trigger ty
 
 - **Manual**: Manual jobs are triggered on-demand.
 - **Schedule**:  Scheduled jobs are triggered at specific times and can run repeatedly.
+- **Event**: Event-driven jobs are triggered by events such as a message arriving in a queue.
 
 ### Manual jobs
 
@@ -181,6 +187,10 @@ The following example Azure Resource Manager template creates a manual job named
 `mcr.microsoft.com/k8se/quickstart-jobs:latest` is a sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits.
 
 The cron expression `0 0 * * *` runs the job every day at midnight UTC.
+
+### Event-driven jobs
+
+Event-driven jobs...
 
 ## Start a job execution on demand
 
