@@ -33,10 +33,9 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 |:--- |:--- |:--- |
 | [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series |Av2-series, Dv2-series, Dv3-series, DCasv5-series, DCadsv5-series, Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series, Dlsv5-series, Dldsv5-series
 | [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
-| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series, Mdsv2 Medium Memory series, Mv2-series
+| [Memory optimized](sizes-memory.md) | Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
 | [Storage optimized](sizes-storage.md) |Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
-| [GPU](sizes-gpu.md) |NCasT4_v3-series, NVadsA10 v5-series |NC-series, NCv2-series, NCv3-series, NC_A100_v4-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series, NDv2-series, NV-series, NVv3-series, NVv4-series
-
+| [GPU](sizes-gpu.md) | NCasT4_v3-series, NVadsA10 v5-series | NC-series, NCv2-series, NCv3-series, NC_A100_v4-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series, NDv2-series, NV-series, NVv3-series, NVv4-series
 
 To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](generation-2.md) and Trusted Launch VMs.
 
@@ -45,7 +44,7 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 | OS | Version |
 |:--- |:--- |
 | CBL-Mariner |2.0 |
-| CentOS |8.3, 8.4 |
+| CentOS | 8.3, 8.4 |
 | Debian |11 |
 | Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0 LVM |
 | RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM |
@@ -53,7 +52,7 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 | Ubuntu Server |18.04 LTS, 20.04 LTS, 22.04 LTS |
 | Windows 10 |Pro, Enterprise, Enterprise Multi-Session |
 | Windows 11 |Pro, Enterprise, Enterprise Multi-Session |
-| Windows Server |2016, 2019, 2022* |
+| Windows Server |2016, 2019, 2022 &#42; |
 
 * Variations of this operating system are supported.
 

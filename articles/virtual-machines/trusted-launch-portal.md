@@ -17,7 +17,7 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 
 [Trusted launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
 
-## Prerequisites 
+## Prerequisites
 
 - You need to [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages Defender for Cloud to surface multiple recommendations regarding VM health. 
 
@@ -68,7 +68,7 @@ Sign in to Azure using `az login`.
 az login 
 ```
 
-Create a virtual machine with Trusted Launch. 
+Create a virtual machine with Trusted Launch.
 
 ```azurecli-interactive
 az group create -n myresourceGroup -l eastus 
@@ -112,36 +112,36 @@ $version = latest
 $cred = Get-Credential `
    -Message "Enter a username and password for the virtual machine."
 
-$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize 
+$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize 
 
-$vm = Set-AzVMOperatingSystem `
-   -VM $vm -Windows `
-   -ComputerName $vmName `
-   -Credential $cred `
-   -ProvisionVMAgent `
+$vm = Set-AzVMOperatingSystem `
+   -VM $vm -Windows `
+   -ComputerName $vmName `
+   -Credential $cred `
+   -ProvisionVMAgent `
    -EnableAutoUpdate 
 
-$vm = Add-AzVMNetworkInterface -VM $vm `
-   -Id $NIC.Id 
+$vm = Add-AzVMNetworkInterface -VM $vm `
+   -Id $NIC.Id 
 
-$vm = Set-AzVMSourceImage -VM $vm `
-   -PublisherName $publisher `
-   -Offer $offer `
-   -Skus $sku `
-   -Version $version 
+$vm = Set-AzVMSourceImage -VM $vm `
+   -PublisherName $publisher `
+   -Offer $offer `
+   -Skus $sku `
+   -Version $version 
 
-$vm = Set-AzVMOSDisk -VM $vm `
-   -StorageAccountType "StandardSSD_LRS" `
-   -CreateOption "FromImage" 
+$vm = Set-AzVMOSDisk -VM $vm `
+   -StorageAccountType "StandardSSD_LRS" `
+   -CreateOption "FromImage" 
 
-$vm = Set-AzVmSecurityProfile -VM $vm `
-   -SecurityType "TrustedLaunch" 
+$vm = Set-AzVmSecurityProfile -VM $vm `
+   -SecurityType "TrustedLaunch" 
 
-$vm = Set-AzVmUefi -VM $vm `
-   -EnableVtpm $true `
-   -EnableSecureBoot $true 
+$vm = Set-AzVmUefi -VM $vm `
+   -EnableVtpm $true `
+   -EnableSecureBoot $true 
 
-New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm 
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm 
 ```
  
 
@@ -327,14 +327,14 @@ $nic = New-AzNetworkInterface `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
   -NetworkSecurityGroupId $nsg.Id
-$vm = New-AzVMConfig -vmName $vmName -vmSize $vmSize | `
+$vm = New-AzVMConfig -vmName $vmName -vmSize $vmSize | `
       Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
       Set-AzVMSourceImage -Id $imageDefinition.Id | `
       Add-AzVMNetworkInterface -Id $nic.Id
-$vm = Set-AzVMSecurityProfile -SecurityType "TrustedLaunch" -VM $vm
-$vm = Set-AzVmUefi -VM $vm `
-   -EnableVtpm $true `
-   -EnableSecureBoot $true 
+$vm = Set-AzVMSecurityProfile -SecurityType "TrustedLaunch" -VM $vm
+$vm = Set-AzVmUefi -VM $vm `
+   -EnableVtpm $true `
+   -EnableSecureBoot $true 
 New-AzVM `
    -ResourceGroupName $rgName `
    -Location $location `
@@ -343,17 +343,16 @@ New-AzVM `
 ---
 ## Verify or update your settings
 
-For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
+For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
 :::image type="content" source="./media/trusted-launch/security-type-enabled.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot, vTPM, and Integrity Monitoring from the **Security type** section. Select **Save** at the top of the page when you are done.
+To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot, vTPM, and Integrity Monitoring from the **Security type** section. Select **Save** at the top of the page when you are done.
 
 :::image type="content" source="./media/trusted-launch/verify-intergrity-boot-on.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 
-If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect.
+If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect.
 
 ## Next steps
 
-Learn more about [trusted launch](trusted-launch.md) and [Generation 2](generation-2.md) VMs.
-
+Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](guest-attestation-guide.md) VMs.
