@@ -57,8 +57,9 @@ New-AzVm `
     -PublicIpAddressName 'myPublicIpAddress' `
     -OpenPorts 80,3389
 ```
-
 ---
+
+
 
 ### Exceptions to attaching a VM to a Virtual Machine Scale Set
 
