@@ -47,6 +47,8 @@ items:
   items:
   - name: Content Safety REST API
     href: https://aka.ms/content-safety-api
+  - name: Content Safety Python SDK
+    href: https://aka.ms/content-safety-python-sdk
 - name: Resources
   items:
   - name: Enterprise readiness

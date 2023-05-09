@@ -59,7 +59,7 @@ landingContent:
         links:
           - text: Using Content Safety Studio
             url: studio-quickstart.md?pivots=content-safety-studio
-          - text: Using the REST API
+          - text: Using the REST API or client SDKs
             url: quickstart-text.md?pivots=programming-language-rest
       - linkListType: how-to-guide
         links:
@@ -72,6 +72,8 @@ landingContent:
         links:
           - text: Content Safety API
             url: https://aka.ms/content-safety-api
+          - text: Content Safety Python SDK
+            url: https://aka.ms/content-safety-python-sdk
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
