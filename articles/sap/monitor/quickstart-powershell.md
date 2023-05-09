@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 Get started with Azure Monitor for SAP solutions by using the 
-[Az.Workloads](https://learn.microsoft.com/en-us/powershell/module/az.workloads/?view=azps-9.7.1&viewFallbackFrom=azps-9.7.0) PowerShell module to create Azure Monitor for SAP solutions resources. You'll create a resource group, set up monitoring, and create a provider instance.
+[Az.Workloads](https://learn.microsoft.com/powershell/module/az.workloads/?view=azps-9.7.1&viewFallbackFrom=azps-9.7.0) PowerShell module to create Azure Monitor for SAP solutions resources. You'll create a resource group, set up monitoring, and create a provider instance.
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -55,7 +55,7 @@ New-AzResourceGroup -Name Contoso-AMS-RG -Location <myResourceLocation>
 
 ## Azure Monitor for SAP - Montior Creation
 
-To create an SAP monitor, use the [New-AzWorkloadsSapLandscapeMonitor](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadssaplandscapemonitor?view=azps-9.7.1) cmdlet. The following example creates an SAP monitor for the specified subscription, resource group, and resource name.
+To create an SAP monitor, use the [New-AzWorkloadsSapLandscapeMonitor](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadssaplandscapemonitor?view=azps-9.7.1) cmdlet. The following example creates an SAP monitor for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $monitor_name = 'Contoso-AMS-Monitor'
@@ -69,7 +69,7 @@ $route_all = 'RouteAll'
 New-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -Location $location -AppLocation $location -ManagedResourceGroupName $managed_rg_name -MonitorSubnet $subnet_id -RoutingPreference $route_all
 ```
 
-To retrieve the properties of an SAP monitor, use the [Get-AzWorkloadsMonitor](https://learn.microsoft.com/en-us/powershell/module/az.workloads/get-azworkloadsmonitor?view=azps-9.7.1) cmdlet. The following example gets properties of an SAP monitor for the specified subscription, resource group, and resource name.
+To retrieve the properties of an SAP monitor, use the [Get-AzWorkloadsMonitor](https://learn.microsoft.com/powershell/module/az.workloads/get-azworkloadsmonitor?view=azps-9.7.1) cmdlet. The following example gets properties of an SAP monitor for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 Get-AzWorkloadsMonitor -ResourceGroupName Contoso-AMS-RG -Name Contoso-AMS-Monitor
@@ -78,7 +78,7 @@ Get-AzWorkloadsMonitor -ResourceGroupName Contoso-AMS-RG -Name Contoso-AMS-Monit
 
 - ## SAP NetWeaver Provider Creation
 
-To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
+To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -108,7 +108,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 ```
 - ## SAP HANA Provider Creation
 
-To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name.
+To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -128,7 +128,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 ```
 - ## Operating System Provider Creation
 
-To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a OS provider for the specified subscription, resource group, and resource name.
+To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a OS provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -144,7 +144,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 ```
 - ## High Availability Cluster Provider Creation
 
-To create an High Availability Cluster provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a High Availability Cluster provider for the specified subscription, resource group, and resource name.
+To create an High Availability Cluster provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a High Availability Cluster provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -163,7 +163,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 
 - ## SQL Database Provider Creation
 
-To create an SQL Database provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a SQL Database provider for the specified subscription, resource group, and resource name.
+To create an SQL Database provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a SQL Database provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -183,7 +183,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 
 - ## IBM Db2 Provider Creation
 
-To create an IBM Db2 provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
+To create an IBM Db2 provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -203,14 +203,14 @@ $providerSetting = New-AzWorkloadsProviderDB2InstanceObject -Name $dbName -Passw
 New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -ProviderSetting $providerSetting
 ```
 
-To retrieve properties of a provider instance, use the [Get-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/get-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example gets properties of: 
+To retrieve properties of a provider instance, use the [Get-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/get-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example gets properties of: 
 - A provider instance for the specified subscription
 - The resource group
 - The SapMonitor name
 - The resource name
 
 ```azurepowershell-interactive
-Get-AzWorkloadsProviderInstance -ResourceGroupName contoso-RG -SapMonitorName contoso-sapmonitor
+Get-AzWorkloadsProviderInstance -ResourceGroupName Contoso-AMS-RG -SapMonitorName Contoso-AMS-Monitor
 ```
 
 ## Clean up of resources
@@ -220,7 +220,7 @@ If the resources created in this article aren't needed, you can delete them by r
 - ### Delete the provider instance
 
 To remove a provider instance, use the
-[Remove-AzWorkloadsProviderInstance](https://learn.microsoft.com/en-us/powershell/module/az.workloads/remove-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example is for IBM DB2 provider instance deletion for the specified subscription, resource group, SapMonitor name, and resource name.
+[Remove-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/remove-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example is for IBM DB2 provider instance deletion for the specified subscription, resource group, SapMonitor name, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -233,7 +233,7 @@ Remove-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_na
 
 - ### Delete the SAP monitor
 
-To remove an SAP monitor, use the [Remove-AzWorkloadsMonitor](https://learn.microsoft.com/en-us/powershell/module/az.workloads/remove-azworkloadsmonitor?view=azps-9.7.1) cmdlet. The following example deletes an SAP monitor for the specified subscription, resource group, and monitor name.
+To remove an SAP monitor, use the [Remove-AzWorkloadsMonitor](https://learn.microsoft.com/powershell/module/az.workloads/remove-azworkloadsmonitor?view=azps-9.7.1) cmdlet. The following example deletes an SAP monitor for the specified subscription, resource group, and monitor name.
 
 ```azurepowershell
 $monitor_name = 'Contoso-AMS-Monitor'
