@@ -4,7 +4,7 @@ description: Use this tutorial to help you use playbooks together with automatio
 author: yelevin
 ms.author: yelevin
 ms.topic: tutorial
-ms.date: 01/17/2023
+ms.date: 05/09/2023
 ---
 
 # Tutorial: Respond to threats by using playbooks with automation rules in Microsoft Sentinel
@@ -312,7 +312,7 @@ Another way to run playbooks automatically in response to **alerts** has been to
 
 **This method will be deprecated as of April 2026.**
 
-Beginning **April 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md).
+Beginning **May 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md).
 
 ## Run a playbook on demand
 

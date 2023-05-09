@@ -2,9 +2,9 @@
 title: Create and use Microsoft Sentinel automation rules to manage response
 description: This article explains how to create and use automation rules in Microsoft Sentinel to manage and handle incidents, in order to maximize your SOC's efficiency and effectiveness in response to security threats.
 author: yelevin
-ms.topic: how-to
-ms.date: 09/13/2022
 ms.author: yelevin
+ms.topic: how-to
+ms.date: 05/09/2023
 ---
 
 # Create and use Microsoft Sentinel automation rules to manage response

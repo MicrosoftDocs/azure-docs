@@ -2,9 +2,9 @@
 title: Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules | Microsoft Docs
 description: This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by analytics rules to being invoked by automation rules.
 author: yelevin
-ms.topic: how-to
-ms.date: 05/23/2022
 ms.author: yelevin
+ms.topic: how-to
+ms.date: 05/09/2023
 ---
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules
@@ -24,7 +24,7 @@ If you have already created and built playbooks to respond to alerts (rather tha
 
 It's important to understand that the playbook itself won't change at all. Only the mechanism that invokes it to run will change.
 
-Finally, the ability to invoke playbooks from analytics rules will be **deprecated effective March 2026**. Until then, playbooks invoked from analytics rules will continue to run, but as of **April 2023** it will no longer be possible to add playbooks to the list of those invoked from analytics rules. The only remaining option will be to invoke them from automation rules.
+Finally, the ability to invoke playbooks from analytics rules will be **deprecated effective March 2026**. Until then, playbooks invoked from analytics rules will continue to run, but as of **May 2023** it will no longer be possible to add playbooks to the list of those invoked from analytics rules. The only remaining option will be to invoke them from automation rules.
 
 ## How to migrate
 
