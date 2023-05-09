@@ -4,17 +4,17 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
 
 # Use Azure Container Storage Preview with Azure managed disks
-Azure Container Storage is a volume management service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads.
 
 ## Prerequisites
 
-- This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 - You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs), each with at least four virtual CPUs.
 - Follow the instructions in [Use Azure Container Storage with AKS](container-storage-aks-quickstart.md) to assign [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the AKS managed identity and install Azure Container Storage Preview.
 
@@ -29,9 +29,9 @@ Azure Container Storage Preview is only available in the following Azure regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool for Azure managed disks. 
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool for Azure Disks.
 
-1. Use your favorite text editor to create a YAML file such as `code acstor-storagepool.yaml`.
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
 1. Paste in the following code. The storage pool `name` value can be whatever you want.
 
@@ -49,7 +49,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
        requests: {"storage": 1Ti}
    ```
 
-1. Apply the YAML file to create the storage pool.
+1. Apply the YAML manifest file to create the storage pool.
    
    ```azurecli-interactive
    kubectl apply -f acstor-storagepool.yaml 
@@ -77,7 +77,7 @@ Run `kubectl get sc` to display the available storage classes. You should see a 
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. Follow these steps to create a PVC using the new storage class. 
 
-1. Use your favorite text editor to create a YAML file such as `code acstor-pvc.yaml`.
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
 
 1. Paste in the following code. The PVC `name` value can be whatever you want.
 
@@ -95,7 +95,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
          storage: 100Gi
    ```
 
-1. Apply the YAML file to create the PVC.
+1. Apply the YAML manifest file to create the PVC.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pvc.yaml
@@ -117,9 +117,9 @@ Once the PVC is created, it's ready for use by a pod.
 
 ## Deploy a pod and attach a persistent volume
 
-Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
+Create a pod using Fio (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
 
-1. Use your favorite text editor to create a YAML file such as `code acstor-pod.yaml`.
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
 1. Paste in the following code.
 
@@ -146,7 +146,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
              name: azurediskpv
    ```
 
-1. Apply the YAML file to deploy the pod.
+1. Apply the YAML manifest file to deploy the pod.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pod.yaml
@@ -171,7 +171,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You've now deployed a pod that's using Azure managed disks as its storage, and you can use it for your Kubernetes workloads.
+You've now deployed a pod that's using Azure Disks as its storage, and you can use it for your Kubernetes workloads.
 
 ## See also
 

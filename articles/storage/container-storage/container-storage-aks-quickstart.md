@@ -4,13 +4,13 @@ description: Learn how to configure and use Azure Container Storage Preview with
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
-Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This Quickstart shows you how to configure and use Azure Container Storage with Azure Kubernetes Service (AKS), using Azure Disks as back-end storage. At the end, you'll have new storage classes and a pod that you can use for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to configure and use Azure Container Storage with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md), using Azure Disks as back-end storage. At the end, you'll have new storage classes and a pod that you can use for your Kubernetes workloads.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -20,13 +20,17 @@ Azure Container Storage is a service built natively for containers that enables 
 
 - Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
-- This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- Make sure the identity you're using to create your AKS cluster has the appropriate minimum permissions. For more details, see [Access and identity options for Azure Kubernetes Service](../../aks/concepts-identity.md).
 
-- If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription in which you want to create the storage account and select **Create**.
+- This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+
+- If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
+
+- You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An Azure resource group is a logical group that holds your Azure resources that you want to manage as a group. When you create a resource group, you're prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -65,8 +69,6 @@ The following example creates a resource group named *myContainerStorageRG* in t
 
 ## Create AKS cluster
 
-First, make sure the identity you're using to create your cluster has the appropriate minimum permissions. For more details, see [Access and identity options for Azure Kubernetes Service](../../aks/concepts-identity.md).
-
 Create a Linux-based AKS cluster using the `az aks create` command. The following example creates a cluster named *myAKSCluster* with three nodes and enables a system-assigned managed identity.
 
 You'll need a node pool of at least three virtual machines (VMs). We recommend that each VM have a minimum of four virtual CPUs (vCPUs). We'll use the **standard_l8s_v3** VM size for this Quickstart.
@@ -82,7 +84,7 @@ The deployment will take a few minutes to complete.
 
 ## Connect to the cluster
 
-To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
 
 1. Configure `kubectl` to connect to your cluster using the `az aks get-credentials` command. The following command:
 
@@ -153,14 +155,14 @@ Installation takes 10-15 minutes to complete. You can check if the installation 
 az k8s-extension list --cluster-name myAKSCluster --resource-group myContainerStorageRG --cluster-type managedClusters
 ```
 
-## Create a storage pool utilizing Azure managed disks
+## Create a storage pool utilizing Azure Disks
 
-Now you'll need to create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool for Azure managed disks. 
+Now you'll need to create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool for Azure Disks.
 
 > [!NOTE]
 > This Quickstart uses Azure managed disks for back-end storage. Depending on your requirements, you can use [Azure Ephemeral OS disk (NVMe)](use-container-storage-with-local-disk.md) or [Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md) instead.
 
-1. Run `code acstor-storagepool.yaml` to create a YAML file.
+1. Run `code acstor-storagepool.yaml` to create a YAML manifest file.
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
@@ -178,7 +180,7 @@ Now you'll need to create a storage pool, which is a logical grouping of storage
        requests: {"storage": 1Ti}
    ```
 
-3. Apply the YAML file to create the storage pool.
+3. Apply the YAML manifest file to create the storage pool.
    
    ```azurecli-interactive
    kubectl apply -f acstor-storagepool.yaml 
@@ -211,7 +213,7 @@ azurecontainerstorage-single-replica
 
 A persistent volume claim is used to automatically provision storage based on a storage class. Follow these steps to create a persistent volume claim. 
 
-1. Run `code acstor-pvc.yaml` to create a YAML file.
+1. Run `code acstor-pvc.yaml` to create a YAML manifest file.
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
@@ -229,7 +231,7 @@ A persistent volume claim is used to automatically provision storage based on a 
          storage: 100Gi
    ```
 
-3. Apply the YAML file to create the persistent volume claim.
+3. Apply the YAML manifest file to create the persistent volume claim.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pvc.yaml
@@ -251,9 +253,9 @@ Once the persistent volume claim is created, it's ready for use by a pod.
 
 ## Deploy a pod and attach a persistent volume
 
-Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
+Create a pod using Fio (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
 
-1. Run `code acstor-pod.yaml` to create a YAML file.
+1. Run `code acstor-pod.yaml` to create a YAML manifest file.
 
 2. Paste in the following code.
 
@@ -280,7 +282,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
              name: azurediskpv
    ```
 
-3. Apply the YAML file to deploy the pod.
+3. Apply the YAML manifest file to deploy the pod.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pod.yaml
