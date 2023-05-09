@@ -3,7 +3,7 @@ title: How to custom configure Azure HDInsight Autoscale.
 description: Learn how to custom configure Autoscale in Azure HDInsight clusters
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ---
 
 # How to custom configure HDInsight Autoscale
@@ -17,7 +17,7 @@ Following are few configurations that can be tuned to custom configure HDInsight
 |----|----|----|----|----|
 |yarn.4_0.graceful.decomm.workaround.enable|Enable YARN graceful decommissioning|Loadware autoscale – True Scheduled autoscale - True|Hadoop/Spark |If this config is disabled, YARN puts nodes in decommissioned state directly from running state without waiting for the applications using the node to finish. This action might lead to applications getting killed abruptly when nodes are decommissioned. Read more about job resiliency in YARN [here](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/GracefulDecommission.html)|
 |yarn.graceful.decomm.timeout|YARN graceful decommissioning timeout in seconds | Hadoop Loadware – 3600 Spark Scheduled - 1 Hadoop Scheduled – 1 Spark Loadware – 86400| Hadoop/Spark| Graceful decommissioning timeout is best configured according to customer applications. For example – if an application has many mappers and few reducers, which can take 4 hours to complete, this configuration needs to be set to more than 4 hours |
-|yarn.max.scale.up.increment | Maximum number of nodes to scale up in one go|- | Hadoop/Spark/Interactive Query|It has been tested with 200 nodes. We don't recommend setting this value to more than 200. It can be set to less than 200 if the customer wants less aggressive scale up |
+|yarn.max.scale.up.increment | Maximum number of nodes to scale up in one go|200 | Hadoop/Spark/Interactive Query|It has been tested with 200 nodes. We don't recommend setting this value to more than 200. It can be set to less than 200 if the customer wants less aggressive scale up |
 |yarn.max.scale.down.increment |Maximum number of nodes to scale up in one go | 50|Hadoop/Spark/Interactive Query|Can be set to up to 100 |
 |nodemanager.recommission.enabled |Feature to enabled recommissioning of decommissioning NMs before adding new nodes to the cluster|True |Hadoop/Spark load based autoscale |Disabling this feature can cause underutilization of cluster. There can be nodes in decommissioning state, which have no containers to run but are waiting for application to finish, even if there's more load in the cluster. **Note:** Applicable for images on **2304280205**  or later|
 |UnderProvisioningDiagnoser.time.ms |Time in milliseconds for which cluster needs to under provisioned for scale up to trigger |180000 |Hadoop/Spark load based autoscaling |-|
