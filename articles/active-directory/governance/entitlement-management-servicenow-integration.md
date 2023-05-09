@@ -224,7 +224,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-save.png" alt-text="Screenshot of save and activate within flow designer.":::
 
 
-## Requesting access to an access package as an end-user.
+## Requesting access to an access package as an end-user
 
 When an end user requests access to an access package, the request is sent to the appropriate approver. Once the approver grants approval, Entitlement Management calls the Logic App. The Logic app then calls ServiceNow to create a new request/ticket and Entitlement Management awaits a callback from ServiceNow.
 
