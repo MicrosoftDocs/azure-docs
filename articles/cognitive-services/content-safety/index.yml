@@ -30,7 +30,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Content Safety Studio
-            url: overview-content-safety-studio.md
+            url: studio-quickstart.md
       - linkListType: whats-new
         links:
           - text: What's new in Content Safety
