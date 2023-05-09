@@ -15,7 +15,6 @@ ms.topic: how-to
 
 This article explains how to configure Azure Arc-enabled SQL managed instance.
 
-
 ## Configure resources such as cores, memory
 
 
@@ -96,7 +95,7 @@ Currently the following server options can be configured:
 
 Add the following to your YAML file during deployment to configure any of these options.
 
-```
+```yml
 spec:
   serverConfigurations:
   - name: "Ad Hoc Distributed Queries"
@@ -117,7 +116,8 @@ If you already have an existing Arc SQL MI, you can run `kubectl edit sqlmi <sql
 
 
 Sample Arc SQL MI YAML file:
-```
+
+```yml
 apiVersion: sql.arcdata.microsoft.com/v13
 kind: SqlManagedInstance
 metadata:
@@ -186,14 +186,17 @@ SQL Server agent is disabled during a default deployment of Arc SQL MI. It can b
 ```azurecli
 az sql mi-arc update -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s --agent-enabled true
 ```
+
 As an example:
+
 ```azurecli
 az sql mi-arc update -n sqlinstance1 --k8s-namespace arc --use-k8s --agent-enabled true
 ```
 
-## Enable Trace flags
+## Enable trace flags
 
 Trace flags can be enabled as follows:
+
 ```azurecli
 az sql mi-arc update -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s --trace-flags "3614,1234" 
 ```
