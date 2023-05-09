@@ -9,7 +9,7 @@ ms.author: veyaddan
 
 # Guide to troubleshoot issues with Event Grid namespace MQTT functionality
 
-This guide provides you with information on what you can do to troubleshoot things before you submit a support ticket.
+This guide provides you with information on what you can do to troubleshoot things before you submit a support ticket. 
 
 ## Unable to connect an MQTT client to your Event Grid namespace
 
