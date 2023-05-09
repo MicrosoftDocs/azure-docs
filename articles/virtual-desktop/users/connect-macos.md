@@ -26,7 +26,7 @@ Before you can access your resources, you'll need to meet the prerequisites:
 - Download and install the Remote Desktop client from the [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
 
 >[!NOTE]
->The macOS Remote Desktop client currently isn't distributed in the Mainland China region in the App Store.
+>The macOS Remote Desktop client currently isn't distributed in the China region in the App Store.
 
 ## Subscribe to a workspace
 
