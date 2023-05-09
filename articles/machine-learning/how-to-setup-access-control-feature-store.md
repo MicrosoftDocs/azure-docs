@@ -24,11 +24,11 @@ Azure Machine Learning supports role-based access control for the following mana
 
 To control access to these resources, consider the user types below. For each user type, the identity can be either an Azure Active Directory identity, a service principal, or an Azure managed identity (both system managed and user assigned).
 
-- __Feature set developers__ (for example, dta scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
-    - Managing lifecycle of features: From creation to retirement/archival
+- __Feature set developers__ (for example, data scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
+    - Managing lifecycle of features: From creation ton archival
     - Setting up materialization and backfill of features
     - Monitoring feature freshness and quality
-- __Feature set consumers__ (for example, data scientist and machine learning engineers): They work primarily with in a project workspace and use features: 
+- __Feature set consumers__ (for example, data scientist and machine learning engineers): They work primarily in a project workspace and use features: 
     - Discovering features for reuse in model
     - Experimenting with features during training to see if it improves model performance
     - Setting up training/inference pipelines to use the features
@@ -69,9 +69,9 @@ To create and/or delete a managed feature store, we recommend using the built-in
 
 |Scope| Action/Role|
 |----|------|
-| resourceGroup (where feature store is to be created) | Microsoft.MachineLearningServices/workspaces/featurestore/read  |
-| resourceGroup (where feature store is to be created) | Microsoft.MachineLearningServices/workspaces/featurestore/write |
-| resourceGroup (where feature store is to be created) | Microsoft.MachineLearningServices/workspaces/featurestore/delete |
+| resourceGroup (where feature store is to be created) | Microsoft.MachineLearningServices/workspaces/featurestores/read  |
+| resourceGroup (where feature store is to be created) | Microsoft.MachineLearningServices/workspaces/featurestores/write |
+| resourceGroup (where feature store is to be created) | Microsoft.MachineLearningServices/workspaces/featurestores/delete |
 | the feature store | Microsoft.Authorization/roleAssignments/write |
 | the user assigned managed identity | Managed Identity Operator role |
 
@@ -87,7 +87,7 @@ When provisioning a feature store, a few other resources will also be provisione
 
 ## Permissions required for the `feature set consumer` role
 
-To consume feature sets defined in the feature store, use the following build-in roles:
+To consume feature sets defined in the feature store, use the following built-in roles:
 
 |Scope| Role|
 |----|------|
@@ -102,7 +102,7 @@ If you want to avoid using the `AzureML Data Scientist` role, you can use these 
 
 |Scope| Action/Role|
 |----|------|
-| the feature store | Microsoft.MachineLearningServices/featurestores/read  |
+| the feature store | Microsoft.MachineLearningServices/workspaces/featurestores/read  |
 | the feature store | Microsoft.MachineLearningServices/workspaces/featuresets/read |
 | the feature store | Microsoft.MachineLearningServices/workspaces/featurestoreentities/read |
 | the feature store | Microsoft.MachineLearningServices/workspaces/datastores/listSecrets/action |
@@ -147,9 +147,9 @@ The following new actions are created for managed feature store usage.
 
 |Action| Description|
 |----|------|
-| Microsoft.MachineLearningServices/workspaces/featurestore/read | List, get feature store |
-| Microsoft.MachineLearningServices/workspaces/featurestore/write | Create and update feature store (configure materialization stores, materialization compute, etc.|)
-| Microsoft.MachineLearningServices/workspaces/featurestore/delete | Delete feature store|
+| Microsoft.MachineLearningServices/workspaces/featurestores/read | List, get feature store |
+| Microsoft.MachineLearningServices/workspaces/featurestores/write | Create and update feature store (configure materialization stores, materialization compute, etc.|)
+| Microsoft.MachineLearningServices/workspaces/featurestores/delete | Delete feature store|
 Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets. | |
 | Microsoft.MachineLearningServices/workspaces/featuresets/write | Create and update feature sets. Can configure materialization settings along with create or update |
 | Microsoft.MachineLearningServices/workspaces/featuresets/delete | Delete feature sets|
