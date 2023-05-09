@@ -1,6 +1,6 @@
 ---
-title: Set up network for Azure Monitor for SAP solutions (preview)
-description: Learn how to set up an Azure virtual network for use with Azure Monitor for SAP solutions.
+title: Set up private endpoints for Azure Monitor for SAP solutions
+description: Learn how to set up an private endpoints for Azure Monitor for SAP solutions resources.
 author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
@@ -9,7 +9,7 @@ ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to set up an Azure virtual network so that I can use Azure Monitor for SAP solutions.
 ---
-# Set up network for Azure Monitor for SAP solutions (preview)
+# Set up private endpoints for Azure Monitor for SAP solutions
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
