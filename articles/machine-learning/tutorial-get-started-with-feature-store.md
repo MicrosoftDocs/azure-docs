@@ -181,7 +181,7 @@ You also register a feature set asset with the feature store. This has a referen
 
 This shows the feature set and entity that you created.
 
-> [!Note]:
+> [!Note]
 > Creating and updating feature store assets are possible only through SDK and CLI. You can use the UI to search/browse the feature store.
 
 ## Step 5: Generate a training data dataframe using the registered features
