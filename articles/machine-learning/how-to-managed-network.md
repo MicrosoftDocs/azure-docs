@@ -40,19 +40,14 @@ There are two different configuration modes for outbound traffic from the manage
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
 | Allow only approved outbound | Outbound traffic is allowed by specifying FQDNs and service tags. | Recommended if you want to minimize the risk of data exfiltration but you need to prepare all required machine learning artifacts in your private locations. |
 
-<!-- you get Azure Machine Learning managed virtual network and your computing resources automatically use that virtual network. Managed network isolation has two modes:
-
-* Allow internet outbound mode: Allow all internet outbound from Azure Machine Learning managed VNet. You can have private endpoint connections to your private Azure resources. This is the mode if your ML engineers need access to machine learning artifacts on the Internet such as python packages, pretrained models.
-* Allow only approved outbound mode: You can allow outbound only to the approved outbound using private endpoint, FQDN and service tag. This is the mode if you want to minimize data exfiltration risk but you need to prepare all required machine learning artifacts in your private locations. -->
-
-The managed virtual network is preconfigured with [required default outbound rules](#list-of-required-outbound-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault if they're configured as private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
+The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault if they're configured as private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
 ## Supported scenarios in preview and to be supported scenarios
 
 |Scenarios|Supported in preview|To be supported|
 |---|---|---|
 |Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound||
-|Compute|&#x2022; Compute Instance<br>&#x2022; Compute Cluster<br>&#x2022; Serverless<br>&#x2022; Serverless spark|&#x2022; New managed online endpoint creation<br>&#x2022; Migration of existing managed online endpoint<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless|
+|Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; Serverless<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)|&#x2022; New managed online endpoint creation<br>&#x2022; Migration of existing managed online endpoint<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless|
 |Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag|&#x2022; FQDN|
 
 ## Prerequisites
@@ -701,10 +696,12 @@ TBD
 
 ---
 
-## List of required outbound rules
+## List of required rules
 
 > [!TIP]
-> These outbound rules are automatically added to the managed VNet.
+> These  rules are automatically added to the managed VNet.
+
+__Outbound__ rules:
 
 * `AzureActiveDirectory`
 * `AzureMachineLearning`
@@ -714,9 +711,8 @@ TBD
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
-## List of recommended outbound rules
-
-TBD
+__Inbound__ rules:
+* `AzureMachineLearning`
 
 ## Limitations
 
