@@ -16,13 +16,13 @@ Azure Web Application Firewall (WAF) provides centralized protection of your web
 
 Azure Application Gateway WAF v2 natively supports WAF policy. You should upgrade your legacy WAF configuration to WAF policies.
 
-- Policies offer a richer set of advanced features like newer managed rule sets, custom rules, per rule exclusions, bot protection, and the next generation of WAF engine. These advanced features are available to you at no additional cost.
+- Policies offer a richer set of advanced features. This includes newer managed rule sets, custom rules, per rule exclusions, bot protection, and the next generation of WAF engine. These advanced features are available to you at no extra cost.
 - WAF policies provide higher scale and better performance.
 - Unlike legacy WAF configuration, WAF policies can be defined once and shared across multiple gateways, listeners, and URL paths. This simplifies the management and deployment experience.
-- The latest features and future enhancements will only be available via WAF policies. 
+- The latest features and future enhancements are only available via WAF policies. 
 
 > [!IMPORTANT]
-> No further investments will be made on legacy WAF configuration. You are strongly encouraged to upgrade from legacy WAF configuration to WAF Policy for easier management, better, scale, and a richer feature set at no additional cost.
+> No further investments will be made on legacy WAF configuration. You are strongly encouraged to upgrade from legacy WAF configuration to WAF Policy for easier management, better scale, and a richer feature set at no additional cost.
 
 ## Upgrade Application Gateway Standard v2 to Application Gateway WAF v2
 
@@ -36,7 +36,7 @@ You can upgrade existing Application Gateways with WAF v2 from WAF legacy config
 
 # [Portal](#tab/portal)
 
-1. Logon to the Azure portal and select the Application Gateway WAF v2 that has a legacy WAF configuration.
+1. Sign in to the Azure portal and select the Application Gateway WAF v2 that has a legacy WAF configuration.
 1. Select **Web Application Firewall** from the left menu, then select **Upgrade from WAF configuration**.
 1. Provide a name for the new WAF Policy and then select **Upgrade**. This creates a new WAF Policy based on the WAF configuration. You can also choose to associate a pre-existing WAF Policy instead of creating a new one.
 1. When the upgrade finishes, a new WAF Policy incorporating the previous WAF configuration and rules is created. 
@@ -53,7 +53,7 @@ See [Upgrade Web Application Firewall policies using Azure PowerShell](migrate-p
 
 ## Upgrade Application Gateway v1 to WAF v2 with WAF policy
 
-Application Gateway v1 does not support WAF policy. Upgrading to WAF policy is a two step process:
+Application Gateway v1 doesn't support WAF policy. Upgrading to WAF policy is a two step process:
 
 - Upgrade Application Gateway v1 to v2 version.
 - Upgrade legacy WAF configuration to WAF policy.
