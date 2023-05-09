@@ -231,6 +231,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Workspace manager](../../sentinel/workspace-manager.md) | Public preview | Public preview |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
+| - [Hunts](../../sentinel/hunts.md) | Public preview | Not Available |
 | **Content  and content management** | | |
 | - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Public preview |
 | - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public preview | Not Available |
