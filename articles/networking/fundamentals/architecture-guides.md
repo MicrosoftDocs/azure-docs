@@ -21,7 +21,6 @@ The following table includes articles that provide a networking overview of a vi
 |[Hub-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)  |Provides an overview of the hub and spoke network topology in Azure along with information about subscription limits and multiple hubs.          |
 |[Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture) |  Provides an alternative solution to the hub-spoke network topology that uses Azure Virtual WAN. Azure Virtual WAN is used to replace hubs as a managed service. |
 
-
 ## Connect to Azure resources
 
 Azure Networking services provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure. The following table includes articles about these services.
