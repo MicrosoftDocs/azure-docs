@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample vanilla JavaScript single-page application by using Microsoft Entra
-description: Learn how to configure a sample SPA to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample vanilla JavaScript single-page application
+description: Learn how to configure a sample SPA to sign in and sign out users.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample vanilla JavaScript single-page application by using Microsoft Entra
+# Sign in users in a sample vanilla JavaScript single-page application
 
-This how-to guide uses a sample vanilla JavaScript Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure AD for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample vanilla JavaScript Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure Azure Active Directory (AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 

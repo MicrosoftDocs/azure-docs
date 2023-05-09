@@ -1,6 +1,6 @@
 ---
-title: Sign in users to a Vanilla JS Single-page application using Microsoft Entra - Configure an application User Interface and Sign-In
-description: Learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with your CIAM tenant
+title: Sign in users to a Vanilla JS Single-page application - Configure an application User Interface and Sign-In
+description: Learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 05/08/2023
 ms.custom: developer
 
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
+#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
 # Configure a Single-page application User Interface and Sign-In
@@ -202,8 +202,8 @@ Now that all the required code snippets have been added, the application can be 
 
 1. Open a new private browser, and enter the application URI into the browser, `https://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your CIAM tenant, which starts the sign-up flow as a user for your application.
-1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+1. In the **Create account** window, enter the email address registered to your Azure Active Directory (AD) for customers tenant, which starts the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
