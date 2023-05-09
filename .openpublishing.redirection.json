@@ -1594,6 +1594,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/front-door-application-security.md",
+            "redirect_url": "/azure/frontdoor/web-application-firewall",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -6486,6 +6492,11 @@
         {
             "source_path_from_root": "/articles/automation/automation-vm-inventory.md",
             "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/create-run-as-account.md",
+            "redirect_url": "/azure/automation/enable-managed-identity-for-automation",
             "redirect_document_id": false
         },
         {
@@ -13583,6 +13594,16 @@
             "redirect_url": "/azure/notification-hubs/ios-sdk-legacy",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/notification-hubs/availability-zones.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/cross-region-recovery.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-high-availability",
+            "redirect_document_id": false
+        },                
         {
             "source_path_from_root": "/articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
             "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
@@ -22702,6 +22723,12 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
+            "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
+            "redirect_document_id": false
         }
+
     ]
 }

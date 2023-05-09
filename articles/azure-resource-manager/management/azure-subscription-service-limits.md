@@ -137,6 +137,10 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
 
+## Azure Deployment Environments limits
+
+[!INCLUDE [Deployment Environments limits](../../../includes/deployment-environments-limits.md)]
+
 ## Azure Files and Azure File Sync
 
 To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
