@@ -114,7 +114,7 @@ To delete an existing user, you must have a *Global administrator* role assignme
 1. Select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](../../fundamentals/active-directory-users-restore.md).
+The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure AD](../../fundamentals/active-directory-users-restore.md).
 
 ## Protect administrative accounts
 

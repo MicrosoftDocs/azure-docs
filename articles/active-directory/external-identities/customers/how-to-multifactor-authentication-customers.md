@@ -20,7 +20,7 @@ ms.custom: it-pro
 [Multifactor authentication](../../authentication/concept-mfa-howitworks.md) (MFA) adds a layer of security to your customer-facing applications. With MFA, customers are prompted for a one-time passcode in addition to their username and password when they sign up or sign in to your app. This article describes how to enforce MFA for your customers by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
 
 > [!NOTE]
-> Currently, you can use MFA only with user flows that are set to **Email with password** as the local account authentication method. When user flows are set to **Email with one-time passcode**, the one-time passcode is a first-factor sign-in method and can't be used for MFA.
+> If you want to enable MFA, set your local account authentication method to **Email with password**. If you set your local account option to **Email with one-time passcode**, customers who use this method won't be able to sign in because the one-time passcode is already their first-factor sign-in method and can't be used as a second factor. Currently, other verification methods aren't available for customer scenarios.
 
 ## Prerequisites
 

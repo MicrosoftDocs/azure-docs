@@ -40,7 +40,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
     ```json
     {
       "AzureAd": {
-        "Authority": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
+        "Authority": "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/",
         "ClientId": "Enter_the_Application_Id_Here",
         "ClientCredentials": [
           {
@@ -61,7 +61,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
     }
     ```
 
-    * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
+    * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Subdomain_Here` with the sub-domain of your CIAM tenant. To find this, select **Overview** in the sidebar menu, then switch to the **Overview tab**. Find the **Primary domain**, in the form *caseyjensen.onmicrosoft.com*. The sub-domain is *caseyjensen*.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
