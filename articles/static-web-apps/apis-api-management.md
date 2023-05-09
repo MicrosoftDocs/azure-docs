@@ -117,7 +117,7 @@ When the unlinking process is complete, requests to routes beginning with `/api/
 
 ## Troubleshooting
 
-If the APIs are not associated to the API Management *product* created for the Static Web Apps resource, accessing a `/api` route in your static web app returns the following error from API management.
+If the APIs aren't associated to the API Management *product* created for the Static Web Apps resource, accessing a `/api` route in your static web app returns the following error from API management.
 
 ```json
 {
