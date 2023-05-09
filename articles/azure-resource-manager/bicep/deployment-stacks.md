@@ -169,7 +169,87 @@ az stack sub list
 
 ## Update deployment stacks
 
-To update a deployment stack, modify the underlying Bicep files and re-run the create deployment stack commands. For more information about the commands, see [Create deployment stack](#create-deployment-stacks).
+To update a deployment stack, modify the underlying Bicep files, and then
+
+- run the update deployment stack command
+- re-run the create deployment stack command
+
+### Use the Set command
+
+To update a deployment stack at the resource group scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzResourceGroupDeploymentStack `
+   -Name '<deployment-stack-name>' `
+   -ResourceGroupName '<resource-group-name>' `
+   -TemplateFile '<bicep-file-name>'
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group create \
+  --name <deployment-stack-name> \
+  --resource-group <resource-group-name> \
+  --template-file <bicep-file-name>
+```
+
+---
+
+To update a deployment stack at the management group scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzManagmentGroupDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -ManagementGroupId '<management-group-id>' `
+  -DeploymentSubscriptionId '<subscription-id>'
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --management-group-id <management-group-id> \
+  --deployment-subscription-id <subscription-id>
+```
+
+---
+
+To update a deployment stack at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzSubscriptionDeploymentStack `
+   -Name '<deployment-stack-name>' `
+   -Location '<location>' `
+   -TemplateFile '<bicep-file-name>' `
+   -DeploymentResourceGroupName '<resource-group-name>'
+```
+
+The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deployment-resource-group-name <resource-group-name>
+```
+
+### Use the new command
+
 
 You get a warning similar to the following:
 
@@ -362,10 +442,7 @@ The Azure PowerShell interface also includes these parameters to customize the d
 - `-DenySettingsExcludedPrincipals`: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
 - `-DenySettingsApplyToChildScopes`: Apply to child scopes.
 - `-DenySettingsExcludedActions`: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted.
-- `-DenySettingsExcludedDataActions`
 - `-DenySettingsMode`: Mode for DenySettings. Possible values include: 'denyDelete', 'denyWriteAndDelete', and 'none'.
-
-jgao: DenySettingsExcludedDataActions is not found in the help.
 
 # [CLI](#tab/azure-cli)
 
