@@ -51,7 +51,7 @@ For information about the pricing and features of individual App Service plans, 
 
 1. Select one of the pricing tiers and select **Select**.
 
-  :::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
+    :::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
 
     When the operation is complete, you see a notification pop-up with a green success check mark.
 
