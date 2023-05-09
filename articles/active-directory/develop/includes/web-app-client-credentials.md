@@ -16,7 +16,7 @@ In the following example, the `GraphBeta` section specifies these settings.
    "ClientCredentials": [
     {
       "SourceType": "ClientSecret",
-      "ClientSecret":"[Copy the client secret added to the app from the Azure portal]"
+      "ClientSecret":"[Enter_the_Client_Secret_Here]"
     }
   ]
  },
