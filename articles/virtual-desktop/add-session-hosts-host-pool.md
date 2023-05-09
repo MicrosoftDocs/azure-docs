@@ -202,8 +202,10 @@ Select the relevant tab for your scenario and follow the steps.
 1. Download the Agent and the Agent Bootloader installation files using the following links You may need to unblock them; right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
    - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+
+   > [!TIP]
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -255,6 +257,9 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
        Unblock-File -Path "$installer"
    }
    ```
+
+   > [!TIP]
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
 
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
 
