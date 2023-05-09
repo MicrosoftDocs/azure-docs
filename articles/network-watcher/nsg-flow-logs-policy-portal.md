@@ -31,7 +31,7 @@ To learn more about Azure Policy, see [What is Azure Policy?](../governance/poli
 
    ![Screenshot that shows the selection for opening the page for assignments in the Azure portal.](./media/network-watcher-builtin-policy/2_assignments-tab.png)
 
-4. Select **Assign Policy**.
+4. Select **Assign policy**.
 
    ![Screenshot that shows the button for assigning a policy.](./media/network-watcher-builtin-policy/3_assign-policy-button.png)
 
@@ -56,7 +56,7 @@ To get the full definition of the policy, go to the [Definitions tab](https://po
 
 ### Assignment
 
-1. Fill in your policy details:
+1. On the **Basics** tab, fill in your policy details:
 
    - **Scope**: A subscription is a common choice. You can also choose a management group or resource group as relevant to you.  
    - **Policy definition**: This definition is for the policy that you assigned earlier.
@@ -64,7 +64,7 @@ To get the full definition of the policy, go to the [Definitions tab](https://po
 
 2. Select **Review + create** to review your assignment.
 
-   The policy doesn't require any parameters. As you're assigning an audit policy, you don't need to fill in the details on the **Remediation** tab.
+   The policy doesn't require any parameters. Because you're assigning an audit policy, you don't need to fill in the details on the **Remediation** tab.
 
    Select **Create** when you're finished.
 
@@ -84,13 +84,13 @@ To get the full definition of the policy, go to the [Definitions tab](https://po
 
 ### Assignment
 
-1. Fill in your policy details:
+1. On the **Basics** tab, fill in your policy details:
 
    - **Scope**: A subscription is a common choice. You can also choose a management group or resource group as relevant to you.  
    - **Policy definition**: This definition is for the policy that you assigned earlier.
    - **Assignment name**: Choose a descriptive name.
 
-2. Add policy parameters.
+2. On the **Parameters** tab, add policy parameters.
 
    Network Watcher is a regional service. These parameters allow the policy action of deploying flow logs to be executed:
 
@@ -101,7 +101,7 @@ To get the full definition of the policy, go to the [Definitions tab](https://po
 
    ![Screenshot that shows parameters for the deploy-if-not-exists policy.](./media/network-watcher-builtin-policy/5_2_1_dine-policy-details-alt.png)
 
-3. Add remediation details:
+3. On the **Remediation** tab, add remediation details:
 
    - Select the **Create a remediation task** checkbox if you want the policy to affect existing resources.
    - The **Create a Managed Identity** checkbox should be selected already.
@@ -109,7 +109,7 @@ To get the full definition of the policy, go to the [Definitions tab](https://po
 
    You need Contributor or Owner permission to use this policy. If you have either of these permissions, no errors should appear.
 
-   ![Screenshot that shows details for deploy-if-not-exists policy remediation.](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png)
+   ![Screenshot that shows remediation details for a deploy-if-not-exists policy.](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png)
 
 4. Select **Review + create** to review your assignment. Select **Create** when you're finished.
 
