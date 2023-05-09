@@ -4,7 +4,7 @@ description: Learn about the different types of health probes and configuration 
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 05/08/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -28,7 +28,7 @@ Health probe configuration consists of the following elements:
 | --- | --- | 
 | Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Available options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
-| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attempts to the virtual machine |
+| Interval | Interval of health probe. The amount of time (in seconds) between consecutive health check attempts to the virtual machine |
 
 ## Probe protocol
 
@@ -51,21 +51,9 @@ The protocol used by the health probe can be configured to one of the following 
 
 ## Probe interval
 
-The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. On the next healthy probe up, the health probe marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 15 seconds by default but can be explicitly set to another value.
+The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 15 seconds by default but can be explicitly set to another value.
 
-For example, if a health probe set to 5 seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
-
-1. If your application produces a time-out response just before the next probe arrives, the detection of the events will take 5 seconds plus the duration of the application time-out when the probe arrives. You can assume the detection to take slightly over 5 seconds.
-2. If your application produces a time-out response just after the next probe arrives, the detection of the events won't begin until the probe arrives and times out, plus another 5 seconds. You can assume the detection to take just under 10 seconds.
-
-For this example, once detection has occurred, the platform takes a small amount of time to react to the change. The reaction depends on:
-* When the application changes state
-* When the change is detected
-* When the next health probe is sent
-* When the detection has been communicated across the platform 
-
-Assume the reaction to a time-out response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change.
-This example is provided to illustrate what is taking place. It's not possible to forecast an exact duration beyond the guidance in the example.
+It is important to note that probes also have a timeout period. For example, if a health probe interval is set to 15 seconds, the total time it takes for your health probe to reflect your application would be (interval + timeout period). Assume the reaction to a timeout response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change. This example is provided to illustrate what is taking place. It's not possible to forecast an exact duration beyond the guidance in the example.
 
 ## Probe source IP address
 
