@@ -146,7 +146,6 @@ dependencies:
       - azureml-defaults==1.38.0
       - requests==2.28.1
       - azureml-ai-monitoring~=0.1.0b1
-      - azureml-inference-server-http
 name: model-env
 ```
 
@@ -190,10 +189,10 @@ Optionally, you can adjust the following additional parameters for your `data_co
 
 - `data_collector.rolling_rate`: The rate to partition the data in storage. Value can be: Minute, Hour, Day, Month, Year
 - `data_collector.sampling_rate`: The percentage, represented as a decimal rate, of data to collect. For instance, a value of 1.0 represents collecting 100% of data.
-- `data_collector.collections.<collection_name>.data.name`: 
+- `data_collector.collections.<collection_name>.data.name`: The name of the data asset to register with the collected data.
 - `data_collector.collections.<collection_name>.data.path`: The full Azure Machine Learning datastore path where the collected data should be registered as a data asset.
 - `data_collector.collections.<collection_name>.data.version`: The version of the data asset to be registered with the collected data in Blob storage.
--
+
 Deploy the model with custom logging enabled:
 
 ```bash
@@ -326,28 +325,9 @@ Here is an example of a HTTP response collected JSON:
 
 If you are deploying a MLFlow model to an AzureML online endpoint, enabling production inference data collection can be done with single toggle from the StudioUI. If data collection is toggled, we will auto-instrument your scoring script with custom logging code to ensure that the production data is logged to your workspace Blob storage. The data can then be used by your model monitors to monitor the performance of your MLFlow model in production.
 
-To enable production data collection, while you are deploying your model, under the **Deployment** tab, select **Enabled** for **Data collection (preview)**:
-
-:::image type="content" source="./media/how-to-collect-production-data/mlflow-ncd.png" alt-text="Screenshot highlights Data collector enabled in the deployment set-up in the StudioUI.":::
+To enable production data collection, while you are deploying your model, under the **Deployment** tab, select **Enabled** for **Data collection (preview)**.
 
 After enabling data collection, production inference data will be logged to your AzureML workspace blob storage and two data assets will be created with names `<endpoint_name>-<deployment_name>-model_inputs` and `<endpoint_name>-<deployment_name>-model_outputs`. These data assets will be updated in real-time as your deployment is utilized in production, and can be used by your model monitors to monitor the performance of your model in production.
-
-## Data collection debugging
-
-You can view the container logs for the data collector from the CLI with the following command:
-
-```bash
-$ az ml online-deployment get-logs --endpoint-name my_endpoint --name blue --container model-data-collector
-```
-
-These logs will be output as plain text. They come from the user container, with the format of the logs determined by the base image that the client uses. Logs will be onboarded to customers log table under the name “DataCollectionLogs”. For Blob, it will read data from the storage account using sdk/code/ui/etc (whatever the storage account supports).
-
-Example of logs in plaintext:
-
-```Bash
-Apr  14 05:03:05  INFO  using user assigned identity ,"UAI":"92548dd6-4ff8-424c-80e4-c881fdd695d5"
-Apr  14 04:57:58  ERROR Unable to connect to eventhub: adal: Refresh request failed. Status Code = '500'. Response body: getting MSI Token faild, http status code: 400  , resource: https:\/\/eventhubs.azure.net\/  , clinet_id: 92548dd6-4ff8-424c-80e4-c881fdd695d5  , response body: {\"error\":\"invalid_request\",\"error_description\":\"Identity not found\"} Endpoint http:\/\/10.0.0.4:8911\/v1\/token\/msi\/imds?api-version=2017-09-01&clientid=92548dd6-4ff8-424c-80e4-c881fdd695d5&resource=https%3A%2F%2Feventhubs.azure.net%2F
-```
 
 ## Next steps
 

@@ -43,7 +43,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
 | `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you don't need to specify this property. <br><br> With this `default` scale type, you can either manually scale the instance count up and down after deployment creation by updating the `instance_count` property, or create an [autoscaling policy](how-to-autoscale-endpoints.md). | | |
 | `scale_settings.type` | string | The scale type. | `default` | `default` |
-| `data_collector.collections` | object | Data collection settings for the deployment. See [DataCollector](#datacollector) for the set of configurable properties.
+| `data_collector` | object | Data collection settings for the deployment. See [DataCollector](#datacollector) for the set of configurable properties. | | |
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -71,10 +71,13 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `<collection_name>` | object | Logical grouping of production inference data to collect. There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user. <br><br> **Note**: Each `collection_name` should correspond to the name of the `Collector` object used in the deployment `score.py` to collect the production inference data. For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
-| `<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `false` |
-| `<collection_name>.data.name` | string | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
-| `<collection_name>.data.path` | string | The full Azure Machine Learning datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
+| `sampling_rate` | float | The percentage, represented as a decimal rate, of data to collect. For instance, a value of 1.0 represents collecting 100% of data. | `1.0` |
+| `rolling_rate` | string | The rate to partition the data in storage. Value can be: Minute, Hour, Day, Month, Year. | `Hour` |
+| `collections` | object | Set of individual `collection_name`s and their respective settings for this deployment. | |
+| `collections.<collection_name>` | object | Logical grouping of production inference data to collect (example: `model_inputs`). There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user. <br><br> **Note**: Each `collection_name` should correspond to the name of the `Collector` object used in the deployment `score.py` to collect the production inference data. For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
+| `collections.<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `false` |
+| `collections.<collection_name>.data.name` | string | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
+| `collections.<collection_name>.data.path` | string | The full Azure Machine Learning datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
 | `<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
 
 ## Remarks
@@ -101,9 +104,55 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: data_collector
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
+```yml
+$schema: http://azureml/sdk-2-0/OnlineDeployment.json
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
+endpoint_name: my_endpoint 
+name: blue 
+model: azureml:my-model-m1:1 
+environment: azureml:env-m1:1 
+data_collector:
+   collections:
+       model_inputs:
+           enabled: true # <true, false>
+       model_outputs:
+           enabled: true # <true, false>
+```
+
+```yml
+$schema: http://azureml/sdk-2-0/OnlineDeployment.json
+
+endpoint_name: my_endpoint
+name: blue 
+model: azureml:my-model-m1:1 
+environment: azureml:env-m1:1 
+data_collector:
+   collections:
+     request: 
+         enabled: true # <true, false>
+         data: 
+           name: my_request_data_asset # optional, default: <endpoint>-<deployment>-<collection_name>
+           path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/request # optional, default: azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>
+           version: 1 # optional, default: 1
+     response:
+         enabled: true 
+         data: 
+           name: my_response_data_asset
+           path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/response
+           version: 1 
+     model_inputs:
+         enabled: true 
+         data: 
+           name: my_model_inputs_data_asset
+           path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_inputs
+           version: 1 
+     model_outputs:
+         enabled: true 
+         data: 
+           name: my_model_outputs_data_asset
+           path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_outputs
+           version: 1
+```
 
 ## Next steps
 
