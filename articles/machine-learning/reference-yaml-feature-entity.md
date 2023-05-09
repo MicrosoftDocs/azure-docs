@@ -59,3 +59,9 @@ index_columns:
 tags:
   data_type: nonPII
 ```
+
+## Next steps
+
+- [Install and use the CLI (v2)](how-to-configure-cli.md)
+- Learn how to [develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md)
+- [Troubleshoot managed feature store](troubleshooting-managed-feature-store.md)

@@ -104,3 +104,8 @@ materialization_settings:
         spark.executor.memory: 36g
         spark.executor.instances: 2
 ```
+## Next steps
+
+- [Install and use the CLI (v2)](how-to-configure-cli.md)
+- Learn how to [develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md)
+- [Troubleshoot managed feature store](troubleshooting-managed-feature-store.md)
