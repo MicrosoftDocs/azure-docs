@@ -22728,7 +22728,12 @@
             "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
             "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
             "redirect_document_id": false
+        },
+      
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-clasic-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview",
+            "redirect_document_id": false
         }
-
     ]
 }
