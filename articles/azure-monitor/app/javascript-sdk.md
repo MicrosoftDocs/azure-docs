@@ -18,11 +18,15 @@ ms.reviewer: mmcc
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 - An application that uses [JavaScript](/visualstudio/javascript)
 
-## Enable the Application Insights SDK for JavaScript
+## Enable Application Insights
 
-Three methods are available to enable the Application Insights SDK for JavaScript
+Three options are available to enable the Application Insights via the Application Insights JavaScript SDK.
+
+> [!NOTE] Alternatively, if your JavaScript application is hosted on an applicable Azure environment or resource provider, Application Insights is automatically instrumented. For more information, see [auto-instrumentation for Azure Monitor Application Insights]().
 
 ### [Auto-Instrumentation](#tab/autoinstrumentation)
+
+Use this method if you want to...
 
 ### Enable Application Insights SDK for JavaScript automatically
 
@@ -30,17 +34,17 @@ The automatic Snippet injection feature available in the Application Insights .N
 allows you to automatically inject the Application Insights JavaScript SDK into every webpage of your web application. 
 For more information, see [Application Insights .NET core SDK Snippet Injection](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications)
 and [Application Insights Node.js SDK Snippet Injection (preview)](./nodejs.md#automatic-web-instrumentationpreview).
-However, if you want more control over which pages to add the Application Insights JavaScript SDK 
-or if you're using a programming language other than .NET and Node.js, please follow the manual configuration steps below.
+
+> [!NOTE] if you want more control over which pages to add the Application Insights JavaScript SDK 
+or if you're using a programming language other than .NET and Node.js, see [SDK Loader Script](#ena).
 
 ### [SDK Loader Script](#tab/sdkloaderscript)
 
-### Enable Application Insights SDK for JavaScript manually
+Use this option if you want to load the SDK from the CDN instead of including the Application Insights code with your application code. This option requires you to manually paste the SDK Loader Script at the top of each of each page.
 
-Use the following steps to enable the Application Insights SDK for JavaScript:
+Use the following steps to enable the Application Insights SDK for JavaScript via the SDK Loader Script:
 
-
-1. Directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
+1. Paste the SDK Loader Script at the top of each your pages. Preferably, it should be the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
 
    ```html
    <script type="text/javascript">
@@ -57,13 +61,15 @@ Use the following steps to enable the Application Insights SDK for JavaScript:
    </script>
    ```
 
-1. In the code snippet, replace the placeholder `"CONNECTION_STRING"` with your actual connection string found in the Azure portal.
+1. Add your connection string:
 
    1. Navigate to the **Overview** pane of your Application Insights resource.
    1. Locate the **Connection String**.
-   1. Select the button to copy the connection string to the clipboard.
+   1. Select the **Copy to clipboard** icon to copy the connection string to the clipboard.
 
      :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+
+   1. Replace the placeholder `"CONNECTION_STRING"` in the SDK Loader Script with your connection string copied to the clipboard.
 
    > [!NOTE]
    > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
@@ -72,9 +78,13 @@ Use the following steps to enable the Application Insights SDK for JavaScript:
 
 ## npm setup
 
+Use this option if you're creating your own bunldes and you want to include the Application Insights code in your own bundle. 
+
 The npm setup installs the JavaScript SDK as a dependency to your project and enables IntelliSense.
 
 This option is only needed for developers who require more custom events and configuration.
+
+1. Install the Microsoft Application Insights JavaScript SDK - Web package.
 
 ```sh
 npm i --save @microsoft/applicationinsights-web
@@ -83,6 +93,7 @@ npm i --save @microsoft/applicationinsights-web
 > [!Note]
 > *Typings are included with this package*, so you do *not* need to install a separate typings package.
 
+1. Add the following JavaScript to your code.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -94,19 +105,23 @@ const appInsights = new ApplicationInsights({ config: {
 appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
-Replace the placeholder 'YOUR_CONNECTION_STRING_GOES_HERE' with your actual connection string found in the Azure portal.
 
-1. Navigate to the **Overview** pane of your Application Insights resource.
-1. Locate the **Connection String**.
-1. Select the button to copy the connection string to the clipboard.
+1. Add your connection string:
 
-:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+   1. Navigate to the **Overview** pane of your Application Insights resource.
+   1. Locate the **Connection String**.
+   1. Select the **Copy to clipboard** icon to copy the connection string to the clipboard.
+
+   :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+
+  1. Replace the placeholder `'YOUR_CONNECTION_STRING_GOES_HERE'` with your connection string pasted to the clipboard.
 
 ---
 
-## 2. Snippet configuration
+## Snippet configuration
 
-Other snippet configuration is optional.
+> [!NOTE]
+> For advanced configuration, which is optional, see [Advanced configuration](javascript-sdk-advanced.md#advanced-configuration).
 
 | Name | Type | Description
 |------|------|----------------
