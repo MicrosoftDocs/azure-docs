@@ -21,7 +21,7 @@ If your organization wants its employees to get their place of work verified on 
 1. Once you deploy the updated LinkedIn mobile app your employees can get verified.
 
 >[!IMPORTANT]
-> The app version required is Android 4.1.813 or newer, or IOS we require 9.27.2173 or newer. Keep in mind that inside the app, the version number shows 9.27.2336, but in App store the version number would be 9.1.312 or higher.
+> The app version required is Android 4.1.813 or newer, or IOS we require 9.27.2173 or newer. Keep in mind that inside the app, the version number shows 9.27.2336, but in the App store the version number would be 9.1.312 or higher.
 
 >[!NOTE]
 > Review LinkedIn's documentation for information on [verifications on LinkedIn profiles.](https://www.linkedin.com/help/linkedin/answer/a1359065).
