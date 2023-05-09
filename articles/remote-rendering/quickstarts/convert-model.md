@@ -161,7 +161,7 @@ The service uploads all data from the path given in **localAssetDirectoryPath** 
 
 Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file, which is located directly in "D:\\tmp\\robot", use "robot.fbx".
 
-Once the model was converted, it is written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example, the service copies the resulting "robot.arrAsset" to the output blob container under "converted/robot".
+Once the model was converted, it's written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example, the service copies the resulting "robot.arrAsset" to the output blob container under "converted/robot".
 
 The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and if not specified the service uses the input file name to generate an output name.
 
