@@ -58,6 +58,8 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
+---
+
 ### Exceptions to attaching a VM to a Virtual Machine Scale Set
 
 - The VM must be in the same resource group as the scale set.
