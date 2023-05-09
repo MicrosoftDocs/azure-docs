@@ -10,9 +10,84 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/09/2023
 ms.custom: developer
-
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI desktop app to sign in and sign out users with Microsoft Entra for customers tenant
 ---
 
+# Sign in users in a sample .NET MAUI desktop application by using Microsoft Entra
+
+This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to a desktop application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample .NET MAUI desktop application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
+
+In this article, you do the following tasks:
+
+In this article, you do the following tasks:
+
+- Register a desktop application in the Microsoft Entra admin center.
+- Create a sign in and sign out user flow in Microsoft Entra admin center.
+- Associate your .NET MAUI desktop application with the user flow.
+- Update a sample .NET MAUI desktop application using your own Microsoft Entra for customers tenant details.
+- Run and test the sample .NET MAUI desktop application.
+
+## Prerequisites
+
+- [Visual Studio Code](https://code.visualstudio.com/download) with the MAUI workload installed:
+  - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
+  - [Instructions for MacOS](/dotnet/maui/get-started/installation?tabs=vsmac)
+- Microsoft Entra for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
+
+## Register desktop app
+
+[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
+[!INCLUDE [active-directory-b2c-app-integration-add-platform](./includes/register-app/add-platform-redirect-url-dotnet-maui.md)]
+
+## Grant API permissions
+
+[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
+
+## Create a user flow
+
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
+
+## Associate the .NET MAUI desktop application with the user flow
+
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
+
+## Clone or download sample web application
+
+To get the .NET MAUI desktop application sample code, [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample .NET MAUI desktop application from GitHub by running the following command:
+
+```bash
+git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
+```
+
+## Configure the sample .NET MAUI desktop app
+
+1. In Visual Studio, open `ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/appsettings.json` file.
+1. Find the placeholder:
+   1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`.
+   1. `Enter_the_Application_Id_Here` and and replace it with the Application (client) ID of the app you registered earlier.
+
+## Run and test sample .NET MAUI desktop app
+
+Choose the Windows platform to work on by setting the startup project in the Solution Explorer. Make sure that your platform of choice is marked for build and deploy in the Configuration Manager.
+
+Clean the solution, rebuild the solution, and run it.
+
+1. You can now test the sample .NET MAUI desktop app. After you run the app, the desktop app window appears automatically:
+
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-page.jpg" alt-text="Screenshot that shows sign in button.":::
+
+1. On the desktop window that appears, select the **Sign In** button. A browser window opens, and you're prompted to sign in.
+
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-prompt.jpg" alt-text="Screenshot of user to enter credential.":::
+
+   During the sign in process, you will be prompted to grant various permissions (to allow the application to access your data). Upon successful sign in and consent, the application screen will display the main page.
+
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-after-sign-in.png" alt-text="Screenshot of user to enter credential.":::
+
+## Next Steps
+
+- [Enable password reset](how-to-enable-password-reset-customers.md).
+- [Customize the default branding](how-to-customize-branding-customers.md).
+- [Configure sign-in with Google](how-to-google-federation-customers.md).
