@@ -106,10 +106,10 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
         "provisionVMAgent": true, 
         "enableAutomaticUpdates": true, 
         "patchSettings": { 
-        "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":true 
-  } 
+          "patchMode": "AutomaticByPlatform", 
+          "automaticByPlatformSettings":{ 
+            "bypassPlatformSafetyChecksOnUserSchedule":true 
+        } 
         } 
       } 
     } 
@@ -132,10 +132,10 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
       "linuxConfiguration": { 
         "provisionVMAgent": true, 
          "patchSettings": { 
-          "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":true 
-  } 
+           "patchMode": "AutomaticByPlatform", 
+           "automaticByPlatformSettings":{ 
+             "bypassPlatformSafetyChecksOnUserSchedule":true 
+          } 
         } 
       } 
     } 
@@ -207,9 +207,9 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
         "enableAutomaticUpdates": true, 
         "patchSettings": { 
           "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":false 
-  } 
+          "automaticByPlatformSettings":{ 
+            "bypassPlatformSafetyChecksOnUserSchedule":false 
+          } 
         } 
       } 
     } 
@@ -232,9 +232,9 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
         "provisionVMAgent": true,  
         "patchSettings": { 
           "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":false 
-  } 
+          "automaticByPlatformSettings":{ 
+            "bypassPlatformSafetyChecksOnUserSchedule":false 
+          } 
         } 
       } 
     } 
