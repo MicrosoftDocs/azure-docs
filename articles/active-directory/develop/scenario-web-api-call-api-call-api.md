@@ -85,7 +85,7 @@ In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as speci
 
      public async Task<ActionResult> Details(int id)
      {
-         var value = await _downstreamWebApi.CallWebApiForUserAsync(
+         var value = await _downstreamWebApi.CallApiForUserAsync(
              ServiceName,
              options =>
              {
@@ -95,13 +95,13 @@ In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as speci
      }
 ```
 
-The `CallWebApiForUserAsync` method also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method received a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+The `CallApiForUserAsync` method also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method received a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
 
 ```csharp
  // GET: TodoList/Details/5
  public async Task<ActionResult> Details(int id)
  {
-     var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+     var value = await _downstreamWebApi.CallApiForUserAsync<object, Todo>(
          ServiceName,
          null,
          options =>
@@ -182,7 +182,7 @@ public class TodoListController : Controller
   public async Task<ActionResult> Details(int id)
   {
     var downstreamApi = this.GetDownstreamApi();
-    var value = await downstreamApi.CallForUserAsync(
+    var value = await downstreamApi.CallApiForUserAsync(
       ServiceName,
       options =>
       {
@@ -193,7 +193,7 @@ public class TodoListController : Controller
 }
 ```
 
-The `CallForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+The `CallApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
 
 ```csharp
     // GET: TodoList/Details/5
