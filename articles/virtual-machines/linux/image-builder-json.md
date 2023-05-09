@@ -1006,6 +1006,24 @@ Distribute properties for galleries:
 > [!NOTE]
 > If the image template and referenced `image definition` aren't in the same location, you'll see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
+The following JSON sets the source image as the latest image version for an image stored in an Azure Compute Gallery.
+
+# [JSON](#tab/json)
+
+```json
+    "properties": {
+    "source": {
+      "type": "SharedImageVersion",      
+      "imageVersionId": "/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest",
+      "exactVersion": "<replace with exact ARM resource id of the image version>"      
+    },
+    }
+```
+SharedImageVersion properties:
+
+- **imageVersionId** - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
+- **exactVersion** - Exact ARM resource id of the image version. This read-only field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest
+
 ### Distribute: VHD
 
 You can output to a VHD. You can then copy the VHD, and use it to publish to Azure MarketPlace, or use with Azure Stack.
