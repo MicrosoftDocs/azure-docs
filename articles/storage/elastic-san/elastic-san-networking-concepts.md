@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: 
@@ -39,7 +39,7 @@ To use a service endpoint with your Elastic SAN, you must enable it within the v
 - **Microsoft.Storage** - classic Azure Storage endpoints
 - **Microsoft.Storage.Global** - new cross-region Azure Storage endpoints
 
-For details on how to configure service endpoints, see [Enable Storage service endpoint](elastic-san-networking.md#enable-storage-service-endpoint).
+For details on how to configure service endpoints, see [Enable Storage service endpoint](elastic-san-networking.md#configure-storage-service-endpoint).
 
 ### Available virtual network regions
 
@@ -61,7 +61,7 @@ For a complete comparison of private endpoints to service endpoints, see [Compar
 
 Similar to service endpoints, you must enable private endpoints within the virtual network from which you want to allow access. Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
-For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#enable-private-endpoint).
+For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#configure-private-endpoint).
 
 ## Virtual network rules
 
@@ -71,7 +71,7 @@ Each volume group supports up to 200 virtual network rules. If you delete a subn
 
 Clients granted access via these network rules must continue to meet the authorization requirements of the Elastic SAN to access the data.
 
-For details on how to define network rules, see [Managing virtual network rules](elastic-san-networking.md#managing-virtual-network-rules).
+For details on how to define network rules, see [Managing virtual network rules](elastic-san-networking.md#configure-virtual-network-rules).
 
 ## Client connections
 
