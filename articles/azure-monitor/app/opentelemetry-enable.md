@@ -176,19 +176,8 @@ const appInsights = new ApplicationInsightsClient(config);
 
 ```python
 from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry import trace
 
-configure_azure_monitor(
-    connection_string="<Your Connection String>",
-)
-
-tracer = trace.get_tracer(__name__)
-
-with tracer.start_as_current_span("hello"):
-    print("Hello, World!")
-
-input()
-
+configure_azure_monitor()
 ```
 
 ---
@@ -468,7 +457,29 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
 ```
 
 ### [Python](#tab/python)
-Currently unavailable.
+
+Other OpenTelemetry Instrumentations are available [here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation) and can be used in addition to `configure_azure_monitor`. Here is an example for adding the SQLAlchemy Instrumentation.
+
+```python
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
+from sqlalchemy import create_engine, text
+
+configure_azure_monitor()
+
+engine = create_engine("sqlite:///:memory:")
+# SQLAlchemy instrumentation is not officially supported by this package
+# However, you can use the OpenTelemetry instument method manually in
+# conjunction with configure_azure_monitor
+SQLAlchemyInstrumentor().instrument(
+    engine=engine,
+)
+
+# Database calls using the SqlAlchemy library will be automatically captured
+with engine.connect() as conn:
+    result = conn.execute(text("select 'hello world'"))
+    print(result.all())
+```
 
 ---
 
@@ -608,9 +619,7 @@ public class Program {
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-)
+configure_azure_monitor()
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
 
 histogram = meter.create_histogram("histogram")
@@ -701,9 +710,7 @@ public class Program {
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-)
+configure_azure_monitor()
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_counter_demo")
 
 counter = meter.create_counter("counter")
@@ -835,9 +842,7 @@ from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 from opentelemetry.metrics import CallbackOptions, Observation
 
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-)
+configure_azure_monitor()
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_gauge_demo")
 
 def observable_gauge_generator(options: CallbackOptions) -> Iterable[Observation]:
@@ -932,9 +937,7 @@ The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-)
+configure_azure_monitor()
 tracer = trace.get_tracer("otel_azure_monitor_exception_demo")
 
 # Exception events
@@ -1417,9 +1420,7 @@ Use a custom processor:
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-)
+configure_azure_monitor()
 span_enrich_processor = SpanEnrichingProcessor()
 # Add the processor shown below to the current `TracerProvider`
 trace.get_tracer_provider().add_span_processor(span_enrich_processor)

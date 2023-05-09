@@ -48,7 +48,23 @@ Use one of the following two ways to configure the connection string:
 
 ### [Python](#tab/python)
 
-Currently unavailable.
+Use one of the following two ways to configure the connection string:
+
+- Set an environment variable:
+        
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+
+- Pass into `configure_azure_monitor`:
+
+```python
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
+```
 
 ---
 
@@ -212,7 +228,12 @@ const appInsights = new ApplicationInsightsClient(config);
 #### [Python](#tab/python)
     
 ```python
-Currently unavailable.
+from azure.identity import ManagedIdentityCredential
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor(
+    credential=ManagedIdentityCredential(),
+)
 ```
 
 ---
