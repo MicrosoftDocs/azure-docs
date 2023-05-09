@@ -38,9 +38,6 @@ For Hyperscale service tier, zone redundancy support can only be specified durin
 
 Follow the steps below to perform migration for a single database or an elastic pool.
 
->[!IMPORTANT]
->Enabling zone redundancy support for elastic pools will make all databases within the pool zone redundant.
-
 ### Migrate a single database
 
 # [Azure Portal](#tab/portal)
@@ -85,6 +82,11 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 ---
 
 ### Migrate an elastic pool
+
+
+>[!IMPORTANT]
+>Enabling zone redundancy support for elastic pools will make all databases within the pool zone redundant.
+
 
 # [Azure Portal](#tab/portal)
 
