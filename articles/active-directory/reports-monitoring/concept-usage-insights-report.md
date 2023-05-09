@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2023
+ms.date: 05/09/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
+ms.reviewer: madansr7
 ---
 
 # Usage and insights in Azure Active Directory
 
 With the Azure Active Directory (Azure AD) **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights includes a report on authentication methods, service principal sign-ins, and application credential activity. You can find answers to the following questions:
 
-*	What are the top used applications in my organization?
-*	What applications have the most failed sign-ins? 
-*	What are the top sign-in errors for each application?
-*   What was the date of the last sign-in for an application?
+* What are the top used applications in my organization?
+* What applications have the most failed sign-ins? 
+* What are the top sign-in errors for each application?
+* What was the date of the last sign-in for an application?
 
 ## Prerequisites
 
@@ -179,25 +179,25 @@ To get started, follow these instructions to work with `appCredentialSignInActiv
     ```
 The following is an example of the response:
 
-    ```json
-       {
-        "@odata.type": "#microsoft.graph.appCredentialSignInActivity",
-        "id": "ODNmNDUyOTYtZmI4Zi00YWFhLWEzOTktYWM1MTA4NGUwMmI3fGFwcGxpY2F0aW9u",
-        "keyId": "83f45296-fb8f-4aaa-a399-ac51084e02b7",
-        "keyType": "certificate",
-        "keyUsage": "sign",
-        "appId": "f4d9654f-0305-4072-878c-8bf266dfe146",
-        "appObjectId": "6920caa5-1cae-4bc8-bf59-9c0b8495d240",
-        "servicePrincipalObjectId": "cf533854-9fb7-4c01-9c0e-f68922ada8b6",
-        "resourceId": "a89dc091-a671-4da4-9fcf-3ef06bdf3ac3",
-        "credentialOrigin": "application",
-        "expirationDate": "2021-04-01T21:36:48-8:00",
-        "signInActivity": {
-            "lastSignInDateTime": "2021-04-01T00:00:00-8:00",
-            "lastSignInRequestId": "b0a282a3-68ec-4ec8-aef0-290ed4350271"
-        }
-       }   
-    ```
+```json
+{
+ "@odata.type": "#microsoft.graph.appCredentialSignInActivity",
+ "id": "ODNmNDUyOTYtZmI4Zi00YWFhLWEzOTktYWM1MTA4NGUwMmI3fGFwcGxpY2F0aW9u",
+ "keyId": "83f45296-fb8f-4aaa-a399-ac51084e02b7",
+ "keyType": "certificate",
+ "keyUsage": "sign",
+ "appId": "f4d9654f-0305-4072-878c-8bf266dfe146",
+ "appObjectId": "6920caa5-1cae-4bc8-bf59-9c0b8495d240",
+ "servicePrincipalObjectId": "cf533854-9fb7-4c01-9c0e-f68922ada8b6",
+ "resourceId": "a89dc091-a671-4da4-9fcf-3ef06bdf3ac3",
+ "credentialOrigin": "application",
+ "expirationDate": "2021-04-01T21:36:48-8:00",
+ "signInActivity": {
+     "lastSignInDateTime": "2021-04-01T00:00:00-8:00",
+     "lastSignInRequestId": "b0a282a3-68ec-4ec8-aef0-290ed4350271"
+ }
+}   
+```
 
 For more information, see [Application credential activity in Microsoft Graph](/graph/api/resources/appcredentialsigninactivity?view=graph-rest-beta&preserve-view=true).
 
