@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 05/09/2023
 ms.author: anfdocs
+ms.custom: references_regions
 ---
 # Manage file access logs in Azure NetApp Files
 
@@ -24,17 +25,17 @@ File access logs provide file access logging for individual volumes, capturing f
 
 ## Considerations
 
-* Once file access logs are enabled on a volume, they can take a maximum of five minutes to become visible. 
+* Once file access logs are enabled on a volume, they can take up to five minutes to become visible. 
 * File access logs occasionally create duplicate logs that must be manually filtered. 
-* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volumes with that setting to be disabled. 
+* If you delete any diagnostic settings configured for `ANFFileAccess`, it will cause file access logs for any volumes with that setting to be disabled. 
 * Before enabling file access logs on a volume, either [ACLs](configure-access-control-lists.md) or Audit ACEs need to be set on a file or directory. ACLs or Audit ACEs must be set after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
 ## Recognized events
 
-File access logs captures different file and directory events depending on the protocol used. 
+The events capture in file access logs depend on the protocol your volume uses. 
 
-### NFS events
+### Logged NFS events
 * Close
 * Create
 * Get attributes
@@ -49,7 +50,7 @@ File access logs captures different file and directory events depending on the p
 * Verify 
 * Write
 
-### SMB events
+### Logged SMB events
 * Create
 * Delete
 * Get attributes
@@ -73,23 +74,76 @@ The file access logs feature is currently in preview. If you're using this featu
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
+## Supported regions
+
+While in preview, file access logs is supported in:
+
+* East US 2
+* Japan East
+
+<!-- 9 may 2023 -->
+
+
+## Set SACLs or Audit ACEs on files and directories  
+
+You must set system access control lists (SACLs) for SMB shares or Audit ACEs (for NFSv4.1 shares) for auditing. 
+
+After mounting the volume, SACLs (in case of an SMB/CIFS share) or Audit ACEs (in case of an NFSv4 mount) needs to be set on files/directories for auditing of file operations to happen on the volume. 
+
+### [Set SACLs for SMB shares](#tab/sacls-smb)
+
+There are three ways to set SACLs for access logs. 
+
+If you are logging access events on all files and directories within a volume or qtree, set SACLs by applying Storage-Level Access Guard security. 
+
+If you are logging access events on individual files and directories, setting of SACLs with:
+* The Windows Explorer GUI
+* The `fsecurity` command 
+
+>[!NOTE]
+> Select only the events you need to log. Selecting too many log options may impact system performance. 
+
+To enable logging access on individual files and directories, complete the following steps on the  Windows administration host. 
+
+#### Steps 
+
+To enable logging access on individual files and directories, complete the following steps on the  Windows administration host. 
+
+1. Select the file or directory for which to enable logging access. 
+1. Right-click the file or directory, then select **Properties**. 
+1. Select the **Security** tab then **Advanced**.
+1. Select the **Auditing** tab. Add, edit, or remove the auditing options you want. 
+
+### [Set Audit ACEs for NFSv4.1 shares](#tab/sacls-smb)
+
+Configure logging for UNIX security style files and directories by adding audit ACEs to NFSv4.1 ACLs to monitoring of certain NFS file and directory access events for security purposes. 
+
+For NFSv4.1, both discretionary and system ACEs are stored in the same ACL. They are not stored in separate DACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
+
+For steps, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
+
+<!-- end -->
+---
+
 ## Enable file access logs
 
-1. Select the volume you want to enable file access logs for. 
-2. Select **Diagnostic settings** from the left-hand pane.
+1. In the **Volumes** menu, select the volume you want to enable file access logs for. 
+1. Select **Diagnostic settings** from the left-hand pane.
+1. Select **+ Add diagnostic setting**.
 :::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-add.png" alt-text="Screenshot of Azure Diagnostic settings menu.":::
-3. In the **Diagnostic settings** page, provide a diagnostic setting name, select **ANFFileAccess** and then set the retention period of the logs. 
+1. In the **Diagnostic setting** page, provide a diagnostic setting name.
+    Under **Logs > Categories**, select **ANFFileAccess** and then set the retention period of the logs. 
 :::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
-4. Select one of the destination options for the logs:
+1. Select one of the destination options for the logs:
     * Archive to a storage account
     * Stream to an event hub
     > [!IMPORTANT]
     > Two additional options are presented in the UI: **Send to Log Analytics workspace** and **Send to a partner solution**. These options are not supported. No error message will display if you select these destination options, and you will not be able to access your logs. 
-5. Save the settings
+1. Save the settings
 
 ## Disable file access logs
 
-1. Select the volume on which you want to disable file access logs.
+1. In the **Volumes** menu, select the volume on which you want to disable file access logs.
 2. Select the **Diagnostic setting** menu from the left-hand pane. 
 3. In the **Diagnostic settings** page, deselect **ANFFileAccess**.
 4. Save the settings.
