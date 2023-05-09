@@ -88,7 +88,7 @@ However, there could be scenarios where you don't know the exact time of acciden
 
 ## Permissions
 
-Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. To learn more, see the [Permissions](continuous-backup-restore-permissions.md) article.
+Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. To learn more, see the [Permissions](continuous-backup-restore-permissions.md) article.
 
 ## <a id="continuous-backup-pricing"></a>Pricing
 

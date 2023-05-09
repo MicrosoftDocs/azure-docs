@@ -73,7 +73,7 @@ You can use analytics in the following tools to aggregate information from Azure
 * **Microsoft Sentinel** analyze information from Azure AD: 
   * Microsoft Sentinel User and Entity Behavior Analytics (UEBA) delivers intelligence on potential threats from user, host, IP address, and application entities. 
   * Use analytics rule templates to hunt for threats and alerts in your Azure AD logs. Your security or operation analyst can triage and remediate threats.
-  * Microsoft Sentinel workbooks help visualize Azure AD data sources. See sign-ins by country, region, or applications. 
+  * Microsoft Sentinel workbooks help visualize Azure AD data sources. See sign-ins by country/region or applications. 
   * See, [Commonly used Microsoft Sentinel workbooks](../../sentinel/top-workbooks.md)
   * See, [Visualize collected data](../../sentinel/get-visibility.md)
   * See, [Identify advanced threats with UEBA in Microsoft Sentinel](../../sentinel/identify-threats-with-entity-behavior-analytics.md)
