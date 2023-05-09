@@ -150,7 +150,7 @@ The following new actions are created for managed feature store usage.
 | Microsoft.MachineLearningServices/workspaces/featurestores/read | List, get feature store |
 | Microsoft.MachineLearningServices/workspaces/featurestores/write | Create and update feature store (configure materialization stores, materialization compute, etc.|)
 | Microsoft.MachineLearningServices/workspaces/featurestores/delete | Delete feature store|
-Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets. | |
+Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets. |
 | Microsoft.MachineLearningServices/workspaces/featuresets/write | Create and update feature sets. Can configure materialization settings along with create or update |
 | Microsoft.MachineLearningServices/workspaces/featuresets/delete | Delete feature sets|
 | Microsoft.MachineLearningServices/workspaces/featuresets/action | Trigger actions on feature sets (for example, a backfill job) |
