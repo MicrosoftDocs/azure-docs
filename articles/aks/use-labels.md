@@ -10,7 +10,7 @@ ms.date: 05/09/2023
 
 # Use labels in an Azure Kubernetes Service (AKS) cluster
 
-If you have multiple node pools, you may want to add a label during node pool creation. [Kubernetes labels][kubernetes-labels] handle the scheduling rules for nodes. You can add labels to a node pool any time and apply them to all nodes in the node pool.
+If you have multiple node pools, you may want to add a label during node pool creation. [Kubernetes labels][kubernetes-labels] handle the scheduling rules for nodes. You can add labels to a node pool anytime and apply them to all nodes in the node pool.
 
 In this how-to guide, you learn how to use labels in an Azure Kubernetes Service (AKS) cluster.
 
@@ -106,7 +106,7 @@ You need the Azure CLI version 2.2.0 or later installed and configured. Run `az 
 
 Since the [2021-08-19 AKS release][aks-release-2021-gh], AKS stopped the ability to make changes to AKS reserved labels. Attempting to change these labels results in an error message.
 
-The following labels are reserved for use by AKS. *Virtual node usage* specifies if these labels could be a supported system feature on virtual nodes. Some properties that these system features change aren't available on the virtual nodes because they require modifying the host.
+The following labels are AKS reserved labels. *Virtual node usage* specifies if these labels could be a supported system feature on virtual nodes. Some properties that these system features change aren't available on the virtual nodes because they require modifying the host.
 
 | Label | Value | Example/Options | Virtual node usage |
 | ---- | --- | --- | --- |
@@ -140,12 +140,12 @@ The following labels are reserved for use by AKS. *Virtual node usage* specifies
 
 ### Reserved prefixes
 
-The following list of prefixes are reserved for usage by AKS and can't be used for any node:
+The following prefixes are AKS reserved prefixes and can't be used for any node:
 
 * kubernetes.azure.com/
 * kubernetes.io/
 
-For additional reserved prefixes, see [Kubernetes well-known labels, annotations, and taints][kubernetes-well-known-labels].
+For more information on reserved prefixes, see [Kubernetes well-known labels, annotations, and taints][kubernetes-well-known-labels].
 
 ### Deprecated labels
 
