@@ -14,7 +14,13 @@ ms.author: kesheth
 The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
 > [!NOTE]
-> You must have the **FHIR Data Importer** role on the FHIR server to use $import.
+> You must have the **FHIR Data Importer** role on the FHIR server to use $import. 
+
+## Using $import operation
+
+To use $import, you'll need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article and set the **initialImportMode** to *true*. Doing so also suspends write operations (POST and PUT) on the FHIR server. You should set the **initialImportMode** to *false* to reenable write operations after you have finished importing your data.
+
+The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. All the resources in a file must be of the same type. You may have multiple files per resource type.
 
 ## Current limitations
 
@@ -23,11 +29,7 @@ The bulk-import feature enables importing Fast Healthcare Interoperability Resou
 * The data to be imported must be in the same Tenant as that of the FHIR service.
 * Maximum number of files to be imported per operation is 10,000.
 
-## Using $import operation
 
-To use $import, you'll need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article and set the **initialImportMode** to *true*. Doing so also suspends write operations (POST and PUT) on the FHIR server. You should set the **initialImportMode** to *false* to reenable write operations after you have finished importing your data.
-
-The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. All the resources in a file must be of the same type. You may have multiple files per resource type.
 
 ### Calling $import
 
