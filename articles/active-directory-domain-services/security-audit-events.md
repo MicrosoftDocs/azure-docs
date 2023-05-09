@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 05/09/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure 
 You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
 > [!IMPORTANT]
-> Azure AD DS security audits are only available for Azure Resource Manager-based managed domains. For information on how to migrate, see [Migrate Azure AD DS from the Classic virtual network model to Resource Manager][migrate-azure-adds].
+> Azure AD DS security audits are only available for Azure Resource Manager-based managed domains. 
 
 ## Security audit destinations
 
@@ -250,6 +250,3 @@ For specific information on Kusto, see the following articles:
 * [Kusto tutorial](/azure/kusto/query/tutorial) to familiarize you with query basics.
 * [Sample queries](/azure/kusto/query/samples) that help you learn new ways to see your data.
 * Kusto [best practices](/azure/kusto/query/best-practices) to optimize your queries for success.
-
-<!-- LINKS - Internal -->
-[migrate-azure-adds]: migrate-from-classic-vnet.md

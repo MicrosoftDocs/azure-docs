@@ -22734,6 +22734,12 @@
             "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-clasic-vnet.md",
             "redirect_url": "/azure/active-directory-domain-services/overview",
             "redirect_document_id": false
+        },
+      
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/concepts-migration-benefits.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview",
+            "redirect_document_id": false
         }
     ]
 }

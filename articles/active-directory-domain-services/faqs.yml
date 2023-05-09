@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 04/03/2023
+  ms.date: 05/09/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
@@ -28,8 +28,8 @@ sections:
       - question: |
           Can I enable Azure AD Domain Services in a Classic virtual network?
         answer: |
-          Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported until they're retired on March 1, 2023. For existing deployments, you can [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
-          
+          Classic virtual networks aren't supported.
+
           For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
           
       - question: |
@@ -37,11 +37,6 @@ sections:
         answer: |
           Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer available when you create a managed domain.
 
-      - question: |
-          Can I migrate my existing managed domain from a Classic virtual network to a Resource Manager virtual network?
-        answer: |
-          Yes. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
-          
       - question: |
           Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
         answer: |
