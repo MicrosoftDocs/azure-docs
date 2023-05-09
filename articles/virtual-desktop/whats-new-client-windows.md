@@ -35,13 +35,12 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4159
 
-*Date published: April 10, 2023*
+*Date published: May 9, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 In this release, we've made the following changes:
 
-- Fixed an application compatibility issue for preview versions of Windows.
 - Redesigned the connection bar for session desktops.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
 - Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
@@ -50,6 +49,7 @@ In this release, we've made the following changes:
 - Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
 - Fixed an issue that generated duplicate Activity IDs for unique connections. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed an application compatibility issue for preview versions of Windows.
 
 ## Updates for version 1.2.4066
 
