@@ -3,7 +3,7 @@ title: What is Microsoft Defender for Cloud?
 titleSuffix: Microsoft Defender for Cloud
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.date: 12/05/2022
+ms.date: 05/08/2023
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -29,7 +29,7 @@ Today’s applications require security awareness at the code, infrastructure, a
 
 The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identify the steps that you can take to secure your environment.
 
-Defender for Cloud includes Foundational CSPM (Free) capabilities for free. You can also enable advanced CSPM capabilities by enabling paid Defender plans.
+Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling paid Defender plans.
 
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
 | ---------- | --------------------------- | ----------- | ------------------------- |
