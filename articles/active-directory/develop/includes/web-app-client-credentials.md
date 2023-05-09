@@ -36,7 +36,7 @@ Instead of a client secret, you can provide a client certificate. The following 
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "ClientId": "[Enter_the_Application_Id_Here]",
     "TenantId": "common",
 
    // To call an API
