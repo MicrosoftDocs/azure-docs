@@ -24,7 +24,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 - Securely deploy virtual machines with verified boot loaders, OS kernels, and drivers.
 - Securely protect keys, certificates, and secrets in the virtual machines.
-- Gain insights and confidence of the entire boot chain’s integrity.
+- Gain insights and confidence of the entire boot chain's integrity.
 - Ensure workloads are trusted and verifiable.
 
 ## Virtual machines sizes supported
@@ -33,7 +33,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 |:--- |:--- |:--- |
 | [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series |Av2-series, Dv2-series, Dv3-series, DCasv5-series, DCadsv5-series, Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series, Dlsv5-series, Dldsv5-series
 | [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
-| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series,ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series, Mdsv2 Medium Memory series, Mv2-series
+| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series, Mdsv2 Medium Memory series, Mv2-series
 | [Storage optimized](sizes-storage.md) |Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
 | [GPU](sizes-gpu.md) |NCasT4_v3-series, NVadsA10 v5-series |NC-series, NCv2-series, NCv3-series, NC_A100_v4-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series, NDv2-series, NV-series, NVv3-series, NVv4-series
 
@@ -55,7 +55,7 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 | Windows 11 |Pro, Enterprise, Enterprise Multi-Session |
 | Windows Server |2016, 2019, 2022* |
 
-*variations of this operating system is supported.
+* Variations of this operating system are supported.
 
 ## Additional information
 
@@ -67,11 +67,11 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 No additional cost to existing VM pricing.
 
 ## Unsupported features
-- Azure Site Recovery (coming soon)defender for
-- Ultra disk, PV2 (coming soon)
+- Azure Site Recovery
+- Ultra disk, PV2
 - Managed Image
 - High Performance Compute VM Sizes
-- Nested Virtualization (most v5 VM sizes supported; other sizes coming soon)
+- Nested Virtualization (most v5 VM sizes supported)
 
 ## Secure boot
 
@@ -110,10 +110,9 @@ If your VMs are properly set up with trusted launch, Microsoft Defender for Clou
     > [!NOTE]
     >  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
-- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it’s possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
+- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it's possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
     - Which kernel driver failed? Am I familiar with this driver and expect it to be loaded?
     - Is this the exact version of the driver I am expecting? Are the driver binaries intact? If this is a 3rd party driver, did the vendor pass the OS compliance tests to get it signed?
-
 
 ## FAQ
 
@@ -122,14 +121,14 @@ Frequently asked questions about trusted launch.
 ### Why should I use trusted launch? What does trusted launch guard against?
 
 Trusted launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
-- Firmware rootkits: these kits overwrite the firmware of the virtual machine’s BIOS, so the rootkit can start before the OS.
-- Boot kits: these kits replace the OS’s bootloader so that the virtual machine loads the boot kit before the OS.
+- Firmware rootkits: these kits overwrite the firmware of the virtual machine's BIOS, so the rootkit can start before the OS.
+- Boot kits: these kits replace the OS's bootloader so that the virtual machine loads the boot kit before the OS.
 - Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
-- Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine’s components.
+- Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine's components.
 
 ### What are the differences between secure boot and measured boot?
 
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won’t match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
+In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won't match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
 
 ### What happens when an integrity fault is detected?
 
@@ -174,6 +173,7 @@ vmSize="Standard_NC12s_v3"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
+
 #### PowerShell
 
 ```azurepowershell
@@ -182,7 +182,7 @@ $vmSize = "Standard_M64"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-The response is similar to the following form. `TrustedLaunchDisabled   True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
+The response is similar to the following form. `TrustedLaunchDisabled True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
 
 ```
 Name                                         Value
