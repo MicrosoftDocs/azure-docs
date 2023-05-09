@@ -155,7 +155,7 @@ A level of expertise is required when reading Azure VM performance limits docume
 
 A sample chart is shown for reference:
 
-:::image type="content" alt-text="Table showing sample chart data." source="../media/azure-netapp-files/sample-chart.png":::
+:::image type="content" alt-text="Screenshot of a table showing sample chart data." source="../media/azure-netapp-files/sample-chart.png":::
 
 ### Azure NetApp Files 
 
@@ -336,7 +336,7 @@ In Oracle version 12.2 and above, an Exadata specific addition will be included 
         * The top cells by percentage CPU are display and are in descending order of percentage CPU
         * Average: 39.34% CPU, 28.57% user, 10.77% sys
 
-        :::image type="content" alt-text="Table showing top cells by percentage CPU." source="../media/azure-netapp-files/exadata-top-cells.png":::
+        :::image type="content" alt-text="Screenshot of a table showing top cells by percentage CPU." source="../media/azure-netapp-files/exadata-top-cells.png":::
 
 * Single cell physical block reads 
 * Flash cache usage 
