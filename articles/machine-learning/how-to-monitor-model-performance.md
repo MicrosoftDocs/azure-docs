@@ -10,14 +10,15 @@ author: Bozhong68
 ms.author: bozhlin
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 04/25/2023
-ms.reviewer: mopeakande
+ms.date: 05/09/2023
 ms.custom: devplatv2
 ---
 
 # Monitor performance of models deployed to production (preview)
 
 Once ML model is in production, you want to critically evaluate the inherent risk associated with ML model and identify blind spots that could potentially impact your business negatively. Azure Machine Learning model monitoring continuously tracks model performance in production by providing a broad view of monitoring signals and alerting on the right issues at right time, thus you can determine how to mitigate risks and shore up your defense.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Azure Machine Learning provides following capabilities for continuous model monitoring:
 * **Pre-built monitoring signals support.** The preview supports tabular dataset adn provides built-in monitoring signals for data drift, prediction drift, data quality, and feature attribution drift.
@@ -41,7 +42,7 @@ If you deploy models Azure Machine Learning online endpoint, you can setup model
 * Your model is in production to serve scoring requests.
 
 You can use Azure CLI, Azure Machine Learning studio, or Azure SDK to setup model monitorng out-of-box.
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 Azure Machine Learning model monitoring leverages `az ml schedule` for model monitoring setup. You can create out-of-box model monitoring setup with following CLI command and YAML definition:
 ```bash
@@ -81,10 +82,7 @@ The above CLI command and YAML definition will give you following out-of-box mod
   * Uses smart defaults for metrics and threshold.
 * Monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against corresponding threshold. When any threshold is exceed, it will send an alert email to the user who created monitoring setup by default.   
 
-# [Studio](#tab/cli)
-
-
-# [Azure SDK](#tab/cli)
+# [Python](#tab/python)
 
 You can use SDK snippets below to setup out-of-box model monitoring:
 ```python
@@ -122,6 +120,9 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 ```
 
+
+# [Studio](#tab/azure-studio)
+
 ---
 
 ## Advanced model monitoring setup
@@ -137,7 +138,7 @@ In most cases, you would need to setup model monitoring with advanced monitoring
 * During Azure Machine Learning online endpoint deployment step, you have enabled data collection for your model deployment by following instructions [here](./how-to-collect-data.md)
 * Your model is in production to serve scoring requests.
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 Run below CLI command with advanced model monitoring definition YAML:
 ```bash
@@ -244,11 +245,7 @@ create_monitor:
       - def@example.com
 ```
 
-
-# [Studio](#tab/cli)
-
-
-# [Azure SDK](#tab/cli)
+# [Python](#tab/python)
 
 For advanced model monitoring setup, please see SDK example below:
 ```python
@@ -327,6 +324,9 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 ```
 
+
+# [Studio](#tab/azure-studio)
+
 ---
 
 ## Setup model monitoring with your own production inference data
@@ -336,12 +336,18 @@ If you have deployed models outside of AzureML, or you have deployed models as b
 * The registered Azure Machine Learning data asset is contiously updated for model monitoring.
 * For lineage tracking, we also recommend to register model in AzureML.
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 
-# [Studio](#tab/cli)
+# [Python](#tab/python)
 
 
-# [Azure SDK](#tab/cli)
+# [Studio](#tab/azure-studio)
 
 
+## Next steps
+
+- [Explore out-of-box model monitoring example with Azure Machine Learning online endpoint](https://github.com/Azure/azureml-examples) 
+- [Explore advanced model monitoring setup with training data as comparison baseline](https://github.com/Azure/azureml-examples)
+- [Model data collection](concept-data-collection.md)
+- [Collect production inference data](how-to-collect-inference-data.md)
