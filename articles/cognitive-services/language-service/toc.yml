@@ -98,6 +98,8 @@ items:
       displayName: Best practices
     - name: Label data
       href: custom-text-classification/how-to/tag-data.md
+    - name: Auto label your data (preview)
+      href: custom-text-classification/how-to/use-autolabeling.md
     - name: Label data with Azure Machine Learning 
       href: custom/azure-machine-learning-labeling.md
     - name: Train a model
@@ -194,6 +196,8 @@ items:
       href: custom-named-entity-recognition/how-to/design-schema.md
     - name: Label data
       href: custom-named-entity-recognition/how-to/tag-data.md
+    - name: Auto label your data (preview)
+      href: custom-named-entity-recognition/how-to/use-autolabeling.md
     - name: Label data with Azure Machine Learning 
       href: custom/azure-machine-learning-labeling.md
     - name: Train a model
