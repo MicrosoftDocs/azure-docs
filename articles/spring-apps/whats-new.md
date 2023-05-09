@@ -25,9 +25,13 @@ The following updates are now available in both basic/standard and enterprise pl
 - **Source code assessment for migration**: Assess your existing on-premise Spring applications for their readiness to migrate to Azure Spring Apps with Cloud Suitability Analyzer. The tool will provide you information on what types of changes will be needed for migration, and how much effort will be involved. [Learn more.](https://aka.ms/cloud-suitability-analyzer)
 
 The following updates are now available in the enterprise plan:
-- **Use Tanzu Build Service in Azure Spring Apps Enterprise plan**: Tanzu Build Service in the Enterprise plan is the entry point to containerize user applications from both source code and artifacts. Besides current limited options, below options to be added:
-  - 8vCPU, 16Gi
-  - 16vCPU, 32Gi
-  - 32vCPU, 64Gi
-  - 64vCPU, 128Gi
-</br>With these big size options, more build tasks can be executed in parallel. [Learn more.](how-to-enterprise-build-service#build-agent-pool)
+- **More Options For build pools and allow queue build jobs**:
+Build service now supports big size build agent pool and allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue. [Learn more.](how-to-enterprise-build-service#build-agent-pool)
+
+- **99.95% SLA support**: Higher SLA for mission-critical workloads.
+
+- **High vCPU and Memory app support**: Support to deploy large CPU and memory applications to support CPU intensive or memory intensive workloads. [Learn more.](how-to-enterprise-large-cpu-memory-applications)
+
+- **SCG APM & certificate verification support**: Allow to configure APM and TLS certificate verification between Spring Cloud Gateway and applications. [Learn more.](how-to-configure-enterprise-spring-cloud-gateway?tabs=Azure-portal#configure-application-performance-monitoring)
+
+- **Tanzu Components on demand**: allow to enable or disable Tanzu component after service provisioning, you can learn how to do that per Tanzu component doc. [Learn more.](how-to-enterprise-application-configuration-service?tabs=Portal#enabledisable-application-configuration-service-after-service-creation)
