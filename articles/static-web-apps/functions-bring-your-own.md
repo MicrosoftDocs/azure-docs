@@ -112,7 +112,7 @@ To enable your Azure Functions app to receive anonymous traffic, follow these st
 
 1. Select **Remove authentication** to remove authentication and allow anonymous traffic to your Azure Functions resource.
 
-You Azure Functions app is now able to receive anonymous traffic.
+Your function app is now able to receive anonymous traffic.
 
 ## Security constraints
 
