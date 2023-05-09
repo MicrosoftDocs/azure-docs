@@ -55,6 +55,16 @@ This tutorial uses the following libraries:
 
 You can find the source code for all of the MSAL.js libraries in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
+### Get the completed code sample
+
+Do you prefer to download the completed sample project for this tutorial instead? Clone the [ms-identity-javascript-angular-spa](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa)
+
+```bash
+git clone https://github.com/Azure-Samples/ms-identity-javascript-angular-spa.git
+```
+
+To continue with the tutorial and build the application yourself, move on to the next section, [Register the application and record identifiers](#register-the-application-and-record-identifiers).
+
 ## Register the application and record identifiers
 
 To complete registration, provide the application a name, specify the supported account types, and add a redirect URI. Once registered, the application **Overview** pane displays the identifiers needed in the application source code.
