@@ -17,7 +17,7 @@ keywords: on-premises, Docker, container, natural language processing
 # Install and run Custom Named Entity Recognition containers
 
 
-Containers enable you to host the Custom Named Entity Recognition API on your own infrastructure using your own trained model. If you have security or data governance requirements that can't be fulfilled by calling Custom Named Entity Recognition remotely, then containers might be a good option. Custom Named Entity Recognition containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, Custom Named Entity Recognition, and language detection.
+Containers enable you to host the Custom Named Entity Recognition API on your own infrastructure using your own trained model. If you have security or data governance requirements that can't be fulfilled by calling Custom Named Entity Recognition remotely, then containers might be a good option.
 
 > [!NOTE]
 > * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data and service limits](../../concepts/data-limits.md).
