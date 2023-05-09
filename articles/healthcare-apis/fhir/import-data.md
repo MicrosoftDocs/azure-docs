@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Bulk-import FHIR data
 
-The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Bulk import supports both initial and incremental data load into FHIR server.Incremental import mode is in public preview, please see disclaimer below. 
+The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Bulk import supports both initial and incremental data load into FHIR server.Incremental import mode is in public preview, see disclaimer below. 
 [!INCLUDE Public Preview Disclaimer]
 
 > [!NOTE]
@@ -19,12 +19,12 @@ The bulk-import feature enables importing Fast Healthcare Interoperability Resou
 
 ## Using $import operation
 
-To use $import, you'll need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article.
+To use $import, you need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article.
 The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. 
 
-For import operation ensure
+For import operation, ensure
 * All the resources in a file must be of the same type. You may have multiple files per resource type.
-* The data to be imported must be in the same Tenant as that of the FHIR service.
+* The data to be imported must be in the same Tenant as of the FHIR service.
 * Maximum number of files to be imported per operation is 10,000.
 
 Note : Import operation does not support conditional references in resources and If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the ID.
