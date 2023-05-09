@@ -155,7 +155,6 @@ To configure your load test to split input CSV files:
 1. Select **Apply** to confirm the configuration changes.
 
     The next time you run the test, Azure Load Testing splits and processes the CSV file evenly across the test engines.
-::: zone-end
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
