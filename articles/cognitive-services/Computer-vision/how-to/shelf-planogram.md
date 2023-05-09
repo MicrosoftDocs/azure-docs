@@ -16,7 +16,7 @@ ms.author: pafarley
 
 A planogram is a diagram that indicates the correct placement of retail products on shelves. The Image Analysis Planogram Matching API lets you compare analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
 
-:::image type="content" source="../media/shelf/planogram.png" alt-text="Photo of a retail shelf with detected products oulined and planogram position rectangles outlined separately.":::
+:::image type="content" source="../media/shelf/planogram.png" alt-text="Photo of a retail shelf with detected products outlined and planogram position rectangles outlined separately.":::
 
 ## Prerequisites
 * You must have already set up and run basic [Product Understanding analysis](./shelf-analyze.md) with the Product Understanding API.
@@ -59,7 +59,7 @@ You need to have your planogram data in a specific JSON format. See the sections
 }
 ```
 
-Quantities in the JSON schema are in units of TBD.
+Quantities in the planogram JSON schema are in nonspecific units. They can be in inches, centimeters, or any other unit of measurement. The matching algorithm calculates the relationship between the photo analysis units (pixels) and the planogram units.
 
 ### Planogram API Model
 
@@ -79,7 +79,7 @@ Describes a product in the planogram.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| `id` | string | Id of the product. | Yes |
+| `id` | string | ID of the product. | Yes |
 | `name` | string | Name of the product. | Yes |
 | `w` | double | Width of the product. | Yes |
 | `h` | double | Height of the fixture. | Yes |
@@ -90,7 +90,7 @@ Describes a fixture (shelf or similar hardware) in a planogram.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| `id` | string | Id of the fixture. | Yes |
+| `id` | string | ID of the fixture. | Yes |
 | `w` | double | Width of the fixture. | Yes |
 | `h` | double | Height of the fixture. | Yes |
 | `x` | double | Left offset from the origin, in units of in inches or centimeters. | Yes |
@@ -102,9 +102,9 @@ Describes a product's position in a planogram.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| `id` | string | Id of the position. | Yes |
-| `productId` | string | Id of the product. | Yes |
-| `fixtureId` | string | Id of the fixture that the product is on. | Yes |
+| `id` | string | ID of the position. | Yes |
+| `productId` | string | ID of the product. | Yes |
+| `fixtureId` | string | ID of the fixture that the product is on. | Yes |
 | `x` | double | Left offset from the origin, in units of in inches or centimeters. | Yes |
 | `y` | double | Top offset from the origin, in units of inches or centimeters. | Yes |
 
