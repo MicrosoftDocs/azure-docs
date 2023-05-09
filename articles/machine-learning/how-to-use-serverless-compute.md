@@ -80,7 +80,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
     ```
 
 To configure your workspace with user-assigned managed identity:
-[!INCLUDE [user assigned managed identity](./includes/attach-user-assigned-managed-identity.md)]
+[!INCLUDE [user assigned managed identity](includes/attach-user-assigned-managed-identity.md)]
 
 ## Configure properties
 
