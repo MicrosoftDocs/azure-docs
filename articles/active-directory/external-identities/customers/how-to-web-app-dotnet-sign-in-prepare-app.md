@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Sign in users in your own ASP.NET web application by using Azure Active Directory (AD) for customers tenant - Prepare your application
 
-After registering an application and creating a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). In this article, you'll create an ASP.NET project in your IDE, and configure it for authentication.
+After registering an application and creating a user flow in a Azure Active Directory (AD) for customers tenant, an ASP.NET web application can be created using an integrated development environment (IDE). In this article, you'll create an ASP.NET project in your IDE, and configure it for authentication.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
 1. Enter the following command to make the project folder and create your project.
 
     ```powershell
-    dotnet new mvc -n aspnet_ciam_webapp
+    dotnet new mvc -n aspnet_webapp
     ```
 
 ## Configure the application for authentication
@@ -61,7 +61,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
     }
     ```
 
-    * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Subdomain_Here` with the sub-domain of your CIAM tenant. To find this, select **Overview** in the sidebar menu, then switch to the **Overview tab**. Find the **Primary domain**, in the form *caseyjensen.onmicrosoft.com*. The sub-domain is *caseyjensen*.
+    * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Subdomain_Here` with the sub-domain of your customer tenant. To find this, select **Overview** in the sidebar menu, then switch to the **Overview tab**. Find the **Primary domain**, in the form *caseyjensen.onmicrosoft.com*. The sub-domain is *caseyjensen*.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.

@@ -86,7 +86,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 1. Open your web browser and navigate to `https://localhost:7274`.
 
-1. Sign-in with an account registered to the CIAM tenant.
+1. Sign-in with an account registered to the customer tenant.
 
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 

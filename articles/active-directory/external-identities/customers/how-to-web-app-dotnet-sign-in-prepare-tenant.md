@@ -1,6 +1,6 @@
 ---
 title: Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant - Prepare your tenant
-description: Learn about how to prepare your CIAM tenant for customers to sign in users in your own ASP.NET web application by using Azure AD for customers tenant.
+description: Learn about how to prepare your Azure Active Directory (AD) for customers tenant for customers to sign in users in your own ASP.NET web application by using Azure AD for customers tenant.
 services: active-directory
 author: cilwerner
 manager: celestedg
