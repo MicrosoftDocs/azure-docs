@@ -136,22 +136,22 @@ Your web app needs to acquire a token for the downstream API, *Microsoft.Identit
 
 If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-    1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
-    ```csharp
-  using Microsoft.Extensions.DependencyInjection;
-  using Microsoft.Identity.Client;
-  using Microsoft.Identity.Web;
-  using Microsoft.Identity.Web.OWIN;
-  using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
-  using Microsoft.IdentityModel.Validators;
-  using Microsoft.Owin.Security;
-  using Microsoft.Owin.Security.Cookies;
-  using Owin;
+   ```csharp
+   using Microsoft.Extensions.DependencyInjection;
+   using Microsoft.Identity.Client;
+   using Microsoft.Identity.Web;
+   using Microsoft.Identity.Web.OWIN;
+   using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
+   using Microsoft.IdentityModel.Validators;
+   using Microsoft.Owin.Security;
+   using Microsoft.Owin.Security.Cookies;
+   using Owin;
 
-  namespace WebApp
-  {
+   namespace WebApp
+   {
       public partial class Startup
       {
           public void ConfigureAuth(IAppBuilder app)
@@ -173,8 +173,8 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
               owinTokenAcquirerFactory.Build();
           }
       }
-  }
-  ```
+   }
+   ```
 
 ### Option 2: Call a downstream web API other than Microsoft Graph
 
