@@ -185,7 +185,7 @@ Automatic Storage Management (ASM) is supported for NFS volumes. Though typicall
 
 An ASM over dNFS configuration was used to produce all test results discussed in this article. The following diagram illustrates the ASM file layout within the Azure NetApp Files volumes and the file allocation to the ASM disk groups. 
 
-:::image type="content" alt-text="Diagram of Oracle Automatic Storage Management with Azure NetApp Files." source="../media/azure-netapp-files/oracle-automatic-storage-management.png lightbox="../media/azure-netapp-files/oracle-automatic-storage-management.png":::
+:::image type="content" alt-text="Diagram of Oracle Automatic Storage Management with Azure NetApp Files." source="../media/azure-netapp-files/oracle-automatic-storage-management.png" lightbox="../media/azure-netapp-files/oracle-automatic-storage-management.png":::
 
 There are some limitations with the use of ASM over Azure NetApp Files NFS mounted volumes when it comes to storage snapshots that can be overcome with certain architectural considerations. Contact your Azure NetApp Files specialist or cloud solutions architect for an in-depth review of these considerations. 
 
