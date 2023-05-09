@@ -1,0 +1,58 @@
+Given that your web app now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
+
+- The URL of the downstream web API
+- The scopes required for calling the API
+
+In the following example, the `GraphBeta` section specifies these settings.
+
+```JSON
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common",
+
+   // To call an API
+   "ClientCredentials": [
+    {
+      "SourceType": "ClientSecret",
+      "ClientSecret":"[Copy the client secret added to the app from the Azure portal]"
+    }
+  ]
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
+}
+```
+> [!NOTE]
+> You can propose a collection of client credentials, including a credential-less solution like workload identity federation for Azure Kubernetes. 
+> Previous versions of Microsoft.Identity.Web expressed the client secret in a single property "ClientSecret" instead of "ClientCredentials". This is still supported for backwards compatibility but you cannot use both the "ClientSecret" property, and the "ClientCredentials" collection.
+
+Instead of a client secret, you can provide a client certificate. The following code snippet shows using a certificate stored in Azure Key Vault.
+
+```JSON
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common",
+
+   // To call an API
+   "ClientCredentials": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
+}
+```
+
+*Microsoft.Identity.Web* provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
