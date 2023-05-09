@@ -177,14 +177,14 @@ You also register a feature set asset with the feature store. This has a referen
 
 * Open the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStoresPrPr,FeatureStoresPuPr). **(todo PuP: remove flight url)**
 * Select `Feature stores` in the left nav
-* Note the list of accessible features. Select on the feature store that you created earlier in this tutorial.
+* Note the list of accessible feature stores. Select on the feature store that you created earlier in this tutorial.
 
 This shows the feature set and entity that you created.
 
 > [!Note]
 > Creating and updating feature store assets are possible only through SDK and CLI. You can use the UI to search/browse the feature store.
 
-## Step 5: Generate a training data dataframe using the registered features
+## Step 5: Generate a training data dataframe using the registered feature set
 
 ### Step 5a: Load observation data
 
@@ -214,11 +214,11 @@ This tutorial built the training data with features from feature store. You can 
 
 ## Cleanup
 
-Part 4 of this tutorial describes how to delete the resources
+[Part 4](./tutorial-use-features-to-train-and-experiment.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* Part 2: run training pipeline with feature store
+* [Part 2: enable materialization and back fill feature data](./tutorial-enable-materialization-and-backfill-data.md)
 * Understand concepts: feature store concepts, feature transformation concepts
 * Understand identity and access control for feature store
 * View feature store troubleshooting guide

@@ -218,11 +218,11 @@ You can see the list of models that are using the feature sets (determined from 
 
 ## Cleanup
 
-Part 4 of this tutorial describes how to delete the resources
+[Part 4](./tutorial-use-features-to-train-and-experiment.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* Part 4: run a batch inference pipeline with a feature store
+* [Part 4: Use features to train and experiment with models](./tutorial-features-and-the-machine-leraning-lifecycle.md)
 * Understand concepts: feature store concepts, feature transformation concepts
 * Understand identity and access control for feature store
 * View feature store troubleshooting guide

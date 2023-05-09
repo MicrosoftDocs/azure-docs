@@ -100,7 +100,7 @@ You can optionally override the default settings
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=use-existing-storage)]
 
-##### Storage container (option 2): create a new existing storage container
+##### Storage container (option 2): create a new storage container
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=create-new-storage)]
 
@@ -167,17 +167,17 @@ As explained earlier in this tutorial, materialization involves computation of t
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=backfill-txns-fset)]
 
-Let's print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. We retrieved the training and inference data with The `get_offline_features()` method retrieved the training / inference data, and this method uses the materialization store by default.
+Let's print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. We retrieved the training and inference data with the `get_offline_features()` method. This method uses the materialization store by default.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=sample-txns-fset-data)]
 
 ## Cleanup
 
-Part 4 of this tutorial describes how to delete the resources
+[Part 4](./tutorial-use-features-to-train-and-experiment.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* Part 2: Experiment with and train models using features
+* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-features-and-the-machine-leraning-lifecycle.md)
 * Understand concepts: feature materialization concepts
 * Understand identity and access control for feature store
 * View feature store troubleshooting guide
