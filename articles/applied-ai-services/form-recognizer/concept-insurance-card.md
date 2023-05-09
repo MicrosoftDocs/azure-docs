@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 03/03/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Azure Form Recognizer health insurance card model
