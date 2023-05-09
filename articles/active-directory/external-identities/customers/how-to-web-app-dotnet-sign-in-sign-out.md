@@ -45,7 +45,7 @@ Identity related NuGet packages must be installed in the project for authenticat
     using aspnet_ciam_webapp.Models;
     ```
 
-1. Additionally, add the following attribute directly above the `HomeController` class definition:
+1. Additionally, add the `[Authorize]` attribute directly above the `HomeController` class definition, which ensures that only authenticated users can use the web app:
 
     ```csharp
     [Authorize]
