@@ -17,7 +17,6 @@ Using Azure Container Apps allows you to deploy applications without requiring t
 You learn how to:
 
 > [!div class="checklist"]
-
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
 > * Deploy your background processing application as a container app

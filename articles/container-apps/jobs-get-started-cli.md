@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually or schedule their execution.
+Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
 
 Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
 
