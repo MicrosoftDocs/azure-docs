@@ -1,5 +1,5 @@
 ---
-title: "Use blocklists"
+title: "Use blocklists for text moderation"
 titleSuffix: Azure Cognitive Services
 description: Learn how to customize text moderation in Content Safety by using your own list of blocked terms.
 services: cognitive-services
@@ -28,19 +28,11 @@ The default AI classifiers are sufficient for most content moderation needs. How
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) or * [Python 3.x](https://www.python.org/) installed
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
+  * If you're using the Python SDK, you'll need to install the Azure Content Safety client library for Python. Run the command `pip install azure-ai-contentsafety` in your project directory.
 
 ## Analyze text with a blocklist
 
-
 You can create blocklists to use with the Text API. The following steps help you get started.
-
-The below fields must be included in the url:
-
-| Name         | Description | Type     |
-| :---------------- | :-------------- | ----------- |
-| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~        `      Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}?api-version=2022-12-30-preview"` | String      |
-| **blockItems**    | (Required) This is the blocklistName to be checked.     Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview"` | BCP 47 code |
-| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview` | String      |
 
 
 
@@ -101,7 +93,7 @@ def create_or_update_text_blocklist(name, description):
 
 if __name__ == "__main__":
     blocklist_name = "<your_list_id>"
-    blocklist_description = "Test blocklist management."
+    blocklist_description = "<description>"
 
     # create blocklist
     result = create_or_update_text_blocklist(name=blocklist_name, description=blocklist_description)
@@ -112,7 +104,8 @@ if __name__ == "__main__":
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_id>` with a custom name for your list. Also replace the last term of the REST URL with the same name. Allowed characters: 0-9, A-Z, a-z, `- . _ ~`.
-1. Optionally replace `Test blocklist management.` field with a custom description.
+1. Optionally replace `<description>` with a custom description.
+1. Run the script.
 
 ---
 
@@ -167,6 +160,8 @@ The response code should be `201` and the URL to get the created list should be 
 
 #### [Python](#tab/python)
 
+Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
+
 ```python
 import os
 from azure.ai.contentsafety import ContentSafetyClient
@@ -203,8 +198,7 @@ def add_block_items(name, items):
 
 
 if __name__ == "__main__":
-    blocklist_name = "TestBlocklist"
-    blocklist_description = "Test blocklist management."
+    blocklist_name = "<your_list_id>"
 
     block_item_text_1 = "k*ll"
     block_item_text_2 = "h*te"
@@ -218,6 +212,10 @@ if __name__ == "__main__":
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Replace the value of the `block_item_text_1` field with the item you'd like to add to your blocklist.
+1. Run the script.
+
 
 ---
 
@@ -229,6 +227,15 @@ if __name__ == "__main__":
 
 #### [REST API](#tab/rest)
 
+The below fields must be included in the URL of your Analyze API call:
+
+| Name         | Description | Type     |
+| :---------------- | :-------------- | ----------- |
+| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~        `      Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}?api-version=2022-12-30-preview"` | String      |
+| **blockItems**    | (Required) This is the blocklistName to be checked.     Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview"` | BCP 47 code |
+| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview` | String      |
+
+Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_id>` with the ID value you used in the list creation step. The `"blocklistNames"` field can contain an array of multiple list IDs.
@@ -270,6 +277,8 @@ The JSON response will contain a `"blocklistMatchResults"` that indicates any ma
 
 #### [Python](#tab/python)
 
+Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
+
 ```python
 import os
 from azure.ai.contentsafety import ContentSafetyClient
@@ -278,9 +287,8 @@ from azure.ai.contentsafety.models import AnalyzeTextOptions
 from azure.core.exceptions import HttpResponseError
 import time
 
-
-endpoint = "[Your endpoint]"
-key ="[Your subscription key]"
+endpoint = "<endpoint>"
+key = "<enter_your_key_here>"
 
 # Create an Content Safety client
 client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
@@ -303,7 +311,7 @@ def analyze_text_with_blocklists(name, text):
 
 
 if __name__ == "__main__":
-    blocklist_name = "TestBlocklist"
+    blocklist_name = "<your_list_id>"
     input_text = "I h*te you and I want to k*ll you."
 
     # analyze text
@@ -315,7 +323,9 @@ if __name__ == "__main__":
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
-
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Replace the `input_text` variable with whatever text you want to analyze.
+1. Run the script.
 
 ---
 ## Other blocklist operations
@@ -355,14 +365,17 @@ The status code should be `200` and the response body should look like this:
 
 #### [Python](#tab/python)
 
+Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
+
+
 ```python
 import os
 from azure.ai.contentsafety import ContentSafetyClient
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 
-endpoint = "[Your endpoint]"
-key = "[Your subscription key]"
+endpoint = "<endpoint>"
+key = "<enter_your_key_here>"
 
 # Create an Content Safety client
 client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
@@ -382,7 +395,7 @@ def list_block_items(name):
 
 
 if __name__ == "__main__":
-    blocklist_name = "TestBlocklist"
+    blocklist_name = "<your_list_id>"
 
     result = list_block_items(name=blocklist_name)
     if result is not None:
@@ -391,6 +404,9 @@ if __name__ == "__main__":
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Run the script.
+
 
 
 ---
@@ -424,6 +440,8 @@ The status code should be `200`. The JSON response looks like this:
 
 #### [Python](#tab/python)
 
+Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
+
 ```python
 import os
 from azure.ai.contentsafety import ContentSafetyClient
@@ -435,11 +453,12 @@ import time
 
 class ManageBlocklist(object):
     def __init__(self):
-        CONTENT_SAFETY_KEY = os.environ["CONTENT_SAFETY_KEY"]
-        CONTENT_SAFETY_ENDPOINT = os.environ["CONTENT_SAFETY_ENDPOINT"]
+        endpoint = "<endpoint>"
+        key = "<enter_your_key_here>"
+
 
         # Create an Content Safety client
-        self.client = ContentSafetyClient(CONTENT_SAFETY_ENDPOINT, AzureKeyCredential(CONTENT_SAFETY_KEY))
+        self.client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
 
     def list_text_blocklists(self):
         try:
@@ -470,6 +489,7 @@ class ManageBlocklist(object):
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
+1. Run the script.
 
 ---
 
@@ -530,6 +550,8 @@ The response code should be `204`.
 
 #### [Python](#tab/python)
 
+Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
+
 ```python
 import os
 from azure.ai.contentsafety import ContentSafetyClient
@@ -541,13 +563,11 @@ import time
 
 class ManageBlocklist(object):
     def __init__(self):
-        CONTENT_SAFETY_KEY = os.environ["CONTENT_SAFETY_KEY"]
-        CONTENT_SAFETY_ENDPOINT = os.environ["CONTENT_SAFETY_ENDPOINT"]
+        endpoint = "<endpoint>"
+        key = "<enter_your_key_here>"
 
         # Create an Content Safety client
-        self.client = ContentSafetyClient(CONTENT_SAFETY_ENDPOINT, AzureKeyCredential(CONTENT_SAFETY_KEY))
-
-   
+        self.client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
 
     def remove_block_items(self, name, items):
         request = RemoveBlockItemsOptions(block_item_ids=[i.block_item_id for i in items])
@@ -563,14 +583,10 @@ class ManageBlocklist(object):
             print(e)
             return False
 
-   
-
 if __name__ == "__main__":
     sample = ManageBlocklist()
 
-    blocklist_name = "Test Blocklist"
-    blocklist_description = "Test blocklist management."
-
+    blocklist_name = "<your_list_id>"
     
     # remove one blocklist item
     if sample.remove_block_items(name=blocklist_name, items=[result[0]]):
@@ -583,6 +599,8 @@ if __name__ == "__main__":
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Run the script.
 
 ---
 
@@ -611,6 +629,9 @@ The response code should be `204`.
 
 #### [Python](#tab/python)
 
+Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
+
+
 ```python
 import os
 from azure.ai.contentsafety import ContentSafetyClient
@@ -622,13 +643,12 @@ import time
 
 class ManageBlocklist(object):
     def __init__(self):
-        CONTENT_SAFETY_KEY = os.environ["CONTENT_SAFETY_KEY"]
-        CONTENT_SAFETY_ENDPOINT = os.environ["CONTENT_SAFETY_ENDPOINT"]
+        endpoint = "<endpoint>"
+        key = "<enter_your_key_here>"
 
         # Create an Content Safety client
-        self.client = ContentSafetyClient(CONTENT_SAFETY_ENDPOINT, AzureKeyCredential(CONTENT_SAFETY_KEY))
+        self.client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
 
-    
     def delete_blocklist(self, name):
         try:
             self.client.delete_text_blocklist(blocklist_name=name)
@@ -646,9 +666,7 @@ class ManageBlocklist(object):
 if __name__ == "__main__":
     sample = ManageBlocklist()
 
-    blocklist_name = "Test Blocklist"
-    blocklist_description = "Test blocklist management."
-
+    blocklist_name = "<your_list_id>"
 
     # delete blocklist
     if sample.delete_blocklist(name=blocklist_name):
@@ -659,6 +677,9 @@ if __name__ == "__main__":
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
+1. Run the script.
+
 
 ---
 
