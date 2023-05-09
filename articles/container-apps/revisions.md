@@ -41,17 +41,17 @@ You can use revisions to:
 Revisions go through the following states:
 
 - _Provisioning_: 
-    When a new revision is first created, it is "provisioning."  This measures the time between creation (iniital request) and being being ready to accept work.  Replica provisioning status values include:
+    When a new revision is first created, it's set to "provisioning" which measures the time between creation (initial request) and being ready to accept work.  Replica provisioning status values include:
 
     - _Provisioning:_ It's being provisioned.
 
-    - _Provisioned:_ The app has been provisioned. This is a final state.
+    - _Provisioned:_ The app has been provisioned, which is the final state for provisioning status.
 
     - _Provisioning failed:_ The app failed to provision.  
 
 - _Running_ 
 
-    After the revision is provisioned, it is running. This can be monitored by the running status, which is the status of a revision after a successful provision. Running statuses include:
+    After the revision is provisioned, it is running. Use running status to monitor the status of a revision after a successful provision. Running status values include:
 
     - _Running:_ The revision is running; no issues have been identified.
 
@@ -70,7 +70,7 @@ Revisions go through the following states:
         - Exit code 137
 - _Inactive:_ A revision can be set to active or inactive. 
     
-    When revisions are deactivated, they remain in a list of up to 100 inactive revisions.  Inactive revisions do not have provisioning or running states.  
+    When revisions are deactivated, they remain in a list of up to 100 inactive revisions.  Inactive revisions don't have provisioning or running states.  
  
 The following diagram shows a container app with two revisions.
 
