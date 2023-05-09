@@ -115,7 +115,7 @@ The `CallWebApiForUserAsync` method also has strongly typed generic overrides th
 
 #### Option 3: Call a downstream web API without the helper class
 
-If you've decided to acquire a token manually by using the `IAuthorizationHeaderProvider` service, you now need to use the token. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
+If you've decided to get an authorization header using the `IAuthorizationHeaderProvider` interface, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
 
  After you've acquired the token, use it as a bearer token to call the downstream API.
 
