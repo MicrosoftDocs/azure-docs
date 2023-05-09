@@ -1089,7 +1089,7 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-scaling-profile.md
       maintainContext: true
     - name: Attach VMs to a scale set
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach.md
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md
       maintainContext: true
   - name: Proximity Placement Groups
     items:
