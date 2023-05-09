@@ -16,6 +16,8 @@ In this quickstart, you create an Azure Functions project and deploy it to a fun
 >  
 > Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
 
+If you need to customize the container in which your function app runs, instead see [Create your first containerized functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
+
 ## Prerequisites
 
 On your local computer:

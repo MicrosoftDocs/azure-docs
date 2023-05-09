@@ -1,12 +1,12 @@
 ---
-title: Deploy a custom container to Azure Functions
-description: Learn how to publish your functions as a custom Linux container image to Azure Functions.
+title: Create your first containerized Azure Functions
+description: Get started by deploying your first function app from a Linux image in a container registry to Azure Functions.
 ms.date: 05/08/2023
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Deploy a container to Azure Functions 
+# Create your first containerized Azure Functions 
 
 In this article, you create a function app running in a Linux container and deploy it to Azure Functions. 
 

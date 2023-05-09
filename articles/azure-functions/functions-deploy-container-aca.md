@@ -1,24 +1,18 @@
 ---
-title: Deploy a custom container to Azure Container Apps
-description: Learn how to publish your functions as a custom Linux container image to Azure Container Apps.
+title: Create your first containerized Azure Functions on Azure Container Apps
+description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
 ms.date: 05/07/2023
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Deploy containerized functions to Azure Container Apps 
+# Create your first containerized functions on Azure Container Apps 
 
-In this article, you deploy a Docker container that contains your function app to Azure Container Apps. The container is the one you created in the previous quickstart article [Create a function that runs in a container](./functions-create-function-linux-custom-image.md?tabs=container-apps). 
+In this article, you create a function app running in a Linux container and deploy it to an [Azure Container Apps](../container-apps/overview.md) from a container registry.  
 
 Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 [!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
-
-Other options for deploying your containerized function app to Azure include:
-
-+ Azure Functions: to learn more, see [Deploy a container to Azure Functions](./functions-deploy-container.md). 
-
-+ Azure Arc (currently in preview): to learn more, see [Deploy a container to Azure Arc](./create-first-function-arc-custom-container.md).
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 

@@ -1,13 +1,21 @@
 ---
-title: Working with containers and Azure Functions
-description: Learn how to work with your Azure Functions code published as a custom Linux image.
-ms.date: 05/05/2023
+title: Working with Azure Functions in containers
+description: Learn how to work with function apps running in Linux containers.
+ms.date: 05/09/2023
 ms.topic: how-to
 ---
 
 # Working with containers and Azure Functions
 
-This article shows you the support that Azure Functions provides for working with function apps deployed as containers. Unless otherwise noted, the content applies to all function apps running in containers, regardless of the Azure hosting environment. 
+This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. Unless otherwise noted, the content applies to all function apps running in containers, regardless of the hosting environment. 
+
+If you want to jump right in, the following articles show you how to create your first function running in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
+
++ Azure Container Apps (preview): [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-aca.md)
+
++ Azure Functions: [Create your first containerized Azure Functions](functions-deploy-container.md)
+
++ Azure Arc (preview): [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
 
 To learn more about deployments to Azure Container Apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md). 
 
@@ -41,7 +49,7 @@ At this point, you need to update the deployment to use the new image. You shoul
 When your function app container is deployed from a registry, Functions maintains information about the source image. Use the following commands to get data about the image or change the deployment image used:
 
  +  [`az functionapp config container show`](/cli/azure/functionapp/config/container#az-functionapp-config-container-show): returns information about the image used for deployment. 
- +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): Change the image used for deployment.
+ +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or the image used for deployment.
 
 ## Enable continuous deployment to Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Create a function app on Azure Arc in a custom container
+title: Create your first containerized Azure Functions on Azure Arc
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
 ms.date: 05/07/2023
@@ -8,20 +8,14 @@ ms.devlang: azurecli
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Deploy a custom container to Azure Arc (preview)
+# Create your first containerized Azure Functions on Azure Arc (preview)
 
-In this article, you deploy the Docker container with your function app to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from a container registry. The custom Docker container is the one you created in the previous quickstart article [Create a function that runs in a container](functions-create-function-linux-custom-image.md?tabs=azure-arc). 
-
-To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
+In this article, you create a function app running in a Linux container and deploy it to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from a container registry. When you create your own container, you can customize the execution environment for your function app. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md).
 
 > [!NOTE]
 > Support for deploying a custom container to an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 
-Other options for deploying your custom container app to Azure include:
-
-+ Azure Functions: to learn more, see [Deploy a container to Azure Functions](./functions-deploy-container.md). 
-
-+ Azure Container Apps: to learn more, see [Deploy a container to Azure Container apps](./functions-deploy-container-aca.md).
+You can also publish you functions to an Azure Arc-enabled Kubernetes cluster without first creating a container. To learn more, see [Create your first function on Azure Arc (preview)](create-first-function-arc-cli.md)     
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
