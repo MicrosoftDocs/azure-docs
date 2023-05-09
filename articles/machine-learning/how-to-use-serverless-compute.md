@@ -72,15 +72,14 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
       type: user_identity
     ```
 
-* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`. 
+* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`.
 
     ```yaml
     identity:
       type: managed
     ```
 
-To configure your workspace with user-assigned managed identity:
-[!INCLUDE [user assigned managed identity](includes/attach-user-assigned-managed-identity.md)]
+  For information on attaching user-assigned managed identity, see [attach user assigned managed identity](/how-to-submit-spark-jobs.md#attach-user-assigned-managed-identity-using-cli-v2).
 
 ## Configure properties
 
