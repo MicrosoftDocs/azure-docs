@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/08/2023
 ms.author: allensu
+ms.custom: references_regions
 ---
 
 # What is routing preference?
