@@ -20,7 +20,7 @@ ms.custom: sdkv2
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With the Azure ML managed feature store, you can discover, create and operationalize features. Features serve as the connective tissue in the ML lifecycle, starting from prototyping phase, where you experiment with various features, to the operationalization phase. In this phase, models are deployed and feature data is referenced during inference. For information about the basic feature store concept, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
+With the Azure Machine Learning managed feature store, you can discover, create and operationalize features. Features serve as the connective tissue in the ML lifecycle, starting from prototyping phase, where you experiment with various features, to the operationalization phase. In this phase, models are deployed and feature data is referenced during inference. For information about the basic feature store concept, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
 
 This tutorial is the first part of a four part series. In this tutorial, you'll learn how to:
 
@@ -30,7 +30,7 @@ This tutorial is the first part of a four part series. In this tutorial, you'll 
 * Register the feature set that you developed with the feature store
 * Generate a sample training dataframe using the features you created
 
-## Prerequisites: Configure an AzureML Spark notebook
+## Prerequisites: Configure an Azure Machine Learning Spark notebook
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
@@ -41,7 +41,7 @@ Before you proceed with this article, make sure you cover these prerequisites:
 ## Setup
 
 ### Prepare the notebook environment for development
-Note: This tutorial uses AzureML spark notebook for development. (Placeholder: link to ADB document once ready)
+Note: This tutorial uses Azure Machine Learning spark notebook for development. (Placeholder: link to ADB document once ready)
 
 1. Clone the examples repository to your local machine: To run the tutorial, first clone the [examples repository - (azureml-examples)](https://github.com/azure/azureml-examples) with this command:
 
@@ -50,7 +50,7 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
    You can also download a zip file from the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples). At this page, first select the `code` dropdown, and then select `Download ZIP`. Then, unzip the contents into a folder on your local device.
 
 1. Upload the feature store samples directory to project workspace.
-      * Open Azure ML studio UI of your Azure ML workspace
+      * Open Azure Machine Learning studio UI of your Azure Machine Learning workspace
       * Select **Notebooks** in left nav
       * Select your user name in the directory listing
       * Select **upload folder**
@@ -68,7 +68,7 @@ Note: This tutorial uses AzureML spark notebook for development. (Placeholder: l
       1. Select **configure session**
       1. Select **Upload conda file**
       1. Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` located on your local device
-      1. Increase the session time out (idle time) to reduce the serverless spark cluster startup time.
+      1. Increase the session time-out (idle time) to reduce the serverless spark cluster startup time.
 
       1. **Important:** Except for this step, you need to run all the other steps every time you have a new spark session/session time out
 
@@ -115,9 +115,9 @@ Set name, location, and other values for the feature store
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=create-fs)]
 
-### Step 1c: Initialize AzureML feature store core SDK client
+### Step 1c: Initialize Azure Machine Learning feature store core SDK client
 
-As explained above, this develops and consumes features
+As explained earlier in this tutorial, the feature store core SDK client develops and consumes features
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=init-fs-core-sdk)]
 
@@ -136,16 +136,16 @@ A feature set specification is a self-contained feature set definition that you 
 
 We'll create these rolling window aggregate features:
 
-- transactions 3-day count
-- transactions amount 3-day sum
-- transactions amount 3-day avg
-- transactions 7-day count
-- transactions amount 7-day sum
-- transactions amount 7-day avg
+- transactions three-day count
+- transactions amount three-day sum
+- transactions amount three-day avg
+- transactions seven-day count
+- transactions amount seven-day sum
+- transactions amount seven-day avg
 
 **Action:**
 
-- Inspect the feature transformation code file: `featurestore/featuresets/transactions/spec/code/transaciton_transform.py`. You'll see the rolling aggregation defined for the features. This is a spark transformer.
+- Inspect the feature transformation code file: `featurestore/featuresets/transactions/spec/code/transaciton_transform.py`. Note the rolling aggregation defined for the features. This is a spark transformer.
 
 See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts-url-todo) and [transformation concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-transformation-concepts-todo) to learn more about the feature set and transformations.
 
@@ -153,11 +153,11 @@ See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4c
 
 ## Step 3: Register a feature-store entity
 
-As a best practice, entities help enforce use of the same join key definition across feature sets which use the same logical entities. Examples of entities can include accounts, customers, etc. Entities are typically created once, and then re-used across feature sets. For information on basics concept of feature store, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
+As a best practice, entities help enforce use of the same join key definition across feature sets that use the same logical entities. Examples of entities can include accounts, customers, etc. Entities are typically created once, and then reused across feature sets. For information on basics concept of feature store, see [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts).
 
 ### Step 3a: Explore the transactions source data
 
-As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=dump-transactions-fs-spec)] searches for the feature store we created in an earlier step. Here, we cannot reuse the same ml_client used above because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. In the he below one is scoped at feature store level.
+As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=dump-transactions-fs-spec)] searches for the feature store we created in an earlier step. Here, we can't reuse the same ml_client used earlier in this tutorial, because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. The one following is scoped at feature store level.
 
 ### Step 3a: Register the `account` entity with the feature store
 
@@ -169,15 +169,15 @@ Create an account entity that has the join key `accountID`, of type string.
 
 You register a feature set with the feature store so that you can share and reuse with others. This offers managed capabilities like versioning and materialization. We'll learn more about these capabilities in this tutorial series.
 
-You also register a feature set asset with the feature store. This has a reference to the feature retrieval spec, and offers version, materialization, etc. as additional properties.
+You also register a feature set asset with the feature store. This has a reference to the feature retrieval spec, and offers version, materialization, etc. as more properties.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=register-acct-entity)]
 
 ### Explore the feature store UI
 
-* Open the [Azure ML global landing page](https://ml.azure.com/home?flight=FeatureStoresPrPr,FeatureStoresPuPr). **(todo PuP: remove flight url)**
+* Open the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStoresPrPr,FeatureStoresPuPr). **(todo PuP: remove flight url)**
 * Select `Feature stores` in the left nav
-* You'll see the list of feature stores that you can access. Select on the feature store that you created above.
+* Note the list of accessible features. Select on the feature store that you created earlier in this tutorial.
 
 This shows the feature set and entity that you created.
 
@@ -188,7 +188,7 @@ This shows the feature set and entity that you created.
 
 ### Step 5a: Load observation data
 
-First, we'll explore the observation data. Observation data typically involves the core data used in training and inferencing. Then, this data joins with the feature data to create the full training data. Observation data is the data captured during the time of the event. Here, it has core transaction data including transaction id, account id, AND transaction amount. Since we use it for training, it also has the target variable appended (**is_fraud**).
+First, we'll explore the observation data. Observation data typically involves the core data used in training and inferencing. Then, this data joins with the feature data to create the full training data. Observation data is the data captured during the time of the event. Here, it has core transaction data including transaction ID, account ID, AND transaction amount. Since we use it for training, it also has the target variable appended (**is_fraud**).
 
 See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4ce118fbc22d19099c0fa1a31783fc9a8d7fb3/featurestore_sample/fs-concepts-link-todo) to learn more about core concepts, including observation data.
 
@@ -202,7 +202,7 @@ See [feature store concepts](https://github.com/Azure/featurestore-prp/blob/9f4c
 
 ### Step 5d: Select features and generate training data
 
-Here, we'll select features that will become part of the training data, and we'll use the feature store sdk to generate the training data.
+Here, we select features that become part of the training data, and we use the feature store sdk to generate the training data.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=print-txn-fset-sample-values)]
 
