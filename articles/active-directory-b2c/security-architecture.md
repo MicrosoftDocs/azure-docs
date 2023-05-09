@@ -9,7 +9,7 @@ manager: RideMo
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.author: rbinrais
 ms.subservice: B2C
 ---
