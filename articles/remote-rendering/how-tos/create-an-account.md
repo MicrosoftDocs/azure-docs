@@ -24,11 +24,11 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
-    2. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions).
-2. Once the account is created, navigate to it and:
+    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions).
+1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
-    2. In the *Settings > Access Keys* tab, note the 'Primary key' - this value is the account's secret account key
-    3. Make sure, that in the *Settings > Identity* tab, the option *System assigned > Status* is turned on.
+    1. In the *Settings > Access Keys* tab, note the 'Primary key' - this value is the account's secret account key
+    1. Make sure, that in the *Settings > Identity* tab, the option *System assigned > Status* is turned on.
 
 :::image type="content" source="./media/azure-identity-add.png" alt-text="Screenshot of Remote Rendering Account Page in sub menu settings, identity, with the option System assigned status turned on.":::
 
@@ -82,9 +82,9 @@ The steps in this paragraph have to be performed for each storage account that s
 
 4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
    1. Select the **Storage Blob Data Contributor** role and click **Next**.
-   2. Choose to assign access to a **Managed Identity**. 
-   3. Select **Select members**, select your subscription, select **Remote Rendering Account**, select your remote rendering account, and then click **Select**.
-   4. Select **Review + assign** and select **Review + assign** again.
+   1. Choose to assign access to a **Managed Identity**.
+   1. Select **Select members**, select your subscription, select **Remote Rendering Account**, select your remote rendering account, and then click **Select**.
+   1. Select **Review + assign** and select **Review + assign** again.
 
     ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 

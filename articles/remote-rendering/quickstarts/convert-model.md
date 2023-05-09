@@ -51,6 +51,7 @@ Once you have an Azure account, go to [https://portal.azure.com/#home](https://p
 ### Storage account creation
 
 To create blob storage, you first need a storage account.
+
 1. To create one, select "Create a resource":
 
 ![Azure - add resource](media/azure-add-a-resource.png)
