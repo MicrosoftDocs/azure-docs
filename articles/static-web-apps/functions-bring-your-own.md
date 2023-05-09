@@ -54,7 +54,7 @@ Before you associate an existing Functions app, you first need to adjust the con
 
 1. Set `api_location` value to an empty string (`""`) in the [workflow configuration](./build-configuration.md) file.
 
-### Link the Azure Functions app to the Static Web Apps resoruce
+### Link the Azure Functions app to the Static Web Apps resource
 
 1. Open your Static Web Apps instance in the [Azure portal](https://portal.azure.com).
 
