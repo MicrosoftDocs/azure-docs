@@ -38,7 +38,7 @@ As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-
 
 - You must have read and write permissions on your Microsoft Sentinel workspace.
 
-- You must have Contributor or Owner permissions on the subscription you want to connect to Microsoft Sentinel.
+- You must have the **Contributor** or **Owner** role on the subscription you want to connect to Microsoft Sentinel.
 
 - You will need to enable at least one plan within Microsoft Defender for Cloud for each subscription where you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
 
