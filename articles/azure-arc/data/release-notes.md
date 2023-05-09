@@ -29,15 +29,16 @@ New for this release:
 
 ### Release notes
 
-- Arc Data services
+- Arc data services
   - OpenSearch replaces Elasticsearch for log database
   - OpenSearch Dashboards replaces Kibana for logs interface
-    - There is a known issue with user settings migration to OpenSearch dashboards for some versions of Elasticsearch, including the version used in Arc Data Services. 
+    - There is a known issue with user settings migration to OpenSearch dashboards for some versions of Elasticsearch, including the version used in Arc data services. 
     
       > [!IMPORTANT]
       > Before upgrade, save any configuration externally before upgrading so that it can be re-created in OpenSearch Dashboards.
 
-  - Arc data controller improvements to `az` CLI for upgrade reliability
+  - Automatic upgrade is disabled for the Arc data services extension
+  - Error-handling in the `az` CLI is improved during data controller upgrade
 
 - Azure Arc-enabled SQL Managed Instance
   - General Purpose: Customer-managed TDE encryption keys (preview). For information, review [Rotate Azure Arc-enabled SQL Managed Instance customer-managed keytab](rotate-customer-managed-keytab.md).
