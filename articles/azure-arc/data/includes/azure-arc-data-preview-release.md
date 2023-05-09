@@ -6,9 +6,9 @@ ms.topic: include
 ms.date: 05/02/2023
 ---
 
-<!---
 At this time, a test or preview build is not available for the next release.
--->
+
+<!--
 
 May 2023 preview release is now available.
 
@@ -44,3 +44,4 @@ May 2023 preview release is now available.
 - Arc Data Services | Upgrade to OpenSearch | GA
 - Arc Data Services | Arc Data Controller | az CLI | Improved Arc data controller upgrade reliability
 
+-->
