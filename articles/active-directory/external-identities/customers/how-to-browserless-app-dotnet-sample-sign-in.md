@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET browserless app to sign in users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample ASP.NET browserless app using Microsoft Entra
+# Sign in users into a sample ASP.NET using Device Code flow
 
 This how-to guide uses a sample ASP.NET browserless app to show how to add authentication to the app using Microsoft Entra. The sample app enables users to sign in. The sample ASP.NET browserless app uses [Microsoft Authentication Library for .NET (MSAL NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to handle authentication.
 
