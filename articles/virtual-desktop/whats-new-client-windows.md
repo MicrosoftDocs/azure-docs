@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 05/04/2023
+ms.date: 05/09/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,7 +17,7 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4157       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Public  | 1.2.4159       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.4240       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
 ## Updates for version 1.2.4240 (Insider) 
@@ -33,7 +33,7 @@ In this release, we've made the following changes:
 - Fixed an issue where the client stopped responding if closed from the system tray. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
-## Updates for version 1.2.4157
+## Updates for version 1.2.4159
 
 *Date published: April 10, 2023*
 
@@ -41,6 +41,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 In this release, we've made the following changes:
 
+- Fixed an application compatibility issue for preview versions of Windows.
 - Redesigned the connection bar for session desktops.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
 - Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
