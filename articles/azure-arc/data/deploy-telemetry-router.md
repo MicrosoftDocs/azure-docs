@@ -76,7 +76,7 @@ apiVersion: arcdata.microsoft.com/v1beta4
     pipelines:
 ```
 
-At the time of creation, no pipeline or exporters are set up. You can [setup your own pipelines and exporters](adding-exporters-and-pipelines.md) to route metrics and logs data to your own implementations of Kafka and OpenSearch. 
+At the time of creation, no pipeline or exporters are set up. You can [setup your own pipelines and exporters](adding-exporters-and-pipelines.md) to route metrics and logs data to your own instances of Kafka and Elasticsearch. 
 
 After the TelemetryRouter is deployed, an instance of Kafka (arc-router-kafka) and a single instance of TelemetryCollector (collector-inbound) should be deployed and in a ready state. These resources are system managed and editing them isn't supported. The following pods will be deployed as a result:
 
