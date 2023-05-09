@@ -373,4 +373,4 @@ To learn more about IoT Hub messaging, see:
 
 * [Cloud-to-device messages](./iot-hub-devguide-messages-c2d.md)
 * [Support for additional protocols](../iot-edge/iot-edge-as-gateway.md)
-* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](./iot-hub-mqtt-support.md)
+* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](../iot/iot-mqtt-connect-to-iot-hub.md)

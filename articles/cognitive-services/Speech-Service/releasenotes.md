@@ -8,7 +8,7 @@ author: eric-urban
 ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 03/16/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
@@ -19,7 +19,7 @@ Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to
 
 ## Recent highlights
 
-* Speech SDK 1.27.0 was released in April 2023.
+* Speech SDK 1.28.0 was released in May 2023.
 * Speech-to-text and text-to-speech container versions were updated in March 2023.
 * Some Speech Studio [scenarios](speech-studio-overview.md#speech-studio-scenarios) are available to try without an Azure subscription.
 * Custom Speech-to-Text container disconnected mode was released in January 2023.

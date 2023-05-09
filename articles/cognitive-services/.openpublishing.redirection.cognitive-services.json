@@ -4391,6 +4391,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-hosting.yml",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/speech-container-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/intent.md",
             "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
             "redirect_document_id": false
@@ -6153,6 +6158,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/how-to-create-translator-resource.md",
             "redirect_url": "/azure/cognitive-services/Translator/create-translator-resource",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/request-limits.md",
+            "redirect_url": "/azure/cognitive-services/Translator/service-limits",
             "redirect_document_id": true
         }
     ]

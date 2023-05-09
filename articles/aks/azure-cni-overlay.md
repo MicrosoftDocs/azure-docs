@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 04/17/2023
+ms.date: 04/21/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -152,30 +152,6 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-
-## Upgrade an existing cluster to CNI Overlay - Preview
-
-> [!NOTE]
-> The upgrade capability is still in preview and requires the preview AKS Azure CLI extension.
-
-You can update an existing Azure CNI cluster to Overlay if the cluster meets certain criteria. A cluster must:
-
-- be on Kubernetes version 1.22+
-- **not** be using the dynamic pod IP allocation feature
-- **not** have network policies enabled
-- **not** be using any Windows node pools with docker as the container runtime
-
-The upgrade process will trigger each node pool to be re-imaged simultaneously (i.e. upgrading each node pool separately to Overlay is not supported). Any disruptions to cluster networking will be similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
-
-> [!WARNING] 
-> Due to the limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, this has a more detrimental effect for clusters upgrading to Overlay.
-
-While nodes are being upgraded to use the CNI Overlay feature, pods that are on nodes which haven't been upgraded yet will not be able to communicate with pods on Windows nodes that have been upgraded to Overlay. In other words, Overlay Windows pods will not be able to reply to any traffic from pods still running with an IP from the node subnet.
-
-This network disruption will only occur during the upgrade. Once the migration to Overlay has completed for all node pools, all Overlay pods will be able to communicate successfully with the Windows pods.
-
-> [!NOTE]
-> The upgrade completion doesn't change the existing limitation that host network pods **cannot** communicate with Windows Overlay pods.
 
 ## Next steps
 

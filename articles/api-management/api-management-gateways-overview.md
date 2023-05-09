@@ -87,7 +87,7 @@ The following table compares features available in the managed gateway versus th
 | API | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [OpenAPI specification](import-api-from-oas.md) |  ✔️ | ✔️ | ✔️ |
-| [WSDL specification)](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
+| [WSDL specification](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
 | WADL specification |  ✔️ | ✔️ | ✔️ |
 | [Logic App](import-logic-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ | ✔️ |
@@ -95,8 +95,10 @@ The following table compares features available in the managed gateway versus th
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
-| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ❌ |
+| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ❌ |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
+
+<sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported in the Consumption tier.
 
 ### Policies
 
