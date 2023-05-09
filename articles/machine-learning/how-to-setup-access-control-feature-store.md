@@ -149,6 +149,25 @@ Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show fe
 
 There's no ACL for instances of a feature store entity and a feature set. 
 
+## Users types and responsibilities
+
+Following are the kind of users who use the feature store:
+1. __Feature producers__ (for example, dta scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
+    * Managing lifecycle of features: From creation to retirement/archival
+    * Setting up materialization and backfill of features
+    * Monitoring feature freshness and quality
+1. __Feature consumers__ (for example, data scientist and machine learning engineers): They work primarily with in a project workspace and use features: 
+    * Discovering features for reuse in model
+    * Experimenting with features during training to see if it improves model performance
+    * Setting up training/inference pipelines to use the features
+1. __Admins__: They're typically responsible for:
+    * Managing lifecycle of feature store (creation to retirement)
+    * Managing lifecycle of user access to feature store
+    * Configuring feature store: quota and storage (offline/online stores)
+    * Managing costs
+
+In many organizations same person may wear multiple hats. For for example, the same person can both be a feature producer and consumer.
+
 ## Next steps
 
 - [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md)
