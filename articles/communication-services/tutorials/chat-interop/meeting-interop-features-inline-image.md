@@ -2,8 +2,8 @@
 title: Enable Inline Image Support in your Chat app
 titleSuffix: An Azure Communication Services quickstart
 description: In this tutorial, you'll learn how to enable inline image interoperability with the Azure Communication Chat SDK
-author: jopeng
-ms.author: jopeng
+author: jpeng-ms
+ms.author: jpeng-ms
 ms.date: 03/27/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -11,7 +11,7 @@ ms.subservice: teams-interop
 ms.custom: mode-other
 ---
 
-# Tutorial: Enable inline interoperability features in your Chat app
+# Tutorial: Enable inline image support in your Chat app
 
 ## Add inline image support
 The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
