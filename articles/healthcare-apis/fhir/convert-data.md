@@ -2,12 +2,12 @@
 title: Convert your data to FHIR in Azure Health Data Services
 description: This article describes how to use the $convert-data endpoint and custom converter templates to convert data to FHIR in Azure Health Data Services.
 services: healthcare-apis
-author: irenepjoseph
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 03/09/2023
-ms.author: irenejoseph
+ms.author: kesheth
 ms.custom: subject-rbac-steps
 ---
 
