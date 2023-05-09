@@ -88,7 +88,7 @@ To make APIs available to your linked static web app, [add them to the product](
 
 1. Select the APIs you want to expose from your Static Web Apps, then select the **Select** link.
 
-:::image type="content" source="media/add-api/apim-add-api.png" alt-text="Screenshot of the API Management Products API blade in the Azure Portal, showing how to add an API to the product created for the Static Web Apps resource.":::
+:::image type="content" source="media/add-api/apim-add-api.png" alt-text="Screenshot of the API Management Products API blade in the Azure portal, showing how to add an API to the product created for the Static Web Apps resource.":::
 
 The linking process also automatically applies the following configuration to your API Management service:
 
