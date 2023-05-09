@@ -11,7 +11,8 @@
 ---
 
 > [!NOTE]
-> The following limits listed in this article are per region.
+> - The following limits listed in this article are per region.
+> - See [throughput units (TUs)](/concepts.md#throughput-units) for more information.
 
 ## Namespace resource limits
 
@@ -23,76 +24,48 @@ The following limits apply to namespace resources in Azure Event Grid.
 | Namespaces per Azure subscription      | 10    |
 | Maximum throughput units per namespace | 20    |
 
-## Throughput unit limits for MQTT Messages in namespaces
+## MQTT limits in namespace
 
-A single [throughput unit](concepts.md#throughput-units) lets you:
+The following limits apply to MQTT in Azure Event Grid namespace resource.
 
-| Limit description | Limit                                                                      |
-|-------------------|----------------------------------------------------------------------------|
-| MQTT Clients      | 10,000                                                                     |
-| Receive           | Up to 1,000 messages per second or 1 MB per second (whichever comes first) |
-| Deliver/Consume   | Up to 1,000 events per second or 1 MB per second                           |
+| Limit description                            | Limit                                                                             |
+|----------------------------------------------|-----------------------------------------------------------------------------------|
+| MQTT Clients                                 | 10,000 per TU                                                                     |
+| MQTT inbound publish requests                | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT outbound publish requests               | Up to 1,000 messages per second or 1 MB per second per TU                         |
+| Clients                                      | 10,000 clients per TU                                                             |
+| CA certificates                              | 2                                                                                 |
+| Client groups                                | 10                                                                                |
+| Topic spaces                                 | 10                                                                                |
+| Topic templates                              | 10                                                                                |
+| Permission bindings                          | 100                                                                               |
+| Max message size                             | 512 KB                                                                            |
+| Topic size                                   | 256 B                                                                             |
+| Topic alias                                  | 10 topic aliases                                                                  |
+| New connect requests                         | 200 requests per second per TU                                                    |
+| Subscribe and unsubscribe operations         | 200 requests per second per TU                                                    |
+| Total number of subscriptions per connection | 50                                                                                |
+| Maximum number of concurrent connections allowed per namespace | 10,000 per TU                                                   |
 
-## Throughput unit limits for Events in namespaces
+## Events limits in namespace
 
-A single [throughput unit](concepts.md#throughput-units) lets you:
+The following limits apply to events in Azure Event Grid namespace resource.
 
-| Limit description | Limit                                                                    |
-|-------------------|--------------------------------------------------------------------------|
-| Event topics      | 1,000                                                                    |
-| Receive           | Up to 1,000 events per second or 1 MB per second (whichever comes first) |
-| Deliver/Consume   | Up to 2,000 events per second or 2 MB per second                         |
-
-## Topic and subscription resource limits in namespaces
-
-The following limits apply to topic and subscription resources in Azure Event Grid namespaces.
-
-| Limit description                                     | Limit   |
-|-------------------------------------------------------|---------|
-| Event topics per namespace                            | 100,000 |
-| Event duration period in topic                        | 1 day   |
-| Subscriptions per topic                               | 500     |
-| Connected clients per namespace (queue subscriptions) | 5,000   |
-
-## Event limits in namespaces
-
-The following limits apply to events in Azure Event Grid namespaces.
-
-| Limit description  | Limit |
-|--------------------|-------|
-| Event size         | 1 MB  |
-| Batch size         | 1 MB  |
-| Events per request | 5,000 |
-
-## MQTT resource limits
-
-The following limits apply to MQTT resources in Azure Event Grid namespaces.
-
-| Limit description   | Limit   |
-|---------------------|---------|
-| Clients             | 100,000 |
-| CA certificates     | 2       |
-| Client groups       | 10      |
-| Topic spaces        | 10      |
-| Topic templates     | 10      |
-| Permission bindings | 100     |
-
-## MQTT messages limits
-
-The following limits apply to MQTT messages in Azure Event Grid namespaces.
-
-| Limit description                            | Limit                                     |
-|----------------------------------------------|-------------------------------------------|
-| Max message size                             | 512 KiB                                   |
-| Topic size                                   | 256 B                                     |
-| Topic alias                                  | 10 topic aliases                          |
-| New connect requests                         | 500 requests per second? Per TU / per NS? |
-| Subscribe requests                           | 5,000 requests per second                 |
-| Total number of subscriptions per connection | 50                                        |
+| Limit description                                     | Limit                                                                              |
+|-------------------------------------------------------|------------------------------------------------------------------------------------|
+| Namespace topics                                      | 100 per TU                                                                         |
+| Event ingress                                         | Up to 1,000 events per second or 1 MB per second per TU (whichever comes first)    |
+| Event egress                                          | Up to 2,000 events per second or 2 MB per second per TU                            |
+| Event duration period in topic                        | 1 day                                                                              |
+| Subscriptions per topic                               | 100                                                                                |
+| Connected clients per namespace (queue subscriptions) | 5,000                                                                              |
+| Event size                                            | 1 MB                                                                               |
+| Batch size                                            | 1 MB                                                                               |
+| Events per request                                    | 5,000                                                                              |
 
 ## Custom topic, system topic and partner topic resource limits
 
-The following limits apply to custom topic, system topic and partner topic resources in Azure Event Grid.
+The following limits apply to Azure Event Grid custom topic, system topic and partner topic resources.
 
 | Limit description                                      | Limit                                                                                                                               |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,7 +79,7 @@ The following limits apply to custom topic, system topic and partner topic resou
 
 ## Domain resource limits
 
-The following limits apply to Domain resources in Azure Event Grid.
+The following limits apply to Azure Event Grid domain resource.
 
 | Limit description                             | Limit                                                              |
 |-----------------------------------------------|--------------------------------------------------------------------|
