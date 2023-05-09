@@ -14,7 +14,7 @@ ms.author: sujaj
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You'll install the HA agent, then create the provider for Azure Monitor for SAP solutions.
+In this how-to guide, you learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You install the HA agent, then create the provider for Azure Monitor for SAP solutions.
 
 This content applies to both Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic) versions.
 
@@ -27,9 +27,9 @@ This content applies to both Azure Monitor for SAP solutions and Azure Monitor f
 
 Before adding providers for HA (Pacemaker) clusters, install the appropriate agent for your environment in each cluster node.
 
-For SUSE-based clusters, install **ha_cluster_provider** in each node. For more information, see [the HA cluster exporter installation guide](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Supported SUSE versions include SLES for SAP 12 SP3 and above.
+For SUSE-based clusters, install **ha_cluster_provider** in each node. For more information, see [the HA cluster exporter installation guide](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Supported SUSE versions include SLES for SAP 12 SP3 and latter versions.
 
-For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** sub package in each node.For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4 and above.
+For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** sub package in each node.For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4 and latter versions.
 
 For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.com/articles/6139852) in each node.
 
@@ -50,7 +50,7 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
     systemctl start pmcd
     ```
 
-1. Install and enable the HA Cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linuxto find the path.
+1. Install and enable the HA Cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linux to find the path.
 
     ```bash
     cd $PCP_PMDAS_DIR/hacluster
@@ -70,7 +70,7 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
     systemctl start pmproxy
     ```
 
-1. Data will then be collected by PCP on the system. You can export the data using `pmproxy` at `http://<SERVER-NAME-OR-IP-ADDRESS>:44322/metrics?names=ha_cluster`. Replace `<SERVER-NAME-OR-IP-ADDRESS>` with your server name or IP address.
+1. Data will then be collected in the system by PCP. You can export the data using `pmproxy` at `http://<SERVER-NAME-OR-IP-ADDRESS>:44322/metrics?names=ha_cluster`. Replace `<SERVER-NAME-OR-IP-ADDRESS>` with your server name or IP address.
 
 ## Prerequisites to enable secure communication 
 

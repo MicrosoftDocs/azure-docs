@@ -32,7 +32,7 @@ The following table provides a quick comparison of the Azure Monitor for SAP sol
 | Azure Functions-based collector architecture | VM-based collector architecture |
 | Support for Microsoft SQL Server, SAP HANA, and IBM Db2 databases | Support for Microsoft SQL Server, and SAP HANA databases |
 | Support for monitoring Linux Operating Systems | Support for monitoring Linux Operating Systems |
-| Support for monitoring PaceMaker High Availability for SUSE and RHEL OS | Support for monitoring PaceMaker High Availability for SUSE and RHEL OS  |
+| Support for monitoring Pace Maker High Availability for SUSE and RHEL OS | Support for monitoring Pace Maker High Availability for SUSE and RHEL OS  |
 | Support for SAP NetWeaver Monitoring | Support for SAP NetWeaver Monitoring |
 
 
@@ -154,10 +154,10 @@ The key components of the architecture are:
 - The **Azure portal**, where you access the Azure Monitor for SAP solutions service.
 - The **Azure Monitor for SAP solutions resource**, where you view monitoring data.
 - The **managed resource group**, which is deployed automatically as part of the Azure Monitor for SAP solutions resource's deployment. The resources inside the managed resource group help to collect data. Key resources include:
-   - An **[Azure Functions resource](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview)** that hosts the monitoring code. This logic collects data from the source systems and transfers the data to the monitoring framework. 
+   - An **[Azure Functions resource](https://learn.microsoft.com/azure/azure-functions/functions-overview)** that hosts the monitoring code. This logic collects data from the source systems and transfers the data to the monitoring framework. 
    - An **[Azure Key Vault resource](../../key-vault/general/basic-concepts.md)**, which securely holds the SAP HANA database credentials and stores information about providers.
-   - The **[Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)**, which is the destination for storing data. Optionally, you can choose to use an existing workspace in the same subscription as your Azure Monitor for SAP solutions resource at deployment.
-   - The **[Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview)**, which is associated with azure functions resource, it is used to manage triggers and logging function executions.  
+   - The **[Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview)**, which is the destination for storing data. Optionally, you can choose to use an existing workspace in the same subscription as your Azure Monitor for SAP solutions resource at deployment.
+   - The **[Storage account](https://learn.microsoft.com/azure/storage/common/storage-account-overview)**, which is associated with Azure functions resource, it's used to manage triggers and logging function executions.  
 
 [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md) provides customizable visualization of the data in Log Analytics. To automatically refresh your workbooks or visualizations, pin the items to the Azure dashboard. The maximum refresh frequency is every 30 minutes.
    
@@ -178,9 +178,9 @@ The key components of the architecture are:
 - **Managed resource group**, which is deployed automatically as part of the Azure Monitor for SAP solutions resource's deployment. The resources deployed within the managed resource group help with the collection of data. Key resources deployed and their purposes are:
    - **Azure VM**, also known as the *collector VM*, which is a **Standard_B2ms** VM. The main purpose of this VM is to host the *monitoring payload*. The monitoring payload is the logic of collecting data from the source systems and transferring the data to the monitoring framework. In the architecture diagram, the monitoring payload contains the logic to connect to the SAP HANA database over the SQL port. You're responsible for patching and maintaining the VM.
    - **[Azure Key Vault](../../key-vault/general/basic-concepts.md)**: which is deployed to securely hold SAP HANA database credentials and to store information about providers.
-   - The **[Storage account](../../key-vault/general/basic-concepts.md)**, which is associated with azure functions resource, it is used to manage triggers and logging function executions.  
-   - **[Log Analytics Workspace](../../key-vault/general/basic-concepts.md), which is the destination where the data is stored.
-      - Visualization is built on top of data in Log Analytics using [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). You can customize visualization. You can also pin your Workbooks or specific visualization within Workbooks to Azure dashboard for auto-refresh. The maximum frequency for refresh is every 30 minutes.
+   - The **[Storage account](https://learn.microsoft.com/azure/storage/common/storage-account-overview)**, which is associated with Azure functions resource, it's used to manage triggers and logging function executions.  
+   - **[Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview), which is the destination where the data is stored.
+      - Visualization is built on top of data in Log Analytics using [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). You can customize visualization. You can also pin your Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh. The maximum frequency for refresh is every 30 minutes.
       - You can use your existing Log Analytics workspace within the same subscription as Azure monitor resource by choosing this option at Azure Monitor for SAP solutions deployment.
       - You can use KQL to run [queries](../../azure-monitor/logs/log-query-overview.md) against the raw tables inside the Log Analytics workspace. Look at **Custom Logs**.
 ## Can you analyze Azure metrics?
@@ -188,13 +188,13 @@ Azure Monitor for SAP solutions doesn't support Azure metrics.
 
 ### Analyze logs
 
-Azure Monitor for SAP solutions doesn't support resource logs or activity logs. For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [the data reference for monitoring SAP on Azure](data-reference.md#azure-monitor-logs-tables). 
+Azure Monitor for SAP solutions doesn't support resource logs or activity logs. For a list of the tables used by Azure Monitor Logs that can be queried in Log Analytics, see [the data reference for monitoring SAP on Azure](data-reference.md#azure-monitor-logs-tables). 
 
 ### Make Kusto queries
 
 When you select **Logs** from the Azure Monitor for SAP solutions menu, Log Analytics is opened with the query scope set to the current Azure Monitor for SAP solutions. Log queries only include data from that resource. To run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) for details.
 
-You can use Kusto queries to help you monitor your Azure Monitor for SAP solutions resources. The following sample query gives you data from a custom log for a specified time range. You can view the list of custom tables by expanding the Custom Logs section. You can specify the time range and the number of rows. In this example, you'll get five rows of data for your selected time range.
+You can use Kusto queries to help you monitor your Azure Monitor for SAP solutions resources. The following sample query gives you data from a custom log for a specified time range. You can view the list of custom tables by expanding the Custom Logs section. You can specify the time range and the number of rows. In this example, you get five rows of data for your selected time range.
 
 ```kusto
 Custom_log_table_name

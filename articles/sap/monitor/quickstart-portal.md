@@ -10,7 +10,7 @@ ms.date: 10/19/2022
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions in the Azure portal so that I can configure providers.
 ---
 
-# Quickstart: deploy Azure Monitor for SAP solutions in Azure portal (preview)
+# Quickstart: deploy Azure Monitor for SAP solutions in Azure portal
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
@@ -22,16 +22,18 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-- Setup [Network](https://learn.microsoft.com/en-au/azure/sap/monitor/set-up-network/) before creating Azure Monitor.
+- Setup [Network](https://learn.microsoft.com/azure/sap/monitor/set-up-network/) before creating Azure Monitor.
+
+- Create or Use an existing Virtual Network for Azure Montior for SAP solutions(AMS) which has access to the Source SAP systems Virtual Network. 
+- Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms" as shown below.
+
+   ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/SubnetCreation.png)
 
 ## Create Azure Monitor for SAP solutions monitoring resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In Azure **Search**, select **Azure Monitor for SAP solutions**.
-
- 
-
 
 3. On the **Basics** tab, provide the required values.
 	
@@ -43,7 +45,7 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 	 6. For **Virtual Network** field select a virtual network, which has connectivity to your SAP systems for monitoring.
 	 7. For the **Subnet** field, select a subnet that has connectivity to your SAP systems. You can use an existing subnet or create a new subnet. Make sure that you select a subnet, which is an **IPv4/25 block or larger**.
 	 8. For **Log Analytics Workspace**, you can use an existing Log Analytics workspace or create a new one. If you create a new workspace, it will be created inside the managed resource group along with other monitoring resources.
-    9. When entering **Managed resource group** name, make sure to use a unique name. This name is used to create a resource group, which will contain all the monitoring resources. Managed Resource Group name cannot be changed once the resource is created.
+    9. When entering **Managed resource group** name, make sure to use a unique name. This name is used to create a resource group, which will contain all the monitoring resources. Managed Resource Group name can't be changed once the resource is created.
 
    <br/>
 
@@ -51,10 +53,19 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 
 4. On the **Providers** tab, you can start creating providers along with the monitoring resource. You can also create providers later by navigating to the **Providers** tab in the Azure Monitor for SAP solutions resource. 
 
-   Refer each of the provider specifications [here](https://learn.microsoft.com/en-au/azure/sap/monitor/provider-netweaver)
 5. On the **Tags** tab, you can add tags to the monitoring resource. Make sure to add all the mandatory tags in case you have a tag policy in place.
 6. On the **Review + create** tab, review the details and click **Create**.
 
+## Create Provider's in Azure Monitor for SAP solutions
+
+Refer below for each of the Provider instance creation
+
+- ## [SAP NetWeaver Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-netweaver)
+- ## [SAP HANA Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-hana)
+- ## [SAP Microsoft SQL Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-sql-server)
+- ## [SAP IBM DB2 Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-ibm-db2)
+- ## [SAP Operating System Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-linux)
+- ## [SAP High Availability Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-ha-pacemaker-cluster)
 
 ## Create Azure Monitor for SAP solutions (classic) monitoring resource
 

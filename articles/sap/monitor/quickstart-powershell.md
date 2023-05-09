@@ -12,20 +12,19 @@ ms.custom: devx-track-azurepowershell, mode-api
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions with PowerShell so that I can create resources with PowerShell.
 ---
 
-# Quickstart: deploy Azure Monitor for SAP solutions with PowerShell (preview)
+# Quickstart: deploy Azure Monitor for SAP solutions with PowerShell
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-Get started with Azure Monitor for SAP solutions by using the 
-[Az.Workloads](https://learn.microsoft.com/powershell/module/az.workloads/?view=azps-9.7.1&viewFallbackFrom=azps-9.7.0) PowerShell module to create Azure Monitor for SAP solutions resources. You'll create a resource group, set up monitoring, and create a provider instance.
+Get started with Azure Monitor for SAP solutions by using the [Az.Workloads](https://learn.microsoft.com/powershell/module/az.workloads/?view=azps-9.7.1&viewFallbackFrom=azps-9.7.0) PowerShell module to create Azure Monitor for SAP solutions resources. You will create a resource group, set up monitoring, and create a provider instance.
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. You'll also need to connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
+- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module.Connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 
-Install *Az.Workloads** powershell module by running below command.
+Install **Az.Workloads** powershell module by running command.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.Workloads
@@ -38,8 +37,8 @@ Install *Az.Workloads** powershell module by running below command.
     Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
     ```
 
-- Create or Use an existing Virtual Network for Azure Montior for SAP solutions(AMS) which has access to the Source SAP systems Virtual Network. 
-- Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms" as shown below.
+- Create or Use an existing Virtual Network for Azure Montior for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network. 
+- Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms".
 
    ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/SubnetCreation.png)
    
@@ -53,7 +52,7 @@ The following example creates a resource group with the specified name and in th
 New-AzResourceGroup -Name Contoso-AMS-RG -Location <myResourceLocation>
 ```
 
-## Azure Monitor for SAP - Montior Creation
+## Azure Monitor for SAP : Montior Creation
 
 To create an SAP monitor, use the [New-AzWorkloadsSapLandscapeMonitor](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadssaplandscapemonitor?view=azps-9.7.1) cmdlet. The following example creates an SAP monitor for the specified subscription, resource group, and resource name.
 
@@ -85,7 +84,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 Note - 
 - hostname is SAP WebDispatcher or application server hostname/IP address
-- SapHostFileEntry is IP,FQDN,Hostname of every instance that get listed in [GetSystemInstanceList](https://learn.microsoft.com/en-au/azure/sap/monitor/provider-netweaver#determine-all-hostname-associated-with-an-sap-system)
+- SapHostFileEntry is IP,FQDN,Hostname of every instance that gets listed in [GetSystemInstanceList](https://learn.microsoft.com/azure/sap/monitor/provider-netweaver#determine-all-hostname-associated-with-an-sap-system)
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -128,7 +127,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 ```
 - ## Operating System Provider Creation
 
-To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a OS provider for the specified subscription, resource group, and resource name.
+To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates an OS provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -144,7 +143,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 ```
 - ## High Availability Cluster Provider Creation
 
-To create an High Availability Cluster provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a High Availability Cluster provider for the specified subscription, resource group, and resource name.
+To create  High Availability Cluster provider, use the [New-AzWorkloadsProviderInstance](https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadsproviderinstance?view=azps-9.7.1) cmdlet. The following example creates a High Availability Cluster provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
