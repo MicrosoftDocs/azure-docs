@@ -26,7 +26,7 @@ Azure Application Gateway WAF v2 natively supports WAF policy. You should upgrad
 ## Upgrade Application Gateway Standard v2 to Application Gateway WAF v2
 
 1. Locate the Application Gateway in the Azure portal. Select the Application Gateway and the select **Configuration** from the **Settings** menu on the left side.
-1. Under **Tier**, select **WAF**.
+1. Under **Tier**, select **WAF V2**.
 1. Select **Save** to complete the upgrade from Application Gateway Standard to Application Gateway WAF.
 
 ## Upgrade WAF v2 with legacy WAF configuration to WAF policy
