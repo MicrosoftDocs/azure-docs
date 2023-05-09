@@ -39,6 +39,7 @@ New for this release:
 
   - Automatic upgrade is disabled for the Arc data services extension
   - Error-handling in the `az` CLI is improved during data controller upgrade
+  - Fixed a bug to preserve the resource limits for Azure Arc Data Controller where the resource limits could get reset during an upgrade.
 
 - Azure Arc-enabled SQL Managed Instance
   - General Purpose: Customer-managed TDE encryption keys (preview). For information, review [Rotate Azure Arc-enabled SQL Managed Instance customer-managed keytab](rotate-customer-managed-keytab.md).
