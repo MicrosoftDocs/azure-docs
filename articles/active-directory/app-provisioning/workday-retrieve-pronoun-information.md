@@ -47,7 +47,7 @@ This section describes the steps required to enable pronoun data in Workday. We 
          <bsvc:Include_Reference_Descriptors_In_Response>true</bsvc:Include_Reference_Descriptors_In_Response>
       </bsvc:Workday_Common_Header> 
     ```
-1. In the Get_Workers response, you will now see pronoun information. 
+1. In the Get_Workers response, view the pronoun information. 
 
     >[!div class="mx-imgBorder"] 
     >![Screenshot of Workday Get Workers API response.](./media/workday-pronoun-data/get-workers-response-with-pronoun.png)
@@ -59,7 +59,7 @@ Once you confirm that pronoun data is available in the *Get_Workers* response, g
  
 ## Updating Azure AD provisioning app to retrieve pronouns
 
-To retrieve pronouns from Workday, you'll need to update your Azure AD provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
+To retrieve pronouns from Workday, update your Azure AD provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
 
 1. Sign-in to Azure portal as administrator. 
 1. Open your *Workday to AD User provisioning* app OR *Workday to Azure AD User provisioning* app. 
@@ -80,7 +80,7 @@ To retrieve pronouns from Workday, you'll need to update your Azure AD provision
 
      `Switch([PreferredPronoun], Join("", [PreferredNameData], " (", [PreferredPronoun], ")"), "", [PreferredNameData])`
 
-1. If worker *Aaron Hall* has set his pronoun information in Workday as `HE/HIM`, then the above expression will set the display name in Azure AD as: *Aaron Hall (HE/HIM)*
+1. If worker *Aaron Hall* has set his pronoun information in Workday as `HE/HIM`, the above expression sets the display name in Azure AD as: *Aaron Hall (HE/HIM)*
 1. Save your changes. 
 1. Test the configuration for one user with provisioning on demand. 
  
