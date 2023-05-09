@@ -76,7 +76,7 @@ textToSpeech:
   optimizeForTurboMode: true
   image:
     registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speechservices/speech-to-text
+    repository: azure-cognitive-services/speechservices/text-to-speech
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret

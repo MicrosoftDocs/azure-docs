@@ -146,7 +146,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
- > |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+ > |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
@@ -208,7 +208,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
- > |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+ > |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
@@ -270,7 +270,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
->  |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+>  |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
@@ -332,7 +332,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+> |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
