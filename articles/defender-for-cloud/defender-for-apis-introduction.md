@@ -85,4 +85,3 @@ Act on alerts to mitigate threats and risk. Defender for Cloud alerts and recomm
 ## Next steps
 
 [Review support and prerequisites](defender-for-apis-prepare.md) for Defender for APIs deployment.
-p
