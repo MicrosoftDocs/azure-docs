@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 05/08/2023
 ms.author: cherylmc
 ---
 
@@ -34,6 +34,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Feature|Software-as-a-service|Palo Alto Networks Cloud NGFW|Public preview of [Palo Alto Networks Cloud NGFW](https://aka.ms/pancloudngfwdocs), the first software-as-a-serivce security offering deployable within the Virtual WAN hub.|May 2023|Palo Alto Networks Cloud NGFW is only deployable in newly created Virtual WAN hubs in some Azure regions. See [Limitations of Palo Alto Networks Cloud NGFW](how-to-palo-alto-cloud-ngfw.md) for a full list of limitations.|
 | Feature| Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Fortinet SD-WAN](https://docs.fortinet.com/document/fortigate-public-cloud/7.2.2/azure-vwan-sd-wan-deployment-guide/12818/deployment-overview)| General availability of Fortinet SD-WAN solution in Virtual WAN. Next-Generation Firewall use cases  in preview.| October 2022| SD-WAN solution generally available. Next Generation Firewall use cases in preview.|
 |Feature |Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Versa SD-WAN](about-nva-hub.md#partners)|Preview of Versa SD-WAN.|November 2021| |
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Cisco Viptela, Barracuda and VMware (Velocloud) SD-WAN](about-nva-hub.md#partners) |General Availability of SD-WAN solutions in Virtual WAN.|June/July 2021| |
@@ -76,6 +77,7 @@ The following features are currently in gated public preview. After working with
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
+| Managed preview | Route-maps | This feature allows you to preform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps (preview)](route-maps-about.md#key-considerations).
 |Managed preview|Configure user groups and IP address pools for P2S User VPNs| This feature allows you to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**.|| Known limitations are displayed here: [Configure User Groups and IP address pools for P2S User VPNs (preview)](user-groups-create.md).|
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 |Managed preview|Routing intent and policies enabling inter-hub security|This feature allows you to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](how-to-routing-policies.md).|For access to the preview, contact previewinterhub@microsoft.com|Not compatible with NVA in a spoke, but compatible with BGP peering.<br><br>For additional limitations, see [How to configure Virtual WAN  hub routing intent and routing policies](how-to-routing-policies.md#key-considerations).|

@@ -21,6 +21,8 @@
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-azure-resource-manager.md
+    - name: Terraform
+      href: quick-create-terraform.md
     - name: PowerShell
       href: stream-analytics-quick-create-powershell.md
   - name: Create a cluster
