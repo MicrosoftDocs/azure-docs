@@ -28,12 +28,6 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [C# SDK quickstart](./includes/quickstarts/csharp-quickstart-image.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](./includes/quickstarts/python-quickstart-image.md)]
