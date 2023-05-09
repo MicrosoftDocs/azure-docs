@@ -28,9 +28,9 @@ For more details and a deeper understanding of the feature, please refer to the 
 >[!IMPORTANT]
 > Please be aware that our current implementation of the DataChannel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
 
-## Create a simple chat application
+## Incorporate message sending and receiving functionality into a call
 
-In this example, we demonstrate how to create a chat application that enables sending and receiving text messages among participants in a group call.
+In this example, we show the steps to integrate DataChannel feature that enables sending and receiving text messages among participants in a group call.
 
 ### Create a DataChannelSender object
 First you need to create a DataChannelSender object to send messages. In this chat application, we suggest assigning a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 10000 for chat messages.
