@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 05/09/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
@@ -82,7 +82,7 @@ Storage accounts support the following actions:
 > | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-Azure queues
+
 ### Get or delete messages
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -109,7 +109,7 @@ The following table summarizes the available attributes by source:
 | **Environment**  | | |
 | | [Is private link](#is-private-link)   | Whether access is over a private link.                             |
 | | [Private endpoint](#private-endpoint) | The private endpoint over which an object is accessed. |
-| | [Subnet name](#subnet-name)           | The subnet over which an object is accessed.           |
+| | [Subnet](#subnet)           | The subnet over which an object is accessed.           |
 | | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
 | **Resource**      | | |
 | | [Account name](#account-name)         | The storage account name.                                          |
@@ -146,7 +146,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Private endpoint |
-> | **Description** | The private endpoint over which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
+> | **Description** | The private endpoint over which an object is accessed.<br/>Use to restrict access over a specific private endpoint.<br/>*Available only for storage accounts in subscriptions that have at least one private endpoint configured.* |
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -164,13 +164,13 @@ The following table summarizes the available attributes by source:
 > | **Attribute source** | Resource |
 > | **Attribute type** | String |
 
-### Subnet name
+### Subnet
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
-> | **Display name** | Subnet name |
-> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet. |
+> | **Display name** | Subnet |
+> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet configured.* |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
