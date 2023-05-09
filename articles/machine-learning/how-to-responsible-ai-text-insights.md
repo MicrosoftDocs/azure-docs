@@ -127,7 +127,7 @@ rai_text_insights_component = ml_client_registry.components.get(
 
 ## Understand the Responsible AI Text Dashboard
  
-To learn more about how to Responsible AI Text dashboard, see [Responsible AI dashboard for Text Insights in Azure Machine Learning studio]( %20how-to-responsible-ai-dashboard-text-insights.md).
+To learn more about how to Responsible AI Text dashboard, see [Responsible AI dashboard for Text Insights in Azure Machine Learning studio](how-to-responsible-ai-dashboard-text-insights.md).
 
 ## Next steps
 
