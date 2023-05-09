@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics - Writing to Delta Lake table 
+title: Azure Stream Analytics - Writing to Delta Lake table (Public Preview)
 
 description: This article describes how to write data to a delta lake table stored in Azure Data Lake Storage Gen2.
 author: an-emma    
