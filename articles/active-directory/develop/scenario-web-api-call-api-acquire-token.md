@@ -28,7 +28,7 @@ After you've built a client application object, use it to acquire a token that y
 
 If, however, you do want to manually acquire a token, the following code shows an example of using *Microsoft.Identity.Web* to do so in a home controller. It calls Microsoft Graph using the REST API (instead of the Microsoft Graph SDK). Usually, you don't need to get a token, you need to build an Authorization header that you add to your request. To get an authorization header, you inject the `IAuthorizationHeaderProvider` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions. This interface has methods that produce a string containing the protocol (Bearer, Pop, ...) and a token. To get an authorization header to call an API on behalf of the user, use (`CreateAuthorizationHeaderForUserAsync`). To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use (`CreateAuthorizationHeaderForAppAsync`).
 
-The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
+The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated calls can use the web API.
 
 ```csharp
 [Authorize]
