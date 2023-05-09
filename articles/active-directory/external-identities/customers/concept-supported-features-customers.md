@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/07/2023
+ms.date: 05/09/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -30,13 +30,10 @@ Although workforce tenants and customer tenants are built on the same underlying
 |---------|---------|---------|
 | **External Identities** | Invite partners and other external users to your workforce tenant for collaboration. External users become guests in your workforce directory. | Enable self-service sign-up for customers and authorize access to apps. Users are added to your directory as customer accounts.  |
 | **Available identity providers** | - Azure AD accounts </br>- Microsoft accounts </br>- One-time passcode </br>- Google </br>- Facebook </br>- SAML/WS-Fed federation | - Local accounts </br>- Azure AD accounts </br>- Microsoft accounts </br>- One-time passcode </br>- Google </br>- Facebook |
-| **Groups** | [Groups](../../fundamentals/active-directory-groups-create-azure-portal.md) can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. Support for Azure AD groups and application roles is being phased into customer tenants. For the latest updates, see [Groups and application roles support](reference-group-app-roles-support.md). |
-| **Roles and administrators**| [Roles and administrators](../../fundamentals/active-directory-users-assign-role-azure-portal.md) are fully supported for administrative and user accounts. | Roles aren't supported with customer accounts. Customer accounts don't have access to any Microsoft Entra resources.|
-| **Custom domain names** |  You can use [custom domains] for administrative accounts only. | Not currently supported. However, the URLs visible to customers in sign-up and sign-in pages are neutral, unbranded URLs.|
-| **Conditional Access** | [Conditional Access](../../conditional-access/overview.md) is fully supported for administrative and user accounts. | Multifactor authentication is supported with customer accounts. Learn how to configure multifactor authentication with Conditional Access in a customer tenant.|
-| **Premium P1** | [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) is fully supported for Azure AD premium P1 features. For example, [Password Protection](../../authentication/concept-password-ban-bad.md), [Hybrid Identities](../../hybrid/whatis-hybrid-identity.md),  [Conditional Access](../../roles/permissions-reference.md#), [Dynamic groups](../../enterprise-users/groups-create-rule.md), and more. | A subset of Conditional Access features is supported with customer accounts.|
-| **Premium P2** | [Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) is fully supported for Azure AD premium P2 features. For example, [Identity Protection](../../identity-protection/overview-identity-protection.md), and [Identity Governance](../../governance/identity-governance-overview.md).  |   |
-| **Data retention policy** |[Data retention period](../../reports-monitoring/reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) for both audit and sign in logs depend on your subscription. Learn more about [How long Azure AD stores reporting data](../../reports-monitoring/reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).| |
+| **Groups** | [Groups](../../fundamentals/active-directory-groups-create-azure-portal.md) can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. Support for Azure AD groups and [application roles](how-to-use-app-roles-customers.md) is being phased into customer tenants. For the latest updates, see [Groups and application roles support](reference-group-app-roles-support.md). |
+| **Roles and administrators**| [Roles and administrators](../../fundamentals/active-directory-users-assign-role-azure-portal.md) are fully supported for administrative and user accounts. | Roles aren't supported with customer accounts. Customer accounts don't have access to tenant resources.|
+| **Custom domain names** |  You can use [custom domains] for administrative accounts only. | Not currently supported. However, the URLs visible to customers in sign-up and sign-in pages are neutral, unbranded URLs. [Learn more](concept-branding-customers.md)|
+| **Conditional Access** | [Conditional Access](../../conditional-access/overview.md) is fully supported for administrative and user accounts. | Multifactor authentication (MFA) is supported with local accounts in customer tenants. [Learn more](concept-security-customers.md).|
 
 ## Next steps
 

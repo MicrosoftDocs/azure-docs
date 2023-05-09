@@ -187,6 +187,8 @@ items:
             href: how-to-google-federation-customers.md
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
+          - name: Use application roles to manage access
+            href: how-to-use-app-roles-customers.md
     - name: Customize
       expanded: true
       items:
@@ -225,7 +227,7 @@ items:
   items:
     - name: Default user permissions
       href: reference-user-permissions.md
-    - name: Group and application roles support
+    - name: Groups and application roles support
       href: reference-group-app-roles-support.md
     - name: Help and support options
       href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context
