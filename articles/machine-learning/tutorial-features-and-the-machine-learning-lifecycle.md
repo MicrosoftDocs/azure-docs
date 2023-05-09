@@ -1,7 +1,7 @@
 ---
-title: "Four Part Tutorial: Features and the machine learning lifecycle (preview)"
+title: "Four Part Tutorial: Experiment and train models using features"
 titleSuffix: Azure ML managed Feature Store - Basics
-description: Managed Feature Store tutorial part 4. 
+description: Managed Feature Store tutorial part 3. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,14 +15,14 @@ ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial #4: Features and the machine learning lifecycle (preview)
+# Tutorial #3: Experiment and train models using features (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this tutorial series you'll learn how features seamlessly integrate all phases of the ML lifecycle: feature prototyping, training and operationalization.
+In this tutorial series you'll learn how features seamlessly integrate all phases of the ML lifecycle: prototyping, training and operationalization.
 
-Part 1 of this tutorial showed how to create a feature set spec with custom transformations. Part 2 of the tutorial showed how to enable materialization and perform a backfill. This tutorial shows how to experiment with features, to improve model performance. A feature store increases agility in the experimentation and training flows.
+Part 1 of this tutorial showed how to create a feature set spec with custom transformations. Part 2 of the tutorial showed how to enable materialization and perform a backfill. This tutorial shows how to experiment with features, to improve model performance. At the end of the tutorial, you'll see how a feature store increases agility in the experimentation and training flows.
 
 Here in Tutorial part 3, you'll learn how to:
 
@@ -30,7 +30,7 @@ Here in Tutorial part 3, you'll learn how to:
 * Select features for the model. You'll select features from the `transactions` and `accounts` feature sets, and save them as a feature-retrieval spec.
 * Run a training pipeline that uses the feature retrieval spec to train a new model. This pipeline uses the built-in feature-retrieval component, to generate the training data.
 
-## Prerequisites: Configure an Azure Machine Learning Spark Notebook
+## Prerequisites
 
 - Ensure you have executed part 1 and 2 of the tutorial.
 
@@ -43,7 +43,7 @@ Here in Tutorial part 3, you'll learn how to:
       * Select "configure session" in the bottom nav
       * Select **upload conda file**
       * Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` from your local device
-      * Increase the session time-out (idle time) to avoid frequent prerequisite reruns
+      * (Optional) Increase the session time-out (idle time) to avoid frequent prerequisite reruns
 
 #### Start the spark session
 
@@ -189,9 +189,7 @@ In part 2 of this tutorial, you ran a backfill job to materialize data for a tra
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=run-training-pipeline)]
 
-Inspect the training pipeline and the model
-
-Open the pipeline run "web view" in a new window to see the steps in the pipeline.
+Open the pipeline run "web view" in a new window to inspect the steps in the pipeline.
 
 #### Step 4b: Examine the feature retrieval spec in the model artifacts
 
@@ -218,12 +216,11 @@ You can see the list of models that are using the feature sets (determined from 
 
 ## Cleanup
 
-[Part 4](./tutorial-use-features-to-train-and-experiment.md#cleanup) of this tutorial describes how to delete the resources
+[Part 4](./tutorial-enable-recurrent-materialization-and-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* [Part 4: Use features to train and experiment with models](./tutorial-features-and-the-machine-learning-lifecycle.md)
-* Understand concepts: feature store concepts, feature transformation concepts
-* Understand identity and access control for feature store
-* View feature store troubleshooting guide
-* Reference: YAML reference, feature store SDK
+* Understand concepts: [feature store concepts](./concept-what-is-managed-feature-store.md), [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md)]
+* [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
+* [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
+* Reference: [YAML reference](./reference-yaml-overview.md), **[feature store SDK] ()**
