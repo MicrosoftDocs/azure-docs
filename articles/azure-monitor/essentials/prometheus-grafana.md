@@ -10,7 +10,7 @@ ms.date: 09/28/2022
 
 [Azure Monitor managed service for Prometheus (preview)](prometheus-metrics-overview.md) allows you to collect and analyze metrics at scale using a [Prometheus](https://aka.ms/azureprometheus-promio)-compatible monitoring solution. The most common way to analyze and present Prometheus data is with a Grafana dashboard. This article explains how to configure Prometheus as a data source for both [Azure Managed Grafana](../../managed-grafana/overview.md) and [self-hosted Grafana](https://grafana.com/) running in an Azure virtual machine using managed system identity authentication.
 
-For information on using Grafana with Active Directory, see [Configure self-managed Grafana to use Azure-managed Prometheus with Azure Active Directory](./prometheus-self-managed-grafana-azure-active-directory.md). 
+For information on using Grafana with Active Directory, see [Configure self-managed Grafana to use Azure Monitor managed Prometheus with Azure Active Directory](./prometheus-self-managed-grafana-azure-active-directory.md). 
 
 ## Azure Managed Grafana 
 The following sections describe how to configure Azure Monitor managed service for Prometheus (preview) as a data source for Azure Managed Grafana.
@@ -22,9 +22,9 @@ The following sections describe how to configure Azure Monitor managed service f
 Your Grafana workspace requires the following settings:
 
 - System managed identity enabled
-- *Monitoring Data Reader* role for the Azure Monitor workspace
+- **Monitoring Data Reader** role for the Azure Monitor workspace
 
-Both of these settings are configured by default when you created your Grafana workspace. Verify these settings on the **Identity** page for your Grafana workspace.
+Both of these settings are configured by default when you created your Grafana workspace and linked it to an Azure Monitor workspace. Verify these settings on the **Identity** page for your Grafana workspace.
 
 :::image type="content" source="media/prometheus-grafana/grafana-system-identity.png" alt-text="Screenshot of Identity page for Azure Managed Grafana." lightbox="media/prometheus-grafana/grafana-system-identity.png":::
 

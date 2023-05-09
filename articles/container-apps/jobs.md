@@ -5,20 +5,22 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 05/08/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
 # Jobs in Azure Container Apps (preview)
 
-Azure Container Apps jobs enable you to run containerized tasks that execute for a finite duration and exit. You can use jobs to perform tasks such as data processing, machine learning, any scenario where on-demand processing is required. Container apps and jobs run in the same [environment](environment.md), allowing them to share capabilities such as networking and logging.
+Azure Container Apps jobs enable you to run containerized tasks that execute for a finite duration and exit. You can use jobs to perform tasks such as data processing, machine learning, or any scenario where on-demand processing is required.
+
+Container apps and jobs run in the same [environment](environment.md), allowing them to share capabilities such as networking and logging.
 
 ## Compare container apps and jobs
 
 There are two types of compute resources in Azure Container Apps: apps and jobs.
 
-Apps are services that run continuously. If a replica in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process messages from a queue.
+Apps are services that run continuously. If a replica in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process input.
 
 Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or as a response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
@@ -26,16 +28,16 @@ Jobs are tasks that start, run for a finite duration, and exit when finished. Ea
 
 The jobs preview has the following limitations:
 
-- Only supported in the East US 2 EUAP, North Central US, and Australia East regions
-- Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
+- Supported only in the East US 2 EUAP, North Central US, and Australia East regions
+- Supported only in the Azure CLI using a preview version of the Azure Container Apps extension
 
-    Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
+    To use jobs, you need to uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
 
     ```azurecli
     az extension remove --name containerapp
     az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.5-py2.py3-none-any.whl --yes
     ```
-    
+
 - Only supported in the Consumption plan
 - Logs are currently unavailable for scheduled jobs
 - The following features are not supported:
@@ -184,7 +186,7 @@ The following example Azure Resource Manager template creates a manual job named
 
 ---
 
-`mcr.microsoft.com/k8se/quickstart-jobs:latest` is a sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits.
+The `mcr.microsoft.com/k8se/quickstart-jobs:latest` image is a sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits.
 
 The cron expression `0 0 * * *` runs the job every day at midnight UTC.
 
@@ -206,16 +208,18 @@ az containerapp job start --name "my-job" --resource-group "my-resource-group"
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-To start a job execution using the Azure Resource Manager REST API, make a *POST* request to the job's `start` operation. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
+To start a job execution using the Azure Resource Manager REST API, make a `POST` request to the job's `start` operation.
+
+The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```http
-POST https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
-Authorization: Bearer <token>
+POST https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
+Authorization: Bearer <TOKEN>
 ```
 
-Replace `<subscription_id>` with your subscription ID.
+Replace `<SUBSCRIPTION_ID>` with your subscription ID.
 
-To authenticate the request, replace `<token>` in the `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+To authenticate the request, replace `<TOKEN>` in the `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 
 ---
 
@@ -230,9 +234,9 @@ Azure CLI doesn't support overriding a job's configuration when starting a job e
 To override the job's configuration, include a template in the request body. The following example overrides the startup command to run a different command:
 
 ```http
-POST https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
+POST https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer <TOKEN>
 
 {
     "template": {
@@ -254,7 +258,7 @@ Authorization: Bearer <token>
 }
 ```
 
-Replace `<subscription_id>` with your subscription ID and `<token>` in the `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 
 ---
 
@@ -275,10 +279,10 @@ az containerapp job executionhistory --name "my-job" --resource-group "my-resour
 To get the status of job executions using the Azure Resource Manager REST API, make a `GET` request to the job's `executions` operation. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```http
-GET https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/executions?api-version=2022-11-01-preview
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/executions?api-version=2022-11-01-preview
 ```
 
-Replace `<subscription_id>` with your subscription ID.
+Replace `<SUBSCRIPTION_ID>` with your subscription ID.
 
 To authenticate the request, add an `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 

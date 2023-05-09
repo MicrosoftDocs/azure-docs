@@ -5,14 +5,16 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 05/08/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually or schedule their execution. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
+Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually or schedule their execution.
+
+Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
 
 In this quickstart, you create a manual or scheduled job.
 
@@ -79,10 +81,17 @@ Container Apps jobs maintain a history of recent executions. You can list the ex
 az containerapp job executionhistory \
     --name "$JOB_NAME" \
     --resource-group "$RESOURCE_GROUP" \
-    --output json
+    --output table \
+    --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
 ```
 
-Executions of scheduled jobs appear in the list when they're started by the schedule.
+Executions of scheduled jobs appear in the list as they run.
+
+```console
+Status     Name            StartTime
+---------  --------------  -------------------------
+Succeeded  my-job-jvsgub6  2023-05-08T21:21:45+00:00
+```
 
 ## Query job execution logs
 
@@ -99,7 +108,7 @@ Job executions output logs to the logging provider that you configured for the C
         --query "properties.appLogsConfiguration.logAnalyticsConfiguration.customerId" \
         --output tsv`
     ```
-    
+
 1. Save the name of the most recent job execution to a variable.
 
     ```azurecli
@@ -110,7 +119,7 @@ Job executions output logs to the logging provider that you configured for the C
         --output tsv`
     ```
 
-1. Query Log Analytics for the job execution using the following command.
+1. Run a query against Log Analytics for the job execution using the following command.
 
     ```azurecli
     az monitor log-analytics query \

@@ -34,6 +34,11 @@ Use this quickstart for the question answering client library for .NET to:
 
 ## Setting up
 
+[!INCLUDE [Create environment variables](../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ### CLI
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `question-answering-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
@@ -99,8 +104,9 @@ namespace question_answering
         static void Main(string[] args)
         {
 
-            Uri endpoint = new Uri("https://{YOUR-ENDPOINT}.api.cognitive.microsoft.com/");
-            AzureKeyCredential credential = new AzureKeyCredential("{YOUR-LANGUAGE-RESOURCE-KEY}");
+            // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+            Uri endpoint = new Uri("LANGUAGE_ENDPOINT");
+            AzureKeyCredential credential = new AzureKeyCredential("LANGUAGE_KEY");
             string projectName = "{YOUR-PROJECT-NAME}";
             string deploymentName = "production";
 
