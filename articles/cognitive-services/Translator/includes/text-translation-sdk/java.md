@@ -99,7 +99,7 @@ dependencies {
     >
     > * You can also create a new file in your IDE named `Translate.java` and save it to the `java` directory.
 
-1. Copy and paste the text translation [code sample](#code-sample) into your **Translate.java** file.
+1. Copy and paste the following text translation code sample into your **Translate.java** file.
 
     * Update **`"<your-key>"`**, **`"<your-endpoint>"`** and  **`"<region>"`** with values from your Azure portal Translator instance.
 
@@ -152,7 +152,7 @@ public class Translate {
 
 ## Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**text-translation-app**.
+Once you've added the code sample to your application, navigate back to your main project directory—**text-translation-app**.
 
 1. Build your application with the `build` command (you should receive a **BUILD SUCCESSFUL** message):
 

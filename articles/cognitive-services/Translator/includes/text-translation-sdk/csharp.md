@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 05/05/2023
+ms.date: 05/09/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -63,7 +63,7 @@ To interact with the Translator service using the client library, you need to cr
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and enter the following code sample into your application's Program.cs file:\
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and enter the following code sample into your application's Program.cs file:
 
 ## Code sample
 
@@ -107,7 +107,7 @@ catch (RequestFailedException exception)
 
 ## Run your application
 
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you've added the code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../media/quickstarts/run-application.png" alt-text="Screenshot: run your Visual Studio program.":::
 

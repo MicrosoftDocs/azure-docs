@@ -301,7 +301,7 @@ The [Microsoft Q&A](https://learn.microsoft.com/answers/tags/132/azure-translato
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Text Translation v3.0 reference guide**](reference/rest-api-guide.md)
+> [**Text Translation quickstart**](quickstart-translator-sdk.md)
 
 >[!div class="nextstepaction"]
-> [**Text Translation v3.0 REST APIs**](reference/rest-api-guide.md)
+> [**Text Translation v3.0 reference guide**](reference/v3-0-reference.md)

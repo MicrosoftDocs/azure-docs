@@ -32,7 +32,7 @@ To interact with the Translator service using the client library, you need to cr
 
 1. Create a new Python file called **text-translation-app.py** in your preferred editor or IDE.
 
-1. Copy and paste the text translation [code sample](#code-sample) into the **text-translation-app.py** file.  Update **`<your-key>`**, **`<your-endpoint>`**, and **`region`** with values from your Azure portal Translator instance.
+1. Copy and paste the following text translation code sample code-sample into the **text-translation-app.py** file.  Update **`<your-key>`**, **`<your-endpoint>`**, and **`<region>`** with values from your Azure portal Translator instance.
 
 ## Code sample
 

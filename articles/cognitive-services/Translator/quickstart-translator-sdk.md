@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 05/05/2023
+ms.date: 05/09/2023
 ms.author: lajanuar
 ms.devlang: csharp, java, javascript, python
 ms.custom: mode-other
@@ -65,7 +65,7 @@ That's it, congratulations! In this quickstart, you used a Text Translation SDK 
 
 ## Next steps
 
-Learn more about Text Translation:
+Learn more about Text Translation development options:
 
 > [!div class="nextstepaction"]
->[Document Translation SDK guide](text-sdk-overview.md) </br></br>[Language support](language-support.md)
+>[Text Translation SDK overview](text-sdk-overview.md) </br></br>[Text Translator V3 reference](reference/v3-0-reference.md)

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 05/05/2023
+ms.date: 05/09/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -56,7 +56,7 @@ npm i @azure-rest/ai-translation-text@1.0.0-beta.1
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslateCredential` with your `key` and `region` from the Azure portal and a `TextTranslationClient`  instance. For more information, *see* [Translator text sdks](../../text-sdk-overview.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslateCredential` with your `key` and `<region>` from the Azure portal and a `TextTranslationClient`  instance. For more information, *see* [Translator text sdks](../../text-sdk-overview.md#3-authenticate-the-client).
 
 1. Create the `index.js` file in the app directory.
 
@@ -68,7 +68,7 @@ To interact with the Translator service using the client library, you need to cr
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `text-translation-app` directory.
 
-1. Copy and paste the text translation [code sample](#code-sample) into your `index.js` file. Update **`<your-text-translation-app-endpoint>`** and **`<your-key>`** with values from your Azure portal Translator instance.
+1. Copy and paste the following text translation code sample into your `index.js` file. Update **`<your-text-translation-app-endpoint>`** and **`<your-key>`** with values from your Azure portal Translator instance.
 
 ## Code sample
 
