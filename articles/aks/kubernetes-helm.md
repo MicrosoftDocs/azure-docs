@@ -11,7 +11,7 @@ ms.author: zarhoads
 
 # Install existing applications with Helm in Azure Kubernetes Service (AKS)
 
-[Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers, such as *APT* and *Yum*, you can use Helm to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
+[Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers, such as *APT* and *Yum*, you can use Helm to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
 This article shows you how to configure and use Helm in a Kubernetes cluster on Azure Kubernetes Service (AKS).
 
@@ -50,7 +50,7 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
 ### Find Helm charts
 
-1. Search for pre-created Helm charts using the [helm search][helm-search] command.
+1. Search for precreated Helm charts using the [helm search][helm-search] command.
 
     ```console
     helm search repo ingress-nginx
@@ -184,7 +184,7 @@ This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-c
 
 ### Clean up resources
 
-When you deploy a Helm chart, a number of Kubernetes resources are created. These resources include pods, deployments, and services.
+Deploying a Helm chart creates Kubernetes resources like pods, deployments, and services.
 
 * Clean up resources using the [helm uninstall][helm-cleanup] command and specify your release name.
 
