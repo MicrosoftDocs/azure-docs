@@ -87,6 +87,7 @@ The following parameters are used by the Azure App Configuration task:
 - **Key Filter**: The filter can be used to select what key-values are requested from Azure App Configuration. A value of * will select all key-values. For more information on, see [Query key values](concept-key-value.md#query-key-values).
 - **Label**: Specifies which label should be used when selecting key-values from the App Configuration store. If no label is provided, then key-values with the no label will be retrieved. The following characters are not allowed: , *.
 - **Trim Key Prefix**: Specifies one or more prefixes that should be trimmed from App Configuration keys before setting them as variables. Multiple prefixes can be separated by a new-line character.
+- **SuppressWarningForOverriddenKeys**: Specifies whether or not to suppress the warning shown when existing keys are overridden.
 
 ## Use key-values in subsequent tasks
 
