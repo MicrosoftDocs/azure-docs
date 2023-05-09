@@ -61,45 +61,39 @@ The following table provides an overview of the different protection mechanisms 
 
 ## Protecting your REST APIs
 
-Azure AD B2C may connect to your external systems via the API Connectors, or the REST API technical profile. These endpoints must be protected to handle the rate limits which Azure AD B2C exposes them to. You can prevent malicious requests to your REST APIs by better protecting the Azure AD B2C authentication endpoints. You can protect these endpoints with a WAF and AFD.
+Azure AD B2C allows you to connect to external systems by using the [API Connectors](./api-connectors-overview.md?pivots=b2c-custom-policy), or the [REST API technical profile](restful-technical-profile.md). You need to protect these interfaces. You can  the rate limits which Azure AD B2C exposes them to. You can prevent malicious requests to your REST APIs by better protecting the Azure AD B2C authentication endpoints. You can protect these endpoints with a WAF and AFD.
   
-## Scenario 1: How to secure your Sign In experience
-After creating a sign-in experience, or user flow, you'll need to protect particular components of your flow from malicious activity depending on which components it uses. Take the following sign in flow, with these attributes as an example:
+## Scenario 1: How to secure your Sign-in experience
+After you create a sign-in experience, or user flow, you'll need to protect specific components of your flow from malicious activity. For example, if your sign in flow involves the following, then the table shows the components you need to protect, and associated protection technique:
 
 - Local account email and password authentication
 - Azure AD Multi-Factor Authentication using SMS or phone call
-
-The following table shows the components, which require protection, and associated protection technique:
 
 |Component |Endpoint|How to protect|
 |----|----|----|
 |Azure AD B2C authentication endpoints|`/authorize`, `/token`, `/.well-known/openid-configuration`, `/discovery/v2.0/keys`|WAP and AFD|
 |Sign in|NA|Identity Protection|
-|Multi-factor authentication controls|NA|Authenticator app|
+|Multifactor authentication controls|NA|Authenticator app|
 |External REST API|Your API endpoint.|Authenticator app, WAF and AFD|
   
 [![Screenshot shows Azure AD B2C security architecture diagram to protect sign-in.](./media/security-architecture/protect-sign-in.png)](./media/security-architecture/protect-sign-in.png#lightbox)
   
-## Scenario 2: How to secure your sign up experience
-After creating a sign-up experience, or user flow, you need to protect particular components of your flow from malicious activity depending on which components it uses. Take the following sign up flow, with these attributes as an example:
+## Scenario 2: How to secure your sign-up experience
+After you create a sign-up experience, or user flow, you need to protect specific components of your flow from malicious activity. If your sign in flow involves the following, then, the table shows the components you need to protect, and associated protection technique:
 
 - Local account email and password sign-up
 - Email verification via email OTP
 - Azure AD Multi-Factor Authentication using SMS or phone call
-
-The following table shows the components, which require protection, and associated protection technique:
 
 |Component |Endpoint|How to protect|
 |----|----|----|
 |Azure AD B2C authentication endpoints|`/authorize`, `/token`, `/.well-known/openid-configuration`, `/discovery/v2.0/keys`|WAF and AFD|
 |sign up|NA|Dynamics Fraud Protection|
 |Email OTP|NA|WAF and AFD|
-|Multi-factor authentication controls|NA|Authenticator app|
+|Multifactor authentication controls|NA|Authenticator app|
 
-In this scenario, the introduction of the WAF and AFD protection mechanisms protect both the Azure AD B2C authentication endpoints and the Email OTP components.
+In this scenario, the use of the WAF and AFD protection mechanisms protects both the Azure AD B2C authentication endpoints and the Email OTP components.
   
-![Azure AD B2C security architecture diagram.](./media/security-architecture/protect-sign-up.png)
-
 [![Screenshot shows Azure AD B2C security architecture diagram to protect sign-up.](./media/security-architecture/protect-sign-up.png)](./media/security-architecture/protect-sign-up.png#lightbox)
 
 ## Next steps 
