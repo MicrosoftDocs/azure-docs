@@ -94,13 +94,22 @@ This will not require transformation code because we reference precomputed featu
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=create-accts-fset-spec)]
 
-Action: Please inspect the generated `accounts` FeaturesetSpec file. Open this file from the file tree to see the spec: `featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml`
+### Step 1c: Export as a feature set spec
 
-The spec contains these important elements:
+To register the feature set spec with the feature store, the feature set spec needs to be saved in a specific format. Action: After running the next cell, please inspect the generated `accounts` FeaturesetSpec: Open this file from the file tree, to see the spec: `featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml`
 
-1. source: a reference to a storage - in this case, a parquet file in a blob storage.
-1. features: a list of features and their datatypes. If you provide transformation code (see the Day 2 section), the code must return a dataframe that maps to the features and datatypes. If the system does not receive the transformation code (as in this case of accounts, because it is precomputed), the system will build the query to map these to the source
-1. index_columns: the join keys required to access values from the feature set
+The spec has these elements:
+
+1. `source`: a reference to a storage resource. In this case, the storage is a parquet file in a blob storage.
+1. `features`: list of features and their datatypes. If you provide transformation code (see the Day 2 section), the code must return a dataframe that maps to the features and datatypes. If you do not provide the transformation code (in the case of accounts, because accounts are precomputed), the system builds the query to map the features to the source
+1. `index_columns`: the join keys required to access values from the feature set
+
+To learn more, see the **[top level feature store entities document] ()** and the **[feature set spec yaml reference] ()**.
+
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=dump-accts-fset-spec)]
+
+Persisting the spec in this way means that it can be source controlled.
+
 
 ## Step 2: Experiment with unregistered features locally and register with feature store when ready
 
