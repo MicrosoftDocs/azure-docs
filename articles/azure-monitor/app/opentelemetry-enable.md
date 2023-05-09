@@ -1511,21 +1511,21 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
   
 Attributes could be added only when calling manual track APIs only, log attributes for console, bunyan and winston are currently not supported.
 
-    ```javascript
-    const config = new ApplicationInsightsConfig();
-    config.instrumentations.http = httpInstrumentationConfig;
-    const appInsights = new ApplicationInsightsClient(config);
-    const logHandler = appInsights.getLogHandler();
-    const attributes = {
-        "testAttribute1": "testValue1",
-        "testAttribute2": "testValue2",
-        "testAttribute3": "testValue3",
-    };
-    logHandler.trackEvent({
-        name: "testEvent",
-        properties: attributes
-    });
-    ```
+```javascript
+const config = new ApplicationInsightsConfig();
+config.instrumentations.http = httpInstrumentationConfig;
+const appInsights = new ApplicationInsightsClient(config);
+const logHandler = appInsights.getLogHandler();
+const attributes = {
+    "testAttribute1": "testValue1",
+    "testAttribute2": "testValue2",
+    "testAttribute3": "testValue3"
+};
+logHandler.trackEvent({
+    name: "testEvent",
+    properties: attributes
+});
+```
 
 #### [Python](#tab/python)
   
