@@ -37,18 +37,22 @@ If your client gets disconnected from your Event Grid namespace, a few things to
 1. If client disconnects when publishing, ensure the client has permission to publish to the topic.  Client needs to be part of a client group with publish permissions on the topic.  Learn more about [access controls](mqtt-access-control.md)
 1. Ensure Client ID is unique across clients in a namespace.  If a new client is connected with the same Client ID, the client that's already using the Client ID is disconnected.  Learn more about [establishing multiple sessions per client](mqtt-establishing-multiple-sessions-per-client.md).
 1. Ensure the keep alive time is optimized to fit the message activity patterns of the client. Learn more about [keep alive time](mqtt-support.md) support.
+1. When using MQTT V5, check the disconnect packet for the reason for disconnection of the client.  Server communicates the reason (in most scenarios) for disconnect to the client, to help client handle the disconnect better.
 
-## Client isn't able to receive MQTT messages
+
+## Client isn't able to publish or receive MQTT messages
 
 If your client is connected but it isn't receiving any MQTT messages, a few things to verify:
 
-1. If you're using custom client groups (not the $all) to provide permission, ensure that the client belongs to the correct client group.  Learn more about [client groups](mqtt-client-groups.md).
-1. Ensure the client group has the subscribe permissions configured to the topic spaces.  Learn more about [permission bindings](mqtt-access-control.md).
+1. If you're using custom client groups (not the $all), ensure that the client belongs to the correct client group.  Learn more about [client groups](mqtt-client-groups.md).
+1. Ensure the client group has the publish or subscribe permissions configured to the topic spaces.  Learn more about [permission bindings](mqtt-access-control.md).
+1. If using MQTT V5, negative acknowledgments are supported.  Server also notifies the publishing client, if the server can't currently process the message, along with the reason.
 1. Also, make sure the topic(s) that client is subscribing to, are included in the topic space to which the client has subscribe access.  Learn more about [configuring topic spaces](mqtt-topic-spaces.md)
 1. Ensure the message expiry interval is optimized for the client's connectivity patterns.
 1. If the maximum message size property is configured, ensure that the published messages meet the size requirements of the subscribing client.  Learn more about the [message size limits](mqtt-support.md)
 1. If response topics are used, ensure that the client is subscribing to the response topics before publishing on the request topic.
 1. Use QoS 1 setting to have service guarantee the delivery of messages at least once.  And, ensure the client sends acknowledgment on receipt of messages.  If acknowledgment isn't receive, service will stop sending messages to the client after 16 unacknowledged messages.
+
 
 ## Failing to route the MQTT messages to an endpoint
 
