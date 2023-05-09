@@ -136,9 +136,9 @@ You can deploy a custom Linux container image that contains your function app.
 >__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in several ways:
 >
 >+ Deploy to Azure Functions resources you create in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted. Requires either [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
->+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Deploy a custom container to Azure Functions](./functions-deploy-custom-container.md) 
->+ Deploy to Azure Container Apps (preview). To learn how, see [Deploy a custom container to Azure Container apps](./functions-deploy-custom-container-aca.md).
->+ Deploy to Azure Arc (preview). To learn how, see [Deploy a custom container to Azure Arc](./create-first-function-arc-custom-container.md).
+>+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Deploy a custom container to Azure Functions](./functions-deploy-container.md) 
+>+ Deploy to Azure Container Apps (preview). To learn how, see [Deploy a container to Azure Container apps](./functions-deploy-container-aca.md).
+>+ Deploy to Azure Arc (preview). To learn how, see [Deploy a container to Azure Arc](./create-first-function-arc-custom-container.md).
 >+ Deploy to a Kubernetes cluster. Support for a cluster deployment is available in [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. You can also deploy to an Azure Arc-enabled Kubernetes cluster. To learn how, see [Deploy a custom container to Azure Arc](./create-first-function-arc-custom-container.md). 
 >
 

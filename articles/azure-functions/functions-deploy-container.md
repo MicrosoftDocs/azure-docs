@@ -1,24 +1,24 @@
 ---
 title: Deploy a custom container to Azure Functions
 description: Learn how to publish your functions as a custom Linux container image to Azure Functions.
-ms.date: 05/04/2023
+ms.date: 05/08/2023
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Deploy a custom container to Azure Functions 
+# Deploy a container to Azure Functions 
 
-In this article, you deploy the custom Linux container with your function app to Azure Functions. The custom Docker container is the one you created in the previous quickstart article [Create a function that runs in custom container](./functions-create-function-linux-custom-image.md). 
+In this article, you create a function app running in a Linux container and deploy it to Azure Functions. 
 
-Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+Deploying your function code to Azure Functions in a container requires [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
-Other options for deploying your custom container app to Azure include:
+Other options for deploying your function app container to Azure include:
 
-+ Azure Container Apps: to learn more, see [Deploy a custom container to Azure Container apps](./functions-deploy-custom-container-aca.md).
++ Azure Container Apps: to learn more, see [Deploy a container to Azure Container apps](./functions-deploy-container-aca.md).
 
-+ Azure Arc (currently in preview): to learn more, see [Deploy a custom container to Azure Arc](./create-first-function-arc-custom-container.md).
++ Azure Arc (currently in preview): to learn more, see [Deploy a container to Azure Arc](./create-first-function-arc-custom-container.md).
 
-[!INCLUDE [functions-create-container-prereq](../../includes/functions-create-container-prereq.md)]
+[!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
 ## Create supporting Azure resources for your function
 

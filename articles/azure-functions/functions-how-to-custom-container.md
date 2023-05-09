@@ -1,17 +1,19 @@
 ---
-title: Working with custom containers and Azure Functions
+title: Working with containers and Azure Functions
 description: Learn how to work with your Azure Functions code published as a custom Linux image.
 ms.date: 05/05/2023
 ms.topic: how-to
 ---
 
-# Working with custom containers and Azure Functions
+# Working with containers and Azure Functions
 
-This article shows you the support that Azure Functions provides for working with function apps deployed as containers. Unless otherwise noted, the content applies to all function apps running in containers, regardless of the Azure hosting environment. To learn more about containerized function apps deployed to Azure Container Apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md). 
+This article shows you the support that Azure Functions provides for working with function apps deployed as containers. Unless otherwise noted, the content applies to all function apps running in containers, regardless of the Azure hosting environment. 
+
+To learn more about deployments to Azure Container Apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md). 
 
 ## Update an image in the registry
 
-When you make changes to your functions code project, you need to rebuild the custom container locally and republish the updated image to your chosen container registry. The following command rebuilds the image from the root folder with an updated version number and pushed to your registry:    
+When you make changes to your functions code project, you need to rebuild the container locally and republish the updated image to your chosen container registry. The following command rebuilds the image from the root folder with an updated version number and pushed to your registry:    
 
 # [Azure Container Registry](#tab/acr)
 
@@ -110,7 +112,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 ## Next steps
 
-The following articles provide more information about deploying and managing custom containers:
+The following articles provide more information about deploying and managing containers:
 
 + [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)
 + [Scale and hosting options](functions-scale.md)

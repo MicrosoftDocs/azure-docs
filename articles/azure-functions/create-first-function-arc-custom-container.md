@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a function app on Azure Arc in a custom container'
+title: Create a function app on Azure Arc in a custom container
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
 ms.date: 05/07/2023
@@ -9,7 +9,7 @@ ms.devlang: azurecli
 
 # Deploy a custom container to Azure Arc (preview)
 
-In this article, you deploy the custom Linux container with your function app to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from your Docker Hub account. The custom Docker container is the one you created in the previous quickstart article [Create a function that runs in custom container](./functions-create-function-linux-custom-image.md). 
+In this article, you deploy the Docker container with your function app to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from a container registry. The custom Docker container is the one you created in the previous quickstart article [Create a function that runs in a container](functions-create-function-linux-custom-image.md?tabs=azure-arc). 
 
 To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
@@ -18,11 +18,11 @@ To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-
 
 Other options for deploying your custom container app to Azure include:
 
-+ Azure Functions: to learn more, see [Deploy a custom container to Azure Functions](./functions-deploy-custom-container.md). 
++ Azure Functions: to learn more, see [Deploy a container to Azure Functions](./functions-deploy-container.md). 
 
-+ Azure Container Apps: to learn more, see [Deploy a custom container to Azure Container apps](./functions-deploy-custom-container-aca.md).
++ Azure Container Apps: to learn more, see [Deploy a container to Azure Container apps](./functions-deploy-container-aca.md).
 
-[!INCLUDE [functions-create-container-prereq](../../includes/functions-create-container-prereq.md)]
+[!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 

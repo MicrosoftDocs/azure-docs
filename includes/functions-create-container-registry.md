@@ -1,34 +1,25 @@
 ---
-title: Create a function that runs in a container (Azure Functions)
-description: Learn how to create an Azure Functions function app running in a Linux container and then how to publish the image to a container registry.
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
 ms.date: 05/05/2023
-ms.topic: quickstart
-ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli, devdivchpfy22"
-zone_pivot_groups: programming-languages-set-functions-full
+ms.author: glenga
 ---
 
-# Quickstart: Create a function that runs in a container 
+## Create a function app in a container
 
-In this article, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
+First, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
 
-You also publish your container image to a container registry, such as Azure Container Registry or DockerHub. There are several options for deploying containerized function apps, including Azure Container Apps. Subsequent articles show you how to host your containerized function app. 
+[!INCLUDE [functions-linux-custom-container-note](functions-linux-custom-container-note.md)]
 
-::: zone pivot="programming-language-other"
-Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of your own container.
-::: zone-end
-
-You can complete this quickstart on any computer running Windows, macOS, or Linux. 
-
-[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
-
-[!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
+[!INCLUDE [functions-requirements-cli](functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
 To publish the containerized function app image you create, you also need a registry account.
 
 # [Azure Container Registry](#tab/acr)
 
-+ To create an Azure Container Registry instance, complete [this quickstart](../container-registry/container-registry-get-started-portal.md).
++ To create an Azure Container Registry instance, complete [this quickstart](../articles/container-registry/container-registry-get-started-portal.md).
 
 # [Docker Hub](#tab/docker)
 
@@ -36,9 +27,9 @@ To publish the containerized function app image you create, you also need a regi
 
 ---
 
-[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
+[!INCLUDE [functions-cli-create-venv](functions-cli-create-venv.md)]
 
-## Create and test the local functions project
+### Create and test the local functions project
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
@@ -93,7 +84,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want your functions to run on Java 11. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](functions-reference-java.md#java-versions).
+The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want your functions to run on Java 11. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions).
 
 > [!IMPORTANT]
 > The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
@@ -273,7 +264,7 @@ After you see the `HttpExample` endpoint written to the output, navigate to `htt
 
 Press **Ctrl**+**C** to stop the host.
 
-## Build the container image and test locally
+### Build the container image and test locally
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 (Optional) Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
@@ -326,7 +317,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 
 After verifying the function app in the container, press **Ctrl**+**C** to stop the docker.
 
-## Push the image to a registry 
+## Publish the container image to a registry 
 
 To make your container image available for deployment to a hosting environment, you must push it to a container registry.
 
@@ -376,36 +367,4 @@ Docker Hub is a container registry that hosts images and provides image and cont
 
 ---
 
-## Next steps
-
-Now that you have an image of your containerized function app available in a container registry, you can deploy the image to one of several Azure hosting environments:
-
-# [Azure Functions](#tab/functions)
-
-Your custom container runs on a Linux [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) in Azure Functions. 
-
-> [!div class="nextstepaction"]
-> [Deploy to Azure Functions](./functions-deploy-container.md)
-
-# [Azure Container Apps](#tab/container-apps)
-
-Your custom container runs in [Azure Container Apps](../container-apps/overview.md).
-
-[!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)] 
-
-> [!div class="nextstepaction"]
-> [Deploy to Azure Container Apps](./functions-deploy-container-aca.md)
-
-# [Azure Arc](#tab/azure-arc)
-
-Your custom container runs in [Azure Arc](../container-apps/overview.md). 
-
->[!NOTE] 
-> Support for running Azure Functions in Azure Arc is currently in preview. 
-
-> [!div class="nextstepaction"]
-> [Deploy to Azure Arc](./create-first-function-arc-custom-container.md)
-
----
-
-[authorization keys]: functions-bindings-http-webhook-trigger.md#authorization-keys
+[authorization keys]: ../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys

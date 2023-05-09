@@ -22,7 +22,7 @@ Azure Functions provides two ways to deploy your function code to Azure Containe
 
 + Custom container: maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/en-us/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a .Dockerfile that is used to create your container from the correct base image. To learn more, see [Quickstart: Create a function that runs in a custom container](./functions-create-function-linux-custom-image.md). 
 
-To learn how to deploy a function app to Container Apps, see [Deploy a container to Azure Container Apps](./functions-deploy-custom-container-aca.md). This article requires you to first [create a containerized function app](./functions-create-function-linux-custom-image.md). 
+To learn how to deploy a function app to Container Apps, see [Deploy a container to Azure Container Apps](./functions-deploy-container-aca.md). This article requires you to first [create a containerized function app](./functions-create-function-linux-custom-image.md). 
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 

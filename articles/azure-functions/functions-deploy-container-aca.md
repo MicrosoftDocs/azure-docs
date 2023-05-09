@@ -6,21 +6,21 @@ ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Deploy a custom container to Azure Container Apps 
+# Deploy containerized functions to Azure Container Apps 
 
-In this article, you deploy the custom Linux container with your function app to Azure Container Apps. The custom Docker container is the one you created in the previous quickstart article [Create a function that runs in custom container](./functions-create-function-linux-custom-image.md). 
+In this article, you deploy a Docker container that contains your function app to Azure Container Apps. The container is the one you created in the previous quickstart article [Create a function that runs in a container](./functions-create-function-linux-custom-image.md?tabs=container-apps). 
 
 Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 [!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
-Other options for deploying your custom container app to Azure include:
+Other options for deploying your containerized function app to Azure include:
 
-+ Azure Functions: to learn more, see [Deploy a custom container to Azure Functions](./functions-deploy-custom-container.md). 
++ Azure Functions: to learn more, see [Deploy a container to Azure Functions](./functions-deploy-container.md). 
 
-+ Azure Arc (currently in preview): to learn more, see [Deploy a custom container to Azure Arc](./create-first-function-arc-custom-container.md).
++ Azure Arc (currently in preview): to learn more, see [Deploy a container to Azure Arc](./create-first-function-arc-custom-container.md).
 
-[!INCLUDE [functions-create-container-prereq](../../includes/functions-create-container-prereq.md)]
+[!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
 ## Create supporting Azure resources for your function
 
@@ -131,6 +131,6 @@ A function app on Azure manages the execution of your functions in your Azure Co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with custom containers and Azure Functions](./functions-how-to-custom-container.md)
+> [Working with containers and Azure Functions](./functions-how-to-custom-container.md)
 
 [authorization keys]: functions-bindings-http-webhook-trigger.md#authorization-keys
