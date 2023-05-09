@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -25,6 +25,7 @@ Updates in May include:
 - [Onboard selected AWS regions](#onboard-selected-aws-regions)
 - [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
+- [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -115,6 +116,17 @@ We have fully deprecated support of [PCI DSS](https://learn.microsoft.com/azure/
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
+### Two Defender for DevOps recommendations now include Azure DevOps scan findings
+
+Defender for DevOps Code and IaC has expanded its recommendation coverage in Microsoft Defender for Cloud to include Azure DevOps security findings for the following two recommendations:
+
+- `Code repositories should have code scanning findings resolved`
+
+- `Code repositories should have infrastructure as code scanning findings resolved`
+
+Previously, coverage for Azure DevOps security scanning only included the secrets recommendation.   
+
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 ## April 2023
 
 Updates in April include:
