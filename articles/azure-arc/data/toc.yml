@@ -218,11 +218,11 @@ items:
                   href: connect-active-directory-sql-managed-instance.md
             - name: Upgrade connector
               href: upgrade-active-directory-connector.md
-        - name: Transparent data encryption
+        - name: Transparent data encryption (TDE)
           items:
             - name: Encrypt a database
               href: configure-transparent-data-encryption-manually.md
-            - name: Automate an instance (preview)
+            - name: Configure automatic TDE (preview)
               href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
