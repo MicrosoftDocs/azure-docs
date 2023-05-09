@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/08/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -19,14 +19,6 @@ ms.custom: developer
 # Configure a Single-page application User Interface and Sign-In
 
 When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
-
-> [!div class="checklist"]
->
-> * Create the *index.html* file
-> * Create the *sign-out.html* file
-> * Create the *ui.js* file
-> * Create the *styles.css* file
-> * Run the project and test the sign-in and sign-out functionality
 
 ## Prerequisites
 
@@ -54,7 +46,7 @@ The main page of the application, *index.html*, is the first page that is loaded
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     
-        <!-- msal.min.js can be used in the place of msal.js -->
+        <!-- msal.min.js can be used in the place of msal-browser.js -->
         <script src="/msal-browser.min.js"></script>
     </head>
     
@@ -77,6 +69,7 @@ The main page of the application, *index.html*, is the first page that is loaded
                     <tr>
                         <th>Claim Type</th>
                         <th>Value</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody id="table-body-div">
@@ -161,13 +154,17 @@ The main page of the application, *index.html*, is the first page that is loaded
     
     function updateTable(account) {
         tableDiv.classList.remove('d-none');
+        
+        const tokenClaims = createClaimsTable(account.idTokenClaims);
     
-        Object.keys(account.idTokenClaims).forEach((key) => {
+        Object.keys(tokenClaims).forEach((key) => {
             let row = tableBody.insertRow(0);
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
-            cell1.innerHTML = key;
-            cell2.innerHTML = account.idTokenClaims[key];
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = tokenClaims[key][0];
+            cell2.innerHTML = tokenClaims[key][1];
+            cell3.innerHTML = tokenClaims[key][2];
         });
     };
     ```
@@ -203,11 +200,11 @@ Now that all the required code snippets have been added, the application can be 
     npm start
     ```
 
-1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-sign-out.md). For example, `http://localhost:3000/`.
+1. Open a new private browser, and enter the application URI into the browser, `https://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
 1. In the **Create account** window, enter the email address registered to your CIAM tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
-1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+    1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
     :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::

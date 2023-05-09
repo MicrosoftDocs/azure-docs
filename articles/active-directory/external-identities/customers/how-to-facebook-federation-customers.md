@@ -45,7 +45,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 6. From the menu, select **Facebook Login**, select **Settings**.
 7. In **Valid OAuth redirect URIs**, enter:
     - `https://login.microsoftonline.com`
-    -  `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`. Replace the tenant ID with your Azure AD for customers tenant ID. To find your tenant ID, go to the Azure portal. Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
+    -  `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`. Replace the tenant ID with your Azure AD for customers tenant ID. To find your tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp`. Replace the tenant name with your Azure AD for customers tenant name.
 8. Select **Save Changes** at the bottom of the page.
 9. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).

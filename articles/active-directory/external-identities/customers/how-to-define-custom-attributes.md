@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 05/07/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -21,7 +21,7 @@ User attributes are values collected from the user during self-service sign-up f
 ## To add custom attributes
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
-1. Select **External Identities**
+1. Select **External Identities** > **Overview**.
 1. Select **Custom user attributes**. The available user attributes are listed.
 1. To add an attribute, select **Add**.
 1. In the **Add an attribute** pane, enter the following values:
