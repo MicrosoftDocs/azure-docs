@@ -84,12 +84,12 @@ If you're not sure which directory contains your customer tenant, you can find t
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/directories-subscription.png" alt-text="Screenshot of the Directories + subscriptions icon.":::
 
-1. On the **Portal settings | Directories + subscriptions** page, find your customer directory under the **All Directories** tab in the **Directory name** list, and then select **Switch**.
+1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
 1. On the tenant's home page, select the **Overview** tab. You can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Basic information**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-overview.png" alt-text="Screenshot of the tenant details.":::
 
-If you're sure that you are in the right directory, go to **Azure Active Directory** in both the Microsoft Entra admin center and the Azure portal. On the **Azure Active Directory** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
+You can find the same details if you go to **Azure Active Directory** in both the Microsoft Entra admin center and the Azure portal. On the **Azure Active Directory** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
 
 ## Next steps
 - [Register an app](how-to-register-ciam-app.md)
