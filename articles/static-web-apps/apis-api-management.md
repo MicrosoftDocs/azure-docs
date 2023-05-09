@@ -72,7 +72,7 @@ To link an Azure API Management service as the API backend for a static web app,
 1. Select **Link**.
 
 > [!IMPORTANT]
-> When the linking process is complete, requests to routes beginning with `/api` are proxied to your Azure API Management service. However, no APIs are exposed by default. See [Manage access to APIs](#manage-access-to-apis) to configure an API Management product to allow the APIs you want to use.
+> When the linking process is complete, requests to routes beginning with `/api` are proxied to your Azure API Management service. However, no APIs are exposed by default. See [Configure APIs to receive requests](#configure-apis-to-receive-requests) to configure an API Management product to allow the APIs you want to use.
 
 ### Configure APIs to receive requests
 
@@ -126,7 +126,7 @@ If the APIs aren't associated to the API Management *product* created for the St
 }
 ```
 
-To resolve this error, configure the APIs you want to expose within your Static Web Apps to the product created for it, as detailed in the [Manage access to APIs](#manage-access-to-apis) section.
+To resolve this error, configure the APIs you want to expose within your Static Web Apps to the product created for it, as detailed in the [Configure APIs to receive requests](#configure-apis-to-receive-requests) section.
 
 ## Next steps
 
