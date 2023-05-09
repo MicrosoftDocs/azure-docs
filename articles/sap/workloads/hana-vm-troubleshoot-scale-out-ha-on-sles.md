@@ -2,15 +2,16 @@
 title: SAP HANA scale-out HSR-Pacemaker with SLES on Azure VMs troubleshooting| Microsoft Docs
 description: Guide to check and troubleshoot a complex SAP HANA scale-out high-availability configuration based on SAP HANA System Replication (HSR) and Pacemaker on SLES 12 SP3 running on Azure virtual machines
 services: virtual-machines-linux
-author: hermanndms
+author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/24/2018
-ms.author: hermannd
+ms.date: 05/09/2023
+ms.author: radeltch
+ROBOTS: NOINDEX
 ---
 
 
