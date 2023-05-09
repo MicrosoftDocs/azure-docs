@@ -34,6 +34,12 @@ Advantages of vRF include the ability to use modems that aren't supported by Azu
 
 Throughout this tutorial, you learn first hand how vRF works.  At the end of this tutorial, you can find several RF and digitizer-specific details that may be of interest to a vRF user.
 
+## Role of DIFI within vRF
+
+Azure Orbital's ground stations consist of digitizers that utilize [DIFI](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_101_Tutorial.md) to send and receive digitized RF signals.  The DIFI Packet Protocol, technically referred to as "IEEE-ISTO Std 4900-2021: Digital IF Interoperability Standard", defines a data plane interface meant for transmitting and receive digitized IF data (such as IQ samples) and corresponding metadata over standard IP networks. Even though it is called an IF standard, IQ samples at baseband can also be streamed with DIFI, as is in the case of Azure Orbital. The primary use-case of DIFI packets is to create an interface between satellite ground station digitizers (transceivers) and software modems, enabling interoperability and combatting vendor lock-in that has plagued the satellite industry for decades.  
+
+The DIFI Packet Protocol contains two primary message types: data packets and context packets.  Due to legacy hardware reasons, there are two different versions of context packets.  Azure Orbital's ground stations use the most up to date (DIFI v1.1) context packets for X-Band signals, and the legacy format for S-Band signals.  If you are using the [gr-difi](https://github.com/DIFI-Consortium/gr-difi) GNU Radio package, you will want to make sure to select the 108 byte format for X-Band and the 72 byte format for S-band.  For non-GNU Radio vRFs you will need to ensure the correct version of DIFI is used for context packets, v1.1 can be found [here](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_Validator/dcs.py#L50) and the legacy version can be inferred from [this section of code](https://github.com/DIFI-Consortium/gr-difi/blob/main/lib/difi_sink_cpp_impl.cc#L123).  Additional considerations are included in the [vRF within AOGS Reference](#vrf-within-aogs-reference) at the end of this tutorial.
+
 ## Step 1: Use AOGS to schedule a contact and collect Aqua data
 
 First we remove the managed modem, and capture the raw RF data into a pcap file.  Execute the steps listed in [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md) but during step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-for-an-aqua-downlink-mission) leave the **Demodulation Configuration** blank and choose UDP for **Protocol**. Lastly, towards the end, instead of the `socat` command (which captures TCP packets), run `sudo tcpdump -i eth0 port 56001 -vvv -p -w /tmp/aqua.pcap` to capture the UDP packets to a pcap file.
@@ -45,7 +51,7 @@ First we remove the managed modem, and capture the raw RF data into a pcap file.
 > * **Protocol**: choose UDP
 > * **Step 8 and 9**: instead use the command `sudo tcpdump -i eth0 port 56001 -vvv -p -w /tmp/aqua.pcap`
 
-After a satellite pass, you should have a file `/tmp/aqua.pcap` of size 10-20 GB (depending on the max elevation).  This file contains [DIFI](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_101_Tutorial.md) packets containing the raw RF signal received by the ground station, in the form of IQ samples.  
+After a satellite pass, you should have a file `/tmp/aqua.pcap` of size 10-20 GB (depending on the max elevation).  This file contains DIFI packets containing the raw RF signal received by the ground station, in the form of IQ samples.  
 
 ## Step 2: Extract the IQ samples from the DIFI Packets
 
