@@ -75,7 +75,7 @@ Types of system messages:
 ## Real-time notifications
 
 JavaScript Chat SDK supports real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. 
-Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom application notification service. You will need to validate(https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/view-events-request-bin) and locally test events(https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/local-testing-event-grid) once you set up the event grid resource to ensure that events are being sent.
+Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom application notification service. You will need to validate(../../communication-services/how-tos/event-grid/view-events-request-bin.md) and locally test events(../../communication-services/how-tos/event-grid/local-testing-event-grid.md) once you set up the event grid resource to ensure that events are being sent.
 
 The client app can subscribe to following events:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
@@ -97,12 +97,12 @@ The client app can subscribe to following events:
 For more information, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
 
 ## Push notifications 
-To send push notifications for messages missed by your users while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
+Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your users while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
     
-    IOS and Android SDK can support the below event:
+    IOS and Android SDK support the below event:
    - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.     
    
-    Android SDK can support additional events:
+    Android SDK supports additional events:
    - `chatMessageEdited` - when a message is edited in a chat thread.	
    - `chatMessageDeleted` - when a message is deleted in a chat thread.	
    - `chatThreadCreated` - when a Communication Services user creates a chat thread.	
