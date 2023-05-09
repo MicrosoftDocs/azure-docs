@@ -239,8 +239,6 @@ This table describes the validators:
 
 #### Customizing token validation
 
-# [ASP.NET Core](#tab/aspnetcore)
-
 The validators are associated with properties of the *TokenValidationParameters* class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
 
 In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well.
@@ -256,14 +254,9 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
 });
 ```
 
-# [ASP.NET](#tab/aspnet)
-
 For ASP.NET MVC, the following code sample shows how to do custom token validation:
 
 https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation
-
---
-
 
 ## Token validation in Azure Functions
 
