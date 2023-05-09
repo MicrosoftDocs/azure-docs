@@ -161,7 +161,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
-    If your application is using an *application.yaml* file in the *resources* folder. Add the following:
+    If your application is using an *application.yaml* file, open it in the *resources* folder. Add the following to the file:
     #### [.yaml](#tab/yaml)
     ```yaml
     spring:
