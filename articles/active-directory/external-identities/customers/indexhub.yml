@@ -111,7 +111,7 @@ additionalContent:
         # Card
         - title: Web API
           summary: Web API that is called from a web app or from a web client.
-          url: how-to-protect-web-api-dotnet-core-overview          
+          url: how-to-protect-web-api-dotnet-core-overview.md          
           # Card
         - title: Headless app
           summary: A web app without a user interface.
