@@ -112,7 +112,13 @@ The Labels page will automatically refresh and the label will be removed from th
 
 ## Task manager 
 
-The Defender EASM system takes a few minutes to modify large numbers of assets at one time. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to 
+The Defender EASM system takes a few minutes to modify large numbers of assets at one time. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better undertand the completion of updates. 
+
+1. From your Defender EASM resource, select **Task Manager** on the left-hand navigation menu. 
+
+SCREENSHOT 
+
+2. 
 
 ## Filtering for labels 
 
