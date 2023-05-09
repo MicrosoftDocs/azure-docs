@@ -444,6 +444,9 @@ items:
       - name: Configure Grafana with Azure Active Directory
         displayName: Prometheus
         href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
+      - name: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster
+        displayName: Prometheus
+        href: essentials/prometheus-metrics-from-arc-enabled-cluster.md
       - name: Troubleshoot collection
         displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
