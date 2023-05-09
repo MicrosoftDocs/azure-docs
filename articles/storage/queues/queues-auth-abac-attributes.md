@@ -15,7 +15,7 @@ ms.subservice: queues
 
 # Actions and attributes for Azure role assignment conditions for Azure Queue Storage
 
-This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Queue service operations that are affected by a specific permission or DataAction, see [Permissions for Queue service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-queue-service-operations).
+This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Queue service operations that a specific permission or DataAction affects, see [Permissions for Queue service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-queue-service-operations).
 
 To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
 
@@ -107,13 +107,13 @@ The following table summarizes the available attributes by source:
 | Attribute Source | Display name         | Description                                                        |
 | :--------------- | :------------------- | :----------------------------------------------------------------- |
 | **Environment**  | | |
-| | [Is private link](#is-private-link)   | Whether access is over a private link.                             |
-| | [Private endpoint](#private-endpoint) | The private endpoint over which an object is accessed. |
-| | [Subnet](#subnet)           | The subnet over which an object is accessed.           |
-| | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
+| | [Is private link](#is-private-link)   | Whether access is over a private link                             |
+| | [Private endpoint](#private-endpoint) | The private endpoint over which an object is accessed |
+| | [Subnet](#subnet)           | The subnet over which an object is accessed           |
+| | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time           |
 | **Resource**      | | |
-| | [Account name](#account-name)         | The storage account name.                                          |
-| | [Queue name](#queue-name)             | The storage queue name.                                            |
+| | [Account name](#account-name)         | The storage account name                                          |
+| | [Queue name](#queue-name)             | The storage queue name                                            |
 
 ### Account name
 

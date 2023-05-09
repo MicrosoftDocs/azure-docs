@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Actions and attributes for Azure role assignment conditions for Azure Blob Storage
 
-This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
+This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that a specific permission or DataAction affects, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
 
 To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
 
@@ -24,7 +24,7 @@ To understand the role assignment condition format, see [Azure role assignment c
 
 Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations that are associated with the same permission might support different parameters. *Suboperations* enable you to differentiate between service operations that require the same permission but support a different set of attributes for conditions. Thus, by using a suboperation, you can specify one condition for access to a subset of operations that support a given parameter. Then, you can use another access condition for operations with the same action that doesn't support that parameter.
 
-For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action is required for over a dozen different service operations. Some of these operations can accept blob index tags as a request parameter, while others don't. For operations that accept blob index tags as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action, all operations that don't accept tags as a request parameter cannot evaluate this condition, and will fail the authorization access check.
+For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action is required for over a dozen different service operations. Some of these operations can accept blob index tags as a request parameter, while others don't. For operations that accept blob index tags as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action, all operations that don't accept tags as a request parameter can't evaluate this condition, and will fail the authorization access check.
 
 In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used to apply a condition to only those operations that support blob index tags as a request parameter.
 
@@ -334,25 +334,25 @@ The following table summarizes the available attributes by source:
 | Attribute Source | Display name             | Description                                                        |
 | :--------------- | :----------------------- | :----------------------------------------------------------------- |
 | **Environment**  | | |
-| | [Is private link](#is-private-link)       | Whether access is over a private link.                             |
-| | [Private endpoint](#private-endpoint)     | The private endpoint over which an object is accessed.             |
-| | [Subnet](#subnet)               | The subnet over which an object is accessed.                       |
-| | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time.           |
+| | [Is private link](#is-private-link)       | Whether access is over a private link                              |
+| | [Private endpoint](#private-endpoint)     | The private endpoint over which an object is accessed              |
+| | [Subnet](#subnet)                         | The subnet over which an object is accessed                        |
+| | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time            |
 | **Request**       | | |
-| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
-| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
-| | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed.                              |
-| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot.                     |
-| | [Version ID](#version-id)                 | The version ID of the versioned Blob.                              |
+| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys)                         |
+| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
+| | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
+| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot                      |
+| | [Version ID](#version-id)                 | The version ID of the versioned Blob                               |
 | **Resource**      | | |
-| | [Account name](#account-name)             | The storage account name.                                          |
-| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
-| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
-| | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource.        |
-| | [Container name](#container-name)         | Name of a storage container or file system.                        |
-| | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data.           |
-| | [Is current version](#is-current-version) | Whether the resource is the current version of the blob.           |
-| | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account. |
+| | [Account name](#account-name)             | The storage account name                                           |
+| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys)                         |
+| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
+| | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource         |
+| | [Container name](#container-name)         | Name of a storage container or file system                         |
+| | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data            |
+| | [Is current version](#is-current-version) | Whether the resource is the current version of the blob            |
+| | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account |
 
 ### Account name
 

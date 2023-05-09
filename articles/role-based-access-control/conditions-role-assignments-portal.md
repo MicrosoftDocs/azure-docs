@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2023
+ms.date: 05/09/2023
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
 
 # Add or edit Azure role assignment conditions using the Azure portal
 
-An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add, edit, view, or delete conditions for your role assignments using the Azure portal.
+An [Azure role assignment condition](conditions-overview.md) is an optional check that you can add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add, edit, view, or delete conditions for your role assignments using the Azure portal.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 1. In the Azure portal, open **Access control (IAM)** at the scope where you want to add a condition. For example, you can open a subscription, resource group, or a resource.
 
-    Currently, you cannot use the Azure portal to add, view, edit, or delete a condition add at a management group scope.
+    Currently, you can't use the Azure portal to add, view, edit, or delete a condition add at a management group scope.
 
 1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
@@ -63,7 +63,7 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 1. In the **Condition** column, click **Add**.
 
-    If you don't see the Add link, be sure you are looking at the same scope as the role assignment.
+    If you don't see the Add link, be sure you're looking at the same scope as the role assignment.
 
     ![Role assignment list with a Condition column.](./media/conditions-role-assignments-portal/condition-role-assignments-list.png)
 
@@ -116,7 +116,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     For more information about supported attribute sources and individual attributes, see [Attributes](conditions-format.md#attributes).
 
-    Depending on the attribute you select, boxes might be added to specify additional attribute details or operators. For example, some attributes support [the *Exists* function operator](conditions-format.md#exists) which you can use to test whether the attribute is currently associated with the resource such as an encryption scope.
+    Depending on the attribute you select, boxes might be added to specify additional attribute details or operators. For example, some attributes support [the *Exists* function operator](conditions-format.md#exists), which you can use to test whether the attribute is currently associated with the resource such as an encryption scope.
 
 1. In the **Operator** list, select an operator.
 
@@ -126,7 +126,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     ![Build expression section with values for blob index tags.](./media/shared/condition-expressions.png)
 
-1. Add additional expressions as needed.
+1. Add more expressions as needed.
 
     If you add three or more expressions, you might need to group them with parentheses so the connecting logical operators are evaluated correctly. Add check marks next to the expressions you want to group and then select **Group**. To remove grouping, select **Ungroup**.
 
@@ -150,7 +150,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Condition** column, click **View/Edit**.
 
-    If you don't see the View/Edit link, be sure you are looking at the same scope as the role assignment.
+    If you don't see the View/Edit link, be sure you're looking at the same scope as the role assignment.
 
     ![Role assignment list with View/Edit link for condition.](./media/conditions-role-assignments-portal/condition-role-assignments-list-edit.png)
 
