@@ -3,7 +3,7 @@ title: Estimate Azure Virtual Desktop Insights monitoring costs - Azure
 description: How to estimate costs and pricing for using Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/09/2023
 ms.author: helohr
 manager: femila
 ---
@@ -126,8 +126,7 @@ These are the default Windows Events for Azure Virtual Desktop Insights:
 
 Windows Events sends events whenever the environment meets the terms of the event. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range of 1,000 to 10,000 events per VM per day based on examples from healthy environments for this estimate. For example, if we estimate each event record size in this example to be 1,500 bytes, this comes out to roughly 2 to 15 megabytes of event data per day for the specified environment.
 
-To learn more about configuring Windows event log data collection with the Azure Monitor Agent, see how to Collect events and performance counters from virtual machines with Azure Monitor Agent.
-<!--The link he gave me for this didn't work. If this is a link to a section, then it's a section that doesn't exist yet. I'll need to ask the PM about what he meant to link to later.-->
+To learn more about configuring Windows event log data collection with the Azure Monitor Agent, see [How to collect events and performance counters from virtual machines with Azure Monitor Agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
 To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
 
@@ -152,14 +151,16 @@ To learn more about the activity log categories, see [Azure Virtual Desktop diag
 
 ## Measure and manage your performance counter data 
 
-Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](). 
-<!--Where's the link? Is this meant to be to a different article or a new section within this article?-->
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
 
+The performance counters the session hosts use is among the largest source of ingested data for Azure Virtual Desktop Insights.  This query will show all performance counters you've enabled in the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs.
 
+Run the following custom query template for a Log Analytics workspace to track frequency and megabytes ingested per performance counter over the last day:
 
-The performance counters the session hosts use is among the largest source of ingested data for Azure Virtual Desktop Insights. Run the following custom query template for a Log Analytics workspace to track frequency and megabytes ingested per performance counter over the last day: 
+>[!NOTE]
+>Make sure to replace the template's placeholder values with the values your environment uses, otherwise the query won't work.
 
-```azcopy
+```kusto
 let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']); 
 Perf 
 | where TimeGenerated > ago(1d) 
@@ -169,11 +170,6 @@ Perf
 | extend Billed_MBytes = Bytes / (1024 * 1024), BytesPerRecord = Bytes / Records 
 | sort by Records desc 
 ```
- 
->[!NOTE]
->Make sure to replace the template's placeholder values with the values your environment uses, otherwise the query won't work. 
-
-This query will show all performance counters you've enabled in the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs.
 
 ## Estimating total costs
 
