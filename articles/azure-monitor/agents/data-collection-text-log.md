@@ -122,7 +122,7 @@ To create the data collection rule in the Azure portal:
 
 1. Specify the following information:
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas if your AMA is using Fluent Bit v1.5.1 or more.  
     
         Examples of valid inputs: 
         - 20220122-MyLog.txt 
