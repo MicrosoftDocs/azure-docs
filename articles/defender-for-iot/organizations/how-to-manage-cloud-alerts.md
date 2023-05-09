@@ -148,13 +148,4 @@ The file is generated, and you're prompted to save it locally.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-> [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
-
-> [!div class="nextstepaction"]
-> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

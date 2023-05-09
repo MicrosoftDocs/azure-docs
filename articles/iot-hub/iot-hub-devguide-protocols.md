@@ -63,4 +63,4 @@ The IP address of an IoT hub is subject to change without notice. To learn how t
 
 ## Next steps
 
-For more information about how IoT Hub implements the MQTT protocol, see [Communicate with your IoT hub using the MQTT protocol](iot-hub-mqtt-support.md).
+For more information about how IoT Hub implements the MQTT protocol, see [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).

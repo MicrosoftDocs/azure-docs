@@ -6,8 +6,8 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
-ms.date: 01/24/2023
-ms.custom: devdivchpfy22
+ms.date: 04/24/2023
+ms.custom: devdivchpfy22, devx-track-arm-template
 ---
 
 # Enable Snapshot Debugger for .NET apps in Azure App Service
@@ -148,7 +148,7 @@ Below you can find scenarios where Snapshot Collector isn't supported:
 ## Next steps
 
 * Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
-* See [snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
+* See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
 * For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png

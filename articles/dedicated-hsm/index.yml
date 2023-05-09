@@ -8,11 +8,11 @@ metadata:
   description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: dedicated-hsm
   ms.service: dedicated-hsm
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/19/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

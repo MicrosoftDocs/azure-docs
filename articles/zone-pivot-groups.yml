@@ -355,6 +355,14 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other
+- id: programming-languages-set-functions-nodejs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
 - id: development-environment-functions
   title: Development environment
   prompt: Choose a development environment
@@ -417,7 +425,7 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
-## WEB APP ##
+## Web app ##  
 - id: web-app-quickstart
   title: web-app-quickstart
   prompt: Choose a language or framework
@@ -432,7 +440,19 @@ groups:
     title: Java
   - id: devlang-python
     title: Python
-## WEB API ##
+- id: web-app-tutorial
+  title: web-app-tutorial
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-asp-net
+    title: ASP.NET
+  - id: devlang-python-flask
+    title: Python Flask
+  - id: devlang-java-spring
+    title: Java Spring
+  - id: devlang-blazor-server
+    title: Blazor Server
+## WEB API ##  
 - id: web-api-quickstart
   title: web-api-quickstart
   prompt: Choose a language or framework
@@ -441,6 +461,14 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
+- id: web-api-howto-prereq
+  title: web-api-howto-prereq
+  prompt: Make a selection
+  pivots: 
+  - id: no-api
+    title: I don't have an API
+  - id: api
+    title: I have an API
 ## Mobile app ##
 - id: mobile-app-quickstart
   title: desktop-app-quickstart
@@ -708,6 +736,15 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: programming-languages-csharp-python
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-sdk-cli
 # Owner: eur
   title: Programming languages
@@ -1005,6 +1042,20 @@ groups:
     title: Windows container
   - id: code-windows
     title: Windows code
+- id: app-service-getting-started-stacks
+  title: Language stacks
+  prompt: Choose a stack
+  pivots:
+  - id: stack-net
+    title: .NET
+  - id: stack-python
+    title: Python
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-java
+    title: Java
+  - id: stack-php
+    title: PHP       
 - id: programming-languages-spring-apps
 # Owner: karler
   title: Programming languages
@@ -1127,7 +1178,7 @@ groups:
     title: Android
   - id: programming-language-power-platform
     title: Power Platform
-- id: acs-azcli-js-csharp-java-python-power-platform
+- id: acs-azcli-js-csharp-java-python-logic-apps
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1305,6 +1356,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-web-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -1359,6 +1420,20 @@ groups:
   pivots:
   - id: platform-azcli
     title: Azure CLI
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: acs-azp-java-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
   - id: platform-azp
     title: Azure portal
   - id: programming-language-java
@@ -1520,6 +1595,15 @@ groups:
     title: Chat Completion
   - id: programming-language-chat-ml
     title: ChatML
+#Owner: mbullwin
+- id: openai-prompt
+  title: API Options
+  prompt: API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-completions
+    title: Completion
 # Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
@@ -1828,7 +1912,7 @@ groups:
   - id: client-clitier
     title: CLI
 # Owner: prakulka
-- id: acs-tollfree-shortcode
+- id: acs-tollfree-shortcode-alphanumeric
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1836,6 +1920,8 @@ groups:
     title: Toll-Free
   - id: shortcode
     title: Short Code
+  - id: alphanumeric-senderid
+    title: Alphanumeric Sender ID
 # Owner: timlt
 - id: iot-develop-nxp-toolset
   title: IoT Devices
@@ -1874,6 +1960,15 @@ groups:
     title: Azure CLI
   - id: aca-arm
     title: Azure Resource Manager (ARM) template
+# Owner: cshoe
+- id: container-apps-vnet-types
+  title: Virtual network
+  prompt: Select a virtual network configuration
+  pivots:
+  - id: aca-vnet-managed
+    title: Managed
+  - id: aca-vnet-custom
+    title: Custom
 # Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
@@ -1915,6 +2010,15 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: cshoe
+- id: container-apps-portal-or-cli
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+# Owner: cshoe
 - id: arm-portal
   title: Interaction type
   prompt: Select how you want to interact with Azure
@@ -1923,7 +2027,7 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
-# Owner: cebundy
+# Owner: cshoe
 - id: container-apps-interface-types
   title: Interaction type
   prompt: Select how you want to interact with Azure
@@ -1955,10 +2059,21 @@ groups:
   title: Azure Spring Apps tier
   prompt: Select an Azure Spring Apps tier
   pivots:
-  - id: sc-standard-tier
-    title: Basic/Standard tier
-  - id: sc-enterprise-tier
-    title: Enterprise tier
+  - id: sc-standard
+    title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
+# Owner: karler
+- id: spring-apps-plan-selection
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
+  pivots:
+  - id: sc-consumption-plan
+    title: Standard consumption (Preview)
+  - id: sc-standard
+    title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
@@ -2049,7 +2164,7 @@ groups:
   - id: msgraph-powershell
     title: Microsoft graph PowerShell
   - id: ms-graph
-    title: Microsoft Graph  
+    title: Microsoft Graph
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
@@ -2077,7 +2192,7 @@ groups:
     title: Cloud build
   - id: docker-local
     title: Local build (requires Docker)
-# Owner: cebundy
+# Owner: cshoe
 - id: container-apps-image-build-from-repo
   title: Container GitHub and local build methods
   prompt: Choose your source location
@@ -2193,6 +2308,32 @@ groups:
     title: ASE Pro 2
   - id: ase-pro-gpu
     title: ASE Pro
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Azure AD PowerShell, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-aadpowershell-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization
@@ -2202,6 +2343,16 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+# Owner: rolyon
+- id: multi-tenant-organizations-powershell-graph
+  title: Microsoft Graph PowerShell or Microsoft Graph
+  prompt: Choose an option
+  pivots:
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner:
 - id: deploy-python-web-app-postgressql
   title: Workflows
   prompt: Choose your path
@@ -2219,3 +2370,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+# Owner: kevinguo-ed
+- id: azure-web-pubsub-create-resource-methods
+  title: Create a resource using any one of the methods
+  prompt: Choose an option
+  pivots: 
+  - id: method-azure-portal
+    title: Azure portal
+  - id: method-azure-cli
+    title: Azure CLI
+  - id: method-bicep
+    title: Bicep template

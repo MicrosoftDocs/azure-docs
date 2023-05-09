@@ -43,6 +43,10 @@ To discover the resources that you can autoscale, follow these steps.
 
 ## Create your first autoscale setting  
 
+> [!NOTE]
+> In addition to the Autoscale instructions in this article, there's new, automatic scaling in Azure App Service. You'll find more on this capability in the [automatic scaling](../../app-service/manage-automatic-scaling.md) article.
+>
+
 Follow the steps below to create your first autoscale setting.
 
 1. Open the **Autoscale** pane in Azure Monitor and select a resource that you want to scale. The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.](../../app-service/quickstart-dotnetcore.md)
@@ -139,6 +143,25 @@ Autoscale uses a cool-down period with is the amount of time to wait after a sca
 ### Flapping
 
 Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when one scale event triggers an opposite scale event. For example, scaling in reduces the number of instances causing the CPU to rise in the remaining instances. This in turn triggers scale out event, which causes CPU usage to drop, repeating the process. For more information, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md)
+
+## Move autoscale to a different region
+
+This section describes how to move Azure autoscale to another region under the same subscription and resource group. You can use REST API to move autoscale settings.
+
+### Prerequisites
+
+- Ensure that the subscription and resource group are available and the details in both the source and destination regions are identical.
+- Ensure that Azure autoscale is available in the [Azure region you want to move to](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### Move
+
+Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
+
+[Diagnostic settings](../essentials/diagnostic-settings.md) that were created in association with the autoscale setting in the source region can't be moved. You'll need to re-create diagnostic settings in the destination region, after the creation of autoscale settings is completed.
+
+### Learn more about moving resources across Azure regions
+
+To learn more about moving resources between regions and disaster recovery in Azure, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## Next steps
 

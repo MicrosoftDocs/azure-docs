@@ -25,7 +25,7 @@ This article uses these services for demonstration purposes. You can connect you
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
@@ -83,7 +83,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --resource-group <resource-group-name> \
        --name azure.extensions \
        --value uuid-ossp \
-       --server-name <postgres-server-name> \
+       --server-name <postgres-server-name>
    ```
 
 1. Use the following command to create a database for the Order Service application:
@@ -185,13 +185,13 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Use the following command to reload the Catalog Service application to load the new connection properties:
 
    ```azurecli
-   az spring app restart
+   az spring app restart \
        --resource-group <resource-group-name> \
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Use the following commands to retrieve the database connection information and update the Order Service application:
+1. Use the following command to retrieve the database connection information:
 
    ```azurecli
    POSTGRES_CONNECTION_STR=$(az spring connection show \
@@ -199,8 +199,16 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --connection order_service_db \
-       --app order-service | jq '.configurations[0].value' -r)
+       --app order-service \
+       | jq '.configurations[0].value' -r)
+   ```
 
+   > [!NOTE]
+   > If you get an SSL verification exception with Nofsql 6.0, be sure to change the SSL mode from `Require` to `VerifyFull`. For more information, see the [Npgsql 6.0 Release Notes](https://www.npgsql.org/doc/release-notes/6.0.html).
+
+1. Use the following command to update the Order Service application:
+
+   ```azurecli
    az spring app update \
        --resource-group <resource-group-name> \
        --name order-service \

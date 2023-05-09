@@ -1325,7 +1325,7 @@ productDirectory:
       azureCategories:
         - networking
         - security
-      url: ./ddos-protection/ddos-protection-overview.md
+      url: ddos-protection/index.yml
     # Card
     - title: Azure DNS
       summary: Host your DNS domain in Azure
@@ -1437,6 +1437,14 @@ productDirectory:
       azureCategories:
         - security
       url: dedicated-hsm/index.yml
+    # Card
+    - title: Microsoft Defender for External Attack Surface Management
+      summary: Safeguard the digital experience by discovering all internet-exposed resources
+      imageSrc: ./media/index/Defender-easm.svg
+      azureCategories:
+        - security
+        - management-and-governance
+      url: external-attack-surface-management/index.md
     # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets
@@ -1568,7 +1576,7 @@ productDirectory:
     # Card
     - title: Azure Operator Nexus
       summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
        - 5g-space
       url: operator-nexus/index.yml

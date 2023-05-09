@@ -148,19 +148,19 @@ New-AzStorageAccountKey `
 The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```bash
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
+RESOURCE_GROUP_NAME="<resource-group>"
+STORAGE_ACCOUNT_NAME="<storage-account>"
 
 # Rotate primary key (key 1). You should switch to key 2 before rotating key 1.
 az storage account keys renew \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --key "primary"
 
 # Rotate secondary key (key 2). You should switch to the new key 1 before rotating key 2.
 az storage account keys renew \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --key "secondary"
 ```
 
@@ -339,6 +339,7 @@ The solution is to add the privateLink FQDN to the storage account's Azure AD ap
 1. Select **Manifest** in the left pane.
 1. Copy and paste the existing content so you have a duplicate copy. Replace all instances of `<storageaccount>.file.core.windows.net` with `<storageaccount>.privatelink.file.core.windows.net`.
 1. Review the content and select **Save** to update the application object with the new identifierUris.
+1. Update any internal DNS references to point to the private link.
 1. Retry mounting the share.
 
 ## Need help?

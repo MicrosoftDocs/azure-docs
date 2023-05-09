@@ -4,6 +4,7 @@ description: Deploy Bicep files from Visual Studio Code.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 12/06/2022
 ---
 

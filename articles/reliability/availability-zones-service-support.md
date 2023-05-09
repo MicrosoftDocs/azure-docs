@@ -37,6 +37,9 @@ For more information on older-generation virtual machines, see [Previous generat
 
 The following tables provide a summary of the current offering of zonal, zone-redundant, and always-available Azure services. They list Azure offerings according to the regional availability of each.
 
+>[!IMPORTANT]
+>To learn more about availability zones support and available services in your region, contact your Microsoft sales or customer representative.
+
 ##### Legend
 ![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 
 
