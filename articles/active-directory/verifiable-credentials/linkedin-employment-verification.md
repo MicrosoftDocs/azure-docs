@@ -1,5 +1,5 @@
 ---
-title: LinkedIn employment verification
+title: Setting up LinkedIn workplace verification
 description: A design pattern describing how to configure employment verification using LinkedIn
 services: decentralized-identity
 author: barclayn
@@ -11,7 +11,7 @@ ms.date: 05/09/2023
 ms.author: barclayn
 ---
 
-# LinkedIn employment verification
+# Setting up place of work verification on LinkedIn
 
 If your organization wants its employees to get their place of work verified on LinkedIn, you need to follow these few steps:
 
