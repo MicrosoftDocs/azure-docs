@@ -66,7 +66,9 @@ trigger:
     minutes: 15 # at 15 mins after 3am
 
 create_monitor:
-  compute: azureml:cpu-cluster  # compute to run monitoring job
+  compute: # specify a spark compute for monitoring job
+    instance_type: standard_e8s_v3
+    runtime_version: 3.2
   monitoring_target:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
 ```
@@ -100,7 +102,7 @@ from azure.ai.ml.entities import (
 
 ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
 
-cpu_cluster = ml_client.computes.get("cpu_cluster")
+cpu_cluster = ml_client.computes.get("my_spark_compute")
 
 monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
 
@@ -160,7 +162,9 @@ trigger:
     minutes: 15 # at 15 mins after 3am
 
 create_monitor:
-  compute: azureml:cpu-cluster  # compute to run monitoring job
+  compute: 
+    instance_type: standard_e8s_v3
+    runtime_version: 3.2
   monitoring_target:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
   
@@ -170,8 +174,9 @@ create_monitor:
       # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
       baseline_dataset:
         input_dataset:
-          path: azureml:my_model_training_data:1
+          path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
+        dataset_context: training
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
@@ -188,6 +193,7 @@ create_monitor:
         input_dataset:
           path: azureml:my_model_training_data:1
           type: mltable
+        dataset_context: training
         # features: by default monitor top 10 features with training dataset available
       data_segment:
         feature_name: state # monitor data drift for Washington and California state data
@@ -208,6 +214,7 @@ create_monitor:
         input_dataset:
           path: azureml:my_model_training_data:1
           type: mltable
+        dataset_context: training
       features: # monitor data quality for 3 individual features only
         - feature_A
         - feature_B

@@ -1,5 +1,5 @@
 ---
-title: What is Trial Matcher - Project Health Insights
+title: What is Trial Matcher (Preview)
 titleSuffix: Project Health Insights
 description:  Trial Matcher is designed to match patients to potentially suitable clinical trials and find group of potentially eligible patients to a list of clinical trials.
 services: azure-health-insights
@@ -11,7 +11,7 @@ ms.date: 01/27/2023
 ms.author: behoorne
 ---
 
-# What is Trial Matcher - Project Health Insights
+# What is Trial Matcher (Preview)?
 
 The Trial Matcher is an AI model, offered within the context of the broader Project Health Insights. Trial Matcher is designed to match patients to potentially suitable clinical trials or find a group of potentially eligible patients to a list of clinical trials.
 

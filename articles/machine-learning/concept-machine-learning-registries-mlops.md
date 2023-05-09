@@ -45,4 +45,5 @@ The following diagram illustrates promotion of pipelines between exploratory and
 ## Next steps
 
 * [Create a registry](./how-to-manage-registries.md).
+* [Network isolation with registries (preview)](./how-to-registry-network-isolation.md).
 * [Share models, components, and environments using registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md).

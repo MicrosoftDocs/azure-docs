@@ -3,7 +3,7 @@ title: Provision Azure NetApp Files volumes on Azure Kubernetes Service
 description: Learn how to provision Azure NetApp Files volumes on an Azure Kubernetes Service cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 02/08/2023
+ms.date: 05/07/2023
 ---
 
 # Provision Azure NetApp Files volumes on Azure Kubernetes Service
@@ -32,7 +32,7 @@ The following considerations apply when you use Azure NetApp Files:
 
 1. Register the *Microsoft.NetApp* resource provider by running the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az provider register --namespace Microsoft.NetApp --wait
     ```
 
@@ -42,7 +42,7 @@ The following considerations apply when you use Azure NetApp Files:
 2. When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
 The following command creates an account named *myaccount1* in the *myResourceGroup* resource group and *eastus* region:
 
-    ```azurecli
+    ```azurecli-interactive
     az netappfiles account create \
         --resource-group myResourceGroup \
         --location eastus \
@@ -51,7 +51,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 3. Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. The following example creates a new capacity pool named *mypool1* with 4 TB in size and *Premium* service level:
 
-    ```azurecli
+    ```azurecli-interactive
     az netappfiles pool create \
         --resource-group myResourceGroup \
         --location eastus \
@@ -65,8 +65,9 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
     > [!NOTE]
     > This subnet must be in the same virtual network as your AKS cluster.
+    > Ensure that the `address-prefixes` are set correctly and without any conflicts
 
-    ```azurecli
+    ```azurecli-interactive
     RESOURCE_GROUP=myResourceGroup
     VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -76,7 +77,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
         --vnet-name $VNET_NAME \
         --name $SUBNET_NAME \
         --delegations "Microsoft.NetApp/volumes" \
-        --address-prefixes 10.0.0.0/28
+        --address-prefixes 10.225.0.0/24
     ```
 
    Volumes can either be provisioned statically or dynamically. Both options are covered further in the next sections.
@@ -85,7 +86,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 1. Create a volume using the [az netappfiles volume create][az-netappfiles-volume-create] command. Update  `RESOURCE_GROUP`, `LOCATION`, `ANF_ACCOUNT_NAME` (Azure NetApp account name), `POOL_NAME`, and `SERVICE_LEVEL` with the correct values.  
 
-    ```azurecli
+    ```azurecli-interactive
     RESOURCE_GROUP=myResourceGroup
     LOCATION=eastus
     ANF_ACCOUNT_NAME=myaccount1
@@ -116,7 +117,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 1. List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
 
-    ```azurecli
+    ```azurecli-interactive
     az netappfiles volume show \
         --resource-group $RESOURCE_GROUP \
         --account-name $ANF_ACCOUNT_NAME \
@@ -126,7 +127,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
     The following output resembles the output of the previous command:
 
-    ```console
+    ```output
     {
       ...
       "creationToken": "myfilepath2",
@@ -248,7 +249,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
     kubectl exec -it nginx-nfs -- sh
     ```
 
-    ```console
+    ```output
     / # df -h
     Filesystem             Size  Used Avail Use% Mounted on
     ...
@@ -272,34 +273,26 @@ Before proceeding to the next section, you need to:
 
 This section walks you through the installation of Astra Trident using the operator.
 
-1. Download Astra Trident from its [GitHub repository](https://github.com/NetApp/trident/releases). Choose from the desired version and download the installer bundle.
-
-    ```bash
-    wget https://github.com/NetApp/trident/releases/download/v21.07.1/trident-installer-21.07.1.tar.gz
-    tar xzvf trident-installer-21.07.1.tar.gz
-    ```
-
-2. Run the [kubectl create][kubectl-create] command to create the *trident* namespace:
+1. Run the [kubectl create][kubectl-create] command to create the *trident* namespace:
 
     ```bash
     kubectl create ns trident
     ```
 
-   The output of the command resembles the following example:
+2. Run the [kubectl apply][kubectl-apply] command to deploy the Trident operator using the bundle file:
 
-    ```console
-    namespace/trident created
-    ```
-
-3. Run the [kubectl apply][kubectl-apply] command to deploy the Trident operator using the bundle file:
-
+ - For AKS cluster version less than 1.25, run following command:
     ```bash
-    kubectl apply -f trident-installer/deploy/bundle.yaml -n trident
+    kubectl apply -f https://raw.githubusercontent.com/NetApp/trident/v23.01.1/deploy/bundle_pre_1_25.yaml -n trident
+    ```
+ - For AKS cluster 1.25+ version, run following command:
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/NetApp/trident/v23.01.1/deploy/bundle_post_1_25.yaml -n trident
     ```
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     serviceaccount/trident-operator created
     clusterrole.rbac.authorization.k8s.io/trident-operator created
     clusterrolebinding.rbac.authorization.k8s.io/trident-operator created
@@ -307,21 +300,21 @@ This section walks you through the installation of Astra Trident using the opera
     podsecuritypolicy.policy/tridentoperatorpods created
     ```
 
-4. Run the following command to create a `TridentOrchestrator` to install Astra Trident.
+3. Run the following command to create a `TridentOrchestrator` to install Astra Trident.
 
     ```bash
-    kubectl apply -f trident-installer/deploy/crds/tridentorchestrator_cr.yaml
+    kubectl apply -f https://raw.githubusercontent.com/NetApp/trident/v23.01.1/deploy/crds/tridentorchestrator_cr.yaml
     ```
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     tridentorchestrator.trident.netapp.io/trident created 
     ```
 
     The operator installs by using the parameters provided in the `TridentOrchestrator` spec. You can learn about the configuration parameters and example backends from the [Trident install guide][trident-install-guide] and [backend guide][trident-backend-install-guide].
 
-5. To confirm Astra Trident was installed successfully, run the following [kubectl describe][kubectl-describe] command: 
+4. To confirm Astra Trident was installed successfully, run the following [kubectl describe][kubectl-describe] command: 
 
     ```bash
     kubectl describe torc trident
@@ -329,7 +322,7 @@ This section walks you through the installation of Astra Trident using the opera
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     Name:         trident
     Namespace:
     Labels:       <none>
@@ -344,7 +337,7 @@ This section walks you through the installation of Astra Trident using the opera
       Current Installation Params:
         IPv6:                       false
         Autosupport Hostname:
-        Autosupport Image:          netapp/trident-autosupport:21.01
+        Autosupport Image:          netapp/trident-autosupport:23.01
         Autosupport Proxy:
         Autosupport Serial Number:
         Debug:                      true
@@ -355,11 +348,11 @@ This section walks you through the installation of Astra Trident using the opera
         Kubelet Dir:          /var/lib/kubelet
         Log Format:           text
         Silence Autosupport:  false
-        Trident Image:        netapp/trident:21.07.1
+        Trident Image:        netapp/trident:23.01.1
       Message:                Trident installed
       Namespace:              trident
       Status:                 Installed
-      Version:                v21.07.1
+      Version:                v23.01.1
     Events:
       Type    Reason      Age   From                        Message
       ----    ------      ----  ----                        -------
@@ -369,10 +362,10 @@ This section walks you through the installation of Astra Trident using the opera
 
 ### Create a backend
 
-1. Before creating a backend, you need to update `backend-anf.yaml` to include details about the Azure NetApp Files subscription, such as:
+1. Before creating a backend, you need to update [backend-anf.yaml][backend-anf.yaml] to include details about the Azure NetApp Files subscription, such as:
 
     * `subscriptionID` for the Azure subscription where Azure NetApp Files will be enabled.
-    * `tenantID`, `clientID`, and `clientSecret` from an [App Registration][azure-ad-app-registration] in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration include the `Owner` or `Contributor` role that's predefined by Azure.
+    * `tenantID`, `clientID`, and `clientSecret` from an [App Registration][azure-ad-app-registration] in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration includes the `Owner` or `Contributor` role that's predefined by Azure.
     * An Azure location that contains at least one delegated subnet.
 
     In addition, you can choose to provide a different service level. Azure NetApp Files provides three [service levels](../azure-netapp-files/azure-netapp-files-service-levels.md): Standard, Premium, and Ultra.
@@ -380,14 +373,19 @@ This section walks you through the installation of Astra Trident using the opera
 2. After Astra Trident is installed, create a backend that points to your Azure NetApp Files subscription by running the following command.
 
     ```bash
-    kubectl apply -f trident-installer/sample-input/backends-samples/azure-netapp-files/backend-anf.yaml -n trident
+    kubectl apply -f backend-anf.yaml -n trident
     ```
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     secret/backend-tbc-anf-secret created
     tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
+    ```
+    
+ 3. To confirm backend was set with correct credentials and sufficient permissions, run the following [kubectl describe][kubectl-describe] command: 
+    ```bash
+    kubectl describe tridentbackendconfig.trident.netapp.io/backend-tbc-anf -n trident
     ```
 
 ### Create a StorageClass
@@ -413,9 +411,9 @@ A storage class is used to define how a unit of storage is dynamically created w
     kubectl apply -f anf-storageclass.yaml
     ```
 
-   The output of the command resembles the following example::
+   The output of the command resembles the following example:
 
-    ```console
+    ```output
     storageclass/azure-netapp-files created
     ```
 
@@ -455,7 +453,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     persistentvolumeclaim/anf-pvc created
     ```
 
@@ -467,7 +465,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
    The output of the command resembles the following example:
 
-    ```console
+    ```bash
     kubectl get pvc -n trident
     NAME      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS         AGE
     anf-pvc   Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO            azure-netapp-files   62s
@@ -487,7 +485,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
     spec:
       containers:
       - name: nginx
-        image: mcr.microsoft.com/oss/nginx/nginx:latest1.15.5-alpine
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
         resources:
           requests:
             cpu: 100m
@@ -512,7 +510,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     pod/nginx-pod created
     ```
 
@@ -524,7 +522,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
 
     The output of the command resembles the following example:
 
-    ```console
+    ```output
     [...]
     Volumes:
       volume:
@@ -546,10 +544,6 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
       Normal  Started                 10s   kubelet                  Started container nginx
     ```
 
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
-
 ## Next steps
 
 Astra Trident supports many features with Azure NetApp Files. For more information, see:
@@ -560,6 +554,7 @@ Astra Trident supports many features with Azure NetApp Files. For more informati
 
 <!-- EXTERNAL LINKS -->
 [astra-trident]: https://docs.netapp.com/us-en/trident/index.html
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
@@ -573,6 +568,7 @@ Astra Trident supports many features with Azure NetApp Files. For more informati
 [expand-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html
 [on-demand-trident-volume-snapshots]: https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html
 [importing-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-import.html
+[backend-anf.yaml]: https://raw.githubusercontent.com/NetApp/trident/v23.01.1/trident-installer/sample-input/backends-samples/azure-netapp-files/backend-anf.yaml
 
 <!-- INTERNAL LINKS -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md

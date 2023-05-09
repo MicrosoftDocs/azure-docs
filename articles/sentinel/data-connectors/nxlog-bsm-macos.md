@@ -18,7 +18,7 @@ The NXLog [BSM](https://nxlog.co/documentation/nxlog-user-guide/im_bsm.html) mac
 | --- | --- |
 | **Log Analytics table(s)** | BSMmacOS_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
 
 ## Query samples
 

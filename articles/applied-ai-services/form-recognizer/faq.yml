@@ -10,7 +10,6 @@ metadata:
   ms.date: 03/03/2023
   ms.author: lajanuar
   monikerRange: '>=form-recog-2.1.0'
-  recommendations: false
 
 title: Form Recognizer frequently asked questions
 summary: |
@@ -34,7 +33,7 @@ sections:
 
           Give careful consideration to document processing projects that encompass financial, protected health, personal identity, or highly sensitive data.
 
-          Make certain to comply with all [national, regional, and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+          Make certain to comply with all [national/regional and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
           Learn more about [use case considerations](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#considerations-when-choosing-other-use-cases).
 

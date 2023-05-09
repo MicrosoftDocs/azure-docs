@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: How to configure the L2 and L3 isolation-domains in Operator Nexus instances"
 description: Learn to create, view, list, update, delete commands for Layer 2 and Layer isolation-domains in Operator Nexus instances
-author: jdasari #Required
-ms.author: jdasari #Required
-ms.service: azure-operator-nexus  #Required
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/02/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+author: jdasari
+ms.author: jdasari
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 04/02/2023
+ms.custom: template-how-to
 ---
 
 # Configure L2 and L3 isolation-domains using managed network fabric services

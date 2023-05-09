@@ -30,7 +30,7 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.

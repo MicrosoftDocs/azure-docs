@@ -137,8 +137,6 @@ landingContent:
         links:
           - text: Run an existing pipeline with Managed Airflow
             url: tutorial-run-existing-pipeline-with-airflow.md
-          - text: Refresh a Power BI dataset with Managed Airflow
-            url: tutorial-refresh-power-bi-dataset-with-airflow.md
   - title: SAP knowledge center
     linkLists:
       - linkListType: concept

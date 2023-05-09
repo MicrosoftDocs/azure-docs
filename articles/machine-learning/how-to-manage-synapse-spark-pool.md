@@ -639,7 +639,7 @@ ml_client.compute.begin_delete(name=synapse_name, action="Detach")
 
 ## Managed Synapse Spark Pool in Azure Machine Learning
 
-Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a Managed (Automatic) Spark compute experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the Managed (Automatic) Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
+Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a serverless Spark compute (preview) experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the serverless Spark compute (preview) experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 ## Next steps
 
