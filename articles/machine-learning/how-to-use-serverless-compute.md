@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
-ms.date: 04/20/2023
+ms.date: 05/09/2023
 ---
 
 # Model training on serverless compute (preview)
