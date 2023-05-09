@@ -104,7 +104,7 @@ The spec has these elements:
 1. `features`: list of features and their datatypes. If you provide transformation code (see the Day 2 section), the code must return a dataframe that maps to the features and datatypes. If you don't provide the transformation code (for accounts, because accounts are precomputed), the system builds the query to map the features to the source
 1. `index_columns`: the join keys required to access values from the feature set
 
-To learn more, see the **[top level feature store entities document] ()** and the **[feature set spec yaml reference] ()**.
+To learn more, see the [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and the [CLI (v2) feature set specification YAML schema](./reference-yaml-featureset-spec.md).
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=dump-accts-fset-spec)]
 
