@@ -17,6 +17,8 @@ items:
     items:
     - name: Set up network for Azure Monitor for SAP solutions
       href: set-up-network.md
+    - name: Set up Private Endpoints for Azure Monitor for SAP solutions
+      href: set-up-private-endpoints.md
     - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: get-alerts-portal.md
     - name: Enable TLS in Azure Monitor for SAP solutions
