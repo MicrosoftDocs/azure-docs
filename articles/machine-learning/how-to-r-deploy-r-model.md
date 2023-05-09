@@ -34,9 +34,9 @@ Create this folder structure for your project:
 📂 r-deploy-azureml
  ├─📂 docker-context
  │  ├─ Dockerfile
- │  ├─ start_plumber.R
+ │  └─ start_plumber.R
  ├─📂 src
- │  ├─ plumber.R
+ │  └─ plumber.R
  ├─ deployment.yml
  ├─ endpoint.yml
 ```
@@ -303,7 +303,7 @@ A *deployment* is a set of resources required for hosting the model that does th
 1. Next, in your terminal execute the following CLI command to create the deployment (notice that you're setting 100% of the traffic to this model):
 
     ```azurecli
-    az ml online-deployment create -f r-deployment.yml --all-traffic --skip-script-validation
+    az ml online-deployment create -f deployment.yml --all-traffic --skip-script-validation
     ```
 
 > [!NOTE]
