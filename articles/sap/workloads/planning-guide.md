@@ -300,7 +300,7 @@ For an SAP workload, we narrowed down the selection to different VM families tha
 Beyond the selection of purely supported VM types, you also need to check whether those VM types are available in a specific region based on the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). But more important, you need to determine the following capabilities fit your scenario:
 
 - CPU and memory resources of different VM types
-- IOPS bandwidth of different VM types
+- Input/output operations per second (IOPS) bandwidth of different VM types
 - Network capabilities of different VM types
 - Number of disks that can be attached
 - Ability to use certain Azure storage types
@@ -347,44 +347,44 @@ Plan for an operating system update infrastructure and its dependencies for your
 
 ### Generation 1 and generation 2 VMs
 
-In Azure, you can deploy a VM as either generation 1 or generation 2. [Support for generation 2 VMs in Azure](../../virtual-machines/generation-2.md) lists the Azure VM families that you can deploy as generation 2 and lists functional differences between generation 1 and generation 2 VMs in Azure.
+In Azure, you can deploy a VM as either generation 1 or generation 2. [Support for generation 2 VMs in Azure](../../virtual-machines/generation-2.md) lists the Azure VM families that you can deploy as generation 2. The article also lists functional differences between generation 1 and generation 2 VMs in Azure.
 
-When you deploy a VM, the operating system image you choose determines whether the VM will be a generation 1 or a generation 2 VM. All operating system images for SAP usage available in Azure - RedHat Enterprise Linux, SuSE Enterprise Linux, Windows or Oracle Enterprise Linux - in their latest versions are available with both generation versions. Careful selection that's based on the image description is needed to deploy the correct VM generation. Similarly, custom operating system images can be created as generation 1 or 2 and affect the VM generation at deployment of the VM.  
+When you deploy a VM, the operating system image you choose determines whether the VM will be a generation 1 or a generation 2 VM. The latest versions of all operating system images for SAP that are available in Azure (RedHat Enterprise Linux, SuSE Enterprise Linux, and Windows or Oracle Enterprise Linux) are available with both generation versions. It's important to carefully select an image based on the image description to deploy the correct VM generation. Similarly, you can create custom operating system images as generation 1 or generation 2, and they affect VM generation when the VM is deployment.  
 
 > [!NOTE]
-> We recommend that you use generation 2 VMs in *all* your SAP on Azure deployments, regardless of VM size. All the latest Azure VMs for SAP are generation 2-capable or limited to generation 2 only. Some VM families currently support only generation 2 VMs. Some VM families that will be available soon might support only generation 2.
+> We recommend that you use generation 2 VMs in *all* your SAP deployments in Azure, regardless of VM size. All the latest Azure VMs for SAP are generation 2-capable or are limited to only generation 2. Some VM families currently support only generation 2 VMs. Some VM families that will be available soon might support only generation 2.
 >
-> You can determine whether a VM will be generation 1 or generation 2 only based on the selected operating system image. Changing an existing VM from one generation to the other generation isn't possible.  
+> You can determine whether a VM is generation 1 or only generation 2 based on the selected operating system image. You can't change an existing VM from one generation to the another generation.  
 
-Change from generation 1 to generation 2 isn't possible in Azure. To change the VM generation, you need to deploy a new VM of the generation you desire, and reinstall the software that you're running in the new gen2 VM. This change only affects the base VHD image of the VM and has no impact on the data disks or attached NFS or SMB shares. Data disks, NFS, or SMB shares that originally were assigned to, for example, on a generation 1 VM, and could reattach to new gen2 VM.
+Changing an existing from generation 1 to generation 2 isn't possible in Azure. To change the VM generation, you must deploy a new VM that is the generation you want and reinstall your software on the new generation 2 VM. This change affects only the base VHD image of the VM and has no impact on the data disks or attached Network File System (NFS) or Server Message Block (SMB) shares. Data disks, NFS shares, or SMB shares that originally were assigned to a generation 1 VM can be attached to a new generation 2 VM.
 
-Some VM families, like the [Mv2-series](../../virtual-machines/mv2-series.md), support only generation 2. The same requirement might be true for new VM families in the future. In that scenario, an existing generation 1 VM couldn't be resized to work with the new VM family. Beyond Azure platform's generation 2 requirement, SAP requirements might exist, too. See SAP Note [1928533] for any generation 2 requirements for the VM family you choose.
+Some VM families, like the [Mv2-series](../../virtual-machines/mv2-series.md), support only generation 2. The same requirement might be true for new VM families in the future. In that scenario, an existing generation 1 VM can't be resized to work with the new VM family. In addition to the Azure platform's generation 2 requirements, your SAP components might have requirements that are related to a VM's generation. might exist, too. To learn about any generation 2 requirements for the VM family you choose, see SAP Note [1928533].
 
 ### Performance limits for Azure VMs
 
-Azure as a public cloud depends on sharing infrastructure in a secured manner throughout its customer base. Performance limits are defined for each resource and service, to enable scaling and capacity. On the compute side of the Azure infrastructure, the limits for each VM size must be considered. The VM  quotes are described in [this document](/azure/virtual-machines/sizes).
+As a public cloud, Azure depends on sharing infrastructure in a secured manner throughout its customer base. To enable scaling and capacity, performance limits are defined for each resource and service. On the compute side of the Azure infrastructure, it's important to consider the limits that are defined for each [VM size](../../virtual-machines/sizes.md).
 
-Each VM has a different quota on disk and network throughput, number of disks that can be attached, whether it contains a temporary, VM local storage with own throughput and IOPS limits, size of memory and how many vCPUs are available.
+Each VM has a different quota on disk and network throughput, the number of disks that can be attached, whether it has local temporary storage that has its own throughput and IOPS limits, memory size, and how many vCPUs are available.
 
 > [!NOTE]
-> When you plan and size SAP on Azure solutions, you must consider the performance limits for each VM size. The quotas that are described represent the theoretical maximum attainable values. The limit of IOPS per disk might be achieved with small I/Os (8 KB), but it might not be achieved with large I/Os (1 MB).  
+> When you make decisions about VM size for a SAP solution on Azure, you must consider the performance limits for each VM size. The quotas that are described in the documentation represent the theoretical maximum attainable values. The performance limit of IOPS per disk might be achieved with small input/output (I/O) values (for example, 8 KB), but it might not be achieved with large I/O values (for example, 1 MB).  
 
-Like VMs, the same performance limits exist for [each storage type for an SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) and for any other Azure service.
+Like VMs, the same performance limits exist for [each storage type for an SAP workload](planning-guide-storage.md) and for all other Azure services.
 
-When you plan for and select suitable VMs for SAP deployment, consider these factors:
+When you plan for and choose VMs to use in your SAP deployment, consider these factors:
 
-- Start with the memory and CPU requirement. The SAPS requirements for CPU power need to be separated out into the DBMS part and the SAP application part(s). For existing systems, the SAPS related to the hardware in use often can be determined or estimated based on existing SAP benchmarks. The results can be found  on the [About SAP Standard Application Benchmarks](https://sap.com/about/benchmark.html) page. For newly deployed SAP systems, you should have gone through a sizing exercise, which should determine the SAPS requirements of the system.
-- For existing systems, the I/O throughput and I/O operations per second on the DBMS server should be measured. For new systems, the sizing exercise for the new system also should give rough ideas of the I/O requirements on the DBMS side. If unsure, you eventually need to conduct a proof of concept.
-- Compare the SAPS requirement for the DBMS server with the SAPS the different VM types of Azure can provide. The information about SAPS of the different Azure VM types is documented in SAP Note [1928533]. The focus should be on the DBMS VM first since the database layer is the layer in an SAP NetWeaver system that doesn't scale out in most deployments. In contrast, the SAP application layer can be scaled out. Individual DBMS guides in this documentation provide recommended storage configuration to use.
+- Start with the memory and CPU requirements. Separate out the SAP Application Performance Standard units (SAPS) that are required for CPU power for the DBMS and for the SAP application. For existing systems, the SAPS that are related to the hardware that you use often can be determined or estimated based on existing [SAP Standard Application Benchmarks](https://sap.com/about/benchmark.html). For newly deployed SAP systems, complete a sizing exercise to determine the SAPS requirements for the system.
+- For existing systems, the I/O throughput and IOPS on the DBMS server should be measured. For new systems, the sizing exercise for the new system also should give you a general idea of the I/O requirements on the DBMS side. If you're unsure, you eventually need to conduct a proof of concept.
+- Compare the SAPS requirement for the DBMS server with the SAPS that the different VM types of Azure can provide. The information about the SAPS of the different Azure VM types is documented in SAP Note [1928533]. The focus should be on the DBMS VM first because the database layer is the layer in an SAP NetWeaver system that doesn't scale out in most deployments. In contrast, the SAP application layer can be scaled out. Individual DBMS guides describe the recommended storage configurations.
 - Summarize your findings for:
 
-  - The number of Azure VMs.
+  - The number of Azure VMs you expect to use.
   - Individual VM family and VM SKUs for each SAP layer: DBMS, (A)SCS, and application server.
   - I/O throughput measures or calculated storage capacity requirements.
 
 ### HANA Large Instances service
 
-Azure provides other compute capabilities for running a large HANA database in both scale-up and scale-out manner on a dedicated offering called HANA Large Instances. Details of this solution are described [SAP HANA on Azure Large Instances](../../sap/large-instances/hana-overview-architecture.md). This offering extends the VMs that are available in Azure.
+Azure provides other compute capabilities for running a large HANA database in both a scale-up and scale-out manner on a dedicated offering called HANA Large Instances. Details of this solution are described [SAP HANA on Azure Large Instances](../../sap/large-instances/hana-overview-architecture.md). This offering extends the VMs that are available in Azure.
 
 > [!NOTE]
 > The HANA Large Instance service is in sunset mode and doesn't accept new customers. Providing units for existing HANA Large Instance customers is still possible.
