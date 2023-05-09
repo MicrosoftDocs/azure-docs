@@ -169,7 +169,7 @@ Below are some error codes you may encounter and the solutions to help you resol
             "details": {
                 "text": "Given conditional reference '{0}' does not resolve to a resource."
             },
-            "diagnostics": "Failed to process resource at line: {1}"
+            "diagnostics": "Failed to process resource at line: {0} with stream start offset: {1}"
         }
     ]
 }
@@ -245,7 +245,7 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 ## Bulk import - another option
 
-As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following capabilities for ingesting FHIR data:
+As illustrated in this article, $import is one way of doing bulk import. In case there is no need for high import throughput, the other option to consider is an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following capabilities for ingesting FHIR data:
 
 * Imports FHIR Bundles (compressed and non-compressed) and NDJSON files into a FHIR service
 * High Speed Parallel Event Grid that triggers from storage accounts or other Event Grid resources
