@@ -1,16 +1,33 @@
-# Perform continuous model monitoring in AzureML
+---
+title: Monitor performance of models deployed to production (preview)
+titleSuffix: Azure Machine Learning
+description: Monitor the performance of models deployed to production on Azure Machine Learning
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: mlops
+ms.topic: how-to
+author: Bozhong68
+ms.author: bozhlin
+ms.reviewer: mopeakande
+reviewer: msakande
+ms.date: 04/25/2023
+ms.reviewer: mopeakande
+ms.custom: devplatv2
+---
 
-Once ML model is in production, you want to critically evaluate the inherent risk associated with ML model and identify blind spots that could potentially impact your business negatively. AzureML model monitoring continuously tracks model performance in production by providing a broad view of monitoring signals and alerting on the right issues at right time, thus you can determine how to mitigate risks and shore up your defense.
+# Monitor performance of models deployed to production (preview)
 
-AzureML provides following capabilities for continuous model monitoring:
+Once ML model is in production, you want to critically evaluate the inherent risk associated with ML model and identify blind spots that could potentially impact your business negatively. Azure Machine Learning model monitoring continuously tracks model performance in production by providing a broad view of monitoring signals and alerting on the right issues at right time, thus you can determine how to mitigate risks and shore up your defense.
+
+Azure Machine Learning provides following capabilities for continuous model monitoring:
 * **Pre-built monitoring signals support.** The preview supports tabular dataset adn provides built-in monitoring signals for data drift, prediction drift, data quality, and feature attribution drift.
-* **Out-of-box model monitoring setup with AzureML online endpoint.** If you deploy model AzureML online endpoint, AzureML helps you collect production inference data automatically and use it for continuous monitoring.
+* **Out-of-box model monitoring setup with Azure Machine Learning online endpoint.** If you deploy model Azure Machine Learning online endpoint, Azure Machine Learning helps you collect production inference data automatically and use it for continuous monitoring.
 * **Flexibility to include multiple monitoring signals for a broad view.** You can easily include multiple monitoring signals in one monitoring setup, and for each monitoring signal, you have flexibility to select your preferred metric(s) and fine-tine threshold.
 * **Flexibility to use recent past production data or training data as comparison baseline dataset.**
 * **Monitor data drift or data quality for top n features.** If you use training data as comparison baseline dataset, you will be able to define data drift or data quality layering over feature importance. 
 * **Monitor data drift for a specific subset of population.** For some ML models, data change impact can be subtle and drift occurs only for a specific subset of the population, which could easily go undetected. Monitoring drift for a specific subset of population is important for this kind of models. 
 * **Define your own monitoring signal.** In case built-in monitoring signals may not be suitable for your business scenario, you can define your own monitoring signal with custom monitoring signal component.
-* **Bring your own production inference data.** If you deploy models outside of AzureML, or if you deploy models as AzureML batch endpoint, you can collect production inference data and bring it to AzureML for model monitoring. 
+* **Bring your own production inference data.** If you deploy models outside of AzureML, or if you deploy models as Azure Machine Learning batch endpoint, you can collect production inference data and bring it to Azure Machine Learning for model monitoring. 
 * **Flexibility to select data window.** You have flexibility to select data window for both target dataset and baseline dataset
   * By default, data window for production inference data (target dataset) is your monitoring fequency, i.e. all data collected in the past monitoring period before monitoring job is run. You can use 'lookback_period_days` to adjust data window for target dataset if needed.
   * By default data window for baseline dataset is the full dataset. You can adjust data window either using date range or `trailing_days` parameter.
@@ -18,15 +35,15 @@ AzureML provides following capabilities for continuous model monitoring:
 
 ## Out-of-box model monitoring setup
 
-If you deploy models AzureML online endpoint, you can setup model monitoring out-of-box easily with following prerequesites
-* You have deployed model as AzureML online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported.
-* During AzureML online endpoint deployment step, you have enabled data collection for your model deployment by following instructions [here](./how-to-collect-data.md)
+If you deploy models Azure Machine Learning online endpoint, you can setup model monitoring out-of-box easily with following prerequesites
+* You have deployed model as Azure Machine Learning online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported.
+* During Azure Machine Learning online endpoint deployment step, you have enabled data collection for your model deployment by following instructions [here](./how-to-collect-data.md)
 * Your model is in production to serve scoring requests.
 
-You can use Azure CLI, AzureML Studio, or Azure SDK to setup model monitorng out-of-box.
-### [Azure CLI](#tab/cli)
+You can use Azure CLI, Azure Machine Learning studio, or Azure SDK to setup model monitorng out-of-box.
+# [Azure CLI](#tab/cli)
 
-AzureML model monitoring leverages `az ml schedule` for model monitoring setup. You can create out-of-box model monitoring setup with following CLI command and YAML definition:
+Azure Machine Learning model monitoring leverages `az ml schedule` for model monitoring setup. You can create out-of-box model monitoring setup with following CLI command and YAML definition:
 ```bash
 az ml schedule -f ./out-of-box-monitoring.yaml
 ```
@@ -53,18 +70,19 @@ create_monitor:
   monitoring_target:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
 ```
+
 The above CLI command and YAML definition will give you following out-of-box model monitoring capabilities:
-* System will automatically detect production inference dataset associated with AzureML online endpoint/deployment and use it for model monitoring.
+* System will automatically detect production inference dataset associated with Azure Machine Learning online endpoint/deployment and use it for model monitoring.
 * Recent past production inference dataset is used as comparison baseline dataset.
 * Monitoring setup automatically includes and tracks following built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, it 
   * Uses recent past production inference dataset as comparison baseline dataset.
   * Uses smart defaults for metrics and threshold.
 * Monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against corresponding threshold. When any threshold is exceed, it will send an alert email to the user who created monitoring setup by default.   
 
-### [Studio](#tab/cli)
+# [Studio](#tab/cli)
 
 
-### [Azure SDK](#tab/cli)
+# [Azure SDK](#tab/cli)
 
 You can use SDK snippets below to setup out-of-box model monitoring:
 ```python
@@ -102,6 +120,7 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 ```
 
+---
 
 ## Advanced model monitoring setup
 
@@ -112,11 +131,11 @@ In most cases, you would need to setup model monitoring with advanced monitoring
 * Monitor data drift for a specific subset of population.
 
 **Prerequesites**
-* You have deployed model as AzureML online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported.
-* During AzureML online endpoint deployment step, you have enabled data collection for your model deployment by following instructions [here](./how-to-collect-data.md)
+* You have deployed model as Azure Machine Learning online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported.
+* During Azure Machine Learning online endpoint deployment step, you have enabled data collection for your model deployment by following instructions [here](./how-to-collect-data.md)
 * Your model is in production to serve scoring requests.
 
-### [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Run below CLI command with advanced model monitoring definition YAML:
 ```bash
@@ -219,10 +238,10 @@ create_monitor:
 ```
 
 
-### [Studio](#tab/cli)
+# [Studio](#tab/cli)
 
 
-### [Azure SDK](#tab/cli)
+# [Azure SDK](#tab/cli)
 
 For advanced model monitoring setup, please see SDK example below:
 ```python
@@ -301,19 +320,21 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 ```
 
+---
+
 ## Setup model monitoring with your own production inference data
 
 If you have deployed models outside of AzureML, or you have deployed models as batch scoring, please ensure following prerequesites befor model monitoring setup:
-* You have a way to collect production data and register it as AzureML data asset. 
-* The registered AzureML data asset is contiously updated for model monitoring.
+* You have a way to collect production data and register it as Azure Machine Learning data asset. 
+* The registered Azure Machine Learning data asset is contiously updated for model monitoring.
 * For lineage tracking, we also recommend to register model in AzureML.
 
-### [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 
-### [Studio](#tab/cli)
+# [Studio](#tab/cli)
 
 
-### [Azure SDK](#tab/cli)
+# [Azure SDK](#tab/cli)
 
 
