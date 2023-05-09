@@ -71,7 +71,7 @@
       maintainContext: true
 - name: Scale
   items:
-  - name: Virtual Machine Scaling Profile
+  - name: Scaling Profile
     href: virtual-machine-scale-sets-scaling-profile.md
   - name: Autoscale
     href: virtual-machine-scale-sets-autoscale-overview.md
@@ -86,10 +86,10 @@
     href: virtual-machine-scale-sets-scale-in-policy.md 
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
-  - name: Working with large uniform scale sets
-    href: virtual-machine-scale-sets-placement-groups.md
   - name: Attach VMs to a scale set
     href: virtual-machine-scale-sets-attach-detach-vm.md
+  - name: Working with large uniform scale sets
+    href: virtual-machine-scale-sets-placement-groups.md
 - name: Availability
   items: 
   - name: Design considerations
