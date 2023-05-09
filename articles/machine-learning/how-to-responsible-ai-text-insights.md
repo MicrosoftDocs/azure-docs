@@ -26,6 +26,11 @@ Supported scenarios:
 |---------------------------------|-----------------------------------------------------|---------------------------------------------|
 | Multi-label Text Classification | Predict multiple classes for the given text content | `task_type="multilabel_text_classification` |
 
+> [!IMPORTANT]
+> Responsible AI Text Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 ## Responsible AI component 
 
 The core component for constructing the Responsible AI text dashboard in Azure Machine Learning is only the Responsible AI Text Insights component, which is different from how you construct the Responsible AI pipeline for tabular data.

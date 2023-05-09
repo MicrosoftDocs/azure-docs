@@ -25,7 +25,13 @@ Supported scenarios:
 |-----------------------------------------------|---------------------------------------------|------------------------------------------------------------|
 | Image Classification (Binary and Multi-class) | Predict a single class for the given image  | `task_type="image_classification"`                         |
 | Image Multi-label Classification              | Predict multiple labels for the given image | `task_type="multilabel_image_classification"`              |
-| Object Detection                              | Locate and identify the class of multiple objects for a given image. An object is defined with a bounding box. | `task_type="object_detection"` |
+| Object Detection                              | Locate and identify the class of multiple objects for a given image. An object is defined with a bounding box. | 
+`task_type="object_detection"` |
+
+> [!IMPORTANT]
+> Responsible AI Vision Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Responsible AI component
 

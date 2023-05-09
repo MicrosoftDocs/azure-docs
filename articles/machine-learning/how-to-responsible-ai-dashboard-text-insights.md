@@ -19,6 +19,9 @@ The Responsible AI Toolbox for Text Data is a customizable, interoperable tool w
 
 Each component has a variety of tabs and buttons. The article will help to familiarize you with the different components of the dashboard and the options and functionalities available in each.
 
+> [!IMPORTANT]
+> Responsible AI Text Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Error analysis
 

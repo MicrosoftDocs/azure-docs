@@ -17,6 +17,10 @@ ms.custom: responsible-ml
 
 The Responsible AI Image dashboards are linked to your registered computer vision models in Azure Machine Learning. While [steps to view and configure the  Responsible AI dashboard](how-to-responsible-ai-dashboard.md) is similar across scenarios, some features are unique to image scenarios.
 
+> [!IMPORTANT]
+> Responsible AI Vision Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Full functionality with integrated compute resource
 
 Some features of the Responsible AI image dashboard require dynamic, on-the-fly, and real-time computation. When you [connect to a compute resource](how-to-responsible-ai-dashboard.md#enable-full-functionality-of-the-responsible-ai-dashboard) you enable full functionality of unique components to the image scenario:
