@@ -65,7 +65,7 @@ The following resources are involved for granting access:
 
 ## Permissions required for the `feature store admin` role
 
-To create and/or delete a managed feature store, we recommend using the built-in `Contributor` and `User Access Administrator` roles on the resource group. In addition, the `Feature store admin` role requires at least the following permissions.
+To create and/or delete a managed feature store, we recommend using the built-in `Contributor` and `User Access Administrator` roles on the resource group. Alternatively, you can create a custom  `Feature store admin` role with at least the following permissions.
 
 |Scope| Action/Role|
 |----|------|
@@ -89,7 +89,7 @@ When provisioning a feature store, a few other resources will also be provisione
 
 To consume feature sets defined in the feature store, use the following build-in roles:
 
-|Scope| Action/Role|
+|Scope| Role|
 |----|------|
 | the feature store | AzureML Data Scientist|
 | storage accounts of source data, that is, data sources of feature sets | Blob storage data reader role |
@@ -113,7 +113,7 @@ If you want to avoid using the `AzureML Data Scientist` role, you can use these 
 
 To develop feature sets in the feature store, use the following built-in roles.
 
-|Scope| Action/Role|
+|Scope| Role|
 |----|------|
 | the feature store | AzureML Data Scientist|
 | storage accounts of source data | Blob storage data reader role |
@@ -121,7 +121,7 @@ To develop feature sets in the feature store, use the following built-in roles.
 
 If you want to avoid using the `AzureML Data Scientist` role, you can use these individual actions (besides the ones listed for `Featureset consumer`)
 
-|Scope| Action/Role|
+|Scope| Role|
 |----|------|
 | the feature store | Microsoft.MachineLearningServices/workspaces/featuresets/write |
 | the feature store | Microsoft.MachineLearningServices/workspaces/featuresets/delete |
