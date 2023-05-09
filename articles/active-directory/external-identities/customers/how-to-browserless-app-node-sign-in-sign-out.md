@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Node.js browserless application by using Microsoft Entra - Add sign-in and sign-out
-description: Learn how to configure a browserless application to sign in and sign out users using Microsoft Entra.
+title: Sign in users in a sample Node.js browserless application by using the Device Code flow - Add sign-in support
+description: Learn how to configure a browserless application to sign in and sign out users
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/09/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to build a Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
 # Add code to sign in users in a Node.js browserless application. 
@@ -39,7 +39,7 @@ const { LogLevel } = require('@azure/msal-node');
 const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-        authority: `https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
+        authority: `https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/`, // replace "Enter_the_Tenant_Subdomain_Here" with your Directory (tenant) subdomain
     },
     system: {
         loggerOptions: {
@@ -52,11 +52,11 @@ const msalConfig = {
     },
 };
 ```
-The `msalConfig` object contains a set of configuration options that can be used to customize the behavior of your authentication flows. This configuration object is passed into the instance of our public client application upon creation. In your *authConfig.js* file, replace:
+The `msalConfig` object contains a set of configuration options that can be used to customize the behavior of your authentication flows. This configuration object is passed into the instance of our public client application upon creation. In your *authConfig.js* file, find the placeholders:
 
-- `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
+- `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
 
-- `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md).
+- `Enter_the_Tenant_Subdomain_Here` wand replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, [learn how to read your tenant details](customers/how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 In the configuration object, you also add `LoggerOptions`, which contains two options:
 
@@ -125,7 +125,7 @@ const getTokenDeviceCode = (clientApplication) => {
 ```
 The `getTokenDeviceCode` function takes a single parameter, `clientApplication`, which is an instance of the `PublicClientApplication` object we created previously. The function creates a new object named `deviceCodeRequest`, which includes the `loginRequest` object imported from the *authConfig.js* file. It also contains a `deviceCodeCallback` function that logs the device code message to the console. 
 
-The `clientApplication` object is then used to call the [`acquireTokenByDeviceCode`](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-acquiretokenbydevicecode) API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the application prompts the user to visit a URL, where they input the device code shown in the console. Once the code is entered, the promise should resolve with an access token response. 
+The `clientApplication` object is then used to call the [`acquireTokenByDeviceCode`](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-acquiretokenbydevicecode) API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the application will display a URL that the user should visit. Upon visiting the URL, the user inputs the code displayed in the console. After entering the code, the promise resolves with either an access token or an error. 
 
 ## Initiate the device code flow
 
@@ -142,7 +142,7 @@ getTokenDeviceCode(msalInstance).then(response => {
 Now that we're done building the app, we can test it by following these steps:
 
 
-1. In your terminal, ensure you're in project directory where you created your application. For example, *ciam-node-browserless-app*. 
+1. In your terminal, ensure you're in project directory that contains the *package.json* file.  For example, *ciam-sign-in-node-browserless-app*. 
 
 1. Use the steps in [Run and test the browserless app](how-to-browserless-app-node-sample-sign-in.md?#run-and-test-sample-browserless-app) article to test your browserless app.
 

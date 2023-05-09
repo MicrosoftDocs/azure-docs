@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Node.js browserless application by using Microsoft Entra
-description: Learn how to configure a sample browserless application to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample Node.js browserless application using the Device Code flow
+description: Learn how to configure a sample browserless application to sign in and sign out users
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/09/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Authenticate users in a sample Node.js browserless application by using Microsoft Entra
+# Authenticate users in a sample Node.js browserless application
 
-This how-to guide uses a sample Node.js browserless application to show how to add authentication to a browserless application by using Microsoft Entra. The sample application uses the device code flow to authenticate users in an Azure Active Directory (Azure AD) for customers tenant. 
+This how-to guide uses a sample Node.js application to show how to sign in users in a browserless application. The sample application uses the device code flow to sign in  users in an Azure Active Directory (Azure AD) for customers tenant. 
 
 In this article, you complete the following tasks:
 
-- Register a browserless application in the Microsoft Entra admin center. 
+- Register an application in the Microsoft Entra admin center. 
 
-- Create a sign in and sign out user flow in Microsoft Entra admin center.
+- Create a sign-in and sign-out user flow in Microsoft Entra admin center.
 
 - Associate your browserless application with the user flow. 
 
@@ -38,8 +38,7 @@ In this article, you complete the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
-
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
 
 ## Register the browserless app
 
@@ -87,7 +86,7 @@ To get the browserless app sample code, you can do either [download the .zip fil
     
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is contoso.onmicrosoft.com, use contoso. If you don't have your tenant domain name, learn how to read your tenant details.
+    1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name,  [learn how to read your tenant details](customers/how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 ## Run and test sample browserless app 
 
@@ -103,7 +102,7 @@ You can now test the sample Node.js browserless app.
 
      :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-enter-code.png" alt-text="Screenshot of the enter code prompt in a node browserless application using the device code flow.":::
 
-1. Copy the device code from the message in the terminal and paste it in the **Enter Code** prompt to authenticate. After entering the code, you'll be redirected to the sign in page as follows:
+1. To authenticate, copy the device code from the message in the terminal then paste it in the **Enter Code** prompt. After entering the code, you're be redirected to the sign-in page as follows:
 
      :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node browserless application":::
 
