@@ -20,7 +20,7 @@ The in-account point-in-time restore capability of continuous backup in Azure Co
 
 You can choose to restore any combination of deleted provisioned throughput containers or nonshared throughput database. The specified databases or containers are restored in all the regions present in account when the restored operation was performed. The duration of restoration depends on the amount of data that needs to be restored and the regions where account is present. Since database has to be present before restore of the container can be restored, that has to be done independently if it was deleted.
 
-See more details on [what is restored](https://learn.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction#what-is-restored) and [what isn't restored](https://learn.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction#what-isnt-restored) from the continuous backup public documentation.
+See more details on what continuous backup does and doesn't restore, see the [continuous backup introduction](continuous-backup-restore-introduction.md).
 
 > [!NOTE]
 > When the deleted databases or containers are restored within the same account, those should be considered as new resources and the old session/continuation tokens which were in use will become invalid. It is recommended to refresh the locally stored session and continuations tokens before performing further reads/writes on the restored resources. Also, It is recommended to restart SDK clients to refresh session and continuations tokens stored in SDK cache.
