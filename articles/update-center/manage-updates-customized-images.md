@@ -14,18 +14,17 @@ ms.topic: conceptual
 
 This article describes the customized image support, how to enable the subscription and its limitations.
 
+> [!NOTE]
+> - Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic VM guest patching for generalized custom images is not supported.
+> - [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery) are not supported yet. 
 
 ## Asynchronous check to validate customized image support
 
-If you're using the Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update management Center (preview) operations such as **Assess now**, **Install Patches now**, or **Schedule patching** to validate if the assets are supported for guest patching and then initiate patching if their asset is supported.
+If you're using the Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update management Center (preview) operations such as Check for updates, One-time update, Schedule updates, or Periodic assessment to validate if the virtual machines are supported for guest patching and then initiate patching if the VMs are supported.
 
-Unlike PIR/marketplace images where support is validated even before Update management center operation is triggered. Here, there are no pre-existing validations in place and the Update management center operations are triggered and only their success or failure determines support. 
+Unlike marketplace images where support is validated even before Update management center operation is triggered. Here, there are no pre-existing validations in place and the Update management center operations are triggered and only their success or failure determines support. 
 
 For instance, assessment call, will attempt to fetch the latest patch that is available from the image's OS family to check support. It stores this support-related data in Azure Resource Graph (ARG) table, which you can query to see the support status for your Azure Compute Gallery image.
-
-> [!NOTE]
-> - Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic VM guest patching for generalized custom images is not supported.
-> - [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery) are not supported. 
 
 
 ## Enable Subscription for Public Preview
@@ -85,8 +84,8 @@ We recommend that you execute the Assess Patches API once the VM is provisioned 
     | Images | **Currently supported scenarios** | **Unsupported scenarios** |
     |--- | --- | ---|
     | **Azure Compute Gallery: Generalized images** | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Scheduled patching | Automatic VM guest patching | 
-    | **Azure Compute Gallery: Specialized images** | - On demand assessment </br> - On demand patching </br>   - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
-    | **Non-Azure Compute Gallery images (non-SIG)** | None | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Schedule patching </br> - Automatic VM guest patching |
+    | **Azure Compute Gallery: Specialized images** | - On demand assessment </br> - On demand patching | - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
+    | **Non-Azure Compute Gallery images (non-SIG)** | None | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching |
     
 1. Automatic VM guest patching will not work on Azure Compute Gallery images even if Patch orchestration mode is set to **Azure orchestrated/AutomaticByPlatform**. You can use scheduled patching to patch the machines and define your own schedules.
 

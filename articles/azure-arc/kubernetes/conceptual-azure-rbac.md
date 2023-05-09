@@ -1,13 +1,15 @@
 ---
-title: "Azure RBAC - Azure Arc-enabled Kubernetes"
-ms.date: 12/09/2022
+title: "Azure RBAC on Azure Arc-enabled Kubernetes (preview)"
+ms.date: 05/04/2023
 ms.topic: conceptual
-description: "This article provides a conceptual overview of Azure RBAC capability on Azure Arc-enabled Kubernetes."
+description: "This article provides a conceptual overview of the Azure RBAC capability on Azure Arc-enabled Kubernetes."
 ---
 
-# Azure RBAC on Azure Arc-enabled Kubernetes
+# Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This allows the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource, can be used with your Azure Arc-enabled Kubernetes cluster.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This allows the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource, to be used with your Azure Arc-enabled Kubernetes cluster.
+
+[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Architecture
 
