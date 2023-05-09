@@ -102,7 +102,6 @@ If you want to call an API other than Microsoft Graph, *Microsoft.Identity.Web* 
    - The name of a service (api): you use this name in your controller actions to reference the corresponding configuration
    - a configuration section representing the parameters used to call the downstream web API.
 
-Here's the code:
 
    ```csharp
    using Microsoft.Identity.Web;
