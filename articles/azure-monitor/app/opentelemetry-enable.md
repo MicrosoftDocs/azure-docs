@@ -136,10 +136,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
-    //Uncomment the line below when setting the Application Insights Connection String via code
-    //options.ConnectionString = "<Your Connection String>";
-});
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
