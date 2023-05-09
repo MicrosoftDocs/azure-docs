@@ -24,10 +24,6 @@ Use one of the following three ways to configure the connection string:
 
 - Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
     ```csharp
-    using Azure.Monitor.OpenTelemetry.AspNetCore;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.Extensions.DependencyInjection;
-
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
