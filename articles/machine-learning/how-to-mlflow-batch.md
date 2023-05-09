@@ -31,11 +31,12 @@ This example shows how you can deploy an MLflow model to a batch endpoint to per
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch/deploy-models/heart-classifier-mlflow` if you are using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow` if you are using our SDK for Python.
+[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+
+The files for this example are in:
 
 ```azurecli
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch/deploy-models/heart-classifier-mlflow
+cd endpoints/batch/deploy-models/heart-classifier-mlflow
 ```
 
 ### Follow along in Jupyter Notebooks
