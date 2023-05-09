@@ -103,11 +103,8 @@ Select the API version to **2022-06-01** or later version.
 
 As next step, copy the URL as request URL and add or change the integrationDataStore with target storage account name.
 
-After you've completed this final step, you're ready to import data using $import.
+After you've completed this final step, you're ready to import data using $import, in parallel with API calls. 
 
-You can also use the **Deploy to Azure** button below to open custom Resource Manager template that updates the configuration for $import.
-
- [![Deploy to Azure Button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
 ## Next steps
 
 In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
