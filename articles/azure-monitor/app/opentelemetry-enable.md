@@ -130,10 +130,6 @@ To enable Azure Monitor Application Insights, you will make a minor modification
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
 
 ```csharp
-using Azure.Monitor.OpenTelemetry.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
@@ -1291,10 +1287,6 @@ app.Run();
 Add `ActivityEnrichingProcessor.cs` to your project with the following code:
 
 ```csharp
-using System.Diagnostics;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
     public override void OnEnd(Activity activity)
@@ -1563,10 +1555,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     Add `ActivityFilteringProcessor.cs` to your project with the following code:
     
     ```csharp
-    using System.Diagnostics;
-    using OpenTelemetry;
-    using OpenTelemetry.Trace;
-    
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
         public override void OnStart(Activity activity)
