@@ -20,7 +20,7 @@ sections:
       - question: |
           Can I get a discount if I already have a Microsoft Defender for Endpoint license?
         answer: |
-          If you already have a license for **Microsoft Defender for Endpoint for Servers Plan 2**, you won't have to pay for that part of your Microsoft Defender for Servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
+          If you already have a license for **Microsoft Defender for Endpoint**, you won't have to pay for that part of your Microsoft Defender for Servers Plan 1 or 2 license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
           To request your discount, contact the Defender for Cloud support team through the Azure portal by creating a new support request in the help and support center.
 
