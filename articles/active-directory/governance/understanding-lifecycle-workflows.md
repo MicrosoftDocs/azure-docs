@@ -135,9 +135,10 @@ After selecting a template, on the basics screen:
 
 The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -180 and 180 days. 
 
-The time-based attribute can be either one of two values, which are automatically chosen based on the template in which you select during the creation of your workflow. The two values can be:
+The time-based attribute can be either one of two values, which are automatically chosen based on the template in which you select during the creation of your workflow. The three values can be:
 
 - employeeHireDate: If the template is a joiner workflow.
+- createdDateTime: if the template is a joiner workflow designed to run either on hire or post onboarding.
 - employeeLeaveDateTime: If the template is a leaver workflow.
 
 These two values must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
