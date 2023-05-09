@@ -69,11 +69,11 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
 }
 ```
 
-Replace:
+Replace the following placeholders as shown::
 
-- `Enter_the_Application_Id_Here` which your application (client) ID.
-- `Enter_the_Tenant_Id_Here` with your Directory (tenant) ID.
-- `Enter_the_Tenant_Subdomain_Here` with the Directory (tenant) subdomain. For example, if your primary domain is *contoso.onmicrosoft.com*, replace `Enter_the_Tenant_Subdomain_Here` with *contoso*. 
+- Replace `Enter_the_Application_Id_Here` with your application (client) ID.
+- Replace `Enter_the_Tenant_Id_Here` with your Directory (tenant) ID.
+- Replace `Enter_the_Tenant_Subdomain_Here` with your Directory (tenant) subdomain. For example, if your primary domain is *contoso.onmicrosoft.com*, replace `Enter_the_Tenant_Subdomain_Here` with *contoso*. 
 
 If you don't have these values, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details)
 
