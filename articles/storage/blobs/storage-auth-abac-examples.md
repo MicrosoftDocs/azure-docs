@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/25/2023
+ms.date: 05/09/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1502,7 +1502,7 @@ Use the values in the following table to build the expression portion of the con
 > | Value | `container1` |
 > | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
 > | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [Subnet](storage-auth-abac-attributes.md#subnet-name) |
+> | Attribute | [Subnet](storage-auth-abac-attributes.md#subnet) |
 > | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default` |
 
