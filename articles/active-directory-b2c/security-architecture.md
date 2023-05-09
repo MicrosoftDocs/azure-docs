@@ -81,7 +81,7 @@ After you create a sign-in experience, or user flow, you'll need to protect spec
 After you create a sign-up experience, or user flow, you need to protect specific components of your flow from malicious activity. If your sign in flow involves the following, then, the table shows the components you need to protect, and associated protection technique:
 
 - Local account email and password sign-up
-- Email verification via email OTP
+- Email verification using email OTP
 - Azure AD Multi-Factor Authentication using SMS or phone call
 
 |Component |Endpoint|How to protect|
