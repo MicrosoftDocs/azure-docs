@@ -139,7 +139,56 @@ You'll run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default stora
 
 1. Check **Notifications** to see the progress.
 
+## Create custom AVS storage policy
+You'll run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy.
+This function creates a new or overwrites an existing vSphere Storage Policy. Non vSAN-Based, vSAN Only, VMEncryption Only, Tag Only based and/or any combination of these policy types are supported.
+> [!NOTE]
+> You cannot modify existing AVS default storage policies.
+> Certain options enabled in storage policies will produce warnings to associated risks.
 
+1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Overwrite** | Overwrite existing Storage Policy.  <ul><li>Default is $false. <li>Passing overwrite true provided will overwrite an existing policy exactly as defined. <li>Those values not passed will be removed or set to default values. </ul></li>|
+   | **NotTags** | Match to datastores that do NOT have these tags. <ul><li>Tags are case sensitive. <li>Comma seperate multiple tags. <li> Example: Tag1,Tag 2,Tag_3 | <ul><li>
+   | **Tags** | Match to datastores that do have these tags.  <ul><li> Tags are case sensitive. <li>Comma seperate multiple tags. <li>Example: Tag1,Tag 2,Tag_3 </ul></li>|
+   | **vSANForceProvisioning** | Default is $false. <ul><li> Force provisioning for the policy. <li> Valid values are $true or $false <li>**WARNING** - vSAN Force Provisioned Objects are not covered under Microsoft SLA.  Data LOSS and vSAN instability may occur. <li>Recommended value is $false.</ul></li> |
+   | **vSANChecksumDisabled** | Default is $false. <ul><li> Enable or disable checksum for the policy. <li>Valid values are $true or $false. <li> **WARNING** - Disabling checksum may lead to data LOSS and/or corruption. <li> Recommended value is $false.</ul></li> |
+   | **vSANCacheReservation** | Default is 0. <ul><li>Valid values are 0..100. <li>Percentage of cache reservation for the policy.</ul></li> |
+   | **vSANIOLimit** | Default is unset. <ul><li>Valid values are 0..2147483647. <li>IOPS limit for the policy.</ul></li> |
+   | **vSANDiskStripesPerObject** | Default is 1.  Valid values are 1..12. <ul><li>The number of HDDs across which each replica of a storage object is striped. <li>A value higher than 1 may result in better performance (for e.g. when flash read cache misses need to get serviced from HDD), but also results in higher use of system resources.</ul></li> |
+   | **vSANObjectSpaceReservation** | Default is 0.  Valid values are 0..100. <ul><li>Object Reservation. <li>0=Thin Provision <li>100=Thick Provision</ul></li> |
+   | **VMEncryption** | Default is None.  <ul><li> Valid values are None, PreIO, PostIO. <li>PreIO allows VAIO filtering solutions to capture data prior to VM encryption. <li>PostIO allows VAIO filtering solutions to capture data after VM encryption.</ul></li> |
+   | **vSANFailuresToTolerate** | Default is "R1FTT1". <ul><li> Valid values are "None", "R1FTT1", "R1FTT2", "R1FTT3", "R5FTT1", "R6FTT2", "R1FTT3" <li> None = No Data Redundancy<li> R1FTT1 = 1 failure - RAID-1 (Mirroring)<li> R1FTT2 = 2 failures - RAID-1 (Mirroring)<li> R1FTT3 = 3 failures - RAID-1 (Mirroring)<li> R5FTT1 = 1 failure - RAID-5 (Erasure Coding), <li> R6FTT2 = 2 failures - RAID-6 (Erasure Coding) <li> No Data Redundancy options are not covered under Microsoft SLA. </li></ul>|
+   | **vSANSiteDisasterTolerance** | Default is "None". <ul><li> Valid Values are "None", "Dual", "Preferred", "Secondary", "NoneStretch" <li> None = No Site Redundancy (Recommended Option for Non-Stretch Clusters, NOT recommended for Stretch Clusters) <li> Dual = Dual Site Redundancy (Recommended Option for Stretch Clusters) <li> Preferred = No site redundancy - keep data on Preferred (stretched cluster) <li> Secondary = No site redundancy -  Keep data on Secondary Site (stretched cluster) <li>NoneStretch = No site redundancy - Not Recommended (https://kb.vmware.com/s/article/88358)<li> Only valid for stretch clusters.</li></ul> |
+   | **Description** | Description of Storage Policy you are creating, free form text. |
+   | **Name** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **New-AVSStoragePolicy-Exec1**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+
+1. Check **Notifications** to see the progress.
+
+## Remove AVS Storage Policy
+
+You'll run the `Remove-AVSStoragePolicy` cmdlet to specify default storage policy for a cluster,
+
+
+1. Select **Run command** > **Packages** > **Remove-AVSStoragePolicy**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Name** | Name of Storage Policy. Wildcards are not supported and will be stripped. |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **Remove-AVSStoragePolicy-Exec1**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+
+1. Check **Notifications** to see the progress.
 
 ## Next steps
 

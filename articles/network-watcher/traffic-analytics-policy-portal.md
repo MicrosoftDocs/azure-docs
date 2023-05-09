@@ -6,14 +6,14 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 04/30/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Manage Azure Network Watcher traffic analytics using Azure Policy 
+# Manage traffic analytics using Azure Policy 
 
-Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, you learn how to use three built-in policies available for [traffic analytics](./traffic-analytics.md) to manage your setup.
+Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, you learn how to use three built-in policies available for [Azure Network Watcher traffic analytics](./traffic-analytics.md) to manage your setup.
 
 To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 

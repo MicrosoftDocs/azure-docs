@@ -200,7 +200,7 @@
       - name: Azure Functions 
         href: reliability-functions.md
       - name: Azure HDInsight
-        href: ../hdinsight/hdinsight-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-hdinsight.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Image Builder
@@ -218,7 +218,7 @@
       - name: Azure Network Watcher
         href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
       - name: Azure Notification Hubs
-        href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../notification-hubs/notification-hubs-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Private Link
         href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
