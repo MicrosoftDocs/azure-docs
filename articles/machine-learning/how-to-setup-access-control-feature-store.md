@@ -17,7 +17,7 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure Machine Learning for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
 
-## Identities and roles
+## Identities and user types
 
 Azure Machine Learning supports role-based access control for the following managed feature store resources:
 
@@ -25,7 +25,7 @@ Azure Machine Learning supports role-based access control for the following mana
 - feature store entity
 - feature set
 
-To control access to these resources, create the following roles. For each role, the identity can be either an Azure Active Directory identity, a service principal, or an Azure managed identity (both system managed and user assigned).
+To control access to these resources, consider the user types below. For each user type, the identity can be either an Azure Active Directory identity, a service principal, or an Azure managed identity (both system managed and user assigned).
 
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
@@ -33,7 +33,7 @@ To control access to these resources, create the following roles. For each role,
 |`feature set consumer`     |who can use defined feature sets in their machine learning lifecycle.     |[Permissions required for the `feature set consumer` role](#permissions-required-for-the-feature-set-consumer-role)        |
 |`feature set developer`    |who can create/update feature sets, or set up materializations such as backfill and recurrent jobs.    | [Permissions required for the `feature set developer` role](#permissions-required-for-the-feature-set-developer-role)        |
 
-If materialization is enabled on your feature store, you must also create the following role:
+If materialization is enabled on your feature store, the following permissions are also required:
 
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
@@ -90,7 +90,6 @@ If you want to avoid using the `AzureML Data Scientist` role, you can use these 
 |Scope| Action/Role|
 |----|------|
 | the feature store | Microsoft.MachineLearningServices/featurestores/read  |
-| the feature store | Microsoft.MachineLearningServices/featurestores/checkNameAvailability/read |
 | the feature store | Microsoft.MachineLearningServices/workspaces/featuresets/read |
 | the feature store | Microsoft.MachineLearningServices/workspaces/featurestoreentities/read |
 | the feature store | Microsoft.MachineLearningServices/workspaces/datastores/listSecrets/action |
@@ -149,27 +148,9 @@ Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show fe
 
 There's no ACL for instances of a feature store entity and a feature set. 
 
-## Users types and responsibilities
-
-Following are the kind of users who use the feature store:
-1. __Feature producers__ (for example, dta scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
-    * Managing lifecycle of features: From creation to retirement/archival
-    * Setting up materialization and backfill of features
-    * Monitoring feature freshness and quality
-1. __Feature consumers__ (for example, data scientist and machine learning engineers): They work primarily with in a project workspace and use features: 
-    * Discovering features for reuse in model
-    * Experimenting with features during training to see if it improves model performance
-    * Setting up training/inference pipelines to use the features
-1. __Admins__: They're typically responsible for:
-    * Managing lifecycle of feature store (creation to retirement)
-    * Managing lifecycle of user access to feature store
-    * Configuring feature store: quota and storage (offline/online stores)
-    * Managing costs
-
-In many organizations same person may wear multiple hats. For for example, the same person can both be a feature producer and consumer.
-
 ## Next steps
 
 - [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md)
 - [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
 - [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md)
+
