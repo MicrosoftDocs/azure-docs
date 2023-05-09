@@ -27,8 +27,8 @@ File access logs provide file access logging for individual volumes, capturing f
 
 * Once file access logs are enabled on a volume, they can take up to five minutes to become visible. 
 * File access logs occasionally create duplicate logs that must be manually filtered. 
-* If you delete any diagnostic settings configured for `ANFFileAccess`, it will cause file access logs for any volumes with that setting to be disabled. 
-* Before enabling file access logs on a volume, either [ACLs](configure-access-control-lists.md) or Audit ACEs need to be set on a file or directory. ACLs or Audit ACEs must be set after mounting a volume.  
+* If you delete any diagnostic settings configured for `ANFFileAccess`, it will disable file access logs for any volumes with that setting. 
+* Before enabling file access logs on a volume, either [ACLs](configure-access-control-lists.md) or Audit ACEs need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
 ## Recognized events
@@ -40,7 +40,7 @@ The events capture in file access logs depend on the protocol your volume uses.
 * Create
 * Get attributes
 * Link
-* Nverify
+* `Nverify`
 * Open
 * Open attribute
 * Read
@@ -86,15 +86,15 @@ While in preview, file access logs is supported in:
 
 You must set system access control lists (SACLs) for SMB shares or Audit ACEs (for NFSv4.1 shares) for auditing. 
 
-After mounting the volume, SACLs (in case of an SMB/CIFS share) or Audit ACEs (in case of an NFSv4 mount) needs to be set on files/directories for auditing of file operations to happen on the volume. 
+After mounting the volume, SACLs (for an SMB/CIFS share) or Audit ACEs (for an NFSv4.1 mount) needs to be set on files/directories for auditing of file operations to happen on the volume. 
 
 ### [Set SACLs for SMB shares](#tab/sacls-smb)
 
 There are three ways to set SACLs for access logs. 
 
-If you are logging access events on all files and directories within a volume or qtree, set SACLs by applying Storage-Level Access Guard security. 
+If you're logging access events on all files and directories within a volume, set SACLs by applying Storage-Level Access Guard security. 
 
-If you are logging access events on individual files and directories, setting of SACLs with:
+If you're logging access events on individual files and directories, setting of SACLs with:
 * The Windows Explorer GUI
 * The `fsecurity` command 
 
@@ -116,7 +116,7 @@ To enable logging access on individual files and directories, complete the follo
 
 Configure logging for UNIX security style files and directories by adding audit ACEs to NFSv4.1 ACLs to monitoring of certain NFS file and directory access events for security purposes. 
 
-For NFSv4.1, both discretionary and system ACEs are stored in the same ACL. They are not stored in separate DACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
+For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not separate DACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
 
 For steps, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
 
