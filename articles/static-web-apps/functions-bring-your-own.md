@@ -21,6 +21,14 @@ This article demonstrates how to link an existing Azure Functions app to an Azur
 >
 > Backend integration is not supported on Static Web Apps [pull request environments](review-publish-pull-requests.md).
 
+## Prerequisites
+
+To link a function app to your static web app, you need to have an existing Azure Functions resource and a static web app.
+
+| Resource | Description |
+|---|---|
+| [Azure Functions](/azure/azure-functions/functions-get-started) | If you don't already have one, follow the steps in the [Getting started with Azure Functions](/azure/azure-functions/functions-get-started) guide. |
+| [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app. |
 
 ## Example
 
@@ -36,7 +44,7 @@ Once linked, you can access that same endpoint through the `api` path from your 
 https://red-sea-123.azurestaticapps.net/api/getProducts
 ```
 
-Both endpoint URLs point to the same function.
+Both endpoint URLs point to the same function. Note that the endpoint on the function app must have the `/api` prefix, since Static Web Apps matches requests made to `/api` and proxies the entire path to the linked resource.
 
 ## Link an existing Azure Functions app
 

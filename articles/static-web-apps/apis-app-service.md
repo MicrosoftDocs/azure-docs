@@ -26,6 +26,33 @@ All Azure App Service hosting plans are available for use with Azure Static Web 
 >
 > Backend integration is not supported on Static Web Apps [pull request environments](review-publish-pull-requests.md).
 
+## Prerequisites
+
+To link an App Service to your static web app, you need to have an existing App Service resource and a static web app.
+
+| Resource | Description |
+|---|---|
+| [Azure App Service](/azure/app-service/quickstart-nodejs) | If you don't already have one, follow the steps in the [Create a web app in Azure
+](/azure/app-service/quickstart-nodejs) guide. |
+| [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app. |
+
+## Example
+
+Consider an existing Azure App Service instance that exposes an endpoint via the following location.
+
+```url
+https://my-web-app.azurewebsites.net/api/getProducts
+```
+
+Once linked, you can access that same endpoint through the `api` path from your static web app, as shown in this example URL.
+
+```url
+https://red-sea-123.azurestaticapps.net/api/getProducts
+```
+
+Both URLs point to the same API endpoint. Note that the endpoint on the App Service must have the `/api` prefix, since Static Web Apps matches requests made to `/api` and proxies the entire path to the linked resource.
+
+
 ## Link an Azure App Service Web App
 
 To link a web app as the API backend for a static web app, follow these steps:
