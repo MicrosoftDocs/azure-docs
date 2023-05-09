@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 05/09/2022
 ms.author: helohr
 manager: femila
 ---
@@ -214,7 +214,7 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 ## Windows Event Logs
 
-Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by the Azure Monitor Agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 The following table lists the required Windows Event Logs for Azure Virtual Desktop Insights:
 
