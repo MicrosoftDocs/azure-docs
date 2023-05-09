@@ -1,4 +1,4 @@
----
+--- 
 title: Govern access for external users in entitlement management
 description: Learn about the settings you can specify to govern access for external users in entitlement management.
 services: active-directory
@@ -65,7 +65,7 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. If the policy settings include an expiration date, then later when the access package assignment for the external user expires, the external user's access rights from that access package are removed.
 
-1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user is blocked from signing in and the guest user account is removed from your directory.
+1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user will be blocked from signing in, and the external user account will be removed from your directory.
 
 ## Settings for external users
 
@@ -127,7 +127,7 @@ To ensure people outside of your organization can request access packages and ge
 
 ## Manage the lifecycle of external users
 
-You can select what happens when an external user, who was invited to your directory through making an access package request, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires. By default, when an external user no longer has any access package assignments, they're blocked from signing in to your directory. After 30 days, their guest user account is removed from your directory.
+You can select what happens when an external user, who was invited to your directory through making an access package request, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires. By default, when an external user no longer has any access package assignments, they're blocked from signing in to your directory. After 30 days, their guest user account is removed from your directory.  You can also configure that an external user is not blocked from sign in or deleted, or that an external user is not blocked from sign in but is deleted (preview).
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
@@ -144,14 +144,14 @@ You can select what happens when an external user, who was invited to your direc
 1. Once an external user loses their last assignment to any access packages, if you want to block them from signing in to this directory, set the **Block external user from signing in to this directory** to **Yes**.
 
     > [!NOTE]
-    > If a user is blocked from signing in to this directory, then the user will be unable to re-request the access package or request additional access in this directory. Do not configure blocking them from signing in if they will subsequently need to request access to other access packages.
+    > Entitlement management only blocks accounts from signing in that were invited through entitlement management. Also, note that a user will be blocked from signing in even if that user was added to resources in this directory that were not access package assignments. If a user is blocked from signing in to this directory, then the user will be unable to re-request the access package or request additional access in this directory. Do not configure blocking them from signing in if they will subsequently need to request access to this or other access packages.
 
 1. Once an external user loses their last assignment to any access packages, if you want to remove their guest user account in this directory, set **Remove external user** to **Yes**.
 
     > [!NOTE]
-    > Entitlement management only removes accounts that were invited through entitlement management. Also, note that a user will be blocked from signing in and removed from this directory even if that user was added to resources in this directory that were not access package assignments. If the guest was present in this directory prior to receiving access package assignments, they will remain. However, if the guest was invited through an access package assignment, and after being invited was also assigned to a OneDrive for Business or SharePoint Online site, they will still be removed.
+    > Entitlement management only removes accounts that were invited through entitlement management. Also, note that a user will be removed from this directory even if that user was added to resources in this directory that were not access package assignments. If the guest was present in this directory prior to receiving access package assignments, they will remain. However, if the guest was invited through an access package assignment, and after being invited was also assigned to a OneDrive for Business or SharePoint Online site, they will still be removed.
 
-1. If you want to remove the guest user account in this directory, you can set the number of days before it's removed. If you want to remove the guest user account as soon as they lose their last assignment to any access packages, set **Number of days before removing external user from this directory** to **0**.
+1. If you want to remove the guest user account in this directory, you can set the number of days before it's removed.  While an external user is notified when their access package expires, there is no notification when their account is removed. If you want to remove the guest user account as soon as they lose their last assignment to any access packages, set **Number of days before removing external user from this directory** to **0**.
 
 1. Select **Save**.
 
