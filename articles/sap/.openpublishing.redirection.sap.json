@@ -737,7 +737,7 @@
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
       "redirect_url": "/azure/sap/workloads/hana-vm-troubleshoot-scale-out-ha-on-sles",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
