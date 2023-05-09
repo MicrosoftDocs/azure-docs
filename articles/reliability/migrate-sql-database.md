@@ -61,8 +61,6 @@ Follow the steps below to perform migration for a single database or an elastic 
 
 1. Under the **Availability** section, confirm that zone redundancy is set to **Enabled**.   
 
-
-1. Select the data
 # [PowerShell](#tab/powershell)
 
 Open PowerShell as Administrator and run the following command (replace the placeholders in "<>" with your resource names):
@@ -127,6 +125,7 @@ Use Azure CLI to run the following command (replace the placeholders in "<>" wit
 # [ARM](#tab/arm)
 
 To enable zone redundancy, see [Elastic Pools - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/elastic-pools/create-or-update?tabs=HTTP). 
+
 ---
 
 ## Option 2: Redeployment (Hyperscale)
