@@ -1,16 +1,17 @@
 ---
-title: 'CLI (v2) schedule YAML schema'
+title: 'CLI (v2) schedule YAML schema for model monitoring'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) schedule YAML schema.
+description: Reference documentation for the CLI (v2) schedule YAML schema for model monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
+ms.custom: cliv2
 author: bozhong68
 ms.author: bozhlin
 ms.date: 05/07/2023
 ms.reviewer: mopeakande
+reviewer: msakande
 ---
 
 # CLI (v2) schedule YAML schema for model monitoring (preview)
@@ -30,8 +31,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `version` | string | Version of the schedule. If omitted, Azure Machine Learning will autogenerate a version. | |
 | `description` | string | Description of the schedule. | |
 | `tags` | object | Dictionary of tags for the schedule. | |
-| `trigger` | object | The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |
-| `create_monitor` | object | **Required.** The definition of the monitor that will be triggered by a  schedule. **`MonitorDefinition` is required.**| |
+| `trigger` | object | **Required.** The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |
+| `create_monitor` | object | **Required.** The definition of the monitor that will be triggered by a schedule. **`MonitorDefinition` is required.**| |
 
 ### Trigger configuration
 
@@ -42,8 +43,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `type` | string | **Required.** Specifies the schedule type. |recurrence|
 |`frequency`| string | **Required.** Specifies the unit of time that describes how often the schedule fires.|`minute`, `hour`, `day`, `week`, `month`|
 |`interval`| integer | **Required.** Specifies the interval at which the schedule fires.| |
-|`start_time`| string |Describes the start date and time with timezone. If start_time is omitted, the first job will run instantly and the future jobs will be triggered based on the schedule, saying start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.|
-|`end_time`| string |Describes the end date and time with timezone. If end_time is omitted, the schedule will continue to run until it's explicitly disabled.|
+|`start_time`| string |Describes the start date and time with timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will be triggered based on the schedule, saying `start_time` will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.|
+|`end_time`| string |Describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue to run until it's explicitly disabled.|
 |`timezone`| string |Specifies the time zone of the recurrence. If omitted, by default is UTC. |See [appendix for timezone values](#timezone)|
 |`pattern`|object|Specifies the pattern of the recurrence. If pattern is omitted, the job(s) will be triggered according to the logic of start_time, frequency and interval.| |
 
@@ -75,34 +76,34 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | -----| -----------  | -------------- | -------------|
-| `compute` | Object | **Required**. Description of compute resources for Spark pool to run monitoring job | | |
+| `compute` | Object | **Required**. Description of compute resources for Spark pool to run monitoring job. | | |
 | `compute.instance_type` | String |**Required**. The compute instance type to be used for Spark pool. | 'standard_e4s_v3', 'standard_e8s_v3', 'standard_e16s_v3', 'standard_e32s_v3', 'standard_e64s_v3' | n/a |
 | `compute.runtime_version` | String | **Optional**. Defines Spark runtime version. | `3.1`, `3.2` | `3.2`|
-| `monitoring_target` | Object | AzureML asset(s) associated with model monitoring | | |
-| `monitoring_target.endpoint_deployment_id` | String | **Optional**. The associated AzureML endpoint/deployment ID in format of `azureml:myEnpointName:myDeploymentName`. This field is required if your endpoint/deployment has enabled model data collection to be used for model monitoring | | |
+| `monitoring_target` | Object | Azure Machine Learning asset(s) associated with model monitoring. | | |
+| `monitoring_target.endpoint_deployment_id` | String | **Optional**. The associated Azure Machine Learning endpoint/deployment ID in format of `azureml:myEnpointName:myDeploymentName`. This field is required if your endpoint/deployment has enabled model data collection to be used for model monitoring. | | |
 | `monitoring_target.model_id` | String | **Optional**. The associated model ID for model monitoring. | | |
-| `monitoring_signals` | Object | Dictionary of monitoring signals to be included. The key is a name for monitoring signal within the context of monitor and the value is an object containing a [monitoring signal specification](#monitoring-signals). **Optional** for basic model monitoring which uses recent past production data as comparison baseline and has 3 monitoring signals: data drift, prediction drift, and data quality. | | |
-| `alert_notification` | Object | Description of alert notification recepients. |  |  |
+| `monitoring_signals` | Object | Dictionary of monitoring signals to be included. The key is a name for monitoring signal within the context of monitor and the value is an object containing a [monitoring signal specification](#monitoring-signals). **Optional** for basic model monitoring that uses recent past production data as comparison baseline and has 3 monitoring signals: data drift, prediction drift, and data quality. | | |
+| `alert_notification` | Object | Description of alert notification recipients. |  |  |
 | `alert_notification.emails` | Object | List of email addresses to receive alert notification. | | |
 
-### Monitoring Singals
+### Monitoring Signals
 
 #### Data Drift
 
 | Key | Type | Description | Allowed values | Default value |
-| --- | --- | ------------| --------------| ----------|
-| `type` | String | **Required**. Type of monitoring signal. Pre-built monitoring singal processing component is automatically loaded according to the `type` specified here | `data_drift` | `data_drift` |
+| --- | ---- | ------------| ---------------| --------------|
+| `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here. | `data_drift` | `data_drift` |
 | `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for moniotring signal. | | |
-| `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
+| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
+| `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
-| `target_dataset.lookback_period_days` | Integer |Lookback window to include additional data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period is not enough or skewed. | | |
-| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this is not specified. Recommendation is to use training data as comparison baseline. | | |
+| `target_dataset.lookback_period_days` | Integer |Lookback window to include extra data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period isn't enough or skewed. | | |
+| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `training`, `test`, `validation` |  |
 | `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
-| `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thounsands of features, it is always recommeneded to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
+| `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
 | `data_segment` | Object | **Optional**. Description of specific data segment to be monitored for data drift. | | |
 | `data_segment.feature_name` | String | The name of feature used to filter for data segment. | | |
 | `data_segment.feature_values` | Array | list of feature values used to filter for data segment | | |
@@ -112,18 +113,18 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
 | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
- #### Prediction Drift
+#### Prediction Drift
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
-| `type` | String | **Required**. Type of monitoring signal. Pre-built monitoring singal processing component is automatically loaded according to the `type` specified here | `prediction_drift` | `prediction_drift`|
+| `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `prediction_drift` | `prediction_drift`|
 | `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for moniotring signal. | | |
+| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_outputs` |  |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
-| `target_dataset.lookback_period_days` | Integer |Lookback window to include additional data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period is not enough or skewed. | | |
-| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this is not specified. Recommendation is to use training data as comparison baseline. | | |
+| `target_dataset.lookback_period_days` | Integer |Lookback window to include extra data in current monitoring run. This is useful if you want model monitoring to run more frequently but the production data within monitoring period isn't enough or skewed. | | |
+| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset come from | `model_inputs`, `model_outputs`, `test`, `validation` |  | |
 | `baseline_dataset.target_column_name` | String | The name of target column. | | |
@@ -134,49 +135,48 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
 | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
- #### Data Quality
+#### Data Quality
 
  | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
-| `type` | String | **Required**. Type of monitoring signal. Pre-built monitoring singal processing component is automatically loaded according to the `type` specified here |`data_quality` | `data_quality`|
+| `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here |`data_quality` | `data_quality`|
 | `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for moniotring signal. | | |
+| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs`, `model_outputs` |  | |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
-| `target_dataset.lookback_period_days` | Integer |Lookback window to include additional data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period is not enough or skewed. | | |
-| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this is not specified. Recommendation is to use training data as comparison baseline. | | |
+| `target_dataset.lookback_period_days` | Integer |Lookback window to include extra data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period isn't enough or skewed. | | |
+| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
 | `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
-| `features` | Object | **Optional**. Target features to be monitored for data quality. Some models might have hundreds or thounsands of features, it is always recommeneded to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default to `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
+| `features` | Object | **Optional**. Target features to be monitored for data quality. Some models might have hundreds or thousands of features. It's always recommeneded to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default to `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | |By default, the object contains following `numerical` and ` categorical` metrics: `null_value_rate`, `data_type_error_rate`, and `out_of_bounds_rate` |
-| `metric_thresholds.applicable_feature_type` | String | Feathre type that the metric will be applied to. | `numerical` or `categorical`| |
+| `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` and `categorical` metric names are: `null_value_rate`, `data_type_error_rate`, `out_of_bound_rate` | |
 | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
- #### Feature Attribution Drift
+#### Feature Attribution Drift
 
- | Key | Type | Description | Allowed values | Default value |
+| Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
-| `type` | String | **Required**. Type of monitoring signal. Pre-built monitoring singal processing component is automatically loaded according to the `type` specified here | `feature_attribution_drift` |  `feature_attribution_drift` |
+| `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `feature_attribution_drift` |  `feature_attribution_drift` |
 | `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for moniotring signal. | | |
+| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
-| `target_dataset.dataset.dataset_context` | String | The context of data, it refers production model inputs data | `model_inputs` |  |
+| `target_dataset.dataset.dataset_context` | String | The context of data. It refers to production model inputs data. | `model_inputs` |  |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
-| `target_dataset.lookback_period_days` | Integer |Lookback window to include additional data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period is not enough or skewed. | | |
+| `target_dataset.lookback_period_days` | Integer |Lookback window to include extra data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period isn't enough or skewed. | | |
 | `baseline_dataset` | Object | **Required**. It must be `training` data. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `training` |  |
 | `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#setup-model-monitoring-with-your-own-production-inference-data). | | |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `normalized_discounted_cumulative_gain` metric with threshold of `0.02`|
- ! `metric_thresholds.applicable_feature_type` | String | Feathre type that the metric will be applied to. | `all_feature_types` | `all feature_types` |
+ ! `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `all_feature_types` | `all feature_types` |
  | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | `normalized_discounted_cumulative_gain` | `normalized_discounted_cumulative_gain' |
  | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | `0.02` |
-
 
 ## Remarks
 
@@ -184,7 +184,7 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). A couple are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). A couple are as follows:
 
 ## YAML: Schedule with recurrence pattern
 
