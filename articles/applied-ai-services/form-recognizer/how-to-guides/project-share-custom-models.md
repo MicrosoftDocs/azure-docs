@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 05/08/2023
 ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
 ---
