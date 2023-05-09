@@ -18,6 +18,9 @@ ms.custom: it-pro
 
 Azure Active Directory (Azure AD) for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
 
+To enable your application to sign in with Azure AD for customers, you need to register your app in the Azure AD for customers. The app registration establishes a trust relationship between the app and Azure AD for customers.
+During app registration, you specify the redirect URI. The redirect URI is the endpoint to which users are redirected by Azure AD for customers after they authenticate. The app registration process generates an application ID, also known as the client ID, that uniquely identifies your app.
+
 Azure AD for customers supports authentication for various modern application architectures, for example web app or single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
 In this article, you’ll learn how to register an application in your customer tenant.
@@ -31,10 +34,6 @@ In this article, you’ll learn how to register an application in your customer 
 
 # [Single-page app (SPA)](#tab/spa)
 ## How to register your Single-page app?
-
-To enable sign-in for your application, Azure Active Directory (Azure AD) for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and the customer tenant.
-
-During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Azure AD for customers. The app registration process also generates a unique identifier known as an **Application (client) ID**. Once registered, Azure AD for customers uses both values to create authentication requests.
 
 The following steps show you how to register your app in the admin center:
 
@@ -83,10 +82,6 @@ If you'd like to learn how to expose the permissions by adding a link, go to the
 
 # [Web app](#tab/webapp)
 ## How to register your Web app?
-
-To enable sign-in for your application, Azure Active Directory (Azure AD) for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and the customer tenant.
-
-During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Azure AD for customers. The app registration process also generates a unique identifier known as an **Application (client) ID**. Once registered, Azure AD for customers uses both values to create authentication requests.
 
 The following steps show you how to register your app in the admin center:
 
@@ -155,10 +150,6 @@ App roles enable the client app to obtain an access token as themselves. This is
 
 # [Desktop or Mobile app](#tab/desktopmobileapp)
 ## How to register your Desktop or Mobile app?
-
-To enable sign-in for your application, Azure Active Directory (Azure AD) for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and the customer tenant.
-
-During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Azure AD for customers. The app registration process also generates a unique identifier known as an **Application (client) ID**. Once registered, Azure AD for customers uses both values to create authentication requests.
 
 The following steps show you how to register your app in the admin center:
 
