@@ -42,7 +42,7 @@ As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-
 
 - You will need to enable at least one plan within Microsoft Defender for Cloud for each subscription where you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
 
-- You will need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) and the ways to register it. 
+- You will need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider.md) and the ways to register it.
 
 - To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
 
