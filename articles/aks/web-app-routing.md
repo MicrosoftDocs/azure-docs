@@ -63,15 +63,7 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
 
 ### Import certificate to Azure Key Vault
 
-Import the SSL certificate into Azure Key Vault.
-
-```azurecli-interactive
-az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
-```
-
-### Import certificate to Azure Key Vault 
-
-Import the SSL certificate into Azure Key Vault
+Import the SSL certificate into Azure Key Vault. If your certificate is password protected, you can pass the password through the `--password` flag.
 
 ```azurecli-interactive
 az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
