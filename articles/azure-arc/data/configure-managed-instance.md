@@ -73,7 +73,7 @@ The following example will scale down the number of replicas from 3 to 2.
 az sql mi-arc update --name sqlmi1 --replicas 2 --k8s-namespace mynamespace --use-k8s
 ```
 
-> [Note]
+> [!Note]
 > If you scale down from 2 replicas to 1 replica, you may run into a conflict with the pre-configured `--readable--secondaries` setting. You can first edit the `--readable--secondaries` before scaling down the replicas. 
 
 
@@ -89,7 +89,7 @@ Currently the following server options can be configured:
 - Cost threshold for parallelism
 - Optimize for ad hoc workloads
 
-> [Note]
+> [!Note]
 > - Currently these options can only be specified via YAML file, either during Arc SQL MI creation or post deployment.
 > - The Arc SQL MI image tag has to be at least version v1.19.x or above
 
