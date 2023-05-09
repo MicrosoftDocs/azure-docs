@@ -378,64 +378,64 @@ When you plan for and choose VMs to use in your SAP deployment, consider these f
 - Compare the SAPS requirement for the DBMS server with the SAPS that the different VM types of Azure can provide. The information about the SAPS of the different Azure VM types is documented in SAP Note [1928533]. The focus should be on the DBMS VM first because the database layer is the layer in an SAP NetWeaver system that doesn't scale out in most deployments. In contrast, the SAP application layer can be scaled out. Individual DBMS guides describe the recommended storage configurations.
 - Summarize your findings for:
 
-  - The number of Azure VMs you expect to use.
+  - The number of Azure VMs that you expect to use.
   - Individual VM family and VM SKUs for each SAP layer: DBMS, (A)SCS, and application server.
   - I/O throughput measures or calculated storage capacity requirements.
 
 ### HANA Large Instances service
 
-Azure provides other compute capabilities for running a large HANA database in both a scale-up and scale-out manner on a dedicated offering called HANA Large Instances. Details of this solution are described [SAP HANA on Azure Large Instances](../../sap/large-instances/hana-overview-architecture.md). This offering extends the VMs that are available in Azure.
+Azure offers compute capabilities to run a scale-up or  scale-out large HANA database on a dedicated offering called [SAP HANA on Azure Large Instances](../../sap/large-instances/hana-overview-architecture.md). This offering extends the VMs that are available in Azure.
 
 > [!NOTE]
-> The HANA Large Instance service is in sunset mode and doesn't accept new customers. Providing units for existing HANA Large Instance customers is still possible.
+> The HANA Large Instances service is in sunset mode and doesn't accept new customers. Providing units for existing HANA Large Instances customers is still possible.
 
 ## Storage for SAP on Azure
 
-Azure VMs use different storage options for persistence. In simple terms, they can be divided into persisted and temporary, or nonpersisted storage types.
+Azure VMs use various storage options for persistence. In simple terms, the VMs can be divided into persisted and temporary or non-persisted storage types.
 
-There are multiple storage options that can be used for SAP workloads and specific SAP components. For more information, read the document [Azure storage for SAP workloads](planning-guide-storage.md). The article covers the storage architecture for everything SAP - operating system, application binaries, configuration files, database data, log and traces and file interfaces with other applications, stored on disk or accessed on file shares.
+You can choose from multiple storage options for SAP workloads and for specific SAP components. For more information, see [Azure storage for SAP workloads](planning-guide-storage.md). The article covers the storage architecture for every part of SAP: operating system, application binaries, configuration files, database data, log and trace files, and file interfaces with other applications, whether stored on disk or accessed on file shares.
 
 ### Temporary disk on VMs
 
 Most Azure VMs for SAP offer a temporary disk that isn't a managed disk. Use a temporary disk *only* for expendable data. The data on a temporary disk might be lost during unforeseen maintenance events or during VM redeployment. The performance characteristics of the temporary disk make them ideal for swap/page files of the operating system.
 
-No application or nonexpendable operating system data should be stored on a temporary disk. In Windows environments, the temporary drive is typically accessed as D: drive. In Linux systems, */dev/sdb device*, */mnt*, or */mnt/resource* is often the mount point.
+No application or nonexpendable operating system data should be stored on a temporary disk. In Windows environments, the temporary drive is typically accessed as drive D. In Linux systems, the mount point often is */dev/sdb device*, */mnt*, or */mnt/resource*.
 
-Some VMs don't [offer a temporary drive](/azure/virtual-machines/azure-vms-no-temp-disk). If you plan to use these VM sizes for SAP, you might need to increase the size of the operating system disk. For more information, see SAP Note [1928533]. For VMs that have a temporary disk, see [Azure documentation for virtual machine families and sizes](/azure/virtual-machines/sizes) to get information about the temporary disk size and the IOPS and throughput limits for each VM family.
+Some VMs [don't offer a temporary drive](../../virtual-machines/azure-vms-no-temp-disk.yml). If you plan to use these VM sizes for SAP, you might need to increase the size of the operating system disk. For more information, see SAP Note [1928533]. For VMs that have a temporary disk, get information about the temporary disk size and the IOPS and throughput limits for each VM series in [Sizes for virtual machines in Azure](../../virtual-machines/sizes.md).
 
-It's important to understand that you can't directly resize between a VM family that has a temporary disk and a VM family that doesn't have a temporary disk. Currently, a resize between two such VM families fails. A resolution is to re-create the VM that doesn't have a temporary disk in the new size by using an operating system disk snapshot. Keep all other data disks and network interface. For details, see [Can I resize a VM size that has a local temp disk to a VM size with no local temp disk?](../../virtual-machines/azure-vms-no-temp-disk.yml#can-i-resize-a-vm-size-that-has-a-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---).
+You can't directly resize between a VM series that has a temporary disk and a VM series that doesn't have a temporary disk. Currently, a resize between two such VM families fails. A resolution is to re-create the VM that doesn't have a temporary disk in the new size by using an operating system disk snapshot. Keep all other data disks and the network interface. For details, see [Can I resize a VM size that has a local temp disk to a VM size with no local temp disk?](../../virtual-machines/azure-vms-no-temp-disk.yml#can-i-resize-a-vm-size-that-has-a-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---).
 
 ### Network shares and volumes for SAP
 
-SAP systems usually require one or more network file shares. These are typically:
+SAP systems usually require one or more network file shares. The file shares typically are one of the following options:
 
-- An SAP transport directory (*/usr/sap/trans*, *TRANSDIR*).
-- SAP volumes or shared *sapmnt* or *saploc* for deploying multiple application servers.
-- High-availability architecture volumes for (A)SCS, ERS, or database (*/hana/shared*).
-- File interfaces with third-party applications for file import and export.
+- An SAP transport directory (*/usr/sap/trans* or *TRANSDIR*).
+- SAP volumes or shared *sapmnt* or *saploc* volumes to deploy multiple application servers.
+- High-availability architecture volumes for SAP (A)SCS, SAP ERS, or a database (*/hana/shared*).
+- File interfaces that run third-party applications for file import and export.
 
-In these scenarios, we recommend that you use Azure services like [Azure Files](/azure/storage/files/storage-files-introduction) and [Azure NetApp Files](/azure/azure-netapp-files/). If these services aren't available in the regions you choose or if they aren't available for your solution architecture, alternatives are to provide NFS/SMB file shares from self-managed, VM-based applications or from third-party services. See SAP Note [2015553] about limitations in support if you use third-party services for storage layers in an SAP system in Azure.
+In these scenarios, we recommend that you use an Azure service, such as [Azure Files](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/index.yml). If these services aren't available in the regions you choose or if they aren't available for your solution architecture, alternatives are to provide NFS or SMB file shares from self-managed, VM-based applications or from third-party services. See SAP Note [2015553] about limitations to SAP support if you use third-party services for storage layers in an SAP system in Azure.
 
-Due to the often critical nature of network shares and because they often are a single point of failure in a design (high-availability) or process (file interface), we recommend that you rely on each Azure native service for its own availability, SLA, and resiliency. In the planning phase, it's important to consider these factors:
+Due to the often critical nature of network shares and because they often are a single point of failure in a design (for high availability) or process (for file interface), we recommend that you rely on each Azure native service for its own availability, SLA, and resiliency. In the planning phase, it's important to consider these factors:
 
-- NFS/SMB share design, including which shares to use per SID, per landscape, and per region.
+- NFS or SMB share design, including which shares to use per SAP system ID (SID), per landscape, and per region.
 - Subnet sizing, including the IP requirement for private endpoints or dedicated subnets for services like Azure NetApp Files.
 - Network routing to SAP systems and connected applications.
-- Use of public or [private endpoint](/azure/private-link/private-endpoint-overview) for Azure Files.
+- Use of a public or [private endpoint](/azure/private-link/private-endpoint-overview) for Azure Files.
 
-For information about requirements and how to use an NFS/SMB share in a high-availability scenario, see [High-availability](#high-availability).
+For information about requirements and how to use an NFS or SMB share in a high-availability scenario, see [High availability](#high-availability).
 
 > [!NOTE]
-> If you use Azure Files for your network shares, we recommend that you use a private endpoint. In the unlikely event of a zonal failure, your NFS client will automatically redirect to a healthy zone. You don't have to remount the NFS or SMB shares on your VMs.
+> If you use Azure Files for your network shares, we recommend that you use a private endpoint. In the unlikely event of a zonal failure, your NFS client automatically redirects to a healthy zone. You don't have to remount the NFS or SMB shares on your VMs.
 
 ## Secure your SAP landscape
 
-Planning to protect the SAP on Azure workload needs to be approached from different angles. These include:
+To protect your SAP workload on Azure, you need to plan for multiple aspects of security:
 
-- Network segmentation and security of each subnet and network interface
-- Encryption on each layer within the SAP landscape
-- Identity solution for end-user and administrative access, single sign-on services
-- Threat and operation monitoring
+- Network segmentation and the security of each subnet and network interface.
+- Encryption on each layer within the SAP landscape.
+- Identity solution for end-user and administrative access and single sign-on services.
+- Threat and operation monitoring.
 
 The topics in this chapter aren't an exhaustive list of all available services, options, and alternatives. It does list several best practices that should be considered for all SAP deployments in Azure. There are other aspects to cover depending on your enterprise or workload requirements. For more information about security design, see the following resources for general Azure guidance:
 
@@ -587,16 +587,17 @@ With a large variety of SAP products, version dependencies, and native operating
 
 - **Infrastructure up-sizing**. During an SAP migration, more infrastructure capacity can lead to quicker execution. The project team should consider up-sizing the [VM's size](/azure/virtual-machines/sizes) to provide more CPU and memory. The team also should consider up-sizing VM aggregate storage and network throughput. Similarly, on the VM level, consider storage elements like individual disks to increase throughput with [on-demand bursting](/azure/virtual-machines/disks-enable-bursting) and [performance tiers](/azure/virtual-machines/disks-performance-tiers-portal) for Premium SSD v1. Increase IOPS and throughput values if you use [Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli#adjust-disk-performance) above the configured values. Enlarge NFS and SMB file shares to increase performance limits. Keep in mind that Azure manage disks can't be reduced in size, and that reduction in size, performance tiers, and throughput KPIs can have various cool-down times.
 
-- **Optimize network and data copy**. Migration of SAP system always involves moving large amount of data to Azure. These could be database and file backups or replication, application to application data transfer or SAP migration export. Depending on chosen migration process, the right network path to move this data needs to be selected. For many data move operations, using the Internet to copy data securely to Azure storage is the quickest path, as opposed to private networks.
+- **Optimize network and data copy**. Migrating a SAP system to Azure always involves moving a large amount of data. The data might be database and file backups or replication, an application-to-application data transfer, or an SAP migration export. Depending on the migration process you use, you need to choose the correct network path to move the data. For many data move operations, using the internet instead of a private network is the quickest path to copy data securely to Azure storage.
 
-  Using ExpressRoute or a VPN can often lead to bottlenecks:
-  - Migration data uses too much bandwidth and interferes with user access to workloads that are running in Azure.
-  - Network bottlenecks on-premises are identified only during migration, for example, throughput limiting route or firewall.
+  Using ExpressRoute or a VPN can lead to bottlenecks:
+
+  - The migration data uses too much bandwidth and interferes with user access to workloads that are running in Azure.
+  - Network bottlenecks on-premises, like a firewall or throughput limiting, often are discovered only during migration.
   
-  Regardless of the network connection that's used, single-stream network performance for data copy is often low. Use tools that can support multiple streams to increase data transfer speed over multiple TCP streams. Follow optimization techniques that are described by SAP and in many blog posts on this topic.
+  Regardless of the network connection that's used, single-stream network performance for a data move often is low. To increase the data transfer speed over multiple TCP streams, use tools that can support multiple streams. Apply optimization techniques that are described in SAP documentation and in many blog posts on this topic.
 
 > [!TIP]
-> It's important to consider during the planning stage any dedicated migration networks you'll use for large data transfers to Azure, such as for backups or database replication, or if you'll use a public endpoint for data transfers to Azure storage. The impact of the migration on network paths for your users and applications should be expected and avoided. Network planning should consider all phases of the migration and a partially productive workload in Azure during migration.
+> In the planning stage, it's important to consider any dedicated migration networks you'll use for large data transfers to Azure. Examples include backups or database replication or using a public endpoint for data transfers to Azure storage. The impact of the migration on network paths for your users and applications should be expected and mitigated. As part of your network planning, consider all phases of the migration and the cost of a partially productive workload in Azure during migration.
 
 ## Support and operation for SAP
 
