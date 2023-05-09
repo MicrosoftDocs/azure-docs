@@ -43,11 +43,11 @@ Throughout this article, we use the following terms:
 - **SAP component**: An individual SAP application like SAP S/4HANA, SAP ECC, SAP BW, or SAP Solution Manager. An SAP component can be based on traditional ABAP or Java technologies, or it can be an application that's not based on SAP NetWeaver, like SAP BusinessObjects.
 - **SAP environment**: Multiple SAP components that are logically grouped to perform a business function, such as development, quality assurance, training, disaster recovery, or production.
 - **SAP landscape**: The entire set of SAP assets in an organization's IT landscape. The SAP landscape includes all production and nonproduction environments.
-- **SAP system**: The combination of a DBMS layer and an application layer. For example, an SAP ERP development system or an SAP BW test system. In Azure deployments, dividing these two layers between on-premises and Azure aren't supported. Means an SAP system is either deployed on-premises or it's deployed in Azure. However, you can operate different systems of an SAP landscape in either Azure or on-premises.
+- **SAP system**: The combination of a DBMS layer and an application layer. For example, an SAP ERP development system or an SAP BW test system. In an Azure deployment, these two layers can't be distributed between on-premises and Azure. An SAP system must be either deployed on-premises or be deployed in Azure. However, you can operate different systems within an SAP landscape in either Azure or on-premises.
 
 ## Resources
 
-The entry point for documentation that describes the SAP workload on Azure is at [Get started with SAP on Azure VMs](get-started.md). In this article, you find links to other articles that cover:
+The entry point for documentation that describes the SAP workload on Azure is [Get started with SAP on Azure VMs](get-started.md). In the article, you find links to other articles that cover:
 
 - SAP workload specifics for storage, networking, and supported options.
 - SAP DBMS guides for various DBMS systems in Azure.
@@ -250,13 +250,13 @@ For more information, see [Create a virtual machine with a static private IP add
 Each Azure VM's network interface card can have multiple IP addresses assigned to it. This secondary IP can be used for SAP virtual hostname(s), which is mapped to a DNS A/PTR record. The secondary IP addresses must be assigned to Azure NICs IP config as per [this article](../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md). The secondary IP also must be configured within the OS statically, as secondary IPs are often not assigned through DHCP. Each secondary IP must be from the same subnet the NIC is bound to. Secondary IPs can be added and removed from Azure NICs without stopping or deallocate the VM, unlike the primary IPs of a NIC where deallocating the VM is required.
 
 > [!NOTE]
-> Azure load balancer's floating IP is [not supported](../../load-balancer/load-balancer-multivip-overview.md#limitations) on secondary IP configs. Azure load balancer is used by SAP high-availability architectures with Pacemaker clusters. In such case the load balancer enables the SAP virtual hostname(s). See also SAP's note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
+> On secondary IP configurations, the Azure load balancer's floating IP address is [not supported](../../load-balancer/load-balancer-multivip-overview.md#limitations). The Azure load balancer is used by SAP high-availability architectures with ClusterLabs Pacemaker clusters. In this scenario, the load balancer enables the SAP virtual host names. For general guidance about using virtual host names, see SAP Note [962955](https://launchpad.support.sap.com/#/notes/962955).
 
 #### Azure load balancer with VMs running SAP
 
-Typically used in high availability architectures to provide floating IP addresses between active and passive cluster nodes, load balancers can be used for single VMs to hold a virtual IP address for an SAP virtual host name. Using a load balancer for single VMs this way is an alternative to secondary IPs on a NIC or utilizing multiple NICs in the same subnet.
+A load balancer typically is used in high availability architectures to provide floating IP addresses between active and passive cluster nodes. You also can use a load balancer for a single VM to hold a virtual IP address for an SAP virtual host name. Using a load balancer this way for a single VM is an alternative to using a secondary IP address on a NIC or using multiple NICs in the same subnet.
 
-Standard load balancer modifies the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) path due to it's secure by default architecture. VMs behind a standard load balancer might not be able to reach the same public endpoints anymore - for example OS update repositories or public endpoints of Azure services. Follow guidance in article [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer](high-availability-guide-standard-load-balancer-outbound-connections.md) for available options to provide outbound connectivity.
+A standard load balancer modifies the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) path because its architecture is secure by default. VMs that are behind a standard load balancer might not be able to reach the same public endpoints anymore. For example, an endpoint such as an OS update repositories or a public endpoint of Azure services. Follow guidance in article [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer](high-availability-guide-standard-load-balancer-outbound-connections.md) for available options to provide outbound connectivity.
 
 > [!TIP]
 > Basic load balancer should *not* be used with any SAP architecture in Azure and is announced to be [retired](/azure/load-balancer/skus) in future.
