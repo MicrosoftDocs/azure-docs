@@ -97,17 +97,14 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
-        - name: Azure Arc (preview)
-          items:
-            - name: Code-only publishing
-              displayName: Arc, container, Kubernetes
-              href: create-first-function-arc-cli.md
-            - name: Custom container
-              displayName: Arc, container, Kubernetes, Docker
-              href: functions-create-function-linux-custom-image.md?tabs=azure-arc
+    - name: Create functions in a container
+      items:
         - name: Azure Container Apps (preview)
-          href: functions-create-function-linux-custom-image.md?tabs=container-apps
+          href: functions-deploy-container-aca.md
           displayName: container, Docker, ACA 
+        - name: Azure Arc (preview)
+          displayName: Arc, container, Kubernetes, Docker
+          href: create-first-function-arc-custom-container.md  
     - name: Connect to storage
       items:
         - name: C#
@@ -444,6 +441,12 @@
                   href: create-first-function-cli-python.md
                 - name: Premium plan
                   href: create-premium-plan-function-app-portal.md
+                - name: Linux container (Premiumn)
+                  href: functions-deploy-container.md
+                  displayName: container, Docker, custom
+                - name: Azure Arc (preview)
+                  displayName: Arc, container, Kubernetes
+                  href: create-first-function-arc-cli.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
