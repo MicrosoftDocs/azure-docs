@@ -415,12 +415,12 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 ```azurecli-interactive
 
 az cosmosdb restore \
- --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
- --account-name MySourceAccount \
+ --target-database-account-name <MyRestoredCosmosDBDatabaseAccount> \
+ --account-name <MySourceAccount> \
  --restore-timestamp 2020-07-13T16:03:41+0000 \
- --resource-group MyResourceGroup \
- --location "West US"
- --
+ --resource-group <MyResourceGroup> \
+ --location "West US" \
+ --enable-public-network False
 
 ```
 
