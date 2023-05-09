@@ -1,5 +1,5 @@
 ---
-title: What is a cross-tenant synchronization in Azure Active Directory? (preview)
+title: What is a cross-tenant synchronization in Azure Active Directory?
 description: Learn about cross-tenant synchronization in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -8,18 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# What is cross-tenant synchronization? (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# What is cross-tenant synchronization?
 
 *Cross-tenant synchronization* automates creating, updating, and deleting [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) users across tenants in an organization. It enables users to access applications and collaborate across tenants, while still allowing the organization to evolve. 
 
