@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 08/05/2023
+ms.date: 05/08/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
@@ -209,6 +209,7 @@ namespace OwinWebApp
 
 --
 
+
 ## Token validation
 
 In the preceding snippet, the JwtBearer middleware, like the OpenID Connect middleware in web apps, validates the token based on the value of `TokenValidationParameters`. The token is decrypted as needed, the claims are extracted, and the signature is verified. The middleware then validates the token by checking for this data:
@@ -262,6 +263,7 @@ For ASP.NET MVC, the following code sample shows how to do custom token validati
 https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation
 
 --
+
 
 ## Token validation in Azure Functions
 
