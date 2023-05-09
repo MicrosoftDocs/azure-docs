@@ -143,6 +143,10 @@ For both custom or namespace topics, your application should  batch several even
 
 If you are a [partner](partner-events-overview-for-partners.md), you can define the event types that you are making available to customers when you create a Channel. With inline event type definitions, subscribers can easily filter events given their event type when configuring an event subscription.
 
+## Availability zones
+
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. See [Regions and availability zones](../availability-zones/az-overview.md) for more information about availability zones.
+
 ## Next steps
 
 - For an introduction to Event Grid, see [About Event Grid](overview.md).
