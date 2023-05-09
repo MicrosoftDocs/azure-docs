@@ -202,6 +202,8 @@ items:
           items:
             - name: Define custom attributes for user flows
               href: how-to-define-custom-attributes.md
+            - name: Add attributes to the token
+              href: how-to-add-attributes-to-token.md
         - name: Add claims from external systems
           items:
            - name: About custom authentication extensions
