@@ -17,34 +17,30 @@ ms.custom: cliv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/data.schema.json.
-
-
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/featureset-spec.schema.json.
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
 
-| Key                                              | Type   | Description                                                                                                                        | Allowed values        | Default value |
-|--------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|-----------------------|---------------|
-| serialization_version                            | string | The version to serialize this spec file.                                                                                           |                       |               |
-| featurestores                                    | list of object | The feature stores.                                                                                                                | | |
-| featurestores.featurestore                       | object | The feature store object.                                                                                                          | | |
-| featurestores.featurestore.features              | list of object | The list of features to retrieve from this feature store.                                                                          | | |
-| featurestores.featurestore.features.feature_name | string | The feature name.                                                                                                                  | | |
-| featurestores.featurestore.features.featureset   | string | The feature name and version in the format of `featureset_name:version`.                                                             | | |
-| featurestores.featurestore.location                  | string | The location of the feature store.                                                                                                 | | |
-| featurestores.featurestore.uri                       | string | The uri of the feature store in the format of `azureml://subscriptions/{sub_id}/resourceGroups/{rg}/workspaces/{featurestore_name}`. | | |
-| featurestores.featurestore.workspace_id              | string | The feature store workspace id.                                                                                                    | | |
+| Key | Type | Description | Allowed values | Default value |
+|--|--|--|--|--|
+| serialization_version | string | The version to serialize this spec file. |  |  |
+| featurestores | list of object | The feature stores. |  |  |
+| featurestores.featurestore | object | The feature store object. |  |  |
+| featurestores.featurestore.features | list of object | The list of features to retrieve from this feature store. |  |  |
+| featurestores.featurestore.features.feature_name | string | The feature name. |  |  |
+| featurestores.featurestore.features.featureset | string | The feature name and version in the format of `featureset_name:version`. |  |  |
+| featurestores.featurestore.location | string | The location of the feature store. |  |  |
+| featurestores.featurestore.uri | string | The URI of the feature store in the format of `azureml://subscriptions/{sub_id}/resourceGroups/{rg}/workspaces/{featurestore_name}`. |  |  |
+| featurestores.featurestore.workspace_id | string | The feature store workspace ID. |  |  |
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](./examples). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli). A basic example is shown below.
 
 ## YAML: basic
-
-[todo: azureml-examples/sdk/python/featurestore_sample/project/train/spec/feature_retrieval_spec.yaml]
 
 ```yaml
 featurestores:
@@ -58,3 +54,9 @@ featurestores:
   workspace_id: {ws_id}
 serialization_version: 1
 ```
+
+## Next steps
+
+- [Install and use the CLI (v2)](how-to-configure-cli.md)
+- Learn how to [develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md)
+- [Troubleshoot managed feature store](troubleshooting-managed-feature-store.md)
