@@ -204,8 +204,6 @@
                   href: ../continuous-backup-restore-resource-model.md
                 - name: Restore
                   items:
-                    - name: Restore to a different account
-                      href: ../restore-account-continuous-backup-introduction.md
                     - name: Restore in the same account (preview)
                       items:
                         - name: Introduction

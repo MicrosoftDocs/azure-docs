@@ -286,8 +286,6 @@
               href: ../continuous-backup-restore-resource-model.md
             - name: Restore
               items:
-                - name: Restore to a different account
-                  href: ../restore-account-continuous-backup-introduction.md
                 - name: Restore in the same account (preview)
                   items:
                     - name: Introduction
@@ -295,7 +293,7 @@
                     - name: Resource model
                       href: ../restore-in-account-continuous-backup-resource-model.md
                     - name: FAQ
-                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.md
+                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
                 - name: Latest restorable timestamp
                   href: ../latest-restore-timestamp-continuous-backup.md
                 - name: Auditing restore action with continuous backup
