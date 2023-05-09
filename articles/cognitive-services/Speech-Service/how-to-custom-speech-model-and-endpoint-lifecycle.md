@@ -7,7 +7,7 @@ author: heikora
 manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: heikora
 zone_pivot_groups: speech-studio-cli-rest
