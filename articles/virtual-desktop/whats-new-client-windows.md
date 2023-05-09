@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 05/04/2023
+ms.date: 05/09/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,7 +17,7 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4157       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Public  | 1.2.4159       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.4240       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
 ## Updates for version 1.2.4240 (Insider) 
@@ -33,9 +33,9 @@ In this release, we've made the following changes:
 - Fixed an issue where the client stopped responding if closed from the system tray. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
-## Updates for version 1.2.4157
+## Updates for version 1.2.4159
 
-*Date published: April 10, 2023*
+*Date published: May 9, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
@@ -49,6 +49,7 @@ In this release, we've made the following changes:
 - Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
 - Fixed an issue that generated duplicate Activity IDs for unique connections. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed an application compatibility issue for preview versions of Windows.
 
 ## Updates for version 1.2.4066
 
