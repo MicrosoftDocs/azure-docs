@@ -135,7 +135,7 @@ Vulnerability assessment solutions are essential to safeguard machines from cybe
 
 Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a built-in solution in the Defender for Servers plan that doesn't have a VA solution selected.
 
-By enabling MDVM by default, every subscription is ensured a vulnerability assessment solution wherever one was missing. 
+By having MDVM enabled by default, every subscription is ensured a vulnerability assessment solution wherever one was missing. 
 
 ## April 2023
 
