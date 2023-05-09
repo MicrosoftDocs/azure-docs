@@ -189,7 +189,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
     1. Add an action to invoke the System Web Service REST API message that was created in the previous step.
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer.png" alt-text="Screenshot of flow designer script to resume entitlement management process within ServiceNow.":::
         Script for the action: (Update the script with the Column labels created in previous step):
-        `` (function execute(inputs, outputs) {
+        ``` (function execute(inputs, outputs) {
             gs.info("AccessPackageAssignmentRequestId: " + inputs['accesspkgassignmentrequestid']);
             gs.info("StageInstanceId: " + inputs['customextensionstageinstanceid'] );
             gs.info("Stage: " + inputs['assignmentstage']);
@@ -204,7 +204,8 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
             gs.info("requestBody: " + requestBody);
             gs.info("responseBody: " + responseBody);
             gs.info("httpStatus: " + httpStatus);
-            })(inputs, outputs); ``
+            })(inputs, outputs); 
+        ```
     1. Save the Action
     1. Select the "*New*" button to create a new flow.
     1. Enter flow name, select Run as – System User and select submit.
