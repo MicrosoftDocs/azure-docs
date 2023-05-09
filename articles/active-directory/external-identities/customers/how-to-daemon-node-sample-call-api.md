@@ -1,6 +1,6 @@
 ---
 title: Call an API in a sample Node.js daemon application
-description: Learn how to Configure a sample Node.js daemon application that calls an API protected 
+description: Learn how to configure a sample Node.js daemon application that calls an API protected Azure Active Directory (Azure AD) for customers
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 05/05/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to Configure a sample Node.js daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to configure a sample Node.js daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
 # Call an API in a sample Node.js daemon application 
