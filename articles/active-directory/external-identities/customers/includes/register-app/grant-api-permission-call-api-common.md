@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: include
-ms.date: 04/30/2023
+ms.date: 05/09/2023
 ms.author: kengaderdus
 ---
 1. From the **App registrations** page, select the application that you created (such as *ciam-client-app*) to open its **Overview** page.
