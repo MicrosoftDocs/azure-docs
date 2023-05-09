@@ -69,7 +69,7 @@ In this scenario, not all hubs in the WAN are Secured Virtual WAN Hubs (hubs tha
 Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) are deployed in a Virtual WAN. Hub 2 has Routing Policies for both Private and Internet Traffic. 
 
 **Hub 1 Configuration:**
-* N/A (can't configure Routing Policies if hub is'nt deployed with Azure Firewall, NVA or SaaS solution)
+* N/A (can't configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution)
 
 **Hub 2 Configuration:**
 * Private Traffic  Policy with Next Hop Hub 2 Azure Firewall, NVA or SaaS solution.
@@ -148,7 +148,7 @@ If you remove routing intent, you'll have to manually restore your previous conf
 When routing intent is enabled on the hub, static routes corresponding to the configured routing policies are created automatically in the defaultRouteTable. These routes are: 
 
 | Route Name | Prefixes | Next Hop Resource| 
-| --| --| -- |
+|--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall | 
  _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
 
@@ -157,7 +157,7 @@ When routing intent is enabled on the hub, static routes corresponding to the co
 
 For example, consider the scenario where the defaultRouteTable has the following routes prior to configuring routing intent:
 | Route Name | Prefixes | Next Hop Resource| 
-| --| --| --|
+|--|--|--|
 | private_traffic |  192.168.0.0/16, 172.16.0.0/12, 40.0.0.0/24, 10.0.0.0/24| Azure Firewall | 
  to_internet | 0.0.0.0/0| Azure Firewall |
   additional_private | 10.0.0.0/8, 50.0.0.0/24| Azure Firewall |
@@ -165,7 +165,7 @@ For example, consider the scenario where the defaultRouteTable has the following
 Enabling routing intent on this hub would result in the following end state of the defaultRouteTable. All prefixes that aren't RFC1918 or 0.0.0.0/0 are consolidated into a single route named private_traffic.
 
 | Route Name | Prefixes | Next Hop Resource| 
-| --| --| --|
+|--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall | 
  _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
 | private_traffic | 40.0.0.0/24, 10.0.0.0/24, 50.0.0.0/24| Azure Firewall | 
@@ -177,7 +177,7 @@ Creating routing intent using non-Portal methods  automatically creates the corr
 For example, consider the scenario where the defaultRouteTable has the following routes prior to configuring routing intent:
 
 | Route Name | Prefixes | Next Hop Resource| 
-| --| --| --|
+|--|--|--|
 | firewall_route_ 1 | 10.0.0.0/8|Azure Firewall |
 | firewall_route_2 | 192.168.0.0/16, 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
@@ -186,7 +186,7 @@ For example, consider the scenario where the defaultRouteTable has the following
 The following table represents the final state of the defaultRouteTable after routing intent creation succeeds. Note that firewall_route_1 and to_internet was automatically removed as the only prefix in those routes were 10.0.0.0/8 and 0.0.0.0/0. firewall_route_2 was modified to remove 192.168.0.0/16 as that prefix is an RFC1918 aggregate prefix.
  
 | Route Name | Prefixes | Next Hop Resource|
-| --| --| --|
+|--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall |
 | _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
 | firewall_route_2 | 10.0.0.0/24 | Azure Firewall|
@@ -296,7 +296,7 @@ The following section describes common ways to troubleshoot when you configure r
 
 When private routing policies are configured on the Virtual Hub, all traffic between on-premises and Virtual Networks are inspected by Azure Firewall or Network Virtual Appliance in the Virtual hub.
 
-Therefore, the effective routes of the defaultRouteTable shows the RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) with next hop Azure Firewall or Network Virtual Appliance. This reflects that all traffic between Virtual Networks and branches is routed to  Azure Firewall, NVA or SaaS solution in the hub for inspection.
+Therefore, the effective routes of the defaultRouteTable show the RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) with next hop Azure Firewall or Network Virtual Appliance. This reflects that all traffic between Virtual Networks and branches is routed to  Azure Firewall, NVA or SaaS solution in the hub for inspection.
 
   :::image type="content" source="./media/routing-policies/default-route-table-effective-routes.png"alt-text="Screenshot showing effective routes for defaultRouteTable."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
