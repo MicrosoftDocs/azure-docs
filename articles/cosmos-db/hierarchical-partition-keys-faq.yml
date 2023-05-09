@@ -18,7 +18,7 @@ summary: |
 sections:
   - name: General
     questions:
-     - question: |
+      - question: |
           Can I add hierarchical partition keys to existing containers?
         answer: |
           This is not supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more guidance on how to do this, check out our [documentation] (intra-account-container-copy.md).
