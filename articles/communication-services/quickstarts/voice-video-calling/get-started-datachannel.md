@@ -23,5 +23,5 @@ ms.custom: mode-other
 
 For more information, see the following articles:
 
-- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
+- Learn about [DataChannel feature concept document](../../concepts/voice-video-calling/datachannel.md)
+- Learn more about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)

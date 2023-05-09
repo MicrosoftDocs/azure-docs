@@ -1,6 +1,6 @@
 ---
 ms.author: enricohuang
-title: QuciStart - Add messaging to your web calling app
+title: QuickStart - Add messaging to your web calling app
 titleSuffix: An Azure Communication Services document
 description: In this quickstart, you'll learn how to add messaging to your existing web calling app using Azure Communication Services.
 author: sloanster
@@ -21,7 +21,7 @@ Here are the key features:
 3. Reliable and Unreliable Modes: The current implementation of the feature in our Web SDK exclusively utilizes a reliable WebRTC DataChannel connection. Despite this, the feature API still offers Reliable and Lossy options when creating a DataChannel sender. The Reliable option ensures that messages are delivered in order and without loss between the browser client and the server. In a peer-to-peer call scenario, the reliable mode guarantees the delivery of messages without loss between two endpoints. Although messages sent through an unreliable channel still pass through the reliable connection, the order of these messages isn't guaranteed. In cases where SDK fails to send the channel messages, the Reliable mode throws an exception, whereas the Lossy mode silently drops the message.
 4. Security: The current implementation of the feature in our Web SDK utilizes a WebRTC DataChannel connection to send and receive messages. This means all messages exchanged using the feature API are encrypted, ensuring the privacy and security of users' data.
 
-For more details and a deeper understanding of the feature, please refer to the concept document provided. This comprehensive resource offers additional information and guidance on utilizing the DataChannel feature API effectively.
+For more details and a deeper understanding of the feature, please refer to [DataChannel feature concept document](../../../../concepts/voice-video-calling/datachannel.md). This comprehensive resource offers additional information and guidance on utilizing the DataChannel feature API effectively.
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
