@@ -85,7 +85,7 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
 ### accountSettings
 
 For `arrAccountId` and `arrAccountKey`, see [Create an Azure Remote Rendering account](../how-tos/create-an-account.md).
-The `arrAccountDomain` should be a region from [list of available regions](../reference/regions.md). If you're running on a nonpublic Azure region, you have to specify the full url to the account authentication service in your region.
+The `arrAccountDomain` should be a region from [list of available regions](../reference/regions.md).
 
 ### renderingSessionSettings
 
@@ -95,7 +95,6 @@ This structure must be filled out if you want to run **RenderingSession.ps1**:
 - **maxLeaseTime:** The duration for which you want to lease the VM. The VM shuts down when the lease expires. The lease time can be extended later (see [here](#change-session-properties)).
 - **remoteRenderingDomain:** The region where the remote rendering VM resides in.
   - Can differ from the arrAccountDomain, but still should be a region from [list of available regions](../reference/regions.md)
-  - If you're running on a nonpublic Azure region, you have to specify the full url to the remote rendering service in your region.
 
 ### assetConversionSettings
 

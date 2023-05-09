@@ -47,7 +47,7 @@ The samples and tutorials require that you provide the account ID and a key. For
 },
 ```
 
-See the [list of available regions](../reference/regions.md) for filling out the *arrAccountDomain* option. If you're running on a nonpublic Azure region, you have to specify the full url to the account authentication service in your region.
+See the [list of available regions](../reference/regions.md) for filling out the *arrAccountDomain* option.
 
 The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the portal as described in the following steps:
 
