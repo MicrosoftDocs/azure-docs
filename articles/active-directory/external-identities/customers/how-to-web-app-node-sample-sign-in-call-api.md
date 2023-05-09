@@ -1,6 +1,6 @@
 ---
-title: Sign in users and call an API in sample Node.js web application by using Microsoft Entra
-description: Learn how to configure a sample web app to sign in users and call an API by using Microsoft Entra.
+title: Sign in users and call an API in sample Node.js web application 
+description: Learn how to configure a sample web app to sign in users and call an API.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,9 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample web app to sign in and sign out users with my CIAM tenant
 ---
 
-# Sign in users and call an API in sample Node.js web application by using Microsoft Entra
+# Sign in users and call an API in sample Node.js web application 
 
-This how-to guide uses a sample Node.js web application to show how to add authentication and authorization by using Microsoft Entra. The sample application sign in users to a Node.js web app, which then calls a .NET Core API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js web application to show you how to add authentication and authorization. The sample application sign in users to a Node.js web app, which then calls a .NET Core API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you complete the following tasks:
 
@@ -40,7 +40,7 @@ In this article, you complete the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-hub-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Register a web application and a web API
 
@@ -118,7 +118,7 @@ To use your app registration in the client web app sample:
 
     - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
     
     - `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
     
@@ -126,7 +126,7 @@ To use your app registration in the client web app sample:
 
 To use your app registration in the web API sample: 
 
-1. In your code editor, open `API\ToDoListAPI\appsettings` file.
+1. In your code editor, open `API\ToDoListAPI\appsettings.json` file.
 
 1. Find the placeholder:
     
@@ -134,7 +134,7 @@ To use your app registration in the web API sample:
     
     - `Enter_the_Tenant_Id_Here` and replace it with the Directory (tenant) ID you copied earlier.
     
-    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 
 ##  Run and test sample web app and API 
@@ -177,13 +177,13 @@ To use your app registration in the web API sample:
 
 You trigger an API call each time you view, add or remove a task. Each time you trigger an API call, the client web app acquires an access token with the required permissions (scopes) to call an API endpoint. For example, to read a task, the client web app must acquire an access token with `ToDoList.Read` permission/scope.
 
-On the web API side, the endpoint must validate that the permissions/scopes present in the access token that the client app presents are valid. If the access token is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
+On the web API side, the endpoint must validate that the permissions/scopes present in the access token, which the client app presents, is valid. If the access token is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
 
 ## Next steps
 
 Learn how to: 
 
-- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md). By completing these steps, you build a web app and web API similar to the sample you've run. 
+- [Sign in users and call an API in your own Node.js web application](how-to-web-app-node-sign-in-call-api-overview.md). By completing these steps, you build a web app and web API similar to the sample you've run. 
 
 - [Enable password reset](how-to-enable-password-reset-customers.md).
 
