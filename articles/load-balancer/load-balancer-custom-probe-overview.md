@@ -77,19 +77,19 @@ It is important to note that probes also have a timeout period. For example, if 
 
 * Ensure your virtual machine instances are running. The health probe will probe all running instances in the backend pool. If an instance is stopped, it will not be probed until it has been started again.
 
-* For Load Balancer's health probe to mark up your instance, you **must** allow this IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies.  By default, every network security group (NSG) includes the [service tag](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic. If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance.  In turn, Load Balancer marks down your instance due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail.
-
 * Don't configure your virtual network with the Microsoft owned IP address range that contains 168.63.129.16. The configuration collides with the IP address of the health probe and can cause your scenario to fail.
-
+ 
 * To test a health probe failure or mark down an individual instance, use a [network security group](../virtual-network/network-security-groups-overview.md) to explicitly block the health probe. Create an NSG rule to block the destination port or [source IP](#probe-source-ip-address) to simulate the failure of a probe.
 
 ## Monitoring
 
-Public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs are not available for use with Basic Load Balancer.
+[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs are not supported for Basic Load Balancer.
 
 ## Probe source IP address
 
-Azure Load Balancer uses a distributed probing service for its internal health model. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a [link-local address](https://www.wikipedia.org/wiki/Link-local_address) as their source. The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
+For Load Balancer's health probe to mark up your instance, you **must** allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance.  In turn, Azure Load Balancer marks your instance down due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address as their source. 
 
  ## Limitations
 
