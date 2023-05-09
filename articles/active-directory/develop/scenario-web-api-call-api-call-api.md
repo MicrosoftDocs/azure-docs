@@ -213,7 +213,7 @@ The `CallApiForUserAsync` also has strongly typed generic overrides that enable 
 
 #### Option 3: Call a downstream web API without the helper class from OWIN app
 
-You've decided to acquire an authorization header using the `IAuthorizationHeaderProvider` service, and you now need to use it in your HttpClient or HttpRequest. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the web API controllers.
+You've decided to acquire an authorization header using the `IAuthorizationHeaderProvider` service, and you now need to use it in your `HttpClient` or `HttpRequest`. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the web API controllers.
 
 ```csharp
 public async Task<IActionResult> Profile()
