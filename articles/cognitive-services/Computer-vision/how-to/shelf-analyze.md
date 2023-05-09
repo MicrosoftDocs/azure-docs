@@ -1,5 +1,5 @@
 ---
-title: Analyze a shelf image using pre-trained models
+title: Analyze a shelf image using pretrained models
 titleSuffix: Azure Cognitive Services
 description: Use the Product Understanding API to analyze a shelf image and receive rich product data.
 author: PatrickFarley
@@ -12,9 +12,9 @@ ms.date: 04/26/2023
 ms.author: pafarley
 ---
 
-# Analyze a shelf image using pre-trained models
+# Analyze a shelf image using pretrained models
 
-The fastest way to start using Shelf Analysis is to use the built-in pre-trained AI models. With a the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
+The fastest way to start using Shelf Analysis is to use the built-in pretrained AI models. With the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
 
 :::image type="content" source="../media/shelf/shelf-analysis-pretrained.png" alt-text="Photo of a retail shelf with products and gaps highlighted with rectangles.":::
 
@@ -24,7 +24,7 @@ The fastest way to start using Shelf Analysis is to use the built-in pre-trained
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
-* A shelf image. You can download our [sample image](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/shelf-analysis/shelf.png) or bring your own images. The maximum file size per image is 20MB.
+* A shelf image. You can download our [sample image](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/shelf-analysis/shelf.png) or bring your own images. The maximum file size per image is 20 MB.
 
 ## Analyze shelf images
 
@@ -48,7 +48,7 @@ To analyze a shelf image, do the following steps:
 
 ## Examine the response
 
-A successful response is returned in JSON. The product understanding API results will be returned in a `ProductUnderstandingResultApiModel` JSON field:
+A successful response is returned in JSON. The product understanding API results are returned in a `ProductUnderstandingResultApiModel` JSON field:
 
 ```json
 {
@@ -120,7 +120,7 @@ Describes a detected object in an image.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| `id` | string | Id of the detected object. | No |
+| `id` | string | ID of the detected object. | No |
 | `boundingBox` | [BoundingBoxApiModel](#bounding-box-api-model) | A bounding box for an area inside an image. | Yes |
 | `classifications` | [ImageClassificationApiModel](#image-classification-api-model) | Classification confidences of the detected object. | Yes |
 
@@ -146,7 +146,7 @@ Describes the image classification confidence of a label.
 
 ## Next steps
 
-In this guide, you learned how to make a basic analysis call using the pre-trained Product Understanding REST API. Next, learn how to use a custom Shelf Analysis model to better meet your business needs.
+In this guide, you learned how to make a basic analysis call using the pretrained Product Understanding REST API. Next, learn how to use a custom Shelf Analysis model to better meet your business needs.
 
 > [!div class="nextstepaction"]
 > [Train a custom model for Shelf Analysis](../how-to/shelf-model-customization.md)
