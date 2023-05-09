@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 05/05/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -14,9 +14,6 @@ manager: femila
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
-
-> [!NOTE]
-> Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 
 ## Prerequisites
 

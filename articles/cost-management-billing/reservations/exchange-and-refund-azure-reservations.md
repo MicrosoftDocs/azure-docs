@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 05/03/2023
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ You can also exchange a reservation to purchase another reservation of a similar
 >
 > You may [trade-in](../savings-plan/reservation-trade-in.md) your Azure compute reservations for a savings plan. Or, you may continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration you’ll need and want additional savings. Learn more about [Azure savings plan for compute and how it works with reservations](../savings-plan/index.yml).
 
-When you exchange a reservation, you can change your term from one-year to three-year.
+When you exchange a reservation, you can change your term from one-year to three-year. Or, you can change the term from three-year to one-year.
 
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
 

@@ -45,8 +45,8 @@ Azure Cognitive Search provides the following scoring algorithms:
 
 | Algorithm | Usage | Range |
 |-----------|-------------|-------|
-| BM25Similarity | Built-in algorithm on all search services created after July 2020. You can tune relevance ranking, but on newer services, changing the algorithm isn't supported. | Unbounded range |
-|ClassicSimilarity | Used on older search services. You can [opt-in for BM25](index-ranking-similarity.md). | 0 < 1.00 |
+| BM25Similarity | Fixed algorithm on all search services created after July 2020. You can configure this algorithm, but you can't switch to an older one (classic). | Unbounded. |
+|ClassicSimilarity | Present on older search services. You can [opt-in for BM25](index-ranking-similarity.md) and choose an algorithm on a per-index basis. | 0 < 1.00 |
 
 Both BM25 and Classic are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking results. While conceptually similar to classic, BM25 is rooted in probabilistic information retrieval that produces more intuitive matches, as measured by user research. 
 
