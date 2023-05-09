@@ -146,7 +146,7 @@ You have a choice of operating systems that you can use for session hosts to pro
 > [!IMPORTANT]
 > - The following items are not supported:
 >   - 32-bit operating systems or SKUs not listed in the previous table.
->   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported.
+>   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
 > 
 > - Support for Windows 7 ended on January 10, 2023.
