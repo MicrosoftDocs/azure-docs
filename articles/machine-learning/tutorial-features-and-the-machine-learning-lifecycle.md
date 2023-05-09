@@ -222,7 +222,7 @@ You can see the list of models that are using the feature sets (determined from 
 
 ## Next steps
 
-* [Part 4: Use features to train and experiment with models](./tutorial-features-and-the-machine-leraning-lifecycle.md)
+* [Part 4: Use features to train and experiment with models](./tutorial-features-and-the-machine-learning-lifecycle.md)
 * Understand concepts: feature store concepts, feature transformation concepts
 * Understand identity and access control for feature store
 * View feature store troubleshooting guide

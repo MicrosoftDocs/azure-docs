@@ -177,7 +177,7 @@ Let's print sample data from the feature set. The output information shows that 
 
 ## Next steps
 
-* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-features-and-the-machine-leraning-lifecycle.md)
+* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-features-and-the-machine-learning-lifecycle.md)
 * Understand concepts: feature materialization concepts
 * Understand identity and access control for feature store
 * View feature store troubleshooting guide
