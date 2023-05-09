@@ -159,6 +159,8 @@
               href: developer-best-practices-resource-management.md
             - name: Pod security
               href: developer-best-practices-pod-security.md
+    - name: Back up and recover cluster
+      href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Migrate to AKS
       items:
         - name: Plan and execute a migration
@@ -288,6 +290,7 @@
           href: use-tags.md
         - name: Use labels
           href: use-labels.md
+        - name: Enforce best practices with Guardrails
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -325,7 +328,13 @@
             - name: Enable Azure Active Directory integration
               items:
                 - name: AKS-managed Azure AD
-                  href: managed-aad.md
+                  items: 
+                    - name: Enable AKS-managed Azure AD integration
+                      href: managed-azure-ad.md
+                    - name: Manage local accounts
+                      href: manage-local-accounts-managed-azure-ad.md
+                    - name: Cluster access control
+                      href: access-control-managed-azure-ad.md
                 - name: Azure AD integration (legacy)
                   href: azure-ad-integration-cli.md
                 - name: Enable GMSA integration
@@ -421,7 +430,9 @@
               href: coredns-custom.md
         - name: Egress
           items:
-            - name: Restrict and control cluster egress traffic
+            - name: Outbound network and FQDN rules for AKS clusters
+              href: outbound-rules-control-egress.md
+            - name: Control cluster egress traffic using Azure Firewall
               href: limit-egress-traffic.md
             - name: Configure outbound type for AKS
               href: egress-outboundtype.md
@@ -482,6 +493,8 @@
                   href: azure-files-csi.md
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
+            - name: Azure Files and Azure NetApp Files comparison
+              href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Provision Azure NetApp Files storage
               href: azure-netapp-files.md
         - name: Block storage
@@ -490,6 +503,8 @@
               href: azure-disk-csi.md
             - name: Provision Azure Disks storage
               href: azure-csi-disk-storage-provision.md
+            - name: Use Azure Premium SSD v2 disks
+              href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
         - name: Other storage options
@@ -498,10 +513,22 @@
               href: azure-hpc-cache.md
             - name: NFS Server - static
               href: azure-nfs-volume.md
+    - name: Configure backup
+      items:
+        - name: Prerequisites
+          href: ../backup/azure-kubernetes-service-cluster-backup-concept.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Backup
+          href: ../backup/azure-kubernetes-service-cluster-backup.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Restore
+          href: ../backup/azure-kubernetes-service-cluster-restore.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Manage
+          href: ../backup/azure-kubernetes-service-cluster-manage-backups.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
           href: monitor-aks.md
+        - name: Monitor kube-audit events
+          href: monitor-apiserver.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
@@ -585,6 +612,8 @@
           href: istio-deploy-addon.md
         - name: Deploy external or internal Istio Ingress
           href: istio-deploy-ingress.md
+        - name: Upgrade Istio service mesh add-on
+          href: istio-upgrade.md
     - name: Track releases and region availability
       href: release-tracker.md
     - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)

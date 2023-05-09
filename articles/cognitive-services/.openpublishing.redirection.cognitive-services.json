@@ -6159,6 +6159,11 @@
             "source_path_from_root": "/articles/cognitive-services/Translator/how-to-create-translator-resource.md",
             "redirect_url": "/azure/cognitive-services/Translator/create-translator-resource",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/request-limits.md",
+            "redirect_url": "/azure/cognitive-services/Translator/service-limits",
+            "redirect_document_id": true
         }
     ]
 }

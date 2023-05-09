@@ -3,7 +3,7 @@ title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2022
+ms.date: 04/25/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -83,6 +83,18 @@ The preceding section discusses ongoing monitoring. We also recommend that you e
 - Assign licenses to Azure.
 - Monitor usage and adjust on the fly, as needed.
 - Repeat the process every year or at whatever frequency best suits your needs.
+
+### License assignment review date
+
+After you assign licenses and set a review date, Microsoft later sends you email notifications to let you know that the license assignment will expire.
+
+Email notifications are sent:
+
+- 90 days before expiration
+- 30 days before expiration
+- 7 days before expiration
+
+No notification is sent on the review date. The license assignment becomes inactive and no longer applies 90 days after expiration.
 
 ## Example walkthrough
 

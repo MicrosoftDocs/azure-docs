@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [Download or clone the sample app](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
 ```
 
@@ -70,7 +70,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 To run the script:
 
-```
+```bash
 python batch_python_tutorial_ffmpeg.py
 ```
 

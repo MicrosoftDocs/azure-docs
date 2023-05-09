@@ -22,12 +22,18 @@ Currently, you can only enable certain resource types for Chaos Studio VNet inje
 ## Enabling VNet injection
 To use Chaos Studio with VNet injection, you need to meet the following requirements. 
 1. The `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers must be registered with your subscription.
-1. The VNet where Chaos Studio resources will be injected needs to have two subnets, named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`. Other subnet names can't be used.
+1. The VNet where Chaos Studio resources will be injected must have two subnets: a container subnet, which is used for the Chaos Studio containers that will be injected into your private network, and a relay subnet, which is used to forward communication from Chaos Studio to the containers inside the private network.
     1. Both subnets need at least `/28` in address space. For example, an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
-    1. `ChaosStudioContainerSubnet` must be delegated to `Microsoft.ContainerInstance/containerGroups`.
-1. When enabling the desired resource as a target so you can use it in Chaos Studio  experiments, the following properties must be set:
-    1. Set `properties.subnets.containerSubnetId` to the ID for `ChaosStudioContainerSubnet`.
-    1. Set `properties.subnets.relaySubnetId` to the ID for `ChaosStudioRelaySubnet`.
+    1. The container subnet must be delegated to `Microsoft.ContainerInstance/containerGroups`.
+    1. The subnets can be arbitrarily named, but we recommend `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`.
+1. When enabling the desired resource as a target so you can use it in Chaos Studio experiments, the following properties must be set:
+    1. Set `properties.subnets.containerSubnetId` to the ID for the container subnet.
+    1. Set `properties.subnets.relaySubnetId` to the ID for the relay subnet.
+
+
+If you're using the Azure portal to enable a private resource as a Chaos Studio target, Chaos Studio currently only recognizes subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`. If these subnets don't exist, the portal workflow can create them automatically.
+
+If you're using the CLI, the container and relay subnets can have any name (subject to the resource naming guidelines). You just need to specify the appropriate IDs when enabling the resource as a target.
 
 ## Example: Use Chaos Studio with a private AKS cluster
 
@@ -95,10 +101,10 @@ Now your private AKS cluster can be used with Chaos Studio! Use the following in
 
 1. Create two subnets in the VNet you want to inject Chaos Studio resources into (in this case, the private AKS cluster's VNet):
 
-    - `ChaosStudioContainerSubnet`
+    - Container subnet (example name: `ChaosStudioContainerSubnet`)
         - Delegate the subnet to the `Microsoft.ContainerInstance/containerGroups` service.
         - This subnet must have at least /28 in address space.
-    - `ChaosStudioRelaySubnet`
+    - Relay subnet (example name: `ChaosStudioRelaySubnet`)
         - This subnet must have at least /28 in address space.
         
     ```azurecli
