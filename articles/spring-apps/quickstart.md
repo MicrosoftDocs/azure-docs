@@ -160,6 +160,29 @@ Azure Spring Apps creates an empty welcome application and provides its URL in t
 
 :::image type="content" source="media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/app-welcome-page.png":::
 
+## (Optional) Create an app in your Azure Spring Apps instance with dedicated workload profiles
+
+[Dedicated workload profiles](../container-apps/workload-profiles-overview.md) support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
+
+```azurecli
+az containerapp env workload-profile set -g ${RESOURCE_GROUP} -n ${MANAGED_ENVIRONMENT}
+   --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+```
+
+And use the following command to specify the workload profile on Azure Spring Apps:
+
+```azurecli-interactive
+az spring app create \
+   --resource-group ${RESOURCE_GROUP} \
+   --service ${SERVICE_NAME} \
+   --name ${APP_NAME} \
+   --cpu 1 \
+   --memory 2Gi \
+   --instance-count 2 \
+   --assign-endpoint true \
+   --workload-profile my-wlp
+```
+
 ## Clone and build the Spring Boot sample project
 
 Use the following steps to clone the Spring Boot sample project.
