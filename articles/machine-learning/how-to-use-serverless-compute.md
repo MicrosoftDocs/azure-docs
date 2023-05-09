@@ -31,7 +31,7 @@ When you create your own compute cluster, you use its name in the command job, s
   * Spark jobs
   * AutoML
 
-* For CLI or SDK pipelines, specify `azureml:serverless` as your default compute.  See [Pipeline job](#pipeline-job) for an example.
+* For CLI pipelines use `default_compute: azureml:serverless` for your default compute.  For SDK pipelines use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
 * To use serverless in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
 
     :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
