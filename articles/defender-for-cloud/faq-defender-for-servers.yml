@@ -122,22 +122,6 @@ sections:
         answer: |
           If a machine reports to multiple workspaces and all of them have Defender for Servers enabled, the machines are billed for each attached workspace.
 
-      - question: |
-          My subscription has Microsoft Defender for Servers enabled, which machines do I pay for?
-        answer: |
-          When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all machines in that subscription (including machines that are part of PaaS services and reside in this subscription) are billed according to their power state as shown in the following table:
-
-          | State | Description | Instance usage billed |
-          |--|--|--|
-          | Starting | VM is starting up. | Not billed |
-          | Running | Normal working state for a VM | Billed |
-          | Stopping | This state is transitional. When completed, it will show as Stopped. | Billed |
-          | Stopped | The VM has been shut down from within the guest OS or using the PowerOff APIs. Hardware is still allocated to the VM and it remains on the host. | Billed |
-          | Deallocating | This state is transitional. When completed, the VM will show as Deallocated. | Not billed |
-          | Deallocated | The VM has been stopped successfully and removed from the host. | Not billed |
-
-          :::image type="content" source="media/plan-defender-for-servers/deallocated-virtual-machines.png" alt-text="Screenshot of Azure Virtual Machines showing a deallocated machine.":::    
-
 additionalContent: |
 
   ## Next steps
