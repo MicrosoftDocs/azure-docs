@@ -48,4 +48,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 Next, learn how to use blocklists to customize your text moderation process.
 
 > [!div class="nextstepaction"]
-> [Use blocklists](./how-to/use-custom-blocklist.md)
+> [Use blocklists](./how-to/use-blocklist.md)

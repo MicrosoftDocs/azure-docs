@@ -28,7 +28,7 @@ You may want to build content filtering software into your app to comply with re
 This documentation contains the following article types:  
 
 * **[Quickstarts](./quickstart-text.md)** are getting-started instructions to guide you through making requests to the service.  
-* **[How-to guides](./how-to/use-custom-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
+* **[How-to guides](./how-to/use-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
 * **[Concepts](concepts/content-flags.md)** provide in-depth explanations of the service functionality and features.  
 
 ## Where it's used
