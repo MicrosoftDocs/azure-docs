@@ -1,5 +1,5 @@
 ---
-title: "Text processing with batch deployments"
+title: "Text processing with batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -13,11 +13,11 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Text processing with batch deployments
+# Deploy language models in batch endpoints
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be to deploy models processing tabular data that contain text. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
+Batch Endpoints can be used to deploy expensive models, like language models, over text data. In this tutorial you'll learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
 ## About this sample
 
@@ -27,25 +27,13 @@ The model we are going to work with was built using the popular library transfor
 * It is trained for summarization of text in English.
 * We are going to use Torch as a backend.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the [`cli/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/cli/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using the Azure CLI or [`sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using our SDK for Python.
+[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
-# [Azure CLI](#tab/cli)
+The files for this example are in:
 
 ```azurecli
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch/deploy-models/huggingface-text-summarization
+cd endpoints/batch/deploy-models/huggingface-text-summarization
 ```
-
-# [Python](#tab/python)
-
-In a Jupyter notebook:
-
-```python
-!git clone https://github.com/Azure/azureml-examples --depth 1
-!cd azureml-examples/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization
-```
-
----
 
 ### Follow along in Jupyter Notebooks
 
