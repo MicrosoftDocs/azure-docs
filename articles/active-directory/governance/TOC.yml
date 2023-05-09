@@ -42,6 +42,8 @@
         href: entitlement-management-onboard-external-user.md
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
+      - name: Integrating Entitlement Management with ServiceNow
+        href: entitlement-management-servicenow-integration.md  
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
