@@ -33,7 +33,7 @@ kubectl get nodes
 
 If AKS identifies an unhealthy node that remains unhealthy for 5 minutes, AKS takes the following actions:
 
-1. Restarts the node
+1. Restarts the node.
 1. If the restart is unsuccessful, reimage the node.
 1. If the reimage is unsuccessful,and this is a linux node,redeploy the node.
 
