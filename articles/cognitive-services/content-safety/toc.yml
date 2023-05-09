@@ -7,7 +7,7 @@ items:
   - name: Content Safety overview
     href: overview.md
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/content-safety
+    href: aka.ms/content-safety-pricing
     expanded: true
   - name: What's new
     href: whats-new.md

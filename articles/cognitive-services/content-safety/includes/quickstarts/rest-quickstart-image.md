@@ -28,7 +28,7 @@ The following section walks through a sample image moderation request with cURL.
 
 Choose a sample image to analyze, and download it to your device. 
 
-We support JPEG, PNG, GIF, and BMP image formats. The maximum size for image submissions is 4MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels.
+We support JPEG, PNG, GIF, and BMP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels.
 
 You can input your image by one of two methods: **local filestream** or **blob storage URL**.
 - **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 

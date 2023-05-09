@@ -19,11 +19,11 @@ ms.custom: references_regions
 
 # What is Azure Content Safety? (preview)
 
-The Azure Content Safety Public Preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
-
-Azure Content Safety can be accessed through RESTful APIs.
+The Azure Content Safety public preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. Content Safety offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
 
 You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+
+Azure Content Safety can be accessed through RESTful APIs and a Python client SDK.
 
 This documentation contains the following article types:  
 
@@ -46,7 +46,7 @@ The following are a few scenarios in which a software developer or team would re
 
 ## Product types
 
-There are different types of analysis available from this service. The following table describes the currently available API.
+There are different types of analysis available from this service. The following table describes the currently available APIs.
 
 | Type                        | Functionality           |
 | :-------------------------- | :---------------------- |
@@ -55,13 +55,13 @@ There are different types of analysis available from this service. The following
 
 ## Content Safety Studio
 
-[Azure Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with sample content.
+[Azure Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with provided sample content.
 
-Content Safety Studio not only contains the out-of-the-box AI models, but also uses Microsoft's built-in terms lists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your industry. 
+Content Safety Studio not only contains the out-of-the-box AI models, but also includes Microsoft's built-in terms blocklists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
 
-The Studio also lets you set up a moderation workflow, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real time, whether user-generated or AI-generated.
+Studio also lets you set up a moderation workflow, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real time, whether user-generated or AI-generated.
 
-All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (like block rate, block volume, category proportions, language proportions and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
+All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (block rate, block volume, category proportions, language proportions and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
 
 > [!div class="nextstepaction"]
 > [Content Safety Studio](https://contentsafety.cognitive.azure.com)
@@ -71,17 +71,17 @@ All of these capabilities are handled by the Studio and its backend; customers d
 
 In Content Safety Studio, the following Content Safety service features are available:
 
-* [Moderate Text Content](https://contentsafety.cognitive.azure.com/text): With the text moderation tool, you can easily run tests on text content. Whether you want to test a simple sentence or an entire dataset, our tool offers a user-friendly interface that lets you to assess the test results directly in the portal. You can experiment with different sensitivity levels to configure your content filters and blocklist management, ensuring that your content is always moderated to your exact specifications. Plus, with the ability to export the code, you can implement the tool directly in your application, streamlining your workflow and saving time.
+* [Moderate Text Content](https://contentsafety.cognitive.azure.com/text): With the text moderation tool, you can easily run tests on text content. Whether you want to test a single sentence or an entire dataset, our tool offers a user-friendly interface that lets you assess the test results directly in the portal. You can experiment with different sensitivity levels to configure your content filters and blocklist management, ensuring that your content is always moderated to your exact specifications. Plus, with the ability to export the code, you can implement the tool directly in your application, streamlining your workflow and saving time.
 
 * [Moderate Image Content](https://contentsafety.cognitive.azure.com/image): With the image moderation tool, you can easily run tests on images to ensure that they meet your content standards. Our user-friendly interface allows you to evaluate the test results directly in the portal, and you can experiment with different sensitivity levels to configure your content filters. Once you've customized your settings, you can easily export the code to implement the tool in your application.
 
-* [Monitor Online Activity](https://contentsafety.cognitive.azure.com/monitor): The powerful monitoring page allows you to easily track your moderation API usage and trends across different modalities. With this feature, you can access detailed response information, including category and severity distribution, latency, error, and blocklist detection. This information provides you with a complete overview of your content moderation performance, enabling you to optimize your workflow and ensure that your content is always moderated to your exact specifications. With our user-friendly interface, you can quickly and easily navigate the monitoring page to access the information you need to make informed decisions about your content moderation strategy. You'll have the tools you need to stay on top of your content moderation performance and achieve your content goals.
+* [Monitor Online Activity](https://contentsafety.cognitive.azure.com/monitor): The powerful monitoring page allows you to easily track your moderation API usage and trends across different modalities. With this feature, you can access detailed response information, including category and severity distribution, latency, error, and blocklist detection. This information provides you with a complete overview of your content moderation performance, enabling you to optimize your workflow and ensure that your content is always moderated to your exact specifications. With our user-friendly interface, you can quickly and easily navigate the monitoring page to access the information you need to make informed decisions about your content moderation strategy. You have the tools you need to stay on top of your content moderation performance and achieve your content goals.
 
 ## Input requirements
 
 The default maximum length for text submissions is 1000 characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
 
-The maximum size for image submissions is 4MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
+The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
 
 ## Pricing
 
@@ -91,9 +91,7 @@ Currently, the public preview features are available in the **F0 and S0** pricin
 
 ### Language availability
 
-This API supports eight languages: English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese.
-
-You don't need to specify a language code for text analysis. we'll automatically detect your input language.
+This API supports eight languages: English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese. You don't need to specify a language code for text analysis; we automatically detect your input language.
 
 ### Region / location
 
@@ -120,7 +118,7 @@ If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback 
 
 ## Next steps
 
-Follow a quickstart to get started.
+Follow a quickstart to get started using Content Safety in your application.
 
 > [!div class="nextstepaction"]
 > [Content Safety quickstart](./quickstart-text.md)
