@@ -1,6 +1,6 @@
 ---
-title: Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Prepare your client app and API
-description: Learn about how to prepare your Node.js client web app and ASP.NET web API. The app you here prepare is what you configure later to sign in users, then call an API by using Microsoft Entra.
+title: Sign in users and call an API in your own Node.js web application  - Prepare your client app and API
+description: Learn about how to prepare your Node.js client web app and ASP.NET web API. The app you here prepare is what you configure later to sign in users, then call an API .
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -14,7 +14,7 @@ ms.date: 04/30/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Prepare your client app and API
+# Sign in users and call an API in your own Node.js web application  - Prepare your client app and API
 
 In this article, you create app projects for both the client web app and web API. Later, you add authentication and authorization to this app. You create app projects for an ASP.NET web API and a Node.js web app client. 
 
@@ -24,7 +24,7 @@ In this article, you create app projects for both the client web app and web API
 
 ##  Build ASP.NET web API
 
-You must first create a protected web API, which the client web calls by presenting a valid token. To do so, complete the steps in [Secure an ASP.NET web API by using Microsoft Entra](how-to-protect-web-api-dotnet-core-overview.md) article. In this article, you learn how to create and protect ASP.NET API endpoints, and run and test the API. 
+You must first create a protected web API, which the client web calls by presenting a valid token. To do so, complete the steps in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article. In this article, you learn how to create and protect ASP.NET API endpoints, and run and test the API. 
 
 Before you proceed to this article, make sure you've [registered a web API app in Microsoft Entra admin center](how-to-web-app-node-sign-in-call-api-prepare-tenant.md#register-a-web-application-and-a-web-api).  
 

@@ -6,6 +6,7 @@ ms.topic: include
 ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
+An API need to publish a minimum of one app role for applications, also called [Application Permission](../../../../develop/permissions-consent-overview.md), for the client apps to obtain an access token as themselves. Application permissions are the type of permissions that APIs should publish when they want to enable client applications to successfully authenticate as themselves and not need to sign-in users. To publish an application permission, follow these steps:
 
 1. From the **App registrations** page, select the application that you created (such as *ciam-ToDoList-api*) to open its **Overview** page.
 

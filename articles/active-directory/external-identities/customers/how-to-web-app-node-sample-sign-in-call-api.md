@@ -1,6 +1,6 @@
 ---
-title: Sign in users and call an API in sample Node.js web application by using Microsoft Entra
-description: Learn how to configure a sample web app to sign in users and call an API by using Microsoft Entra.
+title: Sign in users and call an API in sample Node.js web application 
+description: Learn how to configure a sample web app to sign in users and call an API .
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,9 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample web app to sign in and sign out users with my CIAM tenant
 ---
 
-# Sign in users and call an API in sample Node.js web application by using Microsoft Entra
+# Sign in users and call an API in sample Node.js web application 
 
-This how-to guide uses a sample Node.js web application to show how to add authentication and authorization by using Microsoft Entra. The sample application sign in users to a Node.js web app, which then calls a .NET Core API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js web application to show you how to add authentication and authorization . The sample application sign in users to a Node.js web app, which then calls a .NET Core API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you complete the following tasks:
 
@@ -183,7 +183,7 @@ On the web API side, the endpoint must validate that the permissions/scopes pres
 
 Learn how to: 
 
-- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md). By completing these steps, you build a web app and web API similar to the sample you've run. 
+- [Sign in users and call an API in your own Node.js web application](how-to-web-app-node-sign-in-call-api-overview.md). By completing these steps, you build a web app and web API similar to the sample you've run. 
 
 - [Enable password reset](how-to-enable-password-reset-customers.md).
 

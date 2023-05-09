@@ -1,6 +1,6 @@
 ---
 title: Call an API in a sample Node.js daemon application
-description: Learn how to Configure a sample Node.js daemon application that calls an API protected by using Microsoft Entra
+description: Learn how to Configure a sample Node.js daemon application that calls an API protected 
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -33,7 +33,7 @@ A daemon app uses the standard [OAuth 2.0 client credentials grant](../../develo
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-hub-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Register a daemon application and a web API
 
@@ -45,7 +45,7 @@ In this step, you create the daemon and the web API application registrations, a
 
 ### Configure API scopes
 
-This API needs to expose permissions, which a client (in this case a daemon app) needs to acquire for calling the API:
+This API needs to expose permissions, which a client (in this case a daemon app) needs to acquire for calling the API.
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-api-scopes.md)]
 

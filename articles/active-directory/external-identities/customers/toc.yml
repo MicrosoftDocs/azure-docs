@@ -160,19 +160,7 @@ items:
                 - name: .NET​ - Sign in users
                   href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
             - name: Daemon, service
-              items: 
-                - name: Node.js
-                  items:
-                    - name: Call an API
-                      items:
-                        - name: Overview
-                          href: how-to-daemon-node-call-api-overview.md
-                        - name: Prepare tenant
-                          href: how-to-daemon-node-call-api-prepare-tenant.md
-                        - name: Prepare app
-                          href: how-to-daemon-node-call-api-prepare-app.md 
-                        - name: Acquire access token & call API
-                          href: how-to-daemon-node-call-api-call-api.md 
+              href: how-to-daemon-node-sample-call-api.md
     - name: Authenticate and authorize
       expanded: true
       items:
