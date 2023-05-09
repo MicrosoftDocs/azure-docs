@@ -1,7 +1,7 @@
 ---
 title: Generate Responsible AI Vision Insights with YAML and Python in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to generate a Responsible AI vision insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,7 +13,7 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Generate Responsible AI Vision Insights with YAML and Python
+# Generate Responsible AI Vision Insights with YAML and Python (preview)
 
 Understanding and assessing computer vision models requires a different set of Responsible AI tools, compared to tabular and text scenarios. The Responsible AI dashboard now supports image data by expanding debugging capabilities to be able to digest and visualize image data. The Responsible AI dashboard for Image provide several mature Responsible AI tools in the areas of model performance, data exploration, and model interpretability for a holistic assessment and debugging of computer vision models – leading to informed mitigations to resolve fairness issues, and transparency across stakeholders to build trust. You can generate a Responsible AI vision dashboard via an Azure Machine Learning pipeline job by using Responsible AI components.
 

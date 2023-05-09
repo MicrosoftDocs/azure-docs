@@ -1,7 +1,7 @@
 ---
 title: Responsible AI dashboard for Vision Insights in Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to use the various tools and visualization charts in the Responsible AI dashboard for vision insights in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,7 +13,7 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Responsible AI dashboard for Vision Insights in Azure Machine Learning studio
+# Responsible AI dashboard for Vision Insights in Azure Machine Learning studio (preview)
 
 The Responsible AI Image dashboards are linked to your registered computer vision models in Azure Machine Learning. While [steps to view and configure the  Responsible AI dashboard](how-to-responsible-ai-dashboard.md) is similar across scenarios, some features are unique to image scenarios.
 
@@ -164,13 +164,15 @@ The Class view pane breaks down your model predictions by class label. You can i
 
 Class view for multiclass classification:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png" alt-text=" Screenshot of." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.pn":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png" alt-text=" Screenshot of vision data explorer on the class view tab for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png":::
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png" alt-text=" Screenshot of." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png":::
+Class view for object detection:
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png" alt-text=" Screenshot of vision data explorer on the class view tab for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png":::
 
 ## Model interpretability
 
-For AutoML image classification models, four kinds of explainability methods are supported, namely [Guided backprop](https://arxiv.org/abs/1412.6806), [Guided gradCAM](https://arxiv.org/abs/1610.02391v4), [Integrated Gradients](https://arxiv.org/abs/1703.01365) and [XRAI](https://arxiv.org/abs/1906.02825). To learn more about the four explainability methods, see [Generate explanations for predictions](how-to-auto-train-image-models#generate-explanations-for-predictions).
+For AutoML image classification models, four kinds of explainability methods are supported, namely [Guided backprop](https://arxiv.org/abs/1412.6806), [Guided gradCAM](https://arxiv.org/abs/1610.02391v4), [Integrated Gradients](https://arxiv.org/abs/1703.01365) and [XRAI](https://arxiv.org/abs/1906.02825). To learn more about the four explainability methods, see [Generate explanations for predictions](how-to-auto-train-image-models.md#generate-explanations-for-predictions).
 
 > [!NOTE]
 > -	**These four methods are specific to AutoML image classification only** and will not work with other task types such as object detection, instance segmentation etc. Non-AutoML image classification models can leverage SHAP vision for model interpretability. 

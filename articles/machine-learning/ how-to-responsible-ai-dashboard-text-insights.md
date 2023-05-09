@@ -1,7 +1,7 @@
 ---
 title: Responsible AI dashboard for Text Insights in Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to use the various tools and visualization charts in the Responsible AI dashboard for text insights in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,7 +13,7 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Responsible AI dashboard for Text Insights in Azure Machine Learning studio
+# Responsible AI dashboard for Text Insights in Azure Machine Learning studio (preview)
 
 The Responsible AI Toolbox for Text Data is a customizable, interoperable tool where you can select components to perform analytical functions for Model Assessment and Debugging, which involves determining how and why AI systems behave the way they do, identifying and diagnosing issues, then using that knowledge to take targeted steps to improve their performance.
 

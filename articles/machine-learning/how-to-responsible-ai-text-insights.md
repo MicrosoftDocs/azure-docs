@@ -1,7 +1,7 @@
 ---
 title: Generate Responsible AI Text Insights with YAML and Python in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to generate a Responsible AI text insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,7 +13,7 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Generate Responsible AI Text Insights with YAML and Python
+# Generate Responsible AI Text Insights with YAML and Python (preview)
 
 Understanding and assessing NLP models can be different from tabular data. The Responsible AI dashboard now supports text data by expanding the debugging capabilities and visualizations to be able to digest and visualize text data. The Responsible AI text dashboard provides several mature Responsible AI tools in the areas of error analysis, model interpretability, unfairness assessment and mitigation for a holistic assessment and debugging of NLP models and making informed business decisions. You can generate a Responsible AI text dashboard via a pipeline job by using Responsible AI components.
 
@@ -52,7 +52,8 @@ The two datasets should be in mltable format. The training and test datasets pro
 
 The Responsible AI Text Insights component also accepts the following parameters:
 
-|Parameter name   |Description   | Type |
+| Parameter name | Description | Type |
+|----------------|-------------|------|
 | `title` | Brief description of the dashboard. | String |
 | `target_column_name` | The name of the column in the input datasets, which the model is trying to predict. | String |
 | `maximum_rows_for_test_dataset` | The maximum number of rows allowed in the test dataset, for performance reasons. | Integer, defaults to 5,000 |
