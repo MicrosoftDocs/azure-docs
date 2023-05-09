@@ -1520,6 +1520,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+    - name: Migrate to the metrics:Batch API
+      href: essentials/migrate-to-batch-api
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates

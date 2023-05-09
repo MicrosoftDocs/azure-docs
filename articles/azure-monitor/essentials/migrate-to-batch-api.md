@@ -122,7 +122,7 @@ The following example shows the converted batch request.
     }
 ```
 
-## Response conversion
+## Response Format
 
 The response format of the metrics:getBatch API encapsulates a list of individual metrics call responses in the following format:
 ```http
@@ -580,10 +580,12 @@ A `resourceid` property has been added to each resources' metrics list in the me
         ]
       }
 ```
+---
 
 ## Error response changes
 
 In the metrics:getBatch error response, the error content is wrapped inside a top level "error" property on the response. For example,
+
 + Metrics API error response
 
     ```http
