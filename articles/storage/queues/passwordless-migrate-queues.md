@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Storage Queues.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -58,9 +58,8 @@ The Azure Identity client library, for each of the following ecosystems, provide
    ```csharp
    var credential = new DefaultAzureCredential();
 
-   // TODO: Update the <storage-account-name> and <queue-name> placeholders.
    var queueClient = new QueueClient(
-        new Uri($"https://<storage-account-name>.queue.core.windows.net/<queue-name>"),
+        new Uri($"https://{storageAccountName}.queue.core.windows.net/{queueName}"),
         new DefaultAzureCredential());
    ```
 
@@ -81,11 +80,12 @@ The Azure Identity client library, for each of the following ecosystems, provide
     ```java
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
+    String endpoint = 
+        String.format("https://%s.queue.core.windows.net/", storageAccountName);
 
-    // TODO: Update the <storage-account-name> and <queue-name> placeholders.
     QueueClient queueClient = new QueueClientBuilder()
-        .endpoint("https://<storage-account-name>.queue.core.windows.net/")
-        .queueName("<queue-name>")
+        .endpoint(endpoint)
+        .queueName(queueName)
         .credential(credential)
         .buildClient();
     ```
@@ -109,9 +109,8 @@ The Azure Identity client library, for each of the following ecosystems, provide
     ```nodejs
     const credential = new DefaultAzureCredential();
     
-    // TODO: Update the <storage-account-name> and <queue-name> placeholders.
     const queueClient = new QueueClient(
-      "https://<storage-account-name>.queue.core.windows.net/<queue-name>",
+      `https://${storageAccountName}.queue.core.windows.net/${queueName}`,
       credential
     );
     ```
@@ -135,10 +134,9 @@ The Azure Identity client library, for each of the following ecosystems, provide
     ```python
     credential = DefaultAzureCredential()
 
-    # TODO: Update the <storage-account-name> and <queue-name> placeholders.
     queue_client = QueueClient(
-        account_url = "https://<storage-account-name>.blob.core.windows.net",
-        queue_name = "<queue-name>",
+        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
+        queue_name = queue_name,
         credential = credential
     )
     ```

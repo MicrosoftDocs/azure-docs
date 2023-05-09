@@ -5,7 +5,7 @@ description: Learn to migrate existing applications away from Shared Key authori
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -45,9 +45,8 @@ Next, update your code to use passwordless connections.
    ```csharp
    var credential = new DefaultAzureCredential();
 
-   // TODO: Update the <storage-account-name> placeholder.
    var blobServiceClient = new BlobServiceClient(
-       new Uri("https://<storage-account-name>.blob.core.windows.net"),
+       new Uri($"https://{storageAccountName}.blob.core.windows.net"),
        credential);
    ```
 
@@ -68,10 +67,11 @@ Next, update your code to use passwordless connections.
     ```java
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
+    String endpoint = 
+        String.format("https://%s.blob.core.windows.net", storageAccountName);
 
-    // TODO: Update the <storage-account-name> placeholder.
     BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-        .endpoint("https://<storage-account-name>.blob.core.windows.net")
+        .endpoint(endpoint)
         .credential(credential)
         .buildClient();
     ```
@@ -95,9 +95,8 @@ Next, update your code to use passwordless connections.
     ```nodejs
     const credential = new DefaultAzureCredential();
     
-    // TODO: Update the <storage-account-name> placeholder.
     const blobServiceClient = new BlobServiceClient(
-      "https://<storage-account-name>.blob.core.windows.net",
+      `https://${storageAccountName}.blob.core.windows.net`,
       credential
     );    
     ```
@@ -121,9 +120,8 @@ Next, update your code to use passwordless connections.
     ```python
     credential = DefaultAzureCredential()
 
-    # TODO: Update the <storage-account-name> placeholder.
     blob_service_client = BlobServiceClient(
-        account_url = "https://<storage-account-name>.blob.core.windows.net",
+        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
         credential = credential
     )
     ```

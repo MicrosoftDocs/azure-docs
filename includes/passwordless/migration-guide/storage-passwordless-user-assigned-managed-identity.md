@@ -8,38 +8,34 @@ You need to configure your application code to look for the specific managed ide
     ## [.NET](#tab/dotnet)
     
     ```csharp
-    // TODO: Update the <managed-identity-client-id> placeholder.
     var credential = new DefaultAzureCredential(
         new DefaultAzureCredentialOptions
         {
-            ManagedIdentityClientId = "<managed-identity-client-id>"
+            ManagedIdentityClientId = managedIdentityClientId
         });
     ```
 
     ## [Java](#tab/java)
     
     ```java
-    // TODO: Update the <managed-identity-client-id> placeholder.
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .managedIdentityClientId("<managed-identity-client-id>")
+        .managedIdentityClientId(managedIdentityClientId)
         .build();
     ```
     
     ## [Node.js](#tab/nodejs)
     
     ```nodejs
-    // TODO: Update the <managed-identity-client-id> placeholder.
     const credential = new DefaultAzureCredential({
-      managedIdentityClientId: "<managed-identity-client-id>"
+      managedIdentityClientId: managedIdentityClientId
     });
     ```
     
     ## [Python](#tab/python)
     
     ```python
-    # TODO: Update the <managed-identity-client-id> placeholder.
     credential = DefaultAzureCredential(
-        managed_identity_client_id = "<managed-identity-client-id>"
+        managed_identity_client_id = managed_identity_client_id
     )
     ```
 
