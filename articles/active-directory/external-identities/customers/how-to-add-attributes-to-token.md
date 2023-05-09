@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 User attributes are values collected from the user during self-service sign-up. In addition to built-in user attributes, you can create custom attributes when you need to collect additional information. Because your application might rely on certain user attributes to function as designed, you can add any of these attributes to the token that is sent from Azure AD to your application.
 
-You can specify which built-in or custom attributes you want to include as claims in the token that Azure AD sends to your application. Only extension attributes on user objects can be used for emitting claims to applications.
+You can specify which built-in or custom attributes you want to include as claims in the token that Azure AD sends to your application.
 
 ## Prerequisites
 
@@ -71,10 +71,12 @@ You can specify which built-in or custom attributes you want to include as claim
 
 ### Update the application manifest to accept mapped claims
 
-1. Ensure that **"allowPublicClient": true** is set in the application manifest:
-    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
-    1. Find the **acceptMappedClaims** key and ensure its value is set to **true**.
+Ensure that **"allowPublicClient": true** is set in the application manifest.
+
+1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+
+1. Find the **acceptMappedClaims** key and ensure its value is set to **true**.
 
 ## Next steps
 
-[Learn more about using directory extension attributes in claims](../../develop/active-directory-schema-extensions.md)
+Learn more about [adding claims from custom claims providers](../../develop/custom-extension-get-started.md).

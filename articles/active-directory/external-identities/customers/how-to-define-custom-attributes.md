@@ -67,9 +67,11 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 1. From the list, select your user flow.
 
-1. Under **Customize**, select **Page layouts**.
+1. Under **Customize**, select **Page layouts**. The attributes you chose to collect appear.
 
-   The attributes you chose to collect are listed. You can change the attribute label, type, and whether it’s required. You can also change the order of display by selecting an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
+   - To change the properties of an attribute, select a value under the **Label**, **Required**, or **Attribute type** columns, and then type or select a new value.
+
+   - To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
 
    :::image type="content" source="media/how-to-define-custom-attributes/page-layouts.png" alt-text="Screenshot of page layout options for a user flow.":::
 
