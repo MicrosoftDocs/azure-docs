@@ -72,7 +72,7 @@ During the load test, Azure Load Testing collects the following resource metrics
 
 Azure Load Testing automatically incorporates best practices for Azure networking to help make sure that your tests run securely and reliably. Load tests are automatically stopped if the application endpoints or Azure components start throttling requests.
 
-The service automatically encrypts all data stored in your load testing resource with keys managed by Microsoft (service-managed keys). For example, this data includes your Apache JMeter script, log files, or test results.
+The service automatically encrypts all data stored in your load testing resource with keys managed by Microsoft (service-managed keys). For example, this data includes your Apache JMeter script, log files, or test results. Alternately, you can also [configure the service to use customer-managed keys](./how-to-configure-customer-managed-keys.md).
 
 ## In-region data residency
 
