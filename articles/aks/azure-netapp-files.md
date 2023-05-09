@@ -533,7 +533,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     ...
     ```
 
-4. Verify your volume has been mounted on the pod by using [kubectl exec][kubectl-exec] to connect to the pod, and then use `df -h` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
+4. Verify your volume has been mounted on the pod by using the [kubectl exec][kubectl-exec] command to connect to the pod, and then use `df -h` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
 
     ```bash
     kubectl exec -it iis-pod –- cmd.exe
@@ -748,7 +748,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
     tbe-kfrdh   backend-tbc-anf   8da4e926-9dd4-4a40-8d6a-375aab28c566
     ```
 
-#### Create a StorageClass (NFS)
+#### Create a storage class (NFS)
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume Azure NetApp Files volumes, a storage class must be created. 
 
@@ -956,7 +956,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
       $ helm get all trident
     ```     
 
-2.  To confirm Astra Trident was installed successfully, run the following kubectl describe command:   
+2.  To confirm Astra Trident was installed successfully, run the following [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
 
     ```bash
     kubectl describe torc trident
@@ -1027,6 +1027,317 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
     ```
 
 #### Create a backend (SMB)
+
+A backend must be created to instruct Astra Trident about the Azure NetApp Files subscription and where it needs to create volumes. For more information about backends, see [Azure NetApp Files backend configuration options and examples](https://docs.netapp.com/us-en/trident/trident-use/anf-examples.html).
+
+1. Create a file named `backend-secret-smb.yaml` and copy in the following YAML. Change the `Client ID` and `clientSecret` to the correct values for your environment.
+
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: backend-tbc-anf-secret
+    type: Opaque
+    stringData:
+      clientID: abcde356-bf8e-fake-c111-abcde35613aa
+      clientSecret: rR0rUmWXfNioN1KhtHisiSAnoTherboGuskey6pU
+    ``` 
+
+2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role that's predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in the [Configure Azure NetApp Files](#configure-azure-netapp-files) section.
+
+    ```yaml
+    apiVersion: trident.netapp.io/v1
+    kind: TridentBackendConfig
+    metadata:
+      name: backend-tbc-anf-smb
+    spec:
+      version: 1
+      storageDriverName: azure-netapp-files
+      subscriptionID: 12abc678-4774-fake-a1b2-a7abcde39312
+      tenantID: a7abcde3-edc1-fake-b111-a7abcde356cf
+      location: eastus
+      serviceLevel: Premium
+      credentials:
+        name: backend-tbc-anf-secret
+      nasType: smb
+    ```
+3. Create the secret and backend using the the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
+
+    ```bash
+    kubectl apply -f backend-secret.yaml -n trident
+    ```
+
+    The output of the command resembles the following:   
+
+    ```output    
+    secret/backend-tbc-anf-secret created
+    ``` 
+
+    ```bash
+    kubectl apply -f backend-anf.yaml -n trident
+    ```
+
+    The output of the command resembles the following:   
+
+    ```output   
+    tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
+    ``` 
+
+4. Verify the backend was created by running the following command:   
+
+    ```bash
+    kubectl get tridentbackends -n trident
+    ``` 
+
+    The output of the command resembles the following example: 
+
+    ```output   
+    NAME        BACKEND               BACKEND UUID
+    tbe-9shfq   backend-tbc-anf-smb   09cc2d43-8197-475f-8356-da7707bae203
+    ``` 
+
+#### Create a secret with the domain credentials (SMB)
+
+1. Create a secret on your AKS cluster to access the AD server using the [`kubectl create secret`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) command. This information will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command, replacing `DOMAIN_NAME\USERNAME` with your domain name and username and `PASSWORD` with your password. 
+
+    ```bash
+    kubectl create secret generic smbcreds --from-literal=username=DOMAIN_NAME\USERNAME –from-literal=password="PASSWORD" 
+    ```
+
+2. Verify that the secret has been created.   
+
+    ```bash
+    kubectl get secret
+    ```
+
+    The output resembles the following example:
+
+    ```output 
+    NAME       TYPE     DATA   AGE
+    smbcreds   Opaque   2      2h
+    ```
+
+#### Create a Storage Class (SMB)
+
+A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume Azure NetApp Files volumes, a storage class must be created.  
+
+1. Create a file named `anf-storageclass-smb.yaml` and copy in the following YAML. 
+
+    ```yaml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: anf-sc-smb
+    provisioner: csi.trident.netapp.io
+    allowVolumeExpansion: true
+    parameters:
+      backendType: "azure-netapp-files"
+      trident.netapp.io/nasType: "smb"
+      csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+      csi.storage.k8s.io/node-stage-secret-namespace: "default"
+    ```
+
+2. Create the storage class using the  [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:   
+
+    ```bash
+    kubectl apply -f anf-storageclass-smb.yaml
+    ```
+
+    The output of the command resembles the following example:
+
+    ```output
+    storageclass/anf-sc-smb created
+    ``` 
+
+3.  Run the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to view the status of the storage class:   
+
+    ```bash
+    kubectl get sc anf-sc-smb
+    NAME         PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+    anf-sc-smb   csi.trident.netapp.io   Delete          Immediate           true                   13s
+    ```
+
+#### Create a persistent volume claim (SMB)
+
+A persistent volume claim (PVC) is a request for storage by a user. Upon the creation of a persistent volume claim, Astra Trident automatically creates an Azure NetApp Files SMB share and makes it available for Kubernetes workloads to consume.
+
+1. Create a file named `anf-pvc-smb.yaml` and copy the following YAML. In this example, a 100-GiB volume is created with `ReadWriteMany` access and uses the storage class created above.
+
+    ```yaml
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: anf-pvc-smb
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 100Gi
+      storageClassName: anf-sc-smb
+    ```
+
+2. Create the persistent volume claim with the the  [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
+
+    ```bash
+    kubectl apply -f anf-pvc-smb.yaml
+    ```
+
+    The output of the command resembles the following example: 
+
+    ```output
+    persistentvolumeclaim/anf-pvc-smb created
+    ```
+
+3. To view information about the persistent volume claim, run the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command:  
+
+    ```bash
+    kubectl get pvc
+    ```
+
+    The output of the command resembles the following example:
+
+    ```output
+    NAME          STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+    anf-pvc-smb   Bound    pvc-209268f5-c175-4a23-b61b-e34faf5b6239   100Gi      RWX            anf-sc-smb     5m38s
+    ```
+
+4. To view the persistent volume created by Astra Trident, run the following [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command: 
+
+    ```bash
+    kubectl get pv
+    NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                 STORAGECLASS   REASON   AGE
+    pvc-209268f5-c175-4a23-b61b-e34faf5b6239   100Gi      RWX            Delete           Bound    default/anf-pvc-smb   anf-sc-smb              5m52s
+    ```
+
+#### Use the persistent volume (SMB)
+
+After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an IIS pod that mounts the Azure NetApp Files SMB share created in the previous step. In this example, the volume is mounted at /inetpub/wwwroot.
+
+1. Create a file named `anf-iis-pod.yaml` and copy in the following YAML:
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod 
+    metadata:
+      name: iis-pod
+      labels:
+         app: web
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": windows
+      volumes:
+      - name: smb
+        persistentVolumeClaim:
+          claimName: anf-pvc-smb 
+      containers:
+      - name: web
+        image: mcr.microsoft.com/windows/servercore/iis:windowsservercore 
+        resources:
+          limits:
+            cpu: 1
+            memory: 800M
+        ports:
+          - containerPort: 80
+        volumeMounts:
+        - name: smb
+          mountPath: "/inetpub/wwwroot"
+          readOnly: false
+    ```
+
+2. Create the deployment using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
+
+    ```bash
+    kubectl apply -f anf-iis-deploy-pod.yaml
+    ```
+
+    The output of the command resembles the following example:
+
+    ```output
+    pod/iis-pod created
+    ```
+    
+    Verify that the pod is running and is mounted via SMB to `/inetpub/wwwroot` by using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
+
+    ```bash
+    kubectl describe pod iis-pod
+    ```
+
+    The output of the command resembles the following example:   
+
+    ```output    
+    Name:         iis-pod
+    Namespace:    default
+    Priority:     0
+    Node:         akswin000001/10.225.5.246
+    Start Time:   Fri, 05 May 2023 15:16:36 -0400
+    Labels:       app=web
+    Annotations:  <none>
+    Status:       Running
+    IP:           10.225.5.252
+    IPs:
+      IP:  10.225.5.252
+    Containers:
+      web:
+        Container ID:   containerd://1e4959f2b49e7ad842b0ec774488a6142ac9152ca380c7ba4d814ae739d5ed3e
+        Image:          mcr.microsoft.com/windows/servercore/iis:windowsservercore
+        Image ID:       mcr.microsoft.com/windows/servercore/iis@sha256:0f0114d0f6c6ee569e1494953efdecb76465998df5eba951dc760ac5812c7409
+        Port:           80/TCP
+        Host Port:      0/TCP
+        State:          Running
+          Started:      Fri, 05 May 2023 15:16:44 -0400
+        Ready:          True
+        Restart Count:  0
+        Limits:
+          cpu:     1
+          memory:  800M
+        Requests:
+          cpu:        1
+          memory:     800M
+        Environment:  <none>
+        Mounts:
+          /inetpub/wwwroot from smb (rw)
+          /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zznzs (ro)
+    ```
+
+3. Verify that your volume has been mounted on the pod by using [kubectl exec][kubectl-exec] to connect to the pod. And then use the `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned.
+
+    ```bash
+    kubectl exec -it iis-pod –- cmd.exe
+    ```
+
+    The output of the command resembles the following example:   
+
+    ```output
+    Microsoft Windows [Version 10.0.20348.1668]
+    (c) Microsoft Corporation. All rights reserved.
+    
+    C:\>cd /inetpub/wwwroot
+    
+    C:\inetpub\wwwroot>dir
+     Volume in drive C has no label.
+     Volume Serial Number is 86BB-AA55
+    
+     Directory of C:\inetpub\wwwroot
+    
+    05/05/2023  01:38 AM    <DIR>          .
+    05/05/2023  01:38 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)  107,373,862,912 bytes free
+    
+    C:\inetpub\wwwroot>exit
+    ```
+
+
+
+
+
+
+
+
+
+
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1161,7 +1472,7 @@ This section walks you through the installation of Astra Trident using the opera
     kubectl describe tridentbackendconfig.trident.netapp.io/backend-tbc-anf -n trident
     ```
 
-### Create a StorageClass
+### Create a Storage class
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume Azure NetApp Files volumes, a storage class must be created.
 
