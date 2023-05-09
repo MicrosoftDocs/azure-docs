@@ -16,6 +16,21 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## May 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Sensor version 22.3.x and later**: <br>- [Configure Active Directory and NTP settings in the portal](#configure-active-directory-and-ntp-settings-in-the-portal) |
+
+### Configure Active Directory and NTP settings in the portal
+
+Configure Active Directory and NTP settings for your sensors remotely from the Azure portal.
+
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
+
+> [!NOTE]
+> The NTP and Active Directory setting is supported only for OT sensors, versions 22.3.x and later.
+
 ## April 2023
 
 |Service area  |Updates  |
