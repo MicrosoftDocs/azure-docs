@@ -43,12 +43,6 @@ In this step, you create the daemon and the web API application registrations, a
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/register-api-app.md)]
 
-### Configure API scopes
-
-This API needs to expose permissions, which a client (in this case a daemon app) needs to acquire for calling the API.
-
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-api-scopes.md)]
-
 ### Configure app roles
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-role.md)]
@@ -136,7 +130,7 @@ To use your app registration in the web API sample:
          node . --op getToDos
     ```
 
-If your daemon app and wep API successfully run, you should see something similar to the following JSON array in your console window
+If your daemon app and web API successfully run, you should see something similar to the following JSON array in your console window
 
 ```json
 {
@@ -164,7 +158,7 @@ On the API side, the web API must verify that the access token has the required 
 
 ### Access to data
 
-A Web API endpoint should be prepared to accept calls from both users and applications. Therefore, it should have a way to respond to each request accordingly. For example, a call from a user via delegated permissions/scopes receives the user's data to-do list. On the other hand, a call from an application via application permissions/roles may receive the entire to-do list.
+A Web API endpoint should be prepared to accept calls from both users and applications. Therefore, it should have a way to respond to each request accordingly. For example, a call from a user via delegated permissions/scopes receives the user's data to-do list. On the other hand, a call from an application via application permissions/roles may receive the entire to-do list. However, in this article, we're only making an application call, so we didn't need to configure delegated permissions/scopes.
 
 ## Next steps
 
