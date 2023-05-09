@@ -316,7 +316,7 @@ Beginning **April 2023**, you can no longer add playbooks to analytics rules in 
 
 ## Run a playbook on demand
 
-You can also manually run a playbook on demand, on both incidents (in Preview) and alerts. This can be useful in situations where you want more human input into and control over orchestration and response processes.
+You can also manually run a playbook on demand, whether in response to alerts, incidents (in Preview), or entities (also in Preview). This can be useful in situations where you want more human input into and control over orchestration and response processes.
 
 ### Run a playbook manually on an alert
 
@@ -327,6 +327,8 @@ You can also manually run a playbook on demand, on both incidents (in Preview) a
 1. Select **View full details** at the bottom of the incident details pane.
 
 1. In the incident details page, in the **Incident timeline** widget, choose the alert you want to run the playbook on. Select the three dots at the end of the alert's line and choose **Run playbook** from the pop-up menu.
+
+    :::image type="content" source="media/investigate-incidents/remove-alert.png" alt-text="Screenshot of running a playbook on an alert on-demand.":::
 
 1. The **Alert playbooks** pane will open. You'll see a list of all playbooks configured with the **Microsoft Sentinel Alert** Logic Apps trigger that you have access to.
 
@@ -348,7 +350,7 @@ You can also manually run a playbook on demand, on both incidents (in Preview) a
 
 You can see the run history for playbooks on an alert by selecting the **Runs** tab on the **Alert playbooks** pane. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
-### Run a playbook manually on an incident
+### Run a playbook manually on an incident (Preview)
 
 1. In the **Incidents** page, select an incident. 
 
@@ -364,7 +366,7 @@ You can see the run history for playbooks on an alert by selecting the **Runs** 
 
 You can see the run history for playbooks on an incident by selecting the **Runs** tab on the **Run playbook on incident** panel. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
-### Run a playbook manually on an entity
+### Run a playbook manually on an entity (Preview)
 
 1. Select an entity in one of the following ways, depending on your originating context:
 
