@@ -100,10 +100,6 @@ Before following the steps in this article, make sure you have the following pre
     resource_group = "<RESOURCE_GROUP>"
     ```
 
-# [Studio](#tab/azure-studio)
-
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-
 ---
 
 ## Configure a managed virtual network to allow internet outbound
@@ -267,15 +263,6 @@ To configure a managed VNet that allows internet outbound communications, use th
     # Create the workspace
     ml_client.workspaces.begin_update(ws)
     ```
-
-# [Studio](#tab/azure-studio)
-
-1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
-1. Fill the information in Basics tab and move to Networking tab
-1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
-1. Create a workspace
-
-    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
 ---
 
@@ -509,28 +496,6 @@ To configure a managed VNet that allows only approved outbound communications, u
     ml_client.workspaces.begin_update(ws)
     ```
 
-# [Studio](#tab/azure-studio)
-
-* To __create a new workspace__ that is configured with a managed VNet, use the following steps:
-
-    1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
-    1. Fill the information in Basics tab and move to Networking tab
-    1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
-    1. Create a workspace
-
-        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
-
-* To __update an existing workspace__ to use a managed VNet, use the following steps:
-
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
-
-    1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
-    1. Go to the networking blade and managed network tab.
-    1. Change managed network mode to "private with internet outbound" or "private with allowed outbound"
-
-        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
-
 ---
 
 
@@ -567,14 +532,6 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
     ```
-
-    # [Studio](#tab/azure-studio)
-
-    1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
-    1. Go to the networking blade and managed network tab.
-    1. Check the box: Use serverless spark compute.
-
-        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
     ---
 
@@ -639,10 +596,6 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     ml_client.workspaces.begin_update(ws)
     ```
 
-    # [Studio](#tab/azure-studio)
-
-    TBD
-
     ---
 
 ## Manage outbound rules
@@ -689,10 +642,6 @@ print([r._to_dict() for r in rule_list])
 # Delete a rule from a workspace
 ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_name).result()
 ```
-
-# [Studio](#tab/azure-studio)
-
-TBD
 
 ---
 
