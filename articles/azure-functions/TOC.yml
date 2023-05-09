@@ -501,16 +501,8 @@
           href: functions-continuous-deployment.md
         - name: Deployment slots
           href: functions-deployment-slots.md
-        - name: Containers  
-          items:
-          - name: Work with containers 
-            href: functions-how-to-custom-container.md 
-          - name: Deploy to Azure Container Apps (preview) 
-            href: functions-how-to-custom-container.md 
-          - name: Deploy to Azure Arc (preview)
-            href: create-first-function-arc-custom-container.md
-          - name: Deploy to Azure App Service
-            href: functions-deploy-custom-container.md 
+        - name: Work with containers 
+          href: functions-how-to-custom-container.md 
         - name: Build and deploy using Azure Pipelines
           href: functions-how-to-azure-devops.md
         - name: Build and deploy using GitHub Actions

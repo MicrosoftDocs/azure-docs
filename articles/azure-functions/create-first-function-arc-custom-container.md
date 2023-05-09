@@ -5,6 +5,7 @@ ms.topic: quickstart
 ms.date: 05/07/2023
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
+zone_pivot_groups: programming-languages-set-functions-full
 ---
 
 # Deploy a custom container to Azure Arc (preview)
