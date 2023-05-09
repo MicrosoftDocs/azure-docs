@@ -16,7 +16,7 @@ ms.custom: devplatv2
 
 # Monitor performance of models deployed to production (preview)
 
-Once a machine learning model is in production, it's important to critically evaluate the inherent risks associated with it and identify blind spots that could adversely affect your business. Azure Machine Learning's model monitoring continuously tracks the performance of models in production by providing a broad view of monitoring signals and alerting you to issues that you can troubleshoot to mitigate risks. In this article, you'll learn to perform out-of box and advanced monitoring setup for models that are deployed to Azure Machine Learning online endpoints. You'll also learn to set up model monitoring for models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints.
+Once a machine learning model is in production, it's important to critically evaluate the inherent risks associated with it and identify blind spots that could adversely affect your business. Azure Machine Learning's model monitoring continuously tracks the performance of models in production by providing a broad view of monitoring signals and alerting you to potential issues. In this article, you'll learn to perform out-of box and advanced monitoring setup for models that are deployed to Azure Machine Learning online endpoints. You'll also learn to set up model monitoring for models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -38,21 +38,27 @@ Once a machine learning model is in production, it's important to critically eva
 
 # [Studio](#tab/azure-studio)
 
+Before following the steps in this article, make sure you have the following prerequisites:
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
 ---
 
-For monitoring a model that is deployed to an Azure Machine Learning online endpoint (Managed Online Endpoint or Kubernetes Online Endpoint):
+  *  For monitoring a model that is deployed to an Azure Machine Learning online endpoint (Managed Online Endpoint or Kubernetes Online Endpoint):
 
-  * A model deployed to an Azure Machine Learning online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported. If you don't have a model deployed to an Azure Machine Learning online endpoint, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
+      * A model deployed to an Azure Machine Learning online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported. If you don't have a model deployed to an Azure Machine Learning online endpoint, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
-  * Data collection enabled for your model deployment. You can enable data collection during the deployment step for Azure Machine Learning online endpoints. For more information, see [Collect production data from models deployed to a real-time endpoint](how-to-collect-production-data.md).
+      * Data collection enabled for your model deployment. You can enable data collection during the deployment step for Azure Machine Learning online endpoints. For more information, see [Collect production data from models deployed to a real-time endpoint](how-to-collect-production-data.md).
 
-  * A model in production and ready to serve scoring requests.
+  *  For monitoring a model that is deployed to an Azure Machine Learning batch endpoint or deployed outside of Azure Machine Learning:
 
-For monitoring a model that is deployed to an Azure Machine Learning batch endpoint or deployed outside of Azure Machine Learning:
-
-  * A way way to collect production data and register it as an Azure Machine Learning data asset.
-  * The registered Azure Machine Learning data asset is continuously updated for model monitoring.
-  * (Recommended) The model should be registered in Azure Machine Learning workspace, for lineage tracking.
+      * A way to collect production data and register it as an Azure Machine Learning data asset.
+      * The registered Azure Machine Learning data asset is continuously updated for model monitoring.
+      * (Recommended) The model should be registered in Azure Machine Learning workspace, for lineage tracking.
 
 ---
 
@@ -103,7 +109,7 @@ Once you set up model monitoring using the previous CLI command and YAML definit
 * Monitoring setup automatically includes and tracks the built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, Azure Machine Learning uses:
   * the recent past production inference dataset as the comparison baseline dataset.
   * smart defaults for metrics and thresholds.
-* A monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email will be sent to the user who set up the monitoring.
+* A monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
 
 # [Python](#tab/python)
 
@@ -270,7 +276,7 @@ create_monitor:
 
 # [Python](#tab/python)
 
-You can use the SDK snippets below for advanced model monitoring setup:
+You can use the following code for advanced model monitoring setup:
 
 ```python
 #get a handle to the workspace
@@ -367,5 +373,6 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 - [Explore out-of-box model monitoring example with Azure Machine Learning online endpoint](https://github.com/Azure/azureml-examples) 
 - [Explore advanced model monitoring setup with training data as comparison baseline](https://github.com/Azure/azureml-examples)
-- [Model data collection](concept-data-collection.md)
-- [Collect production inference data](how-to-collect-inference-data.md)
+- [Data collection from models in production (preview)](concept-data-collection.md)
+- [Collect production data from models deployed for real-time inferencing](how-to-collect-production-data.md)
+- [CLI (v2) schedule YAML schema for model monitoring (preview)](reference-yaml-monitor.md)
