@@ -80,4 +80,4 @@ Learn how your services will respond to an attack by [testing through simulation
 
 ## Next steps
 
-- Learn how to [create an Azure DDoS Protection plan](manage-ddos-protection.md).
+- Learn more about [reference architectures](ddos-protection-reference-architectures.md).

@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -95,7 +95,7 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    The target rate of [logical operations](./correlation.md#data-model-for-telemetry-correlation) that the adaptive algorithm aims to collect **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
+    The target rate of [logical operations](distributed-tracing-telemetry-correlation.md#data-model-for-telemetry-correlation) that the adaptive algorithm aims to collect **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   
@@ -509,7 +509,7 @@ Use this type of sampling if your app often goes over its monthly quota and you 
 
 Set the sampling rate in the Usage and estimated costs page:
 
-![From the application's Overview pane, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/data-sampling.png)
+:::image type="content" source="./media/sampling/data-sampling.png" lightbox="./media/sampling/data-sampling.png" alt-text="From the application's Overview pane, click Settings, Quota, Samples, then select a sampling rate, and click Update.":::
 
 Like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. Metric counts such as request rate and exception rate are correctly retained.
 

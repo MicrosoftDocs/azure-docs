@@ -36,7 +36,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
    ```
 
    Using [ARM Template](../../azure-resource-manager/templates/index.yml):
-   Example below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+   Example shown below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
 ```json
 {
 
@@ -93,7 +93,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
   ```
 
-Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this can be done:
+Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -101,7 +101,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `shared_preload_libraries` parameter.
    4. Select extensions you wish to add.
-     :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation .":::
+     :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation.":::
   
 
 Using [Azure CLI](/cli/azure/):
@@ -118,10 +118,10 @@ After extensions are allow-listed and loaded, these must be installed in your da
 
 
 
-Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document are not supported on Azure Database for PostgreSQL - Flexible Server. You cannot create or load your own extension in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 ## Postgres 14 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 14. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 14. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -146,7 +146,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
- > |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+ > |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
@@ -174,6 +174,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -182,7 +183,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 13 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 13. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -207,7 +208,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
- > |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+ > |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
@@ -235,6 +236,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -243,7 +245,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 12 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 12. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -268,7 +270,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
->  |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+>  |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
@@ -296,6 +298,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -304,7 +307,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 11 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 11. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 11. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -329,7 +332,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.1.8            |implements in Postgres some of the functions from the Oracle database that are missing|
+> |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
@@ -398,7 +401,7 @@ To see all jobs currently scheduled with pg_cron
 ```
 SELECT * FROM cron.job;
 ```
-To run vaccuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
+To run vacuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
 ```
 SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE)
 ```

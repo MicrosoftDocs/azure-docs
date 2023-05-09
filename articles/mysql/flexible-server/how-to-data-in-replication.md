@@ -4,7 +4,7 @@ description: This article describes how to set up Data-in replication for Azure 
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 12/30/2022
+ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -61,7 +61,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    1. Open the configuration file to edit it and locate **mysqld** section in the file.
    1. In the mysqld section, add following line:
 
-      ```bash
+      ```config
       log-bin=mysql-bin.log
       ```
 
@@ -171,7 +171,7 @@ The results should appear similar to the following. Make sure to note the binary
 
    All Data-in replication functions are done by stored procedures. You can find all procedures at [Data-in replication Stored Procedures](../reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
 
-   To link two servers and start replication, login to the target replica server in the Azure DB for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure DB for MySQL server.
+   To link two servers and start replication, login to the target replica server in the Azure Database for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure Database for MySQL server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');

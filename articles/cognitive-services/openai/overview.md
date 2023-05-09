@@ -8,7 +8,7 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 03/21/2023
+ms.date: 05/01/2023
 ms.custom: event-tier1-build-2022
 recommendations: false
 keywords:  
@@ -16,7 +16,7 @@ keywords:
 
 # What is Azure OpenAI Service?
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. In addition, the new GPT-4 and ChatGPT (gpt-35-turbo) model series are now available in preview. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
 
 ### Features overview
 
@@ -39,15 +39,13 @@ At Microsoft, we're committed to the advancement of AI driven by principles that
 
 How do I get access to Azure OpenAI?
 
-Access is currently limited as we navigate high demand, upcoming product improvements, and <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">Microsoft’s commitment to responsible AI</a>. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. In addition to applying for initial access, all solutions using Azure OpenAI are required to go through a use case review before they can be released for production use.
+Access is currently limited as we navigate high demand, upcoming product improvements, and <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">Microsoft’s commitment to responsible AI</a>. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. 
 
 More specific information is included in the application form. We appreciate your patience as we work to responsibly enable broader access to Azure OpenAI.
 
-Apply here for initial access or for a production review:
+Apply here for access:
 
 <a href="https://aka.ms/oaiapply" target="_blank">Apply now</a>
-
-All solutions using Azure OpenAI are also required to go through a use case review before they can be released for production use, and are evaluated on a case-by-case basis. In general, the more sensitive the scenario the more important risk mitigation measures will be for approval.
 
 ## Comparing Azure OpenAI and OpenAI
 

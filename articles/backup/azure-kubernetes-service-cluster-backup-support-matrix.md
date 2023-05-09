@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 03/27/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -29,7 +29,7 @@ AKS backup is available in all the Azure public cloud regions, East US, North Eu
 
 - Before you install the Backup Extension in the AKS cluster, ensure that the *CSI drivers*, and *snapshot* are enabled for your cluster. If  disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- The Backup Extension uses the AKS cluster's Managed System Identity to perform backup operations. So, AKS clusters using *Service Principal* aren't supported by ASK backup. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity).
+- The Backup Extension uses the AKS cluster's Managed System Identity to perform backup operations. So, AKS clusters using *Service Principal* aren't supported by ASK backup. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
 - You must install Backup Extension in the AKS cluster. If you're using Azure CLI to install the Backup Extension, ensure that the CLI version is to  *2.41* or later. Use `az upgrade` command to upgrade Azure CLI.
 
@@ -40,6 +40,8 @@ AKS backup is available in all the Azure public cloud regions, East US, North Eu
 - Azure Backup provides operational (snapshot) tier backup of AKS clusters with the support for multiple backups per day. The backups aren't copied to the backup vault.
 
 - Currently, the modification of backup policy and the modification of snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
+
+- AKS cluster and Backup Extension pods should be in running state for any backup and restore operations to be performed. This includes deletion of expired recovery points.
 
 - For successful backup and restore operations, role assignments are required by the Backup vault's managed identity. If you don't have the required permissions, you may see permission issues during backup configuration or restore operations soon after assigning roles because the role assignments take a few minutes to take effect. Learn about the [role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 

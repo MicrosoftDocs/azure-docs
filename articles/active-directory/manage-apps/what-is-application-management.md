@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/07/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # What is application management in Azure Active Directory?
@@ -127,6 +128,10 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 ## Clean up
 
 You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For more information on how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
+
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Secure your cloud apps with Single Sign On (SSO) guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221502).
 
 ## Next steps
 

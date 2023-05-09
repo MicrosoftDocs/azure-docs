@@ -20,12 +20,20 @@ ms.author: anfdocs
 You can enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can also enable SMB CA on an existing SMB volume; this article shows you how to do so.
 
 > [!IMPORTANT]   
-> The SMB Continuous Availability feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.   
+> The SMB Continuous Availability feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. The SMB Continuous Availability feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare                                                      
 > 
-> See the [**Enable Continuous Availability**](azure-netapp-files-create-volumes-smb.md#continuous-availability) option for additional details and considerations. 
+> FeatureName   ProviderName     RegistrationState   
+> -----------   ------------     -----------------   
+> ANFSMBCAShare Microsoft.NetApp Registered
+> ```
 
 >[!IMPORTANT]
 > Custom applications are not supported with SMB Continuous Availability.
+> 
+> See the [**Enable Continuous Availability**](azure-netapp-files-create-volumes-smb.md#continuous-availability) option for additional details and considerations. 
 
 ## Steps
 

@@ -21,7 +21,6 @@ In API Management, *workspaces* allow decentralized API development teams to man
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
@@ -139,6 +138,8 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Specifying API authorization server information (for example, for the developer portal)
    
+Workspace APIs can't be published to self-hosted gateways.
+
 All resources in an API Management service need to have unique names, even if they are located in different workspaces.
 
 ## Next steps

@@ -1,18 +1,18 @@
 ---
 title: Add and configure a catalog
 titleSuffix: Azure Deployment Environments
-description: Learn how to add and configure a catalog in your Azure Deployment Environments Preview dev center to provide deployment templates for your development teams.
+description: Learn how to add a catalog in your dev center to provide environment templates for your developers. Catalogs are repositories stored in GitHub or Azure DevOps.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Add and configure a catalog
+# Add and configure a catalog from GitHub or Azure DevOps
 
-Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments Preview dev center. You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [catalog items](./concept-environments-key-concepts.md#catalog-items).
+Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments Preview dev center. You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [catalog items](./concept-environments-key-concepts.md#catalog-items). Your catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which are managed by Microsoft for Azure Services.
 
 For more information about catalog items, see [Add and configure a catalog item](./configure-catalog-item.md).
 
@@ -86,7 +86,7 @@ Next, create a personal access token. Depending on the type of repository you us
 
 ### Store the personal access token as a key vault secret
 
-To store the personal access token that you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
+Store the personal access token that you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
 
 1. Create a [key vault](../key-vault/general/quick-create-portal.md#create-a-vault).
 1. Add the personal access token as a [secret to the key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
@@ -96,20 +96,20 @@ To store the personal access token that you generated as a [key vault secret](..
 
 1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
 1. Ensure that the [identity](./how-to-configure-managed-identity.md) that's attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
-1. On the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
-1. On **Add catalog**, enter the following information, and then select **Add**:
+1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
+1. In **Add catalog**, enter the following information, and then select **Add**:
 
     | Field | Value |
     | ----- | ----- |
     | **Name** | Enter a name for the catalog. |
     | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your catalog items. <br /> This folder path should be the path to the folder that contains the subfolders that have the catalog item manifests, and not the path to the folder that has the catalog item manifest itself.<br />*Sample catalog example:* `/Environments`<br /> The folder path can begin with or without a forward slash (`/`).|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your catalog items. <br /> The folder path is for the folder with subfolders containing catalog item manifests, not for the folder with the catalog item manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
    :::image type="content" source="media/how-to-configure-catalog/add-catalog-form-inline.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-catalog-form-expanded.png":::
 
-1. On **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
+1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
 ## Update a catalog
 

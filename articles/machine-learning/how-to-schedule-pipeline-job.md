@@ -5,10 +5,10 @@ description: Learn how to schedule pipeline jobs that allow you to automate rout
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: lochen
-author: cloga
+ms.author: keli19
+author: likebupt
 ms.reviewer: lagayhar
-ms.date: 12/11/2022
+ms.date: 03/27/2023
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022
 ---
@@ -38,14 +38,6 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 - An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 - Understanding of Azure Machine Learning pipelines. See [what are machine learning pipelines](concept-ml-pipelines.md), and how to create pipeline job in [CLI v2](how-to-create-component-pipelines-cli.md) or [SDK v2](how-to-create-component-pipeline-python.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning studio UI.
-  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-  
-     [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-  1. In **Managed preview feature** panel, toggle on **Create and manage your pipeline schedule** feature.
-    :::image type="content" source="./media/how-to-schedule-pipeline-job/manage-preview-features.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-schedule-pipeline-job/manage-preview-features.png":::
 
 ---
 

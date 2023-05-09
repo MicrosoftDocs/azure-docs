@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 04/10/2023
 
 ms.author: justinha
 author: justinha
@@ -159,7 +159,7 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Users with spam filters should exclude this number.
 
 * *+1 (855) 330-8653*
 

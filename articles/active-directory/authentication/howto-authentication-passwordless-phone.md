@@ -7,13 +7,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 04/26/2023
 
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: librown; tilarso
+ms.reviewer: jogro
 
 ms.collection: M365-identity-device-management
 ---
@@ -85,7 +85,7 @@ Users can register for passwordless phone sign-in directly within the Microsoft 
 1. Acquire a [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) from your Admin or Organization. 
 2. Download and install the Microsoft Authenticator app on your mobile device. 
 3. Open Microsoft Authenticator and click **Add account** and then choose **Work or school account.**
-4. Choose **Sign in." 
+4. Choose **Sign in**. 
 5. Follow the instructions to sign-in with your account using the Temporary Access Pass provided by your Admin or Organization. 
 6. Once signed-in, continue following the additional steps to set up phone sign-in. 
 
@@ -162,7 +162,7 @@ This logic generally prevents a user in a hybrid tenant from being directed to A
 
 ### On-premises users
 
-An end user can be enabled for multifactor authentication (MFA) through an on-premises. The user can still create and utilize a single passwordless phone sign-in credential.
+An end user can be enabled for multifactor authentication (MFA) through an on-premises identity provider. The user can still create and utilize a single passwordless phone sign-in credential.
 
 If the user attempts to upgrade multiple installations (5+) of Microsoft Authenticator with the passwordless phone sign-in credential, this change might result in an error.
 

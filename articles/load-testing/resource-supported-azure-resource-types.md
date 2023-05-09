@@ -39,7 +39,7 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Key Vault
 * Service Bus
 * Static Web Apps
-* Storage Accounts: Azure Blog Storage/Azure Files/Azure Table Storage/Queue Storage
+* Storage Accounts: Azure Blob Storage/Azure Files/Azure Table Storage/Queue Storage
 * Storage Accounts (classic): Azure Files/Azure Table Storage/Queue Storage
 * Traffic Manager profile
 * Virtual Machine Scale Sets
@@ -48,5 +48,4 @@ This section lists the Azure resource types that Azure Load Testing supports for
 ## Next steps
 
 * Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
-* Learn how to [Get more insights from App Service diagnostics](./how-to-appservice-insights.md).
 * Learn how to [Compare multiple test runs](./how-to-compare-multiple-test-runs.md).

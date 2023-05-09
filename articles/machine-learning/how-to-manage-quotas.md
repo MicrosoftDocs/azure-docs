@@ -8,7 +8,7 @@ ms.subservice: core
 author: SimranArora904
 ms.author: siarora
 ms.reviewer: larryfr
-ms.date: 11/28/2022
+ms.date: 04/28/2023
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -99,21 +99,21 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 
 ### Azure Machine Learning managed online endpoints
 
-Azure Machine Learning managed online endpoints have limits described in the following table. 
+Azure Machine Learning managed online endpoints have limits described in the following table. These are regional limits, meaning that you can use up to these limits per each region you are using.
 
-| **Resource** | **Limit** |
-| --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
-| Number of endpoints per subscription | 50 |
-| Number of deployments per subscription | 200 |
-| Number of deployments per endpoint | 20 |
-| Number of instances per deployment | 20 <sup>2</sup> |
-| Max request time-out at endpoint level  | 90 seconds |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> |
+| **Resource** | **Limit** | **Allows exception** |
+| --- | --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
+| Number of endpoints per subscription | 50 | Yes |
+| Number of deployments per subscription | 200 | Yes |
+| Number of deployments per endpoint | 20 | Yes |
+| Number of instances per deployment | 20 <sup>2</sup> | Yes |
+| Max request time-out at endpoint level  | 90 seconds | - |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | Yes |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
@@ -125,6 +125,20 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases).
 
+### Azure Machine Learning kubernetes online endpoints
+
+Azure Machine Learning kubernetes online endpoints have limits described in the following table. 
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Endpoint name| Same as [managed online endpoint](#azure-machine-learning-managed-online-endpoints) |
+| Deployment name| Same as [managed online endpoint](#azure-machine-learning-managed-online-endpoints)|
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
+| Number of deployments per endpoint | 20 |
+| Max request time-out at endpoint level  | 300 seconds |
+
+The sum of kubernetes online endpoints and managed online endpoints under each subscription cannot exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription cannot exceed 200.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -154,9 +168,6 @@ For more information, see [Container Instances limits](../azure-resource-manager
 
 ### Storage
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
-
-To increase the limit, make a request through [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
-
 
 ## Workspace-level quotas
 
@@ -219,11 +230,11 @@ When you're requesting a quota increase, select the service that you have in min
  
 1. Scroll to **Machine Learning Service: Virtual Machine Quota**.
  
-    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details.":::
 
-2. Under **Additonal Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
+2. Under **Additional Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
  
-    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details.":::
 
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).

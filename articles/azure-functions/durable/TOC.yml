@@ -26,6 +26,9 @@
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
+  - name: Create durable function - TypeScript
+    displayName: get started, chaining
+    href: quickstart-ts-vscode.md
   - name: Create durable function - Python
     displayName: get started, chaining
     href: quickstart-python-vscode.md
@@ -133,6 +136,10 @@
   items:
   - name: Develop
     items:
+    - name: Durable Functions best practices and diagnostic tools
+      href: durable-functions-best-practice-reference.md
+    - name: Durable Functions Rosyln Analyzer (C# only)
+      href: durable-functions-roslyn-analyzer.md
     - name: Create in Azure portal
       href: durable-functions-create-portal.md
     - name: Manage connections
@@ -143,6 +150,8 @@
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
+    - name: Upgrade to Node.js model v4
+      href: durable-functions-node-model-upgrade.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -159,8 +168,16 @@
       href: durable-functions-diagnostics.md
     - name: Monitoring
       href: ../functions-monitoring.md?toc=/azure/azure-functions/durable/toc.json
+    - name: App diagnostics in Azure portal 
+      href: function-app-diagnostics.md
     - name: Pricing
       href: durable-functions-billing.md
+  - name: Debug
+    items:
+    - name: Upgrade Durable Functions extension version
+      href: durable-functions-extension-upgrade.md
+    - name: Durable Functions Troubleshooting Guide
+      href: durable-functions-troubleshooting-guide.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

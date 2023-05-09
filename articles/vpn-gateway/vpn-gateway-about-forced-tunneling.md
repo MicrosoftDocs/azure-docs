@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure forced tunneling for virtual networks created using the classic deployment model.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 02/07/2023
 ms.author: cherylmc
-
 ---
 # Configure forced tunneling using the classic deployment model
 

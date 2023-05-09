@@ -192,7 +192,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
-| `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
+| `AZURE_LOGGING_DIR` | For Windows Apps, added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. ||
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
@@ -345,7 +345,6 @@ For more information on custom containers, see [Run a custom container in Azure]
 | `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting isn't injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
 | `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `CONTAINER_WINRM_ENABLED` | For a Windows containerized app, set to `1` to enable Windows Remote Management (WIN-RM). ||
 
 <!-- 
 CONTAINER_ENCRYPTION_KEY
