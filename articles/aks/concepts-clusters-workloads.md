@@ -61,7 +61,7 @@ To configure or directly access a control plane, deploy a self-managed Kubernete
 
 For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
-For AKS cost management information, see [AKS cost basics][aks-cost-basics] and [Pricing for AKS](https://azure.microsoft.com/pricing/details/kubernetes-service/#pricing).
+For AKS cost management information, see [AKS cost basics](/architecture/aws-professional/eks-to-aks/cost-management#aks-cost-basics) and [Pricing for AKS](https://azure.microsoft.com/pricing/details/kubernetes-service/#pricing).
 
 ## Nodes and node pools
 
@@ -384,4 +384,3 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-service-level-agreement]: faq.md#does-aks-offer-a-service-level-agreement
 [aks-tags]: use-tags.md
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
-[aks-cost-basics]: /architecture/aws-professional/eks-to-aks/cost-management#aks-cost-basics
