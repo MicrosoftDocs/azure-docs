@@ -67,17 +67,87 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
 * **User credential pass through** : Serverless compute fully supports credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. User credential pass through is the default.
 
-    ```yaml
+    # [Python SDK](#tab/python)
+
+    ```python
+    from azure.ai.ml import command
+    from azure.ai.ml import MLClient     # Handle to the workspace
+    from azure.identity import DefaultAzureCredential     # Authentication package
+    from azure.ai.ml.entities import ResourceConfiguration
+    from azure.ai.ml.entities import UserIdentityConfiguration 
+
+    credential = DefaultAzureCredential()
+    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+    ml_client = MLClient(
+        credential=credential,
+        subscription_id="<Azure subscription id>", 
+        resource_group_name="<Azure resource group>",
+        workspace_name="<Azure Machine Learning Workspace>",
+    )
+    job = command(
+        command="echo 'hello world'",
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+            identity=UserIdentityConfiguration(),
+    )
+    # submit the command job
+    ml_client.create_or_update(job)
+    ```
+
+    # [Azure CLI](#tab/cli)
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+    command: echo "hello world"
+    environment:
+      image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
     identity:
       type: user_identity
     ```
 
+    ---
+
 * **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`.
 
+    # [Python SDK](#tab/python)
+
+    ```python
+    from azure.ai.ml import command
+    # Handle to the workspace
+    from azure.ai.ml import MLClient
+    # Authentication package
+    from azure.identity import DefaultAzureCredential
+    from azure.ai.ml.entities import ResourceConfiguration
+    from azure.ai.ml.entities import ManagedIdentityConfiguration
+
+    credential = DefaultAzureCredential()
+    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+    ml_client = MLClient(
+        credential=credential,
+        subscription_id="<Azure subscription id>", 
+        resource_group_name="<Azure resource group>",
+        workspace_name="<Azure Machine Learning Workspace>",
+    )
+    job = command(
+        command="echo 'hello world'",
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+            identity= ManagedIdentityConfiguration(),
+    )
+    # submit the command job
+    ml_client.create_or_update(job)
+
+    ```
+
+    # [Azure CLI](#tab/cli)
+
     ```yaml
+    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+    command: echo "hello world"
+    environment:
+      image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
     identity:
       type: managed
-    ```
+
+    ---
 
   For information on attaching user-assigned managed identity, see [attach user assigned managed identity](./how-to-submit-spark-jobs.md#attach-user-assigned-managed-identity-using-cli-v2).
 
@@ -175,6 +245,31 @@ You can override these defaults.  If you want to specify the VM type or number o
 
     # [Python SDK](#tab/python)
 
+    ```python
+    from azure.ai.ml import command
+    # Handle to the workspace
+    from azure.ai.ml import MLClient
+    # Authentication package
+    from azure.identity import DefaultAzureCredential
+    credential = DefaultAzureCredential()
+    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+    ml_client = MLClient(
+        credential=credential,
+        subscription_id="<Azure subscription id>", 
+        resource_group_name="<Azure resource group>",
+        workspace_name="<Azure Machine Learning Workspace>",
+    )
+    job = command(
+        command="echo 'hello world'",
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+        queue_settings={
+          "job_tier": "spot"  
+        }
+    )
+    # submit the command job
+    ml_client.create_or_update(job)
+    ```
+
     # [Azure CLI](#tab/cli)
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -189,17 +284,50 @@ Here's an example of all fields specified including identity.
 
 # [Python SDK](#tab/python)
 
+```python
+from azure.ai.ml import command
+# Handle to the workspace
+from azure.ai.ml import MLClient
+# Authentication package
+from azure.identity import DefaultAzureCredential
+from azure.ai.ml.entities import ResourceConfiguration
+from azure.ai.ml.entities import UserIdentityConfiguration 
+
+credential = DefaultAzureCredential()
+# Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+ml_client = MLClient(
+    credential=credential,
+    subscription_id="<Azure subscription id>", 
+    resource_group_name="<Azure resource group>",
+    workspace_name="<Azure Machine Learning Workspace>",
+)
+job = command(
+    command="echo 'hello world'",
+    environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+         identity=UserIdentityConfiguration(),
+    queue_settings={
+      "job_tier": "Standard"  
+    }
+)
+job.resources = ResourceConfiguration(instance_type="Standard_E4s_v3", instance_count=1)
+# submit the command job
+ml_client.create_or_update(job)
+```
+
 # [Azure CLI](#tab/cli)
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-component: ./train.yml 
-resources:
-  instance_count: 4
-  instance_type: Standard_NC24 
-identity:
-  type:  user_identity # can be managed too
+command: echo "hello world"
+environment:
+  image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
 queue_settings:
    job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
+identity:
+  type: user_identity #Possible values are Managed, user_identity
+resources:
+  instance_count: 1
+  instance_type: Standard_E4s_v3 
+
 ```
 
 ---
