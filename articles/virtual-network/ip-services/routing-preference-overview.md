@@ -33,12 +33,12 @@ The new routing choice *Internet routing* minimizes travel on the Microsoft glob
 
 :::image type="content" source="./media/routing-preference-overview/route-via-isp-network.png" alt-text="Diagram of routing via public Internet.":::
 
-**Ingress traffic:** The ingress path uses *hot potato routing, which means that traffic enters the Microsoft network that is closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over the public internet and enters the Microsoft global network in Chicago.
+**Ingress traffic:** The ingress path uses *hot potato routing*, which means that traffic enters the Microsoft network that is closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over the public internet and enters the Microsoft global network in Chicago.
 
 **Egress traffic:** The egress traffic follows the same principle. Traffic exits Microsoft network in the same region that the service is hosted. For example, if traffic from your service in Azure in Chicago is destined to a user in Singapore, the traffic exits the Microsoft network in Chicago. It then travels over the public internet to the user in Singapore.
 
 > [!NOTE]
-> Even when using a public IP with routing preference "Internet", all traffic that is bound for a destination within Azure continues to use the direct path within the Microsoft Wide Area Network.
+> Even when using a public IP with routing preference **Internet**, all traffic that is bound for a destination within Azure continues to use the direct path within the Microsoft Wide Area Network.
 >
 
 ## Supported services
