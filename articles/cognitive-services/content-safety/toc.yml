@@ -7,7 +7,7 @@ items:
   - name: Content Safety overview
     href: overview.md
   - name: Pricing
-    href: aka.ms/content-safety-pricing
+    href: https://aka.ms/content-safety-pricing
     expanded: true
   - name: What's new
     href: whats-new.md
