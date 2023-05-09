@@ -1,3 +1,20 @@
+---
+title: Client credentials for web apps and web APIs calling downstream APIs
+description: Include file with a common configuration in web apps and web APIs calling downstream web APIs (ASP.NET Core and ASP.NET OWIN).
+services: active-directory
+author: jmprieur
+manager: CelesteDG
+
+ms.service: active-directory
+ms.subservice: develop
+ms.workload: identity
+ms.topic: include
+ms.date: 05/08/2023
+ms.author: jmprieur
+ms.reviewer: jmprieur
+ms.custom: aaddev
+---
+
 Given that your web app now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
 
 - The URL of the downstream web API
