@@ -27,7 +27,7 @@ Workday introduced the ability for workers to [display pronoun information](http
 
 ## Enabling pronoun data in Workday
 This section describes the steps required to enable pronoun data in Workday. We recommend engaging your Workday administrator to complete the steps listed below. 
-1. Ensure that pronoun display and sharing preferences are enabled as per Workday guidelines. Refer to the Workday document:
+1. Ensure that pronoun display and sharing preferences are enabled as per Workday guidelines. Refer to the Workday documents:
    [Steps: Set Up Gender Pronouns to Display on a Worker Profile * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/7gZPvVfbRhLiPissprv6lQ)
    [Steps: Set Up Public Profile Preferences * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/FuENV1VTRTHWo_h93KIjJA)
 1. Use Workday **Maintain Pronouns** task to define preferred pronoun data (HE/HIM, SHE/HER, and THEY/THEM) in your Workday tenant.
