@@ -18,7 +18,7 @@ Azure Files OAuth over REST Preview enables admin-level read and write access to
 
 ## Limitations
 
-Azure Files OAuth over REST Preview only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS key, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
+Azure Files OAuth over REST Preview only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS token, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
 
 Authorizing file data operations with Azure AD is supported only for REST API versions 2022-11-02 and later. See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
@@ -233,6 +233,56 @@ To authorize access to file data, follow these steps.
    ```
    
    Because the cmdlets are called using the storage account context from step 4, the file and directory will be created using Azure AD credentials.
+
+# [Azure CLI](#tab/cli)
+
+Core Azure CLI commands that ship as part of CLI support Files OAuth over REST interface, and you can use them to authenticate and authorize file data operations using Azure AD credentials.
+
+## Supported operations
+
+The commands only support operations on file data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you signed into Azure CLI.
+
+OAuth authentication and authorization will only work if the CLI command is called with the `--backup-intent` option or `--enable-file-backup-request-intent` option. This is to specify the explicit intent to use the additional permissions that this feature provides.
+
+All commands under `az storage file`, `az storage directory` command groups, and `az storage share list-handle` and `az storage share close-handle` support OAuth authentication and authorization. For all other operations on storage account and file shares, you must use the storage account key or SAS token.
+
+## Prerequisites
+
+You'll need an Azure resource group and a storage account within that resource group. The storage account must be assigned an appropriate role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific File service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+
+## Installation and example commands
+
+If you haven't already done so, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
+
+### Authorize access to file data
+
+1. Sign in to your Azure account.
+   
+   ```azurecli
+   az login
+   ```
+   
+1. Create a file share by calling `az storage share create cli`. Because you're using the connection string, the file share is created using your storage account key.
+   
+   ```azurecli
+   az storage share create --name testshare1 --connection-string <connection-string>
+   ```
+
+1. Create a test directory and upload a file into the file share using `az storage directory create` and `az storage file upload cli`. Remember to specify the `--auth` mode as login and pass the `--backup-intent` parameter.
+   
+   ```azurecli
+   az storage directory create --name testdir1 --account-name filesoauthsa --share-name testshare1 --auth-mode login --backup-intent
+   az storage file upload  --account-name filesoauthsa --share-name testshare1 --auth-mode login --backup-intent --source <source file path>
+   ```
+   
+   Because the cli commands are called using authentication type as login  (`--auth mode`login and `--backup-intent` parameter), the file and directory will be created using Azure AD credentials.
+
+For more information refer to the latest CLI documentation for supported commands:
+
+- [az storage file](/cli/azure/storage/file?view=azure-cli-latest)
+- [az storage directory](/cli/azure/storage/directory?view=azure-cli-latest)
+- [az storage share list-handle](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-list-handle)
+- [az storage share close-handle](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-close-handle)
 ---
 
 ## See also
