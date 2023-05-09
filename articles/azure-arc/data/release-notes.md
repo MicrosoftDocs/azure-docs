@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/15/2023
+ms.date: 05/09/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,29 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## May 9, 2023
+
+### Image tag
+
+`v1.19.0_2023-05-09`
+
+For complete release version information, see [Version log](version-log.md#may-9-2023).
+
+New for this release:
+
+### Release notes
+
+- Arc Data services
+  - OpenSearch replaces Elasticsearch for log database
+  - OpenSearch Dashboards replaces Kibana for logs interface
+    - As a part of this change there is a known issue that user settings for Kibana fail to migrate to OpenSearch Dashboards. It is advised that customers save any configuration externally before upgrading so that it can be re-created in OpenSearch Dashboards.
+  - Arc data controller improvements to `az` CLI for upgrade reliability
+
+- Azure Arc-enabled SQL Managed Instance
+  - General Purpose: Customer-managed TDE encryption keys (preview)
+  - Support for `sp_configure` to manage configuration
+  - Service-managed credential rotation
 
 ## April 12, 2023
 
@@ -336,7 +359,7 @@ Data controller sends controller logs to the Log Analytics Workspace if logs upl
 
 Removed the `--ad-connector-namespace` parameter from `az sql mi-arc create` command because for now the AD connector resource must always be in the same namespace as the SQL Managed Instance resource.
 
-Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluent Bit, Go.
+Updated Elasticsearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluent Bit, Go.
 
 All container image sizes were reduced by approximately 40% on average.
 
@@ -684,7 +707,7 @@ Use the following tools:
 
 - Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
 
-- Currently, modifying the configuration of ElasticSearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
+- Currently, modifying the configuration of Elasticsearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
 	
 - Custom metrics in Azure portal - preview.
 
