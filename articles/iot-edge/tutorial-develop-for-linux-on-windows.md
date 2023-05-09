@@ -172,7 +172,7 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    172.31.24.105 
    ```
 
-1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.Replace \<EFLOW-VM-IP\> with the EFLOW VM IP address obtained in the previous step.
+1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container. Replace \<EFLOW-VM-IP\> with the EFLOW VM IP address obtained in the previous step.
    ```powershell
    docker -H tcp://<EFLOW-VM-IP>:2375 run --rm hello-world
    ```
@@ -252,7 +252,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 1. Re-generate your deployment manifest with the new runtime version. Right-click the name of your project and select **Generate deployment for IoT Edge**.
 
 > [!WARNING]
-> If you are chaging the IoT Edge runtime version, make sure the _deploymnet templates_ reflect the necessary changes. Currently there's a known issue with Azure IoT Edge Tools, that won't change the _"schemVersion"_ inside the _"properties.desired"_ object of _"$edgeHub"_ module (last section of the json file). 
+> If you are changing the IoT Edge runtime version, make sure the _deployment templates_ reflect the necessary changes. Currently, there's a known issue with Azure IoT Edge Tools that won't change the _"schemVersion"_ inside the _"properties.desired"_ object of _"$edgeHub"_ module (last section of the json file). 
 
 
 ### Set up Visual Studio 2019 remote Docker engine instance

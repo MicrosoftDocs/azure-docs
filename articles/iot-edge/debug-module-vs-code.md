@@ -180,7 +180,6 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 ---
 
 ::: zone-end
-<!--vscode end-->
 
 ## Debug a module with the IoT Edge runtime
 
@@ -213,7 +212,7 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
             "registryCredentials": {
               "myacr": {
                 "username": "myacr",
-                "password": "<your_acr_password>",
+                "password": "<your_azure_container_registry_password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -222,7 +221,7 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
     ...
     ```
 
-1. Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, filtermodeule) listed. Change the values if necessary.
+1. Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, filtermodule) listed. Change the values if necessary.
 
     ```json
     "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
@@ -256,7 +255,7 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
 You can check your container status from your device or virtual machine by running the `docker ps` command in a terminal. You should see your container listed after running the command. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view. 
 
 > [!IMPORTANT]
-> If you're using a private registry like Azure Container Registry (ACR) for your images, you may need to authenticate to push images. Use `docker login <ACR login server>` or `az acr login --name <ACR name>` to authenticate.
+> If you're using a private registry like Azure Container Registry for your images, you may need to authenticate to push images. Use `docker login <Azure Container Registry login server>` or `az acr login --name <Azure Container Registry name>` to authenticate.
 
 ::: zone-end
 <!--vscode end-->
@@ -267,10 +266,10 @@ You can check your container status from your device or virtual machine by runni
 
 Provide your container registry credentials to Docker so that it can push your container image to storage in the registry.
 
-1. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
+1. Sign in to Docker with the Azure Container Registry credentials that you saved after creating the registry.
 
    ```bash
-   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   docker login -u <Azure Container Registry username> -p <Azure Container Registry password> <Azure Container Registry login server>
    ```
 
    You may receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
@@ -278,7 +277,7 @@ Provide your container registry credentials to Docker so that it can push your c
 1. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
 
    ```azurecli
-   az acr login -n <ACR registry name>
+   az acr login -n <Azure Container Registry name>
    ```
 >[!TIP]
 >If you get logged out at any point in this tutorial, repeat the Docker and Azure Container Registry sign in steps to continue.
@@ -291,7 +290,7 @@ Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/
 docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
 ```
 
-For example, to build the image for the local registry or an Azure container registry, use the following commands:
+For example, to build the image for the local registry or an Azure Container Registry, use the following commands:
 
 ```bash
 # Build the image for the local registry
@@ -321,7 +320,7 @@ az acr login --name myacr
 docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
 ```
 
-#### Deploy the module to the IoT Edge device.
+#### Deploy the module to the IoT Edge device
 
 Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.template.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
 
@@ -380,7 +379,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
                                            edgeAgent
     ```
 
-1. In the *.Visual Studio Code* directory, add a new configuration to **launch.json** by opening the file in Visual Studio Code. Select **Add configuration** then choose the matching remote attach template for your module. For example, the following configuration is for .NET Core. Change the value for the *-H* parameter in *PipeArgs* to your device DNS name or IP address.
+1. In the *.vscode* directory, add a new configuration to **launch.json** by opening the file in Visual Studio Code. Select **Add configuration** then choose the matching remote attach template for your module. For example, the following configuration is for .NET Core. Change the value for the *-H* parameter in *PipeArgs* to your device DNS name or IP address.
 
     ```json
     "configurations": [
