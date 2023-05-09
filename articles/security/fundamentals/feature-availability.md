@@ -228,7 +228,7 @@ The following tables display the current Microsoft Sentinel feature availability
 |- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
 |- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
 | **Workspace Manager** | | |
-| - [Workspace manager](/azure/sentinel/workspace-manager.md) | Public preview | Public preview |
+| - [Workspace manager](../../sentinel/workspace-manager.md) | Public preview | Public preview |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 | **Content  and content management** | | |
