@@ -258,7 +258,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
+      image: docker.io/busybox:1.35.0
       command:
         - "/bin/sleep"
         - "10000"
