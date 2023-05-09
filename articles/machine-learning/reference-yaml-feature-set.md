@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) feature set YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) feature store YAML schema.
+description: Reference documentation for the CLI (v2) feature set YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -37,7 +37,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | tags | object | Dictionary of tags for the feature set. |  |  |
 | materialization_settings | object | Feature set materialization setting. |  |  |
 | materialization_settings.offline_enabled | boolean | Whether materialing feature values to an offline storage is enabled. | True, False |  |
-| materialization_settings.schedule | object | The materialization schedule. Please see [definition](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-schedule?view=azureml-api-2) |  |  |
+| materialization_settings.schedule | object | The materialization schedule. Please see [definition](https://learn.microsoft.com/azure/machine-learning/reference-yaml-schedule?view=azureml-api-2&preserve-view=true) |  |  |
 | materialization_settings.schedule.frequency | string | **Required** if schedule is configured. Enum to describe the frequency of a recurrence schedule. | Day, Hour, Minute, Week, Month | day |
 | materialization_settings.schedule.interval | integer | **Required** if schedule is configured. The interval between recurrent jobs. |  |  |
 | materialization_settings.schedule.time_zone | string | The schedule trigger time zone. |  |  |
@@ -46,8 +46,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | materialization_settings.notification.email_on_status | object (list of string) | **Required** if notification is configured. The email notification is sent when job status matches this setting. | JobFailed, JobCompleted, JobCancelled. |  |
 | materialization_settings.notification.emails | object (list of string) | **Required** if notification is configured. The email address the notification is sent to. |  |  |
 | materialization_settings.resource | object | The AzureML spark compute resource used for materialization job. |  |  |
-| materialization_settings.resource.instance_type | string | The AzureML spark compute instance type. | Standard_E4s_v3, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3. Please refer to this [document](https://learn.microsoft.com/en-us/azure/machine-learning/interactive-data-wrangling-with-apache-spark-azure-ml?view=azureml-api-2) to get updated list of supported types. |  |
-| materialization_settings.spark_configuration | dictionary | dictionary of spark configuration |  |  |                                                                                                                                                               |                                                                                                                                                                                                                                                                                                    |               |
+| materialization_settings.resource.instance_type | string | The AzureML spark compute instance type. | Standard_E4s_v3, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3. Please refer to this [[document](interactive-data-wrangling-with-apache-spark-azure-ml.md) to get updated list of supported types. |  |
+| materialization_settings.spark_configuration | dictionary | dictionary of spark configuration |  |  |
 
 ## Remarks
 

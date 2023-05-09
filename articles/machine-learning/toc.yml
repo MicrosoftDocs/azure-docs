@@ -1336,11 +1336,11 @@
             - name: Feature set
               href: reference-yaml-feature-set.md
             - name: Feature entity
-              href: reference-yaml-feature-entitiy.md
+              href: reference-yaml-feature-entity.md
             - name: Feature retrieval spec
               href: reference-yaml-feature-retrieval-spec.md
             - name: Feature set spec
-              href: reference-yaml-featureset-spec
+              href: reference-yaml-featureset-spec.md
         - name: Endpoint
           items:
             - name: Online (real-time)

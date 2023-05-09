@@ -42,7 +42,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | location | string | The location of the feature store. |  | The resource group location. |
 | resource_group | string | **Required.** The resource group containing the feature store. If the resource group does not exist, a new one will be created. |  |  |
 
-You can include other [workspace properties](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-workspace?view=azureml-api-2).
+You can include other [workspace properties](reference-yaml-workspace.md).
 
 ## Remarks
 
