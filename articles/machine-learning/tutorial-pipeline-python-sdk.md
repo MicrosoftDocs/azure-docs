@@ -209,7 +209,6 @@ os.makedirs(dependencies_dir, exist_ok=True)
 
 Now, create the file in the dependencies directory.
 
-
 ```python
 %%writefile {dependencies_dir}/conda.yml
 name: model-env

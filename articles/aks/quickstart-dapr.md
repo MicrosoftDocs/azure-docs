@@ -68,7 +68,7 @@ kubectl apply -f ./deploy/redis.yaml
 
 And verify that your state store was successfully configured in the output:
 
-```bash
+```output
 component.dapr.io/statestore created
 ```
 
@@ -180,7 +180,7 @@ kubectl logs --selector=app=node -c node --tail=-1
 
 If the deployments were successful, you should see logs like this:
 
-```bash
+```ouput
 Got a new order! Order ID: 1
 Successfully persisted state
 Got a new order! Order ID: 2
@@ -204,7 +204,7 @@ You should see the latest JSON in the response.
 
 Use the [az group delete][az-group-delete] command to remove the resource group, the cluster, the namespace, and all related resources.
 
-```azurecli
+```azurecli-interactive
 az group delete --name MyResourceGroup
 ```
 
@@ -212,7 +212,7 @@ az group delete --name MyResourceGroup
 
 Use the [Remove-AzResourceGroup][remove-azresourcegroup] command to remove the resource group, the cluster, the namespace, and all related resources.
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 

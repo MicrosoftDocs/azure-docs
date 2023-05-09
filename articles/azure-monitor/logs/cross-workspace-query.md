@@ -39,7 +39,7 @@ You can identify a workspace in one of several ways:
 
     `workspace("00000000-0000-0000-0000-000000000000").Update | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
 
     For example:
 

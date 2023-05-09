@@ -80,7 +80,7 @@ Set your default resource group name and Azure Spring Apps instance name using t
 
 ```azurecli
 az config set defaults.group=<service-group-name>
-az config set defaults.spring-cloud=<service-instance-name>
+az config set defaults.spring=<service-instance-name>
 ```
 
 ## Create the application in Azure Spring Apps

@@ -3686,7 +3686,7 @@ The refreshed Authentication Methods Activity dashboard gives admins an overview
 **Service category:** Other  
 **Product capability:** User Authentication
  
-Refresh and session token lifetimes configurability in CTL are retired. Azure Active Directory no longer honors refresh and session token configuration in existing policies. [Learn more](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
+Refresh and session token lifetimes configurability in CTL are retired. Azure Active Directory no longer honors refresh and session token configuration in existing policies. [Learn more](../develop/configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
  
 ---
 
