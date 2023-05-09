@@ -138,7 +138,7 @@ This utility function code assigns the first two roles to the UAI. In this examp
 
 If the feature data is materialized, then you need this role to read feature data from offline materialization store.
 
-Learn how to get your AAD object ID from the Azure portal at [this](https://learn.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id) page.
+Learn how to get your AAD object ID from the Azure portal at [this](/partner-center/find-ids-and-domain-names#find-the-user-object-id) page.
 
 To learn more about access control, see access control document.
 
