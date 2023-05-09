@@ -2,7 +2,7 @@
 title: Configure schedule patching on Azure VMs to ensure business continuity in update management center (preview).
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Update management center (preview).
 ms.service: update-management-center
-ms.date: 04/26/2023
+ms.date: 05/09/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -129,10 +129,9 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
   "location":"<location>", 
   "properties": { 
     "osProfile": { 
-      " linuxConfiguration": { 
+      "linuxConfiguration": { 
         "provisionVMAgent": true, 
-        "enableAutomaticUpdates": true, 
-        "patchSettings": { 
+         "patchSettings": { 
           "patchMode": "AutomaticByPlatform", 
   "automaticByPlatformSettings":{ 
 "bypassPlatformSafetyChecksOnUserSchedule":true 
@@ -229,9 +228,8 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
   "location":"<location>", 
   "properties": { 
     "osProfile": { 
-      " linuxConfiguration": { 
-        "provisionVMAgent": true, 
-        "enableAutomaticUpdates": true, 
+      "linuxConfiguration": { 
+        "provisionVMAgent": true,  
         "patchSettings": { 
           "patchMode": "AutomaticByPlatform", 
   "automaticByPlatformSettings":{ 
