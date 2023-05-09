@@ -26,8 +26,14 @@ items:
   items:
      - name: REST API
        href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
-     - name: .NET SDK
-       href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
+     - name: SDKs
+       items:
+         - name: .NET
+           href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
+         - name: Java
+           href: /java/api/overview/azure/health-insights-cancerprofiling-readme
+         - name: Python
+           href: /python/api/overview/azure/healthinsights-cancerprofiling-readme
 - name: Resources
   items:
      - name: FAQ

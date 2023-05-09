@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 This article provides an overview of copy operations using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
+## About copy operations
+
 Copy operations can be used to move data within a storage account, between storage accounts, or into a storage account from a source outside of Azure. When using the Blob Storage client libraries to copy data resources, it's important to understand the REST API operations behind the client library methods. The following table lists REST API operations that can be used to copy data resources to a storage account. The table also includes links to detailed guidance about how to perform these operations using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 | REST API operation | When to use | Client library methods | Guidance |

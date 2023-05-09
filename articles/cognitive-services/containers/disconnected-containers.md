@@ -19,7 +19,6 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
 * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
-* [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
@@ -73,9 +72,9 @@ Access is limited to customers that meet the following requirements:
 
     **Speech service**
 
-    * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt#run-the-container-disconnected-from-the-internet)
-    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-1)
-    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-2)
+    * [Speech-to-Text](../speech-service/speech-container-stt.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Custom Speech-to-Text](../speech-service/speech-container-cstt.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Neural Text-to-Speech](../speech-service/speech-container-ntts.md?tabs=disconnected#run-the-container-with-docker-run)
 
     **Language service**
 

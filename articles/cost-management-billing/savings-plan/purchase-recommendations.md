@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/02/2023
+ms.date: 04/18/2023
 ---
 
 # Azure savings plan recommendations
@@ -28,7 +28,11 @@ Finally, we present a differentiated set of one-year and three-year recommendati
 
 To account for scenarios where there were significant reductions in your usage, including recently decommissioned services, we run more simulations using only the last three days of usage. The lower of the three day and 30-day recommendations are highlighted, even in situations where the 30-day recommendation may appear to provide greater savings. The lower recommendation is to ensure that we don't encourage overcommitment based on stale data.
 
-Recommendations are refreshed several times a day. However, it may take up to five days for the newly purchased savings plans and reservations to begin to be reflected in recommendations.
+Note the following points:
+
+- Recommendations are refreshed several times a day.
+- The recommended quantity for a scope is reduced on the same day that you purchase a savings plan for the scope. However, an update for the savings plan recommendation across scopes can take up to 25 days.
+    - For example, if you purchase based on shared scope recommendations, the single subscription scope recommendations can take up to 25 days to adjust down.
 
 ## Recommendations in Azure Advisor
 
@@ -61,7 +65,7 @@ The minimum hourly commitment must be at least equal to the outstanding amount d
 
 As part of the trade in, the outstanding commitment is automatically included in your new savings plan. We do it by dividing the outstanding commitment by the number of hours in the term of the new savings plan. For example, 24 times the term length in days. And by making the value the minimum hourly commitment you can make during as part of the trade-in. Using the previous example, the $250 amount would be converted into an hourly commitment of about $0.029 for a new one-year savings plan.
 
-If you're trading multiple reservations, the aggregate outstanding commitment is used. You may choose to increase the value, but you can't decrease it. The new savings plan will be used to cover usage of eligible resources.
+If you're trading multiple reservations, the aggregate outstanding commitment is used. You may choose to increase the value, but you can't decrease it. The new savings plan is used to cover usage of eligible resources.
 
 The minimum value doesn't necessarily represent the hourly commitment necessary to cover the resources that were covered by the exchanged reservation. If you want to cover those resources, you'll most likely have to increase the hourly commitment. To determine the appropriate hourly commitment:
 

@@ -6,7 +6,7 @@ author: jesscioffi
 ms.service: data-science-vm
 
 ms.author: jcioffi
-ms.date: 12/14/2021
+ms.date: 04/18/2023
 ms.topic: reference
 ---
 
@@ -20,6 +20,18 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+
+## April 26, 2023
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `23.04.24`
+
+Main changes:
+
+- SDK `1.50.0`
+- Dotnet upgraded to `6.0` SDK
+- PyTorch GPU functionality fixed in `azureml_py38_PT_and_TF environment.
+- Blobfuse upgraded to blobfuse2
 
 ## April 4, 2023
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)

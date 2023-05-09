@@ -52,9 +52,9 @@ For more information on expressions, see [Reference for writing expressions for 
 
 The expression examples above use endDate for SAP and StatusHireDate for Workday.  However, you may opt to use different attributes.
 
-For example, you might use StatusContinuesFirstDayOfWork instead of StatusHireDate for Workday.  In this instance your expression would be:  
+For example, you might use StatusContinuousFirstDayOfWork instead of StatusHireDate for Workday.  In this instance your expression would be:  
 
-   `FormatDateTime([StatusContinuesFirstDayOfWork], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")`
+   `FormatDateTime([StatusContinuousFirstDayOfWork], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")`
 
 
 The following table has a list of suggested attributes and their scenario recommendations.
