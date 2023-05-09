@@ -56,16 +56,16 @@ CodeValueFhir is currently the only template supported in the FHIR destination m
 |Element|Description|Required| 
 |:------|:----------|:-------|
 |**typeName**| The type of measurement this template should bind to. Note: There should be at least one device mapping template that has this same `typeName`. The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that is evaluated with a FHIR destination mapping template that has the same `typeName`.|True|
-|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).|True when the Observation type is "SampledData"; Ignored for other Observation types.| 
+|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).|True when the Observation type is SampledData; Ignored for other Observation types.| 
 |**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.|False|
 |**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|True|
 |**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
 |**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
 |**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
-|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|True when the `components` element isn't used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
+|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|True when the `components` element isn't used (unless the Observation type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
 |**components**|One or more components to create on the observation.|True when the `value` element isn't used instead.|
 |**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|False|
-|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used (unless the type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
+|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used (unless the Observation type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
 
 #### Value types
 
