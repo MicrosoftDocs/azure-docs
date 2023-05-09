@@ -43,7 +43,6 @@ When you create your own compute cluster, you use its name in the command job, s
 > If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed virtual network (preview). For more information see [workspace managed network isolation]().
 <!--how-to-managed-network.md  -->
 
-
 ## Performance considerations
 
 Serverless compute can help speed up your training in the following ways:
@@ -73,12 +72,15 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
       type: user_identity
     ```
 
-* **User-assigned managed identity** : When you have a workspace created with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`. 
+* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`. 
 
     ```yaml
     identity:
       type: managed
     ```
+
+To configure your workspace with user-assigned managed identity:
+[!INCLUDE [user assigned managed identity](./includes/attach-user-assigned-managed-identity.md)]
 
 ## Configure properties
 

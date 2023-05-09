@@ -1,0 +1,51 @@
+---
+author: sdgilley
+ms.service: machine-learning
+ms.topic: include
+ms.date: 05/09/2023
+ms.author: sgilley
+---
+
+# [Using CLI](#tab/cli2)
+1. Create a YAML file that defines the user-assigned managed identity that should be attached to the workspace:
+    ```yaml
+    identity:
+      type: system_assigned,user_assigned
+      tenant_id: <TENANT_ID>
+      user_assigned_identities:
+        '/subscriptions/<SUBSCRIPTION_ID/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<AML_USER_MANAGED_ID>':
+          {}
+    ```
+
+1. With the `--file` parameter, use the YAML file in the `az ml workspace update` command to attach the user assigned managed identity:
+
+    ```azurecli
+    az ml workspace update --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --name <AML_WORKSPACE_NAME> --file <YAML_FILE_NAME>.yaml
+    ```
+
+# [Using `ARMClient`](#tab/armclient)
+
+1. Install [ARMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
+1. Create a JSON file that defines the user-assigned managed identity that should be attached to the workspace:
+
+    ```json
+    {
+        "properties":{
+        },
+        "location": "<AZURE_REGION>",
+        "identity":{
+            "type":"SystemAssigned,UserAssigned",
+            "userAssignedIdentities":{
+                "/subscriptions/<SUBSCRIPTION_ID/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<AML_USER_MANAGED_ID>": { }
+            }
+        }
+    }
+    ```
+
+1. Execute the following command in the PowerShell prompt or the command prompt, to attach the user-assigned managed identity to the workspace.
+
+    ```cmd
+    armclient PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<AML_WORKSPACE_NAME>?api-version=2022-05-01 '@<JSON_FILE_NAME>.json'
+    ```
+
+---
