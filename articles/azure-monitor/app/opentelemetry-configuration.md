@@ -52,7 +52,7 @@ Use one of the following three ways to configure the connection string:
   ```
   
 > [!NOTE]
-> If you set the connection string in more than one place, we adhere to the following precendence:
+> If you set the connection string in more than one place, we adhere to the following precedence:
 > 1. Code
 > 2. Environment Variable
 > 3. Configuration File
@@ -223,7 +223,7 @@ You might want to enable Azure Active Directory (Azure AD) Authentication for a 
 
 #### [.NET](#tab/net)
 
-We supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
+We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
 
 - We recommend `DefaultAzureCredential` for local development.
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
