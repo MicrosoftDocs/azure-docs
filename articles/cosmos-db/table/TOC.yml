@@ -155,12 +155,18 @@
           items:
             - name: Continuous backup - Introduction
               href: ../continuous-backup-restore-introduction.md
-            - name: Continuous backup - FAQ
-              href: ../continuous-backup-restore-frequently-asked-questions.yml
-            - name: Continuous backup - Resource model
-              href: ../continuous-backup-restore-resource-model.md
             - name: Restore
               items:
+                - name: Restore into a new account
+                  items:
+                    - name: Continuous backup - Resource model
+                      href: ../continuous-backup-restore-resource-model.md
+                    - name: Continuous backup - FAQ
+                      href: ../continuous-backup-restore-frequently-asked-questions.yml
+                    - name: Latest restorable timestamp
+                      href: ../latest-restore-timestamp-continuous-backup.md
+                    - name: Auditing restore action with continuous backup
+                      href: ../audit-restore-continuous.md
                 - name: Restore in the same account (preview)
                   items:
                     - name: Introduction
@@ -169,10 +175,6 @@
                       href: ../restore-in-account-continuous-backup-resource-model.md
                     - name: FAQ
                       href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
-                - name: Latest restorable timestamp
-                  href: ../latest-restore-timestamp-continuous-backup.md
-                - name: Auditing restore action with continuous backup
-                  href: ../audit-restore-continuous.md
         - name: Periodic backup
           items:
             - name: Introduction
