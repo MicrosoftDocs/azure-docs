@@ -21,9 +21,9 @@ Routing your traffic via the Microsoft global network delivers your traffic over
 
 :::image type="content" source="./media/routing-preference-overview/route-via-microsoft-global-network.png" alt-text="Diagram of routing via Microsoft global network.":::
 
-**Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. When a user from Singapore accesses Azure resources hosted in Chicago, the traffic enters the Microsoft global network at the Singapore POP. The traffic then travels on the Microsoft network to the service hosted in Chicago.
+**Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. When a user from Singapore accesses Azure resources hosted in Chicago, the traffic enters the Microsoft global network at the Singapore edge POP. The traffic then travels on the Microsoft network to the service hosted in Chicago.
 
-**Egress traffic:** The egress traffic follows the same principle. Traffic travels most of its journey on Microsoft global network and exits closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to Singapore, and exits the Microsoft network in Singapore POP.
+**Egress traffic:** The egress traffic follows the same principle. Traffic travels most of its journey on Microsoft global network and exits closest to the user. For example, if traffic from Azure in Chicago is destined to a user from Singapore, then traffic travels on the Microsoft network from Chicago to Singapore, and exits the Microsoft network at Singapore edge POP.
 
 Both ingress and egress traffic remain on the Microsoft global network whenever possible. This process is also known as *cold potato routing*.
 
