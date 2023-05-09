@@ -311,3 +311,4 @@ In this article, you learned the key features in how to create, explore, and deb
 + [How to train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 + [How to deploy model to real-time endpoint in the designer](tutorial-designer-automobile-price-deploy.md)
 + [What is machine learning component](concept-component.md)
++ [Deploy a pipeline with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
