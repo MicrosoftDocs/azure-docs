@@ -1,5 +1,5 @@
 ---
-title: End of Call survey Logs - Preview
+title: End of call survey logs (Preview)
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for End of Call Survey.
 author: Mkhribech
@@ -12,12 +12,12 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# End of Call Survey – Preview
+# End of Call Survey (Preview)
 
 > 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
-## Pre-requisites
+## Prerequisites
 
 Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
   * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
