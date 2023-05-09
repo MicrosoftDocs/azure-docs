@@ -26,7 +26,7 @@ In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), an AS
 
 Identity related NuGet packages must be installed in the project for authentication of users to be enabled.
 
-1. In the terminal, navigate to *aspnet_ciam_webapp*.
+1. In the terminal, navigate to *aspnet_webapp*.
 1. Enter the following commands to install the relevant NuGet package:
 
     ```powershell
@@ -42,7 +42,7 @@ Identity related NuGet packages must be installed in the project for authenticat
     using System.Diagnostics;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using aspnet_ciam_webapp.Models;
+    using aspnet_webapp.Models;
     ```
 
 1. Additionally, add the `[Authorize]` attribute directly above the `HomeController` class definition, which ensures that only authenticated users can use the web app:
@@ -206,8 +206,8 @@ Using the token claims, the app checks that the user is authenticated using `Use
 
 1. Open a new private browser, and enter the application URI into the browser, for example `https://localhost:{port}`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your CIAM tenant, which will start the sign-up flow as a user for your application.
-1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+1. In the **Create account** window, enter the email address registered to your customer tenant, which will start the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The ASP.NET Welcome page appears in your browser as depicted in the following screenshot:
 
