@@ -18,9 +18,9 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## May 2023
 
-### Image Analysis 4.0 Shelf Analysis (public preview)
+### Image Analysis 4.0 Product Recognition (public preview)
 
-The Shelf Analysis APIs let you analyze photos of shelves in a retail store. You can detect the presence and absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Shelf Analysis results to your store's planogram document. [Shelf Analysis](./concept-shelf-analysis.md).
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence and absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document. [Product Recognition](./concept-shelf-analysis.md).
 
 ## March 2023
 

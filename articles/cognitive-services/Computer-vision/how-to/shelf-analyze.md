@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Analyze a shelf image using pretrained models
 
-The fastest way to start using Shelf Analysis is to use the built-in pretrained AI models. With the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
+The fastest way to start using Product Recognition is to use the built-in pretrained AI models. With the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
 
 :::image type="content" source="../media/shelf/shelf-analysis-pretrained.png" alt-text="Photo of a retail shelf with products and gaps highlighted with rectangles.":::
 
@@ -146,9 +146,9 @@ Describes the image classification confidence of a label.
 
 ## Next steps
 
-In this guide, you learned how to make a basic analysis call using the pretrained Product Understanding REST API. Next, learn how to use a custom Shelf Analysis model to better meet your business needs.
+In this guide, you learned how to make a basic analysis call using the pretrained Product Understanding REST API. Next, learn how to use a custom Product Recognition model to better meet your business needs.
 
 > [!div class="nextstepaction"]
-> [Train a custom model for Shelf Analysis](../how-to/shelf-model-customization.md)
+> [Train a custom model for Product Recognition](../how-to/shelf-model-customization.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)

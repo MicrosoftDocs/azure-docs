@@ -150,13 +150,13 @@ items:
           href: how-to/migrate-from-custom-vision.md
         - name: Verify a custom model COCO file
           href: how-to/coco-verification.md
-      - name: Shelf Analysis
+      - name: Product Recognition
         items:
-        - name: Prepare images for Shelf Analysis
+        - name: Prepare images for Product Recognition
           href: how-to/shelf-modify-images.md
-        - name: Analyze products on a shelf
+        - name: Product Recognition with prebuilt model
           href: how-to/shelf-analyze.md
-        - name: Create a custom Shelf Analysis model
+        - name: Product Recognition with custom model
           href: how-to/shelf-model-customization.md
         - name: Check planogram compliance
           href: how-to/shelf-planogram.md
@@ -192,7 +192,7 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
-      - name: Shelf Analysis
+      - name: Product Recognition
         href: concept-shelf-analysis.md
       - name: Image retrieval
         href: concept-image-retrieval.md

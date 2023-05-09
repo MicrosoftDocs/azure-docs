@@ -64,11 +64,11 @@ You can analyze images to provide insights about their visual features and chara
 |**Moderate content in images** (v3.2 only) |You can use Computer Vision to detect adult content in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.|[Detect adult content](concept-detecting-adult-content.md)|
 
 
-## Shelf Analysis (v4.0 preview only)
+## Product Recognition (v4.0 preview only)
 
-The Shelf Analysis APIs let you analyze photos of shelves in a retail store. You can detect the presence or absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Shelf Analysis results to your store's planogram document.
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence or absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document.
 
-[Shelf Analysis](./concept-shelf-analysis.md)
+[Product Recognition](./concept-shelf-analysis.md)
 
 ## Image Retrieval (v4.0 preview only)
 

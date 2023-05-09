@@ -1,7 +1,7 @@
 ---
-title: Shelf Analysis - Image Analysis 4.0
+title: Product Recognition - Image Analysis 4.0
 titleSuffix: Azure Cognitive Services
-description: Learn concepts related to Shelf Analysis feature set of Image Analysis 4.0 - usage and limits.
+description: Learn concepts related to the Product Recognition feature set of Image Analysis 4.0 - usage and limits.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,23 +13,22 @@ ms.date: 05/03/2023
 ms.author: pafarley
 ---
 
-# Shelf Analysis (version 4.0 preview)
+# Product Recognition (version 4.0 preview)
 
-The Shelf Analysis APIs let you analyze photos of shelves in a retail store. You can detect the presence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Shelf Analysis results to your store's planogram document.
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document.
 
-Try out the capabilities of Shelf Analysis quickly and easily in your browser using Vision Studio.
+Try out the capabilities of Product Recognition quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 :::image type="content" source="media/shelf/shelf-analysis-pretrained.png" alt-text="Photo of a shelf with products and gaps outlined in rectangles.":::
 
-## Shelf Analysis features
-
+## Product Recognition features
 
 ### Image modification
 
-The [stitching and rectification APIs](./how-to/shelf-modify-images.md) let you modify images to improve the accuracy of the Shelf Analysis results. You can use these APIs to:
+The [stitching and rectification APIs](./how-to/shelf-modify-images.md) let you modify images to improve the accuracy of the Product Understanding results. You can use these APIs to:
 * Stitch together multiple images of a shelf to create a single image.
 * Rectify an image to remove perspective distortion.
 
@@ -164,15 +163,15 @@ It returns a JSON response that accounts for each position in the planogram docu
 
 ## Limitations
 
-* Shelf Analysis is only available in the **East US** and **West US 2** Azure regions.
+* Product Recognition is only available in the **East US** and **West US 2** Azure regions.
 * Shelf images can be up to 20 MB in size. The recommended size is 4 MB.
 * We recommend you do [stitching and rectification](./how-to/shelf-modify-images.md) on the shelf images before uploading them for analysis.
-* Using a [custom model](./how-to/shelf-model-customization.md) is optional in Shelf Analysis, but it's required for the [planogram matching](./how-to/shelf-planogram.md) function.
+* Using a [custom model](./how-to/shelf-model-customization.md) is optional in Product Recognition, but it's required for the [planogram matching](./how-to/shelf-planogram.md) function.
 
 
 ## Next steps
 
-Get started with Shelf Analysis by trying out the stitching and rectification APIs. Then do basic analysis with the Product Understanding API.
-* [Prepare images for Shelf Analysis](./how-to/shelf-modify-images.md)
+Get started with Product Recognition by trying out the stitching and rectification APIs. Then do basic analysis with the Product Understanding API.
+* [Prepare images for Product Recognition](./how-to/shelf-modify-images.md)
 * [Analyze a shelf image](./how-to/shelf-analyze.md)
 
