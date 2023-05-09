@@ -2,8 +2,8 @@
 title: Enable Inline Image Support in your Chat app
 titleSuffix: An Azure Communication Services quickstart
 description: In this tutorial, you'll learn how to enable inline image interoperability with the Azure Communication Chat SDK
-author: jopeng
-ms.author: jopeng
+author: jpeng-ms
+ms.author: jpeng-ms 
 ms.date: 03/27/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
