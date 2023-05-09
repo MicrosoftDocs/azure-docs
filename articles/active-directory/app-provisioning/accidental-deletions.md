@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/10/2023
+ms.date: 05/05/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -21,10 +21,6 @@ The Azure AD provisioning service includes a feature to help avoid accidental de
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
 ::: zone-end
 
@@ -44,7 +40,7 @@ To enable accidental deletion prevention:
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2.  Select **Cross-tenant synchronization (Preview)** > **Configurations** and then select your configuration.
+2.  Select **Cross-tenant synchronization** > **Configurations** and then select your configuration.
 
 3.  Select **Provisioning**.
 ::: zone-end
@@ -90,7 +86,7 @@ Let the provisioning job run (20 – 40 mins) and navigate back to the provision
 - Delete a user / put them into the recycle bin.
 - Block sign in for a user.
 - Unassign a user or group from the application (or configuration).
-- Remove a user from a group that's providing them access to the application (or configuration).
+- Remove a user from a group that's provides them access to the application (or configuration).
 
 To learn more about deprovisioning scenarios, see [How Application Provisioning Works](how-provisioning-works.md#deprovisioning).
 
