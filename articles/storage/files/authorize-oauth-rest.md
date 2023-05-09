@@ -4,7 +4,7 @@ description: Authorize access to Azure file shares and directories via the OAuth
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 05/09/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -18,7 +18,7 @@ Azure Files OAuth over REST Preview enables admin-level read and write access to
 
 ## Limitations
 
-Azure Files OAuth over REST Preview only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) for all management activities related to FileService and FileShare resources.
+Azure Files OAuth over REST Preview only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS key, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
 
 Authorizing file data operations with Azure AD is supported only for REST API versions 2022-11-02 and later. See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
