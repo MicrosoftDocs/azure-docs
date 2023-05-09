@@ -32,7 +32,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
 
 1. Provide a name for the endpoint. The endpoint name appears in the URI associated with your endpoint; therefore, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
@@ -48,14 +48,14 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
     endpoint_name="mnist-batch"
     ```
     
-    # [Studio](#tab/azure-studio)
+    # [Studio](#tab/studio)
     
     *You'll configure the name of the endpoint later in the creation wizard.*
     
 
 1. Configure your batch endpoint
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
 
     The following YAML file defines a batch endpoint. You can include the YAML file in the CLI command for [batch endpoint creation](#create-a-batch-endpoint).
     
@@ -85,14 +85,14 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
     | `name` | The name of the batch endpoint. Needs to be unique at the Azure region level.|
     | `description` | The description of the batch endpoint. This property is optional. |
     
-    # [Studio](#tab/azure-studio)
+    # [Studio](#tab/studio)
     
     *You'll create the endpoint in the same step you create the deployment.*
     
 
 1. Create the endpoint:
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
@@ -103,7 +103,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
     ```python
     ml_client.batch_endpoints.begin_create_or_update(endpoint)
     ```
-    # [Studio](#tab/azure-studio)
+    # [Studio](#tab/studio)
     
     *You'll create the endpoint at the same time that you create the deployment later.*
 
@@ -119,7 +119,7 @@ A deployment is a set of resources and computes required to implement the functi
 
 When you invoke a batch endpoint, it triggers a batch scoring job. The invoke response returns a job `name` that can be used to track the batch scoring progress.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
     
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="start_batch_scoring_job" :::
 
@@ -132,7 +132,7 @@ job = ml_client.batch_endpoints.invoke(
 )
 ```
 
-# [Studio](#tab/azure-studio)
+# [Studio](#tab/studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -173,7 +173,7 @@ When you invoke a batch endpoint, it triggers a batch scoring job. The invoke re
 
 For instance, the following example downloads the output __score__ from the job. All model deployments have an output with that name:
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="download_scores" :::
 
@@ -183,7 +183,7 @@ For instance, the following example downloads the output __score__ from the job.
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
 ```
 
-# [Studio](#tab/azure-studio)
+# [Studio](#tab/studio)
 
 1. In the graph of the job, select the `batchscoring` step.
 
@@ -209,7 +209,7 @@ You can add, remove, and update deployments without affecting the endpoint itsel
 
 To add a new deployment to an existing endpoint, use the  code:
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_new_deployment_not_default" :::
 
@@ -221,7 +221,7 @@ Using the `MLClient` created earlier, we'll now create the deployment in the wor
 ml_client.batch_deployments.begin_create_or_update(deployment)
 ```
 
-# [Studio](#tab/azure-studio)
+# [Studio](#tab/studio)
 
 In the wizard, select __Create__ to start the deployment process.
 
@@ -235,7 +235,7 @@ Azure Machine Learning will add a new deployment to the endpoint but won't set i
 
 Batch endpoints can have one deployment marked as __default__. Changing the default deployment gives you the possibility of changing the model or pipeline (preview) serving the deployment without changing the contract with the user. Use the following instruction to update the default deployment:
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="update_default_deployment" :::
 
@@ -247,7 +247,7 @@ endpoint.defaults.deployment_name = deployment.name
 ml_client.batch_endpoints.begin_create_or_update(endpoint)
 ```
 
-# [Studio](#tab/azure-studio)
+# [Studio](#tab/studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -271,7 +271,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint)
 
 You can delete a given deployment as long as it's not the default one. Deleting a deployment doesn't delete the jobs or outputs it generated.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="delete_deployment" :::
 
@@ -282,7 +282,7 @@ You can delete a given deployment as long as it's not the default one. Deleting 
 ml_client.batch_deployments.begin_delete(name=deployment.name, endpoint_name=endpoint.name)
 ```
 
-# [Studio](#tab/azure-studio)
+# [Studio](#tab/studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -300,7 +300,7 @@ ml_client.batch_deployments.begin_delete(name=deployment.name, endpoint_name=end
 
 Deleting an endpoint will delete all the deployments under it. However, this deletion won't remove any previously executed jobs and their outputs from the workspace.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="delete_endpoint" :::
 
@@ -310,7 +310,7 @@ Deleting an endpoint will delete all the deployments under it. However, this del
 ml_client.batch_endpoints.begin_delete(name=endpoint.name)
 ```
 
-# [Studio](#tab/azure-studio)
+# [Studio](#tab/studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
