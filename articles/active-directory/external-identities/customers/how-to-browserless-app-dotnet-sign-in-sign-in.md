@@ -22,7 +22,7 @@ In this article, you add sign in code and run the app to go through the sign-in 
 
 ## Prerequisites
 
-Before proceeding, ensure you've [configured your app](./how-to-browserless-app-dotnet-sign-in-prepare-app.md).
+Completion of the prerequisites and steps in [Prepare your app](./how-to-browserless-app-dotnet-sign-in-prepare-app.md).
 
 ## Add sign-in code
 

@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
 
 ## Register the headless app
 
@@ -67,7 +67,7 @@ Since this app signs-in users, add delegated permissions:
 To get the browserless app sample code, you can do either of the following tasks: [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
 
 ```console
-    git clone git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
+git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 ```
 If you choose to download the *.zip* file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
@@ -94,11 +94,11 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
     ```console
         dotnet run
     ```
-1. When the app launches, copy the suggested URL *https://microsoft.com/devicelogin* from the terminal and visit it in a browser. Then, copy the device code from terminal and [follow the prompts](./how-to-browserless-app-dotnet-sign-in-sign-in.md#sign-in-to-your-app) on *https://microsoft.com/devicelogin*.
+1. When the app launches, copy the suggested URL *https://microsoft.com/devicelogin* from the terminal and visit it in a browser. Then, copy the device code from the terminal and [follow the prompts](./how-to-browserless-app-dotnet-sign-in-sign-in.md#sign-in-to-your-app) on *https://microsoft.com/devicelogin*.
 
 ## How it works
 
-The browserless app is initialized as a public client application. We then acquire token using the device code auth grant flow. This flow allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. We pass a callback to the `AcquireTokenWithDeviceCodeAsync` method. This callback contains a `DeviceCodeResult` object which contains the URL a user will navigate to and sign in. Once the user signs in, an `AuthenticationResult` is returned containing an access token and some basic account information.
+The browserless app is initialized as a public client application. You acquire token using the device code auth grant flow. This flow allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. You then pass a callback to the `AcquireTokenWithDeviceCodeAsync` method. This callback contains a `DeviceCodeResult` object which contains the URL a user will navigate to and sign in. Once the user signs in, an `AuthenticationResult` is returned containing an access token and some basic account information.
 
 ```csharp
 var result = await app.AcquireTokenWithDeviceCode(new [] { "openid" }, async deviceCode => {

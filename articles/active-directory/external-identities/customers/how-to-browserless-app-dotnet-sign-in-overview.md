@@ -40,7 +40,7 @@ The Microsoft identity platform supports the [device authorization grant](https:
 
 1. The device has the user visit a webpage in a browser on another device to sign in.
 1. The user inputs a code provided by the device.
-1. Once the user signs in, the device is able to get access tokens and refresh tokens as needed. 
+1. Once signed in, the device is able to get access tokens and refresh tokens as needed. 
 
 For more information, see [device code flow in the Microsoft identity platform](/azure/active-directory/develop/v2-oauth2-device-code).
 

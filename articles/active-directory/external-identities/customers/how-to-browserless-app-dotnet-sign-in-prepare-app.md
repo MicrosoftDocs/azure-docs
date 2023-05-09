@@ -22,7 +22,7 @@ In this article, you create aa ASP.NET browserless app project and organize all 
 
 ## Prerequisites
 
-Go through the [overview](./how-to-browserless-app-dotnet-sign-in-prepare-tenant.md) before proceeding.
+Completion of the prerequisites and steps in the [Overview](./how-to-browserless-app-dotnet-sign-in-prepare-tenant.md) before proceeding.
 
 ## Create an ASP.NET browserless app
 
