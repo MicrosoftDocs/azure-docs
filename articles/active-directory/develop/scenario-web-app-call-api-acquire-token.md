@@ -91,7 +91,7 @@ To get an authorization header, you get an `IAuthorizationHeaderProvider` servic
 The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
 
 
-Here's simplified code for the action of the `HomeController`, which gets an authorization header to call Microsoft Graph as a REST API:
+The following snippet shows the action of the `HomeController`, which gets an authorization header to call Microsoft Graph as a REST API:
 
 
 ```csharp
