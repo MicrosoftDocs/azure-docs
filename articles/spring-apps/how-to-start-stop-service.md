@@ -34,8 +34,8 @@ You can only start, view, or delete a stopped Azure Spring Apps service instance
 
 ## Prerequisites
 
-- An existing service instance in Azure Spring Apps. To create a new service instance, see [Quickstart: Deploy your first application in Azure Spring Apps](./quickstart.md).
-- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.11.2 or later.
+- An existing service instance in Azure Spring Apps. To create a new service instance, see [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or later if Azure CLI is used.
 
 ## [Portal](#tab/azure-portal)
 
