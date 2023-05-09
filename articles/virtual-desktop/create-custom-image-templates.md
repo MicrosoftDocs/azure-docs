@@ -19,7 +19,7 @@ This article shows you how to create a custom image template, then create a cust
 
 ## Prerequisites
 
-Before you can create a custom image template, you need to meet the following prerequisites.
+Before you can create a custom image template, you need to meet the following prerequisites:
 
 - The following resource providers registered on your subscription. For information on how you can check their registration status and how to register them if needed, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
