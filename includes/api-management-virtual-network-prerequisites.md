@@ -18,8 +18,8 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
 * **A virtual network and subnet** in the same region and subscription as your API Management instance. 
- * The subnet used to connect to the API Management instance may contain other Azure resource types. 
- * The subnet shouldn't have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
+  * The subnet used to connect to the API Management instance may contain other Azure resource types. 
+  * The subnet shouldn't have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
 
 * **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. For specific configuration, see [Configure NSG rules](#configure-nsg-rules), later in this article.
 
@@ -42,6 +42,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
 * **A virtual network and subnet** in the same region and subscription as your API Management instance.
- * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types, or the deployment will fail.
- * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
+  * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types, or the deployment will fail.
+  * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
 ---
