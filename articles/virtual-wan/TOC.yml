@@ -263,7 +263,7 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
-    - name: Inter-hub and branch-to-branch via Azure Firewall
+    - name: Inter-hub and branch-to-branch inspection
       href: how-to-routing-policies.md
     - name: Configure Private Link connectivity
       href: howto-private-link.md
