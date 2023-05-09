@@ -1,6 +1,6 @@
 ---
 title: How to install and use pgvector - Azure Cosmos DB for PostgreSQL
-description: See how to review tenant stats metrics for Azure Cosmos DB for PostgreSQL
+description: How to install and use pgvector for Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
 ms.service: cosmos-db
@@ -14,4 +14,10 @@ ms.date: 05/09/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE [Pgvector](includes/pgvector.md)]
+[!INCLUDE [Introduction to Pgvector](includes/introduction-pgvector.md)]
+
+```postgresql
+SELECT CREATE_EXTENSION('vector');
+```
+
+[!INCLUDE [Getting Started](includes/pgvector.md)]

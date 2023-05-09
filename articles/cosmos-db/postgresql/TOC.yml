@@ -217,6 +217,10 @@
           displayName: read-only
         - name: Useful diagnostic queries
           href: howto-useful-diagnostic-queries.md
+    - name: Pgvector
+      items:
+        - name: How to use pgvector
+          href: howto-use-pgvector.md
 - name: Reference
   items:
     - name: PostgreSQL versions

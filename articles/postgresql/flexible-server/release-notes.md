@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 4/10/2023
+ms.date: 05/09/2023
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -18,6 +18,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: May 2023
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
+* General availability: [Pgvector extension](how-to-use-pgvector.md) for Azure Database for PostgreSQL - Flexible Server.
 
 ## Release: April 2023
 * Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.

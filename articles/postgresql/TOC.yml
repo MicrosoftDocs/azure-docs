@@ -705,6 +705,11 @@
         href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Use Pgvector
+      items:
+      - name: How to use pgvector
+        href: flexible-server/how-to-use-pgvector.md
+
 - name: Hyperscale (Citus)
   items:
   - name: Where is Hyperscale (Citus)?
