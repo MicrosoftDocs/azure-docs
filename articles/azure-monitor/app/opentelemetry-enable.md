@@ -1700,9 +1700,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     from azure.monitor.opentelemetry import configure_azure_monitor
     
     # Configure Azure monitor collection telemetry pipeline
-    configure_azure_monitor(
-        connection_string="<your-connection-string>",
-    )
+    configure_azure_monitor()
     app = flask.Flask(__name__)
 
     # Requests sent to this endpoint will not be tracked due to
@@ -1720,9 +1718,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
 
-    configure_azure_monitor(
-        connection_string="<your-connection-string>",
-    )
+    configure_azure_monitor()
     trace.get_tracer_provider().add_span_processor(SpanFilteringProcessor())
     ...
     ```
