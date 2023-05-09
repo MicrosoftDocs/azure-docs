@@ -19,7 +19,7 @@ Virtual machine scale sets allow you to define a scaling profile or template whi
 - Load balancer backend pool
 - OS and Data disk settings
 
-When you increase the capacity or instance count of the scale set, the scale set will add new virtual machines to the set based on the configuration defined in the profile. Scale sets with a scaling profile are also eligible for orchestrations such as reimaging, rolling upgrades, instance repair, automatic OS updates.
+When you increase the capacity or instance count of the scale set, the scale set will add new virtual machines to the set based on the configuration defined in the profile. Scale sets with scaling profile are also eligible for orchestrations such as [reimaging](/rest/api/compute/virtual-machine-scale-sets/reimage), [rolling upgrades](/rest/api/compute/virtual-machine-scale-set-rolling-upgrades), [instance repair](virtual-machine-scale-sets-automatic-instance-repairs.md), and [automatic OS updates](virtual-machine-scale-sets-automatic-upgrade.md).
 
 > [!IMPORTANT] 
 > Virtual machine scaling profile settings are required for scale sets in Uniform Orchestration Mode, and optional for scale sets in Flexible Orchestration Mode.
@@ -50,7 +50,7 @@ Go to the Azure Quickstart template [vmss-flexible-orchestration-manual-add-vm](
 
 By default, the Azure CLI will create a scale set with a scaling profile. Omit the scaling profile parameters to create a virtual machine scale set with no scaling profile.
 
-```azurecli
+```azurecli-interactive
 az vmss create \
 	--name myVmss \
 	--resource-group myResourceGroup \
@@ -60,7 +60,7 @@ az vmss create \
 
 ### Azure PowerShell
 
-```azurepowershell
+```azurepowershell-interactive
 $vmssConfig = New-AzVmssConfig 
 	-Location 'westus3' 
 	-PlatformFaultDomainCount 3 
