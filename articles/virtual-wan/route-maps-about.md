@@ -5,18 +5,18 @@ description: Learn about Virtual WAN Route-maps.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/08/2023
 ms.author: cherylmc
 ms.custom: references_regions
 
 ---
 # About Route-maps for virtual hubs (Preview)
 
-Route-maps is a powerful feature that gives you the ability to control route advertisements and routing for Virtual WAN virtual hubs. Route-maps lets you have more control of the routing  that enters and leaves Azure Virtual WAN site-to-site (S2S) VPN connections, User VPN point-to-site (P2S) connections, ExpressRoute (ER) connections, and virtual network (VNet) connections.
+Route-maps is a powerful feature that gives you the ability to control route advertisements and routing for Virtual WAN virtual hubs. Route-maps lets you have more control of the routing  that enters and leaves Azure Virtual WAN site-to-site (S2S) VPN connections, User VPN point-to-site (P2S) connections, ExpressRoute (ER) connections, and virtual network (VNet) connections. Route-maps can be configured using the [Azure portal](route-maps-how-to.md).
 
 In Virtual WAN, the virtual hub router acts as a route manager, providing simplification in routing operations within and across virtual hubs. The virtual hub router simplifies routing management by being the central routing engine that talks to gateways (S2S, ER, and P2S), Azure Firewall, and Network Virtual Appliances (NVAs). While the gateways make their routing decisions, the virtual hub router provides central route management and enables advanced routing scenarios in the virtual hub with features such as custom route tables, route association, and propagation.
 
-Route-maps lets you perform route aggregation, route filtering, and the ability to modify BGP attributes such as AS-PATH and Community to manage routes and routing decisions.
+Route-maps lets you perform route aggregation, route filtering, and gives you the ability to modify BGP attributes such as AS-PATH and Community to manage routes and routing decisions.
 
 * **Connection:** A route map can be applied to user, branch, ExpressRoute, and VNet connections.
 
@@ -31,7 +31,7 @@ Route-maps lets you perform route aggregation, route filtering, and the ability 
 
 * **Route aggregation:** Route-maps lets you reduce the number of routes coming in and/or out of a connection by summarizing. (Example: 10.2.1.0.0/24, 10.2.2.0/24 and 10.2.3.0/24 can be summarized to 10.2.0.0/16)
 * **Route Filtering:** Route-maps lets you exclude routes that are advertised or received from ExpressRoute connections, site-to-site VPN connections, VNet connections, and point-to-site connections.
-* **Modify BGP attributes:** Route-maps lets you modify AS-PATH and BGP Communities. You now have the ability to add or set ASNs (Autonomous system numbers).
+* **Modify BGP attributes:** Route-maps lets you modify AS-PATH and BGP Communities. You can now add or set ASNs (Autonomous system numbers).
 
 ## Benefits and considerations
 
@@ -48,35 +48,40 @@ Route-maps lets you perform route aggregation, route filtering, and the ability 
 
 [!INCLUDE [Route-maps regions](../../includes/virtual-wan-route-maps-regions.md)]
 
-* During Preview, hubs usingRoute-maps must be deployed in their own virtual WANs.
+* During Preview, hubs using Route-maps must be deployed in their own virtual WANs.
 * Route-maps is only available for virtual hubs running on the Virtual Machine Scale Sets infrastructure. For more information, see the [FAQ](virtual-wan-faq.md).
 * When using route maps to summarize a set of routes, the hub router strips the *BGP Community* and *AS-PATH* attributes from those routes. This applies to both inbound and outbound routes.
 * When adding ASNs to the AS-PATH, don't use ASNs reserved by Azure:
   * Public ASNs: 8074, 8075, 12076
   * Private ASNs: 65515, 65517, 65518, 65519, 65520
 * Route maps can't be applied to connections between on-premises and SD-WAN/Firewall NVAs in the virtual hub. These connections aren't supported during Preview. You can still apply route maps to other supported connections when an NVA in the virtual hub is deployed. This doesn't apply to the Azure Firewall, as the routing for Azure Firewall is provided through Virtual WAN [routing intent features](how-to-routing-policies.md).
-* Route-maps supports only 2-byte ASN numbers  
+* Route-maps supports only 2-byte ASN numbers.
 * Recommended best practices:
   * Configure rules to only match the routes intended to avoid unintended traffic flows.
   * The Route-maps feature contains some implicit functions, such as when no match conditions or actions are defined in a rule. Review the rules for each section.
-  * A prefix can either be modified by route maps or can be modified by NAT, but not both.
-  * Route maps won't be applied to [hub address space](virtual-wan-site-to-site-portal.md#hub).
+  * A prefix can either be modified by route maps, or can be modified by NAT, but not both.
+  * Route maps won't be applied to the [hub address space](virtual-wan-site-to-site-portal.md#hub).
+* The point-to-site Multipool feature isn't currently supported with Route-maps.
 
 ## Configuration workflow
 
-This section outlines the basic workflow for Route-maps.
+This section outlines the basic workflow for Route-maps. You can [configure route maps](route-maps-how-to.md) using the Azure portal.
 
-1. Contact preview-route-maps@microsoft.com for access to preview.
+1. Contact preview-route-maps@microsoft.com for access to the preview.
 1. Create a virtual WAN.
 1. Create all Virtual WAN virtual hubs needed for testing.
 1. Deploy any site-to-site VPN, point-to-site VPN, ExpressRoute gateways, and NVAs needed for testing.
 1. Verify that incoming and outgoing routes are working as expected.
-1. Configure a route map and route map rules, then save.
-1. Once a route map is configured, the virtual hub router and gateways begin an upgrade needed to support the Route-maps feature. The upgrade process takes between X – Y mins. The upgrade process only happens the first time a route map is created on a hub. If the route map is deleted, the virtual hub router remains on the new version of software. Using Route-maps will incur an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+1. [Configure a route map and route map rules](route-maps-how-to.md), then save.
+1. Once a route map is configured, the virtual hub router and gateways begin an upgrade needed to support the Route-maps feature.
+
+   * The upgrade process takes between X – Y mins.
+   * The upgrade process only happens the first time a route map is created on a hub.
+   * If the route map is deleted, the virtual hub router remains on the new version of software.
+   * Using Route-maps will incur an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 1. The process is complete when the Provisioning state is 'Succeeded'. Reach out to preview-route-maps@microsoft.com if the process failed.
 1. The route map can now be applied to connections (ExpressRoute, S2S VPN, P2S VPN, VNet).
-1. Once the route map has been applied in the correct direction, use the **Route-map** dashboard to verify that the route map is working as expected.
-1. The point-to-site Multipool feature isn't currently supported with Route-maps.
+1. Once the route map has been applied in the correct direction, use the [Route-map dashboard](route-maps-dashboard.md) to verify that the route map is working as expected.
 
 ## Route map rules
 
@@ -137,7 +142,7 @@ The following section describes all the match conditions and actions supported f
 
 |Property|	Action|	Value	|Interpretation|
 |---|---|---|---|
-|Route-prefix|	Add	|10.3.0.0/8,10.4.0.0/8 |The routes specified in the rules are added|
+|Route-prefix|	Add	|10.3.0.0/8,10.4.0.0/8 |The routes specified in the rules are added. |
 |Route-prefix |	Replace|	10.0.0.0/8,192.168.0.0/16|Replace all the matched routes with the routes specified in the rule.  |
 |As-Path |	Add |	64580,64581	|Prepend AS-PATH with the list of ASNs specified in the rule. These ASNs will be applied in the same order for the matched routes. |
 |As-Path |	Replace |	65004,65005 |AS-PATH will be set to this list in the same order, for every matched route. See key considerations for reserved AS numbers. |
