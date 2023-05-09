@@ -18,7 +18,7 @@ The Azure Functions hosting plan you choose dictates the following behaviors:
 * The resources available to each function app instance.
 * Support for advanced functionality, such as Azure Virtual Network connectivity.
 
-In addition to Azure Functions hosting, custom function app containers can also be deployed to Kubernetes clusters and to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md).  
+In addition to Azure Functions hosting, you can also host containerized function apps in containers can also be deployed to Kubernetes clusters and to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md).  
 
 This article provides a detailed comparison between the various hosting plans, including container-based hosting options.
 
@@ -40,7 +40,7 @@ The comparison tables in this article also include the following hosting options
 | Hosting option | Details |
 | --- | --- |  
 |**[ASE][Dedicated plan]** | App Service Environment (ASE) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale.<br/><br/>ASEs are appropriate for application workloads that require: <br/><br/>✔ Very high scale.<br/>✔ Full compute isolation and secure network access.<br/>✔ High memory usage.|  
-| **Container Apps** | 
+| **[Azure Container Apps](./functions-container-apps-hosting.md)** | Azure Container Apps is a fully managed environment that enables you to run microservices and containerized applications on a serverless platform. Azure Container Apps let you run your functions with the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.  | 
 | **Kubernetes**<br/>([Direct][Kubernetes] or<br/>[Azure Arc](../app-service/overview-arc-integration.md)) | Kubernetes provides a fully isolated and dedicated environment running on top of the Kubernetes platform.<br/><br/> Kubernetes is appropriate for application workloads that require: <br/>✔ Custom hardware requirements.<br/>✔ Isolation and secure network access.<br/>✔ Ability to run in hybrid or multi-cloud environment.<br/>✔ Run alongside existing Kubernetes applications and services.|  
 
 The remaining tables in this article compare the plans on various features and behaviors. For a cost comparison between dynamic hosting plans (Consumption and Premium), see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). For pricing of the various Dedicated plan options, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 

@@ -8,21 +8,19 @@ ms.topic: conceptual
 
 # Azure Container Apps hosting of Azure Functions 
 
-Azure Functions provides integrated suppport for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Integration with Container Apps lets you leverage the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings, as well as event-driven scaling. Container Apps leverages the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
-
-This integration also means that you can leverage existing Functions client tools and the portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
+Azure Functions provides integrated suppport for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). 
 
 [!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
-## Create containerized function apps
+Integration with Container Apps lets you leverage the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings, as well as event-driven scaling. Container Apps leverages the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
 
-Azure Functions provides two ways to deploy your function code to Azure Container Apps. 
+This integration also means that you can leverage existing Functions client tools and the portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
 
-+ Code only: when you create a function app resource in Azure  
+## Deploying Azure Functions to Container Apps
 
-+ Custom container: maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/en-us/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a .Dockerfile that is used to create your container from the correct base image. To learn more, see [Quickstart: Create a function that runs in a custom container](./functions-create-function-linux-custom-image.md). 
+In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/en-us/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a .Dockerfile that you can use to create your container from the correct base image. 
 
-To learn how to deploy a function app to Container Apps, see [Deploy a container to Azure Container Apps](./functions-deploy-container-aca.md). This article requires you to first [create a containerized function app](./functions-create-function-linux-custom-image.md). 
+To learn how to create and deploy a function app container to Container Apps, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-aca.md). 
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
