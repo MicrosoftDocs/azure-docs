@@ -128,7 +128,7 @@ The following image shows the possibilities of *Microsoft.Identity.Web* and the 
 
 [!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
 
-## Startup.Auth.cs
+## Modify *Startup.Auth.cs*
 
 Your web app needs to acquire a token for the downstream API, *Microsoft.Identity.Web* provides two mechanisms for calling a downstream API from a web API. The option you choose depends on whether you want to call Microsoft Graph or another API.
 
@@ -136,10 +136,10 @@ Your web app needs to acquire a token for the downstream API, *Microsoft.Identit
 
 If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+    1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
-  ```csharp
+    ```csharp
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Identity.Client;
   using Microsoft.Identity.Web;
