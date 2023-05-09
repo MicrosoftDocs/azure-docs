@@ -298,7 +298,7 @@ managed_network:
   isolation_mode: allow_only_approved_outbound
 ```
 
-You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `fqdn` or `service_tag`. You can also define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory, and an FQDN destination of `*.pytorch.org`:
+You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `service_tag`. You can also define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory, and an FQDN destination of `*.pytorch.org`:
 
 > [!TIP]
 > Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `allow_only_approved_outbound`.
@@ -319,9 +319,6 @@ managed_network:
       spark_enabled: true
       subresource_target: blob
     type: private_endpoint
-  - name: added-fqdnrule
-    destination: '*.pytorch.org'
-    type: fqdn
 ```
 
 You can configure a managed VNet using either the `az ml workspace create` or `az ml workspace update` commands:
@@ -382,9 +379,6 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
           spark_enabled: true
           subresource_target: blob
         type: private_endpoint
-      - name: added-fqdnrule
-        destination: '*.pytorch.org'
-        type: fqdn
     ```
 
 # [Python](#tab/python)
