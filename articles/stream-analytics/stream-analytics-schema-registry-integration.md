@@ -21,7 +21,7 @@ Before you start, make sure you have the following:
 
 * An ![Event Hubs namespace](../event-hubs/event-hubs-create.md).
 * A Schema Group with schemas in a Schema Registry hosted by Azure Event Hubs. ![Create an Azure Event Hubs Schema Registry](../event-hubs/create-schema-registry.md) if you don't have one.
-* An ![Azure Stream Analytics job](articles/stream-analytics/stream-analytics-quick-create-portal.md) with ![managed identity](stream-analytics-managed-identities-overview.md) enabled.
+* An ![Azure Stream Analytics job](stream-analytics-quick-create-portal.md) with ![managed identity](stream-analytics-managed-identities-overview.md) enabled.
 
 ## Manage the job access to the Schema Registry
 
@@ -67,7 +67,7 @@ Azure Stream Analytics automatically fetches events from the streaming inputs. I
 3. The sample events will automatically appear in the **input preview**.
 ![Preview input](media/stream-analytics-schema-registry-integration/input-preview.png)
 
-See ![Test an Azure Stream Analytics job with sample data](stream-analytics/stream-analytics-test-query.md) for more information about query testing.
+See ![Test an Azure Stream Analytics job with sample data](stream-analytics-test-query.md) for more information about query testing.
 
 ## Limitations
 
@@ -76,5 +76,5 @@ See ![Test an Azure Stream Analytics job with sample data](stream-analytics/stre
 
 ## Next steps
 
-* [Process data from your Event Hubs using Azure Stream Analytics](articles/event-hubs/process-data-azure-stream-analytics.md)
-* [Test your Azure Stream Analytics job with sample data](articles/stream-analytics/stream-analytics-test-query.md)
+* [Process data from your Event Hubs using Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md)
+* [Test your Azure Stream Analytics job with sample data](stream-analytics/stream-analytics-test-query.md)
