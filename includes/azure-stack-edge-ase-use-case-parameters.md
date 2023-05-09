@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ---
 
 
@@ -11,7 +11,7 @@ ms.date: 05/08/2023
 
 Azure Stack Edge is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. The solution provides hardware as a service and seamless cloud-to-edge experiences.
 
-Azure Stack Edge is only available to new customers in the following scenarios:
+Azure Stack Edge is only available to new customers with the following use cases:
  - Validated partner workloads.
  - Large scale deployments.
 
@@ -28,13 +28,13 @@ End customers use Azure Stack Edge to run one of the validated workloads. We con
 
 ### Large scale deployments
 
-Azure Stack Edge is optimized for edge scenarios that typically involve hundreds or thousands of devices across a large number of locations.
+Azure Stack Edge is optimized for edge scenarios that typically involve hundreds or thousands of devices across a high number of locations.
 
 - **Total deployment scale** - Our Azure Stack Edge hardware as a service solution is only available for deployments of at least 100 nodes.
 
 ### More options
 
-Use the following links to get information about additional infrastructure solutions:
+Use the following links to get information about alternate infrastructure solutions:
 
  - [Azure Arc – Hybrid and multicloud management and solutions](https://azure.microsoft.com/products/azure-arc/#overview>).
  - [Azure Stack HCI – Hyperconverged infrastructure | Microsoft Azure](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
@@ -43,7 +43,7 @@ Use the following links to get information about additional infrastructure solut
 
 - Submit an Azure Stack Edge sign-Up form via Azure portal.
 
-### Next steps for additional edge solutions
+### Next steps for alternate edge solutions
 
 - [Azure Arc – Hybrid and multicloud Management and Solution](https://azure.microsoft.com/products/azure-arc/#overview>).
 - [Azure Stack HCI – Hyperconverged infrastructure solution](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
