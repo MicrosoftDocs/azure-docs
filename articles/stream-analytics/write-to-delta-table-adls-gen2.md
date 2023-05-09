@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/12/2022
 ---
 
-# Tutorial: Write to a Delta Table stored in Azure Data Lake Storage Gen2 (Public Preview)
+# Tutorial: Write to a Delta Table stored in Azure Data Lake Storage Gen2 
 
 This tutorial shows how you can create a Stream Analytics job to write to a Delta table in Azure Data Lake Storage Gen2. In this tutorial, you learn how to:
 
