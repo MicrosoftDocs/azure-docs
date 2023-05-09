@@ -33,7 +33,7 @@ The following steps are needed to create an account for the Azure Remote Renderi
 :::image type="content" source="./media/azure-identity-add.png" alt-text="Screenshot of Remote Rendering Account Page in sub menu settings, identity, with the option System assigned status turned on.":::
 
 ### Account regions
-The location that is specified during account creation time of an account determines which region the account resource is assigned to. The location cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
+The location that is specified during account creation time of an account determines which region the account resource is assigned to. The location can't be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
 
 ### Retrieve the account information
 
@@ -68,7 +68,7 @@ The value for **`arrAccountKey`** can either be primary or secondary key.
 
 ## Link storage accounts
 
-This paragraph explains how to link storage accounts to your Remote Rendering account. With a linked account, it is not necessary anymore to generate a SAS URI every time you want to interact with the data in your account. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
+This paragraph explains how to link storage accounts to your Remote Rendering account. With a linked account, it isn't necessary anymore to generate a SAS URI every time you want to interact with the data in your account. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
 
 The steps in this paragraph have to be performed for each storage account that should use this access method. If you haven't created storage accounts yet, you can walk through the respective step in the [convert a model for rendering quickstart](../quickstarts/convert-model.md#storage-account-creation).
 
@@ -78,7 +78,7 @@ The steps in this paragraph have to be performed for each storage account that s
 
 3. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-   If the **Add a role assignment** option is disabled you probably don't have owner permissions to this storage account.
+   If the **Add a role assignment** option is disabled, you probably don't have owner permissions to this storage account.
 
 4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
    1. Select the **Storage Blob Data Contributor** role and click **Next**.

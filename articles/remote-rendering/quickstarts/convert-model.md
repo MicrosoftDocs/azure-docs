@@ -150,18 +150,18 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
 
 The configuration within the **accountSettings** group (account ID, key and domain) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
-A full configuration of the **renderingSessionSettings** group (domain, vmSize and maxLeaseTime) can be seen in [Powershell Example scripts](../samples/powershell-example-scripts.md). The vmSize and maxLeaseTime are not important for conversion and can be omitted, as they do not affect the conversion.
+A full configuration of the **renderingSessionSettings** group (domain, vmSize and maxLeaseTime) can be seen in [PowerShell Example scripts](../samples/powershell-example-scripts.md). The vmSize and maxLeaseTime aren't important for conversion and can be omitted, as they don't affect the conversion.
 
 Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName**.
 The value for **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
 Change **localAssetDirectoryPath** to point to the directory on your disk, which contains the model you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
-The service uploads all data from the path given in **localAssetDirectoryPath** to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. With the example configuration, the service uploads the content of the "D:\\tmp\\robot" directory to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files will be overwritten.
+The service uploads all data from the path given in **localAssetDirectoryPath** to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. With the example configuration, the service uploads the content of the "D:\\tmp\\robot" directory to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files are overwritten.
 
 Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file, which is located directly in "D:\\tmp\\robot", use "robot.fbx".
 
-Once the model was converted, it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example, the service copies the resulting "robot.arrAsset" to the output blob container under "converted/robot".
+Once the model was converted, it is written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example, the service copies the resulting "robot.arrAsset" to the output blob container under "converted/robot".
 
 The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and if not specified the service uses the input file name to generate an output name.
 
