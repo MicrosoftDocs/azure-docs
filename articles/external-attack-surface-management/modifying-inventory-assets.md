@@ -1,7 +1,7 @@
 ---
-title: Labeling inventory assets 
-titleSuffix: Labeling inventory asset
-description: This article outlines how to label assets with custom text values of a user's choice for improved categorization and operationalization of their inventory data. 
+title: Modifying inventory assets 
+titleSuffix: Modifying inventory assets
+description: This article outlines how to update assets with labels (custom text values of a user's choice) for improved categorization and operationalization of their inventory data. It also dives into 
 ms.author: dandennis
 author: dandennis
 ms.service: defender-easm
@@ -9,7 +9,11 @@ ms.date: 3/1/2022
 ms.topic: how-to
 ---
 
-# Labeling inventory assets 
+# Modifying inventory assets 
+
+This article outlines how to modify inventory assets.  Users can change the state of an asset or apply labels to help better contextualize and operationalize inventory data. This article describes how to modify a single asset or multiple assets, as well as track any updates with the Task Manager.
+
+# Labeling assets
 
 Labels help you organize your attack surface and apply business context in a highly customizable way; you can apply any text label to a subset of assets to group assets and better operationalize your inventory. Customers commonly categorize assets that:  
 
@@ -18,20 +22,21 @@ Labels help you organize your attack surface and apply business context in a hig
 - are owned by a specific business unit in their organization 
 - are impacted by a specific vulnerability that requires mitigation 
 - relate to a particular brand owned by the organization  
-- were added to your inventory within a specific time range  
-- Labels are free-form text fields, so you can create a label for any use case that applies to your organization. 
+- were added to your inventory within a specific time range 
+
+Labels are free-form text fields, so you can create a label for any use case that applies to your organization. 
 
 [![Screenshot of inventory list view with filters column visible.](media/labels-1a.png)](media/labels-1a.png#lightbox)
 
 
 
-## Apply labels 
+## Applying labels and modifying asset states
 
-Users can apply labels from both the inventory list and asset details pages.  You can apply labels to a single asset from the asset details page, or multiple assets from the inventory list page. The following sections describe how to apply labels from the two inventory views depending on your use case.  
+Users can apply labels or modify asset states from both the inventory list and asset details pages.  You can make changes to a single asset from the asset details page, or multiple assets from the inventory list page. The following sections describe how to apply changes from the two inventory views depending on your use case.  
 
 ### Inventory list page  
 
-You should apply labels from the inventory list page if you want to update numerous assets at once. This process also allows you to refine your asset list based on filter parameters, helping you identify assets that should be categorized with the desired label. To apply labels from this page:  
+You should modify assets from the inventory list page if you want to update numerous assets at once. This process also allows you to refine your asset list based on filter parameters, helping you identify assets that should be categorized with the desired label or state change. To modify assets from this page:  
 
 1. Select the **Inventory** page from the left-hand navigation pane of your Defender EASM resource.  
 
@@ -39,13 +44,13 @@ You should apply labels from the inventory list page if you want to update numer
 
 ![Screenshot of inventory list view with 'add filter' dropdown opened, displaying the query editor.](media/labels-2.png)
 
-3. Once your inventory list is filtered, select the assets that you wish to modify by adding a label. You can either select all using the checkbox next to the “Asset” table header, or individually select the assets you wish to label.  
+3. Once your inventory list is filtered, select the assets that you wish to modify by adding a label or changing their tate. You can either select all using the checkbox next to the “Asset” table header, or individually select the assets you wish to label.  
  
 4. Select **Modify assets**. 
 
 ![Screenshot of inventory list view with assets selected and 'Modify Assets' button highlighted.](media/labels-3.png)
 
-5. This action opens a new “Modify Assets” pane on the right-hand side of your screen.  Select **Create a new label**. 
+5. This action opens a new “Modify Assets” pane on the right-hand side of your screen. From this screen, you can quickly change the state of the selected asset(s). For this example, we will create a new label.  Select **Create a new label**. 
 
 6. Determine the label name and display text values. The label name cannot be changed after you initially create the label, but the display text can be edited at a later time. The label name will be used to query for the label in the product interface or via API, so edits are disabled to ensure these queries work properly. To edit a label name, you need to delete the original label and create a new one.  
  
@@ -65,12 +70,12 @@ Select a color for your new label, then select **Add**. This action will navigat
 
 ### Asset details page 
 
-Users can also apply labels to a single asset from the asset details page. This is ideal for situations when assets need to be thoroughly reviewed before a label is applied.  
+Users can also modify a single asset from the asset details page. This is ideal for situations when assets need to be thoroughly reviewed before a label or state change is applied.  
  
 
 1. Select the **Inventory** page from the left-hand navigation pane of your Defender EASM resource. 
  
-2. Select the specific asset to which you want to apply a label to open the asset details page. 
+2. Select the specific asset to which you want modify to open the asset details page. 
  
 3. From this page, select **Modify asset**. 
 
@@ -78,7 +83,7 @@ Users can also apply labels to a single asset from the asset details page. This 
 
 4. Follow steps 5-7 as listed above in the “Inventory list page” section.  
 
-5. Once complete, the asset details page will refresh, displaying the newly applied label and a banner that indicates the asset was successfully updated.  
+5. Once complete, the asset details page will refresh, displaying the newly applied label or state change and a banner that indicates the asset was successfully updated.  
 
 
 ## Modify, remove or delete labels
@@ -104,6 +109,10 @@ This page displays all the labels within your Defender EASM inventory. Please no
  
 The Labels page will automatically refresh and the label will be removed from the list, as well as removed from any assets that had the label applied. A banner will appear to confirm the removal.  
 
+
+## Task manager 
+
+The Defender EASM system takes a few minutes to modify large numbers of assets at one time. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to 
 
 ## Filtering for labels 
 
