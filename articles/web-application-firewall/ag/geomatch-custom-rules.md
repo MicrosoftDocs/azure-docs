@@ -198,6 +198,7 @@ If you are using the Geomatch operator, the selectors can be any of the followin
 | VG | Virgin Islands, British|
 | VI | Virgin Islands, U.S.|
 | VN | Vietnam|
+| YE | Yemen|
 | ZA | South Africa|
 | ZM | Zambia|
 | ZW | Zimbabwe|
