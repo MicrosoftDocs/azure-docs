@@ -146,9 +146,9 @@ sections:
   - name: Technical questions
     questions:
       - question: |
-          How can I get real-time APIs to handle audio <15 seconds long?
+          How can I get real-time APIs to handle audio > 30 seconds long?
         answer: |
-          The `RecognizeOnce()` SDK operation in interactive mode processes up to 15 seconds of audio where utterances are expected to be short. You use `StartContinuousRecognition()` for dictation or conversation longer than 15 seconds.
+          The `RecognizeOnce()` SDK operation in interactive mode processes up to 30 seconds of audio where utterances are expected to be short. You use `StartContinuousRecognition()` for dictation or conversation longer than 30 seconds.
           
           
       - question: |

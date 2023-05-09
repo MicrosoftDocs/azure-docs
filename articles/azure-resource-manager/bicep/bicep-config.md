@@ -3,7 +3,7 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/21/2023
+ms.date: 04/28/2023
 ---
 
 # Configure your Bicep environment
@@ -44,6 +44,9 @@ You can enable preview features by adding:
   }
 }
 ```
+
+> [!WARNING]
+> To utilize the experimental features, it's necessary to have the latest version of [Azure CLI](./install.md#azure-cli).
 
 The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
 

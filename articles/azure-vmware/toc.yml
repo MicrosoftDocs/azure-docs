@@ -6,7 +6,7 @@
     href: introduction.md
   - name: What's new
     href: azure-vmware-solution-platform-updates.md
-  - name: Known Issues
+  - name: Known issues
     href: azure-vmware-solution-known-issues.md
 - name: Get started
   items:
@@ -58,7 +58,7 @@
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Run command
+  - name: Run Command
     href: concepts-run-command.md
   - name: Security
     items:
@@ -98,7 +98,7 @@
         href: backup-azure-vmware-solution-virtual-machines.md
     - name: Disaster recovery using Azure Site Recovery
       items:
-      - name: Prepare Azure
+      - name: Prepare Azure Site Recovery
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Prepare Azure VMware Solution
         href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -128,7 +128,7 @@
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
+    - name: Enable Public IP on the NSX-T Data Center Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
