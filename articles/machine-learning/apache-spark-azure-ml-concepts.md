@@ -56,7 +56,7 @@ Disadvantages:
 
 ### Network configuration
 
-To use network isolation with Azure Machine Learning and serverless Spark compute, use the [managed virtual network](how-to-managed-network.md) (preview).
+As of January 2023, creation of a serverless Spark compute, inside a virtual network, and creation of a private endpoint to Azure Synapse, aren't supported.
 
 ### Inactivity periods and tear-down mechanism
 
