@@ -20,19 +20,33 @@ sections:
       - question: |
           Can I get a discount if I already have a Microsoft Defender for Endpoint license?
         answer: |
-          If you already have a license for *Microsoft Defender for Endpoint for Servers*, you don't pay for that part of your Microsoft Defender for Servers Plan 1 or Plan 2 license. 
+          If you already have a license for **Microsoft Defender for Endpoint for Servers Plan 2**, you won't have to pay for that part of your Microsoft Defender for Servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
           To request your discount, contact the Defender for Cloud support team through the Azure portal by creating a new support request in the help and support center.
 
-          In the *Problem description* tab, please enter the below information:
+          1. Sign in to the [Azure portal](https://portal.azure.com/).
+          
+          1. Select **Support and Troubleshooting**
+
+          :::image type="content" source="media/faq-defender-for-servers/support-and-troubleshoot.png" alt-text="Screenshot that shows the location of the Support and Troubleshooting button on the Azure home screen":::
+
+          1. Select **Help + support**.
+
+          1. Select **Create a support request**.
+
+          1. Enter the following information:
 
           :::image type="content" source="media/faq-defender-for-servers/support-ticket-description.png" alt-text="Support ticket description with the information filled out":::
 
-          In the *Additional details* tab enter the following information:
-          - Customer Org name - enter the name of the organization that is requesting the discount.
-          - Tenant ID - enter the tenant ID of the organization that is requesting the discount.
-          - The number of Microsoft Defender for Endpoint for Servers licenses that were purchased.
-          - The expiration date of the Microsoft Defender for Endpoint for Servers licenses that were purchased.
+          1. Select **Next**.
+
+          1. Select **Next**.
+
+          1. In the *Additional details* tab enter your Customer Org name, Tenant ID, The number of Microsoft Defender for Endpoint for Servers licenses that were purchased, The expiration date of the Microsoft Defender for Endpoint for Servers licenses that were purchased, and all other required fields.
+
+          1. Select **Next**.
+
+          1. Select **Create**.
 
           >[!NOTE]
           > The discount becomes effective starting on the approval date. The discount isn't retroactive.
@@ -108,7 +122,21 @@ sections:
         answer: |
           If a machine reports to multiple workspaces and all of them have Defender for Servers enabled, the machines are billed for each attached workspace.
 
-      
+      - question: |
+          My subscription has Microsoft Defender for Servers enabled, which machines do I pay for?
+        answer: |
+          When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all machines in that subscription (including machines that are part of PaaS services and reside in this subscription) are billed according to their power state as shown in the following table:
+
+          | State | Description | Instance usage billed |
+          |--|--|--|
+          | Starting | VM is starting up. | Not billed |
+          | Running | Normal working state for a VM | Billed |
+          | Stopping | This state is transitional. When completed, it will show as Stopped. | Billed |
+          | Stopped | The VM has been shut down from within the guest OS or using the PowerOff APIs. Hardware is still allocated to the VM and it remains on the host. | Billed |
+          | Deallocating | This state is transitional. When completed, the VM will show as Deallocated. | Not billed |
+          | Deallocated | The VM has been stopped successfully and removed from the host. | Not billed |
+
+          :::image type="content" source="media/plan-defender-for-servers/deallocated-virtual-machines.png" alt-text="Screenshot of Azure Virtual Machines showing a deallocated machine.":::    
 
 additionalContent: |
 
