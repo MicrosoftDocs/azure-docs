@@ -27,8 +27,11 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
     - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
 - Make sure that the firewall policies are allowing access to *.attest.azure.net
 
- 
+   > [!NOTE]
+   >  If you are using a Linux image and anticipate the VM may have kernel drivers either unsigned or not signed by the Linux distro vendor, then you may want to consider turning off secure boot. In Portal, in the ‘Create a virtual machine’ page for ‘Security type’ parameter with ‘Trusted Launch Virtual Machines’ selected, click on ‘Configure security features’ and uncheck the ‘Enable secure boot’ checkbox. In CLI, PowerShell, or SDK, set secure boot parameter to false.
+
 ## Deploy a trusted launch VM
+
 Create a virtual machine with trusted launch enabled. Choose an option below:
 
 ### [Portal](#tab/portal)
@@ -344,12 +347,11 @@ For VMs created with trusted launch enabled, you can view the trusted launch con
 
 :::image type="content" source="./media/trusted-launch/security-type-enabled.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot, vTPM, and Integrity Monitoring from the **Security type** section. Select **Save** at the top of the page when you are done.
+To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot, vTPM, and Integrity Monitoring from the **Security type** section. Select **Save** at the top of the page when you are done.
 
 :::image type="content" source="./media/trusted-launch/verify-intergrity-boot-on.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 
 If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect.
-
 
 ## Next steps
 
