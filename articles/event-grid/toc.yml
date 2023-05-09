@@ -319,7 +319,7 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
-      - name: Customer enabled disaster recovery
+      - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
