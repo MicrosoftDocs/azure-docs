@@ -74,7 +74,7 @@ All CodeValueFhir templates' `value` element contains these elements:
 |Element|Description|Required|
 |:------|:----------|:-------|
 |**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "String" depending on the value type.|True|
-|**valueName**|Name of the value.|True unless `vaulueType` is CodeableConcept.|
+|**valueName**|Name of the value.|True unless `valueType` is CodeableConcept.|
 
 These value types are supported in the MedTech service FHIR destination mapping:
 
