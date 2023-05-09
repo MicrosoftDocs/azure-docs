@@ -47,7 +47,7 @@ Microsoft Sentinel gives you flexibility as you zero in on the right set of hunt
 
 1. Select **Run All queries** > wait for the queries to execute. This process may take a while. 
 1. Select **Add filter** > **Results** > unselect the checkboxes "!", "N/A", "-", and "0" values > **Apply**
-    :::image type="content" source="media/hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3." lightbox="media/hunts/all-queries-with-results.png":::
+    :::image type="content" source="media/hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3.":::
 
 1. Sort these results by the **Results Delta** column to see what has changed most recently. These results provide initial guidance on the hunt.
 
@@ -56,7 +56,7 @@ Microsoft Sentinel gives you flexibility as you zero in on the right set of hunt
 Content hub offers threat campaign and domain-based solutions to hunt for specific attacks. 
 
 1. For example, install the "Log4J Vulnerability Detection" or the "Apache Tomcat" solutions from Microsoft. 
-    :::image type="content" source="media/hunts/content-hub-solutions.png" alt-text="Screenshot shows the content hub in grid view with the Log4J and Apache solutions selected.":::
+    :::image type="content" source="media/hunts/content-hub-solutions.png" alt-text="Screenshot shows the content hub in grid view with the Log4J and Apache solutions selected." lightbox="media/hunts/content-hub-solutions.png":::
 
 1. Once installed, create a hunt directly from the solution by selecting the package > **Actions** > **Create hunt (preview)**. 
     :::image type="content" source="media/hunts/add-content-queries-to-hunt.png" alt-text="Screenshot shows action menu options from content hub solutions page.":::
