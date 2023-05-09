@@ -32,10 +32,10 @@ New for this release:
 - Arc data services
   - OpenSearch replaces Elasticsearch for log database
   - OpenSearch Dashboards replaces Kibana for logs interface
-    - There is a known issue with user settings migration to OpenSearch dashboards for some versions of Elasticsearch, including the version used in Arc data services. 
+    - There is a known issue with user settings migration to OpenSearch Dashboards for some versions of Elasticsearch, including the version used in Arc data services. 
     
       > [!IMPORTANT]
-      > Before upgrade, save any configuration externally before upgrading so that it can be re-created in OpenSearch Dashboards.
+      > Before upgrade, save any Kibana configuration externally so that it can be re-created in OpenSearch Dashboards.
 
   - Automatic upgrade is disabled for the Arc data services extension
   - Error-handling in the `az` CLI is improved during data controller upgrade
