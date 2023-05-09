@@ -26,4 +26,4 @@ ms.author: kengaderdus
  
     1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
 
-    1. Select **Refresh**, the verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
+    1. Select **Refresh**, then verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
