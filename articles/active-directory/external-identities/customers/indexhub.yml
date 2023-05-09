@@ -25,13 +25,13 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: B2B - Get started 
-      itemType: overview
-      url: /azure/active-directory/external-identities
-    # Card
     - title: CIAM - Get started 
       itemType: overview
       url: /azure/active-directory/external-identities/customers
+    # Card
+    - title: B2B - Get started 
+      itemType: overview
+      url: /azure/active-directory/external-identities      
     # Card
     - title: What is Azure AD B2C (business-to-consumer) identity?
       itemType: architecture
@@ -42,8 +42,34 @@ highlightedContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Microsoft Entra External Identities for Partners (B2B)
+    - title: Microsoft Entra External Identities for Customers (CIAM)
       items:
+        # Card
+        - title: Overview
+          summary: Learn basic customer tenant concepts and processes.
+          url: /azure/active-directory/external-identities/customers/overview-customers-ciam
+        # Card
+        - title: 30-day free trial
+          summary: Set up your customer tenant free trial.
+          url: /azure/active-directory/external-identities/customers/quickstart-trial-setup
+        # Card
+        - title: Planning for customer identity and access management 
+          summary: Plan your customer tenant journey.
+          url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
+          # Card
+        - title: Code samples for customer tenants
+          summary: Learn about our code samples for customer identity and access management (CIAM) in Azure Active Directory.
+          url: /azure/active-directory/external-identities/customers/samples-ciam-all
+          # Card
+        - title: Authentication methods and identity providers
+          summary: Learn about several options for authenticating users of your applications. 
+          url: /azure/active-directory/external-identities/customers/concept-authentication-methods-customers
+          # Card
+        - title: Customize the sign-in look and feel
+          summary: Learn about how to personalize the end-user experience.
+          url: /azure/active-directory/external-identities/customers/concept-branding-customers        
+    - title: Microsoft Entra External Identities for Partners (B2B)
+      items:      
         # Card
         - title: Overview
           summary: Learn basic partner concepts and processes.
@@ -72,32 +98,6 @@ additionalContent:
         - title: Self-service sign-up
           summary: Learn about the self-service sign-up user flow. 
           url: /azure/active-directory/external-identities/self-service-sign-up-overview 
-    - title: Microsoft Entra External Identities for Customers (CIAM)
-      items:
-        # Card
-        - title: Overview
-          summary: Learn basic customer tenant concepts and processes.
-          url: /azure/active-directory/external-identities/customers/overview-customers-ciam
-        # Card
-        - title: 30-day free trial
-          summary: Set up your customer tenant free trial.
-          url: /azure/active-directory/external-identities/customers/quickstart-trial-setup
-        # Card
-        - title: Planning for customer identity and access management 
-          summary: Plan your customer tenant journey.
-          url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
-          # Card
-        - title: Code samples for customer tenants
-          summary: Learn about our code samples for customer identity and access management (CIAM) in Azure Active Directory.
-          url: /azure/active-directory/external-identities/customers/samples-ciam-all
-          # Card
-        - title: Authentication methods and identity providers
-          summary: Learn about several options for authenticating users of your applications. 
-          url: /azure/active-directory/external-identities/customers/concept-authentication-methods-customers
-          # Card
-        - title: Customize the sign-in look and feel
-          summary: Learn about how to personalize the end-user experience.
-          url: /azure/active-directory/external-identities/customers/concept-branding-customers      
     - title: Quickstarts by app type in the customer tenant 
       items:
         # Card
