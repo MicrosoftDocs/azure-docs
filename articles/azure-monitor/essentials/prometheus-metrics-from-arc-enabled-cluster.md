@@ -26,8 +26,9 @@ The following configurations are supported:
 
 Windows isn't currently supported.
 
-## Prerequisites listed under the generic cluster extensions documentation
+## Prerequisites
 
++ Prerequisites listed in [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions#prerequisites)
 + An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md). 
 + The cluster must use managed identity authentication. 
 + The following resource providers must be registered in the subscription of the Arc-enabled Kubernetes cluster and the Azure Monitor workspace: 
@@ -218,9 +219,8 @@ If you're using an existing Azure Managed Grafana instance that's already linked
 }
 ```
 
-In the example JSON above, `full_resource_id_1` and `full_resource_id_2` are already in the Azure Managed Grafana resource JSON. They're added here to the Azure Resource Manager template (ARM template). If you don't have any existing Grafana integrations, don't include these entries.
-
-The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
+In the example JSON above, `full_resource_id_1` and `full_resource_id_2` are already in the Azure Managed Grafana resource JSON. They're added here to the Azure Resource Manager template (ARM template). If you don't have any existing Grafana integrations, don't include these entries.  
+The final `azureMonitorWorkspaceResourceId` entry is in the template by default and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
 
 ### Verify extension installation status
 
