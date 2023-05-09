@@ -168,7 +168,7 @@ The cell below uses IPython magic to write the conda file into the directory you
 
 
 ```python
-%%writefile {dependencies_dir}/conda.yml
+%%writefile {dependencies_dir}/conda.yaml
 name: model-env
 channels:
   - conda-forge
@@ -204,7 +204,7 @@ custom_job_env = Environment(
     name=custom_env_name,
     description="Custom environment for Credit Card Defaults job",
     tags={"scikit-learn": "0.24.2"},
-    conda_file=os.path.join(dependencies_dir, "conda.yml"),
+    conda_file=os.path.join(dependencies_dir, "conda.yaml"),
     image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
 )
 custom_job_env = ml_client.environments.create_or_update(custom_job_env)

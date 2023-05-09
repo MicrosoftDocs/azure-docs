@@ -72,9 +72,9 @@ items:
     - name: 🆕 Build a custom classification model (preview)
       displayName: custom, classifier, splitter
       href: how-to-guides/build-a-custom-classifier.md
-    - name: Project sharing with custom classifiers
+    - name: Project sharing with custom models
       displayName: project, share, sharing
-      href: how-to-guides/project-share-custom-classifier.md  
+      href: how-to-guides/project-share-custom-models.md  
     - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
