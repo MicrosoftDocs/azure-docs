@@ -114,7 +114,7 @@ public class HomeController : Controller
 }
 ```
 
-Here's another simplified code for the action of the `HomeController`, which gets an access token to call Microsoft Graph as a REST API:
+The following snippet shows the action of the `HomeController`, which gets an access token to call Microsoft Graph as a REST API:
 
 ```csharp
 [Authorize]
