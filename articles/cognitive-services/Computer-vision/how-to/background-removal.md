@@ -31,7 +31,7 @@ The quickstart shows you how to extract visual features from an image, however, 
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
