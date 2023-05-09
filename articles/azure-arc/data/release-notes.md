@@ -23,7 +23,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 `v1.19.0_2023-05-09`
 
-For complete release version information, see [Version log](version-log.md#may-9-2023).
+For complete release version information, review [Version log](version-log.md#may-9-2023).
 
 New for this release:
 
@@ -32,13 +32,17 @@ New for this release:
 - Arc Data services
   - OpenSearch replaces Elasticsearch for log database
   - OpenSearch Dashboards replaces Kibana for logs interface
-    - As a part of this change there is a known issue that user settings for Kibana fail to migrate to OpenSearch Dashboards. It is advised that customers save any configuration externally before upgrading so that it can be re-created in OpenSearch Dashboards.
+    - There is a known issue with user settings migration to OpenSearch dashboards for some versions of Elasticsearch, including the version used in Arc Data Services. 
+    
+      > [!IMPORTANT]
+      > Before upgrade, save any configuration externally before upgrading so that it can be re-created in OpenSearch Dashboards.
+
   - Arc data controller improvements to `az` CLI for upgrade reliability
 
 - Azure Arc-enabled SQL Managed Instance
-  - General Purpose: Customer-managed TDE encryption keys (preview)
-  - Support for `sp_configure` to manage configuration
-  - Service-managed credential rotation
+  - General Purpose: Customer-managed TDE encryption keys (preview). For information, review [Rotate Azure Arc-enabled SQL Managed Instance customer-managed keytab](rotate-customer-managed-keytab.md).
+  - Support for `sp_configure` to manage configuration. For information, review [Configure Azure Arc-enabled SQL managed instance](configure-managed-instance.md).
+  - Service-managed credential rotation. For information, review [How to rotate service-managed credentials in a managed instance](rotate-sql-managed-instance-credentials.md#how-to-rotate-service-managed-credentials-in-a-managed-instance).
 
 ## April 12, 2023
 
