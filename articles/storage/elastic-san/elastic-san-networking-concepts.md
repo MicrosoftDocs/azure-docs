@@ -75,11 +75,7 @@ For details on how to define network rules, see [Managing virtual network rules]
 
 ## Client connections
 
-After you have enabled the desired endpoints and granted access in your network rules, you are ready to configure your clients to connect to the appropriate Elastic SAN volumes. For more details on how to configure client connections, see:
-
-- [Connect to Elastic SAN Preview volumes - AKS](elastic-san-connect-aks.md)
-- [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
-- [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
+After you have enabled the desired endpoints and granted access in your network rules, you can connect to the appropriate Elastic SAN volumes using the iSCSI protocol. For more details on how to configure client connections, see [Configure access to Elastic SAN volumes from clients](elastic-san-networking.md#configure-access-to-elastic-san-volumes-from-clients)
 
 > [!NOTE]
 > If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
