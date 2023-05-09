@@ -20,9 +20,9 @@ Container apps and jobs run in the same [environment](environment.md), allowing 
 
 There are two types of compute resources in Azure Container Apps: apps and jobs.
 
-Apps are services that run continuously. If a replica in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process input.
+Apps are services that run continuously. If a container in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process input.
 
-Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or as a response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
+Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or in response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
 ## Jobs preview limitations
 
@@ -192,7 +192,97 @@ The cron expression `0 0 * * *` runs the job every day at midnight UTC.
 
 ### Event-driven jobs
 
-Event-driven jobs...
+Event-driven jobs are triggered by events from supported [custom scalers](scale-app.md#custom). Examples of event-driven jobs include:
+
+- A job that runs when a new message is added to a queue such as Azure Service Bus, Kafka, or RabbitMQ.
+- A self-hosted GitHub Actions runner or Azure DevOps agent that runs when a new job is queued in a workflow or pipeline.
+
+Container apps and event-driven jobs use [KEDA](https://keda.sh/) scalers. They both evaluate scaling rules on a polling interval to measure the volume of events for an event source, but the way they use the results is different. In apps, each replica continuously processes events and a scaling rule determines the number of replicas to run. In event-driven jobs, each job typically processes a single event and a scaling rule determines the number of jobs to run.
+
+Use jobs when each event requires a new instance of the container with dedicated resources or needs to run for a long time. Event-driven jobs are conceptually similar to [KEDA scaling jobs](https://keda.sh/docs/latest/concepts/scaling-jobs/).
+
+To create an event-driven job, use the job type `Event`.
+
+# [Azure CLI](#tab/azure-cli)
+
+To create an event-driven job using the Azure CLI, use the `az containerapp job create` command. The following example creates an event-driven job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+
+```azurecli
+az containerapp job create \
+    --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
+    --trigger-type "Event" \
+    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
+    --image "docker.io/myuser/my-event-driven-job:latest" \
+    --cpu "0.25" --memory "0.5Gi" \
+    --min-executions "0" \
+    --max-executions "10" \
+    --scale-rule-name "queue" \
+    --scale-rule-type "azure-queue" \
+    --scale-rule-metadata "accountName=mystorage" "queueName=myqueue" "queueLength=1" \
+    --scale-rule-auth "connection=connection-string-secret" \
+    --secrets "connection-string-secret=<QUEUE_CONNECTION_STRING>"
+```
+
+# [Azure Resource Manager](#tab/azure-resource-manager)
+
+The following example Azure Resource Manager template creates an event-driven job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+
+```json
+{
+    "location": "North Central US",
+    "name": "my-job",
+    "properties": {
+        "configuration": {
+            "eventTriggerConfig": {
+                "maxExecutions": 10,
+                "minExecutions": 0,
+                "scale": {
+                    "rules": [
+                        {
+                            "auth": {
+                                "connection": "connection-string-secret"
+                            },
+                            "metadata": {
+                                "accountName": "mystorage",
+                                "queueLength": 1,
+                                "queueName": "myqueue"
+                            },
+                            "name": "queue",
+                            "type": "azure-queue"
+                        }
+                    ],
+                }
+            },
+            "replicaRetryLimit": 1,
+            "replicaTimeout": 60,
+            "triggerType": "Event",
+            "secrets": [
+                {
+                    "name": "connection-string-secret",
+                    "value": "<QUEUE_CONNECTION_STRING>"
+                }
+            ]
+        },
+        "environmentId": "/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/managedEnvironments/my-environment",
+        "template": {
+            "containers": [
+                {
+                    "image": "docker.io/myuser/my-event-driven-job:latest",
+                    "name": "main",
+                    "resources": {
+                        "cpu": 0.25,
+                        "memory": "0.5Gi"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+---
+
+The example configures an Azure Storage queue scale rule. For a complete tutorial, see [Deploy an event-driven job](tutorial-event-driven-jobs.md).
 
 ## Start a job execution on demand
 
