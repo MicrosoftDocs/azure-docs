@@ -111,11 +111,11 @@ For resiliency and reliability, we recommend deploying to one of the regions tha
 
 ### Data residency consideration
 
-Device Provisioning Service doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
+Device Provisioning Service stores customer data. By default, customer data is replicated to a secondary region to support disaster recovery scenarios. For deployments in Southeast Asia, East Asia, and Brazil South, customer can choose to keep their data only within that region by [disabling disaster recovery](./iot-dps-ha-dr.md). For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
-However, by default, DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and performs traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
+DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and performs traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
 
-To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
+To ensure that your data doesn't leave the original or secondary region, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
 
 ## Quotas and Limits
 
