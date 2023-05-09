@@ -156,12 +156,29 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint of your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal. Restart the command prompt to allow the change to take effect.
 
-1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
-
+1. If your application is using a *bootstrap.properties*, open it in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
+    #### [.properties](#tab/properties)
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
-
+    If your application is using an *application.yaml* file in the *resources* folder. Add the following:
+    #### [.yaml](#tab/yaml)
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          keyvault:
+            secret:
+              property-source-enabled: true
+              property-sources[0]:
+                credential:
+                  client-secret: "<<password returned from the creation of the service account>>"
+                  client-id: "<<appId returned from the creation of the service account>>"
+                profile:
+                  tenant-id: "<<tenant returned from the creation of the service account>>"
+                endpoint: "<<your key vault URI>>"
+    ```
+    
 1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
 
     ```java
