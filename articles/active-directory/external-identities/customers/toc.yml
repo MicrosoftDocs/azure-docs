@@ -172,9 +172,7 @@ items:
       expanded: true
       items:
       - name: Create a customer tenant
-        items:
-          - name: Create a customer tenant in the admin center
-            href: how-to-create-customer-tenant-portal.md
+        href: how-to-create-customer-tenant-portal.md
       - name: Register an app
         href: how-to-register-ciam-app.md
       - name: Add a sign-up and sign-in flow
