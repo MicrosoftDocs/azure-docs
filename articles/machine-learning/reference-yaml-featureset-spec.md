@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) feature set specification YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) feature store YAML schema.
+description: Reference documentation for the CLI (v2) featureset spec YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -16,9 +16,6 @@ ms.custom: cliv2
 # CLI (v2) feature specification YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/data.schema.json.
-
 
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]

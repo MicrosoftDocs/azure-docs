@@ -17,8 +17,6 @@ ms.custom: cliv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/featurestore.schema.json.
-
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
@@ -82,3 +80,8 @@ display_name: marketing feature store
 tags:
   foo: bar
 ```
+
+## Next steps
+
+- [Install and use the CLI (v2)](how-to-configure-cli.md)
+- [Troubleshoot managed feature store](troubleshooting-managed-feature-store.md)

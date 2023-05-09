@@ -14,9 +14,6 @@ ms.date: 05/23/2023
 
 In this article, you learn how to manage access (authorization) to an Azure Machine Learning managed feature store. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Azure Active Directory (Azure AD) are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
-> [!WARNING]
-> Applying some roles may limit UI functionality in Azure Machine Learning for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
-
 ## Identities and user types
 
 Azure Machine Learning supports role-based access control for the following managed feature store resources:

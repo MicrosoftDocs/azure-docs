@@ -17,8 +17,6 @@ ms.custom: cliv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/featureentity.schema.json.
-
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -63,5 +61,4 @@ tags:
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
-- Learn how to [develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md)
 - [Troubleshoot managed feature store](troubleshooting-managed-feature-store.md)
