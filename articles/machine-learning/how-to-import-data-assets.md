@@ -1,7 +1,7 @@
 ---
-title: Import Data (preview)
+title: Import data (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to import data from external sources on to Azure Machine Learning platform
+description: Learn how to import data from external sources to the Azure Machine Learning platform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/12/2023
+ms.date: 04/18/2023
 ms.custom: data4ml
 ---
 
@@ -17,15 +17,26 @@ ms.custom: data4ml
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v2 ](how-to-import-data-assets.md)
+> * [v2](how-to-import-data-assets.md)
 
-In this article, learn how to import data into the Azure Machine Learning platform from external sources. A successful import automatically creates and registers an Azure Machine Learning data asset with the name provided during the import. An Azure Machine Learning data asset resembles a web browser bookmark (favorites). You don't need to remember long storage paths (URIs) that point to your most-frequently used data. Instead, you can create a data asset, and then access that asset with a friendly name.
+In this article, learn how to import data into the Azure Machine Learning platform from external sources. A successful import automatically creates and registers an Azure Machine Learning data asset with the name provided during the import. An Azure Machine Learning data asset resembles a web browser bookmark (favorites). You don't need to remember long storage paths (URIs) that point to your most frequently used data. Instead, you can create a data asset, and then access that asset with a friendly name.
 
 A data import creates a cache of the source data, along with metadata, for faster and reliable data access in Azure Machine Learning training jobs. The data cache avoids network and connection constraints. The cached data is versioned to support reproducibility (which provides versioning capabilities for data imported from SQL Server sources). Additionally, the cached data provides data lineage for auditability. A data import uses ADF (Azure Data Factory pipelines) behind the scenes, which means that users can avoid complex interactions with ADF. Behind the scenes, Azure Machine Learning also handles management of ADF compute resource pool size, compute resource provisioning, and tear-down to optimize data transfer by determining proper parallelization.
 
-The transferred data is partitioned and securely stored as parquet files in Azure storage. This enables faster processing during training. ADF compute costs only involve the time used for data transfers. Storage costs only involve the time needed to cache the data, because cached data is a copy of the data imported from an external source. That external source is hosted in Azure storage.
+The transferred data is partitioned and securely stored as parquet files in Azure storage, to enable faster processing during training. ADF compute costs only involve the time used for data transfers. Storage costs only involve the time needed to cache the data, because cached data is a copy of the data imported from an external source. That external source is hosted in Azure storage.
 
-The caching feature involves upfront compute and storage costs. However, it pays for itself, and can save money, because it reduces recurring training compute costs compared to direct connections to external source data during training. It caches data as parquet files, which makes job training faster and more reliable against connection timeouts for larger data sets. This leads to fewer reruns, and fewer training failures.
+The caching feature involves upfront compute and storage costs. However, it pays for itself, and can save money, because it reduces recurring training compute costs, compared to direct connections to external source data during training. It caches data as parquet files, which makes job training faster and more reliable against connection timeouts for larger data sets. Additionally, the caching feature leads to fewer reruns, and fewer training failures.
+
+Customers who want the "auto-deletion" of unused imported data assets can now choose to import data into "workspacemanageddatastore," also known as "workspacemanagedstore". Microsoft manages this datastore on behalf of the customer and provides the convenience of automatic data management on certain conditions like - last used time or created time. By default, all the data assets imported into the workspace-managed datastore have an auto-delete setting configured to "not used for 30 days". If a data asset isn't used for 30 days, it will automatically delete. Within that time, you can edit the "auto-delete" settings in the imported data asset. You can increase or decrease the duration (number of days), or you can change the "condition". As of now, created time and unused time are the two conditions supported. If you chose to work with a "managed datastore", you must only point the `path` on your data import to `azureml://datastores/workspacemanagedstore`, and Azure Machine Learning will create one for you. The managed datastore costs the same as a regular ADLS Gen2 datastore, which charges by the amount of data that is stored in it. However, the managed datastore offers the benefit of data management.
+
+> [!NOTE] 
+> - There will be only one `workspacemanagedstore` per workspace that would be created
+> -  The managed datastore backfills, or is automatic, when the first import job that refers to the managed datastore is submitted.
+> - Users cannot create a `workspacemanagedstore` using any datastore APIs or methods.
+> - In the import definition, users must refer to the managed datastore in this way: `path: azureml://datastores/manageddatastore`. The system automatically assigns a unique path for storage of the imported data. Unlike customer-owned datastores, or a workspace default blobstore, there is no need to provide the entire path where you want to import data.
+> - Currently, the path on the `workspacemanagedstore` can be accessed only by data import service, and `workspacemanagedstore` cannot be given as a destination in any other process or step
+> - The data path in the `workspacemanagedstore` can be accessed only by AzureML service
+> - To access data from the `workspacemanagedstore`, reference the data asset name and version, similar to any other data asset in your jobs or scripts, or processes submitted to AzureML. AzureML knows how to read data from managed datastore.
 
 You can now import data from Snowflake, Amazon S3 and Azure SQL.
 
@@ -43,9 +54,34 @@ To create and work with data assets, you need:
 
 * [Workspace connections created](how-to-connection.md)
 
-## Importing from external database sources / import from external sources to create a meltable data asset
+> [!NOTE]
+> For a successful data import, please verify that you have installed the latest Azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).  
+> 
+> If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow these instructions for SDK and CLI:
 
-> [!NOTE] 
+### Code versions
+
+# [SDK](#tab/SDK)
+
+```python
+pip uninstall azure-ai-ml
+pip install azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+```
+
+# [CLI](#tab/CLI)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml #(the version value needs to be 2.15.1 or later)
+```
+
+---
+
+## Importing from an external database source as a table data asset
+
+> [!NOTE]
 > The external databases can have Snowflake, Azure SQL, etc. formats.
 
 The following code samples can import data from external databases. The `connection` that handles the import action determines the external database data source metadata. In this sample, the code imports data from a Snowflake resource. The connection points to a Snowflake source. With a little modification, the connection can point to an Azure SQL database source and an Azure SQL database source. The imported asset `type` from an external database source is `mltable`.
@@ -58,8 +94,9 @@ Create a `YAML` file `<file-name>.yml`:
 $schema: http://azureml/sdk-2-0/DataImport.json
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
-# Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# Supported "paths" include either on regular datastore or managed datastore as shown below:
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# or path: azureml://datastores/workspacemanagedstore
 
 
 type: mltable
@@ -86,8 +123,9 @@ from azure.ai.ml import MLClient
 
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
-# Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# Supported "paths" include either on regular datastore or managed datastore as shown below:
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# or path: azureml://datastores/workspacemanagedstore
 
 ml_client = MLClient.from_config()
 
@@ -102,7 +140,7 @@ ml_client.data.import_data(data_import=data_import)
 
 ---
 
-## Import data from external data and file system resources to create a uri_folder data asset
+## Import data from an external file system source as a folder data asset
 
 > [!NOTE]
 > An Amazon S3 data resource can serve as an external file system resource.
@@ -119,8 +157,9 @@ Create a `YAML` file `<file-name>.yml`:
 $schema: http://azureml/sdk-2-0/DataImport.json
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
-# Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# Supported "paths" include either on regular datastore or managed datastore as shown below:
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# or path: azureml://datastores/workspacemanagedstore
 
 
 type: uri_folder
@@ -147,8 +186,9 @@ from azure.ai.ml import MLClient
 
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
-# Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# Supported "paths" include either on regular datastore or managed datastore as shown below:
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# or path: azureml://datastores/workspacemanagedstore
 
 ml_client = MLClient.from_config()
 
@@ -165,12 +205,11 @@ ml_client.data.import_data(data_import=data_import)
 
 ## Check the import status of external data sources
 
-The data import action is an asynchronous action. It can take a long time. After submission of an import data action via the CLI or SDK, the Azure Machine Learning service might need several minutes to connect to the external data source. Then the service would start the data import and handle data caching and registration. The time needed for a data import also depends on the size of the source data set.
+The data import action is an asynchronous action. It can take a long time. After submission of an import data action via the CLI or SDK, the Azure Machine Learning service might need several minutes to connect to the external data source. Then the service would start the data import and handle data caching and registration. The times needed for a data import also depends on the size of the source data set.
 
 The next example returns the status of the submitted data import activity. The command or method uses the "data asset" name as the input to determine the status of the data materialization.
 
 # [Azure CLI](#tab/cli)
-
 
 ```cli
 > az ml data list-materialization-status --name <name>
@@ -189,6 +228,11 @@ ml_client.data.show_materialization_status(name="<name>")
 ```
 
 ---
+
+## Additional Capabilities
+
+- [Import from external data sources on a schedule (preview)](reference-yaml-schedule.md)
+- [Edit auto-delete settings on imported data asset](how-to-manage-imported-data-assets.md)
 
 ## Next steps
 

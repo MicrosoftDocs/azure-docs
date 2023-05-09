@@ -33,14 +33,15 @@ If two agents use the same configuration, you will encounter inconsistent behavi
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. Azure Arc does not run on x86 (32-bit) or ARM-based architectures.
+Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent does not run on x86 (32-bit) or ARM-based architectures.
 
-* Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019, and 2022
+* Windows Server 2012 R2, 2016, 2019, and 2022
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 * Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
 * Windows IoT Enterprise
 * Azure Stack HCI
+* CBL-Mariner 1.0, 2.0
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
 * Debian 10 and 11
 * CentOS Linux 7 and 8
@@ -71,7 +72,7 @@ Microsoft doesn't recommend running Azure Arc on short-lived (ephemeral) servers
 Windows operating systems:
 
 * NET Framework 4.6 or later. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
-* Windows PowerShell 4.0 or later (already included with Windows Server 2012 R2 and later). For Windows Server 2008 R2 SP1, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+* Windows PowerShell 4.0 or later (already included with Windows Server 2012 R2 and later).
 
 Linux operating systems:
 

@@ -18,11 +18,11 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
 1.	Sign in to the Azure portal and navigate to the Key Vault. If you do not have a Key Vault set up, you can opt to create one in this same window.
 
-2. Select **Access polices**
+2. Select **Access Configuration**
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image shows selecting access policies from the key vault blade.":::
 
-3. Ensure the access policies include the following property:
+3. Ensure the access configuration include the following property:
     - **Enable access to Azure Virtual Machines for deployment**
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image shows access policies window in the Azure portal.":::

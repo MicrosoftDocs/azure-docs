@@ -1,12 +1,12 @@
 ---
 title: Enable logging for Azure Data Manager for Agriculture
 description: Learn how enable logging and debugging in Azure Data Manager for Agriculture
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Azure Data Manager for Agriculture logging

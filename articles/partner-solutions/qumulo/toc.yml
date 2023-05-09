@@ -1,3 +1,4 @@
+items:
 - name: Azure Native Qumulo Scalable File Service documentation 
   href: index.yml
 - name: Overview
@@ -11,23 +12,12 @@
     href: qumulo-create.md
 - name: How to
   items:
-  # - name: Configure prerequisites
-  #   href: qumulo-how-to-configure-prereqs.md
   - name: Manage Azure Native Qumulo Scalable File Service
     href: qumulo-how-to-manage.md
   - name: Troubleshoot Azure Native Qumulo Scalable File Service
     href: qumulo-troubleshoot.md
-#- name: Reference
-#  items:
-#  - name: Python
-#    href: /python/api/overview/azure/qumulo
-#  - name: JavaScript
-#    href: /javascript/api/overview/azure/qumulo
-#  - name: .NET
-#    href: /dotnet/api/overview/azure/qumulo
-#  - name: Java
-#    href: /java/api/overview/azure/qumulo
-#  - name: REST API
-#    href: /rest/api/qumulo
-##  - name: Azure PowerShell
-##    href: 
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/qumulo
+

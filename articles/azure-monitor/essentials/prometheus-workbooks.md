@@ -10,16 +10,16 @@ ms.author: edbaynash
 # Query Prometheus metrics using Azure workbooks (preview)
 
 Create dashboards powered by Azure Monitor managed service for Prometheus using [Azure Workbooks](../visualize/workbooks-overview.md).
-This article introduces workbooks for Azure Monitor workspaces and shows you how to query Prometheus metrics using Azure workbooks and PromQL query language.
+This article introduces workbooks for Azure Monitor workspaces and shows you how to query Prometheus metrics using Azure workbooks and the Prometheus query language (PromQL).
 
 ## Pre-requisites
 To query Prometheus metrics from an Azure Monitor workspace you need the following:
 -	An Azure Monitor workspace. To create an Azure Monitor workspace see [Create an Azure Monitor Workspace](./azure-monitor-workspace-overview.md?tabs=azure-portal.md).
 -	Your Azure Monitor workspace must be [collecting Prometheus metrics](./prometheus-metrics-enable.md) from an AKS cluster.
--	You have the **Monitoring Data Reader** role assigned for the Azure Monitor workspace.
+-	The user must be assigned the **Monitoring Data Reader** role for the Azure Monitor workspace.
 
 > [!NOTE]
-> Querying data from an Azure Monitor workspace is a data plane operation. Even if you are an owner or have elevated control plane access, you still need to assign the Monitoring Data Reader role. For more information, see [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
+> Querying data from an Azure Monitor workspace is a data plane operation. Even if you are an owner or have elevated control plane access, you still need to assign the **Monitoring Data Reader** role. For more information, see [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
 ## Prometheus Explorer workbook
 Azure Monitor workspaces include an exploration workbook to query your Prometheus metrics. 
@@ -33,7 +33,7 @@ Azure Monitor workspaces include an exploration workbook to query your Prometheu
 A workbook has the following input options:
 -	**Time Range**. Select the period of time that you want to include in your query. Select **Custom** to set a start and end time.
 -	**PromQL**. Enter the PromQL query to retrieve your data. For more information about PromQL, see [Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/#querying-prometheus).
--	**Graph**, **Grid**, and **Dimensions** tabs. Switch between a graphic, tabular and dimensional view of the query output.
+-	**Graph**, **Grid**, and **Dimensions** tabs. Switch between a graphic, tabular, and dimensional view of the query output.
 
 ![Screenshot that shows PromQL explorer.](./media/prometheus-workbooks/prometheus-explorer.png)
 
@@ -61,7 +61,7 @@ Workbooks supports many visualizations and Azure integrations. For more informat
 
 If your workbook query does not return data:
 
--	Check that you have Monitoring Data Reader role permissions assigned through Access Control (IAM) in your Azure Monitor workspace
+-	Check that you have **Monitoring Data Reader** role permissions assigned through Access Control (IAM) in your Azure Monitor workspace
 -	Verify that you have turned on metrics collection in the Monitored clusters blade of your Azure Monitor workspace.
 
 

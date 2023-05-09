@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 05/14/2023
 ms.reviewer: cawa
 ---
 
@@ -398,7 +398,7 @@ Legacy table: availabilityResults
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
@@ -439,7 +439,7 @@ Legacy table: browserTimings
 |networkDuration|real|NetworkDurationMs|real|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
@@ -485,7 +485,7 @@ Legacy table: dependencies
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |resultCode|string|ResultCode|string|
@@ -527,7 +527,7 @@ Legacy table: customEvents
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -562,7 +562,7 @@ Legacy table: customMetrics
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -609,7 +609,7 @@ Legacy table: pageViews
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
@@ -649,7 +649,7 @@ Legacy table: performanceCounters
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -689,7 +689,7 @@ Legacy table: requests
 |name|string|Name|String|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
 |resultCode|string|ResultCode|String|
@@ -739,7 +739,7 @@ Legacy table: exceptions
 |method|string|Method|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |outerAssembly|string|OuterAssembly|string|
 |outerMessage|string|OuterMessage|string|

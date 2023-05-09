@@ -41,9 +41,8 @@ Typically the beginning of a machine learning project involves exploratory data 
 > pip install -U azureml-fsspec mltable
 > ```
 
-## Access data from a datastore URI, like a filesystem (preview)
+## Access data from a datastore URI, like a filesystem
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure. The benefits of creating and using a datastore include:
 
@@ -69,8 +68,10 @@ uri = f'azureml://subscriptions/{subscription}/resourcegroups/{resource_group}/w
 ```
 
 These Datastore URIs are a known implementation of [Filesystem spec](https://filesystem-spec.readthedocs.io/en/latest/index.html) (`fsspec`): A unified pythonic interface to local, remote and embedded file systems and bytes storage.
+You can pip install the `azureml-fsspec`package and its dependency `azureml-dataprep` package. And then you can use the Azure Machine Learning Datastore implementation of `fsspec`.
 
 The Azure Machine Learning Datastore implementation of `fsspec` automatically handles credential/identity passthrough used by the Azure Machine Learning datastore. This means you don't need to expose account keys in your scripts or do additional sign-in procedures on a compute instance.
+
 
 For example, you can directly use Datastore URIs in Pandas - below is an example of reading a CSV file:
 
@@ -121,10 +122,10 @@ from azureml.fsspec import AzureMachineLearningFileSystem
 fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
 
 # you can specify recursive as False to upload a file
-fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': MERGE_WITH_OVERWRITE})
+fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': 'MERGE_WITH_OVERWRITE'})
 
 # you need to specify recursive as True to upload a folder
-fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': MERGE_WITH_OVERWRITE})
+fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': 'MERGE_WITH_OVERWRITE'})
 ```
 `lpath` is the local path, and `rpath` is the remote path.
 If the folders you specify in `rpath` do not exist yet, we will create the folders for you.

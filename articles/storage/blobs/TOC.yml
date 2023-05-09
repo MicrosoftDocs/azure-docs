@@ -552,7 +552,7 @@ items:
         - name: 'Examples: Google Cloud Storage buckets'
           href: ../common/storage-use-azcopy-google-cloud.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Troubleshoot AzCopy issues
-          href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: /troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: BlobFuse
         items:
         - name: What is BlobFuse2?
@@ -620,7 +620,13 @@ items:
           - name: Download blobs
             href: storage-blob-download.md
           - name: Copy blobs
-            href: storage-blob-copy.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-dotnet.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-dotnet.md
           - name: List blobs
             href: storage-blobs-list.md
           - name: Delete and restore blobs
@@ -696,7 +702,13 @@ items:
           - name: Download blobs
             href: storage-blob-download-java.md
           - name: Copy blobs
-            href: storage-blob-copy-java.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-java.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-java.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-java.md
           - name: List blobs
             href: storage-blobs-list-java.md
           - name: Delete and restore blobs
@@ -743,6 +755,8 @@ items:
             href: storage-blob-container-delete-javascript.md
           - name: List containers
             href: storage-blob-containers-list-javascript.md
+          - name: Manage container leases
+            href: storage-blob-container-lease-javascript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-javascript.md
         - name: Blob actions
@@ -761,6 +775,8 @@ items:
             href: storage-blob-delete-javascript.md
           - name: Find blobs using tags
             href: storage-blob-tags-javascript.md
+          - name: Manage blob leases
+            href: storage-blob-lease-javascript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-javascript.md
           - name: Use access tiers
@@ -801,6 +817,8 @@ items:
             href: storage-blob-container-delete-typescript.md
           - name: List containers
             href: storage-blob-containers-list-typescript.md
+          - name: Manage container leases
+            href: storage-blob-container-lease-typescript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-typescript.md
         - name: Blob actions
@@ -819,6 +837,8 @@ items:
             href: storage-blob-delete-typescript.md
           - name: Find blobs using tags
             href: storage-blob-tags-typescript.md
+          - name: Manage blob leases
+            href: storage-blob-lease-typescript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-typescript.md
           - name: Use access tiers
@@ -860,7 +880,13 @@ items:
           - name: Download blobs
             href: storage-blob-download-python.md
           - name: Copy blobs
-            href: storage-blob-copy-python.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-python.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-python.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-python.md
           - name: List blobs
             href: storage-blobs-list-python.md
           - name: Delete and restore blobs
@@ -888,11 +914,11 @@ items:
       - name: Troubleshoot
         items:
         - name: Performance
-          href: ../common/troubleshoot-storage-performance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Availability
-          href: ../common/troubleshoot-storage-availability.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Client errors
-          href: ../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Monitor (classic)
         items:
         - name: Enable and manage metrics (classic)
@@ -902,9 +928,9 @@ items:
         - name: Troubleshoot
           items:
           - name: Monitor, diagnose, and troubleshoot
-            href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Troubleshoot Latency issues
-            href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Reference
     items:
     - name: APIs for data access
@@ -1023,6 +1049,12 @@ items:
           href: blobfuse2-commands-version.md?toc=/azure/storage/blobs/toc.json
         - name: BlobFuse2 help
           href: blobfuse2-commands-help.md?toc=/azure/storage/blobs/toc.json
+    - name: Redundancy
+      items:
+      - name: Regions that support ZRS
+        href: ../common/redundancy-regions-zrs.md?toc=/azure/storage/blobs/toc.json
+      - name: Regions that support GZRS
+        href: ../common/redundancy-regions-gzrs.md?toc=/azure/storage/blobs/toc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -1050,7 +1082,7 @@ items:
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
-        href: ../common/storage-explorer-troubleshooting.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Connect an emulator to Storage Explorer
         href: ../common/storage-explorer-emulators.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer command line options
@@ -1234,7 +1266,7 @@ items:
         - name: Logs
           href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Monitor, diagnose, and troubleshoot
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: How to
     items:
     - name: Create a storage account
@@ -1368,7 +1400,7 @@ items:
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
-        href: ../common/storage-explorer-troubleshooting.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer blob versioning

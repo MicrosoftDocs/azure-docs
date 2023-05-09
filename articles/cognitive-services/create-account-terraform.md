@@ -5,8 +5,8 @@ keywords: cognitive services, cognitive solutions, cognitive intelligence, cogni
 services: cognitive-services
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 3/29/2023
-ms.custom: devx-track-terraform
+ms.date: 4/14/2023
+ms.custom: devx-track-terraform, ai-gen-docs
 author: TomArcherMsft
 ms.author: tarcher
 ---

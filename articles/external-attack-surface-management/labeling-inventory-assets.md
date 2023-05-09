@@ -4,7 +4,7 @@ titleSuffix: Labeling inventory asset
 description: This article outlines how to label assets with custom text values of a user's choice for improved categorization and operationalization of their inventory data. 
 ms.author: dandennis
 author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 3/1/2022
 ms.topic: how-to
 ---
