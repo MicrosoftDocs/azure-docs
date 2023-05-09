@@ -13,7 +13,7 @@ Following are few configurations that can be tuned to custom configure HDInsight
 > [!NOTE]
 >This is applicable for 4.0 and 5.0 stacks.
 
-## Configuration 
+## Configurations
 
 |Configuration|Description|Default value|Applicable cluster/Autoscale type|Remarks|
 |----|----|----|----|----|
