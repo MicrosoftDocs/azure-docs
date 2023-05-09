@@ -60,7 +60,7 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
 ```json
 {
     "AzureAd": {
-        "Instance": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
+        "Instance": "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/",
         "TenantId": "Enter_the_Tenant_Id_Here",
         "ClientId": "Enter_the_Application_Id_Here",
     },
@@ -68,6 +68,14 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
   "AllowedHosts": "*"
 }
 ```
+
+Replace:
+
+- `Enter_the_Application_Id_Here` which your application (client) ID.
+- `Enter_the_Tenant_Id_Here` with your Directory (tenant) ID.
+- `Enter_the_Tenant_Subdomain_Here` with the Directory (tenant) subdomain. For example, if your primary domain is *contoso.onmicrosoft.com*, replace `Enter_the_Tenant_Subdomain_Here` with *contoso*. 
+
+If you don't have these values, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details)
 
 ## Add app role and scope
 
