@@ -116,14 +116,12 @@ Replace `resourceEndpoint` with your real resource endpoint value.
 The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `Progam.cs` under the `Main` method.
 
 ```csharp
-static string ComputeContentHash(string content)
-{
-    using (var sha256 = SHA256.Create())
-    {
-        byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));
-        return Convert.ToBase64String(hashedBytes);
-    }
-}
+        static string ComputeContentHash(string content)
+        {
+            using var sha256 = SHA256.Create();
+            byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));
+            return Convert.ToBase64String(hashedBytes);
+        }
 ```
 
 ## Compute a signature
@@ -134,12 +132,10 @@ Use the following code to create a method for computing your HMAC signature.
  static string ComputeSignature(string stringToSign)
 {
     string secret = "resourceAccessKey";
-    using (var hmacsha256 = new HMACSHA256(Convert.FromBase64String(secret)))
-    {
-        var bytes = Encoding.ASCII.GetBytes(stringToSign);
-        var hashedBytes = hmacsha256.ComputeHash(bytes);
-        return Convert.ToBase64String(hashedBytes);
-    }
+    using var hmacsha256 = new HMACSHA256(Convert.FromBase64String(secret));
+    var bytes = Encoding.UTF8.GetBytes(stringToSign);
+    var hashedBytes = hmacsha256.ComputeHash(bytes);
+    return Convert.ToBase64String(hashedBytes);
 }
 ```
 
