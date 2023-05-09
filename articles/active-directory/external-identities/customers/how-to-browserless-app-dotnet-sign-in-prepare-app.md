@@ -1,6 +1,6 @@
 ---
-title: Sign in users in your ASP.NET browserless app using Microsoft Entra - Prepare app
-description: Learn about how to prepare an ASP.NET browserless app that signs in users by using Microsoft Entra.
+title: Sign in users in your ASP.NET browserless app using Device Code flow- Prepare app
+description: Learn about how to prepare an ASP.NET browserless app that signs in users by using Device Code flow.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,9 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my ASP.NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your ASP.NET browserless app using Microsoft Entra - Prepare app
+# Sign in users in your ASP.NET browserless app using Device Code flow - Prepare app
 
-In this article, you create aa ASP.NET browserless app project and organize all the folders and files you require. We also install the packages you need to help you with configuration and authentication.
+In this article, you create an ASP.NET browserless app project and organize all the folders and files you require. You also install the packages you need to help you with configuration and authentication.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Completion of the prerequisites and steps in the [Overview](./how-to-browserless
 
 ## Create an ASP.NET browserless app
 
-In this how-to guide, we use Visual Studio Code and .NET 7.0.
+This how-to guide useS Visual Studio Code and .NET 7.0.
 
 1. Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 1. Navigate to the folder where you want your project to live.
@@ -39,13 +39,13 @@ In this how-to guide, we use Visual Studio Code and .NET 7.0.
 
 ## Add packages
  
-We install the following packages to help us with [configuration](/dotnet/core/extensions/configuration?source=recommendations). These packages are part of the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package.
+Install the following packages to help you handle app [configuration](/dotnet/core/extensions/configuration?source=recommendations). These packages are part of the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package.
 
 - [*Microsoft.Extensions.Configuration*](/dotnet/api/microsoft.extensions.configuration)
 - [*Microsoft.Extensions.Configuration.Json*](/dotnet/api/microsoft.extensions.configuration.json): JSON configuration provider implementation for `Microsoft.Extensions.Configuration`.
 - [*Microsoft.Extensions.Configuration.Binder*](/dotnet/api/microsoft.extensions.configuration.configurationbinder): Functionality to bind an object to data in configuration providers for `Microsoft.Extensions.Configuration`.
 
-We also install the following package to help us with authentication.
+Install the following package to help with authentication.
 
 - [*Microsoft.Identity.Web*](/entra/msal/dotnet/microsoft-identity-web/) simplifies adding authentication and authorization support to apps that integrate with the Microsoft identity platform.
 
@@ -76,19 +76,19 @@ We also install the following package to help us with authentication.
  
 1. Replace `Enter_the_Tenant_Subdomain_Here` with the Directory (tenant) subdomain. For example, if your primary domain is *contoso.onmicrosoft.com*, replace `Enter_the_Tenant_Subdomain_Here` with *contoso*. If you don't have your primary domain name name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
-We then make then instruct our app to copy thr *appsettings.json* file to the output directory when the project is compiled. Add the following code to the *MsIdBrowserlessApp.csproj* file.
+1. Add the following code to the *MsIdBrowserlessApp.csproj* file to instruct your app to copy the *appsettings.json* file to the output directory when the project is compiled.
 
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-    ...
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk">
+        ...
 
-    <ItemGroup>
-        <None Update="appsettings.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    <ItemGroup>
-</Project>
-```
+        <ItemGroup>
+            <None Update="appsettings.json">
+                <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            </None>
+        <ItemGroup>
+    </Project>
+    ```
 
 ## Next steps
 

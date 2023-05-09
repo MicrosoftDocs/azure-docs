@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample ASP.NET browserless app using Microsoft Entra
-description: Use a sample to learn how to configure a sample ASP.NET browserless app to sign in users using Microsoft Entra.
+title: Sign in users in a sample ASP.NET browserless app
+description: Use a sample to learn how to configure a sample ASP.NET browserless app.
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -16,21 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET browserless app to sign in users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users into a sample ASP.NET using Device Code flow
+# Sign in users into a sample ASP.NET browserless app using Device Code flow
 
-This how-to guide uses a sample ASP.NET browserless app to show how to add authentication to the app using Microsoft Entra. The sample app enables users to sign in. The sample ASP.NET browserless app uses [Microsoft Authentication Library for .NET (MSAL NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to handle authentication.
-
-In this article, you do the following tasks:
-
-- Register a browserless application in the Microsoft Entra admin center. 
-
-- Create a user flow in Microsoft Entra admin center.
-
-- Associate your headless application with the user flow. 
-
-- Update a sample ASP.NET browserless app using your own Azure Active Directory (Azure AD) for customers tenant details.
-
-- Run and test the sample browserless app.
+This how-to guide uses a sample ASP.NET browserless app to show how to add authentication to the app. The sample app enables users to sign in. The sample ASP.NET browserless app uses [Microsoft Authentication Library for .NET (MSAL NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to handle authentication.
 
 ## Prerequisites
 
@@ -86,26 +74,26 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
 1. Open a console window, and change to the directory that contains the ASP.NET browserless sample app:
 
     ```console
-        cd 1-Authentication/4-sign-in-device-code
+    cd 1-Authentication/4-sign-in-device-code
     ```
 
 1. In your terminal, run the app by running the following command:
 
     ```console
-        dotnet run
+    dotnet run
     ```
 1. When the app launches, copy the suggested URL *https://microsoft.com/devicelogin* from the terminal and visit it in a browser. Then, copy the device code from the terminal and [follow the prompts](./how-to-browserless-app-dotnet-sign-in-sign-in.md#sign-in-to-your-app) on *https://microsoft.com/devicelogin*.
 
 ## How it works
 
-The browserless app is initialized as a public client application. You acquire token using the device code auth grant flow. This flow allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. You then pass a callback to the `AcquireTokenWithDeviceCodeAsync` method. This callback contains a `DeviceCodeResult` object which contains the URL a user will navigate to and sign in. Once the user signs in, an `AuthenticationResult` is returned containing an access token and some basic account information.
+The browserless app is initialized as a public client application. You acquire token using the device code auth grant flow. This flow allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. You then pass a callback to the `AcquireTokenWithDeviceCodeAsync` method. This callback contains a `DeviceCodeResult` object that contains the URL a user navigates to and sign in. Once the user signs in, an `AuthenticationResult` is returned containing an access token and some basic account information.
 
 ```csharp
-var result = await app.AcquireTokenWithDeviceCode(new [] { "openid" }, async deviceCode => {
+var scopes = new string[] { }; // by default, MSAL attaches OIDC scopes to every token request
+var result = await app.AcquireTokenWithDeviceCode(scopes, async deviceCode => {
     Console.WriteLine($"In a broswer, navigate to the URL '{deviceCode.VerificationUrl}' and enter the code '{deviceCode.UserCode}'");
     await Task.FromResult(0);
-})
-.ExecuteAsync();
+}).ExecuteAsync();
 
 Console.WriteLine($"You signed in as {result.Account.Username}");
 ```

@@ -1,6 +1,6 @@
 ---
-title: Sign in users in your ASP.NET browserless app using Microsoft Entra - Prepare tenant
-description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users in your ASP.NET browserless application by using Microsoft Entra.
+title: Sign in users in your ASP.NET browserless app using Device Code flow - Prepare tenant
+description: Learn about how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users in your ASP.NET browserless application by using Device Code flow.
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -16,17 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your ASP.NET browserless app using Microsoft Entra - Prepare tenant
+# Sign in users in your ASP.NET browserless app using Device Code flow- Prepare tenant
 
-In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. To prepare your tenant, you do the following tasks:
-
-- Register an ASP.NET browserless application in the Microsoft Entra admin center. 
-
-- Create a sign in flow in Microsoft Entra admin center.
-
-- Associate your browserless application with the user flow. 
-
-After you complete the tasks, you'll collect an *Application (client) ID* and *primary domain name*.
+In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication.
 
 ## Register the browserless app
 

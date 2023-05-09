@@ -1,6 +1,6 @@
 ---
-title: Sign in users in an ASP.NET browserless app using Microsoft Entra - Add sign-in
-description: Learn about how to add sign-in to your ASP.NET browserless app using Microsoft Entra.
+title: Sign in users in an ASP.NET browserless app using Device Code flow - Add sign-in
+description: Learn about how to add sign-in to your ASP.NET browserless app using Device Code flow.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,9 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in an ASP.NET browserless app using Microsoft Entra - Add sign-in
+# Sign in users in an ASP.NET browserless app using Device Code flow - Add sign-in
 
-In this article, you add sign in code and run the app to go through the sign-in flow.
+In this article, you add sign-in code and run the app to go through the sign-in flow.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
 
 1. In your code editor, open the *Program.cs* file.
 
-1. Clear the contents of the *Program.cs* file and start by adding the packages and setting up your configuration to read configs from the *appsettings.json* file.
+1. Clear the contents of the *Program.cs* file then add the packages and set up your configuration to read configs from the *appsettings.json* file.
 
     ```csharp
     // Import packages
@@ -51,7 +51,7 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
     Console.WriteLine(...)
     ```
 
-1. Our browserless app is a public client application. We create an instance of the `PublicClientApplication` class and pass in the `ClientId` and `Authority` values from the *appsettings.json* file.
+1. The browserless app is a public client application. Create an instance of the `PublicClientApplication` class and pass in the `ClientId` and `Authority` values from the *appsettings.json* file.
 
     ```csharp
     var app = PublicClientApplicationBuilder.Create(publicClientOptions.GetValue<string>("ClientId"))
@@ -59,7 +59,7 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
         .Build();
     ```
 
-1. We then add the code that helps us acquire tokens using the device code flow. We pass in the scopes we want to request for and a callback function that is called when the device code is available. In our case, we pass in the `openid` scope. The callback function displays the device code and the verification URL to the user. The user then navigates to the verification URL and enters the device code to complete the authentication process. The method then proceeds to poll for the ID token which is granted upon successful login by the user based on the device code information.
+1. Add the code that helps the app acquire tokens using the device code flow. Pass in the scopes you want to request for and a callback function that is called when the device code is available. By default, MSAL attaches OIDC scopes to every token request.
 
     ```csharp
 
@@ -73,7 +73,9 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
     Console.WriteLine("\nRetrieved ID token:");
     result.ClaimsPrincipal.Claims.ToList()
         .ForEach(c => Console.WriteLine(c));
-    ``` 
+    ```
+ 
+    The callback function displays the device code and the verification URL to the user. The user then navigates to the verification URL and enters the device code to complete the authentication process. The method then proceeds to poll for the ID token which is granted upon successful login by the user based on the device code information.
 
 ## Sign in to your app
 

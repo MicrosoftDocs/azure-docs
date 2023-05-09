@@ -1,6 +1,6 @@
 ---
-title: Sign in users to an ASP.NET browserless app using Microsoft Entra
-description: Learn about how to Sign in users in your ASP.NET browserless application by using Microsoft Entra.
+title: Sign in users to an ASP.NET browserless app using Device Code flow
+description: Learn about how to Sign in users in your ASP.NET browserless app using Device Code flow.
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my ASP.NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users to an ASP.NET browserless app using Microsoft Entra
+# Sign in users to an ASP.NET browserless app using Device Code flow
 
 In this series of articles, you learn how to sign in users to your ASP.NET browserless app. The articles guide you through the steps of building an app that authenticates users against Azure Active Directory (Azure AD) for Customers using the device code flow.
 
@@ -38,9 +38,9 @@ The article series is broken down into the following steps:
 
 The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. To enable this flow:
 
-1. The device has the user visit a webpage in a browser on another device to sign in.
+1. The device provides a verification url to the user. The user navigates to this url in a browser on another device to sign in.
 1. The user inputs a code provided by the device.
-1. Once signed in, the device is able to get access tokens and refresh tokens as needed. 
+1. Once the user is signed in, the device is able to get access tokens and refresh tokens as needed. 
 
 For more information, see [device code flow in the Microsoft identity platform](/azure/active-directory/develop/v2-oauth2-device-code).
 
