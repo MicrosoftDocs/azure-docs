@@ -26,26 +26,29 @@ Select enable/disable Build Service tab in the following section for more detail
 ## Prerequisites
 
 - An Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension.
+
+  ```azurecli
+  az extension add --name spring
+  ```
 
 ## Supported scenarios - APM and CA certificates integration
 
+Tanzu Build Service on the Azure Spring Apps Enterprise tier is enabled by default. If you choose to disable Build Service, you can deploy applications but only by using a custom image.
+
 ### [Enable Build Service](#tab/enable-build-service)
 
-Tanzu Build Service on the Azure Spring Apps Enterprise tier is enabled by default and uses buildpack binding to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other cloud native buildpacks such as [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates).
+ Tanzu Build Service uses buildpack binding to integrate with partner buildpacks. For more information, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other cloud native buildpacks such as [paketo-buidpacks/ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) on GitHub.
 
-Currently, the following APM types and CA certificates are supported:
+You can use the following APM types:
 
 - ApplicationInsights
 - Dynatrace
 - AppDynamics
 - New Relic
 - ElasticAPM
-- [CA certificates](#use-ca-certificates)
 
-See the section [Supported APM resources with Build Service enabled](#supported-apm-resources-with-build-service-enabled) for support information.
-
-CA Certificates are supported for all language family buildpacks, but not all supported APMs. The following table shows the binding types supported by Tanzu language family buildpacks.
+You can use [CA certificates](#use-ca-certificates) for all language family buildpacks; however not all of the APM binding types are supported by the buildpacks. The following table shows the binding types supported by Tanzu language family buildpacks.
 
 | Buildpack  | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
 |------------|---------------------|-----------|-------------|-----------|------------|
@@ -54,9 +57,9 @@ CA Certificates are supported for all language family buildpacks, but not all su
 | Go         |                     |           |             | ✔        |            |
 | Python     |                     |           |             |           |            |
 | NodeJS     |                     | ✔        | ✔           | ✔        | ✔          |
-| WebServers |                     |           |             | ✔        |            |
+| Web servers |                     |           |             | ✔        |            |
 
-For information about using WebServers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md)
+For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md)
 
 When you enable Build Service, the APM and CA Certificate are integrated with a builder, as described in the [Manage APM integration and CA certificates in Azure Spring Apps](#manage-apm-integration-and-ca-certificates-in-azure-spring-apps) section.
 
@@ -75,7 +78,7 @@ az spring app deploy \
 
 If you provide your own container registry to use with Build Service, you can build an application into a container image and deploy the image to the current or other Azure Spring Apps service instances.
 
-Providing your own container registry separates `build command` and `deploy command`. You can use `build command` to create or update a build with a builder, then use `deploy command` to deploy the container image to the service. In this case, you need specify APM required environment variables on deployment.
+Providing your own container registry separates building from deployment, specifically `build command` and `deploy command`. You can use `build command` to create or update a build with a builder, then use `deploy command` to deploy the container image to the service. In this scenario, you need specify the APM required environment variables on deployment.
 
 Use the following command to build an image:
 
@@ -144,8 +147,8 @@ This section lists the supported languages and required variables for Applicatio
   - `DT_TENANTTOKEN`
   - `DT_CONNECTION_POINT`
   
-  More variable information:
-  - [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
+  More information:
+  - [Dynatrace](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
 
 - **New Relic**
 
@@ -161,10 +164,10 @@ This section lists the supported languages and required variables for Applicatio
   - `NEW_RELIC_LICENSE_KEY`
   - `NEW_RELIC_APP_NAME`
   
-  More variable information:
-  - [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
+  More information:
+  - [New Relic](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 
-- **ElasticAPM**
+- **Elastic**
 
   Supported languages:
   - Java
@@ -180,8 +183,8 @@ This section lists the supported languages and required variables for Applicatio
   - `ELASTIC_APM_APPLICATION_PACKAGES`
   - `ELASTIC_APM_SERVER_URL`
   
-  More variable information:
-  - [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+  More information:
+  - [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
 - **AppDynamics**
 
@@ -209,32 +212,18 @@ This section lists the supported languages and required variables for Applicatio
   - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
   - `APPDYNAMICS_CONTROLLER_PORT`
   
-  More variable information:
-- [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
-
-#### Use CA certificates
-
-You can use the [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system trust store at build and runtime.
-
-In Azure Spring Apps Enterprise tier, the CA certificates use the **Public Key Certificates** tab on the **TLS/SSL settings** page in the Azure portal, as shown in the following screenshot:
-
-:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the public key certificates in SSL/TLS setting page." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png":::
-
-You can configure the CA certificates on the Build Service **Edit binding** page. The following screenshot shows selecting a certificate to configure binding from the `succeeded` certificates in the **CA Certificates** list:
-
-:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing edit CA Certificates buildpack binding." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
+  More information:
+- [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
 ### [Disable Build Service](#tab/disable-build-service)
 
 If Build Service is disabled, you can only deploy an application with an image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
 
-If an Azure Spring Apps enterprise service instance has Build Service enabled with a user container registry, then you can build a container image for an application from source code or artifact and deploy it to other service instances. For more information, see, the [Build and Deploy polyglot apps](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-apps), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](How-to-enterprise-deploy-polyglot-apps.md)
+You can use multiple instances of Azure Spring Apps Enterprises, where some instances build and deploy images and others only deploy images. Consider the following scenario.
 
-You can implement the following scenario for two Azure Spring Apps Enterprise instances:
+- For one instance, you can enable Build Service with a user container registry and build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to other service instances. For more information, see, the [Build and Deploy polyglot apps](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-apps), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](How-to-enterprise-deploy-polyglot-apps.md).
 
-- For one instance, you can enable Build Service with a user container registry and build an artifact-file/source-code with APM or CA certificate into a container image.
-
-- In the current instance with Build Service disabled, you can deploy an application with the container image in your registry and make the APM or CA certificate work.
+- In the instance with Build Service disabled, you can deploy an application with the container image in your registry and also make use of APM and CA certificates.
 
 Due to the deployment supporting only a custom image, you must use the `--env` parameter to configure the runtime environment when deploying it. The following command provides an example:
 
@@ -262,7 +251,7 @@ This section lists the supported languages and required variables for Applicatio
   Required runtime environment variables:
   - `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-  More variable information:
+  More information:
   - [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net)
 
 - **Dynatrace**
@@ -279,8 +268,8 @@ This section lists the supported languages and required variables for Applicatio
   - `DT_TENANTTOKEN`
   - `DT_CONNECTION_POINT`
 
-  More variable information:
-  - [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
+  More information:
+  - [Dynatrace](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
 
 - **New Relic**
 
@@ -292,8 +281,8 @@ This section lists the supported languages and required variables for Applicatio
   - `NEW_RELIC_LICENSE_KEY`
   - `NEW_RELIC_APP_NAME`
   
-  More variable information:
-  - [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
+  More information:
+  - [New Relic](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 
 - **ElasticAPM**
 
@@ -306,8 +295,8 @@ This section lists the supported languages and required variables for Applicatio
   - `ELASTIC_APM_APPLICATION_PACKAGES`
   - `ELASTIC_APM_SERVER_URL`
   
-  More variable information:
-  - [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+  More information:
+  - [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
 - **AppDynamics**
 
@@ -325,14 +314,26 @@ This section lists the supported languages and required variables for Applicatio
   - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
   - `APPDYNAMICS_CONTROLLER_PORT`
   
-  More variable information:
-  - [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+  More information:
+  - [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
 ---
 
+## Use CA certificates
+
+When building and and also at runtime, you can use the [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system trust store.
+
+In Azure Spring Apps Enterprise tier, the CA certificates use the **Public Key Certificates** tab on the **TLS/SSL settings** page in the Azure portal, as shown in the following screenshot:
+
+:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the public key certificates in SSL/TLS setting page." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png":::
+
+You can configure the CA certificates on the Build Service **Edit binding** page. The following screenshot shows selecting a certificate to configure binding from the `succeeded` certificates in the **CA Certificates** list:
+
+:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing edit CA Certificates buildpack binding." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
+
 ## Manage APM integration and CA certificates in Azure Spring Apps
 
-This section applies to an Azure Spring Apps Enterprise service instance with Build Service enabled.
+This section applies only to an Azure Spring Apps Enterprise service instance with Build Service enabled.
 With Build Service enabled, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA Certificates type. For APM integration, follow the earlier instructions configure the necessary environment variables or secrets for your APM.
 
 > [!NOTE]
@@ -352,7 +353,7 @@ To edit buildpack bindings using the Azure portal, use the following steps:
 
    :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Bindings Edit option highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png":::
 
-1. The **Edit binding for default builder** page displays.
+1. Review the bindings on the **Edit binding for default builder** page.
 
    :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page.":::
 
@@ -363,11 +364,11 @@ To edit buildpack bindings using the Azure portal, use the following steps:
    - Unbind a buildpack binding
      Select a **Binding type** that has a status of **Bound** and then select **Unbind binding** from the context menu.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png":::
 
    To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted.":::
+   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 

@@ -77,11 +77,11 @@ By default, the Tanzu Build Service is enabled so that you can use a container r
 
   Azure Spring Apps provides a managed Azure Container Registry to store built images for your applications. You can execute build and deployment together only as one command, but not separately. You can only use the built container images to deploy applications in the same service instance. The images aren't accessible by other Azure Spring Apps Enterprise service instances.
 
-- Enable build service with your own container registry
+- Enable Build Service with your own container registry
 
   This scenario separates build from deployment. You can execute builds from an application's source code or artifacts to a container image separately from the application deployment. You can deploy the container images stored in your owned container registry across other Enterprise service instances.
 
-- Disable build service
+- Disable Build Service
 
   With Build Service disabled, you can only deploy applications with container images either built from other Azure Spring Apps service instances or from your own.
 

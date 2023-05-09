@@ -32,7 +32,7 @@ The following list describes some common exit codes:
 
   - The builder you're using doesn't support the language your project used.
 
-    If you're using the default builder, check the language the default builder supports. For more information, see the [Supported APM resources with Build Service enabled](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#supported-apm-resources-with-build-service-enabed) section of [Use Tanzu Build Service](how-to-enterprise-configure-apm-integration-and-certificates.md).
+    If you're using the default builder, check the language the default builder supports. For more information, see the [Supported APM resources with Build Service enabled](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#supported-apm-resources-with-build-service-enabed) section of [Use Tanzu Build Service](how-to-enterprise-configure-apm-intergation-and-certificates.md).
 
     If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
 
