@@ -150,7 +150,7 @@ Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show fe
 There's no ACL for instances of a feature store entity and a feature set. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
+- [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md)
+- [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
+- [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md)
