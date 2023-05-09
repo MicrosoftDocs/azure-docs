@@ -11,8 +11,7 @@ ms.author: edbaynash
 ---
 # How to migrate from the metrics API to the getBatch API
 
-Heavy use of the [metrics API](https://learn.microsoft.com/rest/api/monitor/metrics/list?
-tabs=HTTP) can result in throttling or performance problems. Migrating to the [metrics:getBatch](https://learn.microsoft.com/rest/api/monitor/metrics-data-plane/batch?tabs=HTTP) API allows you to query multiple resources in a single REST request. The two APIs share a common set of query parameter and response formats that make migration easy.
+Heavy use of the [metrics API](https://learn.microsoft.com/rest/api/monitor/metrics/list?tabs=HTTP) can result in throttling or performance problems. Migrating to the [metrics:getBatch](https://learn.microsoft.com/rest/api/monitor/metrics-data-plane/batch?tabs=HTTP) API allows you to query multiple resources in a single REST request. The two APIs share a common set of query parameter and response formats that make migration easy.
 
 ## Request format 
  The metrics:getBatch API request has the following format:
