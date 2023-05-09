@@ -1345,7 +1345,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
     onEnd(span: ReadableSpan){
         span.attributes["CustomDimension1"] = "value1";
         span.attributes["CustomDimension2"] = "value2";
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
     }
 }
 
@@ -1510,7 +1509,23 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 
 #### [Node.js](#tab/nodejs)
   
-Currently unavailable.
+Attributes could be added only when calling manual track APIs only, log attributes for console, bunyan and winston are currently not supported.
+
+```javascript
+const config = new ApplicationInsightsConfig();
+config.instrumentations.http = httpInstrumentationConfig;
+const appInsights = new ApplicationInsightsClient(config);
+const logHandler = appInsights.getLogHandler();
+const attributes = {
+    "testAttribute1": "testValue1",
+    "testAttribute2": "testValue2",
+    "testAttribute3": "testValue3"
+};
+logHandler.trackEvent({
+    name: "testEvent",
+    properties: attributes
+});
+```
 
 #### [Python](#tab/python)
   
@@ -1828,3 +1843,5 @@ To provide feedback:
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---
+
+<!-- PR for Hector-->
