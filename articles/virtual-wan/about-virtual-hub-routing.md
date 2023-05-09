@@ -87,7 +87,7 @@ Route tables now have features for association and propagation. A pre-existing r
 
 ## <a name="reset"></a>Hub reset
 
-Virtual hub **Reset** is available only in the Azure portal. Resetting provides you a way to bring any failed resources such as route tables, hub router, or the virtual hub resource itself back to its rightful provisioning state. Consider resetting the hub prior to contacting Microsoft for support. This operation doesn't reset any of the gateways in a virtual hub.
+Virtual hub **Reset** is available only in the Azure portal. Resetting provides you with a way to bring any failed resources such as route tables, hub router, or the virtual hub resource itself back to its rightful provisioning state. Consider resetting the hub prior to contacting Microsoft for support. This operation doesn't reset any of the gateways in a virtual hub.
 
 ## <a name="considerations"></a>Additional considerations
 
@@ -96,7 +96,7 @@ Consider the following when configuring Virtual WAN routing:
 * All branch connections (Point-to-site, Site-to-site, and ExpressRoute) need to be associated to the Default route table. That way, all branches will learn the same prefixes.
 * All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a result, all connections associated to the Default route table will be able to reach all of the branches.
 * Branch-to-branch via Azure Firewall is currently not supported.
-* When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub isn't possible.
+* When you use Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub isn't possible.
 * You may specify multiple next hop IP addresses on a single Virtual Network connection. However, Virtual Network Connection doesn't support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE Virtual Network 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
 * All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route doesn't propagate across hubs.
 * You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the virtual network prefix. For example, in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN wouldn't be able to inject a route that matches the virtual network prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN can't attract traffic between two subnets that are in the same virtual network.
