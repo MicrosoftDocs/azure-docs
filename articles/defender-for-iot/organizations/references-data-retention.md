@@ -13,6 +13,9 @@ Defender for IoT also stores other data in the Azure portal, on OT network senso
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
+> [!NOTE]
+> The L60 hardware profile is planned for deprecation in Defender for IoT software versions later than 23.1. For more information, see [Production line monitoring (medium and small deployments)](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments).
+
 ## Device data retention periods
 
 The following table lists how long device data is stored in each Defender for IoT location.

@@ -61,6 +61,8 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
 |**L60**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
+> [!NOTE]
+> The L60 hardware profile is planned for deprecation in Defender for IoT software versions later than 23.1. For more information, see [Production line monitoring (medium and small deployments)](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments).
 
 ## On-premises management console VM requirements
 

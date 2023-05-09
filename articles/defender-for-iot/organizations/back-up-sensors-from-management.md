@@ -44,6 +44,9 @@ For more information, see [Set up backup and restore files](back-up-restore-sens
     |**L100**     |  Default storage is 10 GB; limit is 25 GB.       |
     |**L60**     |    Default storage is 10 GB; limit is 25 GB.     |
 
+    > [!NOTE]
+    > The L60 hardware profile is planned for deprecation in Defender for IoT software versions later than 23.1. For more information, see [Production line monitoring (medium and small deployments)](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments).
+
     **If you're storing backup files on an external server**, there's no maximum storage. However, keep in mind:
 
     - If the allocated storage space is exceeded, the OT sensor isn't backed up.
