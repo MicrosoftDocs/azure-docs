@@ -31,14 +31,14 @@ If your client doesn't connect to your Event Grid namespace, a few things to ver
 
 If your client gets disconnected from your Event Grid namespace, a few things to verify:
 
-1. Ensure the namespace is still available in the region.
+1. Ensure the namespace is available in the region.
 1. Ensure the client metadata is still intact, with client authentication name
 1. Ensure the topic to which the client is publishing actually exists.
 1. If client disconnects when publishing, ensure the client has permission to publish to the topic.  Client needs to be part of a client group with publish permissions on the topic.  Learn more about [access controls](mqtt-access-control.md)
 1. Ensure Client ID is unique across clients in a namespace.  If a new client is connected with the same Client ID, the client that's already using the Client ID is disconnected.  Learn more about [establishing multiple sessions per client](mqtt-establishing-multiple-sessions-per-client.md).
 1. Ensure the keep alive time is optimized to fit the message activity patterns of the client. Learn more about [keep alive time](mqtt-support.md) support.
 1. When using MQTT V5, check the disconnect packet for the reason for disconnection of the client.  Server communicates the reason (in most scenarios) for disconnect to the client, to help client handle the disconnect better.
-
+1. Check the limits on number of clients that can connect to a namespace.
 
 ## Client isn't able to publish or receive MQTT messages
 
@@ -52,7 +52,7 @@ If your client is connected but it isn't receiving any MQTT messages, a few thin
 1. If the maximum message size property is configured, ensure that the published messages meet the size requirements of the subscribing client.  Learn more about the [message size limits](mqtt-support.md)
 1. If response topics are used, ensure that the client is subscribing to the response topics before publishing on the request topic.
 1. Use QoS 1 setting to have service guarantee the delivery of messages at least once.  And, ensure the client sends acknowledgment on receipt of messages.  If acknowledgment isn't receive, service will stop sending messages to the client after 16 unacknowledged messages.
-
+1. Check the limits on publishing messages.
 
 ## Failing to route the MQTT messages to an endpoint
 
