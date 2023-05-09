@@ -75,10 +75,10 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `rolling_rate` | string | The rate to partition the data in storage. Value can be: Minute, Hour, Day, Month, Year. | `Hour` |
 | `collections` | object | Set of individual `collection_name`s and their respective settings for this deployment. | |
 | `collections.<collection_name>` | object | Logical grouping of production inference data to collect (example: `model_inputs`). There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user. <br><br> **Note**: Each `collection_name` should correspond to the name of the `Collector` object used in the deployment `score.py` to collect the production inference data. For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
-| `collections.<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `false` |
+| `collections.<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `'False''` |
 | `collections.<collection_name>.data.name` | string | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
 | `collections.<collection_name>.data.path` | string | The full Azure Machine Learning datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
-| `<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
+| `collections.<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
 
 ## Remarks
 
@@ -114,9 +114,9 @@ environment: azureml:env-m1:1
 data_collector:
    collections:
        model_inputs:
-           enabled: true # <true, false>
+           enabled: 'True' 
        model_outputs:
-           enabled: true # <true, false>
+           enabled: 'True'
 ```
 
 ```yml
@@ -129,25 +129,25 @@ environment: azureml:env-m1:1
 data_collector:
    collections:
      request: 
-         enabled: true # <true, false>
+         enabled: 'True'
          data: 
-           name: my_request_data_asset # optional, default: <endpoint>-<deployment>-<collection_name>
-           path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/request # optional, default: azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>
-           version: 1 # optional, default: 1
+           name: my_request_data_asset 
+           path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/request 
+           version: 1 
      response:
-         enabled: true 
+         enabled: 'True' 
          data: 
            name: my_response_data_asset
            path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/response
            version: 1 
      model_inputs:
-         enabled: true 
+         enabled: 'True'
          data: 
            name: my_model_inputs_data_asset
            path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_inputs
            version: 1 
      model_outputs:
-         enabled: true 
+         enabled: 'True'
          data: 
            name: my_model_outputs_data_asset
            path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_outputs
