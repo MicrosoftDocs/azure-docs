@@ -16,7 +16,7 @@ Azure Web Application Firewall (WAF) provides centralized protection of your web
 
 Azure Application Gateway WAF v2 natively supports WAF policy. You should upgrade your legacy WAF configuration to WAF policies.
 
-- Policies offer a richer set of advanced features like newer managed rule sets, custom rules, per rule exclusions, bot protection, and the next generation of WAF engine available to you at no additional cost.
+- Policies offer a richer set of advanced features like newer managed rule sets, custom rules, per rule exclusions, bot protection, and the next generation of WAF engine. These advanced features are available to you at no additional cost.
 - Unlike legacy WAF configuration, WAF policies can be defined once and shared across multiple gateways, listeners, and URL paths. This simplifies the management and deployment experience.
 - The latest features and future enhancements will only be available via WAF policies. 
 
