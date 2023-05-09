@@ -1,5 +1,5 @@
 ---
-title: Restore a container or database into existing account
+title: Restore a container or database into existing account (preview)
 titleSuffix: Azure Cosmos DB
 description: Restore a deleted container or database to an existing Azure Cosmos DB account using Azure portal, PowerShell, or CLI when using continuous backup mode.
 author: kanshiG
@@ -11,7 +11,7 @@ ms.date: 05/08/2023
 zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
 ---
 
-# Restore a container or database into an existing Azure Cosmos DB account with continuous backup
+# Restore a container or database into an existing Azure Cosmos DB account with continuous backup (preview)
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
