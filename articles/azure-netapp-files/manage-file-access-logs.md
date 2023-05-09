@@ -82,8 +82,6 @@ While in preview, file access logs is supported in:
 * Japan East
 
 <!-- 9 may 2023 -->
-
-
 ## Set SACLs or Audit ACEs on files and directories  
 
 You must set system access control lists (SACLs) for SMB shares or Audit ACEs (for NFSv4.1 shares) for auditing. 
@@ -114,7 +112,7 @@ To enable logging access on individual files and directories, complete the follo
 1. Select the **Security** tab then **Advanced**.
 1. Select the **Auditing** tab. Add, edit, or remove the auditing options you want. 
 
-### [Set Audit ACEs for NFSv4.1 shares](#tab/sacls-smb)
+### [Set Audit ACEs for NFSv4.1 shares](#tab/sacls-nfs)
 
 Configure logging for UNIX security style files and directories by adding audit ACEs to NFSv4.1 ACLs to monitoring of certain NFS file and directory access events for security purposes. 
 
