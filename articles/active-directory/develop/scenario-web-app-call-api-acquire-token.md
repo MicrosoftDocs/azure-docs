@@ -86,7 +86,7 @@ The code for ASP.NET is similar to the code shown for ASP.NET Core:
 
 If, however, you do want to manually acquire a token or build an authorization header, the following code shows how to use *Microsoft.Identity.Web* to do so in a controller. It calls an API (Microsoft Graph) using the REST API instead of the Microsoft Graph SDK. 
 
-To get an authorization header, you get an `IAuthorizationHeaderProvider` service from the controller using an extension method `GetAuthorizationHeaderProvider`. To get an authorization header to call an API on behalf of the user, use (`CreateAuthorizationHeaderForUserAsync`). To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use (`CreateAuthorizationHeaderForAppAsync`).
+To get an authorization header, you get an `IAuthorizationHeaderProvider` service from the controller using an extension method `GetAuthorizationHeaderProvider`. To get an authorization header to call an API on behalf of the user, use `CreateAuthorizationHeaderForUserAsync`. To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use `CreateAuthorizationHeaderForAppAsync`.
 
 The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
 
