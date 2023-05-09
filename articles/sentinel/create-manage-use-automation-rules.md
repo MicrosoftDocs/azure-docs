@@ -65,21 +65,27 @@ Most of the following instructions apply to any and all use cases for which you'
 
     :::image type="content" source="media/create-manage-use-automation-rules/create-automation-rule.png" alt-text="Screenshot of Create new automation rule wizard.":::
 
-1. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name** condition.
-
 ### Choose your trigger
 
-From the **Trigger** drop-down, select **When incident is created**, **When incident is updated**, or **When alert is created**, according to what you decided when designing your rule.
+From the **Trigger** drop-down, select the appropriate trigger according to the circumstance for which you're creating the automation rule&mdash;**When incident is created**, **When incident is updated**, or **When alert is created**.
 
 :::image type="content" source="media/create-manage-use-automation-rules/select-trigger.png" alt-text="Screenshot of selecting the incident create or incident update trigger.":::
 
-### Add conditions (incidents only)
+### Define conditions
+
+#### Base conditions
+
+1. **Incident provider**: If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively, only on those sourced in Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+
+1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
+
+#### Other conditions
 
 Add any other conditions you want this automation rule's activation to depend on. You now have two ways to add conditions:
 
 - **AND conditions**: individual conditions that will be evaluated as a group. The rule will execute if *all* the conditions of this type are met. This type of condition will be explained below.
 
-- **OR conditions** (also known as *condition groups*, **now in Preview**): groups of conditions, each of which will be evaluated independently. The rule will execute if one or more groups of conditions are true. To learn how to work with these complex types of conditions, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
+- **OR conditions** (also known as *condition groups*): groups of conditions, each of which will be evaluated independently. The rule will execute if one or more groups of conditions are true. To learn how to work with these complex types of conditions, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
 Select the **+ Add** expander and choose **Condition (And)** from the drop-down list. The list of conditions is populated by incident property and [entity property](entities-reference.md) fields.
 
@@ -94,7 +100,7 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
 
     The list of operators you can choose from varies according to the selected trigger and property. Here's a summary of what's available:
 
-    #### Conditions available with the create trigger
+    ##### Conditions available with the create trigger
 
     | Property | Operator set |
     | -------- | -------- |
@@ -102,7 +108,7 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
     | - Severity<br>- Status<br>- Incident provider<br>- Custom details key (Preview) | - Equals/Does not equal |
     | - Tactics<br>- Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
 
-    #### Conditions available with the update trigger
+    ##### Conditions available with the update trigger
 
     | Property | Operator set |
     | -------- | -------- |
@@ -120,7 +126,7 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
 
 Again, for setting complex **Or** conditions with different fields, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
-#### Conditions based on custom details (Preview)
+#### Conditions based on custom details
 
 You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
 
@@ -130,7 +136,7 @@ To add a condition based on a custom detail, take the following steps:
 
 1. Add a condition or a condition group.
 
-1. Select **Custom details key (Preview)** from the properties drop-down list. Select **Equals** or **Does not equal** from the operators drop-down list.
+1. Select **Custom details key** from the properties drop-down list. Select **Equals** or **Does not equal** from the operators drop-down list.
 
     For the custom details condition, the values in the last drop-down list come from the custom details that were surfaced in all the analytics rules listed in the first condition. Select the custom detail you want to use as a condition.
 
@@ -159,6 +165,8 @@ Choose the actions you want this automation rule to take. Available actions incl
 > Only the **Run playbook** action is available in automation rules using the **alert trigger**.
 
 :::image type="content" source="media/create-manage-use-automation-rules/select-action.png" alt-text="Screenshot of list of actions to select in automation rule.":::
+
+For whichever action you choose, fill out the fields that appear for that action according to what you want done.
 
 If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. 
 
