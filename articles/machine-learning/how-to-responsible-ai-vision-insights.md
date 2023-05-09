@@ -15,6 +15,8 @@ ms.custom: responsible-ml
 
 # Generate Responsible AI Vision Insights with YAML and Python (preview)
 
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 Understanding and assessing computer vision models requires a different set of Responsible AI tools, compared to tabular and text scenarios. The Responsible AI dashboard now supports image data by expanding debugging capabilities to be able to digest and visualize image data. The Responsible AI dashboard for Image provide several mature Responsible AI tools in the areas of model performance, data exploration, and model interpretability for a holistic assessment and debugging of computer vision models – leading to informed mitigations to resolve fairness issues, and transparency across stakeholders to build trust. You can generate a Responsible AI vision dashboard via an Azure Machine Learning pipeline job by using Responsible AI components.
 
 Supported scenarios:
@@ -77,11 +79,11 @@ The start, register your input model in Azure Machine Learning and reference the
     ```
 
 The RAI Vision Insights component also accepts the following parameters:
+
 | Parameter name                    | Description                                                                        | Type                         |
 |-----------------------------------|------------------------------------------------------------------------------------|------------------------------|
 | `title`                           | Brief description of the dashboard.                                                | String                       |
 | `task_type`                       | Specifies whether the scenario of the model.                                       | String                       |
-| --------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------- |
 | `maximum_rows_for_test_dataset`   | The maximum number of rows allowed in the test dataset, for performance reasons.   | Integer, defaults to 5,000   |
 | `classes`                         | The full list of class labels in the training dataset.                             | Optional list of strings     |
 | `enable_explanation`              | Enable to generate an explanation for the model.                                   | Boolean                      |
@@ -177,10 +179,8 @@ In addition to the list of Responsible AI Vision Insights parameters provided in
 
 | Parameter name | Description                                           | Type                             |
 |----------------|-------------------------------------------------------|----------------------------------|
-| `model_type`   | Flavor of the model. Select pyfunc for AutoML models. | Enum <br> - Pyfunc <br> - fastai | 
-| `dataset_type` | Whether the Images in the dataset are read from publicly available url or they're stored in the user’s datastore. <br>
-For AutoML models, images are always read from User’s workspace datastore, hence the dataset type for AutoML models is “private”. <br>
-For private dataset type, we download the images on the compute before generating the explanations. | Enum <br> - Public <br> - Private |
+| `model_type`   | Flavor of the model. Select pyfunc for AutoML models. | Enum <br> - Pyfunc <br> - fastai |
+| `dataset_type` | Whether the Images in the dataset are read from publicly available url or they're stored in the user’s datastore. <br> For AutoML models, images are always read from User’s workspace datastore, hence the dataset type for AutoML models is “private”. <br> For private dataset type, we download the images on the compute before generating the explanations. | Enum <br> - Public <br> - Private |
 | `xai_algorithm` | Type of the XAI algorithms supported for AutoML Models <br> Note: Shap isn't supported for AutoML models. | Enum <br> - `guided_backprop` <br> - `guided_gradcam` <br> - `integrated_gradients` <br> - `xrai` |
 | `xrai_fast` | Whether to use faster version of XRAI. if True, then computation time for explanations is faster but leads to less accurate explanations (attributions) | Boolean |
 | `approximation_method` | This Parameter is only specific to Integrated gradients. <br> Method for approximating the integral. Available approximation methods are `riemann_middle` and `gausslegendre`.| Enum <br> - `riemann_middle` <br> - `gausslegendre` |

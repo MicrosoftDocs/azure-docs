@@ -1193,7 +1193,7 @@
         - name: Using the Responsible AI dashboard for vision insights
           href: how-to-responsible-ai-dashboard-vision-insights.md
         - name: Using the Responsible AI dashboard for text insights
-          href: how-to-responsible-ai-dashboard-text-insights.md
+          href:  how-to-responsible-ai-dashboard-text-insights.md
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md

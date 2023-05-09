@@ -15,6 +15,8 @@ ms.custom: responsible-ml
 
 # Generate Responsible AI Text Insights with YAML and Python (preview)
 
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 Understanding and assessing NLP models can be different from tabular data. The Responsible AI dashboard now supports text data by expanding the debugging capabilities and visualizations to be able to digest and visualize text data. The Responsible AI text dashboard provides several mature Responsible AI tools in the areas of error analysis, model interpretability, unfairness assessment and mitigation for a holistic assessment and debugging of NLP models and making informed business decisions. You can generate a Responsible AI text dashboard via a pipeline job by using Responsible AI components.
 
 
@@ -125,7 +127,7 @@ rai_text_insights_component = ml_client_registry.components.get(
 
 ## Understand the Responsible AI Text Dashboard
  
-To learn more about how to Responsible AI Text dashboard, see [Responsible AI dashboard for Text Insights in Azure Machine Learning studio](how-to-responsible-ai-dashboard-text-insights.md).
+To learn more about how to Responsible AI Text dashboard, see [Responsible AI dashboard for Text Insights in Azure Machine Learning studio]( %20how-to-responsible-ai-dashboard-text-insights.md).
 
 ## Next steps
 
