@@ -1,5 +1,5 @@
 ---
-title: Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application 
+title: Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant - Prepare your application 
 description: Create and prepare an ASP.NET web app for authentication
 services: active-directory
 author: cilwerner
@@ -14,13 +14,13 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant.
 ---
 
-# Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application
+# Sign in users in your own ASP.NET web application by using Azure Active Directory (AD) for customers tenant - Prepare your application
 
 After registering an application and creating a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). In this article, you'll create an ASP.NET project in your IDE, and configure it for authentication.
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md).
+- Completion of the prerequisites and steps in [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant - Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md).
 - Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 - [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
