@@ -389,6 +389,8 @@ Get-AzCosmosdbTableRestorableResource `
 
 
 
+
+
 ## <a id="restore-account-cli"></a>Restore an account using Azure CLI
 
 Before restoring the account, install Azure CLI with the following steps:
@@ -409,6 +411,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
+
 ```azurecli-interactive
 
 az cosmosdb restore \
@@ -417,9 +420,10 @@ az cosmosdb restore \
  --restore-timestamp 2020-07-13T16:03:41+0000 \
  --resource-group MyResourceGroup \
  --location "West US"
- --public-network-access False
+ --
 
 ```
+
 If `public-network-access` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `public-network-access` option to `False` public network access for restored account.
 
  > [!NOTE]
@@ -661,6 +665,12 @@ az cosmosdb mongodb restorable-resource list \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"
 ```
+
+
+
+
+
+
 
 
 
