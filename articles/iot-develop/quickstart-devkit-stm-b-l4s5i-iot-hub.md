@@ -4,9 +4,9 @@ description: Use Azure RTOS embedded software to connect an STMicroelectronics B
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
-ms.devlang: c
+ms.devlang: cs
 ms.topic: quickstart
-ms.date: 01/06/2022
+ms.date: 05/09/2023
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L4S5I-IOT01A Discovery kit to IoT Hub
@@ -18,11 +18,11 @@ ms.date: 01/06/2022
 
 In this quickstart, you use Azure RTOS to connect the STMicroelectronics [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4S5i-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
 
-You'll complete the following tasks:
+You complete the following tasks:
 
 * Install a set of embedded development tools for programming the STM DevKit in C
 * Build an image and flash it onto the STM DevKit
-* Use Azure CLI to create and manage an Azure IoT hub that the STM DevKit will securely connect to
+* Use Azure CLI to create and manage an Azure IoT hub that the STM DevKit securely connects to
 * Use Azure IoT Explorer to register a device with your IoT hub, view device properties, view device telemetry, and call direct commands on the device
 
 ## Prerequisites
@@ -43,9 +43,9 @@ You'll complete the following tasks:
 
 ## Prepare the development environment
 
-To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
+To set up your development environment, first you clone a GitHub repo that contains all the assets needed for the quickstart. Then you install a set of programming tools.
 
-### Clone the repo for the quickstart
+### Clone the repo
 
 Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
 
@@ -121,7 +121,7 @@ To create an IoT hub:
 
 ### Configure IoT Explorer
 
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you  created, and to read plug and play models from the public model repository. 
+In the rest of this quickstart, you use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you  created, and to read plug and play models from the public model repository. 
 
 To add a connection to your IoT hub:
 
@@ -153,7 +153,7 @@ To add the public model repository:
 
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You use the connection information for the newly registered device to securely connect your physical device in a later section.
 
 To register a device:
 
@@ -174,7 +174,7 @@ Before continuing to the next section, save each of the following values retriev
 
 ## Prepare the device
 
-To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the STM DevKit to Azure, you modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -300,7 +300,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you'll use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -470,7 +470,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a general device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](quickstart-devkit-stm-b-l475e-iot-hub.md)
 > [!div class="nextstepaction"]
