@@ -87,15 +87,12 @@ You can use the following filter to filter all the messages coming from your cli
 
 
 ## Next steps:
-
 Use the following articles to learn more about routing:
 
 ### QuickStart:
-
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 
 ### Concepts:
-
 - [Routing](mqtt-routing.md)
 - [Routing Enrichments](mqtt-routing-enrichment.md)
 - [Routing Event Schema](mqtt-routing-event-schema.md)

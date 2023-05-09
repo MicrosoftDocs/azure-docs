@@ -169,5 +169,4 @@ az eventgrid system-topic create --resource-group <Resource Group > --name <Syst
 - Duplicate client connection status events may be published.
 
 ## Next steps
-
 Learn more about [System topics in Azure Event Grid](system-topics.md)

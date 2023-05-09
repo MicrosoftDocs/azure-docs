@@ -84,4 +84,3 @@ Use the following articles to learn more about routing:
 - [Routing Event Schema](mqtt-routing-event-schema.md)
 - [Routing Filtering](mqtt-routing-filtering.md)
 - [Routing Enrichments](mqtt-routing-enrichment.md)
-
