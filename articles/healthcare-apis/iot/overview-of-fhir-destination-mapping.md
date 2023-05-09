@@ -31,7 +31,7 @@ The FHIR destination mapping controls how the normalized data extracted from a d
 
 These data types are all options the FHIR destination mapping configuration controls.
 
-Once device data is transformed into a normalized data model, the normalized data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [string](https://www.hl7.org/fhir/datatypes.html#string)) data isn't grouped, but instead each measurement is transformed into a single Observation representing a point in time.
+Once device data is transformed into a normalized data model, the normalized data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [String](https://www.hl7.org/fhir/datatypes.html#string)) data isn't grouped, but instead each measurement is transformed into a single Observation representing a point in time.
 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence on the FHIR service, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
@@ -74,13 +74,13 @@ All CodeValueFhir templates' `value` element contains these elements:
 |Element|Description|Required|
 |:------|:----------|:-------|
 |**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "String" depending on the value type.|True|
-|**valueName**|Name of the value.|True unless `vaulueType` is CodeableConcept.|
+|**valueName**|Name of the value.|True unless `valueType` is CodeableConcept.|
 
 These value types are supported in the MedTech service FHIR destination mapping:
 
 #### SampledData
 
-Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR data type. Observation measurements are written to a value stream starting at a point in time and incrementing forward using the period defined. If no value is present, an `E` is written into the data stream. If the period is such that two or more values occupy the same position in the data stream, the latest value is used. The same logic is applied when an observation using the SampledData is updated. For a CodeValueFhir template with the SampleData value type, the template's `value` element contains the following elements:
+Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR data type. Observation measurements are written to a value stream starting at a point in time and incrementing forward using the period defined. If no value is present, an `E` is written into the data stream. If the period is such that two or more values occupy the same position in the data stream, the latest value is used. The same logic is applied when an observation using the SampledData is updated. For a CodeValueFhir template with the SampledData value type, the template's `value` element contains the following elements:
 
 |Element|Description|Required| 
 |:------|:----------|:-------|
