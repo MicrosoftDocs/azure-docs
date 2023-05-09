@@ -12,7 +12,6 @@ ms.date: 05/23/2023
 ms.custom: template-concept 
 ---
 
-
 # Understanding top-level entities in managed feature store
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -23,10 +22,8 @@ This document describes the top level entities in the managed feature store.
 
 For more information on the managed feature store, see [What is managed feature store?](concept-what-is-managed-feature-store.md)
 
-
 ## Feature store
 You can create and manage feature sets through a feature store. Feature sets are a collection of features. You can optionally associate a materialization store (offline store connection) with a feature store in order to precompute the features regularly and persist it. This can make feature retrieval during training or inference faster and more reliable.
-
 
 ## Entities
 Entities encapsulate the index columns for logical entities in an enterprise. Examples of entities are account entity, customer entity, etc. Entities help enforce best practice that same index column definitions are used across feature sets that use the same logical entities.
@@ -46,16 +43,12 @@ A feature set specification typically consists of the following parameters:
 
 Once you have developed and tested the feature set spec in your local/dev environment, you can register it as a feature set asset with the feature store in order to get managed capabilities like versioning and materialization.
 
-For more information, see [Tutorial: Develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md).
-
 ## Feature retrieval specification
 A feature retrieval specification is a portable definition of a list of features associated with a model. This can help streamline machine learning model development and operationalizing. A feature retrieval specification is typically an input to the training pipeline (used to generate the training data), which can be packaged along with the model, and will be used during inference to look up the features. It's a glue that integrates all phases of the machine learning lifecycle. Changes to your training and inference pipeline can be minimized as you experiment and deploy.
 
 Using a feature retrieval specification and the built-in feature retrieval component are optional: you can directly use `get_offline_features()` API if you prefer.
 
-For more information, see [Tutorial: Experiment and train models using features (preview) ](tutorial-use-features-to-train-and-experiment.md).
-
 ## Next steps
 
 - [What is managed feature store?](concept-what-is-managed-feature-store.md)
-- [Tutorial: Develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md)
+- [Manage access control for managed feature store](how-to-setup-access-control-feature-store.md)

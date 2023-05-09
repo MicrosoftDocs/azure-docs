@@ -19,7 +19,6 @@ ms.reviewer: scottpolly
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json.
 
 
-
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
@@ -76,5 +75,3 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
-- Learn how to [develop and register a feature set with managed feature store (preview)](tutorial-get-started-with-feature-store.md)
-- [Troubleshoot managed feature store](troubleshooting-managed-feature-store.md)

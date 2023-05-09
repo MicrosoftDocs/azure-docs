@@ -56,7 +56,7 @@ ms.custom: cliv2
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](./examples). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli). Some common examples are shown below.
 
 ### YAML Example without Transformation Code
 [todo: azureml-examples/sdk/python/featurestore_sample/featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml]
