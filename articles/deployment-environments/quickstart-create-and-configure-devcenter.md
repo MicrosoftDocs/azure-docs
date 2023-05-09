@@ -106,7 +106,7 @@ Using an authentication token like a GitHub PAT enables you to share your reposi
     |**Description**|Enter a description for the token.|
     |**Repository access**|Select **Public Repositories (read-only)**.|
     
-    Leave the other options at their defaults, and then select **Generate**.
+    Leave the other options at their defaults.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/github-public-repo-permissions.png" alt-text="Screenshot showing the GitHub New fine-grained personal access token page.":::
 
