@@ -60,7 +60,7 @@ The following table provides an overview of the different protection mechanisms 
 [![Screenshot shows Azure AD B2C security architecture diagram.](./media/security-architecture/security-architecture-high-level.png)](./media/security-architecture/security-architecture-high-level.png#lightbox)
 
 ## Protecting your REST APIs
-Azure AD B2C allows you to connect to external systems by using the [API Connectors](./api-connectors-overview.md?pivots=b2c-custom-policy), or the [REST API technical profile](restful-technical-profile.md). You need to protect these interfaces. You can  the rate limits which Azure AD B2C exposes them to. You can prevent malicious requests to your REST APIs by better protecting the Azure AD B2C authentication endpoints. You can protect these endpoints with a WAF and AFD.
+Azure AD B2C allows you to connect to external systems by using the [API Connectors](./api-connectors-overview.md?pivots=b2c-custom-policy), or the [REST API technical profile](restful-technical-profile.md). You need to protect these interfaces. You can prevent malicious requests to your REST APIs by protecting the Azure AD B2C authentication endpoints. You can protect these endpoints with a WAF and AFD.
   
 ## Scenario 1: How to secure your sign-in experience
 After you create a sign-in experience, or user flow, you'll need to protect specific components of your flow from malicious activity. For example, if your sign in flow involves the following, then the table shows the components you need to protect, and associated protection technique:
@@ -78,7 +78,7 @@ After you create a sign-in experience, or user flow, you'll need to protect spec
 [![Screenshot shows Azure AD B2C security architecture diagram to protect sign-in.](./media/security-architecture/protect-sign-in.png)](./media/security-architecture/protect-sign-in.png#lightbox)
   
 ## Scenario 2: How to secure your sign-up experience
-After you create a sign-up experience, or user flow, you need to protect specific components of your flow from malicious activity. If your sign in flow involves the following, then, the table shows the components you need to protect, and associated protection technique:
+After you create a sign-up experience, or user flow, you need to protect specific components of your flow from malicious activity. If your sign in flow involves the following, then the table shows the components you need to protect, and associated protection technique:
 
 - Local account email and password sign-up
 - Email verification using email OTP
