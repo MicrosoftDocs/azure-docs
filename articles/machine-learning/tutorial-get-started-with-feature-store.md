@@ -34,7 +34,7 @@ This tutorial is the first part of a four part series. In this tutorial, you'll 
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
-* An Azure Machine Learning workspace. If you don't have one, see the [Quickstart: Create workspace resources](./quickstart-create-resources?view=azureml-api-2) article to create one
+* An Azure Machine Learning workspace. If you don't have one, see the [Quickstart: Create workspace resources](./quickstart-create-resources.md) article to create one
 
 * To perform the steps in this article, your user account must be assigned the owner or contributor role to a resource group where the feature store will be created
 
@@ -76,7 +76,7 @@ Note: This tutorial uses Azure Machine Learning spark notebook for development. 
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=start-spark-session)]
 
-[Quickstart: Create workspace resources](./quickstart-create-resources.md?view=azureml-api-2?view=azureml-api-2)
+[Quickstart: Create workspace resources](./quickstart-create-resources.md)
 
 #### Set up the root directory for the samples
 
