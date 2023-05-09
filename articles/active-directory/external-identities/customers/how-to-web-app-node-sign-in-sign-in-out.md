@@ -1,6 +1,6 @@
 ---
 title: Sign in users in your own Node.js web application  - Add sign-in and sign-out
-description: Learn about how to add sign-in and sign-out in your own Node.js web application .
+description: Learn about how to add sign-in and sign-out in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk

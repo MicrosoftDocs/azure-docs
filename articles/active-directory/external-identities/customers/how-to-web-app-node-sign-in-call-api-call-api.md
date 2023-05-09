@@ -1,6 +1,6 @@
 ---
 title: Sign in users and call an API in your own Node.js web application  - Call an API
-description: Learn how to call a protected API in your own Node.js web application .
+description: Learn how to call a protected API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk

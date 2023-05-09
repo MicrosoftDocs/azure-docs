@@ -1,6 +1,6 @@
 ---
 title: Sign in users and call an API in your own Node.js web application  - Sign-in users and acquire an access token
-description: Learn how to sign-in users and acquire an access token for calling an API in your own Node.js web application .
+description: Learn how to sign-in users and acquire an access token for calling an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk

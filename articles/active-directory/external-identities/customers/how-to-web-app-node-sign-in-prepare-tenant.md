@@ -1,6 +1,6 @@
 ---
 title: Sign in users in your own Node.js web application - Prepare your tenant
-description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users in your own Node.js web application .
+description: Learn how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
