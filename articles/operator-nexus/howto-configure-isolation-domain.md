@@ -15,7 +15,7 @@ For Azure Operator Nexus instances, isolation domains enable communication betwe
 
 ## Prerequisites
 
-1. Ensure that you've created a network fabric controller (NFC) and a network fabric.
+1. Ensure that a network fabric controller (NFC) and a network fabric have been created.
 1. Install the latest version of the
 [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 1. Use the following command to sign in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID that you use across all Azure Operator Nexus resources.
