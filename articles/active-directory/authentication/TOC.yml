@@ -176,6 +176,8 @@
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
+      name: 
+      href: multi-factor-authentication-wizard.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
     - name: Configure users
