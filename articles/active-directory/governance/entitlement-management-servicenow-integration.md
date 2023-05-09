@@ -242,4 +242,4 @@ The IT Support team works on the ticket create above to do necessary provisions 
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Trigger Logic Apps with custom extensions in entitlement management (Preview)](entitlement-mangament-logic-apps-integration.md)
+> [Trigger Logic Apps with custom extensions in entitlement management (Preview)](entitlement-management-logic-apps-integration.md)
