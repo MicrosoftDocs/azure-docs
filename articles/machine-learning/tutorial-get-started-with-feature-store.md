@@ -34,7 +34,7 @@ This tutorial is the first part of a four part series. In this tutorial, you'll 
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
-* An Azure Machine Learning workspace. If you don't have one, see the [Quickstart: Create workspace resources](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2) article to create one
+* An Azure Machine Learning workspace. If you don't have one, see the [Quickstart: Create workspace resources](./quickstart-create-resources?view=azureml-api-2) article to create one
 
 * To perform the steps in this article, your user account must be assigned the owner or contributor role to a resource group where the feature store will be created
 
@@ -61,7 +61,7 @@ Note: This tutorial uses Azure Machine Learning spark notebook for development. 
 1. Enable preview access of managed spark: (To be removed in final draft)
 
       1. Select the "manage preview features" icon (this icon looks like an announcement icon) in the top right nav of this screen
-      1. To enable access, select "Run notebooks and jobs on managed spark". If you have any issues, see detailed steps [here](https://learn.microsoft.com/en-us/azure/machine-learning/interactive-data-wrangling-with-apache-spark-azure-ml#prerequisites) - you only need to enable the managed Spark preview access feature for now
+      1. To enable access, select "Run notebooks and jobs on managed spark". If you have any issues, see detailed steps [here](./interactive-data-wrangling-with-apache-spark-azure-ml.md#prerequisites) - you only need to enable the managed Spark preview access feature for now
 
 1. Select **AzureML Spark compute** in the top nav "Compute" dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **configure session**.
 
@@ -76,7 +76,7 @@ Note: This tutorial uses Azure Machine Learning spark notebook for development. 
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=start-spark-session)]
 
-[Quickstart: Create workspace resources](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
+[Quickstart: Create workspace resources](./quickstart-create-resources.md?view=azureml-api-2?view=azureml-api-2)
 
 #### Set up the root directory for the samples
 
