@@ -24,6 +24,22 @@ Model monitoring is the last step in the machine learning end-to-end lifecycle. 
 
 To implement monitoring, Azure Machine Learning acquires monitoring signals through data analysis on streamed production inference data and reference data. The reference data can include historical training data, validation data, or ground truth data. Each monitoring signal has one or more metrics. Users can set thresholds for these metrics in order to receive alerts via Azure Machine Learning or Azure Monitor about model or data anomalies. These alerts can prompt users to analyze or troubleshoot monitoring signals in Azure Machine Learning studio for continuous model quality improvement.
 
+## Capabilities of model monitoring
+
+Azure Machine Learning provides the following capabilities for continuous model monitoring:
+
+* **Pre-built monitoring signals**. Model monitoring provides built-in monitoring signals for tabular data. These monitoring signals include data drift, prediction drift, data quality, and feature attribution drift.
+* **Out-of-box model monitoring setup with Azure Machine Learning online endpoint**. If you deploy your model to production in an Azure Machine Learning online endpoint, Azure Machine Learning collects production inference data automatically and uses it for continuous monitoring.
+* **Use of multiple monitoring signals for a broad view**. You can easily include several monitoring signals in one monitoring setup. For each monitoring signal, you can select your preferred metric(s) and fine-tune an alert threshold.
+* **Use of recent past production data or training data as comparison baseline dataset**. For model signals and metrics, Azure Machine Learning lets you set these datasets as the baseline dataset for comparison.
+* **Monitoring of data drift or data quality for top n features**. If you use training data as the comparison baseline dataset, you can define data drift or data quality layering over feature importance.
+* **Monitoring of data drift for a population subset**. For some ML models, data drift can occur only for a subset of the population. This can make data drift go undetected and its impact subtle. For such ML models, it's important to monitor drift for specific subsets of the population.
+* **Flexibility to define your monitoring signal**. If the built-in monitoring signals aren't suitable for your business scenario, you can define your own monitoring signal with a custom monitoring signal component.
+* **Flexibility to bring your own production inference data**. If you deploy models outside of Azure Machine Learning, or if you deploy models to Azure Machine Learning batch endpoints, you can collect production inference data and use that data in Azure Machine Learning for model monitoring.
+* **Flexibility to select data window**. You have the flexibility to select a data window for both the target dataset and the baseline dataset.
+    * By default, the data window for production inference data (the target dataset) is your monitoring frequency. That is, all data collected in the past monitoring period before the monitoring job is run will be used as the target dataset. You can use `lookback_period_days` to adjust the data window for the target dataset if needed.
+    * By default, the data window for the baseline dataset is the full dataset. You can adjust the data window by using either the date range or the `trailing_days` parameter.
+
 ## Monitoring signals and metrics
 
 Azure Machine Learning model monitoring (preview) supports the following list of monitoring signals and metrics:
