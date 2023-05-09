@@ -84,8 +84,8 @@ We recommend that you execute the Assess Patches API once the VM is provisioned 
     | Images | **Currently supported scenarios** | **Unsupported scenarios** |
     |--- | --- | ---|
     | **Azure Compute Gallery: Generalized images** | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Scheduled patching | Automatic VM guest patching | 
-    | **Azure Compute Gallery: Specialized images** | - On demand assessment </br> - On demand patching </br>   - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
-    | **Non-Azure Compute Gallery images (non-SIG)** | None | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Schedule patching </br> - Automatic VM guest patching |
+    | **Azure Compute Gallery: Specialized images** | - On demand assessment </br> - On demand patching | - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
+    | **Non-Azure Compute Gallery images (non-SIG)** | None | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching |
     
 1. Automatic VM guest patching will not work on Azure Compute Gallery images even if Patch orchestration mode is set to **Azure orchestrated/AutomaticByPlatform**. You can use scheduled patching to patch the machines and define your own schedules.
 

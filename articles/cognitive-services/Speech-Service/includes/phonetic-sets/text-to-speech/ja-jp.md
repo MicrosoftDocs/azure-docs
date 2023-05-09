@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 The Speech service phone set for `ja-JP` is based on the native phone [Kana](https://en.wikipedia.org/wiki/Kana) set.
 
 Please see the following tables for kana and corresponding viseme in parentheses.

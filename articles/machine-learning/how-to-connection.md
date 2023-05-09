@@ -220,7 +220,7 @@ $schema: http://azureml/sdk-2-0/Connection.json
 type: s3
 name: my_s3_connection
 
-target: https://<mybucket>.amazonaws.com # add the s3 bucket details
+target: <mybucket> # add the s3 bucket details
 credentials:
     type: access_key
     access_key_id: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # add access key id
@@ -255,9 +255,9 @@ from azure.ai.ml import MLClient
 from azure.ai.ml.entities import WorkspaceConnection
 from azure.ai.ml.entities import AccessKeyConfiguration
 
-target = "https://<mybucket>.amazonaws.com" # add the s3 bucket details
+target=<mybucket> # add the s3 bucket details
 name=<my_s3_connection> # name of the connection
-wps_connection = WorkspaceConnection(name=name,
+wps_connection=WorkspaceConnection(name=name,
 type="s3",
 target= target,
 credentials= AccessKeyConfiguration(access_key_id="XXXXXX",acsecret_access_key="XXXXXXXX")
