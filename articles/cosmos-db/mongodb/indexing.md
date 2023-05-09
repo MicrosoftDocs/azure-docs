@@ -54,13 +54,35 @@ A compound index or single field indexes for each field in the compound index wi
 
 Compounded indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the index. 
 
-For example a compound index containing people.tom.age will work in this case since there's no array on the path:
-```javascript
-{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+For example a compound index containing `people.dylan.age` will work in this case since there's no array on the path:
+```json
+{
+  "people": {
+    "dylan": {
+      "name": "Dylan",
+      "age": "25"
+    },
+    "reed": {
+      "name": "Reed",
+      "age": "30"
+    }
+  }
+}
 ```
 but won't won't work in this case since there's an array in the path:
-```javascript
-{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+```json
+{
+  "people": [
+    {
+      "name": "Dylan",
+      "age": "25"
+    },
+    {
+      "name": "Reed",
+      "age": "30"
+    }
+  ]
+}
 ```
 
 This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
