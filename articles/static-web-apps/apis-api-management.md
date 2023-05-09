@@ -126,7 +126,7 @@ If the APIs aren't associated to the API Management *product* created for the St
 }
 ```
 
-To resolve this, configure add the APIs you want to expose within your Static Web Apps to the product created for it, as detailed in the [Manage access to APIs](#manage-access-to-apis) section above.
+To resolve this error, configure the APIs you want to expose within your Static Web Apps to the product created for it, as detailed in the [Manage access to APIs](#manage-access-to-apis) section.
 
 ## Next steps
 
