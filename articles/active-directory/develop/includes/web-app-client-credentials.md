@@ -1,3 +1,20 @@
+---
+title: Client credentials for web apps and web APIs calling downstream APIs
+description: Include file with a common configuration in web apps and web APIs calling downstream web APIs (ASP.NET Core and ASP.NET OWIN).
+services: active-directory
+author: jmprieur
+manager: CelesteDG
+
+ms.service: active-directory
+ms.subservice: develop
+ms.workload: identity
+ms.topic: include
+ms.date: 05/08/2023
+ms.author: jmprieur
+ms.reviewer: jmprieur
+ms.custom: aaddev
+---
+
 Given that your web app now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
 
 - The URL of the downstream web API
@@ -9,14 +26,14 @@ In the following example, the `GraphBeta` section specifies these settings.
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "ClientId": "[Enter_the_Application_Id_Here]",
     "TenantId": "common",
 
    // To call an API
    "ClientCredentials": [
     {
       "SourceType": "ClientSecret",
-      "ClientSecret":"[Copy the client secret added to the app from the Azure portal]"
+      "ClientSecret":"[Enter_the_Client_Secret_Here]"
     }
   ]
  },
@@ -36,7 +53,7 @@ Instead of a client secret, you can provide a client certificate. The following 
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "ClientId": "[Enter_the_Application_Id_Here]",
     "TenantId": "common",
 
    // To call an API

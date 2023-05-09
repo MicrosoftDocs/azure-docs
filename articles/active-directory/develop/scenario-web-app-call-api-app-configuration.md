@@ -98,11 +98,10 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
 If you want to call an API other than Microsoft Graph, *Microsoft.Identity.Web* enables you to use the `IDownstreamApi` interface in your API actions. To use this interface:
 
 1. Add the [Microsoft.Identity.Web.DownstreamApi](https://www.nuget.org/packages/Microsoft.Identity.Web.DownstreamApi) NuGet package to your project.
-1. Add `.AddDownstreamApi()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddDownstreamApi()` has two arguments:
-   - The name of a service (api): you use this name in your controller actions to reference the corresponding configuration
+1. Add `.AddDownstreamApi()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddDownstreamApi()` has two arguments, and is shown in the following snippet:
+   - The name of a service (API), which is used in your controller actions to reference the corresponding configuration
    - a configuration section representing the parameters used to call the downstream web API.
 
-Here's the code:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -278,7 +277,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [ASP.NET](#tab/aspnet)
 
-Microsoft.Identity.Web.OWIN simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/9fdcf15c66819b31b1049955eed5d3e5391656f5/src/Microsoft.Identity.Web.OWIN/AppBuilderExtension.cs#L95) for details on how this works.
+*Microsoft.Identity.Web.OWIN* simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/9fdcf15c66819b31b1049955eed5d3e5391656f5/src/Microsoft.Identity.Web.OWIN/AppBuilderExtension.cs#L95) for details on how this works.
 
 # [Java](#tab/java)
 
@@ -405,7 +404,7 @@ For details about the token-cache providers, see also Microsoft.Identity.Web's [
 
 # [ASP.NET](#tab/aspnet)
 
-The ASP.NET tutorial uses dependency injection to let you decide the token cache implementation in the *Startup.Auth.cs* file for your application. Microsoft.Identity.Web comes with prebuilt token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET tutorial uses dependency injection to let you decide the token cache implementation in the *Startup.Auth.cs* file for your application. *Microsoft.Identity.Web* comes with prebuilt token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 var services = owinTokenAcquirerFactory.Services;
@@ -432,7 +431,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-For details about the token-cache providers, see also Microsoft.Identity.Web's [Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) article, and the [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) phase of the web apps tutorial.
+For details about the token-cache providers, see also the *Microsoft.Identity.Web* [Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) article, and the [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) phase of the web app's tutorial.
 
 For details see [Token cache serialization for MSAL.NET](./msal-net-token-cache-serialization.md).
 
