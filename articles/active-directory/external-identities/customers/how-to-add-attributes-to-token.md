@@ -1,6 +1,6 @@
 ---
 title: Add attributes to token claims
-description: Learn how to add built-in user attributes and custom attributes as claims to the application token.
+description: Learn how to add built-in user attributes and custom attributes as claims to the application token. Use directory extension attributes for sending user data to applications in token claims.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -14,7 +14,7 @@ ms.custom: it-pro
 
 ---
 
-# Add user attributes as claims in the token  
+# Add user attributes to token claims  
 
 User attributes are values collected from the user during self-service sign-up. In addition to built-in user attributes, you can create custom attributes when you need to collect additional information. Because your application might rely on certain user attributes to function as designed, you can add any of these attributes to the token that is sent from Azure AD to your application.
 
