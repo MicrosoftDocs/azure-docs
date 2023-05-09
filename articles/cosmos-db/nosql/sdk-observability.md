@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # Azure Cosmos DB SDK observability
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-The Azure Cosmos DB .NET and Java SDKs support distributed tracing to help you monitor your applications. Tracing the flow of requests is helpful in debugging, analyzing latency and performance, as well as gathering diagnostics. Instrument tracing for your applications using [OpenTelemetry](https://opentelemetry.io/) which is vendor-neutral and has a set of semantic conventions to ensure a standardized data format regardless of your chosen exporter, or use the [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md#how-do-i-use-application-insights).
+The Azure Cosmos DB .NET and Java SDKs support distributed tracing to help you monitor your applications. Tracing the flow of requests is helpful in debugging, analyzing latency and performance, as well as gathering diagnostics. Instrument tracing for your applications using [OpenTelemetry](https://opentelemetry.io/) which is vendor-neutral and has a set of semantic conventions to ensure a standardized data format regardless of your chosen exporter, or use the [Application Insights SDK or Azure Monitor OpenTelemetry Distro](../../azure-monitor/app/app-insights-overview.md#how-do-i-use-application-insights).
 
 ## Getting started
 
@@ -53,6 +53,9 @@ To use OpenTelemetry with the Azure Cosmos DB SDKs, add the `Azure.Cosmos.Operat
 
 > [!NOTE]
 > If you use the `Azure.Monitor.OpenTelemetry.Exporter` package, ensure you are using version >= `1.0.0-beta11`.
+
+> [!TIP]
+> If you are using ASP.NET Core and Azure Monitor, we recommend using the [Azure Monitor OpenTelemetry Distro](../../azure-monitor/app/opentelemetry-enable.md).
 
 [!code-csharp[Main](~/azure-cosmos-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/OpenTelemetry/Program.cs?name=SetUpOpenTelemetry)]
 
