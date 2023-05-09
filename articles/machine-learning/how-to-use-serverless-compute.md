@@ -86,12 +86,40 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 If no compute target is specified for command, parallel, sweep, and AutoML jobs then the compute defaults to serverless compute.
 For instance, for this command job:
 
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.ml import command
+# Handle to the workspace
+from azure.ai.ml import MLClient
+# Authentication package
+from azure.identity import DefaultAzureCredential
+credential = DefaultAzureCredential()
+# Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+ml_client = MLClient(
+    credential=credential,
+    subscription_id="<Azure subscription id>", 
+    resource_group_name="<Azure resource group>",
+    workspace_name="<Azure Machine Learning Workspace>",
+)
+job = command(
+    command="echo 'hello world'",
+    environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+)
+# submit the command job
+ml_client.create_or_update(job)
+```
+
+# [Azure CLI](#tab/cli)
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 command: echo "hello world"
 environment:
   image: library/python:latest
 ```
+
+---
 
 The compute defaults to serverless compute with:
 
@@ -105,6 +133,10 @@ You can override these defaults.  If you want to specify the VM type or number o
 * `instance_type` to choose a specific VM.  Use this parameter if you want a GPU family.
 * `instance_count` to specify the number of nodes.
 
+    # [Python SDK](#tab/python)
+
+    # [Azure CLI](#tab/cli)
+
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
     command: echo "hello world"
@@ -115,8 +147,13 @@ You can override these defaults.  If you want to specify the VM type or number o
       instance_type: Standard_NC24 
     ```
 
+    ---
+
 * To change priority, use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
 
+    # [Python SDK](#tab/python)
+
+    # [Azure CLI](#tab/cli)
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
     component: ./train.yml 
@@ -128,6 +165,9 @@ You can override these defaults.  If you want to specify the VM type or number o
 
 Here's an example of all fields specified including identity.
 
+# [Python SDK](#tab/python)
+
+# [Azure CLI](#tab/cli)
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 component: ./train.yml 
@@ -140,9 +180,15 @@ queue_settings:
    job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
 ```
 
+---
+
 ## Sweep job
 
 The resources field is used in a Sweep job to define the default instance_type while the *limits.max_concurrent_trials* is used to default number of nodes for serverless compute. This default makes it more likely trial runs run concurrently without being gated by the size of compute cluster.  If your quota for this size isn't sufficient, you should override the default with your own values.
+
+# [Python SDK](#tab/python)
+
+# [Azure CLI](#tab/cli)
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json
@@ -180,7 +226,15 @@ experiment_name: hello-sweep-example
 description: Hello sweep job example.
 ```
 
+---
+
 ## Pipeline job 
+
+# [Python SDK](#tab/python)
+
+For a pipeline job, specify `"serverless"` as your default compute type to use serverless compute.
+
+# [Azure CLI](#tab/cli)
 
 For a pipeline job, specify `azureml:serverless` as your default compute type to use serverless compute.
 
@@ -254,6 +308,8 @@ jobs:
     queue_settings:
       job_tier: standard  
 ```
+
+---
 
 ## Next steps
 
