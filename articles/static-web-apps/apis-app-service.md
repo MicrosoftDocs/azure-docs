@@ -50,7 +50,7 @@ Once linked, you can access that same endpoint through the `api` path from your 
 https://red-sea-123.azurestaticapps.net/api/getProducts
 ```
 
-Both URLs point to the same API endpoint. Note that the endpoint on the App Service must have the `/api` prefix, since Static Web Apps matches requests made to `/api` and proxies the entire path to the linked resource.
+Both URLs point to the same API endpoint. The endpoint on the App Service must have the `/api` prefix, since Static Web Apps matches requests made to `/api` and proxies the entire path to the linked resource.
 
 
 ## Link an Azure App Service Web App
