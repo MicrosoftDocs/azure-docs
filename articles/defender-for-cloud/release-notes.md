@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -25,6 +25,7 @@ Updates in May include:
 - [Onboard selected AWS regions](#onboard-selected-aws-regions)
 - [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
+- [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -114,6 +115,14 @@ Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defen
 We have fully deprecated support of [PCI DSS](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+### New default setting for Defender for Servers vulnerability assessment solution
+
+Vulnerability assessment solutions are essential to safeguard machines from cyberattacks and data breaches.
+
+Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a built-in solution in the Defender for Servers plan that doesn't have a VA solution selected.
+
+Enabling it by default ensures a vulnerability assessment solution is enabled wherever one was missing. 
 
 ## April 2023
 
