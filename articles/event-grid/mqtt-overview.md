@@ -7,33 +7,49 @@ author: george-guirguis
 ms.author: geguirgu
 ---
 # Overview of the MQTT Support in Azure Event Grid
-Azure Event Grid enables your clients to communicate with each other and with Azure services, to support your IoT solutions. 
+Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. Event Grid’s MQTT support enables you to accomplish the following scenarios:
+- Ingest telemetry using a many-to-one messaging pattern on custom MQTT topics. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid
+- Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
+- Broadcast alerts to a fleet of clients using the one-to-many messaging pattern on custom MQTT topics. This pattern enables the application to publish only one message that the service replicates for every interested client.
+- Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the HTTP Push delivery functionality. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
+
+You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
+
+:::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png":::
+
 
 ## Key concepts:
 The following are a list of key concepts involved in MQTT messaging on Event Grid.
 
 ### MQTT
 
-MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols. The following list shows some of the highlights of Event Grid's MQTT support:
-- MQTT v5 support highlights: 
+MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. Event Grid enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of Event Grid's MQTT support:
+- MQTT v5 features: 
 	- **User properties** allow you to add custom key-value pairs in the message header to provide more context about the message. For example, include the purpose or origin of the message so the receiver can handle the message efficiently.
 	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation id in the request for the client to respond without prior configuration. 
 	- **Message expiry interval** allows you to declare to Event Grid when to disregard a message that is no longer relevant or valid. For example, disregard stale commands or alerts. 
 	- **Topic aliases** helps your clients reduce the size of the topic field, making the data transfer less expensive.
 	- **Maximum message size** allows your clients to control the maximum message size that they can handle from the server.
-	- **Flow control** allows your clients to control the message flow depending on their capabilities such as processing speed or storage capabilities.
+	- **Recieve Maximum** allows your clients to control the message rate depending on their capabilities such as processing speed or storage capabilities.
 	- **Clean start and session expiry** enable your clients to optimize the reliability and security of the session by preserving the client's subscription information and messages for a configurable time interval.
 	- **Negative acknowledgments** allow your clients to efficiently react to different error codes.
 	- **Server-sent disconnect packet** allow your clients to efficiently handle disconnects.
-- MQTT v3.1.1 support highlights: 
+- Event Grid is adding more MQTT v5 features in the future, but the following items represent an overview of the current limitations for the MQTT v5 support: LWT, Retain messages, Message ordering and QoS 2 aren't supported. 
+
+- MQTT v3.1.1 features: 
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0, 1** provides your clients with control over the efficiency and reliability of the communication.
+- Event Grid is adding more MQTT v3.1.1 features in the future, but the following items represent an overview of the current limitations for the MQTT v3.1.1 support: LWT, Retain messages, Message ordering and QoS 2 aren't supported.
  
 [Learn more about Event Grid’s MQTT support and limitations.](mqtt-support.md) 
 
 ### Publish-Subscribe messaging model
 
-The publish-subscribe messaging model provides a scalable and asynchronous communication to clients. It enables clients to offload the burden of handling a high number of connections and messages to the service. 
+The publish-subscribe messaging model provides a scalable and asynchronous communication to clients. It enables clients to offload the burden of handling a high number of connections and messages to the service. Through the Publish-Subscribe messaging model, your clients can communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns. The one-to-many messaging pattern enables clients to publish only one message that the service replicates for every interested client. The many-to-one messaging pattern enables clients to offload the burden of managing the high number of connections to Event Grid. The one-to-one messaging pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
+
+### Event Grid namespace
+
+Event Grid Namespace is a container for the resources that support the MQTT broker functionality. Your MQTT client can connect to Event Grid and publish/subscribe to messages, while Event Grid authenticates your clients, authorizes publish/subscribe requests, and forward messages to interested clients. 
 
 ### Clients
 
@@ -43,15 +59,7 @@ IoT devices are physical objects that are connected to the internet to transmit 
 
 IoT applications are software designed to interact with and process data from IoT devices. They typically include components such as data collection, processing, storage, visualization, and analytics. These applications enable users to monitor and control connected devices, automate tasks, and gain insights from the data generated by IoT devices.
 
-### Event Grid Namespace
-
-Event Grid Namespace is a container for the resources that support the MQTT broker functionality. Clients can connect to the Event Grid Namespace and publish and subscribe to messages, while Event Grid authenticates the client, authorizes their publish and subscribe requests, and delivers published messages to interested subscribers.
-
-### Routing
-
-Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). [Learn more.](mqtt-routing.md)
-
-### Client Authentication
+### Client authentication
 
 Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to Event Grid, it needs to authenticate with Event Grid based on credentials stored in the identity registry. Event Grid supports X.509 certificate authentication that is the gold-standard in IoT scenarios.[Learn more.](mqtt-client-authentication.md) 
 
@@ -62,6 +70,13 @@ Access control is critical for IoT scenarios considering the enormous scale of I
 Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. After creating client groups and topic spaces, you’re able to configure a permission binding to grant access to a client group to either publish or subscribe to a topic space.
 
 Topic spaces configuration also provides granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. This granular access control is achieved by using variables in topic templates. [Learn more.](mqtt-access-control.md) 
+
+### Routing
+
+Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more.](mqtt-routing.md)
+
+:::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data-high-res.png" :::
+
 ## Next steps
 
 Use the following articles to learn more about the MQTT support in Event Grid and its main concepts.

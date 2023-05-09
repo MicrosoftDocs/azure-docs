@@ -423,7 +423,7 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-  - name: Publish and subscribe to messages using MQTT 
+  - name: MQTT messaging 
     items:
     - name: Overview
       href: mqtt-overview.md
@@ -440,7 +440,7 @@ items:
       - name: Route MQTT messages to Event Hubs using portal
         href: mqtt-routing-to-event-hubs-portal.md
     - name: Samples
-      href: /samples/browse/?term=MQTT+Application
+      href: https://github.com/Azure-Samples/MqttApplicationSamples/tree/main
     - name: Concepts
       items:
       - name: Terminology

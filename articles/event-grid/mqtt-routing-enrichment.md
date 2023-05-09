@@ -60,6 +60,8 @@ Use the following steps to configure routing enrichments:
   - Add up to 20 key-value pairs and select their type appropriately.
 - Select Apply
 
+:::image type="content" source="./media/mqtt-routing-enrichment/routing-enrichment-portal-configuration.png" alt-text="Screenshot showing the routing enrichment configuration through the portal.":::
+
 For more information about the routing configuration, go to [Routing Azure portal configuration](mqtt-routing.md#azure-portal-configuration).
 
 

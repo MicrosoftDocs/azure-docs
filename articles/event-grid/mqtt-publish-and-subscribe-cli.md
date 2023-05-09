@@ -223,3 +223,4 @@ You can replicate and modify the same code for multiple clients to perform publi
 
 ## Next steps
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-cli.md)
+- For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)

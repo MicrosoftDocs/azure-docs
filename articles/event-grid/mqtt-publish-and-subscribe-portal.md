@@ -153,3 +153,4 @@ An Event Grid Namespace serves as an application container that can house resour
 
 ## Next steps
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)

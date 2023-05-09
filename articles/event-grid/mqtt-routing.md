@@ -46,7 +46,10 @@ Use the following steps to configure routing:
 - Go to your namespace in the Azure portal.
 - Under Routing, Check Enable Routing.
 - Under routing topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+    - This topic needs to fulfill the [Event Grid topic Requirements for Routing.](#event-grid-topic-requirements-for-routing)
 - Select Apply.
+
+:::image type="content" source="./media/mqtt-routing/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal.":::
 
 For enrichments configuration instructions, go to [Enrichment portal configuration](mqtt-routing-enrichment.md#azure-portal-configuration).
 
