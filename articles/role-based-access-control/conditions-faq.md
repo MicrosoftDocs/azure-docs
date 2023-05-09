@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2023
+ms.date: 05/09/2023
 ms.author: rolyon
 
 #Customer intent: 
@@ -63,7 +63,7 @@ A condition is only applied to the specific targeted actions.
 
 **What are the limits for a condition?**
 
-A condition can be up to to 8 KB long.
+A condition can be up to 8 KB long.
 
 **What are the limits for a description?**
 

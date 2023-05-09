@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 05/09/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -54,7 +54,7 @@ By default, blob index tags are not copied from a source blob to the destination
 
 #### Tags on snapshots
 
-Tags on blob snapshots cannot be modified. This implies that you must update the tags on a blob before taking the snapshot. If you modify the tags on a base blob, the tags on it's snapshot will continue to have their previous value.
+Tags on blob snapshots cannot be modified. This implies that you must update the tags on a blob before taking the snapshot. If you modify the tags on a base blob, the tags on its snapshot will continue to have their previous value.
 
 If a tag on a base blob is modified after a snapshot is taken, the scope of access may be different for the base blob and the snapshot.
 
