@@ -11,7 +11,7 @@ ms.reviewer: jushiman
 
 # Attach VMs to a Virtual Machine Scale Set
 
-You can attach a standalone virtual machine to a Virtual Machine Scale Set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify paramaters like operating system, networking configuration, on-demand or Spot priority, and VM size.
+You can attach a standalone virtual machine to a Virtual Machine Scale Set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot priority, and VM size.
 
 > [!IMPORTANT]
 > You can only attach VMs to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
@@ -68,5 +68,5 @@ New-AzVm `
 - You must attach the VM at the time of VM creation. You can't attach an existing VM to a scale set.
 - You can't detach a VM from a Virtual Machine Scale Set.
 
-## Whats next
+## What's next
 - Learn how to manage updates and maintenance using [Maintenance notification](virtual-machine-scale-sets-maintenance-notifications.md), [Maintenance configurations](../virtual-machines/maintenance-configurations.md), and [Scheduled Events](../virtual-machines/linux/scheduled-events.md)

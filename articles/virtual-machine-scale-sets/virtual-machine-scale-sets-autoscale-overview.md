@@ -16,7 +16,7 @@ An Azure Virtual Machine Scale Set can increase or decrease the number of VM ins
 
 - Manually increasing or decreasing scale set capacity
 - Based on a set schedule
-- According to rules based on metrics threshholds
+- According to rules based on metrics thresholds
 - Automatically based on usage patterns discovered by predictive artificial intelligence 
 
 This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. This article provides an overview of which performance metrics are available and what actions autoscale can perform.
@@ -28,7 +28,7 @@ This automated and elastic behavior reduces the management overhead to monitor a
 
 You can manually increase or decrease the number of instances in the virtual machine scale set by updating the `sku.capacity` property.
 
-### Azure Portal
+### Azure portal
 
 1. Navigate to an existing Virtual machine scale set.
 1. Under **Settings,** select the **Scaling** tab.
