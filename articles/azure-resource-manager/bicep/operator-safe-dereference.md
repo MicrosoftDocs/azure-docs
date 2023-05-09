@@ -2,7 +2,7 @@
 title: Bicep safe-dereference operator
 description: Describes Bicep safe-dereference operator.
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 05/09/2023
 ---
 
 # Bicep safe-dereference operator
@@ -17,7 +17,10 @@ The safe-dereference operator provides a way to access properties of an object o
 A safe-dereference operator applies a member access, `.?<property>`, or element access, `[?<index>]`, operation to its operand only if that operand evaluates to non-null; otherwise, it returns null. That is,
 
 - If `a` evaluates to `null`, the result of `a.?x` or `a[?x]` is `null`.
-- If a evaluates to non-null, the result of `a.?x` or `a[?x]` is the same as the result of `a.x` or `a[x]`, respectively.
+- If `a` is an object that doesn't have an `x` property, then `a.?x` is `null`.
+- If `a` is an array whose length is less than or equal to `x`, then `a[?x]` is `null`.
+- If `a` is non-null and has a property named `x`, the result of `a.?x` is the same as the result of `a.x`.
+- If `a` is non-null and has an element at index `x`, the result of `a[?x]` is the same as the result of `a[x]`
 
 The safe-dereference operators are short-circuiting. That is, if one operation in a chain of conditional member or element access operations returns `null`, the rest of the chain doesn't execute. In the following example, `.?name` isn't evaluated if `storageAccountsettings[?i]` evaluates to `null`:
 

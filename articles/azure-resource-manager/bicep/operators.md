@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 09/10/2021
+ms.date: 05/09/2023
 ---
 
 # Bicep operators
@@ -109,7 +109,7 @@ The safe-dereference operator helps to prevent errors that can occur when attemp
 
 | Operator | Name | Description |
 | ---- | ---- | ---- |
-| `.?<property>`, `[?<index>]` | [Safe-dereference](./operator-safe-dereference.md#safe-dereference) | Applies an object member access or an array element access operation to its operand only if that operand evaluates to non-null, otherwise, it returns `null`. |
+| `<base>.?<property>`, `<base>[?<index>]` | [Safe-dereference](./operator-safe-dereference.md#safe-dereference) | Applies an object member access or an array element access operation to its operand only if that operand evaluates to non-null, otherwise, it returns `null`. |
 
 ## Next steps
 
