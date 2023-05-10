@@ -1041,9 +1041,6 @@
       - name: Tables
         tocHref: /azure/storage/tables/
         topicHref: /azure/storage/tables/table-storage-overview
-  - name: Storage Tasks
-    tocHref: /azure/storage-tasks/
-    topicHref: /azure/storage-tasks/
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/
