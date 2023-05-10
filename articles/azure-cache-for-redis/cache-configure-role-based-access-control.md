@@ -38,7 +38,12 @@ As documented on [Redis Access Control List](https://redis.io/docs/management/se
 
 ### Command categories
 
-Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) are still blocked. The following groups are useful command categories that Redis supports. For more information on command categories, see the full list under the heading [Command Categories](https://redis.io/docs/management/security/acl/).
+Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. 
+
+- Use `+@commandcategory` to allow a command category
+- Use `-@commandcategory` to disallow a command category
+
+These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) are still blocked. The following groups are useful command categories that Redis supports. For more information on command categories, see the full list under the heading [Command Categories](https://redis.io/docs/management/security/acl/).
 
 - **admin**
   - Administrative commands. Normal applications never need to use these, including `MONITOR`, `SHUTDOWN`, and others.
@@ -61,6 +66,10 @@ Redis has created groupings of commands such as administrative commands, dangero
 - **write**
   - Writing to keys (values or metadata).
 
+### Commands
+
+_Commands_ allows you to control which specific commands can be executed by a particular Redis user. Use `+command` to allow and `-command` to disallow a command
+
 ### Keys
 
 Keys allow you to control access to specific keys or groups of keys stored in the cache.
@@ -71,21 +80,21 @@ Keys allow you to control access to specific keys or groups of keys stored in th
 
 ### How to specify permissions
 
-To specify permissions, you need to create a string to save as your custom access policy then assign the string to your Azure Cache for Redis user.
+To specify permissions, you need to create a string to save as your custom access policy, then assign the string to your Azure Cache for Redis user.
 
 The following list contains some examples of permission strings for various scenarios.
 
 1. Allow application to execute all commands on all keys
 
-   Permissions string: `@all allkeys`
+   Permissions string: `+@all allkeys`
 
-1. Allow application to execute all commands on keys with prefix `Az`
+1. Allow application to execute only _read_ commands
 
-    Permissions string: `@all ~Az`
+    Permissions string: `+@read *`
 
-1. All my application to execute only _read_ commands on all keys
+1. Allow application to execute _read_ command category and set command on keys with prefix `Az`.
 
-     Permissions string: `@read allkeys`
+    Permissions string: `+@read +set ~Az*`
 
 ## Configure a custom data access policy for your application
 
@@ -93,15 +102,17 @@ The following list contains some examples of permission strings for various scen
 
 1. From the Resource menu, select **(PREVIEW) Data Access Policy**.
 
-   :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-configuration.png" alt-text="Screenshot showing Data Access Configuration highlighed in the Resourece menu.":::
+   :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-configuration.png" alt-text="Screenshot showing Data Access Configuration highlighted in the Resource menu.":::
 
-1. Select **Add** and choose **New Access Policy**
+1. Select **Add** and choose **New Access Policy**.
 
    :::image type="content" source="media/cache-configure-role-based-access-control/cache-add-custom-policy.png" alt-text="Screenshot showing a form to add custom access policy.":::
 
 1. Provide a name for your access policy.
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
+
+1. 
 
 ## Next steps
 
