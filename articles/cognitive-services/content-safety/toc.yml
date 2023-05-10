@@ -33,6 +33,8 @@ items:
   items:
   - name: Use a blocklist
     href: how-to/use-blocklist.md
+  - name: Encryption of data at rest
+    href: how-to/encrypt-data-at-rest.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks

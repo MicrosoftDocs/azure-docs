@@ -44,13 +44,13 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
 
 The below fields must be included in the url:
 
-| Name            |Type     |  Description             | Type   |
+| Name            |Required     |  Description             | Type   |
 | :-------------- |-------- |:------------------------ | ------ |
 | **API Version** |Required |This is the API version to be checked. Current version is: api-version=2023-04-30-preview. Example: `<endpoint>/contentsafety/text:analyze?api-version=2023-04-30-preview` | String |
 
 The parameters in the request body are defined in this table:
 
-| Name                  | Type     | Description              | Type    |
+| Name                  | Required     | Description              | Type    |
 | :-------------------- | -------- | :----------------------- | ------- |
 | **text**              | Required | This is the raw text to be checked. Other non-ascii characters can be included. | String  |
 | **categories**        | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We will use multiple categories to get scores in a single request. | String  |
