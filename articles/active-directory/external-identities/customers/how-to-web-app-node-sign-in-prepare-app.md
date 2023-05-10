@@ -1,5 +1,5 @@
 ---
-title: Sign in users in your own Node.js web application  - Prepare your web app
+title: Sign in users in your own Node.js web application  - prepare your app
 description: Learn about how to prepare an app that signs in users.
 services: active-directory
 author: kengaderdus
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/22/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application  - Prepare your web app
+# Sign in users in your own Node.js web application  - prepare your app
 
 In this article, you create a Node.js(Express) project and organize all the folders and files you require. You add authentication to the application you build here. This Node.js(Express) web application's views use [Handlebars](https://handlebarsjs.com).
 

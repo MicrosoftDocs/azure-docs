@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/22/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to configure a sample Node.js daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
@@ -161,6 +161,8 @@ On the API side, the web API must verify that the access token has the required 
 A Web API endpoint should be prepared to accept calls from both users and applications. Therefore, it should have a way to respond to each request accordingly. For example, a call from a user via delegated permissions/scopes receives the user's data to-do list. On the other hand, a call from an application via application permissions/roles may receive the entire to-do list. However, in this article, we're only making an application call, so we didn't need to configure delegated permissions/scopes.
 
 ## Next steps
+
+- Learn how to [Acquire an access token, then call a web API in your own Node.js daemon app](how-to-daemon-node-call-api-overview.md).
 
 - Learn how to [Use client certificate instead of a secret for authentication in your Node.js confidential app](how-to-web-app-node-use-certificate.md).
 

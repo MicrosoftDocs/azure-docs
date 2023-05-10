@@ -1,5 +1,5 @@
 ---
-title: Sign in users and call an API in your own Node.js web application  - Prepare your client app and API
+title: Sign in users and call an API a Node.js web application - prepare client app and API
 description: Learn about how to prepare your Node.js client web app and ASP.NET web API. The app you here prepare is what you configure later to sign in users, then call an API.
 services: active-directory
 author: kengaderdus
@@ -10,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application  - Prepare your client app and API
+# Sign in users and call an API a Node.js web application - prepare client app and API
 
 In this article, you create app projects for both the client web app and web API. Later, you add authentication and authorization to this app. You create app projects for an ASP.NET web API and a Node.js web app client. 
 
@@ -70,7 +70,7 @@ Create a folder to host your node application, such as `ciam-sign-in-call-api-no
 
 ## Install app dependencies
 
-n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan`, `body-parser`, `method-override` and `@azure/msal-node` packages by running the following commands:
+In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan`, `body-parser`, `method-override` and `@azure/msal-node` packages by running the following commands:
 
 ```console
     npm install express dotenv hbs express-session axios cookie-parser http-errors body-parser morgan method-override @azure/msal-node   
