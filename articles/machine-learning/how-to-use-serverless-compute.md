@@ -64,92 +64,6 @@ When submitting the job, you still need sufficient Azure Machine Learning comput
 
 When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" to see all the quota consumed by serverless jobs.
 
-## Identity support and credential pass through
-
-* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
-
-    # [Python SDK](#tab/python)
-
-    ```python
-    from azure.ai.ml import command
-    from azure.ai.ml import MLClient     # Handle to the workspace
-    from azure.identity import DefaultAzureCredential     # Authentication package
-    from azure.ai.ml.entities import ResourceConfiguration
-    from azure.ai.ml.entities import UserIdentityConfiguration 
-
-    credential = DefaultAzureCredential()
-    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
-    ml_client = MLClient(
-        credential=credential,
-        subscription_id="<Azure subscription id>", 
-        resource_group_name="<Azure resource group>",
-        workspace_name="<Azure Machine Learning Workspace>",
-    )
-    job = command(
-        command="echo 'hello world'",
-        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-            identity=UserIdentityConfiguration(),
-    )
-    # submit the command job
-    ml_client.create_or_update(job)
-    ```
-
-    # [Azure CLI](#tab/cli)
-
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-    command: echo "hello world"
-    environment:
-      image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-    identity:
-      type: user_identity
-    ```
-
-    ---
-
-* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity with the serverless job for storage access.
-
-    # [Python SDK](#tab/python)
-
-    ```python
-    from azure.ai.ml import command
-    from azure.ai.ml import MLClient     # Handle to the workspace
-    from azure.identity import DefaultAzureCredential    # Authentication package
-    from azure.ai.ml.entities import ResourceConfiguration
-    from azure.ai.ml.entities import ManagedIdentityConfiguration
-
-    credential = DefaultAzureCredential()
-    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
-    ml_client = MLClient(
-        credential=credential,
-        subscription_id="<Azure subscription id>", 
-        resource_group_name="<Azure resource group>",
-        workspace_name="<Azure Machine Learning Workspace>",
-    )
-    job = command(
-        command="echo 'hello world'",
-        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-            identity= ManagedIdentityConfiguration(),
-    )
-    # submit the command job
-    ml_client.create_or_update(job)
-
-    ```
-
-    # [Azure CLI](#tab/cli)
-
-    ```yaml
-    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-    command: echo "hello world"
-    environment:
-      image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-    identity:
-      type: managed
-
-    ---
-
-  For information on attaching user-assigned managed identity, see [attach user assigned managed identity](./how-to-submit-spark-jobs.md#attach-user-assigned-managed-identity-using-cli-v2).
-
 ## Configure properties
 
 If no compute target is specified for command, sweep, and AutoML jobs then the compute defaults to serverless compute.
@@ -326,6 +240,93 @@ resources:
 ```
 
 ---
+
+## Identity support and credential pass through
+
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
+
+    # [Python SDK](#tab/python)
+
+    ```python
+    from azure.ai.ml import command
+    from azure.ai.ml import MLClient     # Handle to the workspace
+    from azure.identity import DefaultAzureCredential     # Authentication package
+    from azure.ai.ml.entities import ResourceConfiguration
+    from azure.ai.ml.entities import UserIdentityConfiguration 
+
+    credential = DefaultAzureCredential()
+    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+    ml_client = MLClient(
+        credential=credential,
+        subscription_id="<Azure subscription id>", 
+        resource_group_name="<Azure resource group>",
+        workspace_name="<Azure Machine Learning Workspace>",
+    )
+    job = command(
+        command="echo 'hello world'",
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+            identity=UserIdentityConfiguration(),
+    )
+    # submit the command job
+    ml_client.create_or_update(job)
+    ```
+
+    # [Azure CLI](#tab/cli)
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+    command: echo "hello world"
+    environment:
+      image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+    identity:
+      type: user_identity
+    ```
+
+    ---
+
+* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity with the serverless job for storage access.
+
+    # [Python SDK](#tab/python)
+
+    ```python
+    from azure.ai.ml import command
+    from azure.ai.ml import MLClient     # Handle to the workspace
+    from azure.identity import DefaultAzureCredential    # Authentication package
+    from azure.ai.ml.entities import ResourceConfiguration
+    from azure.ai.ml.entities import ManagedIdentityConfiguration
+
+    credential = DefaultAzureCredential()
+    # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
+    ml_client = MLClient(
+        credential=credential,
+        subscription_id="<Azure subscription id>", 
+        resource_group_name="<Azure resource group>",
+        workspace_name="<Azure Machine Learning Workspace>",
+    )
+    job = command(
+        command="echo 'hello world'",
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
+            identity= ManagedIdentityConfiguration(),
+    )
+    # submit the command job
+    ml_client.create_or_update(job)
+
+    ```
+
+    # [Azure CLI](#tab/cli)
+
+    ```yaml
+    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+    command: echo "hello world"
+    environment:
+      image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+    identity:
+      type: managed
+
+    ---
+
+  For information on attaching user-assigned managed identity, see [attach user assigned managed identity](./how-to-submit-spark-jobs.md#attach-user-assigned-managed-identity-using-cli-v2).
+
 ## AutoML job
 
 
