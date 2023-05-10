@@ -398,37 +398,37 @@ docker-compose up
 
 In addition to the [prerequisites](#prerequisites), you need to do the following to process a custom document:
 
-#### &bullet; Create a folder to store the following files
+#### Create a folder to store the following files
 
-  1. [**.env**](#-create-an-environment-file)
-  1. [**nginx.conf**](#-create-an-nginx-file)
-  1. [**docker-compose.yml**](#-create-a-docker-compose-file)
+  * [**.env**](#-create-an-environment-file)
+  * [**nginx.conf**](#-create-an-nginx-file)
+  * [**docker-compose.yml**](#-create-a-docker-compose-file)
 
-#### &bullet; Create a folder to store your input data
+#### Create a folder to store your input data
 
-  1. Name this folder **files**.
-  1. We reference the file path for this folder as  **{FILE_MOUNT_PATH}**.
-  1. Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called files, located in the same folder as the docker-compose file, the .env file entry is `FILE_MOUNT_PATH="./files"`
+  * Name this folder **files**.
+  * We reference the file path for this folder as  **{FILE_MOUNT_PATH}**.
+  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called files, located in the same folder as the docker-compose file, the .env file entry is `FILE_MOUNT_PATH="./files"`
 
-#### &bullet; Create a folder to store the logs  written by the Form Recognizer service on your local machine
+#### Create a folder to store the logs  written by the Form Recognizer service on your local machine
 
-  1. Name this folder **output**.
-  1. We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
-  1. Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called output, located in the same folder as the docker-compose file, the .env file entry is `OUTPUT_MOUNT_PATH="./output"`
+  * Name this folder **output**.
+  * We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
+  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called output, located in the same folder as the docker-compose file, the .env file entry is `OUTPUT_MOUNT_PATH="./output"`
 
-#### &bullet; Create a folder for storing internal processing shared between the containers
+#### Create a folder for storing internal processing shared between the containers
 
-  1. Name this folder **shared**.
-  1. We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
-  1. Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called shared, located in the same folder as the docker-compose file, the .env file entry is `SHARED_MOUNT_PATH="./shared"`
+  * Name this folder **shared**.
+  * We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
+  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called shared, located in the same folder as the docker-compose file, the .env file entry is `SHARED_MOUNT_PATH="./shared"`
   
-#### &bullet; Create a folder for the Studio to store project related information
+#### Create a folder for the Studio to store project related information
 
-  1. Name this folder **db**.
-  1. We reference the file path for this folder as  **{DB_MOUNT_PATH}**.
-  1. Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called db, located in the same folder as the docker-compose file, the .env file entry is `DB_MOUNT_PATH="./db"`
+  * Name this folder **db**.
+  * We reference the file path for this folder as  **{DB_MOUNT_PATH}**.
+  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called db, located in the same folder as the docker-compose file, the .env file entry is `DB_MOUNT_PATH="./db"`
 
-#### &bullet; Create an environment file
+#### Create an environment file
 
   1. Name this file **.env**.
 
@@ -444,7 +444,7 @@ FORM_RECOGNIZER_KEY="YourFormRecognizerKey"
 NGINX_CONF_FILE="./nginx.conf"
   ```
 
-#### &bullet; Create an **nginx** file
+#### Create an **nginx** file
 
   1. Name this file **nginx.conf**.
 
@@ -541,7 +541,7 @@ http {
 
 ```
 
-#### &bullet; Create a **docker compose** file
+#### Create a **docker compose** file
 
 1. Name this file **docker-compose.yml**
 
@@ -643,11 +643,11 @@ Custom template containers require a few different configuration and support add
 | Eula | Yes	| License acceptance Example: Eula=accept|
 |Billing	| Yes |	Billing endpoint URI of the FR resource |
 |ApiKey	| Yes	| The endpoint key of the FR resource |
-| Queue:Azure:ConnectionString	| No	| Azure Queue connection string |
-|Storage:ObjectStore:AzureBlob:ConnectionString	| No	| Azure Blob connection string |
+| Queue:Azure:ConnectionString	| No| Azure Queue connection string |
+|Storage:ObjectStore:AzureBlob:ConnectionString	| No| Azure Blob connection string |
 | HealthCheck:MemoryUpperboundInMB	| No |	Memory threshold for reporting unhealthy to liveness. Default: Same as recommended memory |
-| StorageTimeToLiveInMinutes	| No	| TTL duration to remove all intermediate and final files. Default: 2 days, TTL can set between 5 mins to 7 days |
-| Task:MaxRunningTimeSpanInMinutes |	No	| Maximum running time for treating request as timeout. Default: 60 minutes |
+| StorageTimeToLiveInMinutes	| No| TTL duration to remove all intermediate and final files. Default: 2 days, TTL can set between 5 mins to 7 days |
+| Task:MaxRunningTimeSpanInMinutes |	No| Maximum running time for treating request as timeout. Default: 60 minutes |
 | HTTP_PROXY_BYPASS_URLS | No |	Specify URLs for bypassing proxy Example: HTTP_PROXY_BYPASS_URLS = abc.com, xyz.com |
 | AzureCognitiveServiceReadHost (Recipt, IdDocument Containers Only)| Yes	| Specify Read container uri Example:AzureCognitiveServiceReadHost=http://onprem-frread:5000 |
 | AzureCognitiveServiceLayoutHost (Document, Invoice Containers Only) |	Yes	| Specify Layout container uri Example:AzureCognitiveServiceLayoutHost=http://onprem-frlayout:5000 |
