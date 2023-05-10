@@ -238,4 +238,4 @@ At this point, you're ready to test your client daemon app and web API:
     node . --op getToDos
     ```
 
-If your daemon app and web API successfully run, you should see data returned for the web API endpoint in the console.
+If your daemon app and web API successfully run, you should see data returned by the web API endpoint in the console.
