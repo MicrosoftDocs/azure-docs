@@ -4,7 +4,7 @@ description: List of services supporting managed identities
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/10/2022
+ms.date: 05/10/2023
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -18,6 +18,8 @@ Managed identities for Azure resources provide Azure services with an automatica
 
 >[!IMPORTANT]
 > New technical content is added daily. This list does not include every article that talks about managed identities. Please refer to each service's content set for details on their managed identities support. Resource provider namespace information is available in the article titled [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md).
+
+## Services supporting managed identities
 
 The following Azure services support managed identities for Azure resources:
 
