@@ -182,7 +182,7 @@ additionalContent:
             - text: "How to Migrate HPC environments to Microsoft Azure Part One"
               url: https://www.youtube.com/watch?v=1GjWhGrPI_A
             - text: "Want to learn more? Check out the 'HPC Partners' playlist!"
-              url: https://aka.ms/HPCDeepDives
+              url: https://aka.ms/HPCPartners
           # Card
         - title: HPC Events
           summary: Azure Infrastructure
