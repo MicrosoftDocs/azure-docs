@@ -1,23 +1,24 @@
 ---
-title: Vector Search in Azure Cosmos DB for MongoDB vCore
+title: Vector search on high-dimensional vector data
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Learn how to use vector indexing and search in Azure Cosmos DB for MongoDB vCore
-ms.service: cosmos-db
-ms.subservice: mongodb-vcore
-ms.topic: how-to
+description: Use vector indexing and search to integrate AI-based applications in Azure Cosmos DB for MongoDB vCore
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: nayakshweta
-ms.date: 05/05/2023
+ms.service: cosmos-db
+ms.subservice: mongodb-vcore
+ms.topic: conceptual
+ms.date: 05/10/2023
 ---
 
-# Using Vector Search in Azure Cosmos DB for MongoDB vCore
+# Using Vector Search on high-dimensional vector data in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-In this article, you learn how to use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications, including apps built using [Azure OpenAI embeddings](https://learn.microsoft.com/azure/cognitive-services/openai/tutorials/embeddings), with your data stored in Cosmos DB. This enables you to efficiently store, index, and query high dimensional vector data stored directly in Azure Cosmos DB for MongoDB vCore, eliminating the need to transfer your data to more expensive alternatives for basic vector search.
+Use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications, including apps built using [Azure OpenAI embeddings](../../../cognitive-services/openai/tutorials/embeddings.md), with your data stored in Azure Cosmos DB. This enables you to efficiently store, index, and query high dimensional vector data stored directly in Azure Cosmos DB for MongoDB vCore, eliminating the need to transfer your data to more expensive alternatives for vector search capabilities.
 
-## What is Vector Search?
+## What is Vector search?
+
 Vector search is a method that helps you find similar items based on their data characteristics rather than exact matches on a property field. This technique is useful in applications such as searching for similar texts, finding related images, making recommendations, or even detecting anomalies in data. It works by representing data points as vectors (lists of numbers) in a high-dimensional space, and then measuring the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
 
 By integrating vector search capabilities natively, you can now unlock the full potential of your data in applications built on top of the OpenAI API, and your custom-built solutions that use vector embeddings.
