@@ -6,7 +6,7 @@ ms.subservice: baremetal-epic
 ms.date: 04/01/2023
 ---
 
-#  Heading 1
+#  Overview h1
 
 nstall on the machines.
 
@@ -17,7 +17,7 @@ The available Linux OS versions are:
 - Red Hat Enterprise Linux (RHEL)
 - SUSE Linux Enterprise Server (SLES)
 
-## H2
+## Overview h2
 
 
 
