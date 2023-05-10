@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Include file to create cloud components for IoT Hub connection.
+ description: Contains sections to show how to create an IoT Hub, register a device, and get the connection details. 
  author: timlt
  ms.service: iot-develop
  ms.topic: include

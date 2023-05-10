@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 03/28/2023
+ms.date: 05/10/2023
 ms.custom:  engagement-fy23
 ---
 
