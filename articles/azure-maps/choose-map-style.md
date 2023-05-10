@@ -38,15 +38,15 @@ map.setStyle({
 });
 ```
 
-The following tool shows how the different style options change how the map is rendered. To see the 3D buildings, zoom in close to a major city.
+For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples].
 
+<!-----------------------------------------------------------------------------------------------
 <br/>
-
 <iframe height="700" scrolling="no" title="Map style options" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Map style options</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+----------------------------------------------------------------------------------------------->
 ## Set a base map style
 
 You can also initialize the map control with one of the [base map styles] that are available in the Web SDK. You can then use the `setStyle` function to update the base style with a different map style.
@@ -146,3 +146,5 @@ See the following articles for more code samples to add to your maps:
 [Add map controls]: map-add-controls.md
 [Add a symbol layer]: map-add-pin.md
 [Add a bubble layer]: map-add-bubble-layer.md
+[Map style options]: https://samples.azuremaps.com/?search=style%20option&sample=map-style-options
+[Azure Maps Samples]: https://samples.azuremaps.com
