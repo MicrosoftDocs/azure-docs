@@ -5,7 +5,7 @@ ms.service: app-spaces
 ms.topic: how-to
 ms.author: chcomley
 author: chcomley
-ms.date: 05/05/2023
+ms.date: 05/10/2023
 ---
 
 # Use a sample app with Azure App Spaces

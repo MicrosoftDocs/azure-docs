@@ -1,43 +1,36 @@
 ---
 title: About Azure App Spaces
-description: Learn how Azure App Spaces helps you develop and host web applications.
+description: Learn how Azure App Spaces helps you develop and manage web applications with less complexity.
 ms.service: app-spaces
 ms.topic: overview
 author: chcomley
 ms.author: chcomley
-ms.date: 05/05/2023
+ms.date: 05/10/2023
 ---
 
 # About Azure App Spaces
 
-You can provision and manage your web application with Azure App Spaces, which uses native GitHub integrations. App Spaces is based on the Kubernetes container orchestration system, which provides developers with the flexibility and scalability of a containerized architecture. You can deploy your applications as containers, and App Spaces takes care of the underlying infrastructure, including load balancing, autoscaling, and failover.
+Azure App Spaces is an intelligence service for developers that reduces the complexity of creating and managing web apps. It helps you identify the correct services for your applications on Azure and provides a user-friendly management experience that's streamlined for the development process. 
 
-Once the app is deployed, you have a simplified experience for configuring and developing only the elements pertinent to the actual development cycle.
+You get all the benefits of deploying an app via existing Azure services, like [Container Apps](../container-apps/overview.md), [Static Web Apps](../static-web-apps/overview.md), and [App Service](../app-service/overview.md), without the operator and IT-focussed technicality that tends to accompany the task of developing apps.
+### Ease of use
 
-<!--
-Our focus is on JavaScript/Python developers primarily, with an emphasis on the breadth developer market.
--->
+App Spaces limits the decisions required for developers to get started with web apps. Depending on what's detected from your repository, App Spaces may suggest a service to provision, for example, if you have a Dockerfile inside your GitHub repository, it suggests Container Apps as the service for your app.
 
-## Why use App Spaces?
+The creation process is categorized in the following simplified sections:
+- GitHub Repository: Select your organization, repo, and branch.
+- App Space details: Enter a name for your App Space and use the auto-detected language, service, and plan.
+- Azure Destination: Select a subscription and region for deployment.
 
-...
+Within a few minutes you can deploy your App Space.
 
-NEED IMAGE?
+### Simplified management
 
-### Security
+App Spaces only pulls information that you need during the development process, like environment management, environment variables, and connection strings, so developing and managing your app components is straightforward and simplified. For more information, see [Manage components](quickstart-deploy-web-app.md#manage-components).
 
-One of the key benefits of App Spaces is its security features. Each space is fully isolated from the others, with its own network and security controls. You can configure access controls to ensure that only authorized users can access your applications. You can also configure logging and monitoring features to track usage and identify potential security issues.
+### Simplified consistent pricing
 
-### Monitoring
-
-App Spaces provides built-in tools for monitoring and diagnosing issues with applications. You can view real-time performance metrics, set up alerts, and access detailed diagnostic logs to help identify and resolve issues quickly. You can also integrate with Azure Monitor to monitor your applications alongside other Azure services.
-
-### Pricing
-
-With App Spaces, you only pay for the Azure compute resources that you use. The compute resources you use get determined by the *App Spaces plan* that you run your apps on. App Spaces also offers a free tier, which is ideal for small-scale applications and testing purposes.
-
-Besides App Spaces, Azure offers other services that you can use for hosting websites and web applications. For hosting HTTP-based web applications, REST APIs, and mobile back ends, consider [Azure App Service](../app-service/overview.md). For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](../service-fabric/index.yml). If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](../virtual-machines/index.yml). For more information about how to choose between Azure services, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
-
+ Azure App Spaces offers consistent and simplified pricing with selection for flat rates of $20 or $40 per month. This way you don't have to worry about any accidental charges.
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -45,4 +38,5 @@ Besides App Spaces, Azure offers other services that you can use for hosting web
 
 ## Related articles
 
-- [Deploy an App Spaces template](deploy-app-spaces-template.md)
+- [Deploy an Azure App Spaces template](deploy-app-spaces-template.md)
+- 
