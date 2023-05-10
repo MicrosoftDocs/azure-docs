@@ -26,7 +26,7 @@ To verify if your virtual machines have enabled integrity monitoring:
 1. Select the resource (**Virtual Machines**).
 1. Under **Settings**, select **configuration**. In the security type panel, select **integrity monitoring**.
 
-    :::image type="content" source="media/trusted-launch/verify-intergrity-boot-on.png" alt-text="Integrity Booting.":::
+    :::image type="content" source="media/trusted-launch/verify-integrity-boot-on.png" alt-text="Integrity Booting.":::
 
 1. Save the changes.
 
