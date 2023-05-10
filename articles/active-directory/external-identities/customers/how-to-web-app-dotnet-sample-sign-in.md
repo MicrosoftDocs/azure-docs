@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample ASP.NET web application by using an Azure AD for customers tenant
+title: Sign in users to a sample ASP.NET web application
 description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using an Azure AD for customers tenant.
 services: active-directory
 author: cilwerner
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/22/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample ASP.NET web application by using an Azure Active Directory (AD) for customers tenant
+# Sign in users for a sample ASP.NET web app in an Azure AD for customers tenant
 
 This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for ASP.NET to handle authentication.
 

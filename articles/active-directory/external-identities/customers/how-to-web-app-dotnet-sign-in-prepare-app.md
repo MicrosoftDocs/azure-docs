@@ -1,5 +1,5 @@
 ---
-title: Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant - Prepare your application 
+title: Prepare your application - Sign in users to an ASP.NET web app 
 description: Create and prepare an ASP.NET web app for authentication
 services: active-directory
 author: cilwerner
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/23/2023
 ms.custom: it-pro
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant.
 ---
 
-# Sign in users in your own ASP.NET web application by using Azure Active Directory (AD) for customers tenant - Prepare your application
+# Prepare your application: Sign in users to an ASP.NET web app using an Azure Active Directory (AD) for customers tenant
 
 After registering an application and creating a user flow in a Azure Active Directory (AD) for customers tenant, an ASP.NET web application can be created using an integrated development environment (IDE). In this article, you'll create an ASP.NET project in your IDE, and configure it for authentication.
 

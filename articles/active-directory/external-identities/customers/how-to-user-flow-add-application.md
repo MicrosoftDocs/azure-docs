@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/07/2023
+ms.date: 05/09/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -51,5 +51,6 @@ We have several samples and how-to guides that can help you update your applicat
 
 ## Next steps
 
-- [Enable password reset](how-to-enable-password-reset-customers.md).
+- If you selected email with password sign-in, [enable password reset](how-to-enable-password-reset-customers.md).
 - Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.
+- [Add multifactor authentication (MFA) to a customer-facing app](how-to-multifactor-authentication-customers.md).

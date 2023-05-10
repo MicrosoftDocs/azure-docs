@@ -83,11 +83,11 @@ Several user flow settings let you control how the customer signs up for the app
 
 For details about configuring a user flow, see [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
 
-## Create custom extensions to the authentication flow
+## Add your own business logic
 
 Azure AD for customers is designed for flexibility by allowing you to define additional actions at certain points within the authentication flow. Using a custom authentication extension, you can add claims from external systems to the token just before it's issued to your application.
 
-Learn more about [custom authentication extensions](concept-custom-extensions.md).
+Learn more about [adding your own business logic](concept-custom-extensions.md)  with custom authentication extensions.
 
 
 ## Microsoft Entra security and reliability

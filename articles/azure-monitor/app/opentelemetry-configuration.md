@@ -414,22 +414,22 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 #### [Node.js](#tab/nodejs)
 
-1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package in your project.
+1. Install the [OpenTelemetry Collector Trace Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-http) package in your project.
 
     ```sh
-        npm install @opentelemetry/exporter-otlp-http
+        npm install @opentelemetry/exporter-trace-otlp-http
     ```
 
 2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
-    const { OTLPTraceExporter } = require('@opentelemetry/exporter-otlp-http');
+    const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+    const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
     
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const otlpExporter = new OTLPTraceExporter();
-    appInsights.getTraceHandler().getTracerProvider().addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
+    appInsights.getTraceHandler().addSpanProcessor(new BatchSpanProcessor(otlpExporter));
     ```
 
 #### [Python](#tab/python)

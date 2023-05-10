@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 05/09/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -17,10 +17,10 @@ ms.custom: it-pro
 
 # Add multifactor authentication (MFA) to a customer-facing app
 
-[Multifactor authentication](../../authentication/concept-mfa-howitworks.md) (MFA) adds a layer of security to your customer-facing applications. With MFA, customers are prompted for a one-time passcode in addition to their username and password when they sign up or sign in to your app. This article describes how to enforce MFA for your customers by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
+[Multifactor authentication](../../authentication/concept-mfa-howitworks.md) (MFA) adds a layer of security to your customer-facing applications. With MFA, customers who sign in with a username and password are prompted for a one-time passcode as a second verification method. This article describes how to enforce MFA for your customers by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
 
 > [!NOTE]
-> If you want to enable MFA, set your local account authentication method to **Email with password**. If you set your local account option to **Email with one-time passcode**, customers who use this method won't be able to sign in because the one-time passcode is already their first-factor sign-in method and can't be used as a second factor. Currently, other verification methods aren't available for customer scenarios.
+> If you want to enable MFA, set your local account authentication method to **Email with password**. If you set your local account option to **Email with one-time passcode**, customers who use this method won't be able to sign in because the one-time passcode is already their first-factor sign-in method and can't be used as a second factor. Currently, one-time passcode is the only method available for MFA in customer tenants.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
 1. Select **Create** to create to enable your policy.
 
-## Enable email one-time passcode
+## Enable email one-time passcode as an MFA method
 
 Enable the email one-time passcode authentication method in your customer tenant for all users.
 
