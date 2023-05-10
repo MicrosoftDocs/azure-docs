@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/22/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn Learn how to use client certificate instead of secrets for authentication in my Node.js web app
