@@ -39,4 +39,7 @@ This article provides a reference of log and metric data collected to analyze th
 | Direction | The direction of the operation. The available values are: Inbound, Outbound |
 
 ## Next steps
-See [Monitor push and pull delivery reference](monitor-pull-push-reference.md).
+See the following articles:
+
+- [Monitor pull delivery reference](monitor-pull-reference.md).
+- [Monitor push delivery reference](monitor-push-reference.md).
