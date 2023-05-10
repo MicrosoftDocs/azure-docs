@@ -1,5 +1,5 @@
 ---
-title: Attach virtual machine to a Virtual Machine Scale set
+title: Attach virtual machine to a Virtual Machine Scale Set
 description: How to attach a virtual machine to a Virtual Machine Scale Set
 author: fitzgeraldsteele 
 ms.author: fisteele 
@@ -11,10 +11,10 @@ ms.reviewer: jushiman
 
 # Attach VMs to a Virtual Machine Scale Set
 
-You can attach a standalone virtual machine to a Virtual Machine Scale Set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot priority, and VM size.
-
 > [!IMPORTANT]
 > You can only attach VMs to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
+
+You can attach a standalone virtual machine to a Virtual Machine Scale Set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot priority, and VM size.
 
 ## Attach a new VM to a Virtual Machine Scale Set
 
@@ -23,17 +23,16 @@ Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creati
 > [!NOTE]
 > Attaching a virtual machine to Virtual Machine Scale Set does not by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 
-
-### Azure portal
+### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
 1. Select **Create**
 2. Select **Azure virtual machine**.
 3. In the **Basics** tab, open the **Availability options** dropdown and select **Virtual Machine Scale Set**.
-4. In the **Virtual machine scale set** dropdown, select the scale set to which you want to add this virtual machine.
+4. In the **Virtual Machine Scale Set** dropdown, select the scale set to which you want to add this virtual machine.
 5. Optionally, specify the Availability zone or Fault domain to place the VM.
 
-### Azure CLI
+### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az vm create 
@@ -44,20 +43,23 @@ az vm create
   --platform-fault-domain 1
 ```
 
-### Azure PowerShell
+### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzVm `
     -ResourceGroupName 'myResourceGroup' `
     -Name 'myVM' `
     -Location 'East US' `
-	-VmssId `myVmss` `
+    -VmssId 'myVmss' `
     -VirtualNetworkName 'myVnet' `
     -SubnetName 'mySubnet' `
     -SecurityGroupName 'myNetworkSecurityGroup' `
     -PublicIpAddressName 'myPublicIpAddress' `
     -OpenPorts 80,3389
 ```
+---
+
+
 
 ### Exceptions to attaching a VM to a Virtual Machine Scale Set
 
@@ -69,4 +71,4 @@ New-AzVm `
 - You can't detach a VM from a Virtual Machine Scale Set.
 
 ## What's next
-- Learn how to manage updates and maintenance using [Maintenance notification](virtual-machine-scale-sets-maintenance-notifications.md), [Maintenance configurations](../virtual-machines/maintenance-configurations.md), and [Scheduled Events](../virtual-machines/linux/scheduled-events.md)
+Learn how to manage updates and maintenance using [Maintenance notification](virtual-machine-scale-sets-maintenance-notifications.md), [Maintenance configurations](../virtual-machines/maintenance-configurations.md), and [Scheduled Events](../virtual-machines/linux/scheduled-events.md)

@@ -1,17 +1,17 @@
 ---
-title:       Virtual machine scaling profile for virtual machine scale sets 
-description: The virtual machine scaling profile for virtual machine scale sets define the vm configuration you want to use when adding instances to the scale set via autoscaling 
-author:      fitzgeraldsteele # GitHub alias
-ms.author:    fisteele # Microsoft alias
+title: Scaling profile for Virtual Machine Scale Sets
+description: The virtual machine scaling profile for Virtual Machine Scale Sets define the VM configuration you want to use when adding instances to the scale set via autoscaling 
+author: fitzgeraldsteele 
+ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date:     05/05/2023
+ms.date: 05/05/2023
 ms.reviewer: jushiman
 ---
 
-# Virtual machine scaling profile
+# Scaling Profile
 
-Virtual machine scale sets allow you to define a scaling profile or template which specifies the properties of virtual machine instances. Examples of properties set in the virtual machine scaling profile include:
+Virtual machine scale sets allow you to define a scaling profile or template, which specifies the properties of virtual machine instances. Examples of properties set in the virtual machine scaling profile include:
 
 - VM Image
 - Admin credentials
@@ -25,11 +25,11 @@ When you increase the capacity or instance count of the scale set, the scale set
 > Virtual machine scaling profile settings are required for scale sets in Uniform Orchestration Mode, and optional for scale sets in Flexible Orchestration Mode.
 
 ## Create a scale set with a scaling profile
-By default, scale sets are created with a virtual machine scaling profile. See [quickstart](quick-create-portal.md) and [tutorials](tutorial-create-and-manage-cli.md) for examples.
+By default, scale sets are created with a virtual machine scaling profile. See [Create an Azure Virtual Machine](quick-create-portal.md) and [Create and manage Azure Virtual Machines](tutorial-create-and-manage-cli.md) for examples.
 
 ## Create a scale set without a scaling profile
 
-Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. It is useful to create a scale set without a scaling profile when you need complete control over all VM properties, need to follow your own VM naming conventions, you want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
+Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. It's useful to create a scale set without a scaling profile when, need complete control over all VM properties, need to follow your own VM naming conventions, want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
 
 |Feature |Virtual machine scale sets (no scaling profile) |Availability Sets |
 | -------- | :--------: | :--------: |
@@ -42,11 +42,10 @@ Virtual machine scale sets in Flexible Orchestration Mode can optionally be crea
 
 Once you have created the virtual machine scale set, you can manually attach virtual machines.
 
-### ARM template
+> [!NOTE]
+> You cannot create a virtual machine scale set without a scaling profile in the Azure portal
 
-Go to the Azure Quickstart template [vmss-flexible-orchestration-manual-add-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-flexible-orchestration-manual-add-vm) for a full example.
-
-### Azure CLI
+### [Azure CLI](#tab/cli)
 
 By default, the Azure CLI will create a scale set with a scaling profile. Omit the scaling profile parameters to create a virtual machine scale set with no scaling profile.
 
@@ -58,7 +57,7 @@ az vmss create \
 	--platform-fault-domain-count 3 
 ```
 
-### Azure PowerShell
+### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 $vmssConfig = New-AzVmssConfig 
@@ -70,10 +69,13 @@ $vmss = New-AzVmss `
 	-VirtualMachineScaleSet $vmssConfig
 ```
 
-> [!NOTE]
-> You cannot create a virtual machine scale set without a scaling profile in the Azure portal
+### [ARM template](#tab/arm)
+
+Go to the Azure Quickstart Template [Manually add a VM to an existing Virtual Machine Scale Set](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-flexible-orchestration-manual-add-vm) for a full example.
+
+---
+
 
 ## Next steps
-You can [create a new virtual machine scale set with a scaling profile with the Azure portal](quick-create-portal.md).
-
-If you have created a virtual machine scale set without a scaling profile, you can [manually attach a virtual machine](virtual-machine-scale-sets-attach-detach-vm.md).
+- Create a new Virtual Machine Scale Set with a scale profile using the [Azure portal](quick-create-portal.md).
+- If you have created a virtual machine scale set without a scaling profile, you can [manually attach a virtual machine](virtual-machine-scale-sets-attach-detach-vm.md).
