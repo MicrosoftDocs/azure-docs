@@ -12,6 +12,7 @@ ms.date: 07/21/2022
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Configure Azure Active Directory SAML token encryption

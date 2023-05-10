@@ -18,7 +18,7 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="A diagram showing an example batch-kit container workflow.":::
 
-The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
+The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). You are only [billed](speech-container-overview.md#billing) for the Speech containers you use.
 
 | Feature  | Description  |
 |---------|---------|
@@ -712,7 +712,7 @@ Use the Docker `run` command to start the container. This will start an interact
 
 
 
-```Docker
+```bash
 docker run --network host --rm -ti -v /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest
 ```
 
@@ -758,7 +758,7 @@ To run the batch client:
 
 
 
-```Docker
+```bash
 run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization None -language en-US -strict_config
 ```
 
@@ -931,7 +931,7 @@ To run the batch client and container in a single command:
 
 
 
-```Docker
+```bash
 docker run --network host --rm -ti -v /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder /my_nfs/logs
 ```
 
