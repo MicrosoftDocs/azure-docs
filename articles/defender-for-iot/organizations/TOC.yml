@@ -172,8 +172,6 @@
   - name: Visualize devices
     displayName: assets, network devices
     items:
-    - name: Create data mining reports
-      href: how-to-create-data-mining-queries.md
     - name: Manage device inventory
       items:
       - name: Azure portal
@@ -188,6 +186,8 @@
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
       displayName: notification, notifications
+    - name: Create data mining reports
+      href: how-to-create-data-mining-queries.md
   - name: Manage alerts
     items:
     - name: Azure portal
