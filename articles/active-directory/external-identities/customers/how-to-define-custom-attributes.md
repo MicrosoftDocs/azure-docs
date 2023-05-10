@@ -31,7 +31,7 @@ User attributes are values collected from the user during self-service sign-up. 
 
 If you want to collect information beyond the built-in attributes, you can create *custom user attributes* and add them to your sign-up user flow. Custom attributes are also known as directory extension attributes because they extend the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in an app named *b2c-extensions-app*. After a user enters a value for the custom attribute during sign-up, it's added to the user object and can be called via the Microsoft Graph API.
 
-If your application relies on certain built-in or custom user attributes, you can include these attributes in the token that is sent to your application. [Learn more](how-to-add-attributes-to-token.md)
+If your application relies on certain built-in or custom user attributes, you can [include these attributes in the token](how-to-add-attributes-to-token.md) that is sent to your application.
 
 ## Create custom attributes
 
