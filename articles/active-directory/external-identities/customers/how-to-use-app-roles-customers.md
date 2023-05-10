@@ -92,7 +92,7 @@ To emit the group membership claims in security tokens, follow these steps:
 
 ### Add members to a group
 
-Now that you've added app groups claim in your application, add users to the security groups. If you don't have security group, [create one](../../active-directory/fundamentals/how-to-manage-groups.md#create-a-basic-group-and-add-members).
+Now that you've added app groups claim in your application, add users to the security groups. If you don't have security group, [create one](../../fundamentals/how-to-manage-groups.md#create-a-basic-group-and-add-members).
 
 1. In the left menu, select **Groups**, and then select **All groups**.
 1. Select the group you want to manage.
