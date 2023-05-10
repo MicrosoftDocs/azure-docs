@@ -83,6 +83,16 @@ The default maximum length for text submissions is 1000 characters. If you need 
 
 The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
 
+## Security
+
+### Use Azure Active Directory to manage access
+
+For enhanced security, you can use Azure Active Directory (Azure AD) to manage access to your resources. You can grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure Portal, please refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+
+### Encryption of data at rest
+
+Learn how Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md).
+
 ## Pricing
 
 Currently, the public preview features are available in the **F0 and S0** pricing tier.
