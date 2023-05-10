@@ -219,7 +219,7 @@
           href: howto-useful-diagnostic-queries.md
     - name: Use vector and embeddings
       items:
-        - name: basics of pgvector
+        - name: Basics of pgvector
           href: howto-use-pgvector.md
           displayName: pgvector
 - name: Reference

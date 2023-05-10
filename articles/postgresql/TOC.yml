@@ -707,7 +707,7 @@
       href: flexible-server/how-to-troubleshooting-guides.md
     - name: Use vector and embeddings
       items:
-      - name: basics of pgvector
+      - name: Basics of pgvector
         href: flexible-server/how-to-use-pgvector.md
         displayName: pgvector
 
