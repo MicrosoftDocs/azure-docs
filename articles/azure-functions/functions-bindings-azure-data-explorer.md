@@ -165,7 +165,7 @@ Azure Data Explorer bindings for Azure Functions have a required property for th
 
 - Azure Data Explorer binding supports version 4.x and later of the Functions runtime.
 - Source code for the Azure Data Explorer bindings can be found in [this GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto).
-- This binding requires connectivity to Azure Data Explorer. For input bindings, users requires **Viewer** permissions and for output bindings users requires **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control).
+- This binding requires connectivity to Azure Data Explorer. For input bindings, users require **Viewer** permissions and for output bindings users require **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control).
 
 ## Next steps
 

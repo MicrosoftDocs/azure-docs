@@ -11,8 +11,6 @@ zone_pivot_groups: programming-languages-set-functions-data-explorer
 
 # Azure Data Explorer output bindings for Azure Functions (preview)
 
-## Introduction
-
 When a function runs, the Azure Data Explorer output binding ingests data to Azure Data Explorer.
 
 For information on setup and configuration details, see the [overview](functions-bindings-azure-data-explorer.md).
