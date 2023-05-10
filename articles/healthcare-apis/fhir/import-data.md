@@ -12,6 +12,7 @@ ms.author: kesheth
 # Bulk-import FHIR data
 
 The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Bulk import supports both initial and incremental data load into FHIR server.Incremental import mode is in public preview, see disclaimer below. 
+
 [!INCLUDE Public Preview Disclaimer]
 
 > [!NOTE]
@@ -48,7 +49,7 @@ Content-Type:application/fhir+json
 | Parameter Name      | Description | Card. |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
 | inputFormat      | String representing the name of the data source format. Currently only FHIR NDJSON files are supported. | 1..1 | ```application/fhir+ndjson``` |
-| mode      | Import mode. Currently only initial load mode is supported. | 1..1 | ```InitialLoad``` |
+| mode      | Import mode value | 1..1 | For initial import use ```InitialLoad``` mode value. For incremental import mode use ```IncrementalLoad``` mode value. If no mode value is provided IncrementalLoad mode value is considered by default. |
 | input   | Details of the input files. | 1..* | A JSON array with three parts described in the table below. |
 
 | Input part name   | Description | Card. |  Accepted values |
@@ -57,7 +58,7 @@ Content-Type:application/fhir+json
 |URL   |  Azure storage url of input file   | 1..1 | URL value of the input file that can't be modified. |
 | etag   |  Etag of the input file on Azure storage used to verify the file content hasn't changed. | 0..1 |  Etag value of the input file that can't be modified. |
 
-**Sample body:**
+**Sample body for Initial load import:**
 
 ```json
 {
