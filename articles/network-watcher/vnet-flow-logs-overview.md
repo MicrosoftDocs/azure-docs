@@ -213,4 +213,4 @@ If you want to retain data forever and don't want to apply any retention policy,
 
 ## Pricing
 
-VNet flow logs are charged per gigabyte of logs collected and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+VNet flow logs are charged per gigabyte of "Network Logs Collected" and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
