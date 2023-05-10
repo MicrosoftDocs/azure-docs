@@ -33,7 +33,7 @@ Test runs are associated with a load test in Azure Load Testing. To view the tes
 
 1. Select **ellipsis (...)** for a test run perform more actions on the test run.
 
-    :::image type="content" source="media/how-to-create-manage-test-runs/test-run-context-menu.png" alt-text="Screenshot that shows the list of test runs for a load test in the Azure portal.":::
+    :::image type="content" source="media/how-to-create-manage-test-runs/test-run-context-menu.png" alt-text="Screenshot that shows the test run context menu in the Azure portal to download input files, results file, and share a link.":::
 
     - Select **Download input file** to download all input files for running the test, such as the JMeter test script, input data files, and user property files. The download also contains the [load test configuration YAML file](./reference-test-config-yaml.md).
 
@@ -62,7 +62,7 @@ To view the test runs for a test in the Azure portal:
 
     The test run dashboard automatically reflects the updates to app components and metrics.
 
-    :::image type="content" source="media/how-to-create-manage-test-runs/test-run-app-components-metrics.png" alt-text="Screenshot that shows the list of test runs for a load test in the Azure portal.":::
+    :::image type="content" source="media/how-to-create-manage-test-runs/test-run-app-components-metrics.png" alt-text="Screenshot that shows how to configure app components and resource metrics for a test run in the Azure portal.":::
 
 ## Rerun a test run
 
