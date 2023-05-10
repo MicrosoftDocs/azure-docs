@@ -67,13 +67,9 @@ Change feed is available for partition key ranges of an Azure Cosmos DB containe
 
 Change feed items come in the order of their modification time. This sort order is guaranteed per logical partition key, and there's no guaranteed order across the partition key values.
 
-### Consistency level
-
-Consuming the change feed in an Eventual consistency level can result in duplicate events in-between subsequent change feed read operations. For example, the last event of one read operation could appear as the first event of the next operation.
-
 ### Change feed in multi-region Azure Cosmos DB accounts
 
-In a multi-region Azure Cosmos DB account, changes in one region are available in all regions. If a write-region fails over, change feed works across the manual failover operation, and it's contiguous. For accounts with multiple write regions, there's no guarantee of when changes will be available. Incoming changes to the same document may be dropped if there was a more recent change in another region.
+In a multi-region Azure Cosmos DB account, changes in one region are available in all regions. If a write-region fails over, change feed works across the manual failover operation, and it's contiguous. For accounts with multiple write regions, there's no guarantee of when changes will be available. Incoming changes to the same document may be dropped in latest version mode if there was a more recent change in another region, and all changes will be captured in all versions and deletes mode.
 
 ## Change feed modes
 
