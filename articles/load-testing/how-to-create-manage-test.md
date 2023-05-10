@@ -179,7 +179,43 @@ For more information, see [Configure server-side monitoring](./how-to-monitor-se
 
 ## Run a test
 
+When you run or rerun a load test, Azure Load Testing uses the most recent load test configuration settings to create a new test run. If you [edit a test](#edit-a-test) configuration and check the **Run test after applying changes** checkbox, the load test automatically starts after saving the changes.
+
+To run a load test in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), and go to your load testing resource.
+
+1. Select **Tests** in the left pane, and go to the test details by selecting the test name in the list.
+
+1. Select **Run**.
+
+1. On the **Run** page, you can choose to enter a test run description and override load test parameters.
+
+:::image type="content" source="media/how-to-create-manage-test/run-load-test.png" alt-text="Screenshot that shows the run load test page in the Azure portal, allowing an override of the test run description and test parameters.":::
+
+1. Select **Run** to start the load test.
+
+    The service creates a new test run, with the description you provided.
+
 ## Edit a test
+
+When you edit the load test configuration settings, these settings are used for *future* test runs. When you rerun a previous *test run*, the settings of the test run are used and not the updated settings of the test.
+
+To edit a test in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), and go to your load testing resource.
+
+1. Select **Tests** in the left pane, and select a test from the list by checking the corresponding checkbox.
+
+1. Select **Edit** to update the test configuration settings.
+
+    :::image type="content" source="media/how-to-create-manage-test/edit-load-test.png" alt-text="Screenshot that shows how to select and edit a load test in the Azure portal.":::
+
+    Alternately, select the test from the list, and then select **Configure** > **Test**.
+
+1. Select **Apply** in the **Edit test** page to save the changes.
+
+    The next time you [run the test](#run-a-test), the updated test configuration settings are used.
 
 ## Delete a test
 
