@@ -129,7 +129,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: Network security groups
-            url: ../../virtual-network/network-security-groups-overview.md 
+            url: ../../virtual-network/network-security-groups-overview.md
+          - text: Private endpoint
+            url: ../../private-link/private-endpoint-overview.md
           - text: Azure DDoS Protection
             url: ../../ddos-protection/ddos-protection-overview.md
           - text: Azure Firewall
@@ -143,6 +145,8 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Restrict network access to PaaS resources
+            url: ../../virtual-network/tutorial-restrict-network-access-to-resources.md
+          - text: Restrict network access to PaaS resources with virtual network service endpoints
             url: ../../virtual-network/tutorial-restrict-network-access-to-resources.md
           - text: Create and configure Azure DDoS Protection 
             url: ../../ddos-protection/manage-ddos-protection.md
@@ -170,6 +174,8 @@ landingContent:
             url: /training/modules/introduction-azure-ddos-protection/
           - text: Introduction to Azure Bastion
             url: /training/modules/intro-to-azure-bastion/
+          - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
+            url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
     
   # Card
   

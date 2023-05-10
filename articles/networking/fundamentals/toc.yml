@@ -82,7 +82,7 @@
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Firewall
       href: ../../firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Azure Firewall manager
+    - name: Azure Firewall Manager
       href: ../../firewall-manager/overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: DDoS protection
       href: ../../ddos-protection/ddos-protection-overview.md?toc=/azure/networking/fundamentals/toc.json
