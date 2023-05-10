@@ -6,7 +6,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/27/2023
+ms.date: 05/10/2023
 ms.author: franlanglois
 
 ---
@@ -68,10 +68,10 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
 
-1. Once the enable operation is complete, you get a notification on your portal indicating completion. The operation can take several minutes.
+1. Once the enable operation is complete, the nodes in your cache instance must reboot to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. When completed, you get a notification on your portal. The operation can take 30 minutes.
 
-   > [!NOTE]
-   > Propagation of a change to the cache configuration for Azure AD authentication might take as many as 20 minutes.
+   > [!IMPORTANT]
+   > Propagation of a change to the cache configuration for Azure AD authentication might take as many as 30 minutes because your nodes are rebooted.
 
 ## Configure your Redis client to use Azure Active Directory
 
@@ -111,17 +111,25 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 ### Client library support
 
+The library `Microsoft.Azure.StackExchangeRedis` is an extension of `StackExchange.Redis` that enables you to use Azure Active Directory to authenticate connections from a Redis client application to an Azure Cache for Redis. The extension manages the authentication token, including proactively refreshing tokens before they expire to maintain persistent Redis connections over multiple days.
+
+This [code sample](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) demonstrates how to use the `Microsoft.Azure.StackExchangeRedis` NuGet package to connect to your Azure Cache for Redis instance using Azure Active Directory.
+
+<!-- 
 The following table includes links to code samples, which demonstrate how to connect to your Azure Cache for Redis instance using an Azure AD token. A wide variety of client libraries are included in multiple languages.
 
 | **Client library**  | **Language**   | **Link to sample code**|
 |----|----|----|
-| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package  <!-- Link -->   |
+| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package    |
 | Python              | Python         | [Python code Sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
 | Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
 | ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-| Node-redis          | Node.js        | [noredis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
+| Node-redis          | Node.js        | [noredis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  | 
+
+-->
+
 
 ## Next steps
 
