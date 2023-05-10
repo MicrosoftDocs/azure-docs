@@ -1,8 +1,8 @@
 ---
 title: Collect data from your workloads with the Log Analytics agent
 description: Learn about how the Log Analytics agent collects data from your workloads to let you protect your workloads with Microsoft Defender for Cloud.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.date: 09/12/2022
