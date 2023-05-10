@@ -5,6 +5,7 @@ ms.author: adamwolk
 author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 04/30/2023
 ---

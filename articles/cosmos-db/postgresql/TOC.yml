@@ -207,9 +207,9 @@
         - name: Configure SSL
           href: howto-ssl-connection-security.md
           displayName: ssl, tls
-    - name: Extensions
+    - name: Use vectors and embeddings
       items:
-        - name: How to optimize performance when using pgvector
+        - name: Optimize performance when using pgvector
           href: howto-optimize-performance-when-using-pgvector.md
           displayName: pgvector
     - name: Troubleshoot
