@@ -48,6 +48,4 @@ Data collector has the following limitations:
 ## Next steps
 
 - [How to collect data from models in production (preview)](how-to-collect-production-data.md)
-- [Model monitoring with Azure Machine Learning (preview)](concept-model-monitoring.md)
-- [Monitor performance of models deployed to production (preview)](how-to-monitor-model-performance.md)
 - [What are Azure Machine Learning endpoints?](concept-endpoints.md)

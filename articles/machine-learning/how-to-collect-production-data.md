@@ -346,6 +346,4 @@ After enabling data collection, production inference data will be logged to your
 
 To learn how to monitor the performance of your models with the collected production inference data, see the following articles:
 
-- [Model monitoring with Azure Machine Learning (preview)](concept-model-monitoring.md)
-- [Monitor performance of models deployed to production (preview)](how-to-monitor-model-performance.md)
 - [What are Azure Machine Learning endpoints?](concept-endpoints.md)
