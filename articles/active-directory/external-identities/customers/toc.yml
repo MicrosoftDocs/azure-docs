@@ -62,7 +62,17 @@ items:
                 - name: ASP.NET
                   items:
                     - name: Sign in users
-                      href: how-to-web-app-dotnet-sample-sign-in.md
+                      href: ../../develop/web-api-quickstart.md
+            - name: Browserless app
+              items: 
+              - name: Node.js 
+                items: 
+                  - name: Sign in users
+                    href: how-to-browserless-app-node-sample-sign-in.md
+              - name: .NET
+                items: 
+                  - name: Sign in users
+                    href:  how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: ../../develop/console-app-quickstart.md
             - name: Daemon, service
@@ -153,10 +163,20 @@ items:
                     - name: Test API
                       href: how-to-protect-web-api-dotnet-core-test-api.md
 
-            - name: Headless app
+            - name: Browserless app
               items: 
-                - name: Node​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-console.md
+                - name: Node.js
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: how-to-browserless-app-node-sign-in-overview.md
+                        - name: Prepare tenant 
+                          href: how-to-browserless-app-node-sign-in-prepare-tenant.md
+                        - name: Prepare app 
+                          href: how-to-browserless-app-node-sign-in-prepare-app.md
+                        - name: Add sign-in and sign-out
+                          href: how-to-browserless-app-node-sign-in-sign-out.md
                 - name: .NET​ - Sign in users
                   href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
             - name: Daemon, service

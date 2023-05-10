@@ -31,7 +31,7 @@ This article describes each of these steps and outlines important planning consi
 
 | Step  |  How-to guides |
 |---------|---------|
-| **[Step 1: Create a customer tenant](#step-1-create-a-customer-tenant)**   | &#8226; [Create a customer tenant](how-to-create-customer-tenant-portal.md)</br>&#8226; [Or start a free trial](https://aka.ms/ciam-free-trial)  |
+| **[Step 1: Create a customer tenant](#step-1-create-a-customer-tenant)**   | &#8226; [Create a customer tenant](how-to-create-customer-tenant-portal.md)</br>&#8226; [Or start a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl)  |
 |**[Step 2: Register your application](#step-2-register-your-application)**   | &#8226; [Register your application](how-to-register-ciam-app.md)  |
 |**[Step 3: Integrate a sign-in flow with your app](#step-3-integrate-a-sign-in-flow-with-your-app)**     | &#8226; [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md) </br>&#8226; [Add your app to the user flow](how-to-user-flow-add-application.md)   |
 |**[Step 4: Customize and secure your sign-in](#step-4-customize-and-secure-your-sign-in)**     |  &#8226; [Customize branding](concept-branding-customers.md) </br>&#8226; [Add identity providers](concept-authentication-methods-customers.md)  </br>&#8226; [Collect attributes during sign-up](how-to-define-custom-attributes.md)</br>&#8226; [Add attributes to the token](how-to-add-attributes-to-token.md) </br>&#8226; [Add multifactor authentication (MFA)](concept-security-customers.md)    |
@@ -56,7 +56,7 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 
 - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.
 
-- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial) to start a free trial.
+- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) to start a free trial.
 
 ## Step 2: Register your application
 
@@ -127,17 +127,12 @@ When planning for configuring company branding, language customizations, and cus
 ### How to customize and secure your sign-in
 
 - [Customize branding](concept-branding-customers.md) 
-
 - [Add identity providers](concept-authentication-methods-customers.md)
-
 - [Collect attributes during sign-up](how-to-define-custom-attributes.md)
-
 - [Add attributes to the token](how-to-add-attributes-to-token.md) 
-
 - [Add multifactor authentication](concept-security-customers.md)
 
 ## Next steps
-
-- [Start a free trial](https://aka.ms/ciam-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
+- [Start a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
 - [Find samples and guidance for integrating your app](samples-ciam-all.md).
 - See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.
