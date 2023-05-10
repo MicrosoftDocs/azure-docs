@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 6/24/2022
+ms.date: 5/9/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
