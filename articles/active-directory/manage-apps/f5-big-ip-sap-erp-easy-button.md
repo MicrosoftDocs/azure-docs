@@ -327,7 +327,8 @@ Alternatively, in BIG-IP you can disable Guided Configuration strict management 
    ![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
    >[!NOTE]
-   >To re-enable strict management mode and deploye a configuration overwrites settings outside the Guided Configuration UI. Therefore, we recommend the advanced configuration method for production services.
+   >To re-enable strict management mode and deploy a configuration that overwrites settings outside the Guided Configuration UI, we recommend the advanced 
+    configuration method for production services.
 
 ## Troubleshooting
 
