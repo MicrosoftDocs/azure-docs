@@ -228,7 +228,7 @@ This tutorial built the training data with features from feature store. Optional
 ## Next steps
 
 * [Part 2: enable materialization and back fill feature data](./tutorial-enable-materialization-and-backfill-data.md)
-* Understand concepts: [feature store concepts](./concept-what-is-managed-feature-store.md), [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md)]
+* Understand concepts: [feature store concepts](./concept-what-is-managed-feature-store.md), [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md)
 * [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
 * [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
 * Reference: [YAML reference](./reference-yaml-overview.md), **[feature store SDK] ()**
