@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 05/22/2023
 ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI mobile app to sign in and sign out users with Azure AD for customers tenant
 ---
@@ -53,7 +53,7 @@ In this article, you do the following tasks:
 
 ## Clone or download sample .NET MAUI Android application
 
-To get the .NET MAUI desktop application sample code, [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample .NET MAUI desktop application from GitHub by running the following command:
+To get the .NET MAUI Android application sample code, [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample .NET MAUI Android application from GitHub by running the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
@@ -64,10 +64,10 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 1. In Visual Studio, open *ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/appsettings.json* file.
 1. Find the placeholder:
    1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
-   1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
+   1. `Enter_the_Application_Id_Here` and replace it with the **Application (client) ID** of the app you registered earlier.
 1. In Visual Studio, open *ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/Platforms/Android/AndroidManifest.xml* file.
 1. Find the placeholder:
-   1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
+   1. `Enter_the_Application_Id_Here` and replace it with the **Application (client) ID** of the app you registered earlier.
 
 ## Run and test sample .NET MAUI Android application
 
