@@ -166,6 +166,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -228,6 +229,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -290,6 +292,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -352,6 +355,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
