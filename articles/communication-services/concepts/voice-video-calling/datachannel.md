@@ -15,11 +15,12 @@ ms.subservice: calling
 # DataChannel
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-[!NOTE]
-This document delves into the DataChannel feature present in the ACS Calling SDK.
-While the DataChannel in this context bears some resemblance to the DataChannel in WebRTC, it's crucial to recognize subtle differences in their specifics.
-Throughout this document, we use terms *DataChannel API* or *API* to denote the DataChannel API within the SDK.
-When referring to the DataChannel API in WebRTC, we explicitly use the term *WebRTC DataChannel API* for clarity and precision.
+
+> [!NOTE]
+> This document delves into the DataChannel feature present in the ACS Calling SDK.
+> While the DataChannel in this context bears some resemblance to the DataChannel in WebRTC, it's crucial to recognize subtle differences in their specifics.
+> Throughout this document, we use terms *DataChannel API* or *API* to denote the DataChannel API within the SDK.
+> When referring to the DataChannel API in WebRTC, we explicitly use the term *WebRTC DataChannel API* for clarity and precision.
 
 The DataChannel API enables real-time messaging during audio and video calls. With this API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
 
@@ -61,7 +62,10 @@ The valid range of a channelId lies between 1 and 65535. If a channelId 0 is pro
 or if no channelId is provided, the SDK will assign an available channelId from within the valid range.
 
 ### Session
-The DataChannel API has the concept of a session.
+The DataChannel API has the concept of a session, which corresponds to open-close semantics.
+In the SDK, the session is associated to the sender or the receiver object.
+When you create a sender object with a new channelId, the sender is in open state.
+If you call close() API on the sender object, the session is closed, you cannot send message on a closed sender.
 
 ## Next steps
 For more information, see the following articles:
