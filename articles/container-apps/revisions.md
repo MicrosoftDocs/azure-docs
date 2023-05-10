@@ -38,40 +38,45 @@ You can use revisions to:
 
 ## Revision lifecycle
 
-Revisions go through the following states:
+Revisions go through a series of states, based on status and availability.
 
-- _Provisioning_: 
-    When a new revision is first created, it's set to "provisioning" which measures the time between creation (initial request) and being ready to accept work.  Replica provisioning status values include:
+### Provisioning status
 
-    - _Provisioning:_ It's being provisioned.
+When a new revision is first created, it's set to "provisioning" which measures the time between creation (initial request) and being ready to accept work.  Replica provisioning status values include:
 
-    - _Provisioned:_ The app has been provisioned, which is the final state for provisioning status.
+- _Provisioning:_ It's being provisioned.
 
-    - _Provisioning failed:_ The app failed to provision.  
+- _Provisioned:_ The app has been provisioned, which is the final state for provisioning status.
 
-- _Running_ 
+- _Provisioning failed:_ The app failed to provision.  
 
-    After the revision is provisioned, it is running. Use running status to monitor the status of a revision after a successful provision. Running status values include:
+### Running status
 
-    - _Running:_ The revision is running; no issues have been identified.
+After the revision is provisioned, it is running. Use running status to monitor the status of a revision after a successful provision. Running status values include:
 
-    - _Unhealthy:_ The revision has encountered a problem. Causes and urgency vary; use the revision running status to learn more.
+- _Running:_ The revision is running; no issues have been identified.
+
+- _Unhealthy:_ The revision has encountered a problem. Causes and urgency vary; use the revision running status to learn more.
     
-        Common issues include:
+    Common issues include:
 
-        - Container crashing
-        - Resource quota exceeded
-        - Image access issues, such as [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster).
+    - Container crashing
+    - Resource quota exceeded
+    - Image access issues, such as [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster).
 
-    - _Failed:_ Critical errors cause revisions to fail.  The running state provides details. 
+- _Failed:_ Critical errors cause revisions to fail.  The running state provides details. 
  
         Common causes include:
         - Terminated
         - Exit code 137
-- _Inactive:_ A revision can be set to active or inactive. 
-    
-    When revisions are deactivated, they remain in a list of up to 100 inactive revisions.  Inactive revisions don't have provisioning or running states.  
+
+### Inactive status
+
+A revision can be set to active or inactive.  Inactive revisions don't have provisioning or running states.
+
+Inactive revisions remain in a list of up to 100 inactive revisions.    
  
+## Multiple revisions
 The following diagram shows a container app with two revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
@@ -89,7 +94,7 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 
 The format of a revision name is:
 
-```text
+``` text
 <CONTAINER_APP_NAME>--<REVISION_SUFFIX>
 ```
 
