@@ -594,11 +594,20 @@ Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkut
 |- Nb1 (Not published, previously committed, edited) <br/> `%run Nb1`|Error|Run **edited** version of Nb1| 
 |- Nb1 (Previously published and committed, edited) <br/> `%run Nb1`|Run **published** version of Nb1|Run **edited** version of Nb1| 
 
+
+After enabling the **Enable unpublished notebook reference** feature, it is necessary to restart the Spark pool for the changes to take effect. To restart the Spark pool, perform the following steps:
+
+1. Go back to the Spark pool details page.
+2. Click on the "Restart" button located at the top.
+3. Confirm the restart action when prompted.
+
+Once the Spark pool restarts, you will be able to utilize the unpublished notebook reference feature.
  
 ### Conclusion 
 
 * If disabled, always run **published** version. 
 * If enabled, priority is: edited / new > committed > published. 
+
 
 
 ## Active session management 
