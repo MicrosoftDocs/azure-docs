@@ -1,5 +1,5 @@
 ---
-title: Overview of solutions with Microsoft Entra for customers
+title: Overview of solutions with Azure AD for customers
 description: Learn about the customer identity and access management solutions for your customer-facing apps that are provided by Azure AD for customers.
 services: active-directory
 author: msmimart
