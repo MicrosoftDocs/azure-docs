@@ -708,7 +708,7 @@
     - name: Use vectors and embeddings
       items:
         - name: Optimize performance when using pgvector
-          href: howto-optimize-performance-when-using-pgvector.md
+          href: flexible-server/howto-optimize-performance-when-using-pgvector.md
           displayName: pgvector
 - name: Hyperscale (Citus)
   items:
