@@ -1,13 +1,10 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for MySQL - Flexible Server
 description: Learn how to set up and manage read replicas in Azure Database for MySQL - Flexible Server using the Azure portal.
-<<<<<<< HEAD
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 03/08/2023
-=======
->>>>>>> 24f7794ec531e0b663176cd1a93671e6484b2b18
+ms.date: 05/10/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -17,11 +14,7 @@ ms.topic: how-to
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-<<<<<<< HEAD
-In this article, you learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
-=======
-In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL - Flexible Server using the Azure portal.
->>>>>>> 24f7794ec531e0b663176cd1a93671e6484b2b18
+In this article, you'll learn how to create and manage read replicas in the Azure Database for MySQL - Flexible Server using the Azure portal.
 
 > [!NOTE]
 > 
@@ -40,11 +33,7 @@ A read replica server can be created using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-<<<<<<< HEAD
-1. Select the existing Azure Database for MySQL flexible server you want to use as a source. This action opens the **Overview** page.
-=======
 2. Select the existing Azure Database for MySQL - Flexible Server that you want to use as a source. This action opens the **Overview** page.
->>>>>>> 24f7794ec531e0b663176cd1a93671e6484b2b18
 
 1. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -67,7 +56,7 @@ A read replica server can be created using the following steps:
 
 Once the replica server has been created, it can be viewed from the **Replication** page.
 
-   [:::image type="content" source="./media/how-to-read-replica-portal/list-replica.png" alt-text="Screenshot of a list replicas." lightbox="./media/how-to-read-replica-portal/list-replica.png":::
+   [:::image type="content" source="./media/how-to-read-replica-portal/list-replica.png" alt-text="Screenshot of a list of replicas." lightbox="./media/how-to-read-replica-portal/list-replica.png":::
 
 ## Stop replication to a replica server
 
@@ -82,7 +71,7 @@ To stop replication between a source and a replica server from the Azure portal,
 
 1. Select the replica server you wish to stop replication.
 
-   [:::image type="content" source="./media/how-to-read-replica-portal/list-replica.png" alt-text="Screenshot of a list replicas." lightbox="./media/how-to-read-replica-portal/list-replica.png":::
+   [:::image type="content" source="./media/how-to-read-replica-portal/list-replica.png" alt-text="Screenshot of a list of replicas." lightbox="./media/how-to-read-replica-portal/list-replica.png":::
 
 1. Select Promote. Promote action caused replication to stop and convert the replica into an independent, standalone read-writeable server.
 

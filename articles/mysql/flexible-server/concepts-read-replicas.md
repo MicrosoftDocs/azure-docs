@@ -1,14 +1,10 @@
 ---
 title: Read replicas - Azure Database for MySQL - Flexible Server
-<<<<<<< HEAD
 description: "Learn about read replicas in Azure Database for MySQL Flexible Server: creating replicas, connecting to replicas, monitoring replication, and stopping replication."
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 03/08/2023
-=======
-description: 'Learn about read replicas in Azure Database for MySQL - Flexible Server: creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
->>>>>>> 24f7794ec531e0b663176cd1a93671e6484b2b18
+ms.date: 05/10/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -25,11 +21,7 @@ On the applications side, the application is typically developed in Java or PHP 
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL - Flexible Server to a read-only server. You can replicate from the source server to up to **10** replicas. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-<<<<<<< HEAD
-Replicas are new servers that you manage similar to your source Azure Database for MySQL flexible servers. You incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB per month.
-=======
-Replicas are new servers that you manage similar to your source Azure Database for MySQL - Flexible Servers. You will incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB/ month. For more information, see [pricing](./concepts-compute-storage.md#pricing).
->>>>>>> 24f7794ec531e0b663176cd1a93671e6484b2b18
+Replicas are new servers that you manage similar to your source Azure Database for MySQL - Flexible Servers. You'll incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB/ month. For more information, see [pricing](./concepts-compute-storage.md#pricing).
 
 > [!NOTE]  
 > The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Business Critical pricing tiers. Ensure the source server is in one of these pricing tiers.
@@ -51,7 +43,7 @@ Common scenarios are:
 
 Because replicas are read-only, they don't directly reduce write-capacity burdens on the source. This feature isn't targeted at write-intensive workloads.
 
-The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There is a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the source. Use this feature for workloads that can accommodate this delay.
+The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There's a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the source. Use this feature for workloads that can accommodate this delay.
 
 ## Create a replica
 
@@ -134,13 +126,13 @@ The following server parameters are available for configuring GTID:
 **For Azure Database for MySQL-Flexible servers having High Availability feature enabled the default value is set to `ON`*
 > [!NOTE]  
 >  
-> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support.
+> - After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support.
 >  
-> * To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
+> - To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
 >  
-> * To keep replication consistent, you cannot update it for a master/replica server.
+> - To keep replication consistent, you cannot update it for a master/replica server.
 >  
-> * Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
+> - Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
 
 To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](how-to-configure-server-parameters-portal.md), [Azure CLI](how-to-configure-server-parameters-cli.md).
 
@@ -152,15 +144,9 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 | :- | :- |
 | Replica on server in Burstable Pricing Tier | Not supported |
 | Pricing | The cost of running the replica server is based on the region where the replica server is running |
-<<<<<<< HEAD
-| Source server restart | When you create a replica for a source that has no existing replicas, the source first restarts to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period |
-| New replicas | A read replica is created as a new Azure Database for MySQL flexible server. An existing server can't be made into a replica. You can't create a replica of another read replica |
-| Replica configuration | A replica is created by using the same server configuration as the source. After a replica is created, several settings can be changed independently from the source server: compute generation, vCores, storage, and backup retention period. The compute tier can also be changed independently.<br /><br />**IMPORTANT**<br />- Before a source server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the source.<br />Connectivity method and parameter settings are inherited from the source server to the replica when the replica is created. Afterwards, the replica's rules are independent. |
-=======
 | Source server restart | When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period |
 | New replicas | A read replica is created as a new Azure Database for MySQL - Flexible Server. An existing server can't be made into a replica. You can't create a replica of another read replica |
 | Replica configuration | A replica is created by using the same server configuration as the source. After a replica is created, several settings can be changed independently from the source server: compute generation, vCores, storage, and backup retention period. The compute tier can also be changed independently.<br> <br> **IMPORTANT**  <br> - Before a source server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the source. <br/> Connectivity method and parameter settings are inherited from the source server to the replica when the replica is created. Afterwards, the replica's rules are independent. |
->>>>>>> 24f7794ec531e0b663176cd1a93671e6484b2b18
 | Stopped replicas | If you stop replication between a source server and a read replica, the stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again. |
 | Deleted source and standalone servers | When a source server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The source server itself is deleted. |
 | User accounts | Users on the source server are replicated to the read replicas. You can only connect to a read replica using the user accounts available on the source server. |
