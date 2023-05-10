@@ -1,11 +1,11 @@
 ---
 title: How to use gRPC in Azure Spring Apps
-description: Shows you how to use gRPC in Azure Spring Apps.
+description: Shows you how to use the gRPC protocol in Azure Spring Apps.
 author: KarlErickson
 ms.author: caihuarui
 ms.service: spring-apps 
 ms.topic: how-to
-ms.date: 5/9/2023
+ms.date: 5/11/2023
 ms.custom: devx-track-java
 ---
 
@@ -16,25 +16,20 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier (all tiers)
 
-This article and video shows you how to use the Remote Procedure Call framework (gRPC) protocol in Azure Spring Apps. 
+This article and video show you how to use the Remote Procedure Call framework (gRPC) protocol in Azure Spring Apps.
 
 <br>
 
 > [!VIDEO https://www.youtube.com/embed/yNvoQ4YIDCI]
 
-For an example to modify and deploy, this article uses the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application.
+This article and video use the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application to modify and deploy.
 
 From your local environment, you create a gRPC service by modifying the  `customers-service` microservice, deploy it to Azure Spring Apps, and use grpc curl commands to test the service by making calls to gRPC methods.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Use the following command to install the Azure Spring Apps extension.
-
-  ```azurecli
-  az extension add --name spring
-  ```
-
+- [Azure CLI](/cli/azure/install-azure-cli). Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - [Git](https://git-scm.com/downloads).
 - [Microsoft Build of OpenJDK](/java/openjdk/download#openjdk-17) Version 17.
 - [Maven](https://maven.apache.org/download.cgi).
@@ -42,7 +37,7 @@ From your local environment, you create a gRPC service by modifying the  `custom
 
 ## Deploy the sample application
 
-An application is required to proceed. Use the following steps to deploy the Spring Petclinic microservices project:
+Use the following steps to deploy the Spring Petclinic microservices project:
 
 1. In your local environment, use the following command to clone the sample application repository.
 
@@ -279,9 +274,9 @@ grpc.server.port=1025
 
 The setting `grpc.server.port=1025` is added to the *application.yaml* or *application.properties* in the *spring-petclinic-customers-service/src/main/resources* folder.
 
-## Create the gRPC service
+## Build the service JAR file
 
-Use the following command to build the gRPC server Jar file.
+Use the following command to build the gRPC server JAR file.
 
 ```bash
 mvn package
@@ -293,7 +288,7 @@ The modification of `customers-service` is completed, and it's now a gRPC servic
 
 You can now configure the server and deploy the application.
 
-Use the following command to deploy the newly built Jar file to your Azure Spring Apps instance:
+Use the following command to deploy the newly built JAR file to your Azure Spring Apps instance:
 
 ```azurecli
 az spring app deploy --name ${CUSTOMERS_SERVICE} \
