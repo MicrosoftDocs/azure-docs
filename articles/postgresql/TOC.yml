@@ -705,10 +705,11 @@
         href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
-    - name: Use Pgvector
+    - name: Use vector and embeddings
       items:
-      - name: How to use pgvector
+      - name: basics of pgvector
         href: flexible-server/how-to-use-pgvector.md
+        displayName: pgvector
 
 - name: Hyperscale (Citus)
   items:

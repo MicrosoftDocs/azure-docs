@@ -27,11 +27,11 @@ SELECT CREATE_EXTENSION('vector');
 > [!Note]
 > To disable an extension use `drop_extension()`
 
-[!INCLUDE [Getting Started](includes/pgvector.md)]
+[!INCLUDE [Getting Started](includes/pgvector-basics.md)]
 
 ## Next Steps
 
-Learn more around performance, indexing and limitations around using pgvector.
+Learn more around performance, indexing and limitations using pgvector.
 
 > [!div class="nextstepaction"]
-> [How to optimize performance using pgvector](howto-use-pgvector.md)
+> [Optimize performance using pgvector](howto-use-pgvector.md)

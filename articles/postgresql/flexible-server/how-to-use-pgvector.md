@@ -28,11 +28,11 @@ CREATE EXTENSION vector;
 > [!Note]
 > To disable an extension use `drop_extension()`
 
-[!INCLUDE [Pgvector](../../cosmos-db/postgresql/includes/pgvector.md)]
+[!INCLUDE [Pgvector](../../cosmos-db/postgresql/includes/pgvector-basics.md)]
 
 ## Next Steps
 
-Learn more around performance, indexing and limitations around using pgvector.
+Learn more around performance, indexing and limitations using pgvector.
 
 > [!div class="nextstepaction"]
-> [How to optimize performance using pgvector](how-to-use-pgvector.md)
+> [Optimize performance using pgvector](how-to-use-pgvector.md)

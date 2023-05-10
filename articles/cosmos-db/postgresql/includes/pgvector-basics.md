@@ -16,17 +16,16 @@ An embedding is a technique of evaluating "relatedness" of text, images, videos,
 Create a table `tblvector` with an `embedding` column of type `vector(3)`. Defined this way, it's represented as `three coordinates` in three-dimension plane, which helps in evaluating the positioning of the vector.
 
 ```postgresql
-CREATE TABLE tblvector 
-    (
-    id bigserial PRIMARY KEY
-    , embedding vector(3)
+CREATE TABLE tblvector(
+    id bigserial PRIMARY KEY,
+    embedding vector(3)
     );
 ```
 
 Once you have generated an embedding using a service like the OpenAI API, you can store the resulting vector in your database. Defining a vector as `vector(3)` designates `[x,y,z] coordinates` in three-dimension plane. The command inserts two new rows into the tblvector table with the provided embeddings.
 
 ```postgresql
-INSERT INTO tblvector (embedding) VALUES ('[1,2,3]'), ('[4,5,6]');
+INSERT INTO tblvector (embedding) VALUES ('[1,2,3]'), ('[4,5,6]'), (3, '[5,4,6]'), (4, '[3,5,7]'), (5, '[7,8,9]');
 ```
 
 By using the `Insert into ... ON CONFLICT` statement, you can specify an alternative action, such as updating records that match the criteria. It allows you to handle potential conflicts in a more efficient and effective manner.
@@ -70,5 +69,3 @@ SELECT AVG(embedding) FROM tblvector;
 > | <->          | Euclidean distance         |
 > | <#>          | negative inner product     |
 > | <=>          | cosine distance            |
->
-> `<#>` returns the negative inner product since Postgres only supports ASC order index scans on operators.
