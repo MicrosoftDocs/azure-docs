@@ -77,4 +77,4 @@ See ![Test an Azure Stream Analytics job with sample data](stream-analytics-test
 ## Next steps
 
 * [Process data from your Event Hubs using Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md)
-* [Test your Azure Stream Analytics job with sample data](stream-analytics/stream-analytics-test-query.md)
+* [Test your Azure Stream Analytics job with sample data](stream-analytics-test-query.md)
