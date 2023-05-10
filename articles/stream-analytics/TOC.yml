@@ -83,6 +83,8 @@
       href: stream-analytics-job-metrics.md
     - name: Stream Analytics metrics dimensions
       href: stream-analytics-job-metrics-dimensions.md
+  - name: Integrate with Schema Registry
+    href: stream-analytics-schema-registry-integration.md
   - name: Input types for a job
     items:
     - name: Inputs overview
