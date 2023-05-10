@@ -21,7 +21,9 @@ A private endpoint is a private IP address within a specific [VNet](../../virtua
 > [!NOTE]  
 > Learn how to enable private endpoint using the [Azure portal](?.md) or [Azure CLI](?.md)
 
-## Benefits of Private Link for MySQL Flexible Server
+## Benefits of Private Link for MySQL flexible server
+
+Here are some benefits for using the networking private link feature with MySQL flexible server.
 
 ### Data exfiltration prevention
 
@@ -29,7 +31,7 @@ Data exfiltration in MySQL flexible server is when an authorized user, such as a
 
 Consider a scenario with a user running MySQL Workbench inside an Azure Virtual Machine (VM) connecting to an Azure Database for MySQL flexible server provisioned in West US. The example below shows how to limit access with public endpoints on Azure Database for MySQL flexible server using network access controls.
 
-- Disable all Azure service traffic to Azure Database for MySQL flexible server via the public endpoint by setting *Allow Azure Services* to OFF. Ensure no IP addresses or ranges can access the server via [firewall rules](./concepts-firewall-rules.md).
+- Disable all Azure service traffic to Azure Database for MySQL flexible server via the public endpoint by setting *Allow Azure Services* to OFF. Ensure no IP addresses or ranges can access the server via [firewall rules](../single-server/concepts-firewall-rules.md).
 
 - Only allow traffic to the Azure Database for MySQL flexible server using the Private IP address of the VM. For more information, see the article on [VNet firewall rules](how-to-manage-vnet-using-portal.md).
 
