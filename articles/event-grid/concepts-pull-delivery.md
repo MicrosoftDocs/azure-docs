@@ -45,16 +45,16 @@ An Event Grid Namespace is a management container for the following resources:<b
 | CA Certificates | MQTT |
 | Permission bindings | MQTT |
 
-With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
+With an Azure Event Grid namespace, you can group now together related resources and manage them as a single unit in your Azure subscription.
 
 A Namespace exposes two endpoints:
 - An HTTP endpoint to support general messaging requirements using  Namespace Topics 
 - An MQTT endpoint for IoT messaging or solutions that use MQTT.
   
-A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering and private links. It is also the container of managed identities used for all contained resources that use them.
+A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering and private links. It's also the container of managed identities used for all contained resources that use them.
 
 ## Throughput units
-Throughput unit allows you to control capacity of namespace resources for message ingress and egress. Each throughput units allows for 1MB/s ingress rate and 2MB/s egress rated. Up to 5 throughput units can be configured on a namespace. 
+Throughput unit allows you to control capacity of namespace resources for message ingress and egress. Each throughput unit allows for 1MB/s ingress rate and 2MB/s egress rated. Up to 5 throughput units can be configured on a namespace. 
 
 ## Topics
 
