@@ -12,11 +12,11 @@
 
 > [!NOTE]
 > - The following limits listed in this article are per region.
-> - See [throughput units (TUs)](/concepts.md#throughput-units) for more information.
+> - See [throughput units (TUs)](../concepts.md#throughput-units) for more information.
 
 ## Namespace resource limits
 
-[Azure Event Grid namespaces](concepts.md#namespaces) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
+[Azure Event Grid namespaces](../concepts.md#namespaces) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
 The following limits apply to namespace resources in Azure Event Grid.
 
 | Limit description                      | Limit |
