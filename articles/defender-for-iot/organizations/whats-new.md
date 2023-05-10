@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 03/14/2023
+ms.date: 05/10/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,28 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## June 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Billing changes](#billing-changes) |
+
+### Billing changes
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses are available for purchase only in the Microsoft 365 Admin center. 
+
+- Licenses are available for individual sites, based on the sizes of those respective sites. 
+- A trial license is also available for 60 days, using a *Small* license size.
+
+Existing customers can continue to use and edit details for any legacy OT plan they have, but won't be able to add new plans in the Azure portal.
+
+<!--starting june 14-->
+For more information, see:
+
+- [Defender for IoT subscription billing](billing.md)
+- [Start a Microsoft Defender for IoT trial](getting-started.md)
+- [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
 
 ## April 2023
 

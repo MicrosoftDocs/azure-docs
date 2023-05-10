@@ -2,24 +2,28 @@
 title: Get started with OT network security monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
 ms.topic: get-started
-ms.date: 12/25/2022
+ms.date: 05/10/2023
 ---
 
-# Add an OT plan to your Azure subscription
+# Start a Microsoft Defender for IoT trial
 
-This article describes how to set up a trial plan for OT security monitoring with Microsoft Defender for IoT.
+This article describes how to set up a trial license and create an initial OT plan for Microsoft Defender for IoT. Use Defender for IoT to monitor network traffic across your OT networks.
 
-A trial plan for OT monitoring provides 30-day support for 1000 devices. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+A trial uses a *Small* sized license for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+
+<!--needs updating-->
 
 ## Prerequisites
 
 Before you start, make sure that you have:
 
+- A Microsoft 365 tenant, with access to the Microsoft 365 Admin Center.
+
 - An Azure account. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
 - Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
-## Add a trial plan
+## Add a trial license
 
 This procedure describes how to add a trial Defender for IoT plan for OT networks to an Azure subscription.
 
