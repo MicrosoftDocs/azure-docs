@@ -42,7 +42,7 @@ These steps don't apply if you're installing older version of Azure Backup Serve
    ReportingMachineDomainName=<domain>
    VaultCredentialFilePath=<vault credential full path and complete name, without spaces in both>
    SecurityPassphrase=<passphrase>
-   PassphraseSaveLocation=<passphrase save location>
+   PassphraseSaveLocation=<passphrase save location, an existing directory where the passphrase file can be created>
    UseExistingSQL=<1/0 use or do not use existing SQL>
    ```
 5. Save the file. Then, at an elevated command prompt on the installation server, enter this command:
