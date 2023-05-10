@@ -95,7 +95,7 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
      ```
 
 1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
-1. Find `Enter_the_Tenant_Subdomain_Here` and replace it with the name of your tenant.
+1. In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 1. Save the file.
 
 ## Creating the redirection file
