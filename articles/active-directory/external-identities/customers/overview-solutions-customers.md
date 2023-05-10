@@ -1,5 +1,5 @@
 ---
-title: Overview of solutions with Azure AD for customers
+title: Overview of the Woodgrove Groceries demo
 description: Learn about the customer identity and access management solutions for your customer-facing apps that are provided by Azure AD for customers.
 services: active-directory
 author: msmimart
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 ms.author: mimart
 ms.custom: it-pro
 
 ---
-# Solutions at a glance: Woodgrove Groceries demo
+# Overview of the Woodgrove Groceries demo
 
 Azure Active Directory (Azure AD) for customers offers solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
 

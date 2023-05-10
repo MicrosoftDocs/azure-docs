@@ -6,7 +6,7 @@ items:
   items:   
     - name: What is Azure Active Directory for customers?  
       href: overview-customers-ciam.md 
-    - name: "Solutions at-a-glance: Woodgrove demo"
+    - name: "Overview of the Woodgrove Groceries demo"
       href: overview-solutions-customers.md 
 - name: Quickstarts
   expanded: true
