@@ -25,19 +25,7 @@ Included among these solutions are Kubernetes application-based container offers
 
 This feature is currently supported only in the following regions:
 
-- East US
-- West US
-- Central US
-- West Central US
-- South Central US
-- East US 2
-- West US 2
-- West Europe
-- North Europe
-- Canada Central
-- Southeast Asia
-- Australia East
-- Central India
+- East US, EastUS2EUAP, West US, Central US, West Central US, South Central US, East US2, West US2, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India 
 
 Kubernetes application-based container offers can't be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
