@@ -13,7 +13,7 @@ ms.custom: template-how-to, engagement-fy23
 
 # Manage NSG flow logs using Azure Policy 
 
-Azure Policy helps to enforce organizational standards and to assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
+Azure Policy helps you enforce organizational standards and to assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
 In this article, you learn how to use two built-in policies available for NSG flow Logs to manage your flow logs setup. The first policy flags any network security group without flow logs enabled. The second policy automatically deploys NSG flow logs without flow logs enabled. 
 
@@ -52,7 +52,7 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 1.  Select **Compliance**. Search for the name of your assignment and then select it.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/audit-policy-compliance.png" alt-text="Screenshot of Compliance page of Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy-compliance.png":::
+    :::image type="content" source="./media/nsg-flow-logs-policy-portal/audit-policy-compliance.png" alt-text="Screenshot of Compliance page showing noncompliant resources based on the audit policy." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy-compliance.png":::
 
 1. **Resource compliance** lists all non-compliant network security groups.
 
@@ -117,7 +117,7 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
 1. Select **Compliance**. Search for the name of your assignment and then select it.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance.png" alt-text="Screenshot of Compliance page of Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy-compliance.png":::
+    :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance.png" alt-text="Screenshot of Compliance page showing noncompliant resources based on the deploy policy." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy-compliance.png":::
 
 1. **Resource compliance** lists all non-compliant network security groups.
 
