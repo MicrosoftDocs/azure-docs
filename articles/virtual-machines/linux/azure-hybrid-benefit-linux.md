@@ -18,7 +18,7 @@ ms.custom: kr2b-contr-experiment
 
 ## What is Azure Hybrid Benefit?
 
-Azure Hybrid Benefit (AHB) for Linux is a licensing solution that lets you bring your Red Hat and SUSE Linux subscriptions directly to Azure and removes the licensing cost.  This article explains the two Azure Hybrid Benefit licensing models and the process of converting to and between them. This benefit extends to Virtual Machine Scale Sets, Spot Virtual Machines, and custom images, allowing for seamless deployment and bi-directional conversions between the two licensing models.
+Azure Hybrid Benefit (AHB) for Linux lets you change the licensing model of your VM. You can remove licensing cost by bringing your Red Hat and SUSE Linux subscriptions directly to Azure, or convert from this model back to a pay as you go model. This article explains how to use Azure Hybrid Benefit to switch between the BYOS and PAYG licensing models. This process applies to Virtual Machine Scale Sets, Spot Virtual Machines, and custom images and allows for seamless bi-directional conversions between the two models.
 
 Customers may see savings estimated to up to 76% with Azure Hybrid Benefit for Linux. Savings estimates are based on one standard D2s v3 Azure VM with RHEL or SLES subscription in the East US region running at a pay-as-you-go rate vs a reduced rate for a 3-year reserved instance plan. Based on Azure pricing as of October 2022. Prices subject to change. Actual savings may vary based on location, instance type, or usage.
 
