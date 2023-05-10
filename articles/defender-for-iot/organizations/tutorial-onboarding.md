@@ -87,12 +87,6 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 
 1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see the [table in the Prerequisites](#hw) section above.
 
-1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
-
-1. Select **Next** > **Finish**.
-
-1. Power on the VM, and open a console.
-
 ## Onboard the virtual sensor
 
 Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription.
@@ -139,11 +133,11 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of the **Add outbound allow rules** box.":::
 
-    To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription.
+    Save the downloaded file to use later in order to [verify your sensor can connect Azure](#verify-your-cloud-connection).
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
-
+ 
 1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 
     Until you activate your sensor, the sensor's status will show as **Pending Activation**.
@@ -160,31 +154,35 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 > Promiscuous mode is an operating mode and a security monitoring technique for a VM's interfaces in the same portgroup level as the virtual switch to view the switch's network traffic. Promiscuous mode is disabled by default but can be defined at the virtual switch or portgroup level.
 >
 
-**To configure a SPAN port with ESXi**:
+**To configure a monitoring interface with Promiscuous mode on an ESXi v-Switch**:
 
-1. Open vSwitch properties.
+1. Open the vSwitch properties page and select **Add standard virtual switch**.
 
-1. Select **Add**.
+1. Enter **SPAN Network** as the network label.
 
-1. Select **Virtual Machine** > **Next**.
-
-1. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
-
-1. Select **Finish**.
-
-1. Select **SPAN Network** > **Edit*.
+1. In the MTU field, enter **4096**.
 
 1. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
 
-1. Select **OK**, and then select **Close** to close the vSwitch properties.
+1. Select **Add** to close the vSwitch properties.
 
-1. Open the **XSense VM** properties.
+1. Highlight the vSwitch you have just created, and select **Add uplink**.
+
+1. Select the physical NIC you will use for the SPAN traffic, change the MTU to **4096**, then select **Save**.
+
+1. Open the **Port Group** properties page and select **Add Port Group**.
+
+1.  Enter **SPAN Port Group** as the name, enter **4095** as the VLAN ID, and select **SPAN Network** in the vSwitch drop down, then select **Add**.
+
+1. Open the **OT Sensor VM** properties.
 
 1. For **Network Adapter 2**, select the **SPAN** network.
 
 1. Select **OK**.
 
 1. Connect to the sensor, and verify that mirroring works.
+
+[!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 
 ## Download software for your virtual sensor
 
@@ -206,35 +204,82 @@ You can either purchase pre-configured appliances or bring your own appliance an
 
 This procedure describes how to install the sensor software on your VM.
 
+> [!NOTE]
+> Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+
 **To install the software on the virtual sensor**:
+
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
+
+1. Select **Next** > **Finish**.
+
+1. Power on the VM, and open a console.
 
 1. Open the VM console.
 
-1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
+1. When the installation boots, you're first prompted to select the hardware profile you want to use.
 
-1. Select the required specifications for your needs, as defined in the [table in the Prerequisites](#hw) section above.
+    For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
-1. Define the appliance profile and network properties as follows:
+    After you've selected the hardware profile, the following steps occur, and can take a few minutes:
 
-    | Parameter | Configuration |
-    | ----------| ------------- |
-    | **Hardware profile** | Depending on your [system specifications](#hw).  |
-    | **Management interface** | **ens192** |
-    | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
+    - System files are installed
+    - The sensor appliance reboots
+    - Sensor files are installed
 
-    You don't need to configure the bridge interface, which is relevant for special use cases only.
+    When the installation steps are complete, the Ubuntu **Package configuration** screen is displayed, with the `Configuring iot-sensor` wizard, showing a prompt to  select your monitor interfaces.
 
-1. Enter **Y** to accept the settings.
+    In the `Configuring iot-sensor` wizard, use the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
-1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords won't be presented again.
+1. In the wizard's `Select monitor interfaces` screen, select the interfaces you want to monitor.
 
-    - **support**: The administrative user for user management.
+    By default, `eno1` is reserved for the management interface and we recommend that you leave this option unselected.
 
-    - **cyberx**: The equivalent of root for accessing the appliance.
+    > [!IMPORTANT]
+    > Make sure that you select only interfaces that are connected.
+    >
+    > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them via the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 
-    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected.
 
-1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
+1. In the `Select management interface` screen, we recommend keeping the default `eno1` value selected as the management interface.
+
+1. In the `Enter sensor IP address` screen, enter the IP address for the sensor appliance you're installing.
+
+1. In the `Enter path to the mounted backups folder` screen, enter the path to the sensor's mounted backups. We recommend using the default path of `/opt/sensor/persist/backups`.
+
+1. In the `Enter Subnet Mask` screen, enter the IP address for the sensor's subnet mask.
+
+1. In the `Enter Gateway` screen, enter the sensor's default gateway IP address.
+
+1. In the `Enter DNS server` screen, enter the sensor's DNS server IP address.
+
+1. In the `Enter hostname` screen, enter the sensor hostname.
+
+1. In the `Run this sensor as a proxy server (Preview)` screen, select `<Yes>` only if you want to configure a proxy, and then enter the proxy credentials as prompted.
+
+    The default configuration is without a proxy.
+
+    For more information, see [Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (version 10.x)](../how-to-connect-sensor-by-proxy.md).
+
+1. <a name=credentials></a>The installation process starts running and then shows the credentials screen.
+
+    Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are shown. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
+
+    For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
+
+    Select `<Ok>` when you're ready to continue.
+
+    The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in.
+
+1. Enter the credentials for one of the users that you'd copied down in the [previous step](#credentials).
+
+    - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
+    - When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
+
+    When you've successfully signed in, the following confirmation screen appears:
+
+    :::image type="content" source="../media/tutorial-install-components/install-complete.png" alt-text="Screenshot of the sign-in confirmation.":::
 
 ### Post-installation validation
 
@@ -269,6 +314,8 @@ For more information, see [Methods for connecting sensors to Azure](architecture
 1. Select **More actions** > **Download endpoint details**.
 
 Configure your firewall rules so that your sensor can access the cloud on port 443, to each of the listed endpoints in the downloaded list.
+
+To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription.
 
 > [!IMPORTANT]
 > Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new [JSON file](https://www.microsoft.com/download/details.aspx?id=56519) each week and make the required changes on your site to correctly identify services running in Azure.
