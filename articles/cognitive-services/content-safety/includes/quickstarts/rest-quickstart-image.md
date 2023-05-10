@@ -15,7 +15,7 @@ ms.author: pafarley
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
-  * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
+  * The resource takes a few minutes to deploy. After it finishes, select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
 
@@ -28,7 +28,7 @@ The following section walks through a sample image moderation request with cURL.
 
 Choose a sample image to analyze, and download it to your device. 
 
-We support JPEG, PNG, GIF, BMP, TIFF, or WEBP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels.
+We support JPEG, PNG, GIF, BMP, TIFF, or WEBP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. If your format is animated, we will extract the first frame to do the detection.
 
 You can input your image by one of two methods: **local filestream** or **blob storage URL**.
 - **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 
@@ -54,7 +54,7 @@ Paste the command below into a text editor, and make the following changes.
 
 1. Substitute the `<endpoint>` with your resource endpoint URL.
 1. Replace `<your_subscription_key>` with your key.
-1. Populate the `"image"` field in the body with either a `"content"` field or a `"BlobURL"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"BlobURL": "<your_storage_url>"}`.
+1. Populate the `"image"` field in the body with either a `"content"` field or a `"BlobURL"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"blobUrl": "<your_storage_url>"}`.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
@@ -73,7 +73,7 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
 > ```
 > {
 >  "image": {
->    "BlobURL": "<your_storage_url>"
+>    "blobUrl": "<your_storage_url>"
 >  }
 > }
 > ```
