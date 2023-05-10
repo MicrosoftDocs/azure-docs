@@ -1,7 +1,7 @@
 ---
-title: Collect production data from models deployed to a real-time endpoint
+title: Collect production data from models deployed for real-time inferencing (preview)
 titleSuffix: Azure Machine Learning
-description: Collect inference data from your model deployed to a real-time endpoint on AzureML to monitor its performance in production.
+description: Collect inference data from a model deployed to a real-time endpoint on Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,47 +13,56 @@ ms.reviewer: mopeakande
 ms.custom: template-how-to-pattern
 ---
 
-# Collect production data from models deployed to a real-time endpoint
+# Collect production data from models deployed for real-time inferencing (preview)
 
-In this article, you will learn how to collect production inference data from your model deployed to an AzureML managed online endpoint or Kubernetes online endpoint. Azure Machine Learning stores the logged inference data in Azure blob storage. Data collection can be enabled for new deployments and existing deployments for online endpoints.
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Data collected with the provided Python SDK is automatically registered as a data asset in your AzureML workspace. This data asset can be used for model monitoring.
+In this article, you'll learn how to collect production inference data from a model deployed to an Azure Machine Learning managed online endpoint or Kubernetes online endpoint.
 
-If you are interested in collecting production inference data for a MLFlow model deployed to a real-time endpoint, doing so can be done with a single toggle. To learn how to do this, see [Data collection for MLFlow models](how-to-collect-production-data.md)
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Azure Machine Learning **Data collector** logs inference data in Azure blob storage. You can enable data collection for new or existing online endpoint deployments.
+
+Data collected with the provided Python SDK is automatically registered as a data asset in your Azure Machine Learning workspace. This data asset can be used for model monitoring.
+
+If you are interested in collecting production inference data for a MLFlow model deployed to a real-time endpoint, doing so can be done with a single toggle. To learn how to do this, see [Data collection for MLFlow models](#data-collection-for-mlflow-models).
+
+In this article, you'll learn to:
+
+> [!div class="checklist"]
+> * Do ...
+> * Do ...
+> * Do ...
 
 ## Prerequisites
 
-To collect production inference data from your deployed model, you must first complete the following steps:
+# [Azure CLI](#tab/azure-cli)
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace.
-* The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
-* The Azure Machine Learning [CLI v2](how-to-configure-cli.md).
-* Register a model in AzureML to use for your deployment. You may already have a model (or models) registered. To learn how to register a model, see [this article](how-to-manage-models.md).
-* Create an AzureML online endpoint. You may already have an online endpoint (or online endpoints) created. To learn how to create an online endpoint, see [this article](how-to-deploy-online-endpoints.md).
+[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
 
-Additionally, you will need to:
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-# [Azure CLI](#tab/cli)
+# [Python](#tab/python)
 
-- Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-# [Python SDK](#tab/python)
+[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
 
-- Install the Azure Machine Learning SDK for Python
-    
-    ```bash
-    pip install azure-ai-ml azure-identity
-    ```
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
 ---
 
-## Custom logging for model monitoring
+* Have a registered model that you can use for deployment. If you haven't already registered a model, see [Register your model as an asset in Machine Learning](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli).
+
+* Create an Azure Machine Learning online endpoint. If you don't have an existing online endpoint, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
+
+## Perform custom logging for model monitoring
 
 Data collection with custom logging allows you to log pandas DataFrames directly from your scoring script, before, during, and after any data transformations. With custom logging, tabular data is logged in real-time to your workspace Blob storage, where it can be seamlessly consumed by your model monitors.
 
 ### Update your scoring script (`score.py`)
 
-First, you will need to add custom logging code to your scoring script (`score.py`). You can view the comprehensive PyPI page for the data collector SDK [here](https://pypi.org/project/azureml-ai-monitoring/).
+First, you will need to add custom logging code to your scoring script (`score.py`). You can view the comprehensive PyPI page for the data collector SDK [here](https://pypi.org/project/azureml-ai-monitoring/). 
 
 Open the scoring file and add the following line at the top to import the `azure-ai-monitoring` package:
 
@@ -63,7 +72,8 @@ from azure.ai.monitoring import Collector
 
 Next, in your `init()` function, declare your data collection variables (up to five data collection variables are supported):
 
-> **Note**: If you use the names `model_inputs` and `model_outputs` for your `Collector` objects, the model monitoring system will automatically recognize the automatically registered data assets, which will provide for a more seamless model monitoring experience.
+> [!NOTE]
+> If you use the names `model_inputs` and `model_outputs` for your `Collector` objects, the model monitoring system will automatically recognize the automatically registered data assets, which will provide for a more seamless model monitoring experience.
 
 ```python
 global inputs_collector, outputs_collector
@@ -71,7 +81,7 @@ inputs_collector = Collector(name='model_inputs')
 outputs_collector = Collector(name='model_outputs')
 ```
 
-By default, an exception is raised if there is a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run on logging failure. For instance, using the following `on_error` will log the error rather than an exception being thrown: 
+By default, an exception is raised if there is a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run on logging failure. For instance, using the following `on_error` will log the error rather than an exception being thrown:
 
 ```python
 inputs_collector = Collector(name='model_inputs', on_error=lambda e: logging.info("ex:{}".format(e)))
@@ -85,7 +95,8 @@ result = model.predict(data)
 outputs_collector.collect(result, context)
 ```
 
-> **Note**: Currently, only pandas DataFrames can be logged with the `collect()` API. If the data is not in DataFrame format when passed to `collect()`, it will not be logged to storage and an error will be reported.
+> [!NOTE]
+> Currently, only pandas DataFrames can be logged with the `collect()` API. If the data is not in DataFrame format when passed to `collect()`, it will not be logged to storage and an error will be reported.
 
 Here is an example of a full scoring script (`score.py`) utilizing the custom logging Python SDK:
 
@@ -328,6 +339,7 @@ If you are deploying a MLFlow model to an AzureML online endpoint, enabling prod
 To enable production data collection, while you are deploying your model, under the **Deployment** tab, select **Enabled** for **Data collection (preview)**.
 
 After enabling data collection, production inference data will be logged to your AzureML workspace blob storage and two data assets will be created with names `<endpoint_name>-<deployment_name>-model_inputs` and `<endpoint_name>-<deployment_name>-model_outputs`. These data assets will be updated in real-time as your deployment is utilized in production, and can be used by your model monitors to monitor the performance of your model in production.
+
 
 ## Next steps
 
