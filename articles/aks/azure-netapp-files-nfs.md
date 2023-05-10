@@ -441,9 +441,9 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
   The output of the command resembles the following example:   
 
-    ```output    
-    persistentvolumeclaim/anf-pvc created
-    ```
+  ```output
+  persistentvolumeclaim/anf-pvc created
+  ```
 
 3. To view information about the persistent volume claim, run the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command:   
 
