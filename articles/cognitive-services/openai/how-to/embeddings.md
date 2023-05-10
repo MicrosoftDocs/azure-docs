@@ -52,7 +52,7 @@ print(embeddings)
 using Azure;
 using Azure.AI.OpenAI;
 
-Uri oaiEndpoint = new ("https://YOUR_RESOURCE_NAME.openai.azure.com"");
+Uri oaiEndpoint = new ("https://YOUR_RESOURCE_NAME.openai.azure.com");
 string oaiKey = "YOUR_API_KEY";
 
 AzureKeyCredential credentials = new (oaiKey);
