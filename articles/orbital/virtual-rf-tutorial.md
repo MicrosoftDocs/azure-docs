@@ -53,7 +53,7 @@ First we remove the managed modem, and capture the raw RF data into a pcap file.
 
 After a satellite pass, you should have a file `/tmp/aqua.pcap` of size 10-20 GB (depending on the max elevation).  This file contains DIFI packets containing the raw RF signal received by the ground station, in the form of IQ samples.  
 
-## Step 2: Extract the IQ samples from the DIFI Packets
+## Step 2: Extract the IQ samples from the DIFI packets
 
 Next we extract the IQ samples and save them in a more traditional form; a [binary IQ file](https://pysdr.org/content/iq_files.html#binary-files).  The following steps can be performed on any VM/computer that has a copy of the aqua.pcap file you created.  These steps involve using a utility maintained by the DIFI Consortium to extract the IQ samples from the DIFI packets into an IQ file.
 
@@ -118,11 +118,11 @@ The time it takes GNU Radio to finish is based on how long you let `drx.py` run,
 
 We end this tutorial here.  If you're interested in decoding the bytes into imagery, you can either use [NASA's tools](satellite-imagery-with-orbital-ground-station.md#step-2-install-nasa-drl-tools) or open source tools such as [altillimity/X-Band-Decoders](https://github.com/altillimity/X-Band-Decoders).
 
-## (Optional) Step 4: Run the GNU Radio Flowgraph Live
+## (Optional) Step 4: Run the GNU Radio flowgraph live
 
 The exercise we have done so far represents the design/testing portion of creating a vRF.  We transform this GNU Radio flowgraph so that it can be run live on the VM, resembling a true vRF modem.
 
-### Handle the Input
+### Handle the input
 
 Previously, we manually converted the DIFI packet pcap to a binary IQ file, then loaded that binary IQ file into GNU Radio with the Fink Source block.  We can simplify our flowgraph using a block within [gr-difi](https://github.com/DIFI-Consortium/gr-difi) (maintained by Microsoft) designed to receive DIFI packets into GNU Radio!  This added block does require us to install a GNU Radio out-of-tree (OOT) module, which is like a plugin for GNU Radio:
 
@@ -150,7 +150,7 @@ After these steps, you should be able to reopen GNU Radio and see the new blocks
 
 If you want to test this flowgraph on your development machine, you need a tool such as [udpreplay](https://github.com/rigtorp/udpreplay) to play back the pcap we recorded.  Otherwise you can wait to test this part until the flowgraph is used live on the VM connected to Azure Orbital.  This limitation is one reason it helps to make a recording of the signal during the vRF development and testing phase.
 
-### Handle the Output
+### Handle the output
 
 You can choose to leave the File Sink at the end, and retrieve the recorded file each pass, but many applications require streaming the bytes out of the modem.  One way to do this in GNU Radio is to use the [TCP Sink Block](https://wiki.gnuradio.org/index.php/TCP_Sink) in place of the File Sink.  The TCP Sink block can be configured in either a server or client mode, depending on which side should make the initial connection.  Set the Input Type to Byte, and the TCP Sink streams the bytes over a raw TCP payload.
 
@@ -158,7 +158,7 @@ You can choose to leave the File Sink at the end, and retrieve the recorded file
 
 If you leave it as a File Sink, it's recommended to add a few lines of Python at the end of the flowgraph (after it finishes) that copies the created file to a new location.
 
-### Run the Flowgraph in Headless Mode
+### Run the flowgraph in headless mode
 
 There's a good chance that the VM receiving the Azure Orbital stream doesn't support a desktop environment, which causes GNU Radio to crash.  We must configure this flowgraph to avoid using GUIs.
 
@@ -171,13 +171,13 @@ These steps let us run the flowgraph as a Python script with no GUI, and when th
 
    :::image type="content" source="media/gnuradio-headless.png" alt-text="Screenshot of GNU Radio running in Headless Mode." lightbox="media/gnuradio-headless.png":::
 
-### Run the Flowgraph Live
+### Run the flowgraph live
 
 Once the flowgraph is configured with the DIFI Source and in headless mode, we can run the flowgraph live on the VM.  In GNU Radio Companion (GRC), every time you hit the play button, a .py file is created in the same directory.  This Python script needs to be copied onto the VM.  If GNU Radio and gr-difi were installed properly, you should be able to run the Python script using `python yourflowgraph.py` and it waits for the DIFI stream from Azure Orbital to start.  You can feel free to add any Python code you want to this Python script, such as copying the resulting file to a new location each pass.  Note: if you regenerate the Python script within GRC, this new Python code has to be manually added again.
 
 If the above steps worked, you have successfully created and deployed a downlink vRF, based on GNU Radio!
 
-## vRF within AOGS Reference
+## vRF within AOGS reference
 
 In this section, we provide several RF/digitizer-specific details that may be of interest to a vRF user or designer.
 
