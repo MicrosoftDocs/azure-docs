@@ -16,7 +16,13 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier (all tiers)
 
-This article shows you how to use the Remote Procedure Call framework (gRPC) that you can use to efficiently connect services in Azure Spring Apps. For an example to modify and deploy, this article uses the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application.
+This article and video shows you how to use the Remote Procedure Call framework (gRPC) protocol in Azure Spring Apps. 
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/yNvoQ4YIDCI]
+
+For an example to modify and deploy, this article uses the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application.
 
 From your local environment, you create a gRPC service by modifying the  `customers-service` microservice, deploy it to Azure Spring Apps, and use grpc curl commands to test the service by making calls to gRPC methods.
 
@@ -73,7 +79,7 @@ You can also use the Azure portal to assign a public endpoint. For more informat
 
 ## Modify an existing service to be a gRPC service
 
-Before changing the customers service into a gRPC server, examine the current response to list all owners by adding `/owners` to the URL path.  
+Before the service is changed into a gRPC server, look at the Owners page of a deployed PetClinic instance application examine the current pet owners data. You can also list all owners by adding `/owners` to the URL path, which you can get from the Overview page for the `customers-service` page in the Azure portal.
 
 Use the following steps to change customers-service into a gRPC server.
 
@@ -267,33 +273,41 @@ public class CustomersServiceImpl extends CustomersServiceGrpc.CustomersServiceI
 
 Use the following command to configure the server to use port 1025 so that the ingress rule can work correctly.
 
-   ```bash
-   grpc.server.port=1025
-   ```
+```bash
+grpc.server.port=1025
+```
 
 The setting `grpc.server.port=1025` is added to the *application.yaml* or *application.properties* in the *spring-petclinic-customers-service/src/main/resources* folder.
 
-The customers-service is now a gRPC service.
+## Create the gRPC service
+
+Use the following command to build the gRPC server Jar file.
+
+```bash
+mvn package
+```
+
+The modification of `customers-service` is completed, and it's now a gRPC service.
 
 ## Deploy the application to Azure Spring Apps
 
 You can now configure the server and deploy the application.
 
-Use the following command to deploy the jar to file to your Azure Spring Apps instance:
+Use the following command to deploy the newly built Jar file to your Azure Spring Apps instance:
 
-   ```azurecli
-   az spring app deploy --name ${CUSTOMERS_SERVICE} \
-       --jar-path ${CUSTOMERS_SERVICE_JAR} \
-       --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql' \
-       --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
-           MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
-           MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
-           MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
-   ```
+```azurecli
+az spring app deploy --name ${CUSTOMERS_SERVICE} \
+    --jar-path ${CUSTOMERS_SERVICE_JAR} \
+    --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql' \
+    --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
+        MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
+        MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
+        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
+```
 
 The deployment can take a few minutes to completed.
 
-Now that the application is deployed in Azure Spring Apps, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which should fail as expected because a gRPC service can't be accessed using the HTTP protocol.
+Now that the application is deployed in Azure Spring Apps, call a gRPC service from outside the Azure Spring Apps service instance. As you did earlier, test the `customers-service` endpoint to attempt list all pet owners by adding `/owners` to the URL path. This time the test fails as expected because a gRPC service can't be accessed using the HTTP protocol.
 
 ## Set the ingress configuration
 
@@ -303,7 +317,7 @@ Set the backend protocol to use gRPC so that you can use grpc curl commands to t
 
 You can use grpcurl to test the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. The traffic is automatically routed to port 1025 on the backend.
 
-1. Use the following commands to check the gRPC server:
+Use the following grpc curl commands to check the gRPC server by listing all the pet owners.
 
    ```bash
    grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443 list
