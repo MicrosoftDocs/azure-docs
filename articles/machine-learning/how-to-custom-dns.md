@@ -565,6 +565,9 @@ The following steps describe how this topology works:
 
     The query from On-premises DNS Server to DNS Server in step 8 ultimately returns the IP addresses associated with the Private Endpoint to the Azure Machine Learning workspace. These IP addresses are returned to the original client, which will now communicate with the Azure Machine Learning workspace over the Private Endpoint configured in step 1.
 
+    > [!IMPORTANT]
+    > If VPN Gateway is being used in this set up along with custom DNS Server IP's on VNet then Azure DNS IP (168.63.129.16) needs to be added in the list as well to maintain undisrupted communication.
+
 <a id="hosts"></a>
 ## Example: Hosts file
 

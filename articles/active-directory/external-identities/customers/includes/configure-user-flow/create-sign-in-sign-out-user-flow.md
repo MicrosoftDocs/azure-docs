@@ -22,8 +22,6 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Select **+ New user flow**.
 
-   <!--[Screenshot](media/17-create-user-flow-new-user-flow.png)-->
-
 1. On the **Create** page:
 
    1. Enter a **Name** for the user flow, such as *SignInSignUpSample*.
@@ -40,14 +38,9 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
       - **Email one-time-passcode**: Allows new users to sign up and sign in using an email address as the sign-in name and email one-time passcode as their first factor credential.
 
          > [!NOTE]
-         > Email one-time passcode must be enabled at the tenant level (**All Identity Providers** > **Email One-time-passcode**) for this option to be available at the user flow level.  
-        
-      The following screenshot demonstrates how to select the identity providers.
-      
-      <!--   ![Screenshot that shows how to select the Azure AD sign up and email accounts identity providers.](media/18-create-user-flow.png)-->
+         > Email one-time passcode must be enabled at the tenant level (**All Identity Providers** > **Email One-time-passcode**) for this option to be available at the user flow level. 
 
    1. Under **User attributes**, choose the attributes you want to collect from the user upon sign-up. By selecting **Show more**, you can choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**. (Users are only prompted for attributes when they sign up for the first time.)
-
 
 1. Select **Create**. The new user flow appears in the **User flows** list. If necessary, refresh the page.
 

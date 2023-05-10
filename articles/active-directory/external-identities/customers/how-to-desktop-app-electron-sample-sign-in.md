@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Electron desktop application by using Microsoft Entra
-description: Learn how to configure a sample Electron desktop to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample Electron desktop application.
+description: Learn how to configure a sample Electron desktop to sign in and sign out users.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,9 +16,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Electron desktop app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample Electron desktop application by using Microsoft Entra
+# Sign in users in a sample Electron desktop application by using
 
-This how-to guide uses a sample Electron desktop application to show how to add authentication to a desktop application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Electron desktop application to show how to add authentication to a desktop application. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you do the following tasks:
 
@@ -93,9 +93,8 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Find the placeholder:
  
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
-    
-    1. `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
+    1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 ## Run and test sample web app
 

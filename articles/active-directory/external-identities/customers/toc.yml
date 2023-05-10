@@ -65,6 +65,11 @@ items:
                       href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: ../../develop/console-app-quickstart.md
+            - name: Daemon, service
+              items:
+                - name: Node.js - Call an API
+                  href: how-to-daemon-node-sample-call-api.md
+                  displayName: client credentials grant
             - name: Desktop app
               items:
                 - name: Electron
@@ -79,8 +84,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-app-vanillajs-prepare-tenant.md
                         - name: Prepare app
@@ -93,8 +96,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
@@ -133,8 +134,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/tutorial-v2-asp-webapp.md
                         - name: Prepare tenant
                           href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
@@ -160,23 +159,13 @@ items:
                   href: ../../develop/tutorial-v2-nodejs-console.md
                 - name: .NET​ - Sign in users
                   href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
-            - name: Desktop app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
-                - name: Electron​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-desktop.md
-            - name: Mobile app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
+            - name: Daemon, service
+              href: how-to-daemon-node-sample-call-api.md
     - name: Authenticate and authorize
       expanded: true
       items:
       - name: Create a customer tenant
-        items:
-          - name: Create a customer tenant in the admin center
-            href: how-to-create-customer-tenant-portal.md
+        href: how-to-create-customer-tenant-portal.md
       - name: Register an app
         href: how-to-register-ciam-app.md
       - name: Add a sign-up and sign-in flow
@@ -191,6 +180,8 @@ items:
             href: how-to-google-federation-customers.md
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
+          - name: Use application roles to manage access
+            href: how-to-use-app-roles-customers.md
     - name: Customize
       expanded: true
       items:
@@ -202,8 +193,10 @@ items:
               href: how-to-customize-languages-customers.md
         - name: Customize attribute collection
           items:
-            - name: Define custom attributes for user flows
+            - name: Collect user attributes during sign-up
               href: how-to-define-custom-attributes.md
+            - name: Add attributes to the token
+              href: how-to-add-attributes-to-token.md
         - name: Add claims from external systems
           items:
            - name: About custom authentication extensions

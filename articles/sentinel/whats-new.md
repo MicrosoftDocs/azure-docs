@@ -17,6 +17,16 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## May 2023
+
+- [Use Hunts to conduct end-to-end proactive threat hunting in Microsoft Sentinel](#use-hunts-to-conduct-end-to-end-proactive-threat-hunting)
+
+### Use Hunts to conduct end-to-end proactive threat hunting
+
+Take your hunts to the next level. Stay organized and keep track of new, active and closed hunts. Don't wait to react, proactively track down detection gaps on specific MITRE ATT&CK techniques or your own hypotheses. Collect evidence, investigate entities, annotate your findings and share them with your team all in one screen. 
+
+Learn more about [Hunts (Preview)](hunts.md).
+
 ## April 2023
 
 - [RSA announcements](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/rsac-2023-microsoft-sentinel-empowering-the-soc-with-next-gen/ba-p/3803613)

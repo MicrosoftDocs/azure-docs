@@ -1,6 +1,6 @@
 ---
-title: Sign in users in your own Node.js web application by using Microsoft Entra - Overview
-description: Learn about how to Sign in users in your own Node.js web application by using Microsoft Entra.
+title: Sign in users in your own Node.js web application  - Overview
+description: Learn about how to Sign in users in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,11 +16,11 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application by using Microsoft Entra 
+# Sign in users in your own Node.js web application  
 
 In this article, you learn how to sign in users in your own Node.js web application that you build. You add authentication to your web application against your Azure Active Directory (Azure AD) for customers tenant. 
 
-We've broken down this article into three separate articles so it's easy for you to follow: 
+We've organized the content into three separate articles so it's easy for you to follow: 
 
 - [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-prepare-tenant.md) tenant guides you how to register your app and configure user flows in the Microsoft Entra admin center.
 
@@ -53,11 +53,11 @@ The sign-in flow involves the following steps:
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
 
 
-If you want to run a sample Node.js web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-node-sample-sign-in.md)
+If you want to run a sample Node.js web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application](how-to-web-app-node-sample-sign-in.md)
 
 ## Next steps
 
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Prepare your Azure AD for customers tenant >](how-to-web-app-node-sign-in-prepare-tenant.md)
+> [Prepare your Azure AD for customers tenant for authentication >](how-to-web-app-node-sign-in-prepare-tenant.md)
