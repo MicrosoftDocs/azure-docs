@@ -149,6 +149,12 @@ Avoid issues while setting up customer-managed data encryption during restore or
 - On the restored/replica server, you can change the customer-managed key and\or Azure Active Directory (Azure AD) identity used to access Azure Key Vault in the data encryption settings. Ensure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
 
 -  Don't revoke the original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
+- 
+## Using Azure Key Vault Managed HSM
+
+**Hardware security modules (HSMs)** are hardened, tamper-resistant hardware devices that secure cryptographic processes by generating, protecting, and managing keys used for encrypting and decrypting data and creating digital signatures and certificates. HSMs are tested, validated and certified to the highest security standards including FIPS 140-2 and Common Criteria. Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. 
+
+You can pick **Azure Key Vault Managed HSM** as key store when creating new PostgreSQL Flexible Server in Azure Portal with Customer Managed Key (CMK) feature, as alternative to **Azure Key Vault**.  The prerequisites in terms of user defined identity and permissions are same as with Azure Key Vault, as already listed [above](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server).  More information on how to create Azure Key Vault  Managed HSM, its advantages and differences with shared Azure Key Vault based certificate store, as well as how to import keys into AKV Managed HSM is available [here](../../key-vault/managed-hsm/overview.md). 
 
 ## Inaccessible customer-managed key condition
 
