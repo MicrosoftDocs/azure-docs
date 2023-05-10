@@ -247,4 +247,4 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 
 ## Next steps
 
-Learn more about [flows and application scenarios](authentication-flows-app-scenarios.md)
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
