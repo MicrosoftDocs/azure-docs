@@ -117,7 +117,6 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 #### Prediction Drift
 
-
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `prediction_drift` | `prediction_drift`|
@@ -171,12 +170,12 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data. It refers to production model inputs data. | `model_inputs` |  |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `target_dataset.lookback_period_days` | Integer |Lookback window to include extra data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period isn't enough or skewed. | | |
 | `baseline_dataset` | Object | **Required**. It must be `training` data. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `training` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `normalized_discounted_cumulative_gain` metric with threshold of `0.02`|
 |`metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `all_feature_types` | `all feature_types` |
