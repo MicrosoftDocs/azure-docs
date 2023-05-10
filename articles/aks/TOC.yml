@@ -412,7 +412,7 @@
           items:
             - name: Bring your own CNI
               href: use-byo-cni.md
-            - name: Use Azure CNI Powered by Cilium (Preview)
+            - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
             - name: Use Azure CNI
               href: configure-azure-cni.md
