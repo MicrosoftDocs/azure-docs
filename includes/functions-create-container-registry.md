@@ -17,25 +17,25 @@ First, you use Azure Functions tools to create your project code as a function a
 Before you begin, you must have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-cli-dotnet-prerequisites](functions-cli-dotnet-prerequisites.md)]
++ The [.NET 6 SDK](https://dotnet.microsoft.com/download).
+
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x or a later version.
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
-
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x or a later version.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (16.16.0 and 14.20.0 recommended).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
++ A version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#python-version). 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6 SDK](https://dotnet.microsoft.com/download).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 or 11.
++ A version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
 
 + [Apache Maven](https://maven.apache.org) version 3.0 or above.
 
@@ -56,6 +56,7 @@ To publish the containerized function app image you create, you also need a regi
 + You need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
 
 ---
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -68,16 +69,9 @@ In a terminal or command prompt, run the following command for your chosen langu
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 
-# [In-process](#tab/in-process)
-```console
-func init --worker-runtime dotnet --docker
-```
-
-# [Isolated process](#tab/isolated-process)
 ```console
 func init --worker-runtime dotnet-isolated --docker
 ```
----
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 ```console

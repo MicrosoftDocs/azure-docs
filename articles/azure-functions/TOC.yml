@@ -97,14 +97,14 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
-    - name: Create functions in a container
-      items:
-        - name: Azure Container Apps (preview)
-          href: functions-deploy-container-aca.md
-          displayName: container, Docker, ACA 
-        - name: Azure Arc (preview)
-          displayName: Arc, container, Kubernetes, Docker
-          href: create-first-function-arc-custom-container.md  
+        - name: Containers
+          items:
+            - name: Azure Container Apps (preview)
+              href: functions-deploy-container-aca.md
+              displayName: container, Docker, ACA 
+            - name: Azure Arc (preview)
+              displayName: Arc, container, Kubernetes, Docker
+              href: create-first-function-arc-custom-container.md  
     - name: Connect to storage
       items:
         - name: C#

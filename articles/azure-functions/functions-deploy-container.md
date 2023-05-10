@@ -28,7 +28,7 @@ Before you can deploy your container to Azure, you need to create three resource
 * A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources. 
 
-Use the following commands to create these items. Both Azure CLI and PowerShell are supported.
+Use the following commands to create these items. Both Azure CLI and PowerShell are supported. To create your Azure resources using Azure PowerShell, you also need the [Az PowerShell module](/powershell/azure/install-az-ps), version 5.9.0 or later.
 
 1. If you haven't done already, sign in to Azure.
 
