@@ -106,7 +106,7 @@ Broadcast alerts to a fleet of clients using the **one-to-many** messaging patte
 ### Integrate MQTT data
 :::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data-high-res.png" :::
 
-Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](pull-and-push-delivery-overview.md#push-delivery-1) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
+Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](push-delivery-overview.md#push-delivery-1) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
 ## Push delivery of discrete events
 
@@ -152,7 +152,7 @@ An event subscription is a generic configuration resource that allows you to def
 
 ## Pull delivery of discrete events
 
-Azure Event Grid features [pull CloudEvents delivery](pull-and-push-delivery-overview.md#push-and-pull-delivery). Using this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.
+Azure Event Grid features [pull CloudEvents delivery](pull-delivery-overview.md#push-and-pull-delivery). Using this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.
 
 ### Receive events at your own pace
 :::image type="content" source="media/overview/pull-events-at-your-own-pace.png" alt-text="High-level diagram of a publisher and consumer application. The publisher sends events to Event Grid at a higher pace than the subscriber's event consumption rate." lightbox="media/overview/pull-events-at-your-own-pace-high-res.png" :::
@@ -183,6 +183,7 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 
 ### Data distribution using pull or push  delivery
 
-- [Pull and push delivery overview](pull-and-push-delivery-overview.md).
+- [Pull delivery overview](pull-delivery-overview.md).
+- [Push delivery overview](push-delivery-overview.md).
 - [Concepts](concepts.md)
 - Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md).

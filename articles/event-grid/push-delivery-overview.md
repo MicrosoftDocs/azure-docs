@@ -2,12 +2,12 @@
 ms.date: 04/21/2023
 author: jfggdl
 ms.author: jafernan
-title: Introduction to pull and push delivery
-description: Learn about Event Grid's http pull and push delivery and the resources that support them.
+title: Introduction to push delivery
+description: Learn about Event Grid's http push delivery and the resources that support them.
 ms.topic: conceptual
 ---
 
-# Pull and push delivery with HTTP
+# Push delivery with HTTP
 This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you will find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!Important]
@@ -79,29 +79,6 @@ The following are general guidelines to help you decide when to use pull or push
 - You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send events to you at the time state changes happen.
 - You have an application that cannot make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
 
-## Pull delivery
-Pull delivery is available through [namespace topics](concepts.md#topics), which are topics that you create inside a [namespace](concepts.md#namespaces). Your application publishes CloudEvents to a single namespace HTTP endpoint specifying the target topic.
-
->[!Note]
-> - Namespaces provide a simpler resource model featuring a single kind of topic. Currently, Event Grid supports publishing your own application events through namespace topics. You cannot consume events from Azure services or partner SaaS systems using namespace topics. You also cannot create system topics, domain topics or partner topics in a namespace.
->- Key-based (local) authentication is currently supported for namespace topics.
->- Namespace topics support CloudEvents JSON format.
-
-You use an event subscription to define the filtering criteria for events and in doing so, you effectively define the set of events that are available for consumption. One or more subscriber (consumer) applications connect to the same namespace endpoint specifying the topic and event subscription from which to receive events.
-
-:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.png" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." lightbox="media/pull-and-push-delivery-overview/pull-delivery-high-res.png" :::
-
-One or more consumers connects to Event Grid to receive events.
-
-- A **receive** operation is used to read one or more events using a single request to Event Grid. The broker waits for up to 60 seconds for events to become available. For example new events available because they were just published. A successful receive request returns zero or more events. If events are available, it returns as many available events as possible up to the event count requested. Event Grid also returns a lock token for every event read.
-- A **lock token** is a kind of handle that identifies an event for event state control purposes.
-- Once a consumer application receives an event and processes it, it  **acknowledges** the event. This instructs Event Grid to delete the event so it is not redelivered to another client. The consumer application acknowledges one or more tokens with a single request by specifying their lock tokens before they expire.
-
-In some other occasions, your consumer application may want to release or reject events.
-
-- Your consumer application **releases** a received event to signal Event Grid that it is not ready to process the event and to make it available for redelivery.
-- You may want to **reject** an event if there is a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it cannot be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they are dropped.
-
 ## Push delivery
 
 Push delivery is supported for the following resources. Click on the links to learn more about each of them.
@@ -119,14 +96,6 @@ The following diagram illustrates the resources that support push delivery with 
 ## Next steps
 
 The following articles provide you with information on how to use Event Grid or provide you with additional information on concepts.
-
-### Pull delivery
-
-- Learn about [Namespaces](concepts.md#namespaces)
-- Learn about [Namespace Topics](concepts.md#namespace-topics) and [Event Subscriptions](concepts.md#event-subscriptions)
-- [Publish and subscribe to events using Namespace Topics](publish-events-using-namespace-topics.md)
-
-### Push delivery
 
 - [Learn about System Topics](system-topics.md)
 - [Learn about Partner Topics](partner-events-overview.md)

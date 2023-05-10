@@ -7,16 +7,36 @@ items:
       href: overview.md
     - name: Release notes
       href: whats-new.md
-  - name: Pull and push delivery using HTTP
+  - name: Pull delivery using HTTP
     items:
     - name: Overview
       items:
-      - name: Pull and push delivery overview
-        href: pull-and-push-delivery-overview.md
+      - name: Pull delivery overview
+        href: pull-delivery-overview.md
     - name: Quickstarts
       items:
       - name: Publish and subscribe using namespace topics
         href: publish-events-using-namespace-topics.md
+    - name: How-to 
+      items:
+      - name: Create, view, and manage namespaces
+        href: create-view-manage-namespaces.md
+      - name: Create, view, and manage namespace topics
+        href: create-view-manage-namespace-topics.md
+      - name: Create, view, and manage event subscriptions
+        href: create-view-manage-event-subscriptions.md
+    - name: Reference
+      items:
+      - name: Monitoring data reference (pull delivery)
+        href: monitor-pull-delivery.md
+  - name: Push delivery using HTTP
+    items:
+    - name: Overview
+      items:
+      - name: Push delivery overview
+        href: push-delivery-overview.md
+    - name: Quickstarts
+      items:
       - name: Publish and subscribe using custom topics
         items:
         - name: Custom events to Event Grid Viewer app
@@ -371,12 +391,6 @@ items:
           href: troubleshoot-network-connectivity.md
         - name: Troubleshoot subscription validation
           href: troubleshoot-subscription-validation.md
-      - name: Create, view, and manage namespaces
-        href: create-view-manage-namespaces.md
-      - name: Create, view, and manage namespace topics
-        href: create-view-manage-namespace-topics.md
-      - name: Create, view, and manage event subscriptions
-        href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
       - name: Azure CLI
@@ -393,7 +407,7 @@ items:
         href: /python/api/overview/azure/event-grid
       - name: Node.js
         href: /javascript/api/overview/azure/event-grid
-      - name: Monitoring data reference (push & pull delivery)
+      - name: Monitoring data reference (push delivery)
         href: monitor-pull-push-reference.md
       - name: Quotas and limits
         href: quotas-limits.md
