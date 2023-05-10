@@ -72,7 +72,7 @@ In the **Reject rate per category** chart, you can also adjust the severity thre
 You can also edit blocklists if you want to change some terms, based on the **Top 10 blocked terms** chart.
 
 ## Manage your resource
-To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the Form Recognizer Studio home page and select the **Resource** tab. If you have access to other resources, you can switch resources as well.
+To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the Content Safety Studio home page and select the **Resource** tab. If you have other resources, you can switch resources here as well.
 
 :::image type="content" source="media/manageresource.png" alt-text="Screenshot of Manage Resource.":::
 

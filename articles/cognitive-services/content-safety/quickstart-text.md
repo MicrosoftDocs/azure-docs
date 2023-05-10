@@ -44,8 +44,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 - [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 ## Next steps
-* You can try to configure filters for each category and test on datasets in [Content Safety Studio](studio-quickstart.md), export the code and deploy.
-* learn how to use blocklists to customize your text moderation process.
+Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
 
-  > [!div class="nextstepaction"]
-  > [Use blocklists](./how-to/use-blocklist.md)
+> [!div class="nextstepaction"]
+> [Content Safety Studio quickstart](./studio-quickstart.md.md)
