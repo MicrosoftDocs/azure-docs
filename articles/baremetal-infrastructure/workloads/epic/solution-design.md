@@ -1,6 +1,6 @@
 ---
-title: What is BareMetal Infrastructure on Azure?
-description: Provides an overview of the BareMetal Infrastructure on Azure.
+title: Solution design
+description: Describes Epic for ALI solution design.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 04/01/2023
@@ -26,4 +26,4 @@ The available Linux OS versions are:
 Learn how to identify and interact with BareMetal instances through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Manage BareMetal instances through the Azure portal](connect-baremetal-infrastructure.md)
+> [Manage BareMetal instances through the Azure portal](../../connect-baremetal-infrastructure.md)
