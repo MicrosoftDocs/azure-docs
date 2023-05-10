@@ -148,18 +148,18 @@ The following new actions are created for managed feature store usage.
 |Action| Description|
 |----|------|
 | Microsoft.MachineLearningServices/workspaces/featurestores/read | List, get feature store |
-| Microsoft.MachineLearningServices/workspaces/featurestores/write | Create and update feature store (configure materialization stores, materialization compute, etc.|)
+| Microsoft.MachineLearningServices/workspaces/featurestores/write | Create and update feature store (configure materialization stores, materialization compute, etc.)|
 | Microsoft.MachineLearningServices/workspaces/featurestores/delete | Delete feature store|
-Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets. |
+| Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets. |
 | Microsoft.MachineLearningServices/workspaces/featuresets/write | Create and update feature sets. Can configure materialization settings along with create or update |
 | Microsoft.MachineLearningServices/workspaces/featuresets/delete | Delete feature sets|
 | Microsoft.MachineLearningServices/workspaces/featuresets/action | Trigger actions on feature sets (for example, a backfill job) |
 | Microsoft.MachineLearningServices/workspaces/featurestoreentities/read | List and show feature store entities. |
 | Microsoft.MachineLearningServices/workspaces/featurestoreentities/write | Create and update feature store entities. |
-| Microsoft.MachineLearningServices/workspaces/featurestoreentities/delete | Delete entities. | 
+| Microsoft.MachineLearningServices/workspaces/featurestoreentities/delete | Delete entities |
 | Microsoft.MachineLearningServices/workspaces/featurestoreentities/action | Trigger actions on feature store entities |
 
-There's no ACL for instances of a feature store entity and a feature set. 
+There's no ACL for instances of a feature store entity and a feature set.
 
 ## Next steps
 
