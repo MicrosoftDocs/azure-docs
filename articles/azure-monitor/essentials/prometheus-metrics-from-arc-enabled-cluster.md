@@ -1,5 +1,5 @@
 ---
-title: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview).
+title: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster.
 description: How to configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus.
 author: EdB-MSFT
 ms.author: edbaynash 
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/07/2023
 ---
 
-# Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview)
+# Collect Prometheus metrics from an Arc-enabled Kubernetes cluster
 
 This article describes how to configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus. When you configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the Azure Monitor agent is installed with a metrics extension. You  then specify the Azure Monitor workspace where the data should be sent.
 
@@ -29,7 +29,7 @@ Windows isn't currently supported.
 ## Prerequisites
 
 + Prerequisites listed in [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions#prerequisites)
-+ An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md).
++ An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace ](./azure-monitor-workspace-manage.md).
 + The cluster must use [managed identity authentication](https://review.learn.microsoft.com/azure/aks/use-managed-identity).
 + The following resource providers must be registered in the subscription of the Arc-enabled Kubernetes cluster and the Azure Monitor workspace:
   + Microsoft.Kubernetes
@@ -67,7 +67,8 @@ Windows isn't currently supported.
 
 1. From the resource pane on the left, select **Insights** under the **Monitoring** section.
 1. On the onboarding page, select **Configure monitoring**.
-1. Select the **Enable Prometheus metrics** checkbox 
+1. On the **Configure Container insights** page, select the **Enable Prometheus metrics** checkbox.
+1. Select **Configure**.
 
 :::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/arc-enabled-k8s-onboarding.png" alt-text="A screenshot of the monitoring onboarding page for Azure Arc-enabled kubernetes clusters.":::
 
@@ -120,9 +121,13 @@ az k8s-extension create\
 
 You can use the following optional parameters with the previous commands:
 
---configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist is a comma-separated list of Kubernetes annotations keys used in the resource's labels metric. By default, the metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single * can be provided per resource instead to allow any annotations, but it has severe performance implications. 
+`--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` is a comma-separated list of Kubernetes annotations keys used in the resource's labels metric. By default, the metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them.  
 
---configurationSettings. AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList is a comma-separated list of more Kubernetes label keys that is used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them. A single asterisk (*) can be provided per resource instead to allow any labels, but it has severe performance implications.  
+`--configurationSettings. AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of more Kubernetes label keys that is used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them.  
+
+> [!NOTE]
+> A single asterisk `*` can be provided per resource to allow any labels instead of providing a list of resource names, but this has severe performance implications.  
+
 
 ```azurecli
 az k8s-extension create \
@@ -139,7 +144,7 @@ az k8s-extension create \
 
 ### Prerequisites
 
-+ If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the Microsoft.Dashboard resource provider by following this documentation.
++ If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider by following the steps in the [Register resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of the Azure resource providers and types article.
 
 + The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 + The template must be deployed in the same resource group as the Azure Managed Grafana workspace.
@@ -171,23 +176,23 @@ If you're using an existing Azure Managed Grafana instance that's already linked
 
 ### Download and edit the template and the parameter file  
 
-1. Download the template at https://aka.ms/azureprometheus-arc-arm-template and save it as existingClusterOnboarding.json.
+1. Download the template at https://aka.ms/azureprometheus-arc-arm-template and save it as *existingClusterOnboarding.json*.
 
-1. Download the parameter file at https://aka.ms/azureprometheus-arc-arm-template-parameters and save it as existingClusterParam.json.
+1. Download the parameter file at https://aka.ms/azureprometheus-arc-arm-template-parameters and save it as *existingClusterParam.json*.
 
 1. Edit the following fields' values in the parameter file.
 
    |Parameter|Value |
    |---|---|
-   |azureMonitorWorkspaceResourceId |Resource ID for the Azure Monitor    workspace. Retrieve from the JSON view on the Overview page for the Azure    Monitor workspace. |
-   |azureMonitorWorkspaceLocation|Location of the Azure Monitor workspace.    Retrieve from the JSON view on the Overview page for the Azure Monitor    workspace. |
-   |clusterResourceId |Resource ID for the Arc cluster. Retrieve from the JSON    view on the Overview page for the cluster. |
-   |clusterLocation |Location of the Arc cluster. Retrieve from the JSON view    on the Overview page for the cluster. |
-   |metricLabelsAllowlist |Comma-separated list of Kubernetes labels keys to    be used in the resource's labels metric.|
-   |metricAnnotationsAllowList |Comma-separated list of more Kubernetes label    keys to be used in the resource's labels metric. |
-   |grafanaResourceId |Resource ID for the managed Grafana instance. Retrieve    from the JSON view on the Overview page for the Grafana instance. |
-   |grafanaLocation |Location for the managed Grafana instance. Retrieve from    the JSON view on the Overview page for the Grafana instance. |
-   |grafanaSku |SKU for the managed Grafana instance. Retrieve from the JSON    view on the Overview page for the Grafana instance. Use the sku.name. |
+   |`azureMonitorWorkspaceResourceId` |Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the Overview page for the Azure Monitor workspace. |
+   |`azureMonitorWorkspaceLocation`|Location of the Azure Monitor workspace. Retrieve from the JSON view on the Overview page for the Azure Monitor workspace. |
+   |`clusterResourceId` |Resource ID for the Arc cluster. Retrieve from the **JSON view** on the Overview page for the cluster. |
+   |`clusterLocation` |Location of the Arc cluster. Retrieve from the **JSON view** on the Overview page for the cluster. |
+   |`metricLabelsAllowlist` |Comma-separated list of Kubernetes labels keys to be used in the resource's labels metric.|
+   |`metricAnnotationsAllowList` |Comma-separated list of more Kubernetes label keys to be used in the resource's labels metric. |
+   |`grafanaResourceId` |Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the Overview page for the Grafana instance. |
+   |`grafanaLocation` |Location for the managed Grafana instance. Retrieve from the **JSON view** on the Overview page for the Grafana instance. |
+   |`grafanaSku` |SKU for the managed Grafana instance. Retrieve from the **JSON view** on the Overview page for the Grafana instance. Use the `sku.name`. |
 
 
 1. Open the template file and update the grafanaIntegrations property at the end of the file with the values that you retrieved from the Grafana instance. The following example is similar:
@@ -236,7 +241,7 @@ Once you have successfully created the Azure Monitor extension for your Azure Ar
 
 #### Azure CLI
 
-Run the following command to show the latest status of the Microsoft.AzureMonitor.Containers.Metrics extension.
+Run the following command to show the latest status of the` Microsoft.AzureMonitor.Containers.Metrics` extension.
 
 ```azurecli
 az k8s-extension show \
