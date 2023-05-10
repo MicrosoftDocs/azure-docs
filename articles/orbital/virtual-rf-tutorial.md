@@ -1,5 +1,5 @@
 ---
-title: Understanding virtual RF (vRF) by demodulating Aqua using GNU Radio
+title: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio - Azure Orbital
 description: Learn how to use virtual RF (vRF) instead of a managed modem. Receive a raw RF signal from NASA's Aqua public satellite and process it in GNU Radio.
 author: 777arc
 ms.service: orbital
@@ -10,7 +10,7 @@ ms.author: marclichtman
 # Customer intent: As an Azure Orbital customer I want easy to understand documentation for virtual RF so I don't have to bug the product team to understand how to build my applications.
 ---
 
-# Tutorial: Understanding virtual RF (vRF) by demodulating Aqua using GNU Radio
+# Tutorial: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
 
 In [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md), data from NASA's Aqua satellite is downlinked using a **managed modem**, meaning the raw RF signal received from the Aqua satellite by the ground station is passed through a modem managed by Azure Orbital.  The output of this modem, which is in the form of bytes, is then streamed to the user's VM.  As part of the step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-for-an-aqua-downlink-mission) the **Demodulation Configuration** was set to **Aqua Direct Broadcast**, which is what enabled and configured the managed modem to demodulate/decode the RF signal received from Aqua.  Using the vRF concept, no managed modem is used, and instead the raw RF signal is sent to the user's VM for processing.  This concept can apply to both the downlink and uplink, but in this tutorial we examine the downlink process.  We create a vRF, based on GNU Radio, which processes the raw RF signal and act as the modem.
 
@@ -26,7 +26,7 @@ In this guide, you learn how to:
 
 * Complete [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md), as this tutorial assumes you have already configured the spacecraft and VM.
 
-## Understanding the limitations and tradeoffs when using vRF
+## Understand the limitations and tradeoffs of using vRF
 
 Before we dive into the tutorial, it's important to understand how vRF works and how it compares to using a managed modem.  With a managed modem, the entire physical (PHY) layer occurs within Azure Orbital, meaning the RF signal is immediately processed within Azure Orbital's resources and the user only receives the information bytes produced by the modem.  Using vRF, there's no managed modem, and the raw RF signal is streamed to the user from the ground station digitizer.  This approach allows the user to run their own modem, or capture the RF signal for later processing.  
 
@@ -36,9 +36,9 @@ Throughout this tutorial, you learn first hand how vRF works.  At the end of thi
 
 ## Role of DIFI within vRF
 
-Azure Orbital's ground stations consist of digitizers that utilize [DIFI](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_101_Tutorial.md) to send and receive digitized RF signals.  The DIFI Packet Protocol, technically referred to as "IEEE-ISTO Std 4900-2021: Digital IF Interoperability Standard", defines a data plane interface meant for transmitting and receive digitized IF data (such as IQ samples) and corresponding metadata over standard IP networks. Even though it is called an IF standard, IQ samples at baseband can also be streamed with DIFI, as is in the case of Azure Orbital. The primary use-case of DIFI packets is to create an interface between satellite ground station digitizers (transceivers) and software modems, enabling interoperability and combatting vendor lock-in that has plagued the satellite industry for decades.  
+Azure Orbital's ground stations consist of digitizers that utilize [DIFI](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_101_Tutorial.md) to send and receive digitized RF signals.  The DIFI Packet Protocol, technically referred to as "IEEE-ISTO Std 4900-2021: Digital IF Interoperability Standard", defines a data plane interface meant for transmitting and receive digitized IF data (such as IQ samples) and corresponding metadata over standard IP networks. Even though it's called an IF standard, IQ samples at baseband can also be streamed with DIFI, as is with Azure Orbital. The primary use-case of DIFI packets is to create an interface between satellite ground station digitizers (transceivers) and software modems, enabling interoperability and combatting vendor lock-in that has plagued the satellite industry for decades.  
 
-The DIFI Packet Protocol contains two primary message types: data packets and context packets.  Due to legacy hardware reasons, there are two different versions of context packets.  Azure Orbital's ground stations use the most up to date (DIFI v1.1) context packets for X-Band signals, and the legacy format for S-Band signals.  If you are using the [gr-difi](https://github.com/DIFI-Consortium/gr-difi) GNU Radio package, you will want to make sure to select the 108 byte format for X-Band and the 72 byte format for S-band.  For non-GNU Radio vRFs you will need to ensure the correct version of DIFI is used for context packets, v1.1 can be found [here](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_Validator/dcs.py#L50) and the legacy version can be inferred from [this section of code](https://github.com/DIFI-Consortium/gr-difi/blob/main/lib/difi_sink_cpp_impl.cc#L123).  Additional considerations are included in the [vRF within AOGS Reference](#vrf-within-aogs-reference) at the end of this tutorial.
+The DIFI Packet Protocol contains two primary message types: data packets and context packets.  Due to legacy hardware reasons, there are two different versions of context packets.  Azure Orbital's ground stations use the up-to-date (DIFI v1.1) context packets for X-Band signals, and the legacy format for S-Band signals.  If you're using the [gr-difi](https://github.com/DIFI-Consortium/gr-difi) GNU Radio package, you'll want to make sure to select the 108-byte format for X-Band and the 72-byte format for S-band.  For non-GNU Radio vRFs you'll need to ensure the correct version of DIFI is used for context packets, v1.1 can be found [here](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/DIFI_Validator/dcs.py#L50) and the legacy version can be inferred from [this section of code](https://github.com/DIFI-Consortium/gr-difi/blob/main/lib/difi_sink_cpp_impl.cc#L123).  More considerations are included in the [vRF within AOGS Reference](#vrf-within-aogs-reference) at the end of this tutorial.
 
 ## Step 1: Use AOGS to schedule a contact and collect Aqua data
 
@@ -73,13 +73,13 @@ You should see activity in the terminal if it worked, and there should be a new 
 
 Next we create the actual vRF modem, based on GNU Radio, used to demodulate the Aqua signal.
 
-   :::image type="content" source="media/gnuradio_logo.png" alt-text="GNU Radio logo" lightbox="media/gnuradio_logo.png":::
+   :::image type="content" source="media/gnuradio-logo.png" alt-text="Logo for GNU Radio Free Software Project." lightbox="media/gnuradio_logo.png":::
 
 GNU Radio is a free and open-source software development toolkit that provides signal processing blocks and many example digital signal processing (DSP) applications. It can be used with readily available low-cost RF hardware to create software-defined radios, or without hardware in a simulation-like environment. It's widely used in research, industry, academia, government, and hobbyist environments to support both wireless communications research and real-world radio systems.  In this tutorial, we use GNU Radio to demodulate Aqua (that is, GNU Radio acts as the modem).
 
 Although GNU Radio can be used in headless mode, in this tutorial we1 use GNU Radio's GUI (that is, desktop interface), so you must copy `/tmp/samples.iq` to a VM with X11 forwarding or computer with Ubuntu 20/22 desktop.  The command `scp` can be used to copy the file from a VM on Azure to a local development machine.
 
-### Installing GNU Radio
+### Install GNU Radio
 
 If you're using Ubuntu 22, run `sudo apt-get install gnuradio`.  If instead you are on Ubuntu 20, then use the following commands to install GNU Radio:
 
@@ -91,15 +91,15 @@ sudo apt-get install gnuradio python3-packaging
 
 Verify that GNU Radio installed properly and that graphics are working using `gnuradio-companion`; a window should pop up that looks like this:
 
-   :::image type="content" source="media/gnuradio_gui.png" alt-text="GNU Radio desktop GUI" lightbox="media/gnuradio_gui.png":::
+   :::image type="content" source="media/gnuradio-gui.png" alt-text="Screenshot of the GNU Radio desktop GUI." lightbox="media/gnuradio_gui.png":::
 
 If the block tree on the right isn't displayed, you can show it using the magnifying glass icon at the top-right.
 
-### Running the Aqua flowgraph
+### Run the Aqua flowgraph
 
 A GNU Radio application is called a "flowgraph", and it typically either processes or generates an RF signal.  The starter flowgraph to use can be [downloaded here](https://gist.githubusercontent.com/777arc/e5824993f1f55f890bb99ab4453db42b/raw/b523d4ae61a21436d58796ab0026f8d510d3ba7b/aqua.grc).  Open this `.grc` file within GNU Radio and you should see the following flowgraph:
 
-   :::image type="content" source="media/aqua_flowgraph.png" alt-text="GNU Radio Aqua flowgraph" lightbox="media/aqua_flowgraph.png":::
+   :::image type="content" source="media/aqua-flowgraph.png" alt-text="Screenshot of the GNU Radio Aqua flowgraph." lightbox="media/aqua_flowgraph.png":::
 
 > [!NOTE]
 > For those not interested in the details of how the flowgraph/modem works, you can skip the following paragraph
@@ -108,9 +108,9 @@ The flowgraph starts by reading in the IQ file, converting it from interleaved 8
 
 Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if you saved it somewhere else, double click the File Source block and update the path).  Click the play button at the top to run the flowgraph.  If the previous steps were successful, and your Aqua contact was a success, you should see the following power spectral density (PSD) and IQ plot displayed:
 
-   :::image type="content" source="media/aqua_psd.png" alt-text="GNU Radio Aqua PSD" lightbox="media/aqua_psd.png":::
+   :::image type="content" source="media/aqua-psd.png" alt-text="Screen shot of the GNU Radio Aqua Power Spectral Density (PSD)." lightbox="media/aqua_psd.png":::
 
-   :::image type="content" source="media/aqua_constellation.png" alt-text="IQ plot of Aqua signal" lightbox="media/aqua_constellation.png":::
+   :::image type="content" source="media/aqua-constellation.png" alt-text="Screenshot of the IQ plot of the Aqua signal." lightbox="media/aqua_constellation.png":::
 
 Yours may vary, based on the strength the signal was received.  If no GUI showed up, then check GNU Radio's output in the bottom left for errors.  If the GUI shows up but resembles a horizontal noisy line (with no hump), it means the contact didn't actually receive the Aqua signal.  In this case, double check that autotrack is enabled in your Contact Profile and that the center frequency was entered correctly.
 
@@ -118,11 +118,11 @@ The time it takes GNU Radio to finish is based on how long you let `drx.py` run,
 
 We end this tutorial here.  If you're interested in decoding the bytes into imagery, you can either use [NASA's tools](satellite-imagery-with-orbital-ground-station.md#step-2-install-nasa-drl-tools) or open source tools such as [altillimity/X-Band-Decoders](https://github.com/altillimity/X-Band-Decoders).
 
-## (Optional) Step 4: Running the GNU Radio Flowgraph Live
+## (Optional) Step 4: Run the GNU Radio Flowgraph Live
 
 The exercise we have done so far represents the design/testing portion of creating a vRF.  We transform this GNU Radio flowgraph so that it can be run live on the VM, resembling a true vRF modem.
 
-### Handling the Input
+### Handle the Input
 
 Previously, we manually converted the DIFI packet pcap to a binary IQ file, then loaded that binary IQ file into GNU Radio with the Fink Source block.  We can simplify our flowgraph using a block within [gr-difi](https://github.com/DIFI-Consortium/gr-difi) (maintained by Microsoft) designed to receive DIFI packets into GNU Radio!  This added block does require us to install a GNU Radio out-of-tree (OOT) module, which is like a plugin for GNU Radio:
 
@@ -150,7 +150,7 @@ After these steps, you should be able to reopen GNU Radio and see the new blocks
 
 If you want to test this flowgraph on your development machine, you need a tool such as [udpreplay](https://github.com/rigtorp/udpreplay) to play back the pcap we recorded.  Otherwise you can wait to test this part until the flowgraph is used live on the VM connected to Azure Orbital.  This limitation is one reason it helps to make a recording of the signal during the vRF development and testing phase.
 
-### Handling the Output
+### Handle the Output
 
 You can choose to leave the File Sink at the end, and retrieve the recorded file each pass, but many applications require streaming the bytes out of the modem.  One way to do this in GNU Radio is to use the [TCP Sink Block](https://wiki.gnuradio.org/index.php/TCP_Sink) in place of the File Sink.  The TCP Sink block can be configured in either a server or client mode, depending on which side should make the initial connection.  Set the Input Type to Byte, and the TCP Sink streams the bytes over a raw TCP payload.
 
@@ -158,7 +158,7 @@ You can choose to leave the File Sink at the end, and retrieve the recorded file
 
 If you leave it as a File Sink, it's recommended to add a few lines of Python at the end of the flowgraph (after it finishes) that copies the created file to a new location.
 
-### Running in Headless Mode
+### Run the Flowgraph in Headless Mode
 
 There's a good chance that the VM receiving the Azure Orbital stream doesn't support a desktop environment, which causes GNU Radio to crash.  We must configure this flowgraph to avoid using GUIs.
 
@@ -169,9 +169,9 @@ There's a good chance that the VM receiving the Azure Orbital stream doesn't sup
 
 These steps let us run the flowgraph as a Python script with no GUI, and when the incoming socket closes the flowgraph should automatically end.
 
-   :::image type="content" source="media/gnuradio_headless.png" alt-text="GNU Radio in Headless Mode" lightbox="media/gnuradio_headless.png":::
+   :::image type="content" source="media/gnuradio-headless.png" alt-text="Screenshot of GNU Radio running in Headless Mode." lightbox="media/gnuradio_headless.png":::
 
-### Running Live
+### Run the Flowgraph Live
 
 Once the flowgraph is configured with the DIFI Source and in headless mode, we can run the flowgraph live on the VM.  In GNU Radio Companion (GRC), every time you hit the play button, a .py file is created in the same directory.  This Python script needs to be copied onto the VM.  If GNU Radio and gr-difi were installed properly, you should be able to run the Python script using `python yourflowgraph.py` and it waits for the DIFI stream from Azure Orbital to start.  You can feel free to add any Python code you want to this Python script, such as copying the resulting file to a new location each pass.  Note: if you regenerate the Python script within GRC, this new Python code has to be manually added again.
 

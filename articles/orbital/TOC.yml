@@ -47,8 +47,8 @@ items:
     href: downlink-aqua.md 
   - name: Process Aqua satellite data using NASA-provided tools
     href: satellite-imagery-with-orbital-ground-station.md
-  - name: Understanding virtual RF (vRF) by demodulating Aqua using GNU Radio
-    href: vrf-tutorial.md
+  - name: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+    href: virtual-rf-tutorial.md
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC
