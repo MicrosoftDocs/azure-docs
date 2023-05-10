@@ -20,11 +20,11 @@ In this article, you learn to use [GitHub Actions](https://docs.github.com/act
 Before you begin, you must meet the following prerequisites: 
 * An Azure account with active subscription. 
 * A GitHub account to configure GitHub repositories, create workflows, and configure GitHub secrets. 
-* Run `az` command in PowerShell. Follow [this guide](https://learn.microsoft.com/cli/azure/install-azure-cli-windows) to install or update the Azure Command-Line Interface (CLI) on your local machine.  
+* Run `az` command in PowerShell. Follow [this guide](/cli/azure/install-azure-cli-windows) to install or update the Azure Command-Line Interface (CLI) on your local machine.  
 
 ## Step 1: Push the Stream Analytics project to GitHub repository 
 
-We're using the Azure Stream Analytics extension for Visual Studio Code (VS Code) to manage your Stream Analytics project. Follow [this guide](https://learn.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code) if you haven’t installed.  
+We're using the Azure Stream Analytics extension for Visual Studio Code (VS Code) to manage your Stream Analytics project. Follow [this guide](quick-create-visual-studio-code.md) if you haven’t installed.  
 1. Go to the query editor in the Azure portal and select **Open in VS Code**. 
 
     :::image type="content" source="./media/cicd-github-actions/open-in-vscode.png" alt-text="Screenshot of the Azure portal using open in VS Code feature in the query file." lightbox= "./media/cicd-github-actions/open-in-vscode.png" :::
