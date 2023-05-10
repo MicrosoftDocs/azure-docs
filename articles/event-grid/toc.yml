@@ -7,7 +7,7 @@ items:
       href: overview.md
     - name: Release notes
       href: whats-new.md
-  - name: Pull delivery using HTTP
+  - name: Pull delivery (HTTP)
     items:
     - name: Overview
       items:
@@ -33,7 +33,7 @@ items:
       items:
       - name: Monitoring data reference (pull delivery)
         href: monitor-pull-reference.md
-  - name: Push delivery using HTTP
+  - name: Push delivery (HTTP)
     items:
     - name: Overview
       items:
