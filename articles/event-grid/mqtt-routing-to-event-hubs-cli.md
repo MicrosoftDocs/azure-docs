@@ -47,7 +47,7 @@ az role assignment create --assignee "{Your Principal ID}" --role "EventGrid Dat
 
 > [!NOTE]
 > You can find your principal ID using the command in PowerShell
-> az ad signed-in-user show
+> - az ad signed-in-user show
 
 ## Create Event Subscription with Event Hubs as endpoint
 - Create Event Grid Subscription.  Update it with your subscription ID, resource group ID, EG custom topic name.
