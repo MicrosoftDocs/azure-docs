@@ -73,7 +73,6 @@ The rate of container copy job progress is determined by these factors:
 Container copy jobs don't work with accounts having following capabilities enabled. You will need to disable these features before running the container copy jobs.
 
 - [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
-- [Private endpoint / IP Firewall enabled](how-to-configure-firewall.md#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure). You will need to provide access to connections within public Azure datacenters to run container copy jobs.
 - [Merge partition](merge.md).
 
 
@@ -137,14 +136,15 @@ Currently, container copy is supported in the following regions:
     "message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
     ```
 
-* Error - (Request) is blocked by your Cosmos DB account firewall settings.
+* Error - Request is unauthorized.
 
-    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell).
+    If the request fails with error Unauthorized (401), this could happen because Local Authorization is disabled, see [disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates). Container copy jobs use primary key to authenticate and if local authorization is disabled, the job creation fails. You need to enable local authorization for container copy jobs to work. 
 
     ```output
-    InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden
-    ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    "code": "401",
+    "message": " Response status code does not indicate success: Unauthorized (401); Substatus: 5202; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: Local Authorization is disabled. Use an AAD token to authorize all requests."
     ```
+
 * Error - Error while getting resources for job.
 
     This error can occur due to internal server issues. To resolve this issue, contact Microsoft support by raising a **New Support Request** from the Azure portal. Set the Problem Type as **'Data Migration'** and Problem subtype as **'Intra-account container copy'**.
@@ -154,8 +154,6 @@ Currently, container copy is supported in the following regions:
     "message": "Error while getting resources for job, StatusCode: 500, SubStatusCode: 0, OperationId:  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ``` 
 	
-
-
 
 ## Next steps
 
