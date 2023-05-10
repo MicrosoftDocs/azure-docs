@@ -50,8 +50,8 @@ The below fields must be included in the url:
 
 The parameters in the request body are defined in this table:
 
-| Name                  | Required     | Description              | Type    |
-| :-------------------- | -------- | :----------------------- | ------- |
+| Name        | Required     | Description  | Type    |
+| :------ | -------- | :--------------- | ------- |
 | **text**              | Required | This is the raw text to be checked. Other non-ascii characters can be included. | String  |
 | **categories**        | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We will use multiple categories to get scores in a single request. | String  |
 | **blocklistNames**    | Optional | Text blocklist Name. Only support following characters:  `0-9 A-Z a-z - . _ ~`. You could attach multiple lists name here. | Array   |
