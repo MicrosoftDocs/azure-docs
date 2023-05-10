@@ -65,8 +65,8 @@ Use the following steps to create a topic space:
 - Assign a Name to your topic space.
 
 > [!NOTE]
-> - Topic space name can be 3-50 characters long
-> - Topic space name can include alphanumeric, hyphen(-) and, no spaces
+> - Topic space name can be 3-50 characters long.
+> - Topic space name can include alphanumeric, hyphen(-) and, no spaces.
 
 - Add at least one topic template by selecting +Add topic template.
 - Select Create.
@@ -84,7 +84,7 @@ az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --
     "properties": {
         "subscriptionSupport": "LowFanout",
         "topicTemplates": [
-            "segment1/+/segment3/${client.name}",
+            "segment1/+/segment3/${client.authenticationName}",
             "segment1/${client.attributes.attribute1}/segment3/#"
         ]
 
