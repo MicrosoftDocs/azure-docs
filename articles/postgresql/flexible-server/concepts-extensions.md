@@ -493,7 +493,7 @@ Now you can run pg_dump on the original database and then do pg_restore. After t
 ```SQL
 SELECT timescaledb_post_restore();
 ```
-For more details on restore method wiith Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
+For more details on restore method with Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
 
 
 ### Restoring a Timescale database using timescaledb-backup
@@ -516,7 +516,7 @@ For more details on restore method wiith Timescale enabled database see [Timesca
 ```sql
 /*+ SeqScan(a) */
 ```
-`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases are consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrases can be delimited by new lines for readability.
+`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrase can be delimited by new lines for readability.
 Example:
 ```sql
   /*+
@@ -554,7 +554,7 @@ CREATE EXTENSION  pg_hint_plan ;
 
 ## pg_buffercache
 
-`Pg_buffercache` can be used to study the contents of *shared_buffers* . Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*) . This extension can help you in troubleshooting performance issues (caching related performance issues)
+`Pg_buffercache` can be used to study the contents of *shared_buffers*. Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*). This extension can help you in troubleshooting performance issues (caching related performance issues)
 
 This is part of contrib and it is very easy to install this extension.
 
