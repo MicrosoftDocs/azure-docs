@@ -108,7 +108,7 @@ The flowgraph starts by reading in the IQ file, converting it from interleaved 8
 
 Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if you saved it somewhere else, double click the File Source block and update the path).  Click the play button at the top to run the flowgraph.  If the previous steps were successful, and your Aqua contact was a success, you should see the following power spectral density (PSD) and IQ plot displayed:
 
-   :::image type="content" source="media/aqua-psd.png" alt-text="Screen shot of the GNU Radio Aqua Power Spectral Density (PSD)." lightbox="media/aqua-psd.png":::
+   :::image type="content" source="media/aqua-psd.png" alt-text="Screenshot of the GNU Radio Aqua Power Spectral Density (PSD)." lightbox="media/aqua-psd.png":::
 
    :::image type="content" source="media/aqua-constellation.png" alt-text="Screenshot of the IQ plot of the Aqua signal." lightbox="media/aqua-constellation.png":::
 
