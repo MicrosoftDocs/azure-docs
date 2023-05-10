@@ -1,5 +1,5 @@
 ---
-title: Back up Azure NetApp Files datastores and VMs using Cloud Backup (Preview)
+title: Back up Azure NetApp Files datastores and VMs using Cloud Backup (preview)
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
@@ -16,20 +16,20 @@ Before you back up your Azure NetApp Files datastores, you must add your Azure a
 
 ### Prerequisites 
 
-* You must [Create an Azure AD app and service principal](../active-directory/develop/howto-create-service-principal-portal.md)
-* You must have sufficient permissions to register an application with your Azure AD tenant, and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
-    ```json
-    "actions": [
-        "Microsoft.NetApp/*",
-        "Microsoft.Resources/resources/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/write",
-        "Microsoft.Network/virtualNetworks/read",
-        "Microsoft.Insights/Metrics/Read"
-        ],
-    ```
-    For more information on creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+You must have sufficient permissions to [Create an Azure AD app and service principal](../active-directory/develop/howto-create-service-principal-portal.md) within your Azure AD tenant and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
+
+```json
+"actions": [
+    "Microsoft.NetApp/*",
+    "Microsoft.Resources/resources/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/write",
+    "Microsoft.Network/virtualNetworks/read",
+    "Microsoft.Insights/Metrics/Read"
+    ],
+```
+For more information on creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ### Add Azure cloud subscription 
 
