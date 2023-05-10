@@ -6,7 +6,7 @@ ms.service: azure-vmware
 ms.date: 05/10/2023
 ---
 
-# Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (Preview)
+# Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (preview)
 
 From the VMware vSphere client, you can back up datastores and Virtual Machines (VMs) to the cloud. This article explains how to configure your subscription, create a backup policy, and create and back up a resource group. 
 
@@ -16,7 +16,20 @@ Before you back up your Azure NetApp Files datastores, you must add your Azure a
 
 ### Prerequisites 
 
-Before you can back up your Azure NetApp Files datastore or VM with Cloud Backup for Virtual Machines, you need to create an Azure service principal with the required Azure NetApp Files privileges.
+* You must [Create an Azure AD app and service principal](../active-directory/develop/howto-create-service-principal-portal.md)
+* You must have sufficient permissions to register an application with your Azure AD tenant, and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
+    ```json
+    "actions": [
+        "Microsoft.NetApp/*",
+        "Microsoft.Resources/resources/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Insights/Metrics/Read"
+        ],
+    ```
+    For more information on creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ### Add Azure cloud subscription 
 
@@ -41,7 +54,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 3.	On the **New Backup Policy** page, select the vCenter Server that will use the policy, then enter the policy name and a description.
 * **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters are not supported. 
 4.	Specify the retention settings.
-    The maximum retention value is 255 backups. If the **"Backups to keep"** option is selected during the backup operation, Cloud Backup for Virtual Machines will retain backups with the specified retention count and delete the backups that exceed the retention count.
+    The maximum retention value is 255 backups. If the **"Backups to keep"** option is selected during the backup operation, Cloud Backup for Virtual Machines retains backups within the specified retention count and delete the backups that exceed the retention count.
 5.	Specify the frequency settings.
     The policy specifies the backup frequency only. The specific protection schedule for backing up is defined in the resource group. Therefore, two or more resource groups can share the same policy and backup frequency but have different backup schedules.
 6.	**Optional:** In the **Advanced** fields, select the fields that are needed. The Advanced field details are listed in the following table.
@@ -58,7 +71,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 
 A resource group is the container for VMs and datastores that you want to protect.
 
-Do not add VMs in an inaccessible state to a resource group. Although a resource group can contain a VM in an inaccessible state, the inaccessible state will cause backups for the resource group to fail. 
+Do not add VMs in an inaccessible state to a resource group. Although a resource group can contain a VM in an inaccessible state, the inaccessible state causes backups for the resource group to fail. 
 
 ### Considerations for resource groups
 
@@ -109,7 +122,7 @@ You can add or remove resources from a resource group at any time.
     :::image type="content" source="./media/cloud-backup/backup-schedules.png" alt-text="A screenshot of the Backup schedules interface showing an hourly backup beginning at 10:22 a.m. on April 26, 2022." lightbox="./media/cloud-backup/backup-schedules.png":::
 1. Review the summary. If you need to change any information, you can return to any page in the wizard to do so. Select **Finish** to save your settings. 
 
-    After you select **Finish**, the new resource group will be added to the resource group list.
+    After you select **Finish**, the new resource group is added to the resource group list.
 
     If the pause operation fails for any of the VMs in the backup, then the backup is marked as not VM-consistent even if the policy selected has VM consistency selected. In this case, it's possible that some of the VMs were successfully paused.
 
@@ -144,7 +157,7 @@ Backup operations are performed on all the resources defined in a resource group
     >[!NOTE]
     >You can't rename a backup once it's created. 
 1. **Optional:** Monitor the operation progress by selecting **Recent Tasks** at the bottom of the window or on the dashboard Job Monitor for more details.
-    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully paused. In the job monitor, the failed VM details will show the paused as failed.
+    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully paused. In the job monitor, the failed VM details will show the pause operation as failed.
 
 ## Next steps
 

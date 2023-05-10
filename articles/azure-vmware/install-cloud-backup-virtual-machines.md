@@ -1,12 +1,12 @@
 ---
-title: Install Cloud Backup for Virtual Machines (Preview)
+title: Install Cloud Backup for Virtual Machines (preview)
 description: Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/10/2023
 ---
 
-# Install Cloud Backup for Virtual Machines (Preview)
+# Install Cloud Backup for Virtual Machines (preview)
 
 Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and virtual machines (VMs). 
 
@@ -16,27 +16,9 @@ Use Cloud Backup for VMs to:
 * Take VM consistent snapshots for quick checkpoints 
 * Quickly recover VMs
 
-## Prerequisites
-
-You must have sufficient permissions to register an application with your Azure AD tenant, and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
-
-```json
-"actions": [
-    "Microsoft.NetApp/*",
-    "Microsoft.Resources/resources/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Resources/subscriptions/resourcegroups/resources/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/write",
-    "Microsoft.Network/virtualNetworks/read",
-    "Microsoft.Insights/Metrics/Read"
-    ],
-```
-
-For more information on creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
-
 ## Install Cloud Backup for Virtual Machines
 
-You'll need to install Cloud Backup for Virtual Machines through the Azure portal as an add-on.  
+You need to install Cloud Backup for Virtual Machines through the Azure portal as an add-on.  
 
 1. Sign in to your Azure VMware Solution private cloud. 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Install-NetAppCBSA**.
@@ -63,11 +45,11 @@ You'll need to install Cloud Backup for Virtual Machines through the Azure porta
     | MaintenanceUserPassword | Password of the appliance maintenance user. |
 
     >[!TIP]
-    >You can also install Cloud Backup for Virtual Machines using DHCP by running the package `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you don't need to provide the values for the PrimaryDNS, Gateway, Netmask, and ApplianceIPAddress fields. These values will be automatically generated. 
+    >You can also install Cloud Backup for Virtual Machines using DHCP by running the package `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you don't need to provide the values for the PrimaryDNS, Gateway, Netmask, and ApplianceIPAddress fields. These values are automatically generated. 
 
 1. Check **Notifications** or the **Run Execution Status** tab to see the progress. For more information about the status of the execution, see [Run command in Azure VMware Solution](concepts-run-command.md).  
     
-Upon successful execution, the Cloud Backup for Virtual Machines will automatically be displayed in the VMware vSphere client. 
+Upon successful execution, the Cloud Backup for Virtual Machines is automatically displayed in the VMware vSphere client. 
 
 ## Upgrade Cloud Backup for Virtual Machines 
 
@@ -105,7 +87,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 > [!IMPORTANT]
 > Before you initiate the upgrade, you must:
 > * Backup the MySQL database of Cloud Backup for Virtual Machines. 
-> * Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag will be deleted when you uninstall.
+> * Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag are deleted when you uninstall.
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Uninstall-NetAppCBSAppliance**.
 1. Provide the required values, and then select **Run**. 
