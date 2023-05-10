@@ -39,7 +39,7 @@ Azure Spring Apps supports both Java [Spring Boot](https://spring.io/projects/sp
 
 ## Service overview
 
-As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more as shown in the following image:
+As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more, as shown in the following image:
 
 :::image type="content" source="media/overview/overview.png" alt-text="Diagram showing an overview of how Azure Spring Apps interacts with other services and tools." lightbox="media/overview/overview.png" border="false":::
 
@@ -47,13 +47,13 @@ Azure Spring Apps provides you with the following capabilities:
 
 * A fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
-* Deploy your JARs or code for your Spring Boot app, or Zip for your Steeltoe app, and Azure Spring Apps automatically wires your apps with Spring service runtime and built-in app lifecycle.
+* Automatic wiring of your apps with the Spring service runtime and built-in app lifecycle support when you deploy your JARs or code for your Spring Boot app, or zip file for your Steeltoe app.
 
 * Ease of monitoring. After deployment you can monitor app performance, fix errors, and rapidly improve applications.
 
 * Full integration to Azure's ecosystems and services.
 
-* Enterprise ready with fully managed infrastructure and built-in lifecycle management.
+* Enterprise readiness with fully managed infrastructure and built-in lifecycle management.
 
 ### Get started with Azure Spring Apps
 
@@ -67,7 +67,7 @@ The following articles help you migrate existing Spring Boot apps to Azure Sprin
 * [Migrate Spring Boot applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
 * [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier)
 
-The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the section [Get started with the Enterprise plan](#get-started-with-the-enterprise-plan) in this article.
+The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the [Get started with the Enterprise plan](#get-started-with-the-enterprise-plan) section.
 
 * [Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md)
 * [Set up Spring Cloud Config Server for Azure Spring Apps](quickstart-setup-config-server.md)
@@ -75,7 +75,7 @@ The following quickstarts apply to the Basic/Standard plan only. For Enterprise 
 
 ## Standard consumption and dedicated plan
 
-The Standard consumption and dedicated plan provides a hybrid pricing plan that offers pay-as-you-go and resource-based pricing in one comprehensive package. You can pay for compute time while getting started, and achieve price predictable and more cost savings when resources are running at scale.
+The Standard consumption and dedicated plan provides a hybrid pricing plan that offers pay-as-you-go and resource-based pricing in one comprehensive package. You can pay for compute time while getting started, and achieve price predictability and more cost savings when resources are running at scale.
 
 When you create a Standard consumption and dedicated plan, a consumption workload profile is always created by default. You can additionally add dedicated workload profiles to the same plan to fit the requirements of your workload.
 
@@ -169,7 +169,7 @@ Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully manag
 | Create service instances using a provisioning tool.                | Azure portal, CLI, ARM Template, Bicep, or Terraform                                                  |
 | Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins                                                             |
 | Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics      |
-| Connect Spring applications and interact with cloud services. | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
+| Connect Spring applications and interact with cloud services.      | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
 | Securely load app secrets and certificates.                        | Azure Key Vault                                                                                       |
 | Use familiar development tools.                                    | IntelliJ, Visual Studio Code, Eclipse, Spring Tool Suite, Maven, or Gradle                            |
 
@@ -179,13 +179,13 @@ After you create your Enterprise plan service instance and deploy your applicati
 
 The following articles help you get started using the Enterprise plan:
 
-* [TheEnterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
+* [The Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
 * [Introduction to Fitness Store sample app](quickstart-sample-app-acme-fitness-store-introduction.md)
 * [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
 * [Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
 * [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
 * [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
-* [Monitor application end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+* [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 * [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 * [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
 
