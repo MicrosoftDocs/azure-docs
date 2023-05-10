@@ -1,7 +1,7 @@
 ---
-title: "Four Part Tutorial: Enable recurrent materialization and run batch inference"
+title: "Tutorial #4: enable recurrent materialization and run batch inference (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
-description: Managed Feature Store tutorial part 4. 
+description: Managed Feature Store tutorial part 4
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial #4: Enable recurrent materialization and run batch inference
+# Tutorial #4: Enable recurrent materialization and run batch inference (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -37,7 +37,9 @@ You'll learn how to:
 
 ### Configure the Azure Machine Learning spark notebook
 
-1. At the "Compute" dropdown in the top nav, select "Azure Machine Learning Spark Compute". It might show "Ready" there, but the spark session is created only after you execute the next steps.
+1. In the "Compute" dropdown in the top nav, select "Configure session".
+
+1. Configure session:
 
       * Select "configure session" in the bottom nav
       * Select **upload conda file**
@@ -124,9 +126,17 @@ Explanation: Since we didn't provide `name` or `version` values of `inference_st
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/4. batch_inference.ipynb?name=inspect-batch-inf-output-data)]
 
+Notice that the prediction from batch inference is appended as the last column, named `predict_is_fraud`
+
 ## Cleanup
 
-Pending
+If you created a resource group for the tutorial, you can delete the resource group to delete all the resources associated with this tutorial.
+
+Otherwise, you can delete the resources individually:
+
+1. Delete the feature store: Go to the resource group in the azure portal, select the feature store and delete it
+1. Follow the instructions [here](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#delete-a-user-assigned-managed-identity) to delete the user assigned managed identity
+1. Delete the offline store (storage account): Go to the resource group in the azure portal, select the storage you created and delete it
 
 ## Next steps
 

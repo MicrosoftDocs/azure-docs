@@ -1,5 +1,5 @@
 ---
-title: "Four Part Tutorial: Experiment and train models using features"
+title: "Tutorial #3: experiment and train models using features (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial part 3. 
 services: machine-learning
@@ -38,7 +38,9 @@ Here in Tutorial part 3, you'll learn how to:
 
 ### Configure the Azure Machine Learning spark notebook
 
-1. At the "Compute" dropdown in the top nav, select "Azure Machine Learning Spark Compute". It might show "Ready" there, but the spark session is created only after you execute the next steps.
+1. Select AzureML Spark compute in the "Compute" dropdown, located in the top nav. Wait for a status bar in the top to display "configure session".
+
+1. Configure session:
 
       * Select "configure session" in the bottom nav
       * Select **upload conda file**
@@ -54,8 +56,6 @@ Here in Tutorial part 3, you'll learn how to:
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=root-dir)]
 
 #### Initialize the project workspace CRUD client
-
-The tutorial notebook runs from this current workspace
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=init-ws-crud-client)]
 
@@ -189,7 +189,7 @@ In part 2 of this tutorial, you ran a backfill job to materialize data for a tra
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. training.ipynb?name=run-training-pipeline)]
 
-Open the pipeline run "web view" in a new window to inspect the steps in the pipeline.
+Open the pipeline run "web view" in a new window to inspect the steps in the training pipeline.
 
 #### Step 4b: Examine the feature retrieval spec in the model artifacts
 

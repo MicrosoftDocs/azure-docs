@@ -1,5 +1,5 @@
 ---
-title: "Four Part Tutorial: Get Started with Feature Store (preview)"
+title: "Tutorial #1: develop and register a feature set with managed feature store (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial part 1. 
 services: machine-learning
@@ -15,7 +15,7 @@ ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial #1: Hello World: develop and register a feature set with managed feature store (preview)
+# Tutorial #1: develop and register a feature set with managed feature store (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -60,14 +60,11 @@ Note: This tutorial uses Azure Machine Learning spark notebook for development.
 
 1. You can create a new notebook, and proceed and execute the instructions in this document step by step. You can also open the existing notebook named `hello_world.ipynb` notebook, and execute its individual cells step by step, one at a time. The notebooks are available in the folder `featurestore_sample/notebooks/sdk_only`. Keep this document open and refer to it for detailed explanation of the steps.
 
-1. Enable preview access of managed spark: (To be removed in final draft)
-
-      1. Select the "manage preview features" icon (this icon looks like an announcement icon) in the top right nav of this screen
-      1. To enable access, select "Run notebooks and jobs on managed spark". If you have any issues, see detailed steps [here](./interactive-data-wrangling-with-apache-spark-azure-ml.md#prerequisites) - you only need to enable the managed Spark preview access feature for now
-
 1. Select **AzureML Spark compute** in the top nav "Compute" dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **configure session**.
 
-      1. Select **configure session**
+1. Select "configure session" from the top nav (this could take one to two minutes to display):
+
+      1. Select **configure session** in the bottom nav
       1. Select **Upload conda file**
       1. Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` located on your local device
       1. (Optional) Increase the session time-out (idle time) to reduce the serverless spark cluster startup time.
@@ -169,8 +166,6 @@ Create an account entity that has the join key `accountID`, of type string.
 
 You can register a feature set asset with the feature store. In this way, you can share and reuse that asset with others. Feature set asset registration offers managed capabilities, such as versioning and materialization (we will learn about these topics in this tutorial series).
 
-The feature set asset has reference to the feature set spec that you created earlier and additional properties like version and materialization settings.
-
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=load-obs-data)]
 
 ### Explore the feature store UI
@@ -190,7 +185,7 @@ This shows the feature set and entity that you created.
 
 First, we'll explore the observation data. Observation data typically involves the core data used in training and inferencing. Then, this data joins with the feature data to create the full training data. Observation data is the data captured during the time of the event. Here, it has core transaction data including transaction ID, account ID, and transaction amount. Since we use it for training, it also has the target variable appended (**is_fraud**).
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=register-txn-fset)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=load-obs-data)]
 
 ### Step 5b: Get the registered feature set and list its features
 

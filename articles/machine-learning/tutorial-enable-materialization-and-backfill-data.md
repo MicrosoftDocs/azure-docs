@@ -1,5 +1,5 @@
 ---
-title: "Four Part Tutorial: Enable Materialization and Backfill Feature Data (preview)"
+title: "Tutorial #2: enable materialization and backfill feature data (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial part 2. 
 services: machine-learning
@@ -30,11 +30,11 @@ Here in Tutorial part 2, you'll learn how to:
 * Create a feature set that uses pre computed features (this will be useful in next part of the tutorial)
 * Enable offline materialization on the feature sets, and backfill the feature data
 
-## Prerequisites: Configure an Azure Machine Learning Spark Notebook
+## Prerequisites
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
-1. Complete part 1 tutorial, to create the required feature store, account entity and transaction feature set
+1. Complete the part 1 tutorial, to create the required feature store, account entity and transaction feature set
 1. An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` role and `Contributor` role.
 
 * To perform the steps in this article, your user account must be assigned the owner or contributor role to the resource group which holds the created feature store
@@ -49,10 +49,11 @@ Before you proceed with this article, make sure you cover these prerequisites:
 
 #### Configure the Azure Machine Learning spark notebook
 
-1. In the "Compute" dropdown in the top nav, select "Configure session".
+1. Select AzureML Spark compute in the "Compute" dropdown, located in the top nav. Wait for a status bar in the top to display "configure session".
 
-1. Upload the feature store samples directory to project workspace.
-      * Select "configure session" in the bottom nav
+1. Configure session:
+
+      * Select "configure session" in the top nav
       * Select **upload conda file**
       * Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` from your local device
       * (Optional) Increase the session time-out (idle time) to avoid frequent prerequisite reruns
