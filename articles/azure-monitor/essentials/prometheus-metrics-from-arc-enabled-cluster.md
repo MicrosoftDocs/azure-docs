@@ -70,7 +70,7 @@ Windows isn't currently supported.
 1. On the **Configure Container insights** page, select the **Enable Prometheus metrics** checkbox.
 1. Select **Configure**.
 
-:::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/arc-enabled-k8s-onboarding.png" alt-text="A screenshot of the monitoring onboarding page for Azure Arc-enabled kubernetes clusters.":::
+:::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" alt-text="A screenshot of the monitoring onboarding page for Azure Arc-enabled kubernetes clusters.":::
 
 ### [CLI](#tab/cli)
 
