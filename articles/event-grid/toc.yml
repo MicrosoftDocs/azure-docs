@@ -28,7 +28,7 @@ items:
     - name: Reference
       items:
       - name: Monitoring data reference (pull delivery)
-        href: monitor-pull-delivery.md
+        href: monitor-pull-reference.md
   - name: Push delivery using HTTP
     items:
     - name: Overview
@@ -408,7 +408,7 @@ items:
       - name: Node.js
         href: /javascript/api/overview/azure/event-grid
       - name: Monitoring data reference (push delivery)
-        href: monitor-pull-push-reference.md
+        href: monitor-push-reference.md
       - name: Quotas and limits
         href: quotas-limits.md
       - name: Subscription schema
