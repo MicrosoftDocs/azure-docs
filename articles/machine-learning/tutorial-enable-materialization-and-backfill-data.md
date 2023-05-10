@@ -178,4 +178,4 @@ Let's print sample data from the feature set. The output information shows that 
 * [Part 3: tutorial features and the machine learning lifecycle](./tutorial-experiment-and-train-models-using-features.md)
 * [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
 * [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
-* Reference: [YAML reference](./reference-yaml-overview.md), **[feature store SDK] ()**
+* Reference: [YAML reference](./reference-yaml-overview.md)
