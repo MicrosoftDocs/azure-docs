@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Angular single-page application
-description: Learn how to configure a sample React Single Page Application (SPA)
+title: Sign in users in a sample Angular single-page application using Azure Active Directory for Customers
+description: Learn how to configure a sample Angular Single Page Application (SPA) using Azure Active Directory for Customers
 services: active-directory
 author: garrodonnell
 manager: celestedg
@@ -17,7 +17,7 @@ ms.custom: developer
 
 # Sign in users in a sample Angular single-page application 
 
-This how-to guide uses a sample Angular single-page application (SPA) to demonstrate how to add authentication users into a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample Angular single-page application (SPA) to demonstrate how to add authentication users into a SPA. The SPA enables users to sign in and sign out by using your Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ To get the sample SPA, you can choose one of the following options:
 * Clone the repository using Git:
 
     ```powershell
-git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
+    git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
     ```
 
 * [Download the sample](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip)
@@ -62,13 +62,13 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Open a terminal window in the root directory of the sample project, and enter the following snippet to navigate to the project folder:
 
     ```powershell
-cd 1-Authentication\2-sign-in-angular\SPA
+    cd 1-Authentication\2-sign-in-angular\SPA
     ```
 
 1. Install the project dependencies:
 
     ```powershell
-npm install
+    npm install
     ```
 
 ## Configure the sample SPA
@@ -87,8 +87,8 @@ All the required code snippets have been added, so the application can now be ca
 1. Run the following command to start your web server.
 
     ```powershell
-cd 1-Authentication\2-sign-in-angular\SPA
-npm start
+    cd 1-Authentication\2-sign-in-angular\SPA
+    npm start
     ```
 
 1. Open a web browser and navigate to `http://localhost:3000/`.
