@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 05/10/2023
 ---
 
-# How to enable and use pgvector on Azure Cosmos DB for PostgreSQL
+# How to enable and use `pgvector` on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE [Introduction to **Pgvector**](includes/pgvector-introduction.md)]
+[!INCLUDE [Introduction to `pgvector`](includes/pgvector-introduction.md)]
 
 ## Enable extension
 
@@ -31,7 +31,7 @@ SELECT CREATE_EXTENSION('vector');
 
 ## Next Steps
 
-Learn more around performance, indexing and limitations using pgvector.
+Learn more around performance, indexing and limitations using `pgvector`.
 
 > [!div class="nextstepaction"]
 > [Optimize performance using pgvector](howto-optimize-performance-pgvector.md)

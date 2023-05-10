@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 05/09/2023
 ---
 
-# How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server
+# How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[!INCLUDE [Introduction to **Pgvector**](../../cosmos-db/postgresql/includes/pgvector-introduction.md)]
+[!INCLUDE [Introduction to `pgvector`](../../cosmos-db/postgresql/includes/pgvector-introduction.md)]
 
 ## Enable extension
 
@@ -28,11 +28,11 @@ CREATE EXTENSION vector;
 > [!Note]
 > To disable an extension use `drop_extension()`
 
-[!INCLUDE [Pgvector](../../cosmos-db/postgresql/includes/pgvector-basics.md)]
+[!INCLUDE [`pgvector`](../../cosmos-db/postgresql/includes/pgvector-basics.md)]
 
 ## Next Steps
 
-Learn more around performance, indexing and limitations using pgvector.
+Learn more around performance, indexing and limitations using `pgvector`.
 
 > [!div class="nextstepaction"]
 > [Optimize performance using pgvector](howto-optimize-performance-pgvector.md)

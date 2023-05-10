@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/10/2023
 ---
 
-# How to optimize performance when using pgvector on Azure Database for PostgreSQL - Flexible Server
+# How to optimize performance when using `pgvector` on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
