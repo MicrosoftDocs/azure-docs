@@ -69,7 +69,7 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
 }
 ```
 
-Replace the following placeholders as shown::
+Replace the following placeholders as shown:
 
 - Replace `Enter_the_Application_Id_Here` with your application (client) ID.
 - Replace `Enter_the_Tenant_Id_Here` with your Directory (tenant) ID.

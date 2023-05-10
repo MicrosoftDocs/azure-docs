@@ -45,7 +45,7 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
     // Placeholders for the rest of the code
 
     var app = PublicClientApplicationBuilder.Create(...)
-
+    var scopes = new string[] { };
     var result = await app.AcquireTokenWithDeviceCode(...)
 
     Console.WriteLine(...)
@@ -63,7 +63,8 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
 
     ```csharp
 
-    var result = await app.AcquireTokenWithDeviceCode(new [] { "openid" }, async deviceCode => {
+    var scopes = new string[] { }; // by default, MSAL attaches OIDC scopes to every token request
+    var result = await app.AcquireTokenWithDeviceCode(scopes, async deviceCode => {
         Console.WriteLine($"In a broswer, navigate to the URL '{deviceCode.VerificationUrl}' and enter the code '{deviceCode.UserCode}'");
         await Task.FromResult(0);
     }).ExecuteAsync();
@@ -87,12 +88,14 @@ Completion of the prerequisites and steps in [Prepare your app](./how-to-browser
 
 1. Copy the device code from the message in the terminal and paste it in the **Enter Code** prompt to authenticate. After entering the code, you'll be redirected to the sign in page as follows:
 
-     :::image type="content" source="media/how-to-browserless-dotnet-sign-in-sign-in/browserless-app-dotnet-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node browserless application":::
+     :::image type="content" source="media/how-to-browserless-dotnet-sign-in-sign-in/browserless-app-dotnet-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node browserless application.":::
 
 1. At this point, you most likely don't have an account. If so, select **No account? Create one**, which starts the sign-up flow. Follow through this flow to create a new account. If you already have an account, enter your credentials and sign in.
 
 1. After completing the sign up flow and signing in, you see a page similar to the following screenshot:
 
-     :::image type="content" source="media/how-to-browserless-dotnet-sign-in-sign-in/browserless-app-dotnet-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node browserless application":::
+     :::image type="content" source="media/how-to-browserless-dotnet-sign-in-sign-in/browserless-app-dotnet-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node browserless application.":::
 
 1. Move back to the terminal and see your authentication information including the ID token claims.
+
+You can view the full code for this sample in the [code repo](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/tree/main/1-Authentication/4-sign-in-device-code).
