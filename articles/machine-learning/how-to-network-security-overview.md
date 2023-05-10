@@ -259,11 +259,13 @@ After securing the workspace with a private endpoint, use the following steps to
 
 :::moniker range="azureml-api-2"
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 :::moniker-end
 :::moniker range="azureml-api-1"
 1. [Enable public access](./v1/how-to-configure-private-link.md#enable-public-access) to the workspace.
-:::moniker-end
 1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
+:::moniker-end
+
 
 ## Optional: enable studio functionality
 

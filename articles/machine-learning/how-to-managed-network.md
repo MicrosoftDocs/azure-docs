@@ -305,10 +305,10 @@ managed_network:
 
 You can configure a managed VNet using either the `az ml workspace create` or `az ml workspace update` commands:
 
-* __create a new workspace__:
+* __Create a new workspace__:
 
     > [!TIP]
-    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
+    > Before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet:
 
