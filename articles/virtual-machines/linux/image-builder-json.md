@@ -994,7 +994,7 @@ Distribute properties for galleries:
 
 - **runOutputName** – unique name for identifying the distribution.
 - **artifactTags** - optional user specified key\value tags.
-- **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions mean an increase of build time, as the build doesn't complete until the replication has completed.
+- **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions mean an increase of build time, as the build doesn't complete until the replication has completed. This field is deprecated as of API version 2022-07-01, please use `targetRegions` when distributing a "SharedImage" type.
 - **targetRegions** -  an array of regions for replication. It is newly introduced as part of the [2022-07-01 API](../../virtual-machines/image-builder-api-update-release-notes.md#version-2022-07-01) and applies only to the `SharedImage` type distribute.
 - **excludeFromLatest** (optional) - allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) - AIB supports specifying these types of storage for the image version that is to be created:
