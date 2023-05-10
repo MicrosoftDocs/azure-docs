@@ -42,7 +42,7 @@ Revisions go through a series of states, based on status and availability.
 
 ### Provisioning status
 
-When a new revision is first created, it's set to "provisioning," a value that measures the time between creation (initial request) and availability.  (Revisions can't accept work until they're running.)
+When a new revision is first created, it's set to "provisioning," which measures the time between creation (initial request) and availability (ready for work).  
 
 Replica provisioning status values include:
 
