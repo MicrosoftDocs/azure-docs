@@ -43,7 +43,7 @@ The resource group is a logical collection into which Azure resources are deploy
 
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. We use this resource group to contain all resources created in this article.
 
-The general steps to use Cloud Shell to run commands are:
+The general steps to use CloudShell to run commands are:
 - Click on **Open Cloud Shell** to see an Azure Cloud Shell window on the right pane. 
 - Copy the command and paste into the Azure Cloud Shell window.
 - Press ENTER to run the command.
