@@ -26,7 +26,7 @@ Hotpatching is a new way to install updates on supported _Windows Server Azure E
 | Operating system | Azure | Azure Stack HCI |
 | -- | -- | -- |
 | Windows Server 2022 Datacenter: Azure Edition Server Core | Generally available (GA) | Public preview |
-| Windows Server 2022 Datacenter: Azure Edition with Desktop Experience | Public Preview | Public preview |
+| Windows Server 2022 Datacenter: Azure Edition with Desktop Experience | Public preview | Public preview |
 
 ## How hotpatch works
 
