@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample ASP.NET web application by using an Azure AD for customers tenant
+title: Sign in users to a sample ASP.NET web app using an Azure Active Directory for customers tenant
 description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using an Azure AD for customers tenant.
 services: active-directory
 author: cilwerner
