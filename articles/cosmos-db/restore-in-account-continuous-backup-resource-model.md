@@ -62,7 +62,7 @@ The following JSON is a sample MongoDB collection restore request in a subscript
 } 
 ```
 
-For more information about continuous backup, see [continuous backup resource model](continuous-backup-restore-resource-model.md)
+For more information about continuous backup, see [continuous backup resource model](continuous-backup-restore-resource-model.md).
 
 ## Next steps
 

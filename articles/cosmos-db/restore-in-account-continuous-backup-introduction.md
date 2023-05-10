@@ -43,7 +43,7 @@ Here's an example:
 | **First restoration of container** | `11111111-1111-1111-1111-111111111111` |
 | **Second restoration of container** | `22222222-2222-2222-2222-222222222222` |
 
-## In Account Restore Scenarios
+## In-account restore scenarios
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental delete on a database or a container. This feature restores into any region, where backups existed, within the same account. The continuous backup mode allows you to restore to any point of time within the last 30 days or seven days depending on the configured tier.
 
