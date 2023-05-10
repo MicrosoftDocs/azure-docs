@@ -208,7 +208,7 @@ For more information on Prometheus metrics limits, see [Prometheus metrics](../.
 
 ## Next steps
 
-[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)  
+[Azure Monitor workspace overview](./azure-monitor-workspace-overview.md)  
 [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md)  
 [Overview of Azure Monitor Managed Service for Prometheus](./prometheus-metrics-overview.md)  
 [Query Prometheus metrics using Azure workbooks](./prometheus-workbooks.md)
