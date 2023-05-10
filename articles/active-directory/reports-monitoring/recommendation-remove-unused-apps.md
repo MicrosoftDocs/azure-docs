@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Remove unused apps (preview) | Microsoft Docs
+title: Azure Active Directory recommendation - Remove unused apps (preview)
 description: Learn why you should remove unused apps.
 services: active-directory
 author: shlipsey3

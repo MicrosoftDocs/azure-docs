@@ -10,9 +10,14 @@ ms.custom: devx-track-azurecli
 
 # Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver
 
-The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides a variety of methods of identity-based access to your Azure key vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster. For more information, see [Use the Secrets Store CSI Driver][csi-secrets-store-driver].  
+The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides a variety of methods of identity-based access to your Azure key vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster. For more information, see [Use the Secrets Store CSI Driver][csi-secrets-store-driver].
 
-## Use Azure AD workload identity (preview)
+Currently, the following methods of access are available:
+
+- Azure AD Workload identity (preview)
+- User-assigned managed identity
+
+## Access with an Azure AD workload identity (preview)
 
 An [Azure AD workload identity][workload-identity] is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer where Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
 
@@ -32,22 +37,22 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 
 1. Use the Azure CLI `az account set` command to set a specific subscription to be the current active subscription. Then use the `az identity create` command to create a managed identity.
 
-    ```azurecli
-    export subscriptionID=<subscription id>
-    export resourceGroupName=<resource group name>
+    ```azurecli-interactive
+    export SUBSCRIPTION_ID=<subscription id>
+    export RESOURCE_GROUP=<resource group name>
     export UAMI=<name for user assigned identity>
     export KEYVAULT_NAME=<existing keyvault name>
-    export clusterName=<aks cluster name>
+    export CLUSTER_NAME=<aks cluster name>
     
-    az account set --subscription $subscriptionID
-    az identity create --name $UAMI --resource-group $resourceGroupName
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $resourceGroupName --name $UAMI --query 'clientId' -o tsv)"
-    export IDENTITY_TENANT=$(az aks show --name $clusterName --resource-group $resourceGroupName --query identity.tenantId -o tsv)
+    az account set --subscription $SUBSCRIPTION_ID
+    az identity create --name $UAMI --resource-group $RESOURCE_GROUP
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $RESOURCE_GROUP --name $UAMI --query 'clientId' -o tsv)"
+    export IDENTITY_TENANT=$(az aks show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query identity.tenantId -o tsv)
     ```
 
 2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the `az keyvault set-policy` command shown below.
 
-    ```azurecli
+    ```azurecli-interactive
     az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $USER_ASSIGNED_CLIENT_ID
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $USER_ASSIGNED_CLIENT_ID
     az keyvault set-policy -n $KEYVAULT_NAME --certificate-permissions get --spn $USER_ASSIGNED_CLIENT_ID
@@ -56,7 +61,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 3. Run the [az aks show][az-aks-show] command to get the AKS cluster OIDC issuer URL.
 
     ```bash
-    export AKS_OIDC_ISSUER="$(az aks show --resource-group $resourceGroupName --name $clusterName --query "oidcIssuerProfile.issuerUrl" -o tsv)"
+    export AKS_OIDC_ISSUER="$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --query "oidcIssuerProfile.issuerUrl" -o tsv)"
     echo $AKS_OIDC_ISSUER
     ```
 
@@ -67,8 +72,8 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 4. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
-    export serviceAccountName="workload-identity-sa"  # sample name; can be changed
-    export serviceAccountNamespace="default" # can be changed to namespace of your workload
+    export SERVICE_ACCOUNT_NAME="workload-identity-sa"  # sample name; can be changed
+    export SERVICE_ACCOUNT_NAMESPACE="default" # can be changed to namespace of your workload
     
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
@@ -78,16 +83,16 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
       labels:
         azure.workload.identity/use: "true"
-      name: ${serviceAccountName}
-      namespace: ${serviceAccountNamespace}
+      name: ${SERVICE_ACCOUNT_NAME}
+      namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF
     ```
 
     Next, use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the Managed Identity, the service account issuer, and the subject. 
 
     ```bash
-    export federatedIdentityName="aksfederatedidentity" # can be changed as needed
-    az identity federated-credential create --name $federatedIdentityName --identity-name $UAMI --resource-group $resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${serviceAccountNamespace}:${serviceAccountName}
+    export FEDERATED_IDENTITY_NAME="aksfederatedidentity" # can be changed as needed
+    az identity federated-credential create --name $FEDERATED_IDENTITY_NAME --identity-name $UAMI --resource-group $RESOURCE_GROUP --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
     ```
 5. Deploy a `SecretProviderClass` by using the following YAML script, noticing that the variables will be interpolated:
 
@@ -132,8 +137,10 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-user-msi
+      labels:
+        azure.workload.identity/use: true
     spec:
-      serviceAccountName: ${serviceAccountName}
+      serviceAccountName: ${SERVICE_ACCOUNT_NAME}
       containers:
         - name: busybox
           image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
@@ -154,7 +161,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     EOF   
     ```
 
-## Use the CSI Secret Store addon user-assigned managed identity
+## Access with a user-assigned managed identity
 
 1. To access your key vault, you can use the user-assigned managed identity that you created when you [enabled a managed identity on your AKS cluster][use-managed-identity]:
 

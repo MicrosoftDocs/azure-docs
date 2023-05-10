@@ -357,7 +357,7 @@ The ID element identifies which property on the source provides the value for th
 - The JwtClaimType must contain the name of the claim to be emitted in JWTs.
 - The SamlClaimType must contain the URI of the claim to be emitted in SAML tokens.
 
-* **onPremisesUserPrincipalName attribute:** When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. This attribute is only available when Alternate ID is configured but is also available through MS Graph Beta: https://graph.microsoft.com/beta/me/.
+* **onPremisesUserPrincipalName attribute:** When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. This attribute is only available when Alternate ID is configured.
 
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.

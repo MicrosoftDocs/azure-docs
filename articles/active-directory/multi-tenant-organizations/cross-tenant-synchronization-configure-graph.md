@@ -1,24 +1,21 @@
 ---
-title: Configure cross-tenant synchronization using Microsoft Graph API (preview)
+title: Configure cross-tenant synchronization using Microsoft Graph API
 description: Learn how to configure cross-tenant synchronization in Azure Active Directory using Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Configure cross-tenant synchronization using Microsoft Graph API (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Configure cross-tenant synchronization using Microsoft Graph API
 
 This article describes the key steps to configure cross-tenant synchronization using Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Azure portal, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
@@ -74,14 +71,16 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs:
 
-    - Source tenant ID: 3d0f5dec-5d3d-455c-8016-e2af1ae4d31a
-    - Target tenant ID: 376a1f89-b02f-4a85-8252-2974d1984d14
+    - Source tenant ID: {sourceTenantId}
+    - Target tenant ID: {targetTenantId}
 
 ## Step 2: Enable user synchronization in the target tenant
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
 1. In the target tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
+
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
 
@@ -90,7 +89,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "3d0f5dec-5d3d-455c-8016-e2af1ae4d31a"
+      "tenantId": "{sourceTenantId}"
     }
     ```
     
@@ -102,7 +101,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     {
       "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
-      "tenantId": "3d0f5dec-5d3d-455c-8016-e2af1ae4d31a",
+      "tenantId": "{sourceTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -125,10 +124,12 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Use the [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true) API to enable user synchronization in the target tenant.
 
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing policy. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
+
     **Request**
     
     ```http
-    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/3d0f5dec-5d3d-455c-8016-e2af1ae4d31a/identitySynchronization
+    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}/identitySynchronization
     Content-type: application/json
     
     {
@@ -155,7 +156,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/3d0f5dec-5d3d-455c-8016-e2af1ae4d31a
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}
     Content-Type: application/json
     
     {
@@ -179,6 +180,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. In the source tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
 
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
+
     **Request**
 
     ```http
@@ -186,7 +189,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14"
+      "tenantId": "{targetTenantId}"
     }
     ```
     
@@ -198,7 +201,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     {
       "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+      "tenantId": "{targetTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -224,7 +227,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/376a1f89-b02f-4a85-8252-2974d1984d14
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{targetTenantId}
     Content-Type: application/json
     
     {
@@ -289,7 +292,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
             "appId": "{appId}",
             "appDisplayName": "Fabrikam",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "appOwnerTenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+            "appOwnerTenantId": "{targetTenantId}",
             "appRoleAssignmentRequired": true,
             "displayName": "Fabrikam",
             "errorUrl": null,
@@ -341,7 +344,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "credentials": [
             {
                 "key": "CompanyId",
-                "value": "376a1f89-b02f-4a85-8252-2974d1984d14"
+                "value": "{targetTenantId}"
             },
             {
                 "key": "AuthenticationType",
@@ -438,7 +441,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
         "value": [ 
             { 
                 "key": "CompanyId", 
-                "value": "376a1f89-b02f-4a85-8252-2974d1984d14" 
+                "value": "{targetTenantId}" 
             },
             {
                 "key": "AuthenticationType",
@@ -644,7 +647,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
             {
                 "id": "{id}",
                 "activityDateTime": "2022-12-11T00:40:37Z",
-                "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+                "tenantId": "{targetTenantId}",
                 "jobId": "{jobId}",
                 "cycleId": "{cycleId}",
                 "changeId": "{changeId}",
@@ -755,6 +758,54 @@ Either the signed-in user doesn't have sufficient privileges, or you need to con
 1. Make sure you're assigned the required roles. See [Prerequisites](#prerequisites) earlier in this article.
 
 2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to tenants and consent to permissions](#step-1-sign-in-to-tenants-and-consent-to-permissions) earlier in this article.
+
+#### Symptom - Request_MultipleObjectsWithSameKeyValue error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Request_MultipleObjectsWithSameKeyValue
+message: Another object with the same value for property tenantId already exists.
+message: A conflicting object with one or more of the specified property values is present in the directory.
+```
+
+**Cause**
+
+You are likely trying to create a configuration or object that already exists, possibly from a previous configuration.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` request to list the existing object.
+
+1. If you have an existing object, instead of making a create request using `POST` or `PUT`, you might need to make an update request using `PATCH`, such as:
+
+    - [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true)
+    - [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true)
+
+#### Symptom - Directory_ObjectNotFound error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Directory_ObjectNotFound
+message: Unable to read the company information from the directory.
+```
+
+**Cause**
+
+You are likely trying to update an object that doesn't exist using `PATCH`.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` request to verify the object doesn't exist.
+
+1. If object doesn't exist, instead of making an update request using `PATCH`, you might need to make a create request using `POST` or `PUT`, such as:
+
+    - [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true)
 
 ## Next steps
 

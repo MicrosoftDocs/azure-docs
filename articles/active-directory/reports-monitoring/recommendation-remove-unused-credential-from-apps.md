@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Remove unused credentials from apps (preview) | Microsoft Docs
+title: Azure Active Directory recommendation - Remove unused credentials from apps (preview)
 description: Learn why you should remove unused credentials from apps.
 services: active-directory
 author: shlipsey3

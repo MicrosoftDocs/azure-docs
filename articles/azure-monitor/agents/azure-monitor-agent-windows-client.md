@@ -2,12 +2,9 @@
 title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
-ms.date: 1/9/2023
-ms.custom: references_region
+ms.date: 4/2/2023
+ms.custom: references_region, devx-track-azurepowershell
 ms.reviewer: shseth
-
 ---
 
 # Azure Monitor agent on Windows client devices
@@ -15,6 +12,9 @@ This article provides instructions and guidance for using the client installer f
 
 Using the new client installer described here, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
 Both the [extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
+
+> [!NOTE]
+> This article provides specific guidance for installing the Azure Monitor agent on Windows client devices, subject to [limitations below](#limitations). For standard installation and management guidance for the agent, refer [the agent extension management guidance here](./azure-monitor-agent-manage.md)
 
 ### Comparison with virtual machine extension
 Here is a comparison between client installer and VM extension for Azure Monitor agent:
@@ -41,6 +41,11 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
 | On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
+## Limitations
+1. The Windows client installer supports latest Windows machines only that are **Azure AD joined** or hybrid Azure AD joined. More information under [prerequisites](#prerequisites) below
+2. The Data Collection rules can only target the Azure AD tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
+3. No support for Windows machines connected via **Azure private links** 
+4. The agent installed using the Windows client installer is designed mainly for Windows desktops or workstations that are **always connected**. While the agent can be installed via this method on laptops, it is not optimized for battery consumption and network limitations on a laptop.
 
 ## Prerequisites
 1. The machine must be running Windows client OS version 10 RS4 or higher.
@@ -57,7 +62,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
 	[![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
-2. Open an elevated admin command prompt window and update path to the location where you downloaded the installer.
+2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command:
 	```cli
 	msiexec /i AzureMonitorAgentClientSetup.msi /qn
@@ -83,11 +88,11 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 6. Proceed to create the monitored object that you'll associate data collection rules to, for the agent to actually start operating.
 
 > [!NOTE]
->  The agent installed with the client installer currently doesn't support updating configuration once it is installed. Uninstall and reinstall AMA to update its configuration.
+>  The agent installed with the client installer currently doesn't support updating local agent settings once it is installed. Uninstall and reinstall AMA to update above settings.
 
 
 ## Create and associate a 'Monitored Object'
-You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with.
+You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single AAD tenant**.
 Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
 The image below demonstrates how this works:
 

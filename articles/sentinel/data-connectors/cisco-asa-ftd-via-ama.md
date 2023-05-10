@@ -17,7 +17,7 @@ The Cisco ASA firewall connector allows you to easily connect your Cisco ASA log
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
@@ -39,7 +39,7 @@ CommonSecurityLog
 
 To integrate with Cisco ASA/FTD via AMA (Preview) make sure you have: 
 
-- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
+- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
 
 
 ## Vendor installation instructions
@@ -54,7 +54,7 @@ Enable data collection rule​
 Run the following command to install and apply the Cisco ASA/FTD collector:
 
 
-   sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+   sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py python Forwarder_AMA_installer.py
 
 
 

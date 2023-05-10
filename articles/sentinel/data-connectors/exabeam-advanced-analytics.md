@@ -19,7 +19,7 @@ The [Exabeam Advanced Analytics](https://www.exabeam.com/ueba/advanced-analytics
 | **Kusto function alias** | ExabeamEvent |
 | **Kusto function url** | https://aka.ms/sentinel-Exabeam-parser |
 | **Log Analytics table(s)** | Syslog (Exabeam)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -61,7 +61,7 @@ Configure the custom log directory to be collected
 
 3. Configure Exabeam event forwarding to Syslog
 
-[Follow these instructions](https://docs.exabeam.com/en/advanced-analytics/i54/advanced-analytics-administration-guide/113254-configure-advanced-analytics.html#UUID-7ce5ff9d-56aa-93f0-65de-c5255b682a08) to send Exabeam Advanced Analytics activity log data via syslog.
+[Follow these instructions](https://docs.exabeam.com/en/advanced-analytics/i56/advanced-analytics-administration-guide/125371-configure-advanced-analytics.html#UUID-6d28da8d-6d3e-5aa7-7c12-e67dc804f894) to send Exabeam Advanced Analytics activity log data via syslog.
 
 
 

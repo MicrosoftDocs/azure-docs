@@ -69,16 +69,19 @@ The dedicated gateway is available in the following sizes. The integrated cache 
 | **D8s**      | **8**    | **32 GB** |
 | **D16s**     | **16**   | **64 GB** |
 
-> [!NOTE]
+> [!TIP]
 > Once created, you can add or remove dedicated gateway nodes, but you can't modify the size of the nodes. To change the size of your dedicated gateway nodes you can deprovision the cluster and provision it again in a different size. This will result in a short period of downtime unless you change the connection string in your application to use the standard gateway during reprovisioning.
 
 There are many different ways to provision a dedicated gateway:
 
-- [Provision a dedicated gateway using the Azure Portal](how-to-configure-integrated-cache.md#provision-the-dedicated-gateway)
-- [Use Azure Cosmos DB's REST API](/rest/api/cosmos-db-resource-provider/2022-05-15/service/create#sqldedicatedgatewayservicecreate)
+- [Provision a dedicated gateway using the Azure portal](how-to-configure-integrated-cache.md#provision-the-dedicated-gateway)
+- [Use Azure Cosmos DB's REST API](/rest/api/cosmos-db-resource-provider/2022-11-15/service/create#sqldedicatedgatewayservicecreate)
 - [Azure CLI](/cli/azure/cosmosdb/service?view=azure-cli-latest&preserve-view=true#az-cosmosdb-service-create)
 - [ARM template](/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
     - Note: You cannot deprovision a dedicated gateway using ARM templates
+
+> [!NOTE]
+> You can provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md) by request. Reach out to cosmoscachefeedback@microsoft.com for more information.
 
 ## Dedicated gateway in multi-region accounts
 
@@ -91,7 +94,6 @@ Like nodes within a cluster, dedicated gateway nodes across regions are independ
 The dedicated gateway has the following limitations:
 
 - Dedicated gateways are only supported on API for NoSQL accounts
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md).
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
 
 

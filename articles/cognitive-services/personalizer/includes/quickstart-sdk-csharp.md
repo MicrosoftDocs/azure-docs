@@ -66,7 +66,6 @@ dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 1.0.
 > [!TIP]
 > If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
-
 ## Code block 1: Generate sample data
 
 Personalizer is meant to run on applications that receive and interpret real-time data. In this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **GetActions**, **GetContext** and **GetRewardScore**.
@@ -83,20 +82,18 @@ Personalizer is meant to run on applications that receive and interpret real-tim
 
     In the code below, the users' preferences and responses to the actions is hard-coded as a series of conditional statements, and explanatory text is included in the code for demonstrative purposes.
 
-Follow these steps to set up the Personalizer script.
-
 1. Find your key and endpoint.
 
     [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
-1. Open _Program.cs_ in a text editor or IDE and paste in the code below.
+1. Open _Program.cs_ in a text editor or IDE and paste in the following code.
+
+     [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Personalizer/quickstart-sdk/personalizer-quickstart.cs?name=snippet_1)]
 
 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
 
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Personalizer/quickstart-sdk/personalizer-quickstart.cs?name=snippet_1)]
 
 ## Code block 2: Iterate the learning loop
 

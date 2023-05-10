@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure introDus Pre and Onboarding Platform for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure introDus Pre and Onboarding Platform for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to introDus Pre and Onboarding Platform.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 829376bb-41d8-42da-89ee-853f5630121b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

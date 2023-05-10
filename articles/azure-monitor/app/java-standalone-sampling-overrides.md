@@ -2,7 +2,7 @@
 title: Sampling overrides (preview) - Azure Monitor Application Insights for Java
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 04/24/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -69,7 +69,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 ## How it works
 
-`telemetryType` must be one of `request`, `dependency`, `trace` (log), or `exception`.
+`telemetryType` (`telemetryKind` in Application Insights 3.4.0) must be one of `request`, `dependency`, `trace` (log), or `exception`.
 
 When a span is started, the type of span and the attributes present on it at that time are used to check if any of the sampling
 overrides match.

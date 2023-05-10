@@ -14,12 +14,12 @@ ms.custom: devx-track-azurepowershell
 
 Azure Application Gateway by default monitors the health of all resources in its backend pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy backend pool once they become available and respond to health probes. By default, Application gateway sends the health probes with the same port that is defined in the backend HTTP settings. A custom probe port can be configured using a custom health probe.
 
-The source IP address that Application Gateway uses for health probes will depend on the backend pool:
+The source IP address that Application Gateway uses for health probes depend on the backend pool:
  
 - If the server address in the backend pool is a public endpoint, then the source address is the application gateway's frontend public IP address.
 - If the server address in the backend pool is a private endpoint, then the source IP address is from the application gateway subnet's private IP address space.
 
-![application gateway probe example][1]
+:::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png" alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
@@ -29,7 +29,7 @@ In addition to using default health probe monitoring, you can also customize the
 
 An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP GET request to the IP addresses or FQDN configured in the backend pool. For default probes if the backend http settings are configured for HTTPS, the probe uses HTTPS to test health of the backend servers.
 
-For example: You configure your application gateway to use backend servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response with a 30 second timeout for each request. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399. In this case, the HTTP GET request for the health probe will look like `http://127.0.0.1/`.
+For example: You configure your application gateway to use backend servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response with a 30-second-timeout for each request. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399. In this case, the HTTP GET request for the health probe looks like `http://127.0.0.1/`.
 
 If the default probe check fails for server A, the application gateway stops forwarding requests to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, application gateway starts forwarding the requests to the server again.
 
@@ -61,10 +61,10 @@ The following table provides definitions for the properties of a custom health p
 | Probe property | Description |
 | --- | --- |
 | Name |Name of the probe. This name is used to identify and refer to the probe in backend HTTP settings. |
-| Protocol |Protocol used to send the probe. This has to match with the protocol defined in the backend HTTP settings it is associated to|
-| Host |Host name to send the probe with. In v1 SKU, this value will be used only for the host header of the probe request. In v2 SKU, it will be used both as host header as well as SNI |
+| Protocol |Protocol used to send the probe. This has to match with the protocol defined in the backend HTTP settings it's associated to|
+| Host |Host name to send the probe with. In v1 SKU, this value is used only for the host header of the probe request. In v2 SKU, it is used both as host header and SNI |
 | Path |Relative path of the probe. A valid path starts with '/' |
-| Port |If defined, this is used as the destination port. Otherwise, it uses the same port as the HTTP settings that it is associated to. This property is only available in the v2 SKU
+| Port |If defined, this is used as the destination port. Otherwise, it uses the same port as the HTTP settings that it's associated to. This property is only available in the v2 SKU
 | Interval |Probe interval in seconds. This value is the time interval between two consecutive probes |
 | Time-out |Probe time-out in seconds. If a valid response isn't received within this time-out period, the probe is marked as failed  |
 | Unhealthy threshold |Probe retry count. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold |
@@ -89,6 +89,10 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
 
 ## NSG considerations
+
+Fine grain control over the Application Gateway subnet via NSG rules is possible in public preview. More details can be found [here](application-gateway-private-deployment.md#network-security-group-control).
+
+With current functionality there are some restrictions:
 
 You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication.
 

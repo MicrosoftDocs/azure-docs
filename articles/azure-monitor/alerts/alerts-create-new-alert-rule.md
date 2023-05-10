@@ -4,7 +4,7 @@ description: This article shows you how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
@@ -17,10 +17,11 @@ You create an alert rule by combining:
  - The signal or telemetry from the resource.
  - Conditions.
 
-Then you define these elements for the resulting alert actions by using:
+You then define these elements for the resulting alert actions by using:
  - [Alert processing rules](alerts-action-rules.md)
  - [Action groups](./action-groups.md)
 
+Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
 ## Create a new alert rule in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
@@ -37,7 +38,8 @@ Then you define these elements for the resulting alert actions by using:
 
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
-1. On the **Select a signal** pane, you can search for the signal name or you can filter the list of signals by:
+1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
+1. (Optional.) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
     - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
 
@@ -57,30 +59,17 @@ Then you define these elements for the resulting alert actions by using:
     |Resource health|Resource health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
-1. Select the **Signal name** and **Apply**.
+    Select the **Signal name** and **Apply**.
 1. Follow the steps in the tab that corresponds to the type of alert you're creating.
 
     ### [Metric alert](#tab/metric)
 
-    1. On the **Configure signal logic** pane, you can preview the results of the selected metric signal. Select values for the following fields.
+    1. Preview the results of the selected metric signal in the **Preview** section. Select values for the following fields.
 
         |Field |Description |
         |---------|---------|
-        |Select time series|Select the time series to include in the results. |
-        |Chart period|Select the time span to include in the results. Can be from the last six hours to the last week.|
-
-    1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
-
-        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
-
-        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
-
-        |Field  |Description  |
-        |---------|---------|
-        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
-        |Operator|The operator used on the dimension name and value.  |
-        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
-        |Include all future values| Select this field to include any future values added to the selected dimension.  |
+        |Time range|The time range to include in the results. Can be from the last six hours to the last week.|
+        |Time series|The time series to include in the results.|
 
     1. In the **Alert logic** section:
 
@@ -94,6 +83,19 @@ Then you define these elements for the resulting alert actions by using:
         |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts. |
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
+ 
+    1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
+
+        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
+
+        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
+
+        |Field  |Description  |
+        |---------|---------|
+        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+        |Operator|The operator used on the dimension name and value.  |
+        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+        |Include all future values| Select this field to include any future values added to the selected dimension.  |
 
     1. (Optional) In the **When to evaluate** section: 
 
@@ -241,6 +243,19 @@ Then you define these elements for the resulting alert actions by using:
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
 
+1. (Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert payload to add more information to the payload. Add the property **Name** and **Value** for the custom property you want included in the payload.
+
+    You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
+
+    The format for extracting values from the common schema, use a "$", and then the path of the common schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+
+    For example, you could use these values in the **custom properties** to utilize data from the payload.
+
+    |Custom properties name  |Custom properties value  |Result  |
+    |---------|---------|---------|
+    |AdditionalDetails|Evaluation windowStartTime: ${data.alertContext.condition.windowStartTime}. windowEndTime: ${data.alertContext.condition.windowEndTime}|AdditionalDetails": "Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"         |
+    |Alert ${data.essentials.monitorCondition} reason     |“${data.alertContext.condition.allOf[0].metricName} ${data.alertContext.condition.allOf[0].operator}${data.alertContext.condition.allOf[0].threshold} ${data.essentials.monitorCondition}. The value is ${data.alertContext.condition.allOf[0].metricValue}"         |Examples of the results could be: <br> - Alert Resolved reason": "Percentage CPU GreaterThan5 Resolved. The value is 3.585 <br>Percentage CPU GreaterThan5 Fired. The value is 10.585  |
+
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
@@ -265,9 +280,8 @@ Then you define these elements for the resulting alert actions by using:
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
         |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
 
     ### [Log alert](#tab/log)
 
@@ -283,48 +297,31 @@ Then you define these elements for the resulting alert actions by using:
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
-
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+    1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for activity log alerts.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
     ### [Resource Health alert](#tab/resource-health)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+    1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for resource health alerts.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     
     ### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+    1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for service health alerts.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
         
     ---
 

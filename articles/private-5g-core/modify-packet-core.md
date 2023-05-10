@@ -2,15 +2,15 @@
 title: Modify a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 03/31/2023
 ms.custom: template-how-to
 ---
 
-# Modify the packet core instance in a site
+# Modify a packet core instance
 
 Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge (ASE) device, and access network configuration. You'll also learn how to add and modify the data networks attached to the packet core instance.
 
@@ -102,6 +102,9 @@ To modify the packet core and/or access network configuration:
 
 ## Attach a data network
 
+> [!IMPORTANT]
+> You must configure the ASE device with interfaces corresponding to the data networks before you can attach them to the packet core. See [Changing ASE configuration after deployment](commission-cluster.md#changing-ase-configuration-after-deployment).
+
 To configure a new or existing data network and attach it to your packet core instance:
 
 1. If you haven't already, [select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
@@ -164,4 +167,4 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 ## Next steps
 
 - If you made a configuration change that requires you to manually perform packet core reinstall, follow [Reinstall the packet core instance in a site](reinstall-packet-core.md).
-- Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify it.
+- Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify it.

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/06/2023
+ms.date: 04/10/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -21,7 +21,9 @@ ms.reviewer: JasSuri
 
 This article describes how to configure and setup a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
 
-This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application.
+This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
+
+> [!VIDEO https://www.youtube.com/embed/fxQGVIwX8_4]
 
 ## Prerequisites
 
@@ -41,7 +43,7 @@ In this step, you create an HTTP trigger function API in the Azure portal. The f
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which the new function app will be created in. |
-    | **[Resource Group](/azure/azure-resource-manager/management/overview)** |  *myResourceGroup* | Select and existing resource group, or name for the new one in which you'll create your function app. |
+    | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Select and existing resource group, or name for the new one in which you'll create your function app. |
     | **Function App name** | Globally unique name | A name that identifies the new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Option to publish code files or a Docker container. For this tutorial, select **Code**. |
     | **Runtime stack** | .NET | Your preferred programming language. For this tutorial, select **.NET**.  |
@@ -145,7 +147,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
     }
     ```
 
-    The code starts with reading the incoming JSON object. Azure AD sends the JSON object to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
+    The code starts with reading the incoming JSON object. Azure AD sends the [JSON object](./custom-claims-provider-reference.md) to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
 
 1. From the top menu, select **Get Function Url**, and copy the URL. In the next step, the function URL will be used and referred to as `{Function_Url}`.
 
@@ -488,7 +490,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 > [!NOTE]
 > If the Azure function app is hosted in a different Azure tenant than the tenant in which your custom extension is registered, skip to [using OpenID Connect identity provider](#51-using-openid-connect-identity-provider) step.
 
-1. In the [Azure portal](https://poral.azure.com), navigate and select the function app you previously published.
+1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **Microsoft** as the identity provider.
@@ -503,7 +505,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 
 If you configured the [Microsoft identity provider](#step-5-protect-your-azure-function), skip this step. Otherwise, if the Azure Function is hosted under a different tenant than the tenant in which your custom extension is registered, follow these steps to protect your function:
 
-1. In the [Azure portal](https://poral.azure.com), navigate and select the function app you previously published.
+1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **OpenID Connect** as the identity provider.
@@ -548,5 +550,3 @@ To test your custom claim provider, follow these steps:
 - Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.
 
 - Learn how to [troubleshoot your custom extensions API](custom-extension-troubleshoot.md).
-
-

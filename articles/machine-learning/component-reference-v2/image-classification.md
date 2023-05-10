@@ -21,7 +21,7 @@ Use this component to create a machine learning model that is based on the AutoM
 
 ## How to configure 
 
-[Follow this link](/azure/machine-learning/reference-automl-images-cli-classification) for a full list of configurable parameters of this component.
+[Follow this link](../reference-automl-images-cli-classification.md) for a full list of configurable parameters of this component.
 
 
 This model requires a training dataset. Validation and test datasets are optional. 
@@ -49,4 +49,4 @@ AutoML runs a number of trials (specified in max_trials) in parallel (specified 
 
 ## Next steps
 
-See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning. 
+See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning.

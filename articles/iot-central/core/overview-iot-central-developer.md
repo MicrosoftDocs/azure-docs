@@ -126,7 +126,7 @@ The following options support persistent device connections:
 
 - Use IoT Central Device Bridge to connect devices that use a custom protocol:
 
-  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the bridge maintains a persistent connection, this option enables command and control of the devices connected to the bridge.
+  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central.
 
   To learn more, see the [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
 

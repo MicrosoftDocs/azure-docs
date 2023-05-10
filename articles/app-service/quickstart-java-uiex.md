@@ -6,7 +6,7 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/01/2020
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
 ---

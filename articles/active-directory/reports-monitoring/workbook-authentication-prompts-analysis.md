@@ -1,6 +1,6 @@
 ---
 
-title: Authentication prompts analysis workbook in Azure AD | Microsoft Docs
+title: Authentication prompts analysis workbook in Azure AD
 description: Learn how to use the authentication prompts analysis workbook.
 services: active-directory
 author: shlipsey3

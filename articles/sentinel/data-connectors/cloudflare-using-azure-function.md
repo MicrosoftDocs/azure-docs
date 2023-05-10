@@ -1,6 +1,6 @@
 ---
-title: "Cloudflare (Preview) (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Cloudflare (Preview) (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Cloudflare (Preview) (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Cloudflare (Preview) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Cloudflare (Preview) (using Azure Function) connector for Microsoft Sentinel
+# Cloudflare (Preview) (using Azure Functions) connector for Microsoft Sentinel
 
 The Cloudflare data connector provides the capability to ingest [Cloudflare logs](https://developers.cloudflare.com/logs/) into Microsoft Sentinel using the Cloudflare Logpush and Azure Blob Storage. Refer to [Cloudflare  documentation](https://developers.cloudflare.com/logs/logpush) for more information.
 
@@ -16,7 +16,7 @@ The Cloudflare data connector provides the capability to ingest [Cloudflare logs
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-CloudflareDataConnector-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-CloudflareDataConnector-functionapp |
 | **Log Analytics table(s)** | Cloudflare_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,10 +34,10 @@ Cloudflare_CL
 
 ## Prerequisites
 
-To integrate with Cloudflare (Preview) (using Azure Function) make sure you have: 
+To integrate with Cloudflare (Preview) (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
-- **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
 ## Vendor installation instructions
@@ -47,7 +47,7 @@ To integrate with Cloudflare (Preview) (using Azure Function) make sure you have
    >  This connector uses Azure Functions to connect to the Azure Blob Storage API to pull logs into Microsoft Sentinel. This might result in additional costs for data ingestion and for storing data in Azure Blob Storage costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and [Azure Blob Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -84,7 +84,7 @@ Use the following step-by-step instructions to deploy the Cloudflare data connec
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-CloudflareDataConnector-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

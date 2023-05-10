@@ -62,8 +62,7 @@ that Azure Logic Apps supports.
 * An Azure account and subscription. If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 * Recommended: An [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 
@@ -73,12 +72,7 @@ that Azure Logic Apps supports.
 
 * The logic app to use for automating and running your 3270 screen-driven app
 
-  The IBM 3270 connector doesn't have triggers, 
-  so use another trigger to start your logic app, 
-  such as the **Recurrence** trigger. You can 
-  then add 3270 connector actions. To get started, 
-  [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-  If you use an ISE, select that ISE as your logic app's location.
+  The IBM 3270 connector doesn't have triggers, so use another trigger to start your logic app, such as the **Recurrence** trigger. You can then add 3270 connector actions. To get started, create a blank logic app workflow. If you use an ISE, select that ISE as your logic app's location.
 
 * [Download and install the 3270 Design Tool](https://aka.ms/3270-design-tool-download).
 The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
@@ -603,5 +597,5 @@ For more technical details about this connector, such as triggers, actions, and 
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

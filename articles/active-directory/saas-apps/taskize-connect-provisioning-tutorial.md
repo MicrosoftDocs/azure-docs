@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Configure Taskize Connect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Taskize Connect for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Taskize Connect.
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 295b6542-879d-4330-afd7-e8867d83464d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

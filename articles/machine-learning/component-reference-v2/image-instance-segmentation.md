@@ -47,4 +47,4 @@ AutoML runs a number of trials (specified in max_trials) in parallel (specified 
 
 ## Next steps
 
-See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning. 
+See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning.

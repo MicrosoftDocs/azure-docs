@@ -236,7 +236,7 @@ To create a rule, start by selecting **Add Rule**.
 
 Choose a **Display name** for the rule.
 
-Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The result of your expression must match the result type that you specify in the **Type** field. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
 Once you've defined your property expression, select **Add condition** to define the conditional visual effects.
 
@@ -244,7 +244,7 @@ Once you've defined your property expression, select **Add condition** to define
 
 In the **Add condition** options, enter a **Label** for the condition in the visualization.
 
-Under **Conditions**, use the **Min** and **Max** fields to identify value boundaries for the condition. The min of each value range is inclusive, and the max is exclusive.
+Then, set the **Values** to identify value boundaries for the condition (the exact selection will change depending on the property type). For numerical properties, the min of each value range is inclusive, and the max is exclusive.
 
 Under **Actions**, define what happens in the scene visualization when the condition is met. You can use **Mesh coloring** to control the color of the property expression in the viewer, or **Badge** to display a badge of a certain color and icon when the condition for the property expression is met.
 

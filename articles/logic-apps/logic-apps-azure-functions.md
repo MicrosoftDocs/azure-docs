@@ -23,7 +23,7 @@ This how-to guide shows how to call an Azure function from a logic app workflow.
 
 ## Limitations
 
-* You can create a function directly from inside a Consumption logic app workflow, but from not a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
+* You can create a function directly from inside a Consumption logic app workflow, but not from a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
 
 * Only Consumption workflows support authenticating Azure function calls using a managed identity with Azure Active Directory (Azure AD) authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
 
@@ -327,7 +327,7 @@ Before you can set up your function app to use Azure AD authentication, you need
 
 #### Find the tenant ID for your Azure AD
 
-To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
+To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use **Fabrikam** as the example tenant.
 

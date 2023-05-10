@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 03/20/2023
 ms.author: helohr
 manager: femila
 ---
@@ -69,13 +69,13 @@ To use a smart card to authenticate to Azure AD, you must first [configure AD FS
 
 If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports.
 
-- The Windows Desktop client supports the following authentication methods:
+- The Windows Desktop client and Azure Virtual Desktop Store app both support the following authentication methods:
     - Username and password
     - Smart card
     - [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
     - [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
     - [Azure AD authentication](configure-single-sign-on.md)
-- The Windows Store client supports the following authentication method:
+- The Remote Desktop app supports the following authentication method: 
     - Username and password
 - The web client supports the following authentication method:
     - Username and password
@@ -115,9 +115,9 @@ Once you're connected to your remote app or desktop, you may be prompted for aut
 
 Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
 
-  - Windows 11 Enterprise single or multi-session with the [2022-09 Cumulative Updates for Windows 11 Preview (KB5017383)](https://support.microsoft.com/kb/KB5017383) or later installed.
-  - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10 Preview (KB5017380)](https://support.microsoft.com/kb/KB5017380) or later installed.
-  - Windows Server 2022 with the [2022-09 Cumulative Update for Microsoft server operating system preview (KB5017381)](https://support.microsoft.com/kb/KB5017381) or later installed.
+  - Windows 11 Enterprise single or multi-session with the [2022-10 Cumulative Updates for Windows 11 (KB5018418)](https://support.microsoft.com/kb/KB5018418) or later installed.
+  - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.
+  - Windows Server 2022 with the [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
 To disable passwordless authentication on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **WebAuthn redirection** property under the **Device redirection** tab in the Azure portal or set the **redirectwebauthn** property to **0** using PowerShell.
 

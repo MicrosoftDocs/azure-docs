@@ -1,8 +1,8 @@
 ---
 title: Enable database protection for your subscription
 description: Learn how to enable Microsoft Defender for Cloud for all of your database types for your entire subscription.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/27/2022
 ---

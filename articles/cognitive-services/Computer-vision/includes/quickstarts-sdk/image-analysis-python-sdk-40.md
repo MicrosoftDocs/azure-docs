@@ -14,12 +14,9 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for Python to analyze a remote image to read text and generate captions.
+Use the Image Analysis client library for Python to analyze a remote image to read text and generate an image caption.
 
 [Reference documentation](/python/api/azure-ai-vision) | [Package (PiPy)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
-
-> [!TIP]
-> You can also analyze a local image. See the [reference documentation](/python/api/azure-ai-vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/python/image-analysis/samples.py) for scenarios involving local images.
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -50,58 +47,10 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 
 1. Copy the following code into *quickstart.py*:
 
-    <!--[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet-single)]-->
-    
-    ```python
-    import os
-    import azure.ai.vision as sdk
-    
-    service_options = sdk.VisionServiceOptions(
-         os.environ["VISION_ENDPOINT"],
-         os.environ["VISION_KEY"])
-    
-    vision_source = sdk.VisionSource(
-        url="https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png")
-    
-    analysis_options = sdk.ImageAnalysisOptions()
-    
-    analysis_options.features = (
-        sdk.ImageAnalysisFeature.CAPTION |
-        sdk.ImageAnalysisFeature.TEXT
-    )
-    
-    analysis_options.language = "en"
-    
-    analysis_options.gender_neutral_caption = True
-    
-    image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
-    
-    result = image_analyzer.analyze()
-    
-    if result.reason == sdk.ImageAnalysisResultReason.ANALYZED:
-    
-        if result.caption is not None:
-            print(" Caption:")
-            print("   '{}', Confidence {:.4f}".format(result.caption.content, result.caption.confidence))
-    
-        if result.text is not None:
-            print(" Text:")
-            for line in result.text.lines:
-                points_string = "{" + ", ".join([str(int(point)) for point in line.bounding_polygon]) + "}"
-                print("   Line: '{}', Bounding polygon {}".format(line.content, points_string))
-                for word in line.words:
-                    points_string = "{" + ", ".join([str(int(point)) for point in word.bounding_polygon]) + "}"
-                    print("     Word: '{}', Bounding polygon {}, Confidence {:.4f}"
-                            .format(word.content, points_string, word.confidence))
-    
-    elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
-    
-        error_details = sdk.ImageAnalysisErrorDetails.from_result(result)
-        print(" Analysis failed.")
-        print("   Error reason: {}".format(error_details.reason))
-        print("   Error code: {}".format(error_details.error_code))
-        print("   Error message: {}".format(error_details.message))
-    ```
+> [!TIP]
+> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/python/image-analysis/samples.py) repository for scenarios involving local images.
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet_single)]
 
 1. Then run the application with the `python` command on your quickstart file.
 

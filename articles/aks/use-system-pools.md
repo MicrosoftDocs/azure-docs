@@ -3,7 +3,7 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.date: 11/22/2022
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
@@ -355,5 +355,5 @@ In this article, you learned how to create and manage system node pools in an AK
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
-[start-stop-nodepools]: /start-stop-nodepools.md
+[start-stop-nodepools]: start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity

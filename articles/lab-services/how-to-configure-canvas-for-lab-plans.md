@@ -22,7 +22,7 @@ If you've already configured your course to use Azure Lab Services, learn how yo
 
 ## Prerequisites
 
-- An Azure Lab Services lab plan. Follow these steps to [Create a lab plan in the Azure portal](./tutorial-setup-lab-plan.md), if you don't have one yet.
+- An Azure Lab Services lab plan. Follow these steps to [Create a lab plan in the Azure portal](./quick-create-resources.md), if you don't have one yet.
 
 - Your Canvas account needs [Admin permissions](https://community.canvaslms.com/t5/Canvas-Basics-Guide/What-is-the-Admin-role/ta-p/78) to add the Azure Lab Services app to Canvas.
 

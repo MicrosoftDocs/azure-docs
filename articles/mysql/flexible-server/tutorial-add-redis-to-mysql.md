@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Boost performance for Azure Database for MySQL Flexible Server with Azure Cache for Redis'
-description: "This tutorial shows how to add Azure Cache for Redis to boost performance for your Azure Database for MySQL Flexible Server."
+title: 'Quickstart: Boost performance for Azure Database for MySQL - Flexible Server with Azure Cache for Redis'
+description: "This tutorial shows how to add Azure Cache for Redis to boost performance for your Azure Database for MySQL - Flexible Server."
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 12/07/2022
 ---
 
-# Tutorial: Boost performance of Azure Database for MySQL flexible Server with Azure Cache for Redis
+# Tutorial: Boost performance of Azure Database for MySQL - Flexible Server with Azure Cache for Redis
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -22,8 +22,8 @@ For this quickstart you need:
 - An Azure account with an active subscription. 
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
-- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
-- Configure networking settings of Azure Database for MySQL flexible server to make sure your IP has access to it. If you're using Azure App Service or Azure Kubernetes service, enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal.
+- Create an Azure Database for MySQL - Flexible Server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
+- Configure networking settings of Azure Database for MySQL - Flexible Server to make sure your IP has access to it. If you're using Azure App Service or Azure Kubernetes service, enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal.
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 

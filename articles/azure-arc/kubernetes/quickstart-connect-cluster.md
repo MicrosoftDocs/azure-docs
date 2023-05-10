@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 03/08/2023
+ms.date: 03/13/2023
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -11,7 +11,7 @@ ms.devlang: azurecli
 
 Get started with Azure Arc-enabled Kubernetes by using Azure CLI or Azure PowerShell to connect an existing Kubernetes cluster to Azure Arc.
 
-For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enabled Kubernetes agent overview](./conceptual-agent-overview.md).
+For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enabled Kubernetes agent overview](./conceptual-agent-overview.md). To try things out in a sample/practice experience, visit the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/).
 
 ## Prerequisites
 
@@ -39,7 +39,6 @@ In addition to the prerequisites below, be sure to meet all [network requirement
 
 * At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU.
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
-* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -63,7 +62,6 @@ In addition to the prerequisites below, be sure to meet all [network requirement
 
 * At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU.
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
-* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ---
 
@@ -149,16 +147,15 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Connect an existing Kubernetes cluster
 
-Run the following command:
+Run the following command to connect your cluster. This command deploys the Azure Arc agents to the cluster and installs Helm v. 3.6.3 to the .azure folder of the deployment machine. This Helm 3 installation is only used for Azure Arc, and it does not remove or change any previously installed versions of Helm on the machine.
+
+In this example, the cluster's name is AzureArcTest1.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
-
-> [!NOTE]
-> If you are logged into Azure CLI using a service principal, an [additional parameter](troubleshooting.md#enable-custom-locations-using-service-principal) needs to be set to enable the custom location feature on the cluster.
 
 Output:
 
@@ -201,7 +198,7 @@ Helm release deployment succeeded
 > The above command without the location parameter specified creates the Azure Arc-enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc-enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
 
 > [!IMPORTANT]
-> In some cases, deployment may fail due to a timeout error. Please see our [troubleshooting guide](troubleshooting.md#helm-timeout-error) for details on how to resolve this issue.
+> If deployment fails due to a timeout error, see our [troubleshooting guide](troubleshooting.md#helm-timeout-error) for details on how to resolve this issue.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -325,7 +322,7 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ## View Azure Arc agents for Kubernetes
 
-Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace.
+Azure Arc-enabled Kubernetes deploys several agents into the `azure-arc` namespace.
 
 1. View these deployments and pods using:
 
@@ -401,6 +398,6 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 
 ## Next steps
 
-Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
-> [!div class="nextstepaction"]
-> [Deploy configurations using GitOps with Flux v2](tutorial-use-gitops-flux2.md)
+* Learn how to [deploy configurations using GitOps with Flux v2](tutorial-use-gitops-flux2.md).
+* [Troubleshoot common Azure Arc-enabled Kubernetes issues](troubleshooting.md).
+* Experience Azure Arc-enabled Kubernetes automated scenarios with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/).

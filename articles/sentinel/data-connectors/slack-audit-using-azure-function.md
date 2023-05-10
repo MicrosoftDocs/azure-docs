@@ -1,6 +1,6 @@
 ---
-title: "Slack Audit (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Slack Audit (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Slack Audit (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Slack Audit (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Slack Audit (using Azure Function) connector for Microsoft Sentinel
+# Slack Audit (using Azure Functions) connector for Microsoft Sentinel
 
 The [Slack](https://slack.com) Audit data connector provides the capability to ingest [Slack Audit Records](https://api.slack.com/admins/audit-logs) events into Microsoft Sentinel through the REST API. Refer to [API documentation](https://api.slack.com/admins/audit-logs#the_audit_event) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [Slack](https://slack.com) Audit data connector provides the capability to i
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | SlackAPIBearerToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-SlackAuditAPI-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-SlackAuditAPI-functionapp |
 | **Kusto function alias** | SlackAudit |
 | **Kusto function url** | https://aka.ms/sentinel-SlackAuditAPI-parser |
 | **Log Analytics table(s)** | SlackAudit_CL<br/> |
@@ -37,9 +37,9 @@ SlackAudit
 
 ## Prerequisites
 
-To integrate with Slack Audit (using Azure Function) make sure you have: 
+To integrate with Slack Audit (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **SlackAPIBearerToken** is required for REST API. [See the documentation to learn more about API](https://api.slack.com/web#authentication). Check all [requirements and follow  the instructions](https://api.slack.com/web#authentication) for obtaining credentials.
 
 
@@ -50,7 +50,7 @@ To integrate with Slack Audit (using Azure Function) make sure you have:
    >  This connector uses Azure Functions to connect to the Slack REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -89,7 +89,7 @@ Use the following step-by-step instructions to deploy the Slack Audit data conne
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-SlackAuditAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

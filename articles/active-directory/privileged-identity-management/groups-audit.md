@@ -1,5 +1,5 @@
 ---
-title: Audit activity history for group assignments (preview) in Privileged Identity Management - Azure Active Directory
+title: Audit activity history for group assignments (preview) in Privileged Identity Management
 description: View activity and audit activity history for group assignments (preview) in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -28,7 +28,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 **Resource audit** gives you a view of all activity associated with groups in PIM.
 
-1. [Sign in to Azure AD portal](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
 
@@ -44,7 +44,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 **My audit** enables you to view your personal role activity for groups in PIM.
 
-1. [Sign in to Azure AD portal](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
 

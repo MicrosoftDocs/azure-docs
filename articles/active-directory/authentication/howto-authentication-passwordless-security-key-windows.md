@@ -1,5 +1,5 @@
 ---
-title: Passwordless security key sign-in Windows - Azure Active Directory
+title: Passwordless security key sign-in Windows
 description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys 
 
 services: active-directory

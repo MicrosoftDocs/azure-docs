@@ -52,6 +52,8 @@ items:
       items:
       - name: Java Quarkus app to PostgreSQL
         href: ../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
+      - name: ASP.NET Core app to App Configuration
+        href: ../azure-app-configuration/quickstart-container-apps.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
     - name: Azure Spring Apps
       expanded: true
       items:
@@ -73,6 +75,8 @@ items:
 - name: How-to guides
   expanded: true
   items: 
+    - name: Manage authentication
+      href: how-to-manage-authentication.md
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
     - name: Connect a container app to Blob Storage

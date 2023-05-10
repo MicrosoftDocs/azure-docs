@@ -3,14 +3,14 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/08/2023
+ms.date: 04/26/2023
 author: jyothisuri
 ms.author: jsuri
 ---
 
 # Overview and concepts of private endpoints (v2 experience) for Azure Backup
 
-Azure Backup allows you to securely perform the backup and restore operations of your data from the Recovery Services vaults using [private endpoints](/azure/private-link/private-endpoint-overview). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
+Azure Backup allows you to securely perform the backup and restore operations of your data from the Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
 
 Azure Backup now provides an enhanced experience in creation and use of private endpoints compared to the [classic experience](private-endpoints-overview.md) (v1).
 
@@ -58,8 +58,7 @@ The following table lists the scenarios and recommendations:
 | Azure Files backup | Azure Files backups are stored in the local storage account. So it doesn't require private endpoints for backup and restore. |
 
 >[!Note]
->- Private endpoints are supported with only DPM server 2022 and later.
->- Private endpoints are currently not supported with MABS.
+>Private endpoints are supported with only DPM server 2022, MABS v4, and later.
 
 ## Difference in network connections for private endpoints
 
@@ -122,7 +121,7 @@ If the private URL doesn't resolve, it tries the public URL `<azure_backup_svc>.
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with the Azure Backup service over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting the backup and restore operations on the vault. We recommend that public network access is set to *Deny* along with private endpoint setup. As the extension and agent attempt the private URL first, the `*.privatelink.<geo>.backup.windowsazure.com` DNS resolution of the URL should return the corresponding private IP associated with the private endpoint.
 
@@ -148,8 +147,6 @@ The workload extension running on Azure VM requires connection to at least two s
 For a private endpoint enabled vault, the Azure Backup service creates private endpoint for these storage accounts. This prevents any network traffic related to Azure Backup (control plane traffic to service and backup data to storage blob) from leaving the virtual network.
 In addition to the Azure Backup cloud services, the workload extension and agent require connectivity to the Azure Storage accounts and Azure Active Directory (Azure AD).
 
-As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). Recovery Services vault searches for private DNS zones in the resource groups where VNet and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault; otherwise, you must create them manually.
-
 The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
 
 :::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
@@ -157,4 +154,3 @@ The following diagram shows how the name resolution works for storage accounts u
 ## Next steps
 
 - Learn [how to configure and manage private endpoints for Azure Backup](backup-azure-private-endpoints-configure-manage.md).
-

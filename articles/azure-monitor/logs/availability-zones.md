@@ -47,6 +47,7 @@ Azure Monitor currently supports service resilience for availability-zone-enable
 
 - East US 2
 - West US 2
+- North Europe
 - Canada Central
 - France Central
 - Japan East

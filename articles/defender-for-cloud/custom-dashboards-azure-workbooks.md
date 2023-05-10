@@ -3,6 +3,8 @@ title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
 ms.custom: ignite-2022
+ms.author: dacurwin
+author: dcurwin
 ms.date: 02/02/2023
 ---
 
@@ -177,7 +179,7 @@ This workbook provides a customizable data analysis and gives you the ability to
 :::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="A screenshot that shows a sample results page once you've selected the DevOps workbook." lightbox="media/custom-dashboards-azure-workbooks/devops-workbook.png":::
 
 > [!NOTE] 
-> You must have a [Github connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
+> You must have a [GitHub connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
 
 **To deploy the workbook**:
 

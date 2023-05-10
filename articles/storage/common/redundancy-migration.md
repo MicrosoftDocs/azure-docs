@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 03/13/2023
 ms.author: jammart
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, engagement-fy23, references_regions
+ms.custom: engagement-fy23, references_regions
 ---
 
 # Change how a storage account is replicated
@@ -21,10 +21,11 @@ In this article, you will learn how to change the replication setting(s) for an 
 
 ## Options for changing the replication type
 
-Three aspects of the redundancy configuration of a storage account determine how your storage account is replicated and accessible:
+Four aspects of the redundancy configuration of a storage account determine how your data is replicated and accessible:
 
-- **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
-- **Geo-redundancy** - replication within a single "local" region or between different regions (LRS vs. GRS)
+- **Local redundancy** - your data is always replicated three times within the local or primary region (LRS)
+- **Zone redundancy** - whether your data is replicated between different zones within the primary region (LRS vs. ZRS)
+- **Geo-redundancy** - replication within a single "local" region or between a primary and a secondary region (LRS vs. GRS)
 - **Read access (RA)** - read access to the secondary region when geo-redundancy is used (GRS vs. RA-GRS)
 
 For an overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).

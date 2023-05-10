@@ -10,7 +10,7 @@ author: swatig007
 ms.author: swatig
 ms.reviewer: ssalgado
 ms.date: 05/26/2022
-ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ---
 
 # Tutorial: Train an object detection model with AutoML and Python
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/tutorial-auto-train-image-models-v1.md)
+> * [v1](v1/tutorial-auto-train-image-models-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](tutorial-auto-train-image-models.md)
 
 
@@ -40,11 +40,11 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Python 3.6 or 3.7 are supported for this feature
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
+* Complete [Create resources to get started](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
 
 * Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook. 
 
@@ -70,7 +70,7 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
    ```
    * Install the Azure Machine Learning Python SDK v2:
    ```python
-   pip install azure-ai-ml
+   pip install azure-ai-ml azure-identity
    ```
 
     > [!NOTE]

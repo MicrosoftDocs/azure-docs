@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Acadia | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Acadia'
 description: Learn how to configure single sign-on between Azure Active Directory and Acadia.
 services: active-directory
 author: jeevansd

@@ -3,7 +3,8 @@ title: Create an App Service Environment (ASE) v3 with Azure Resource Manager
 description: Learn how to create an external or ILB App Service Environment v3 by using an Azure Resource Manager template.
 author: madsd
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.custom: devx-track-arm-template
+ms.date: 03/09/2023
 ms.author: madsd
 ---
 # Create an App Service Environment by using an Azure Resource Manager template
@@ -57,7 +58,7 @@ In addition to the core properties, there are other configuration options that y
 * *name*: Required. This parameter defines a unique App Service Environment name. The name must be no more than 36 characters.
 * *virtualNetwork -> id*: Required. Specifies the resource ID of the subnet. Subnet must be empty and delegated to Microsoft.Web/hostingEnvironments
 * *internalLoadBalancingMode*: Required. In most cases, set this property to "Web, Publishing", which means both HTTP/HTTPS traffic and FTP traffic is on an internal VIP (Internal Load Balancer). If this property is set to "None", all traffic remains on the public VIP (External Load Balancer).
-* *zoneRedundant*: Optional. Defines with true/false if the App Service Environment will be deployed into Availability Zones (AZ). For more information, see [zone redundancy](./zone-redundancy.md).
+* *zoneRedundant*: Optional. Defines with true/false if the App Service Environment will be deployed into Availability Zones (AZ). For more information, see [Regions and availability zones](./overview-zone-redundancy.md).
 * *dedicatedHostCount*: Optional. In most cases, set this property to 0 or left out. You can set it to 2 if you want to deploy your App Service Environment with physical hardware isolation on dedicated hosts. 
 * *upgradePreference*: Optional. Defines if upgrade is started automatically or a 15 day windows to start the deployment is given. Valid values are "None", "Early", "Late", "Manual". More information [about upgrade preference](./how-to-upgrade-preference.md).
 * *clusterSettings*: Optional. For more information, see [cluster settings](./app-service-app-service-environment-custom-settings.md).

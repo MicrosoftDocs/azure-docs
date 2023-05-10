@@ -14,12 +14,9 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C++ to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeImage`, which uses the client object to analyze a remote image and print the results. 
+Use the Image Analysis client library for C++ to analyze an image to read text and generate an image caption. This quickstart defines a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
-[Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
-
-> [!TIP]
-> You can also analyze a local image. See the [reference documentation](/cpp/cognitive-services/vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) for scenarios involving local images.
+[Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -27,7 +24,7 @@ Use the Image Analysis client library for C++ to analyze an image to read text a
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **Desktop development with C++** enabled.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -41,9 +38,7 @@ Create a new C++ application.
 
 #### [Windows](#tab/windows)
 
-In Visual Studio, open the **File** menu and choose **New** -> **Project** to open the **Create a new Project** dialog. Create a new **C++ Console application** and then choose **Next**.
-
-In the **Configure your new project** dialog, enter _ImageAnalysisQuickstart_ in the **Project name** edit box. Choose **Create** to create the project.
+Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C++/Windows/Console_. Select **Console App** and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Create** to create the project.
 
 ### Install the client library 
 
@@ -61,130 +56,13 @@ Follow [these instructions](https://github.com/Azure-Samples/azure-ai-vision-sdk
 
 From the project directory, open the _ImageAnalysisQuickstart.cpp_ file that was created previously with [your new project](#set-up-application). Clear its contents and paste in the following code:
 
-<!--[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet-single)]-->
+> [!TIP]
+> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) repository for scenarios involving local images.
 
-```cpp
-#include <vision_api_cxx_image_analyzer.h>
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet_single)]
 
-using namespace Azure::AI::Vision::ImageAnalysis;
-using namespace Azure::AI::Vision::Input;
-using namespace Azure::AI::Vision::Service;
 
-std::string PolygonToString(std::vector<int32_t> boundingPolygon);
-std::string GetEnvironmentVariable(const std::string name);
-
-void AnalyzeImage()
-{
-    auto serviceOptions = VisionServiceOptions::FromEndpoint(
-        GetEnvironmentVariable("VISION_ENDPOINT"),
-        GetEnvironmentVariable("VISION_KEY"));
-
-    auto imageSource = VisionSource::FromUrl(
-        "https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png");
-
-    auto analysisOptions = ImageAnalysisOptions::Create();
-
-    analysisOptions->SetFeatures(
-        {
-            ImageAnalysisFeature::Caption,
-            ImageAnalysisFeature::Text,
-        });
-
-    analysisOptions->SetLanguage("en");
-
-    analysisOptions->SetGenderNeutralCaption(true);
-
-    auto analyzer = ImageAnalyzer::Create(serviceOptions, imageSource, analysisOptions);
-
-    auto result = analyzer->Analyze();
-
-    if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
-    {
-        const auto caption = result->GetCaption();
-        if (caption.HasValue())
-        {
-            std::cout << " Caption:" << std::endl;
-            std::cout << "   \"" << caption.Value().Content << "\", Confidence " << caption.Value().Confidence << std::endl;
-        }
-
-        const auto detectedText = result->GetText();
-        if (detectedText.HasValue())
-        {
-            std::cout << " Text:\n";
-            for (const auto line : detectedText.Value().Lines)
-            {
-                std::cout << "   Line: \"" << line.Content << "\"";
-                std::cout << ", Bounding polygon " << PolygonToString(line.BoundingPolygon) << std::endl;
-
-                for (const auto word : line.Words)
-                {
-                    std::cout << "     Word: \"" << word.Content << "\"";
-                    std::cout << ", Bounding polygon " << PolygonToString(word.BoundingPolygon);
-                    std::cout << ", Confidence " << word.Confidence << std::endl;
-                }
-            }
-        }
-    }
-    else if (result->GetReason() == ImageAnalysisResultReason::Error)
-    {
-        auto errorDetails = ImageAnalysisErrorDetails::FromResult(result);
-        std::cout << " Analysis failed." << std::endl;
-        std::cout << "   Error reason = " << (int)errorDetails->GetReason() << std::endl;
-        std::cout << "   Error code = " << errorDetails->GetErrorCode() << std::endl;
-        std::cout << "   Error message = " << errorDetails->GetMessage() << std::endl;
-    }
-}
-
-std::string PolygonToString(std::vector<int32_t> boundingPolygon)
-{
-    std::string out = "{";
-    for (int i = 0; i < boundingPolygon.size(); i += 2)
-    {
-        out += ((i == 0) ? "{" : ",{") +
-            std::to_string(boundingPolygon[i]) + "," +
-            std::to_string(boundingPolygon[i + 1]) + "}";
-    }
-    out += "}";
-    return out;
-}
-
-std::string GetEnvironmentVariable(const std::string name)
-{
-#if defined(_MSC_VER)
-    size_t size = 0;
-    char buffer[1024];
-    getenv_s(&size, nullptr, 0, name.c_str());
-    if (size > 0 && size < sizeof(buffer))
-    {
-        getenv_s(&size, buffer, size, name.c_str());
-        return std::string{ buffer };
-    }
-#else
-    const char* value = getenv(name.c_str());
-    if (value != nullptr)
-    {
-        return std::string{ value };
-    }
-#endif
-    return std::string{ "" };
-}
-
-int main()
-{
-    try
-    {
-        AnalyzeImage();
-    }
-    catch (std::exception e)
-    {
-        std::cout << e.what();
-    }
-
-    return 0;
-}
-```
-
-Then, run the application by clicking the **Debug** button at the top of the IDE window.
+Then, compile and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**). You should see output similar to the one below.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>

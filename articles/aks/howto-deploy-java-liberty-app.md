@@ -7,7 +7,7 @@ ms.author: zhengchang
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -240,7 +240,7 @@ The following steps deploy and test the application.
 
    You should see output similar to the following to indicate that all the pods are running.
 
-   ```bash
+   ```output
    NAME                                       READY   STATUS    RESTARTS   AGE
    javaee-cafe-cluster-agic-67cdc95bc-2j2gr   1/1     Running   0          29s
    javaee-cafe-cluster-agic-67cdc95bc-fgtt8   1/1     Running   0          29s

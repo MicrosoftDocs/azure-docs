@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with BitaBIZ | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with BitaBIZ'
 description: Learn how to configure single sign-on between Azure Active Directory and BitaBIZ.
 services: active-directory
 author: jeevansd
