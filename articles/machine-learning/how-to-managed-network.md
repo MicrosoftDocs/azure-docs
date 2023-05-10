@@ -506,37 +506,8 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
 
+* Configure a managed VNet for the workspace and add an outbound private endpoint for the Azure Storage Account.
 * After you configure the managed VNet, provision it and flag it to allow spark jobs.
-* Configure an outbound private endpoint for the Azure Storage Account.
-
-1. Provision the managed VNet.
-
-    > [!NOTE]
-    > If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed virtual network. If you don't disable public network access when provisioning the managed virtual network, the private endpoints for the managed endpoint may not be created successfully.
-
-    # [Azure CLI](#tab/azure-cli)
-
-    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
-
-    ```azurecli
-    az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
-    ```
-
-    # [Python](#tab/python)
-
-    The following example shows how to provision a managed VNet for serverless spark jobs:
-
-    ```python
-    # Connect to a workspace named "myworkspace"
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
-
-    # whether to provision spark vnet as well
-    include_spark = True
-
-    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
-    ```
-
-    ---
 
 1. Configure an outbound private endpoint.
 
@@ -597,6 +568,35 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # Create the workspace
     ml_client.workspaces.begin_update(ws)
+    ```
+
+    ---
+
+1. Provision the managed VNet.
+
+    > [!NOTE]
+    > If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed virtual network. If you don't disable public network access when provisioning the managed virtual network, the private endpoints for the managed endpoint may not be created successfully.
+
+    # [Azure CLI](#tab/azure-cli)
+
+    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
+
+    ```azurecli
+    az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
+    ```
+
+    # [Python](#tab/python)
+
+    The following example shows how to provision a managed VNet for serverless spark jobs:
+
+    ```python
+    # Connect to a workspace named "myworkspace"
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
+
+    # whether to provision spark vnet as well
+    include_spark = True
+
+    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
     ```
 
     ---
