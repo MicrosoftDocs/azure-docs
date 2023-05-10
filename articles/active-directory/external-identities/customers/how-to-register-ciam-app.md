@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/10/2023
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to register an app on the Microsoft Entra admin center.
@@ -83,13 +83,11 @@ This app signs in users. You can add delegated permissions to it, by following t
 [!INCLUDE [register app](../customers/includes/register-app/register-api-app.md)]
 
 ### Expose permissions
-This API needs to expose permissions, which a client needs to acquire to call it:
 
 [!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
 ### If you want to add app roles follow the steps below (optional):
 
-App roles enable the client app to obtain an access token as themselves. This is common when the client app isn't signing-in a user:
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
 ## Next steps
