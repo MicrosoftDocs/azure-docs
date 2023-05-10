@@ -219,27 +219,22 @@ To edit a test in the Azure portal:
 
 ## Delete a test
 
-## Find a test
+To delete a test in the Azure portal:
 
-## Manage
+1. In the [Azure portal](https://portal.azure.com), and go to your load testing resource.
 
-If you already have a load test, you can start a new run, delete the load test, edit the test configuration, or compare test runs.
+1. Select **Tests** in the left pane, and select a test from the list by checking the corresponding checkbox.
 
-1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
-1. On the left pane, select **Tests** to view the list of load tests, and then select your test.
+1. Select **Delete test** to delete the test.
 
-:::image type="content" source="media/how-to-create-manage-test/manage-load-test.png" alt-text="Screenshot that shows the tests page in the Azure portal, highlighting the action bar.":::
+    :::image type="content" source="media/how-to-create-manage-test/delete-load-test.png" alt-text="Screenshot that shows how to select and delete a load test in the Azure portal.":::
 
-You can perform the following actions:
+    Alternately, select the test from the list, and then select **Delete test** on the test details page.
 
-- Refresh the list of test runs.
-- Start a new test run. The run uses the current test configuration settings.
-- Delete the load test. All test runs for the load test are also deleted.
-- Configure the test configuration:
-    - Configure the test plan. You can add or remove any of the files for the load test. If you want to update a file, first remove it, and then add the updated version.
-    - Add or remove Azure app components.
-    - Configure resource metrics for the app components. Azure Load Testing automatically selects the relevant resource metrics for each app component. Add or remove metrics for any of the app components in the load test.
-- [Compare test runs](./how-to-compare-multiple-test-runs.md). Select two or more test runs in the list to visually compare them in the results dashboard.
+1. On the **Delete test** page, select **Delete** to confirm the deletion of the test.
+
+> [!CAUTION]
+> When you delete a test, all test runs, logs, results, and metrics data are also deleted.
 
 ## Next steps
 
