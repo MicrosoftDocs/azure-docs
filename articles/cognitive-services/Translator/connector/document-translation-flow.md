@@ -17,7 +17,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# Configure a Document Translation flow (v3 preview)
+# Configure a Document Translation flow (preview)
 
 > [!IMPORTANT]
 >
