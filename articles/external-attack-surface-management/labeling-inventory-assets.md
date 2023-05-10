@@ -13,7 +13,7 @@ ms.topic: how-to
 
 This article outlines how to modify inventory assets.  Users can change the state of an asset or apply labels to help better contextualize and operationalize inventory data. This article describes how to modify a single asset or multiple assets, and track any updates with the Task Manager.
 
-# Labeling assets
+## Labeling assets
 
 Labels help you organize your attack surface and apply business context in a highly customizable way. You can apply any text label to a subset of assets to group assets and better operationalize your inventory. Customers commonly categorize assets that:  
 
