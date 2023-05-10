@@ -91,10 +91,10 @@ Note: This tutorial uses Azure Machine Learning spark notebook for development.
 >
 >    * This SDK (`azureml-featurestore`) is intended for feature set development and consumption (you'll learn more about these operations later):
 >
-   >    - List/Get registered feature set
+   >    - Develop feature set specification and retrieve feature data using it
+   >    - List/Get registered feature sets
    >    - Generate/resolve feature retrieval spec
-   >    - Execute a feature set definition, to generate Spark dataframe
-   >    - Generate training using a point-in-time join
+   >    - Generate training/inference data using a point-in-time join
 >
 > This tutorial does not require explicit installation of these SDK's, since the instructions already explain the process. The **conda YAML** instructions in the earlier step cover this.
 
@@ -144,9 +144,25 @@ We'll create these rolling window aggregate features:
 
 See [feature store concepts](./concept-what-is-managed-feature-store.md) and **transformation concepts** to learn more about the feature set and transformations.
 
-Export as feature set spec.
-
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=develop-txn-fset-locally)]
+
+### Step 2c: Export as a feature set spec
+
+To register the feature set spec with the feature store, that spec must be saved in a specific format.
+
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=dump-transactions-fs-spec)]
+
+**Action:** Please inspect the generated `transactions` FeaturesetSpec: Open this file from the file tree to see the spec: `featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml`
+
+The spec contains these important elements:
+
+1. `source`: a reference to a storage. In this case, it is a parquet file in a blob storage resource.
+1. `features`: a list of features and their datatypes. If you provide transformation code (see the Day 2 section), the code must return a dataframe that maps to the features and datatypes.
+1. `index_columns`: the join keys required to access values from the feature set
+
+Learn more about this in the [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) and the [feature set spec yaml reference](./reference-yaml-feature-set.md).
+
+Persisting the feature set spec offers an additional benefit: the feature set spec can be source controlled.
 
 ## Step 3: Register a feature-store entity
 
@@ -154,7 +170,9 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 ### Step 3a: Initialize the Feature Store CRUD client
 
-As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=init-fset-crud-client)] searches for the feature store we created in an earlier step. Here, we can't reuse the same ml_client used earlier in this tutorial, because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. The one following is scoped at feature store level.
+As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. The following code searches for the feature store we created in an earlier step. Here, we can't reuse the same ml_client used earlier in this tutorial, because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. The one following is scoped at feature store level.
+
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=init-fset-crud-client)]
 
 ### Step 3b: Register the `account` entity with the feature store
 
@@ -166,11 +184,11 @@ Create an account entity that has the join key `accountID`, of type string.
 
 You can register a feature set asset with the feature store. In this way, you can share and reuse that asset with others. Feature set asset registration offers managed capabilities, such as versioning and materialization (we will learn about these topics in this tutorial series).
 
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=load-obs-data)]
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. hello_world.ipynb?name=register-txn-fset)]
 
 ### Explore the feature store UI
 
-* Open the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStoresPrPr,FeatureStoresPuPr).
+* Open the [Azure Machine Learning global landing page](https://ml.azure.com/home).
 * Select `Feature stores` in the left nav
 * Note the list of accessible feature stores. Select on the feature store that you created earlier in this tutorial.
 

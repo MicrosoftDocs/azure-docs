@@ -27,7 +27,6 @@ Part 1 of this tutorial showed how to create a feature set, and use it to genera
 Here in Tutorial part 2, you'll learn how to:
 
 * Enable offline store on the feature store by creating and attaching an ADLS gen2 container and a user assigned managed identity
-* Create a feature set that uses pre computed features (this will be useful in next part of the tutorial)
 * Enable offline materialization on the feature sets, and backfill the feature data
 
 ## Prerequisites
@@ -95,13 +94,13 @@ You can optionally override the default settings
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=set-offline-store-params)]
 
-##### Storage container (option 1): reuse an existing storage container
-
-[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=use-existing-storage)]
-
-##### Storage container (option 2): create a new storage container
+##### Storage container (option 1): create a new storage container
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=create-new-storage)]
+
+##### Storage container (option 2): reuse an existing storage container
+
+[!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. backfill.ipynb?name=use-existing-storage)]
 
 #### Setup user assigned managed identity (UAI)
 
@@ -176,7 +175,7 @@ Let's print sample data from the feature set. The output information shows that 
 
 ## Next steps
 
-* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-features-and-the-machine-learning-lifecycle.md)
+* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-experiment-and-train-models-using-features.md)
 * [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
 * [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
 * Reference: [YAML reference](./reference-yaml-overview.md), **[feature store SDK] ()**

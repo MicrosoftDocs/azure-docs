@@ -96,7 +96,7 @@ This won't require transformation code because we reference precomputed features
 
 ### Step 1c: Export as a feature set spec
 
-To register the feature set spec with the feature store, the feature set spec needs to be saved in a specific format. Action: After running the next cell, inspect the generated `accounts` FeaturesetSpec: Open this file from the file tree, to see the spec: `featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml`
+To register the feature set spec with the feature store, the feature set spec needs to be saved in a specific format. Action: After running the next cell, inspect the generated `accounts` FeaturesetSpec: Open this file from the file tree, to see the spec: `featurestore/featuresets/accounts/spec/FeatureSetSpec.yaml`
 
 The spec has these elements:
 
