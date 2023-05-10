@@ -1,5 +1,6 @@
 ---
 title: "Microservices communication using Dapr Publish and Subscribe"
+titleSuffix: "Azure Container Apps"
 description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
