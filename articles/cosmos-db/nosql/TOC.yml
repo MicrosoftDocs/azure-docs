@@ -239,6 +239,8 @@
           href: ../change-feed.md
         - name: Change feed design patterns
           href: change-feed-design-patterns.md
+        - name: Change feed modes
+          href: change-feed-modes.md
         - name: Reading change feed
           href: read-change-feed.md
         - name: Change feed processor
