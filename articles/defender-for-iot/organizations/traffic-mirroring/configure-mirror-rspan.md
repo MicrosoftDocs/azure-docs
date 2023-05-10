@@ -34,7 +34,7 @@ This article describes a sample procedure for configuring [RSPAN](../best-practi
 
 - The remote VLAN increases the bandwidth on the trunked port by the amount of traffic being mirrored from the source session. Make sure that your switch's trunk port can support the increased bandwidth.
 
-> [!IMPORTANT]
+> [!CAUTION]
 > An increased bandwidth, whether due to large amounts of throughput or a large number of switches, can cause a switch to fail and therefore to bring down the entire network.
 > When configuring traffic mirroring with RSPAN, make sure to consider the following:
 > - The number of access / distribution switches that you configure with RSPAN.
