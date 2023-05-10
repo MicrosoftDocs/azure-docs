@@ -70,7 +70,7 @@ Create a folder to host your node application, such as `ciam-sign-in-call-api-no
 
 ## Install app dependencies
 
-n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan`, `body-parser`, `method-override` and `@azure/msal-node` packages by running the following commands:
+In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan`, `body-parser`, `method-override` and `@azure/msal-node` packages by running the following commands:
 
 ```console
     npm install express dotenv hbs express-session axios cookie-parser http-errors body-parser morgan method-override @azure/msal-node   
