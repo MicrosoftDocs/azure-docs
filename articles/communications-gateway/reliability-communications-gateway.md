@@ -66,7 +66,7 @@ Management regions contain the infrastructure used for the ordering, monitoring 
 
 ## Availability zone support
 
-Azure availability zones have a minimum of three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. If a local zone fails, regional services, capacity, and high availability are supported by the other zones in the region. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview.md).
+Azure availability zones have a minimum of three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. If a local zone fails, regional services, capacity, and high availability are supported by the other zones in the region. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
 
 ### Zone down experience for service regions
 
@@ -96,7 +96,7 @@ A single deployment of Azure Communications Gateway is designed to handle your O
 
 - Select from the list of available Azure regions. You can see the Azure regions that can be selected as service regions on the [Products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page.
 - Choose regions near to your own premises and the peering locations between your network and Microsoft to reduce call latency.
-- Prefer [regional pairs](/azure/reliability/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies) to minimize the recovery time if a multi-region outage occurs.
+- Prefer [regional pairs](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to minimize the recovery time if a multi-region outage occurs.
 
 Choose a management region from the following list:
 

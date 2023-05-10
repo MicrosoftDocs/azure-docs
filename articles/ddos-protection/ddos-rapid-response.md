@@ -2,11 +2,9 @@
 title: Azure DDoS Rapid Response
 description: Learn how to engage DDoS experts during an active attack for specialized support.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 10/12/2022

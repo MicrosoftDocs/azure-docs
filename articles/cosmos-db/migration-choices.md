@@ -15,7 +15,7 @@ ms.date: 04/02/2022
 You can load data from various data sources to Azure Cosmos DB. Since Azure Cosmos DB supports multiple APIs, the targets can be any of the existing APIs. The following are some scenarios where you migrate data to Azure Cosmos DB:
 
 * Move data from one Azure Cosmos DB container to another container within the Azure Cosmos DB account (could be in the same database or a different database). 
-* Move data from one Azure Cosmos DB account to another Azure Cosmos DB account (could be in the same region or a different regions, same subscription or a different one).
+* Move data from one Azure Cosmos DB account to another Azure Cosmos DB account (could be in the same region or a different region, same subscription or a different one).
 * Move data from a source such as Azure blob storage, a JSON file, Oracle database, Couchbase, DynamoDB to Azure Cosmos DB.
 
 In order to support migration paths from the various sources to the different Azure Cosmos DB APIs, there are multiple solutions that provide specialized handling for each migration path. This document lists the available solutions and describes their advantages and limitations.
@@ -24,7 +24,7 @@ In order to support migration paths from the various sources to the different Az
 
 The following factors determine the choice of the migration tool:
 
-* **Online vs offline migration**: Many migration tools provide a path to do a one-time migration only. This means that the applications accessing the database might experience a period of downtime. Some migration solutions provide a way to do a live migration where there is a replication pipeline set up between the source and the target.
+* **Online vs offline migration**: Many migration tools provide a path to do a one-time migration only. This means that the applications accessing the database might experience a period of downtime. Some migration solutions provide a way to do a live migration where there's a replication pipeline set up between the source and the target.
 
 * **Data source**: The existing data can be in various data sources like Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL, etc. The data can also be in an existing Azure Cosmos DB account and the intent of migration can be to change the data model or repartition the data in a container with a different partition key.
 
@@ -37,40 +37,38 @@ The following factors determine the choice of the migration tool:
 ## Azure Cosmos DB API for NoSQL
 
 If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
-* If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](estimate-ru-with-capacity-planner.md).
-
->[!IMPORTANT]
-> The [Custom Migration Service using ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator) is an open-source tool for live container migrations that implements change feed and bulk support. However, please note that the user interface application code for this tool is not supported or actively maintained by Microsoft. For Azure Cosmos DB API for NoSQL live container migrations, we recommend using the Spark Connector + Change Feed as illustrated in the [sample](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration) below. The [Spark Connector for Azure Cosmos DB](./nosql/quickstart-spark.md) is fully supported by Microsoft.
+* If you're migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](estimate-ru-with-capacity-planner.md).
 
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
 |Offline|[Intra-account container copy](intra-account-container-copy.md)|Azure Cosmos DB for NoSQL|Azure Cosmos DB for NoSQL|&bull; CLI-based; No set up needed. <br/>&bull; Supports large datasets.|
+|Offline|[Azure Cosmos DB desktop data migration tool](how-to-migrate-desktop-tool.md)|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;Azure Cosmos DB for Table<br/>&bull;Azure Table storage<br/>&bull;JSON Files<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;Azure Cosmos DB for Table<br/>&bull;Azure Table storage<br/>&bull;JSON Files<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>|&bull; Command-line tool<br/>&bull; Open-source|
 |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)| &bull;JSON/CSV Files<br/>&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/> <br/>See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported sources.|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;JSON Files <br/><br/> See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported targets. |&bull; Easy to set up and supports multiple sources.<br/>&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Lack of checkpointing - It means that if an issue occurs during the course of migration, you need to restart the whole migration process.<br/>&bull; Lack of a dead letter queue - It means that a few erroneous files can stop the entire migration process.|
 |Offline|[Azure Cosmos DB Spark connector](./nosql/quickstart-spark.md)|Azure Cosmos DB for NoSQL. <br/><br/>You can use other sources with additional connectors from the Spark ecosystem.| Azure Cosmos DB for NoSQL. <br/><br/>You can use other targets with additional connectors from the Spark ecosystem.| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Needs a custom Spark setup. <br/>&bull; Spark is sensitive to schema inconsistencies and this can be a problem during migration. |
-|Online|[Azure Cosmos DB Spark connector + Change Feed](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration)|Azure Cosmos DB for NoSQL. <br/><br/>Uses Azure Cosmos DB Change Feed to stream all historic data as well as live updates.| Azure Cosmos DB for NoSQL. <br/><br/>You can use other targets with additional connectors from the Spark ecosystem.| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Needs a custom Spark setup. <br/>&bull; Spark is sensitive to schema inconsistencies and this can be a problem during migration. |
+|Online|[Azure Cosmos DB Spark connector + Change Feed sample](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration)|Azure Cosmos DB for NoSQL. <br/><br/>Uses Azure Cosmos DB Change Feed to stream all historic data as well as live updates.| Azure Cosmos DB for NoSQL. <br/><br/>You can use other targets with additional connectors from the Spark ecosystem.| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Needs a custom Spark setup. <br/>&bull; Spark is sensitive to schema inconsistencies and this can be a problem during migration. |
 |Offline|[Custom tool with Azure Cosmos DB bulk executor library](migrate.md)| The source depends on your custom code | Azure Cosmos DB for NoSQL| &bull; Provides checkpointing, dead-lettering capabilities which increases migration resiliency. <br/>&bull; Suitable for very large datasets (10 TB+).  <br/>&bull; Requires custom setup of this tool running as an App Service. |
-|Online|[Azure Cosmos DB Functions + ChangeFeed API](change-feed-functions.md)| Azure Cosmos DB for NoSQL | Azure Cosmos DB for NoSQL| &bull; Easy to set up. <br/>&bull; Works only if the source is an Azure Cosmos DB container. <br/>&bull; Not suitable for large datasets. <br/>&bull; Does not capture deletes from the source container. |
-|Online|[Custom Migration Service using ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| Azure Cosmos DB for NoSQL | Azure Cosmos DB for NoSQL| &bull; Provides progress tracking. <br/>&bull; Works only if the source is an Azure Cosmos DB container. <br/>&bull; Works for larger datasets as well.<br/>&bull; Requires the user to set up an App Service to host the Change feed processor. <br/>&bull; Does not capture deletes from the source container.|
+|Online|[Azure Cosmos DB Functions + ChangeFeed API](change-feed-functions.md)| Azure Cosmos DB for NoSQL | Azure Cosmos DB for NoSQL| &bull; Easy to set up. <br/>&bull; Works only if the source is an Azure Cosmos DB container. <br/>&bull; Not suitable for large datasets. <br/>&bull; Doesn't capture deletes from the source container. |
 |Online|[Striim](cosmosdb-sql-api-migrate-data-striim.md)| &bull;Oracle <br/>&bull;Apache Cassandra<br/><br/> See the [Striim website](https://www.striim.com/sources-and-targets/) for other supported sources. |&bull;Azure Cosmos DB for NoSQL <br/>&bull; Azure Cosmos DB for Cassandra<br/><br/> See the [Striim website](https://www.striim.com/sources-and-targets/) for other supported targets. | &bull; Works with a large variety of sources like Oracle, DB2, SQL Server.<br/>&bull; Easy to build ETL pipelines and provides a dashboard for monitoring. <br/>&bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
 
 ## Azure Cosmos DB API for MongoDB
 
 Follow the [pre-migration guide](mongodb/pre-migration-steps.md) to plan your migration. 
 * If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
-* If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](convert-vcore-to-request-unit.md).
+* If you're migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](convert-vcore-to-request-unit.md).
 
-When you are ready to migrate, you can find detailed guidance on migration tools below
+When you're ready to migrate, you can find detailed guidance on migration tools below
 * [Offline migration using MongoDB native tools](mongodb/tutorial-mongotools-cosmos-db.md)
 * [Offline migration using Azure database migration service (DMS)](../dms/tutorial-mongodb-cosmos-db.md)
 * [Online migration using Azure database migration service (DMS)](../dms/tutorial-mongodb-cosmos-db-online.md)
 * [Offline/online migration using Azure Databricks and Spark](mongodb/migrate-databricks.md)
 
-Then, follow our [post-migration guide](mongodb/post-migration-optimization.md) to optimize your Azure Cosmos DB data estate once you have migrated.
+Then, follow our [post-migration guide](mongodb/post-migration-optimization.md) to optimize your Azure Cosmos DB data estate once you've migrated.
 
 A summary of migration pathways from your current solution to Azure Cosmso DB for MongoDB is provided below:
 
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
+|Offline|[Azure Cosmos DB desktop data migration tool](how-to-migrate-desktop-tool.md)|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;Azure Cosmos DB for Table<br/>&bull;Azure Table storage<br/>&bull;JSON Files<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;Azure Cosmos DB for Table<br/>&bull;Azure Table storage<br/>&bull;JSON Files<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>|&bull; Command-line tool<br/>&bull; Open-source|
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB for MongoDB |&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|
 |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB for MongoDB| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|
 |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db-mongodb-api.md)| &bull;JSON/CSV Files<br/>&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB <br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/><br/> See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported sources. | &bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB <br/>&bull; JSON files <br/><br/> See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported targets.| &bull; Easy to set up and supports multiple sources. <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process.<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process. <br/>&bull; Needs custom code to increase read throughput for certain data sources.|
@@ -93,10 +91,14 @@ If you need help with capacity planning, consider reading our [guide to estimati
 
 For APIs other than the API for NoSQL, API for MongoDB and the API for Cassandra, there are various tools supported by each of the API's existing ecosystems. 
 
-**API for Gremlin**
+### API for Gremlin
 
 * [Graph bulk executor library](gremlin/bulk-executor-dotnet.md)
 * [Gremlin Spark](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 
+
+### API for Table
+
+* [Azure Cosmos DB desktop data migration tool](how-to-migrate-desktop-tool.md)
 
 ## Next steps
 

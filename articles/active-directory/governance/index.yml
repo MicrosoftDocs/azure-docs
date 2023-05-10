@@ -7,8 +7,8 @@ metadata:
   author: owinfreyatl
   description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
   manager: amycolannino
-  ms.author: owinfreyatl
-  ms.date: 12/06/2022
+  ms.author: owinfrey
+  ms.date: 03/07/2023
   ms.service: active-directory
   ms.subservice: compliance
   ms.topic: landing-page

@@ -1,6 +1,6 @@
 ---
 title: Convert a legacy Exchange peering to an Azure resource - PowerShell
-description: Convert a legacy Exchange peering to an Azure resource using PowerShell
+description: Convert a legacy Exchange peering to an Azure resource using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering

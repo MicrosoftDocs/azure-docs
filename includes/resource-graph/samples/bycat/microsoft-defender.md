@@ -2,9 +2,42 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 02/14/2023
 ms.author: timwarner
 ms.custom: generated
+---
+### Display all active Microsoft Defender for Cloud alerts
+
+Returns a list of all active alerts in your Microsoft Defender for Cloud tenant.
+
+```kusto
+securityresources
+| where type =~ 'microsoft.security/locations/alerts'
+| where properties.Status in ('Active')
+| where properties.Severity in ('Low', 'Medium', 'High')
+| project alert_type = tostring(properties.AlertType), SystemAlertId = tostring(properties.SystemAlertId), ResourceIdentifiers = todynamic(properties.ResourceIdentifiers)
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "securityresources | where type =~ 'microsoft.security/locations/alerts' | where properties.Status in ('Active') | where properties.Severity in ('Low', 'Medium', 'High') | project alert_type = tostring(properties AlertType), SystemAlertId = tostring(properties.SystemAlertId), ResourceIdentifiers = todynamic(properties ResourceIdentifiers)"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "securityresources | where type =~ 'microsoft.security/locations/alerts' | where properties.Status in ('Active') | where properties.Severity in ('Low', 'Medium', 'High') | project alert_type = tostring(properties AlertType), SystemAlertId = tostring(properties.SystemAlertId), ResourceIdentifiers = todynamic(properties ResourceIdentifiers)"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/securityresources%20%7C%20where%20type%20%3D~%20%27microsoft.security%2Flocations%2Falerts%27%20%7C%20where%20properties.Status%20in%20%28%27Active%27%29%20%7C%20where%20properties.Severity%20in%20%28%27Low%27%2C%20%27Medium%27%2C%20%27High%27%29%20%7C%20project%20alert_type%20%3D%20tostring%28properties%20AlertType%29%2C%20SystemAlertId%20%3D%20tostring%28properties.SystemAlertId%29%2C%20ResourceIdentifiers%20%3D%20todynamic%28properties%20ResourceIdentifiers%29" target="_blank">portal.Azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/securityresources%20%7C%20where%20type%20%3D~%20%27microsoft.security%2Flocations%2Falerts%27%20%7C%20where%20properties.Status%20in%20%28%27Active%27%29%20%7C%20where%20properties.Severity%20in%20%28%27Low%27%2C%20%27Medium%27%2C%20%27High%27%29%20%7C%20project%20alert_type%20%3D%20tostring%28properties%20AlertType%29%2C%20SystemAlertId%20%3D%20tostring%28properties.SystemAlertId%29%2C%20ResourceIdentifiers%20%3D%20todynamic%28properties%20ResourceIdentifiers%29" target="_blank">portal.Azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/securityresources%20%7C%20where%20type%20%3D~%20%27microsoft.security%2Flocations%2Falerts%27%20%7C%20where%20properties.Status%20in%20%28%27Active%27%29%20%7C%20where%20properties.Severity%20in%20%28%27Low%27%2C%20%27Medium%27%2C%20%27High%27%29%20%7C%20project%20alert_type%20%3D%20tostring%28properties%20AlertType%29%2C%20SystemAlertId%20%3D%20tostring%28properties.SystemAlertId%29%2C%20ResourceIdentifiers%20%3D%20todynamic%28properties%20ResourceIdentifiers%29" target="_blank">portal.Azure.cn</a>
+
 ---
 
 ### Controls secure score per subscription

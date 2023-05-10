@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 
 ms.author: godonnell
-ms.date: 01/19/2022
+ms.date: 02/08/2023
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
@@ -19,7 +19,7 @@ You can configure Azure AD B2C to allow users to sign in to your application wit
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
-On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign-in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
+On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once a user selects an external identity provider, they're redirected to the selected provider's website to complete their sign-in. After they successfully sign in, they're returned to Azure AD B2C for authentication with your application.
 
 ![Diagram showing mobile sign-in example with a social account (Facebook).](media/add-identity-provider/external-idp.png)
 
@@ -44,7 +44,7 @@ You typically use only one identity provider in your applications, but you have 
 * [LinkedIn](identity-provider-linkedin.md)
 * [Microsoft Account](identity-provider-microsoft-account.md)
 * [Mobile ID](identity-provider-mobile-id.md)
-* [PingOne](identity-provider-ping-one.md) (PingIdentity)
+* [PingOne](identity-provider-ping-one.md) (Ping Identity)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)

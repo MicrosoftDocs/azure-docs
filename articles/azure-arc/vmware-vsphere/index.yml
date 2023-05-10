@@ -40,5 +40,10 @@ landingContent:
         - text: Manage VMware virtual machines in Azure
           url: manage-vmware-vms-in-azure.md
  
-  
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart for Azure Arc-enabled VMware vSphere
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/ 
 

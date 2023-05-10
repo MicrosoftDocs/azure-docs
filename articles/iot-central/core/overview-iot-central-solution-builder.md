@@ -120,8 +120,6 @@ You can use the data export and rules capabilities in IoT Central to integrate w
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 
-You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md).
-
 ## Integrate with companion applications
 
 IoT Central provides rich operator dashboards and visualizations. However, some IoT solutions must integrate with existing applications, or require new companion applications to expand their capabilities. To integrate with other applications, use IoT Central extensibility points such as the REST API and the continuous data export feature.

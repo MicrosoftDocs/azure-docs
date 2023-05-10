@@ -22,18 +22,18 @@ zone_pivot_groups: acs-web-ios-android
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- Two or more Communication User Identities. [Create and manage access tokens](../access-tokens.md) or [Quick-create identities for testing](../identity/quick-create-identity.md).
+- Two or more Communication User Identities. [Create and manage access tokens](../identity/access-tokens.md) or [Quick-create identities for testing](../identity/quick-create-identity.md).
 - A room resource. [Create and manage rooms](get-started-rooms.md)
 
 ## Obtain user access token
 
-You'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+You'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
 
-For details, see [Use Azure CLI to Create and Manage Access Tokens](../access-tokens.md?pivots=platform-azcli).
+For details, see [Use Azure CLI to Create and Manage Access Tokens](../identity/access-tokens.md?pivots=platform-azcli).
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Join a room call from web calling SDK](./includes/rooms-quickstart-call-web.md)]

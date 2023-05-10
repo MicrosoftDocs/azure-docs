@@ -5,13 +5,9 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 manager: twooley
-editor: ''
-tags:
-ms.assetid:
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 02/03/2022
 ms.author: allensu 

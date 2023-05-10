@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Prerequisites
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
+* Complete [Create resources to get started](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 * A Python environment in which you've installed both the `azureml-core` and `azureml-pipeline` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
 > [!Important]
@@ -50,9 +50,9 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Start an interactive Python session
 
-This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
+This tutorial uses the Python SDK for Azure Machine Learning to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
 
-* This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
+* This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [Azure Machine Learning Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
 
 
 ## Import types
@@ -78,10 +78,10 @@ from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline
 
 # check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
+print("Azure Machine Learning SDK Version: ", azureml.core.VERSION)
 ```
 
-The Azure ML SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
+The Azure Machine Learning SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
 
 ## Configure workspace
 
@@ -172,7 +172,7 @@ The above code specifies a dataset that is based on the output of a pipeline ste
 
 The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first step in the domain. 
 
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
+If you're following along with the example in the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
 If you're working from scratch, create a subdirectory called `keras-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 

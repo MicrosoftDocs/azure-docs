@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Ezra Coaching | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Ezra Coaching'
 description: Learn how to configure single sign-on between Azure Active Directory and Ezra Coaching.
 services: active-directory
 author: jeevansd

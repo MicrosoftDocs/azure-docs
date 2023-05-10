@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lecorpio | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Lecorpio'
 description: Learn how to configure single sign-on between Azure Active Directory and Lecorpio.
 services: active-directory
 author: jeevansd

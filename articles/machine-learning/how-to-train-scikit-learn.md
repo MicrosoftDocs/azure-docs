@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.author: balapv
 author: balapv
 ms.reviewer: mopeakande
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [v1](v1/how-to-train-scikit-learn.md)
+> * [v1](v1/how-to-train-scikit-learn.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-train-scikit-learn.md)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning Python SDK v2.
@@ -32,7 +32,7 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 You can run the code for this article in either an Azure Machine Learning compute instance, or your own Jupyter Notebook.
 
  - Azure Machine Learning compute instance
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository.
+    - Complete [Create resources to get started](quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository.
     - Select the notebook tab in the Azure Machine Learning studio. In the samples training folder, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > jobs > single-step > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn**.
     - You can use the pre-populated code in the sample training folder to complete this tutorial.
 
@@ -46,7 +46,7 @@ This section sets up the job for training by loading the required Python package
 
 ### Connect to the workspace
 
-First, you'll need to connect to your AzureML workspace. The [AzureML workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+First, you'll need to connect to your Azure Machine Learning workspace. The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
 We're using `DefaultAzureCredential` to get access to the workspace. This credential should be capable of handling most Azure SDK authentication scenarios.
 
@@ -80,17 +80,17 @@ The result of running this script is a workspace handle that you'll use to manag
 
 ### Create a compute resource to run the job
 
-AzureML needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+Azure Machine Learning needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. We only need a basic cluster for this example; thus, we'll pick a Standard_DS3_v2 model with 2 vCPU cores and 7 GB RAM to create an AzureML compute.
+In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. We only need a basic cluster for this example; thus, we'll pick a Standard_DS3_v2 model with 2 vCPU cores and 7 GB RAM to create an Azure Machine Learning compute.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=cpu_compute_target)]
 
 ### Create a job environment
 
-To run an AzureML job, you'll need an environment. An AzureML [environment](concept-environments.md) encapsulates the dependencies (such as software runtime and libraries) needed to run your machine learning training script on your compute resource. This environment is similar to a Python environment on your local machine.
+To run an Azure Machine Learning job, you'll need an environment. An Azure Machine Learning [environment](concept-environments.md) encapsulates the dependencies (such as software runtime and libraries) needed to run your machine learning training script on your compute resource. This environment is similar to a Python environment on your local machine.
 
-AzureML allows you to either use a curated (or ready-made) environment or create a custom environment using a Docker image or a Conda configuration. In this article, you'll create a custom environment for your jobs, using a Conda YAML file.
+Azure Machine Learning allows you to either use a curated (or ready-made) environment or create a custom environment using a Docker image or a Conda configuration. In this article, you'll create a custom environment for your jobs, using a Conda YAML file.
 
 #### Create a custom environment
 
@@ -112,16 +112,16 @@ For more information on creating and using environments, see [Create and use sof
 
 ## Configure and submit your training job
 
-In this section, we'll cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
+In this section, we'll cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
 
 
 ### Prepare the training script
 
-In this article, we've provided the training script *train_iris.py*. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
+In this article, we've provided the training script *train_iris.py*. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
 
 > [!NOTE]
 > The provided training script does the following:
-> - shows how to log some metrics to your AzureML run;
+> - shows how to log some metrics to your Azure Machine Learning run;
 > - downloads and extracts the training data using `iris = datasets.load_iris()`; and
 > - trains a model, then saves and registers it.
 
@@ -137,9 +137,9 @@ Next, create the script file in the source directory.
 
 ### Build the training job
 
-Now that you have all the assets required to run your job, it's time to build it using the AzureML Python SDK v2. For this, we'll be creating a `command`.
+Now that you have all the assets required to run your job, it's time to build it using the Azure Machine Learning Python SDK v2. For this, we'll be creating a `command`.
 
-An AzureML `command` is a resource that specifies all the details needed to execute your training code in the cloud. These details include the inputs and outputs, type of hardware to use, software to install, and how to run your code. The `command` contains information to execute a single command.
+An Azure Machine Learning `command` is a resource that specifies all the details needed to execute your training code in the cloud. These details include the inputs and outputs, type of hardware to use, software to install, and how to run your code. The `command` contains information to execute a single command.
 
 
 #### Configure the command
@@ -149,19 +149,19 @@ You'll use the general purpose `command` to run the training script and perform 
 - The inputs for this command include the number of epochs, learning rate, momentum, and output directory.
 - For the parameter values:
     - provide the compute cluster `cpu_compute_target = "cpu-cluster"` that you created for running this command;
-    - provide the custom environment `sklearn-env` that you created for running the AzureML job;
+    - provide the custom environment `sklearn-env` that you created for running the Azure Machine Learning job;
     - configure the command line action itself—in this case, the command is `python train_iris.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
-    - configure the metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. Note that all the jobs submitted under the same experiment name would be listed next to each other in AzureML studio.
+    - configure the metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. Note that all the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=job)]
 
 ### Submit the job
 
-It's now time to submit the job to run in AzureML. This time you'll use `create_or_update` on `ml_client.jobs`. 
+It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update` on `ml_client.jobs`. 
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_job)]
 
-Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in AzureML studio.
+Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in Azure Machine Learning studio.
 
 > [!WARNING]
 > Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
@@ -209,7 +209,7 @@ You can then register this model.
 
 ## Deploy the model
 
-After you've registered your model, you can deploy it the same way as any other registered model in Azure ML. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+After you've registered your model, you can deploy it the same way as any other registered model in Azure Machine Learning. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
 
 ## Next steps

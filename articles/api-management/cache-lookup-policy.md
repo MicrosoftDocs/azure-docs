@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/07/2022
 ms.author: danlep
 ---
@@ -42,12 +42,12 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| allow-private-response-caching | When set to `true`, allows caching of requests that contain an Authorization header.                                                                                                                                                                                                                                                                        | No       | `false`             |
-| caching-type               | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
-| downstream-caching-type        | This attribute must be set to one of the following values.<br /><br /> -   none - downstream caching is not allowed.<br />-   private - downstream private caching is allowed.<br />-   public - private and shared downstream caching is allowed.                                                                                                          | No       | none              |
-| must-revalidate                | When downstream caching is enabled this attribute turns on or off  the `must-revalidate` cache control directive in gateway responses.                                                                                                                                                                                                                      | No       | `true`              |
-| vary-by-developer              | Set to `true` to cache responses per developer account that owns [subscription key](./api-management-subscriptions.md) included in the request.                                                                                                                                                                                                                                                                                                  | Yes      |         `false`          |
-| vary-by-developer-groups       | Set to `true` to cache responses per [user group](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Yes      |       `false`            |
+| allow-private-response-caching | When set to `true`, allows caching of requests that contain an Authorization header. Policy expressions are allowed.                                                                                                                                                                                                                                                                       | No       | `false`             |
+| caching-type               | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed. | No       | `prefer-external` |
+| downstream-caching-type        | This attribute must be set to one of the following values.<br /><br /> -   none - downstream caching is not allowed.<br />-   private - downstream private caching is allowed.<br />-   public - private and shared downstream caching is allowed.<br/><br/>Policy expressions are allowed.                                                                                                          | No       | none              |
+| must-revalidate                | When downstream caching is enabled this attribute turns on or off  the `must-revalidate` cache control directive in gateway responses. Policy expressions are allowed.                                                                                                                                                                                                                      | No       | `true`              |
+| vary-by-developer              | Set to `true` to cache responses per developer account that owns [subscription key](./api-management-subscriptions.md) included in the request. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                 | Yes      |         `false`          |
+| vary-by-developer-groups       | Set to `true` to cache responses per [user group](./api-management-howto-create-groups.md). Policy expressions are allowed.                                                                                                                                                                                                                                                                                                            | Yes      |       `false`            |
 
 
 ## Elements
@@ -61,12 +61,14 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
 
-When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
+* When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
+- This policy can only be used once in a policy section.
+
 
 ## Examples
 

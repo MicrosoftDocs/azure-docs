@@ -6,7 +6,7 @@ ms.author: apsinhar
 ms.date: 07/22/2022
 ms.topic: quickstart
 ms.service: hdinsight
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 

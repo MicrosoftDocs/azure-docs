@@ -14,7 +14,7 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-You will also need a `.wav` audio file on your local machine. You can use your own `.wav` file (up to 30 seconds) or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
+You will also need a `.wav` audio file on your local machine. You can use your own `.wav` file (up to 60 seconds) or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
 
 ### Set environment variables
 
@@ -24,20 +24,47 @@ You will also need a `.wav` audio file on your local machine. You can use your o
 
 At a command prompt, run the following cURL command. Replace `YourAudioFile.wav` with the path and name of your audio file.  
 
-```console
+**Choose your target environment**
+
+# [Windows](#tab/windows)
+
+```terminal
+curl --location --request POST "https://%SPEECH_REGION%.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed" ^
+--header "Ocp-Apim-Subscription-Key: %SPEECH_KEY%" ^
+--header "Content-Type: audio/wav" ^
+--data-binary "@YourAudioFile.wav"
+```
+
+# [Linux](#tab/linux)
+
+```terminal
 audio_file=@'YourAudioFile.wav'
 
 curl --location --request POST \
-"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
+"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed" \
 --header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
 --header "Content-Type: audio/wav" \
 --data-binary $audio_file
 ```
 
+# [macOS](#tab/macos)
+
+```terminal
+audio_file=@'YourAudioFile.wav'
+
+curl --location --request POST \
+"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed" \
+--header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
+--header "Content-Type: audio/wav" \
+--data-binary $audio_file
+```
+
+* * *
+
 > [!IMPORTANT]
 > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
-You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 30 seconds of audio will be recognized and converted to text.
+You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 60 seconds of audio will be recognized and converted to text.
 
 ```console
 {

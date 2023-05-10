@@ -2,7 +2,7 @@
 title: Find request unit (RU) charge for Gremlin API queries in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for Gremlin queries executed against an Azure Cosmos container. You can use the Azure portal, .NET, Java drivers to find the RU charge. 
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 10/14/2020
 author: manishmsfte

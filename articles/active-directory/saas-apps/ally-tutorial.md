@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Ally.io | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Ally.io'
 description: Learn how to configure single sign-on between Azure Active Directory and Ally.io.
 services: active-directory
 author: jeevansd

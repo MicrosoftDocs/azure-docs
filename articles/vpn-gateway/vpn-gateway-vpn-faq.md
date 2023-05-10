@@ -1,9 +1,7 @@
 ---
 title: Azure VPN Gateway FAQ
 description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and VNet-to-VNet configuration settings.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/30/2023
@@ -32,7 +30,7 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 
 ### Is there an additional cost for setting up a VPN gateway as active-active?
 
-No.
+No. However, costs for any additional public IPs will be charged accordingly. See [IP Address Pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ### What are my cross-premises connection options?
 

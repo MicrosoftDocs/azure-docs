@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Evernote | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Evernote'
 description: Learn how to configure single sign-on between Azure Active Directory and Evernote.
 services: active-directory
 author: jeevansd

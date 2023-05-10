@@ -153,6 +153,9 @@ Deleting tasks accomplishes two things:
 - Ensures that you don't have a build-up of tasks in the job. This action will help avoid difficulty in finding the task you're interested in as you'll have to filter through the Completed tasks.
 - Cleans up the corresponding task data on the node (provided `retentionTime` hasn't already been hit). This action helps ensure that your nodes don't fill up with task data and run out of disk space.
 
+> [!NOTE]
+> For tasks just submitted to Batch, the DeleteTask API call takes up to 10 minutes to take effect. Before it takes effect, other tasks might be prevented from being scheduled. It's because Batch Scheduler still tries to schedule the tasks just deleted. If you want to delete one task shortly after it's submitted, please terminate the task instead (since the terminate task will take effect immediately). And then delete the task 10 minutes later.
+
 ### Submit large numbers of tasks in collection
 
 Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](/rest/api/batchservice/task/addcollection) of up to 100 at a time when doing bulk submission of tasks to reduce overhead and submission time.

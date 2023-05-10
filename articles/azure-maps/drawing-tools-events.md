@@ -1,8 +1,8 @@
 ---
 title: Drawing tool events | Microsoft Azure Maps
-description: In this article you'll learn, how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
-author: stevemunk
-ms.author: v-munksteve
+description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
+author: brendansco
+ms.author: Brendanc
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -11,12 +11,12 @@ services: azure-maps
 
 # Drawing tool events
 
-When using drawing tools on a map, it's useful to react to certain events as the user draws on the map. This table lists all of the events supported by the `DrawingManager` class.
+When using drawing tools on a map, it's useful to react to certain events as the user draws on the map. This table lists all events supported by the `DrawingManager` class.
 
 | Event | Description |
 |-------|-------------|
-| `drawingchanged` | Fired when any coordinate in a shape has been added or changed. | 
-| `drawingchanging` | Fired when any preview coordinate for a shape is being displayed. For example, this event will fire multiple times as a coordinate is dragged. | 
+| `drawingchanged` | Fired when any coordinate in a shape has been added or changed. |
+| `drawingchanging` | Fired when any preview coordinate for a shape is being displayed. For example, this event fires multiple times as a coordinate is dragged. |
 | `drawingcomplete` | Fired when a shape has finished being drawn or taken out of edit mode. |
 | `drawingerased` | Fired when a shape is erased from the drawing manager when in `erase-geometry` mode. |
 | `drawingmodechanged` | Fired when the drawing mode has changed. The new drawing mode is passed into the event handler. |
@@ -65,7 +65,7 @@ This code searches for points of interests inside the area of a shape after the 
 
 ### Create a measuring tool
 
-The code below shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape, as it's being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode. Also, the  `drawingmodechanged` event clears the drawing canvas and clears old measurement information.
+The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape, as it's being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode. Also, the  `drawingmodechanged` event clears the drawing canvas and clears old measurement information.
 
 <br/>
 
@@ -78,7 +78,7 @@ The code below shows how the drawing events can be used to create a measuring to
 
 ## Next steps
 
-Learn how to use additional features of the drawing tools module:
+Learn how to use other features of the drawing tools module:
 
 > [!div class="nextstepaction"]
 > [Get shape data](map-get-shape-data.md)
@@ -86,7 +86,7 @@ Learn how to use additional features of the drawing tools module:
 > [!div class="nextstepaction"]
 > [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Learn more about the Services module:
+Learn more about the services module:
 
 > [!div class="nextstepaction"]
 > [Services module](how-to-use-services-module.md)

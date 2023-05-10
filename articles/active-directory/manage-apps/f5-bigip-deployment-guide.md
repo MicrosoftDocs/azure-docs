@@ -11,8 +11,8 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
+ms.custom: not-enterprise-apps
 ---
 
 # Deploy F5 BIG-IP Virtual Edition VM in Azure

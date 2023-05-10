@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartHub INFER | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartHub INFER'
 description: Learn how to configure single sign-on between Azure Active Directory and SmartHub INFER.
 services: active-directory
 author: jeevansd

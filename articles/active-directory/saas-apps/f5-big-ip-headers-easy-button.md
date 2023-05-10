@@ -97,7 +97,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights.
+1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights.
 2. From the left navigation pane, select the **Azure Active Directory** service.
 3. Under Manage, select **App registrations > New registration**.
 4. Enter a display name for your application. For example, `F5 BIG-IP Easy Button`.

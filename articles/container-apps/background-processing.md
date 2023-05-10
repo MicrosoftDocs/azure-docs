@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
@@ -141,7 +141,7 @@ Now you can create the message queue.
 
 ```azurecli
 az storage queue create \
-  --name 'myqueue" \
+  --name "myqueue" \
   --account-name $STORAGE_ACCOUNT_NAME \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
@@ -190,12 +190,10 @@ Create a file named *queue.json* and paste the following configuration code into
             "type": "String"
         },
         "environment_name": {
-            "defaultValue": "",
             "type": "String"
         },
         "queueconnection": {
-            "defaultValue": "",
-            "type": "String"
+            "type": "secureString"
         }
     },
     "variables": {},
@@ -346,5 +344,3 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
-
-

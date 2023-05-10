@@ -1,8 +1,8 @@
 ---
 title: Add an Image layer to a map | Microsoft Azure Maps
 description: Learn how to add images to a map. See how to use the Azure Maps Web SDK to customize image layers and overlay images on fixed sets of coordinates.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
