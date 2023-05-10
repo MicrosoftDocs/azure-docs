@@ -26,17 +26,18 @@ This article contains all major API changes and feature updates for the Azure VM
 
 **Improvements**
 - Added support to use the latest image version stored in Azure Compute Gallery as the source for the image template
-- Added `versioning` to support generating version numbers for image distributions. For more information, see [properties: versioning](../../articles/virtual-machines/linux/image-builder-json.md#properties-versioning)
+- Added `versioning` to support generating version numbers for image distributions. For more information, see [properties: versioning](../virtual-machines/linux/image-builder-json.md#properties-versioning)
 - Added support for per region configuration when distributing to Azure Compute Gallery
+- Added new 'File' validation type. For more information, see [validate properties](../virtual-machines/linux/image-builder-json.md#properties-validate)
+- VHDs can now be distributed to a custom blob or container in a custom storage account
+- Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template
 
 
 **Changes**
-- Added new 'File' validation type. For more information, see the [validate properties](/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell#properties-validate&preserve-view=true)
-- `replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
+- `replicationRegions` is now deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
 - VHDs can now be distributed to a custom blob or container in a custom storage account
-- `targetRegions` array added and applied only to "SharedImage" type distribute. `targetRegions` corresponds loosely to the same titled parameter in [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
-- Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template
-- `replicationRegions` is now deprecated but still supported
+- `targetRegions` array added and applied only to "SharedImage" type distribute. For more information on `targetRegions`, see [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
+
 
 
 ### Version 2022-02-14
