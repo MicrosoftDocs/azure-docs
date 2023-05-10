@@ -13,7 +13,6 @@ ms.topic: how-to
 ms.subservice: pim
 ms.date: 10/07/2021
 ms.author: amsliu
-ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
