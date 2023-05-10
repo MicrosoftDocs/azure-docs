@@ -494,6 +494,8 @@
           href: how-to-java-change-feed.md
     - name: NoSQL query
       href: query/toc.yml
+    - name: Materialized views (preview)
+      href: materialized-views.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
