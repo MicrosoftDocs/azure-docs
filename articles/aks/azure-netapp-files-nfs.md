@@ -18,7 +18,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 ### Create an NFS volume
 
-1. Define variables for later usage. Replace *myfilepath*, *myvolsize*, *myvolname*, abd *virtnetid* with an appropriate value for your environment. Note that the filepath must be unique within all ANF accounts.
+1. Define variables for later usage. Replace *myfilepath*, *myvolsize*, *myvolname*, abd *virtnetid* with an appropriate value for your environment. The *filepath* must be unique within all ANF accounts.
 
     ```azurecli-interactive
     UNIQUE_FILE_PATH="myfilepath"
@@ -28,7 +28,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
     SUBNET_ID="anfSubnetId"
     ```
 
-1. Create a volume using the `az netappfiles volume create`(/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-create) command. For more information, see [Create an NFS volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md). 
+1. Create a volume using the [`az netappfiles volume create`](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) command. For more information, see [Create an NFS volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md). 
 
     ```azurecli-interactive
     az netappfiles volume create \
@@ -75,7 +75,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
     }
     ```
 
-2. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from the step above, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
+2. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from Step 1, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
 
     ```yaml
     ---
@@ -109,7 +109,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 ### Create a persistent volume claim
 
-1. Create a file named `pvc-nfs.yaml` and copy in the following YAML. This manifest creates a PVC named `pvc-nfs` for 100Gi Storage and `ReadWriteMany` access mode, matching the PV created above.
+1. Create a file named `pvc-nfs.yaml` and copy in the following YAML. This manifest creates a PVC named `pvc-nfs` for 100Gi storage and `ReadWriteMany` access mode, matching the PV you created.
 
     ```yaml
     apiVersion: v1
@@ -205,15 +205,15 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
 
 [Helm](https://helm.sh/) must be installed on your workstation to install Astra Trident using this method. For other methods of installing Astra Trident, see the [Astra Trident Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
 
-To install Astra Trident using Helm for a cluster with only linux worker nodes, run the following commands:   
+1. To install Astra Trident using Helm for a cluster with only linux worker nodes, run the following commands:   
 
     ```bash
     helm repo add netapp-trident https://netapp.github.io/trident-helm-chart   
-
     helm install trident netapp-trident/trident-operator --version 23.04.0  --create-namespace --namespace trident
-    ``` 
-The output of the command resembles the following example:   
-
+    ```
+ 
+    The output of the command resembles the following example:   
+    
     ```output
     NAME: trident
     LAST DEPLOYED: Fri May  5 13:55:36 2023
@@ -222,8 +222,7 @@ The output of the command resembles the following example:
     REVISION: 1
     TEST SUITE: None
     NOTES:
-    Thank you for installing trident-operator, which will deploy and manage NetApp's Trident CSI
-    storage provisioner for Kubernetes.
+    Thank you for installing trident-operator, which will deploy and manage NetApp's Trident CSI storage provisioner for Kubernetes.
     
     Your release is named 'trident' and is installed into the 'trident' namespace.
     Please note that there must be only one instance of Trident (and trident-operator) in a Kubernetes cluster.
@@ -232,11 +231,11 @@ The output of the command resembles the following example:
     
     To learn more about the release, try:
     
-      $ helm status trident
-      $ helm get all trident
+        $ helm status trident
+          $ helm get all trident
     ``` 
 
-3.	To confirm Astra Trident was installed successfully, run the following [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
+2. To confirm Astra Trident was installed successfully, run the following [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe torc trident
@@ -322,7 +321,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
       clientSecret: rR0rUmWXfNioN1KhtHisiSAnoTherboGuskey6pU
     ```
 
-2. Create a file named `backend-anf.yaml` and copy in the following YAML. Change the `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment. Use the `subscriptionID` for the Azure subscription where Azure NetApp Files is enabled. Obtain the `tenantID`, `clientID`, and `clientSecret` from an App Registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration includes the Owner or Contributor role that's predefined by Azure. The location must be an Azure location that contains at least one delegated subnet created in a previous step. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
+2. Create a file named `backend-anf.yaml` and copy in the following YAML. Change the `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment. Use the `subscriptionID` for the Azure subscription where Azure NetApp Files is enabled. Obtain the `tenantID`, `clientID`, and `clientSecret` from an App Registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The location must be an Azure location that contains at least one delegated subnet created in a previous step. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
 
     ```yaml
     apiVersion: trident.netapp.io/v1
@@ -348,7 +347,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
     kubectl apply -f backend-secret.yaml -n trident
     ```
 
-    The output of the command resembles the following:   
+    The output of the command resembles the following example:   
 
     ```output 
     secret/backend-tbc-anf-secret created
@@ -358,7 +357,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
     kubectl apply -f backend-anf.yaml -n trident
     ```
 
-    The output of the command resembles the following:   
+    The output of the command resembles the following example:   
 
     ```output 
     tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
@@ -434,7 +433,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
       storageClassName: azure-netapp-files
     ```
 
-2. Create the persistent volume claim with the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
+2. Create the persistent volume claim with the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:   
 
     ```bash
     kubectl apply -f anf-pvc.yaml

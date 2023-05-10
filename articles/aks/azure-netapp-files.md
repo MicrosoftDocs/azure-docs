@@ -8,11 +8,11 @@ ms.date: 05/08/2023
 
 # Configure Azure NetApp Files volumes for Azure Kubernetes Service
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be statically or dynamically provisioned. This article shows you how to create [Azure NetApp Files][anf] volumes to be used by pods on an Azure Kubernetes Service (AKS) cluster.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and it can be statically or dynamically provisioned. This article shows you how to create [Azure NetApp Files][anf] volumes to be used by pods on an Azure Kubernetes Service (AKS) cluster.
 
 [Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure and supports both the [NFS](azure-netapp-files-nfs.md) and [SMB](azure-netapp-files-smb.md). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
 
-* Create Azure NetApp Files volumes **dynamically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes are not recommended for most use cases.
+* Create Azure NetApp Files volumes **dynamically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes aren't recommended for most use cases.
 * Create Azure NetApp Files volumes **on-demand**, orchestrating through Kubernetes. This method is the **preferred** way to create multiple volumes directly through Kubernetes, and is achieved using [Astra Trident][astra-trident]. Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
 Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workloads is the recommended configuration for most use cases. This requirement is accomplished using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. Astra Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes, and fully supported by NetApp. It simplifies access to storage from Kubernetes clusters by automating storage provisioning.
@@ -31,7 +31,7 @@ The following considerations apply when you use Azure NetApp Files:
 
 ## Configure Azure NetApp Files for AKS workloads
 
-This section describes how to set up Azure NetApp Files for AKS workloads. It is applicable for all scenarios within this article. 
+This section describes how to set up Azure NetApp Files for AKS workloads. It's applicable for all scenarios within this article. 
 
 1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *poolsize*, *premium*, *myvnett*, *myANFSubnet*, and *myprefix* with appropriate values for your environment.
 
@@ -56,7 +56,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It is
     > [!NOTE]
     > This operation can take several minutes to complete.
 
-3. Create a new account by using command [`az netappfiles account create`](/cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-create). When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
+3. Create a new account by using command [`az netappfiles account create`](/cli/azure/netappfiles/account#az-netappfiles-account-create). When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -65,7 +65,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It is
         --account-name $ANF_ACCOUNT_NAME
     ```
 
-4. Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. Replace the variables shown in the command with your Azure NetApp Files information. The `account_name` should be the same as created in the step above.
+4. Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. Replace the variables shown in the command with your Azure NetApp Files information. The `account_name` should be the same as created in Step 3.
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -93,7 +93,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It is
 
 ## Statically or dynamically provision Azure NetApp Files volumes for NFS or SMB
 
-After you [configure Azure NetApp Files for AKS workloads](#configure-azure-netApp-files-for-aks-workloads), you can statically or dynamically provision Azure NetApp Files NFS and SMB volumes within the capacity pool. Follow instructions in:
+After you [configure Azure NetApp Files for AKS workloads](#configure-azure-netapp-files-for-aks-workloads), you can statically or dynamically provision Azure NetApp Files NFS and SMB volumes within the capacity pool. Follow instructions in:
 * [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md) 
 * [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md)  
 

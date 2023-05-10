@@ -29,7 +29,7 @@ This section describes how to create an SMB volume on Azure NetApp Files and exp
     SUBNET_ID="anfSubnetId"
     ```
 
-1. Create a volume using the [`az netappfiles volume create`](cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-create) command. 
+1. Create a volume using the [`az netappfiles volume create`](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) command. 
 
     ```azurecli-interactive
     az netappfiles volume create \
@@ -87,7 +87,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
 ### Create the persistent volume
 
-1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
+1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
 
     ```azurecli-interactive
     az netappfiles volume show \
@@ -346,7 +346,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
       $ helm get all trident
     ```     
 
-2.  To confirm Astra Trident was installed successfully, run the following [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
+2. To confirm Astra Trident was installed successfully, run the following [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
 
     ```bash
     kubectl describe torc trident
@@ -433,7 +433,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
       clientSecret: rR0rUmWXfNioN1KhtHisiSAnoTherboGuskey6pU
     ``` 
 
-2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role that's predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
+2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
 
     ```yaml
     apiVersion: trident.netapp.io/v1
@@ -457,7 +457,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
     kubectl apply -f backend-secret.yaml -n trident
     ```
 
-    The output of the command resembles the following:   
+    The output of the command resembles the following example:   
 
     ```output    
     secret/backend-tbc-anf-secret created
@@ -467,7 +467,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
     kubectl apply -f backend-anf.yaml -n trident
     ```
 
-    The output of the command resembles the following:   
+    The output of the command resembles the following example:   
 
     ```output   
     tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
@@ -551,7 +551,7 @@ A storage class is used to define how a unit of storage is dynamically created w
 
 A persistent volume claim (PVC) is a request for storage by a user. Upon the creation of a persistent volume claim, Astra Trident automatically creates an Azure NetApp Files SMB share and makes it available for Kubernetes workloads to consume.
 
-1. Create a file named `anf-pvc-smb.yaml` and copy the following YAML. In this example, a 100-GiB volume is created with `ReadWriteMany` access and uses the storage class created above.
+1. Create a file named `anf-pvc-smb.yaml` and copy the following YAML. In this example, a 100-GiB volume is created with `ReadWriteMany` access and uses the storage class created in [Create a storage class](#create-a-storage-class).
 
     ```yaml
     kind: PersistentVolumeClaim
