@@ -56,7 +56,7 @@ The `msalConfig` object contains a set of configuration options that can be used
 
 - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
 
-- `Enter_the_Tenant_Subdomain_Here` wand replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, [learn how to read your tenant details](customers/how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+- `Enter_the_Tenant_Subdomain_Here` wand replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, [learn how to read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 In the configuration object, you also add `LoggerOptions`, which contains two options:
 

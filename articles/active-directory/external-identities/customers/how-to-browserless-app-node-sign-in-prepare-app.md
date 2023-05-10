@@ -44,9 +44,9 @@ To build the Node.js browserless application from scratch, follow these steps:
 
 The application you build uses MSAL Node to sign in users. To install the MSAL Node package as a dependency in your project, open the terminal in your project  directory and run the following command. 
 
-    ```powershell
+```powershell
     npm install @azure/msal-node   
-    ```
+```
 
 ## Next steps
 

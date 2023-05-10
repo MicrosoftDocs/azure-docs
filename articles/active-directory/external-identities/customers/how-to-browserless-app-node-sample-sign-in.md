@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample Node.js browserless application using the Device Code flow
-description: Learn how to configure a sample browserless application to sign in and sign out users
+description: Learn how to configure a sample browserless application to sign in users in an Azure Active Directory (Azure AD) for customers tenant
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Authenticate users in a sample Node.js browserless application
+# Authenticate users in a sample Node.js browserless application using the Device Code flow
 
 This how-to guide uses a sample Node.js application to show how to sign in users in a browserless application. The sample application uses the device code flow to sign in  users in an Azure Active Directory (Azure AD) for customers tenant. 
 
@@ -86,7 +86,7 @@ To get the browserless app sample code, you can do either [download the .zip fil
     
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name,  [learn how to read your tenant details](customers/how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name,  [learn how to read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 ## Run and test sample browserless app 
 
@@ -100,7 +100,7 @@ You can now test the sample Node.js browserless app.
 
 1. Open your browser, then go to the URL suggested from the message in the terminal, https://microsoft.com/devicelogin. You should see a page similar to the following screenshot:
 
-     :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-enter-code.png" alt-text="Screenshot of the enter code prompt in a node browserless application using the device code flow.":::
+     :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-sign-in-enter-code.png" alt-text="Screenshot of the enter code prompt in a node browserless application using the device code flow.":::
 
 1. To authenticate, copy the device code from the message in the terminal then paste it in the **Enter Code** prompt. After entering the code, you're be redirected to the sign-in page as follows:
 
