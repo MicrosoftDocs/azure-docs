@@ -75,7 +75,7 @@ Types of system messages:
 ## Real-time notifications
 
 JavaScript Chat SDK supports real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. 
-Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom application notification service. You will need to validate(../../communication-services/how-tos/event-grid/view-events-request-bin.md) and locally test events(../../communication-services/how-tos/event-grid/local-testing-event-grid.md) once you set up the event grid resource to ensure that events are being sent.
+Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom application notification service. You will need to validate(../../how-tos/event-grid/view-events-request-bin.md) and locally test events(../../how-tos/event-grid/local-testing-event-grid.md) once you set up the event grid resource to ensure that events are being sent.
 
 The client app can subscribe to following events:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
