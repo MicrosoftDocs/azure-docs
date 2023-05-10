@@ -72,8 +72,6 @@ Next, create a personal access token. Depending on the type of repository you us
 1. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
 1. On the left sidebar, select **Developer settings** > **Personal access tokens** > **Fine-grained tokens**.
 1. Select **Generate new token**.
-1. On **New personal access token**, in **Note**, enter a description for your token.
-1. In the **Expiration** dropdown, select an expiration for your token.
 1. On the New fine-grained personal access token page, provide the following information:
 
     |Name      |Value      |
