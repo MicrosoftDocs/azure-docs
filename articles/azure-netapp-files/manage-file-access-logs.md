@@ -132,12 +132,13 @@ For steps, see [Configure access control lists on NFSv4.1 volumes](configure-acc
 1. In the **Diagnostic setting** page, provide a diagnostic setting name.
     Under **Logs > Categories**, select **ANFFileAccess** and then set the retention period of the logs. 
 :::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
+<!-- check these steps -->
 1. Select one of the destination options for the logs:
     * Archive to a storage account
     * Stream to an event hub
-    > [!IMPORTANT]
-    > Two additional options are presented in the UI: **Send to Log Analytics workspace** and **Send to a partner solution**. These options are not supported. No error message will display if you select these destination options, and you will not be able to access your logs. 
-1. Save the settings
+    * Send to Log Analytics workplace
+    * Send to a partner solution
+1. Save the settings.
 
 ## Disable file access logs
 
