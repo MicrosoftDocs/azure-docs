@@ -53,7 +53,7 @@ The protocol used by the health probe can be configured to one of the following 
 
 The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 15 seconds by default but can be explicitly set to another value.
 
-It is important to note that probes also have a timeout period. For example, if a health probe interval is set to 15 seconds, the total time it takes for your health probe to reflect your application would be (interval + timeout period). Assume the reaction to a timeout response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change. This example is provided to illustrate what is taking place. It's not possible to forecast an exact duration beyond the guidance in the example.
+It is important to note that probes also have a timeout period. For example, if a health probe interval is set to 15 seconds, the total time it takes for your health probe to reflect your application would be 20 seconds (interval + timeout period). Assume the reaction to a timeout response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change. This example is provided to illustrate what is taking place. 
 
 ## Design guidance
 
