@@ -1,19 +1,18 @@
 ---
-title: Sign in users to a Vanilla JS Single-page application - Prepare your Single-page application
-description: Learn how to configure vanilla JavaScript single-page app (SPA) to prepare for authentication with your CIAM tenant.
+title: Prepare a vanilla JavaScript single-page app for authentication 
+description: Learn how to prepare a vanilla JavaScript single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
-
 ms.author: owenrichards
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/23/2023
 ms.custom: developer
 
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
+#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
 ---
 
 # Prepare a Single-page application for authentication
@@ -22,7 +21,7 @@ After registering an application and creating a user flow in a Azure Active Dire
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Sign in users to a vanilla JS Single-page application using Microsoft Entra](how-to-single-page-app-vanillajs-prepare-tenant.md).
+- Completion of the prerequisites and steps in [Sign in users to a vanilla JS Single-page application](how-to-single-page-app-vanillajs-prepare-tenant.md).
 - Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 - [Node.js](https://nodejs.org/en/download/).
 
