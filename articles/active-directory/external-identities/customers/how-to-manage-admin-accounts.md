@@ -95,7 +95,7 @@ If you need to remove a role assignment from a user, follow these steps:
 
 ## Review administrator account role assignments
 
-As part of an auditing process, you typically review which users are assigned to specific roles in the Azure AD B2C directory. Use the following steps to audit which users are currently assigned privileged roles.
+As part of an auditing process, you typically review which users are assigned to specific roles in your customer directory. Use the following steps to audit which users are currently assigned privileged roles.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
 1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -114,7 +114,7 @@ To delete an existing user, you must have a *Global administrator* role assignme
 1. Select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](../../fundamentals/active-directory-users-restore.md).
+The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure AD](../../fundamentals/active-directory-users-restore.md).
 
 ## Protect administrative accounts
 

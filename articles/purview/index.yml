@@ -29,7 +29,7 @@ landingContent:
           - text: Understand Microsoft Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
-            url: catalog-permissions.md
+            url: concept-elastic-data-map.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
           - text: Share and receive data

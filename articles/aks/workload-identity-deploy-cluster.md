@@ -37,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
 ```
 
 ## Create AKS cluster
@@ -63,7 +63,7 @@ export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --q
 
 Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-```azurecli
+```azurecli-interactive
 az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
 ```
 
@@ -77,7 +77,7 @@ export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_
 
 Create a Kubernetes service account and annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
 ```
 
@@ -105,7 +105,7 @@ Serviceaccount/workload-identity-sa created
 
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject.
 
-```azurecli
+```azurecli-interactive
 az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"${SERVICE_ACCOUNT_NAMESPACE}":"${SERVICE_ACCOUNT_NAME}" --audience api://AzureADTokenExchange
 ```
 
@@ -133,7 +133,7 @@ EOF
 > [!IMPORTANT]
 > Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
 
-```azurecli-interactive
+```bash
 kubectl apply -f <your application>
 ```
 
@@ -162,7 +162,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 1. Set an access policy for the managed identity to access secrets in your Key Vault by running the following commands:
 
-    ```azurecli
+    ```azurecli-interactive
     export RESOURCE_GROUP="myResourceGroup"
     export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
     export KEYVAULT_NAME="myKeyVault"
@@ -175,8 +175,8 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 To disable the Azure AD workload identity on the AKS cluster where it's been enabled and configured, you can run the following command:
 
-```azurecli
-az aks update --resource-group myResourceGroup --name myAKSCluster --enable-workload-identity false
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-workload-identity
 ```
 
 ## Next steps

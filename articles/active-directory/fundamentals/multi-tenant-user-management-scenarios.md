@@ -141,7 +141,7 @@ Synchronized sharing across tenants is the most complex of the patterns describe
 
 In automated scenarios, resource tenant admins use an identity provisioning system to automate provisioning and deprovisioning processes. In scenarios within Microsoft's Commercial Cloud instance, we have [cross-tenant synchronization](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/seamless-application-access-and-lifecycle-management-for-multi/ba-p/3728752). In scenarios that span Microsoft Sovereign Cloud instances, you need other approaches because cross-tenant synchronization doesn't yet support cross-cloud.
 
-For example, within a Microsoft Commercial Cloud instance, a multi-national conglomeration has multiple subsidiaries with the following requirements.
+For example, within a Microsoft Commercial Cloud instance, a multi-national/regional conglomeration has multiple subsidiaries with the following requirements.
 
 - Each has their own Azure AD tenant and need to work together.
 - In addition to synchronizing new users among tenants, automatically synchronize attribute updates and automate deprovisioning.
@@ -165,13 +165,13 @@ This scenario requires automatic synchronization and identity management to conf
 
 This section describes three techniques for automating account provisioning in the automated scenario.
 
-#### Technique 1: Use the [built-in cross-tenant synchronization capability in Azure AD](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/seamless-application-access-and-lifecycle-management-for-multi/ba-p/3728752)
+#### Technique 1: Use the [built-in cross-tenant synchronization capability in Azure AD](../multi-tenant-organizations/cross-tenant-synchronization-overview.md)
 
 This approach only works when all tenants that you need to synchronize are in the same cloud instance (such as Commercial to Commercial).
 
 #### Technique 2: Provision accounts with Microsoft Identity Manager
 
-Use an external Identity and Access Management (IAM) solution such as [Microsoft Identity Manager](https://microsoft.sharepoint-df.com/microsoft-identity-manager/microsoft-identity-manager-2016) (MIM) as a synchronization engine.
+Use an external Identity and Access Management (IAM) solution such as [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) (MIM) as a synchronization engine.
 
 This advanced deployment uses MIM as a synchronization engine. MIM calls the [Microsoft Graph API](https://developer.microsoft.com/graph) and [Exchange Online PowerShell](/powershell/exchange/exchange-online/exchange-online-powershell?view=exchange-ps&preserve-view=true). Alternative implementations can include the cloud-hosted [Active Directory Synchronization Service](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (ADSS) managed service offering from [Microsoft Industry Solutions](https://www.microsoft.com/industrysolutions). There are non-Microsoft offerings that you can create from scratch with other IAM offerings (such as SailPoint, Omada, and OKTA).
 

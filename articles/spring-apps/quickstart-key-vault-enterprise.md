@@ -304,7 +304,7 @@ After granting access to read secrets from Key Vault, use the following steps to
        --resource-group <resource-group-name> \
        --name identity-service \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --config-file-pattern identity/default,identity /key-vault \
+       --config-file-pattern identity/default,identity/key-vault \
        --env "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=${KEYVAULT_URI}" "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_NAME='acme-fitness-store-vault'" "SPRING_PROFILES_ACTIVE=default,key-vault"
    ```
 

@@ -148,7 +148,6 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/monitoring-components.md)                                                                  | GA             | GA                             |
 | <li> [Asset inventory](../../defender-for-cloud/asset-inventory.md)                                                                                                                     | GA             | GA                             |
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../defender-for-cloud/custom-dashboards-azure-workbooks.md)                               | GA             | GA                             |
-| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                                       | GA             | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
 | <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  |
@@ -228,8 +227,11 @@ The following tables display the current Microsoft Sentinel feature availability
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
 |- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
 |- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
+| **Workspace Manager** | | |
+| - [Workspace manager](../../sentinel/workspace-manager.md) | Public preview | Public preview |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
+| - [Hunts](../../sentinel/hunts.md) | Public preview | Not Available |
 | **Content  and content management** | | |
 | - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Public preview |
 | - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public preview | Not Available |

@@ -905,7 +905,7 @@
     {
       "path_to_root": "ms-identity-python-webapp-tutorial",
       "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "0.5.0",
+      "branch": "0.6.0",
       "branch_mapping": {}
     },
     {
@@ -969,6 +969,12 @@
       "branch_mapping": {}
     },
     {
+		"path_to_root": "azure-load-testing-samples",
+		"url": "https://github.com/Azure-Samples/azure-load-testing-samples",
+		"branch": "main",
+		"branch_mapping": {}
+	  },
+	  {
       "path_to_root": "microsoft-graph",
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
