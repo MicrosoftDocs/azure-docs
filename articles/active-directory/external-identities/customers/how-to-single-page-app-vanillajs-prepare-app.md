@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/08/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -18,15 +18,7 @@ ms.custom: developer
 
 # Prepare a Single-page application for authentication
 
-After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you create a vanilla JS SPA and a server to host the application
-
-In this article:
-
-> [!div class="checklist"]
->
-> * Create a single-page application (SPA) using `npm`
-> * Configure the settings for the application
-> * Add authentication code to the application
+After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host the application.
 
 ## Prerequisites
 

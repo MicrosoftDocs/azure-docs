@@ -22,6 +22,8 @@ ms.author: kengaderdus
  
 1. Select the **Add permissions** button.
 
-1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
+1. At this point, you've assigned the permissions correctly. However, since the daemon app doesn't allow users to interact with it, the users themselves can't consent to these permissions. To address this problem, you as the admin must consent to these permissions on behalf of all the users in the tenant:
 
-1. Select **Refresh**, then verify that **Granted for \<your tenant name\>** appears under **Status** for both permissions.
+    1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
+
+    1. Select **Refresh**, then verify that **Granted for \<your tenant name\>** appears under **Status** for both permissions.

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/08/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -19,15 +19,7 @@ ms.custom: developer
 
 # Create components for authentication and authorization
 
-In the previous article, you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). The library is used to authenticate users and acquire access tokens from Azure AD CIAM.
-
-In this article:
-> [!div class="checklist"]
->
-> * Create a configuration file for authentication
-> * Create a sign-in and sign-out button
-> * Create a sign-in and sign-out function
-> * Create a function to get an access token and call a protected API
+In the previous article, you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). The library is used to authenticate users and acquire access tokens from Azure AD CIAM.
 
 ## Prerequisites
 
@@ -50,7 +42,7 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
     const msalConfig = {
         auth: {
             clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-            authority: 'https://login.microsoftonline.com/Enter_Tenant_Id_here', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
+            authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace "Enter_the_Tenant_Subdomain_Here" with your tenant subdomain
             redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
             navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
         },
@@ -103,7 +95,7 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
      ```
 
 1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
-1. Find `Enter_Tenant_Id_here` and replace it with the name of your tenant.
+1. Find `Enter_the_Tenant_Subdomain_Here` and replace it with the name of your tenant.
 1. Save the file.
 
 ## Creating the redirection file
@@ -114,7 +106,7 @@ A redirection file is required to handle the response from the Azure AD CIAM sig
 1. Open *authRedirect.js* and add the following code snippet:
 
     ```javascript
-   // Create the main myMSALObj instance
+    // Create the main myMSALObj instance
     // configuration parameters are located at authConfig.js
     const myMSALObj = new msal.PublicClientApplication(msalConfig);
     
@@ -203,7 +195,7 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 1. In the *public* folder, create a new file and name it *authPopup.js*.
 1. Open *authPopup.js* and add the following code snippet:
 
-   ```javascript
+    ```javascript
     // Create the main myMSALObj instance
     // configuration parameters are located at authConfig.js
     const myMSALObj = new msal.PublicClientApplication(msalConfig);
@@ -225,6 +217,7 @@ The application uses *authPopup.js* to handle the authentication flow when the u
             // Add your account choosing logic here
             console.warn("Multiple accounts detected.");
         } else if (currentAccounts.length === 1) {
+            username = currentAccounts[0].username
             welcomeUser(currentAccounts[0].username);
             updateTable(currentAccounts[0]);
         }
@@ -238,7 +231,8 @@ The application uses *authPopup.js* to handle the authentication flow when the u
          */
         
         if (response !== null) {
-            welcomeUser(response.account.username);
+            username = response.account.username
+            welcomeUser(username);
             updateTable(response.account);
         } else {
             selectAccount();

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2023
+ms.date: 05/04/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -300,13 +300,12 @@ Before you can use an Azure Files file share as a Kubernetes volume, you must cr
 5. Run the following command to export the storage account key as an environment variable. 
 
     ```azurecli-interactive
-    STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
+    STORAGE_KEY=$(az storage account keys list --resource-group nodeResourceGroupName --account-name myAKSStorageAccount --query "[0].value" -o tsv)
     ```
 
 6. Run the following commands to echo the storage account name and key. Copy this information as these values are needed when you create the Kubernetes volume later in this article. 
 
     ```azurecli-interactive
-    echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
     echo Storage account key: $STORAGE_KEY
     ```
 
@@ -317,7 +316,7 @@ Kubernetes needs credentials to access the file share created in the previous st
 Use the `kubectl create secret` command to create the secret. The following example creates a secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountkey* from the previous step. To use an existing Azure storage account, provide the account name and key.
 
 ```bash
-kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=myAKSStorageAccount --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
 ### Mount file share as an inline volume

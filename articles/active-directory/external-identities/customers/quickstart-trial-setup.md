@@ -16,11 +16,11 @@ ms.custom: it-pro
 ---
 # Quickstart: Get started with Azure AD for customers (Preview)
 
-Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, MS Entra can serve as the identity provider and access management service for your customers.
+Get started with Active Directory (Azure AD) for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, Azure AD can serve as the identity provider and access management service for your customers.
 
 This article gives you an overview how to set up your customer tenant free trial. The free trial gives you a 30 day access to all product features with few exceptions. See the following table for comparison:
 
-|  Features | Microsoft Entra External Identities for Customers Trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
+|  Features | Azure Active Directory for customers trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
 |----------|-----------|------------|
 | **User limits** | Up-to 10K |  Up-to 300 K  | 
 | **Self-service account experiences** (Sign-up, sign-in, and password recovery.)   | :heavy_check_mark: |  :heavy_check_mark:  | 

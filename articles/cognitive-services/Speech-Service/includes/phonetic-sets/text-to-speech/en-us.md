@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 #### Suprasegmentals for English
 
 |Example&nbsp;1 (onset for consonant, word-initial for vowel)|Example&nbsp;2 (intervocalic for consonant, word-medial nucleus for vowel)|Example&nbsp;3 (coda for consonant, word-final for vowel)|Comments|

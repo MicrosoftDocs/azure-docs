@@ -13,50 +13,25 @@ ms.author: mimart
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to know 
----
-<!--   The content is mostly copied from https://learn.microsoft.com/en-us/azure/active-directory/external-identities/identity-providers. For now the text is used as a placeholder in the release branch, until further notice. -->
 
+---
 # Custom authentication extensions
 
-Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define actions for events at various points within the authentication flow.
+Azure Active Directory (Azure AD) for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define actions for events at various points within the authentication flow.
 
-Custom authentication extensions in Azure Active Directory let you interact with external systems during a user authentication. The custom authentication extension contains information about your REST API endpoint, the credentials to call the REST API, the attributes that it returns, and when the REST API should be called.
+Custom authentication extensions in Azure AD let you interact with external systems during a user authentication. The custom authentication extension contains information about your REST API endpoint, the credentials to call the REST API, the attributes that it returns, and when the REST API should be called.
 
-Custom authentication extensions are triggered at particular parts of the authentication flow. The following diagram shows the currently supported trigger points during the authentication flow:
+You can create a custom authentication extension using the **OnTokenIssuanceStart** event, which is triggered just before a token is issued to the application:
 
 :::image type="content" source="media/concept-custom-extensions/authentication-flow-events-inline.png" alt-text="Diagram showing extensibility points in the authentication flow." lightbox="media/concept-custom-extensions/authentication-flow-events-expanded.png" border="false":::
 
-You can extend the authentication flow at three points:
-
-- Before attribute collection using the **OnAttributeCollectionStart** event.
-
-- Upon attribute submission using the **OnAttributeCollectionSubmit** event.
-
-- Before token issuance using the **OnTokenIssuanceStart** event.
-
-This article provides an overview of custom authentication extensions for Azure Active Directory (Azure AD) for customers.
-
-## OnAttributeCollectionStart event
-
-The *OnAttributeCollectionStart* event occurs at the beginning of the attribute collection process during sign-up for a new user. You can use this event to block sign-up (for example, based on the domain they're authenticating from) or modify the initial attributes to be collected. 
-
-For details, see:
-- [How to configure a custom authentication extension](how-to-configure-custom-extension.md)
-- [OnAttributeCollectionStart event](how-to-onattributecollectionstart.md)
-
-## OnAttributeCollectionSubmit event
-
-The *OnAttributeCollectionSubmit* event is fired after the user provides attribute information during signing up and can be used to validate the information provided by the user (such as an invitation code or partner number), modify the collected attributes (such as address validation), and either allow the user to continue in the journey or show a validation or block page.
-
-For details, see:
-- [How to configure a custom authentication extension](how-to-configure-custom-extension.md)
-- [OnAttributeCollectionSubmit event](how-to-onattributecollectionsubmit.md)
+This article provides an overview of custom authentication extensions in Azure AD for customers.
 
 ## Token issuance start event
 
 The token issuance start event is triggered once a user completes all of their authentication challenges, and a security token is about to be issued.
 
-When users authenticate to your application with Azure Active Directory, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles.  Beyond the default set of claims that are contained in the security token, you can define your own custom claims from external systems using a REST API you develop.  
+When users authenticate to your application with Azure AD, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles.  Beyond the default set of claims that are contained in the security token, you can define your own custom claims from external systems using a REST API you develop.  
 
 In some cases, key data might be stored in systems external to Microsoft Entra, such as a secondary email, billing tier, or sensitive information. It's not always feasible for the information in the external system to be stored in the Azure AD directory. For these scenarios, you can use a custom authentication extension and a custom claims provider to add this external data into tokens returned to your application.
 
@@ -76,6 +51,5 @@ For details, see:
 ## Next steps
 
 - To learn more about how custom extensions work, see [Custom authentication extensions](../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context).
-- Configure an [OnAttributeCollectionStart or OnAttributeCollectionSubmit event](how-to-configure-custom-extension.md).
 - Configure a [custom claims provider token issuance event](../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context).
 - See the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

@@ -26,12 +26,11 @@ Use this quickstart for the question answering client library for Python to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Question answering, requires a [Language resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
-	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
-* To create a Language resource with [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) provide the following additional properties during resource creation configure Custom Question Answering  with your Language resource `--api-properties qnaAzureSearchEndpointId=/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Search/searchServices/<azure-search-service-name> qnaAzureSearchEndpointKey=<azure-search-service-auth-key>`
+	* After your Language resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
+* To create a Language resource with [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) provide the following other properties during resource creation configure Custom Question Answering  with your Language resource `--api-properties qnaAzureSearchEndpointId=/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Search/searchServices/<azure-search-service-name> qnaAzureSearchEndpointKey=<azure-search-service-auth-key>`
 * An existing project to query. If you have not set up a project, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a project that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Setting up
 
@@ -43,8 +42,7 @@ After installing Python, you can install the client library with:
 pip install azure-ai-language-questionanswering
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 ## Query a project
 
@@ -52,7 +50,7 @@ pip install azure-ai-language-questionanswering
 
 The example below will allow you to query a project using [get_answers](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get-answers) to get an answer to your question. You can copy this code into a dedicated .py file or into a cell in [Jupyter Notebook/Lab](https://jupyter.org/).
 
-You will need to update the code below and provide your own values for the following variables.
+You need to update the code below and provide your own values for the following variables.
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -62,7 +60,7 @@ You will need to update the code below and provide your own values for the follo
 | `deployment`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your project from **Language Studio** > **question answering** > **Deploy project**.|
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, see the Cognitive Services [security article](../../../cognitive-services-security.md).
 
 ```python
 from azure.core.credentials import AzureKeyCredential
@@ -89,16 +87,16 @@ if __name__ == '__main__':
     main()
 ```
 
-While we are hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
+While we're hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
 
-When you run the code above, if you are using the data source from the prerequisites you will get an answer that looks as follows:
+When you run the code above, if you're using the data source from the prerequisites you get an answer that looks as follows:
 
 ```
 Q: How much battery life do I have left?
 A: If you want to see how much battery you have left, go to **Start  **> **Settings  **> **Devices  **> **Bluetooth & other devices  **, then find your pen. The current battery level will appear under the battery icon.
 ```
 
-For information on how confident question answering is that this is the correct response add an additional print statement underneath the existing print statements:
+For information on how confident question answering is that this is the correct response add another print statement underneath the existing print statements:
 
 ```python
 print("Q: {}".format(question))
@@ -106,7 +104,7 @@ print("A: {}".format(output.answers[0].answer))
 print("Confidence Score: {}".format(output.answers[0].confidence)) # add this line 
 ```
 
-You will now receive a result with a confidence score:
+You'll now receive a result with a confidence score:
 
 ```
 Q: How much battery life do I have left?
@@ -127,7 +125,7 @@ If you want to exclude answers where the confidence score falls below a certain 
         )
 ```
 
-Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
+Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` results in the [default answer](../how-to/change-default-answer.md) being returned.
 
 ```
 Q: How much battery life do I have left?
@@ -135,8 +133,7 @@ A: No good match found in KB
 Confidence Score: 0.0
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Query-a-knowledge-base" target="_target">I ran into an issue</a>
+
 
 ## Query text without a project
 
@@ -179,7 +176,7 @@ if __name__ == '__main__':
     main()
 ```
 
-You can copy this code into a dedicated .py file or into a new cell in [Jupyter Notebook/Lab](https://jupyter.org/). This example will return a result of:
+You can copy this code into a dedicated .py file or into a new cell in [Jupyter Notebook/Lab](https://jupyter.org/). This example returns a result of:
 
 ```
 Q: How long does it takes to charge surface?
@@ -189,5 +186,3 @@ Confidence Score: 0.9254655838012695
 
 In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with [get_answers_from_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get-answers-from-text), review the [AnswersFromTextOptions parameters](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.models.html#azure.ai.language.questionanswering.models.AnswersFromTextOptions).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Query-text-without-a-knowledge-base" target="_target">I ran into an issue</a>
