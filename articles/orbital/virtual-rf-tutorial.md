@@ -73,7 +73,7 @@ You should see activity in the terminal if it worked, and there should be a new 
 
 Next we create the actual vRF modem, based on GNU Radio, used to demodulate the Aqua signal.
 
-   :::image type="content" source="media/gnuradio-logo.png" alt-text="Logo for GNU Radio Free Software Project." lightbox="media/gnuradio_logo.png":::
+   :::image type="content" source="media/gnuradio-logo.png" alt-text="Logo for GNU Radio Free Software Project." lightbox="media/gnuradio-logo.png":::
 
 GNU Radio is a free and open-source software development toolkit that provides signal processing blocks and many example digital signal processing (DSP) applications. It can be used with readily available low-cost RF hardware to create software-defined radios, or without hardware in a simulation-like environment. It's widely used in research, industry, academia, government, and hobbyist environments to support both wireless communications research and real-world radio systems.  In this tutorial, we use GNU Radio to demodulate Aqua (that is, GNU Radio acts as the modem).
 
@@ -91,7 +91,7 @@ sudo apt-get install gnuradio python3-packaging
 
 Verify that GNU Radio installed properly and that graphics are working using `gnuradio-companion`; a window should pop up that looks like this:
 
-   :::image type="content" source="media/gnuradio-gui.png" alt-text="Screenshot of the GNU Radio desktop GUI." lightbox="media/gnuradio_gui.png":::
+   :::image type="content" source="media/gnuradio-gui.png" alt-text="Screenshot of the GNU Radio desktop GUI." lightbox="media/gnuradio-gui.png":::
 
 If the block tree on the right isn't displayed, you can show it using the magnifying glass icon at the top-right.
 
@@ -99,7 +99,7 @@ If the block tree on the right isn't displayed, you can show it using the magnif
 
 A GNU Radio application is called a "flowgraph", and it typically either processes or generates an RF signal.  The starter flowgraph to use can be [downloaded here](https://gist.githubusercontent.com/777arc/e5824993f1f55f890bb99ab4453db42b/raw/b523d4ae61a21436d58796ab0026f8d510d3ba7b/aqua.grc).  Open this `.grc` file within GNU Radio and you should see the following flowgraph:
 
-   :::image type="content" source="media/aqua-flowgraph.png" alt-text="Screenshot of the GNU Radio Aqua flowgraph." lightbox="media/aqua_flowgraph.png":::
+   :::image type="content" source="media/aqua-flowgraph.png" alt-text="Screenshot of the GNU Radio Aqua flowgraph." lightbox="media/aqua-flowgraph.png":::
 
 > [!NOTE]
 > For those not interested in the details of how the flowgraph/modem works, you can skip the following paragraph
@@ -108,9 +108,9 @@ The flowgraph starts by reading in the IQ file, converting it from interleaved 8
 
 Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if you saved it somewhere else, double click the File Source block and update the path).  Click the play button at the top to run the flowgraph.  If the previous steps were successful, and your Aqua contact was a success, you should see the following power spectral density (PSD) and IQ plot displayed:
 
-   :::image type="content" source="media/aqua-psd.png" alt-text="Screen shot of the GNU Radio Aqua Power Spectral Density (PSD)." lightbox="media/aqua_psd.png":::
+   :::image type="content" source="media/aqua-psd.png" alt-text="Screen shot of the GNU Radio Aqua Power Spectral Density (PSD)." lightbox="media/aqua-psd.png":::
 
-   :::image type="content" source="media/aqua-constellation.png" alt-text="Screenshot of the IQ plot of the Aqua signal." lightbox="media/aqua_constellation.png":::
+   :::image type="content" source="media/aqua-constellation.png" alt-text="Screenshot of the IQ plot of the Aqua signal." lightbox="media/aqua-constellation.png":::
 
 Yours may vary, based on the strength the signal was received.  If no GUI showed up, then check GNU Radio's output in the bottom left for errors.  If the GUI shows up but resembles a horizontal noisy line (with no hump), it means the contact didn't actually receive the Aqua signal.  In this case, double check that autotrack is enabled in your Contact Profile and that the center frequency was entered correctly.
 
@@ -169,7 +169,7 @@ There's a good chance that the VM receiving the Azure Orbital stream doesn't sup
 
 These steps let us run the flowgraph as a Python script with no GUI, and when the incoming socket closes the flowgraph should automatically end.
 
-   :::image type="content" source="media/gnuradio-headless.png" alt-text="Screenshot of GNU Radio running in Headless Mode." lightbox="media/gnuradio_headless.png":::
+   :::image type="content" source="media/gnuradio-headless.png" alt-text="Screenshot of GNU Radio running in Headless Mode." lightbox="media/gnuradio-headless.png":::
 
 ### Run the Flowgraph Live
 
