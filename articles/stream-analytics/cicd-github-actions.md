@@ -58,7 +58,7 @@ You need to create at least 3 GitHub secrets for deploying a Stream Analytics jo
     
         :::image type="content" source="./media/cicd-github-actions/azure-credential.png" alt-text="Screenshot of the GitHub creating a secret for Azure credential." lightbox= "./media/cicd-github-actions/azure-credential.png" :::
     
-    3. To learn more about using the Azure login action with a service principal secret, see [here](https://learn.microsoft.com/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#use-the-azure-login-action-with-a-service-principal-secret).
+    3. To learn more about using the Azure login action with a service principal secret, see [here](/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#use-the-azure-login-action-with-a-service-principal-secret).
 
 3. Create secrets for Input and Output resources. For more than one input/output resources, you need to create secrets for each Azure resource respectively. 
     1. For example to create a secret for an event hub, go to the Event Hubs in Azure portal and copy the **Primary key** from Shared access policy. 
@@ -101,6 +101,7 @@ Once you’ve done, you should have at least three secrets created for the GitHu
         ```
 
         Here's a mapping from the Azure resource type to its credential name:
+        
         |  Resource types                                          |    Credential name     |
         |----------------------------------------------------------|------------------------|
         | Azure Event Hubs, Azure IoT Hub, Azure Service Bus        | SharedAccessPolicyKey  |
