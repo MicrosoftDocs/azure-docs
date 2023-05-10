@@ -1,5 +1,5 @@
 ---
-title: Solution design
+title: Epic for ALI Solution design 
 description: Describes Epic for ALI solution design.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
