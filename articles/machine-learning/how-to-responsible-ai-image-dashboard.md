@@ -112,10 +112,8 @@ For object detection, incorrect predictions refer to images where:
 - Incorrectly detecting an object class when a ground truth object doesn’t exist
 - Failing to detect an object class when a ground truth object exists
 
-Since correctness in the Data Explorer depends on classification label, if object(s) in an image were correctly labeled but with an IOU (Intersection of Union) score below the default threshold of 50%, the image instance is still a success instance.
-
 > [!NOTE]
-> If object(s) in an image was correctly labeled but with an IOU (Intersection of Union) score below the default threshold of 50%, the image instance is excluded from the data explorer and will not be appear in the error instances category. Currently, it is not possible to change the default IOU threshold in the data explorer component.
+> If object(s) in an image was correctly labeled but with an IOU score below the default threshold of 50%, the prediction bounding box for the object will not be visible, but the ground truth bounding box will be visible. The image instance would appear in the error instance category. Currently, it is not possible to change the default IOU threshold in the Data Explorer component. 
 
 Image explorer for multilabel classification:
 
