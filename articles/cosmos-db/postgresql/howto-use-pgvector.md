@@ -14,7 +14,7 @@ ms.date: 05/10/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE [Introduction to **Pgvector**](includes/introduction-pgvector.md)]
+[!INCLUDE [Introduction to **Pgvector**](includes/pgvector-introduction.md)]
 
 ## Enable extension
 

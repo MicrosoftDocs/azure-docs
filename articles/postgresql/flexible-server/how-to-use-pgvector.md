@@ -15,7 +15,7 @@ ms.date: 05/09/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[!INCLUDE [Introduction to **Pgvector**](../../cosmos-db/postgresql/includes/introduction-pgvector.md)]
+[!INCLUDE [Introduction to **Pgvector**](../../cosmos-db/postgresql/includes/pgvector-introduction.md)]
 
 ## Enable extension
 
