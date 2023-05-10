@@ -11,6 +11,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 # Product Recognition (version 4.0 preview)
@@ -23,6 +24,9 @@ Try out the capabilities of Product Recognition quickly and easily in your brows
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 :::image type="content" source="media/shelf/shelf-analysis-pretrained.png" alt-text="Photo of a shelf with products and gaps outlined in rectangles.":::
+
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
 
 ## Product Recognition features
 

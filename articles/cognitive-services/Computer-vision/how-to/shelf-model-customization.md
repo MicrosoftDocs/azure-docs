@@ -18,6 +18,9 @@ You can train a custom model to recognize specific retail products for use in a 
 
 :::image type="content" source="../media/shelf/shelf-analysis-custom.png" alt-text="Photo of a retail shelf with product names and gaps highlighted with rectangles.":::
 
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
+
 ## Use the model customization feature
 
 The [Model customization how-to guide](./model-customization.md) shows you how to train and publish a custom Image Analysis model. You can follow that guide, with a few specifications, to make a model for Product Recognition.

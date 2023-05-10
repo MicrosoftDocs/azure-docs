@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 # Analyze a shelf image using pretrained models
@@ -17,6 +18,9 @@ ms.author: pafarley
 The fastest way to start using Product Recognition is to use the built-in pretrained AI models. With the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
 
 :::image type="content" source="../media/shelf/shelf-analysis-pretrained.png" alt-text="Photo of a retail shelf with products and gaps highlighted with rectangles.":::
+
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 

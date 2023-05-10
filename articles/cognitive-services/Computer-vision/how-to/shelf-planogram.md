@@ -18,6 +18,9 @@ A planogram is a diagram that indicates the correct placement of retail products
 
 :::image type="content" source="../media/shelf/planogram.png" alt-text="Photo of a retail shelf with detected products outlined and planogram position rectangles outlined separately.":::
 
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
+
 ## Prerequisites
 * You must have already set up and run basic [Product Understanding analysis](./shelf-analyze.md) with the Product Understanding API.
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
@@ -62,6 +65,9 @@ You need to have your planogram data in a specific JSON format. See the sections
 The X and Y coordinates are relative to a top-left origin, and the width and height extend each bounding box down and to the right. The following diagram shows examples of the coordinate system.
 
 :::image type="content" source="../media/shelf/planogram-coordinates.png" alt-text="Diagram of a shelf image with fixtures and products highlighted and their coordinates shown.":::
+
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
 
 Quantities in the planogram schema are in nonspecific units. They can correspond to inches, centimeters, or any other unit of measurement. The matching algorithm calculates the relationship between the photo analysis units (pixels) and the planogram units.
 

@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 # Prepare images for Product Recognition
@@ -34,6 +35,9 @@ This guide also shows you how to use the Rectification API to correct for perspe
 The Stitching API combines multiple images of the same physical shelf.
 
 :::image type="content" source="../media/shelf/image-stitching.png" alt-text="Three photos of shelves, next to their combined composite photo.":::
+
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
 
 To run the image stitching operation on a set of images, follow these steps:
 
@@ -71,6 +75,9 @@ After you complete the stitching operation, we recommend you do the rectificatio
 
 :::image type="content" source="../media/shelf/rectification.png" alt-text="Photos of a retail shelf, before and after the rectify operation.":::
 
+> [!NOTE]
+> The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
+
 To correct the perspective distortion in the composite image, follow these steps:
 
 1. Upload the image you'd like to rectify to your blob storage container, and get the absolute URL.
@@ -106,6 +113,10 @@ To correct the perspective distortion in the composite image, follow these steps
     1. Replace the four control point coordinates in the request body. X is the horizontal coordinate and Y is vertical. The coordinates are normalized, so 0.5,0.5 indicates the center of the image, and 1,1 indicates the bottom right corner, for example. Set the coordinates to define the four corners of the shelf fixture as it appears in the image.
     
        :::image type="content" source="../media/shelf/rectify.png" alt-text="Photo of a shelf with its four corners outlined.":::
+
+       > [!NOTE]
+       > The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
+
     1. Replace `<your_filename>` with the name and extension of the file where you'd like to get the result (for example, `download.jpg`).
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
