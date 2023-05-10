@@ -42,9 +42,11 @@ Revisions go through a series of states, based on status and availability.
 
 ### Provisioning status
 
-When a new revision is first created, it's set to "provisioning," which measures the time between creation (initial request) and availability (ready for work).  
+When a new revision is first created, it has to pass startup and readiness checks.  Provisioning status is set to _provisioning_ during verification.  Use provisioning status to follow progress.
 
-Replica provisioning status values include:
+Once the revision is verified, running status is set to _running_.  The revision is available and ready for work.  
+
+Provisioning status values include:
 
 - _Provisioning:_ It's being provisioned.
 
@@ -62,7 +64,7 @@ Running status values include:
 
 - _Unhealthy:_ The revision has encountered a problem. 
 
-    Causes and urgency vary; use the revision running status to learn more.
+    Causes and urgency vary; use the revision running state details to learn more.
     
     Common issues include:  
 
@@ -76,6 +78,8 @@ Running status values include:
 
   - Terminated
   - Exit code 137
+
+Use running state details to learn more about the current status.
 
 ### Inactive status
 
