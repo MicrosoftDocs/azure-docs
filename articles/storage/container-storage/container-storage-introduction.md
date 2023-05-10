@@ -13,13 +13,13 @@ ms.custom: references_regions
 # What is Azure Container Storage? Preview
 
 > [!IMPORTANT]
-> Azure Container Storage is currently in public preview and isn't available in all Azure regions.
+> Azure Container Storage is currently in public preview and isn't available in all Azure regions. See [regional availability](#regional-availability).
 > This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing customers to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Quickstart: Use Azure Container Storage with AKS](container-storage-aks-quickstart.md).
+To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md).
 
 ## Supported storage types
 
@@ -60,7 +60,7 @@ You can use Azure Container Storage to:
 
 * **Improved performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
 
-* **Kubernetes-native volume orchestration:** You can create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes using `kubectl` commands without switching between toolsets for different control plane operations.
+* **Kubernetes-native volume orchestration:** Create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes using `kubectl` commands without switching between toolsets for different control plane operations.
 
 ## Glossary
 It's helpful to understand some key terms relating to Azure Container Storage and Kubernetes:
@@ -87,12 +87,12 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -   **Persistent volume**
 
-    Persistent volumes are like disks in a virtual machine. They represent a raw block device that you can use to mount any file system. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+    Persistent volumes are like disks in a VM. They represent a raw block device that you can use to mount any file system. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
 -   **Persistent volume claim (PVC)**
 
     A persistent volume claim is used to automatically provision storage based on a storage class.
 
 ## Next steps
-- [Deploy Azure Container Storage](container-storage-aks-quickstart.md)
+- [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
 - [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage)
