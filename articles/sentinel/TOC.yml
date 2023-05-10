@@ -17,14 +17,14 @@
     href: forward-syslog-monitor-agent.md
   - name: Configure data retention policy
     href: configure-data-retention.md
-  - name: Investigate with UEBA
-    href: investigate-with-ueba.md
-  - name: Use automation to respond to threats
-    href: tutorial-respond-threats-playbook.md
+  - name: Detect threats using analytics rules
+    href: tutorial-log4j-detection.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
-  - name: Detect Log4j vulnerability exploits
-    href: tutorial-log4j-detection.md
+  - name: Respond to threats using automation 
+    href: tutorial-respond-threats-playbook.md
+  - name: Investigate with UEBA
+    href: investigate-with-ueba.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -321,8 +321,6 @@
         href: data-connectors/azure-event-hub.md
       - name: Azure Firewall
         href: data-connectors/azure-firewall.md
-      - name: Azure Information Protection
-        href: data-connectors/azure-information-protection.md
       - name: Azure Key Vault
         href: data-connectors/azure-key-vault.md
       - name: Azure Kubernetes Service (AKS)
@@ -407,6 +405,8 @@
         href: data-connectors/cyberpion-security-logs.md
       - name: Cybersixgill Actionable Alerts (using Azure Function)
         href: data-connectors/cybersixgill-actionable-alerts-using-azure-function.md
+      - name: Cynerio Security Events
+        href: data-connectors/cynerio-security-events.md
       - name: Darktrace Connector for Microsoft Sentinel REST API
         href: data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md
       - name: Delinea Secret Server
@@ -762,9 +762,7 @@
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md      
       - name: Custom log sources
-        href: connect-custom-logs.md
-      - name: DNS via AMA
-        href: connect-dns-ama.md
+        href: connect-custom-logs.md      
       - name: GCP audit logs
         href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
@@ -869,6 +867,8 @@
         href: watchlists-manage.md
   - name: Hunt for threats
     items:
+    - name: Conduct end-to-end hunts
+      href: hunts.md
     - name: Hunt with Jupyter notebooks
       items:
       - name: Get started with notebooks and MSTICPy

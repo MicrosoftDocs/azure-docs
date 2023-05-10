@@ -127,7 +127,7 @@ items:
       - name: Cognitive Services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
       - name: Cognitive Services Go SDK Samples
-        href: https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices
+        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note

@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2023
+ms.date: 05/05/2023
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -186,7 +186,7 @@ The Azure services that support each encryption model:
 | Azure SQL Managed Instance       | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
-| Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
+| Azure SQL Database for PostgreSQL | Yes               | Yes, including Managed HSM | -                  |
 | Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only) | Yes                | Yes, RSA 3072-bit, including Managed HSM | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
