@@ -7,7 +7,7 @@ author: heikora
 manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: reference
+ms.topic: how-to
 ms.date: 01/25/2023
 ms.author: heikora
 ms.devlang: csharp

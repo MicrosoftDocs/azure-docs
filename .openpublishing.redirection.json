@@ -1594,6 +1594,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/front-door-application-security.md",
+            "redirect_url": "/azure/frontdoor/web-application-firewall",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -7564,13 +7570,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
-            "redirect_url": "/azure/reliability/reliability-functions",
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
-            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
         },
         {

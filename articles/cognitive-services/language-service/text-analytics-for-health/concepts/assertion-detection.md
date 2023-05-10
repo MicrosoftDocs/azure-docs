@@ -41,6 +41,10 @@ Text Analytics for health returns assertion modifiers, which are informative att
 *	**Subject** [Default]: the concept is associated with the subject of the text, usually the patient.
 *	**Other**: the concept is associated with someone who is not the subject of the text.
 
+**TEMPORAL** - provides additional temporal information for a concept detailing whether it is an occurrence related to the past, present, or future.
+* **Current** [Default]: the concept is related to conditions/events that belong to the current encounter. For example, medical symptoms that have brought the patient to seek medical attention (e.g., “started having headaches 5 days prior to their arrival to the ER”). This includes newly made diagnoses, symptoms experienced during or leading to this encounter, treatments and examinations done within the encounter.
+* **Past**: the concept is related to conditions, examinations, treatments, medication events that are mentioned as something that existed or happened prior to the current encounter, as might be indicated by hints like s/p, recently, ago, previously, in childhood, at age X. For example, diagnoses that were given in the past, treatments that were done, past examinations and their results, past admissions, etc. Medical background is considered as PAST.
+* **Future**: the concept is related to conditions/events that are planned/scheduled/suspected to happen in the future, e.g., will be obtained, will undergo, is scheduled in two weeks from now.
 
 Assertion detection represents negated entities as a negative value for the certainty category, for example:
 
