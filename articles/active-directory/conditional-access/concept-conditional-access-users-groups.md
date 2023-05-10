@@ -55,6 +55,9 @@ The following options are available to include when creating a Conditional Acces
 > [!WARNING]
 > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../roles/admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../roles/custom-create.md).
 
+> [!NOTE]
+> When targeting policies to B2B direct connect external users, these policies will also be applied to B2B collaboration users accessing Teams or SharePoint Online who are also eligible for B2B direct connect.
+
 ## Exclude users
 
 When organizations both include and exclude a user or group the user or group is excluded from the policy, as an exclude action overrides an include in policy. Exclusions are commonly used for emergency access or break-glass accounts. More information about emergency access accounts and why they're important can be found in the following articles: 
