@@ -68,7 +68,7 @@ items:
                 - name: ASP.NET - sign in users
                   href: how-to-browserless-app-dotnet-sample-sign-in.md
                 - name: Node.js - sign in users
-                  href: how-to-browserless-app-dotnet-sample-sign-in.md
+                  href: how-to-browserless-app-node-sample-sign-in.md
             - name: Daemon, service
               items:
                 - name: Node.js - Call an API
