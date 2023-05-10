@@ -696,33 +696,6 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
 }
 ```
 
-
-## Validate that the service is running
-
-There are several ways to validate that the container is running:
-
-* The container provides a homepage at `\` as a visual validation that the container is running.
-
-* You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the listed request URLs to validate the container is running. The listed example request URLs are `http://localhost:5000`, but your specific container may vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
-
-  Request URL    | Purpose
-  ----------- | --------
-  |**http://<span></span>localhost:5000/** | The container provides a home page.
-  |**http://<span></span>localhost:5000/ready**     | Requested with GET, this request provides a verification that the container is ready to accept a query against the model. This request can be used for Kubernetes liveness and readiness probes.
-  |**http://<span></span>localhost:5000/status** | Requested with GET, this request verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes liveness and readiness probes.
-  |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
-  |
-
-:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure container welcome page.":::
-
-## Stop the containers
-
-To stop the containers, use the following command:
-
-```console
-docker-compose down
-```
-
 ---
 :::moniker-end
 
