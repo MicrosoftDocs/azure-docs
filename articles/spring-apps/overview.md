@@ -27,7 +27,7 @@ The following video shows an application composed of Spring Boot applications ru
 
 ## Why use Azure Spring Apps?
 
-Deployment of applications to Azure Spring Apps has the following benefits.
+You get the following benefits when you deploy applications to Azure Spring Apps:
 
 * Efficiently migrate existing Spring apps and manage cloud scaling and costs.
 * Modernize apps with Spring Cloud patterns to improve agility and speed of delivery.
@@ -45,21 +45,21 @@ As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other A
 
 Azure Spring Apps provides you with the following capabilities:
 
-* Azure Spring Apps is a fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
+* A fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
 * Deploy your JARs or code for your Spring Boot app or Zip for your Steeltoe app, and Azure Spring Apps automatically wires your apps with Spring service runtime and built-in app lifecycle.
 
-* Monitoring is simple. After deployment you can monitor app performance, fix errors, and rapidly improve applications.
+* Ease of monitoring. After deployment you can monitor app performance, fix errors, and rapidly improve applications.
 
 * Full integration to Azure's ecosystems and services.
 
-* Azure Spring Apps is enterprise ready with fully managed infrastructure, built-in lifecycle management, and ease of monitoring.
+* Enterprise ready with fully managed infrastructure and built-in lifecycle management.
 
 ### Get started with Azure Spring Apps
 
 The following articles help you get started:
 
-* [Launch your first app](quickstart.md)
+* [Deploy your first application to Azure Spring Apps](quickstart.md)
 * [Introduction to the sample app](quickstart-sample-app-introduction.md)
 
 The following articles help you migrate existing Spring Boot apps to Azure Spring Apps:
@@ -70,18 +70,18 @@ The following articles help you migrate existing Spring Boot apps to Azure Sprin
 The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the section [Get started with the Enterprise plan](#get-started-with-the-enterprise-plan) in this article.
 
 * [Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md)
-* [Set up the configuration server](quickstart-setup-config-server.md)
-* [Build and deploy apps](quickstart-deploy-apps.md)
+* [Set up Spring Cloud Config Server for Azure Spring Apps](quickstart-setup-config-server.md)
+* [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md)
 
 ## Standard consumption & dedicated plan
 
-The Standard consumption & dedicated plan provides a hybrid pricing plan that offers pay-as-you-go and resource-based pricing in one comprehensive package. You can pay for compute time while getting started, and achieve price predictable and more cost savings when things are running at scale.
+The Standard consumption & dedicated plan provides a hybrid pricing plan that offers pay-as-you-go and resource-based pricing in one comprehensive package. You can pay for compute time while getting started, and achieve price predictable and more cost savings when resources are running at scale.
 
-When you create a Standard consumption & dedicated plan, a consumption workload profile is always created by default. You can additionally add dedicated workload profiles in the same plan to fit the requirements of your workload.
+When you create a Standard consumption & dedicated plan, a consumption workload profile is always created by default. You can additionally add dedicated workload profiles to the same plan to fit the requirements of your workload.
 
-Workload profiles determine the amount of compute and memory resources available to Spring apps deployed in the Standard consumption & dedicated plan. There are different machine sizes and characteristics with different workload profiles. For more information, see [Azure Container Apps workload profile](../container-apps/workload-profiles-overview.md).
+Workload profiles determine the amount of compute and memory resources available to Spring apps deployed in the Standard consumption & dedicated plan. There are different machine sizes and characteristics with different workload profiles. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md).
 
-You can run your apps in any combination of consumption or dedicated workload profiles. Consider using the consumption workload profile when your applications need to start from and scale to zero. Use the dedicated workload profile when you need dedicated hardware for single tenancy, and for customizable compute as with a memory optimized machine. Also use the dedicated workload profile to optimize for cost savings when resources are running at scale.
+You can run your apps in any combination of consumption or dedicated workload profiles. Consider using the consumption workload profile when your applications need to start from and scale to zero. Use the dedicated workload profile when you need dedicated hardware for single tenancy, and for customizable compute as with a memory optimized machine. You can also use the dedicated workload profile to optimize for cost savings when resources are running at scale.
 
 The Standard consumption & dedicated plan simplifies the virtual network experience for running polyglot applications. In the Standard consumption & dedicated plan, when you deploy frontend applications as containers in Azure Container Apps, all your applications share the same virtual network in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
@@ -99,7 +99,10 @@ The following video introduces the Azure Spring Apps Enterprise plan.
 
 ### Deploy and manage Spring and polyglot applications
 
-The Azure Spring Apps Enterprise plan provides the fully managed VMware Tanzu® Build Service™. Build Service automates the creation, management, and governance of containers at enterprise scale by using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [Language Family Buildpacks for VMware Tanzu](https://docs.pivotal.io/tanzu-buildpacks/).
+The Azure Spring Apps Enterprise plan provides the fully managed VMware Tanzu® Build Service™. The Tanzu Build Service automates the creation, management, and governance of containers at enterprise scale with the following buildpack options:
+
+* Open-source [Cloud Native Buildpacks](https://buildpacks.io/)
+* Commercial [Language Family Buildpacks for VMware Tanzu](https://docs.pivotal.io/tanzu-buildpacks/).
 
 Tanzu Build Service offers a higher-level abstraction for building applications. Tanzu Build Service also provides a balance of control that reduces the operational burden on developers, and supports enterprise IT operators who manage applications at scale. You can configure what Tanzu Buildpacks to apply and build polyglot applications that run alongside Spring applications on Azure Spring Apps.
 
@@ -119,7 +122,7 @@ API Portal for VMware Tanzu provides API consumers with the ability to find and 
 
 ### Use flexible and configurable VMware Tanzu components
 
-With the Azure Spring Apps Enterprise plan, you can use fully managed VMware Tanzu components on Azure without operational hassle. You can select which VMware Tanzu components you want to use in your environment, either during or after Enterprise instance creation. The following components are available today:
+With the Azure Spring Apps Enterprise plan, you can use fully managed VMware Tanzu components on Azure without operational hassle. You can select which VMware Tanzu components you want to use in your environment, either during or after Enterprise instance creation. The following components are available:
 
 * Tanzu Build Service
 * Spring Cloud Gateway for Tanzu
@@ -139,11 +142,11 @@ VMware Tanzu components deliver increased value so you can accomplish the follow
 
 The Azure Spring Apps Enterprise plan includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem to develop and deploy applications faster.
 
-Typically, open-source Spring project minor releases receive support for a minimum of 12 months from the date of initial release. In the Azure Spring Apps Enterprise plan, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release. This extended support is through the VMware Spring Runtime Support entitlement and ensures the security and stability of your Spring application portfolio, even after the open source end of life dates. For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support).
+Typically, open-source Spring project minor releases receive support for a minimum of 12 months from the date of initial release. In the Azure Spring Apps Enterprise plan, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release. This extended support is through the VMware Spring Runtime Support entitlement and ensures the security and stability of your Spring application portfolio, even after the open source end of life dates. For more information, see [Spring Boot](https://spring.io/projects/spring-boot#support).
 
 ### Fully integrate into the Azure and Java ecosystems
 
-Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive, as shown in the following table:
+Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive as described in the following table:
 
 | Best practice                                                      | Ecosystem                                                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -160,27 +163,27 @@ After you create your Enterprise plan service instance and deploy your applicati
 
 The following articles help you get started using the Standard consumption plan:
 
-* [Provision a service instance](quickstart-provision-standard-consumption-service-instance.md)
-* [Provision in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
-* [Access apps in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
-* [Deploy an event-driven app](quickstart-deploy-event-driven-app-standard-consumption.md)
-* [Set up autoscale](quickstart-apps-autoscale-standard-consumption.md)
-* [Map a custom domain to Azure Spring Apps](quickstart-standard-consumption-custom-domain.md)
-* [Analyze logs and metrics](quickstart-analyze-logs-and-metrics-standard-consumption.md)
-* [Enable your own persistent storage](how-to-custom-persistent-storage-with-standard-consumption.md)
+* [Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md)
+* [Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
+* [Access applications using Azure Spring Apps Standard consumption plan in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
+* [Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan](quickstart-deploy-event-driven-app-standard-consumption.md)
+* [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](quickstart-apps-autoscale-standard-consumption.md)
+* [Map a custom domain to Azure Spring Apps with the Standard consumption plan](quickstart-standard-consumption-custom-domain.md)
+* [Analyze logs and metrics in the Azure Spring Apps Standard consumption plan](quickstart-analyze-logs-and-metrics-standard-consumption.md)
+* [Enable your own persistent storage in Azure Spring Apps with the Standard consumption plan](how-to-custom-persistent-storage-with-standard-consumption.md)
 * [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](standard-consumption-customer-responsibilities.md)
 
 ### Get started with the Enterprise plan
 
 The following articles help you get started using the Enterprise plan:
 
-* [The Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
-* [Introduction to Fitness Store sample](quickstart-sample-app-acme-fitness-store-introduction.md)
-* [Build and deploy apps](quickstart-deploy-apps-enterprise.md)
-* [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
-* [Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+* [TheEnterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
+* [Introduction to Fitness Store sample app](quickstart-sample-app-acme-fitness-store-introduction.md)
+* [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
+* [Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
+* [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
 * [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
-* [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+* [Monitor application end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 * [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 * [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
 
@@ -192,10 +195,10 @@ As a quick reference, the articles listed previously and the articles in the fol
 * [Use Tanzu Build Service](how-to-enterprise-build-service.md)
 * [Use Tanzu Service Registry](how-to-enterprise-service-registry.md)
 * [Use API portal for VMware Tanzu](how-to-use-enterprise-api-portal.md)
-* [Use Spring Cloud Gateway for Tanzu](how-to-use-enterprise-spring-cloud-gateway.md)
-* [Deploy polyglot enterprise applications](how-to-enterprise-deploy-polyglot-apps.md)
-* [Enable system-assigned managed identity](how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier)
-* [Application Insights using Java In-Process Agent](how-to-application-insights.md?pivots=sc-enterprise-tier)
+* [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md)
+* [Deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md)
+* [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md?pivots=sc-enterprise-tier)
 
 ## Next steps
 
