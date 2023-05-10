@@ -24,7 +24,7 @@ This feature is available for Azure Cache for Redis Basic, Standard, and Premium
 
 Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, your applications can store more data and scale better with your workloads.
 
-For more information, see [Configure clustering for Azure Cache for Redis instance](cache-how-to-premium-clustering.md#azure-cache-for-redis-now-supports-upto-30-shards-preview.md).
+For more information, see [Configure clustering for Azure Cache for Redis instance](cache-how-to-premium-clustering.md#azure-cache-for-redis-now-supports-up-to-30-shards-preview.md).
 
 ## March 2023
 
@@ -44,7 +44,7 @@ For more information, see [Configure active geo-replication](cache-how-to-active
 
 Caches using active geo-replication now include a built-in _flush_ operation that can be initiated at the control plane level. Use the _flush_ operation with your cache instead of the `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches.
 
-For more information, see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation.md).
+For more information, see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation).
 
 ### Customer managed key (CMK) disk encryption (preview)
 
@@ -87,7 +87,7 @@ Several enhancements have been made to the passive geo-replication functionality
 
 - Customers can now initiate a failover between geo-primary and geo-replica caches with a single selection or CLI command, eliminating the hassle of manually unlinking and relinking caches. For more information, see [Initiate a failover from geo-primary to geo-secondary](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary).
 
-- A global cache URL is also now offered that automatically updates their DNS records after geo-failovers are triggered, allowing their application to manage only one cache address. For more information, see [Geo-primary URL](cache-how-to-geo-replication.md#geo-primary-url.md).
+- A global cache URL is also now offered that automatically updates their DNS records after geo-failovers are triggered, allowing their application to manage only one cache address. For more information, see [Geo-primary URL](cache-how-to-geo-replication.md#geo-primary-url).
 
 ## September 2022
 
