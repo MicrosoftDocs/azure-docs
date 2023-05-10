@@ -27,7 +27,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-An Azure subscription. If you don't have one, [create a free account](https://aka.ms/ciam-hub-free-trial) before you begin.
+An Azure subscription. If you don't have one, [create a free account](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) before you begin.
 
 This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
 * Application administrator
