@@ -218,8 +218,6 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Use containers in disconnected environments
-        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Tutorials
