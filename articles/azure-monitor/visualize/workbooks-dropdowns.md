@@ -164,15 +164,15 @@ Dropdown parameters also allow you to specify special values that will also appe
 * Any custom limit
 * All
 
-When these special items are selected, the parameter value will be automatically set to the specific number of items, or all values.
+When these special items are selected, the parameter value is automatically set to the specific number of items, or all values.
 
-## Special casing All
+### Special casing All
 
-When you select the **All** option, an additional field appears, which allows you to specify that a special value will be used for the parameter if the **All** option is selected. This is useful for cases where "All" could be a large number of items and could generate a very large query.
+When you select the **All** option, an additional field appears, which allows you to specify that a special value will be used for the parameter if the **All** option is selected. This special value is useful for cases where "All" could be a large number of items and could generate a very large query.
 
 :::image type="content" source="./media/workbooks-dropdowns/dropdown-all.png" alt-text="Screenshot of the New Parameter window in the Azure portal with the All option selected and the All option and Select All value field highlighted." lightbox="./media/workbooks-dropdowns/dropdown-all.png":::
 
-In this specific case, the string `[]` will be used instead of a value. This can be used to generate an empty array in the a logs query, like:
+In this specific case, the string `[]` is used instead of a value. This string can be used to generate an empty array in the logs query, like:
 
 ```kusto
 let selection = dynamic([{Selection}]);
@@ -180,7 +180,7 @@ SomeQuery
 | where array_length(selection) == 0 or SomeField in (selection)
 ```
 
-If all items are selected, the value of `Selection` will be `[]`, producing an empty array for the `selection` variable in the query.  If no values are selected, the value of `Selection` will be an empty string, also resulting in an empty array.  If any values are selected, they will be formatted inside the dynamic part, causing the array to have those values. You can then test for `array_length` of 0 to have the filter not apply or `in` the array to filter on the values.
+If all items are selected, the value of `Selection` will be `[]`, producing an empty array for the `selection` variable in the query.  If no values are selected, the value of `Selection` will be an empty string, also resulting in an empty array.  If any values are selected, they will be formatted inside the dynamic part of the query, causing the array to have those values. You can then test for `array_length` of 0 to have the filter not apply or use the `in` operator to filter on the values in the array.
 
 Other common examples use '*' as the special marker value when a parameter is required, and then test with:
 
