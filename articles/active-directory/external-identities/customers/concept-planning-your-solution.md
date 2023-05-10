@@ -16,16 +16,15 @@ ms.custom: it-pro
 
 # Planning for customer identity and access management
 
-Azure Active Directory (Azure AD) for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because Azure AD for customers is built on the Microsoft Entra platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
+Azure Active Directory (Azure AD) for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
 
 This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
-
 
 Adding secure sign-in to your app and setting up a customer identity and access management involves four main steps:
 
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-steps-inline.png" alt-text="Diagram showing an overview of setup steps." border="false":::
 
-This article describes each of these steps and outlines important planning considerations. In the following table, select a **Step** for information about what the step entails along with planning considerations, or go directly to the **How-to guides**.
+This article describes each of these steps and outlines important planning considerations. In the following table, select a **Step** for details and planning considerations, or go directly to the **How-to guides**.
 
 
 
@@ -62,7 +61,7 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
 
-Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Microsoft Entra performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
+Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Azure AD performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
 
 We provide code sample guides and in-depth integration guides for several app types and languages. Depending on the type of app you want to register, you can find guidance on our [Samples by app type and language page](samples-ciam-all.md).
 
