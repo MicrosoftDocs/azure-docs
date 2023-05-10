@@ -36,7 +36,7 @@ This article describes a sample procedure for configuring [RSPAN](../best-practi
 
 > [!IMPORTANT]
 > An increased bandwidth, whether due to large amounts of throughput or a large number of switches, can cause a switch to fail and therefore to bring down the entire network.
-> Make sure to consider the following:
+> When configuring traffic mirroring with RSPAN, make sure to consider the following:
 > - The number of access / distribution switches that you configure with RSPAN.
 > - The correlating throughput for the remote VLAN on each switch.
 
