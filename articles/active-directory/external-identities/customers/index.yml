@@ -68,13 +68,13 @@ landingContent:
             url: how-to-multifactor-authentication-customers.md
           - text: Use Identity Protection
             url: how-to-identity-protection-customers.md
-  - title: Try code samples for customer-facing apps
+  - title: Samples for customer-facing apps
     linkLists:
       - linkListType: overview
         links:
-          - text: Find all samples and guides for customer-facing apps
+          - text: Find all samples and guides
             url: samples-ciam-all.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: JavaScript single-page application (SPA)
             url: how-to-single-page-app-vanillajs-sample-sign-in.md
@@ -102,7 +102,7 @@ landingContent:
         links:
           - text: All build and integrate guides
             url: samples-ciam-all.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Vanilla JS single-page application (SPA)
             url: how-to-single-page-app-vanillajs-prepare-tenant.md
