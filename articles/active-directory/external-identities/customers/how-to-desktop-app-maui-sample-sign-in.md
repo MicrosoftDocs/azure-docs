@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample .NET MAUI desktop application by using Microsoft Entra
-description: Learn how to configure a sample .NET MAUI desktop to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample .NET MAUI desktop application
+description: Learn how to configure a sample .NET MAUI desktop application to sign in and sign out users by using Azure AD tenant for customer.
 services: active-directory
 author: henrymbuguakiarie
 manager: mwongerapk
@@ -12,21 +12,21 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/09/2023
 ms.custom: developer
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI desktop app to sign in and sign out users with Microsoft Entra for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI desktop app to sign in and sign out users with Azure AD for customers tenant
 ---
 
-# Sign in users in a sample .NET MAUI desktop application by using Microsoft Entra
+# Sign in users in a sample .NET MAUI desktop application
 
-This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to a desktop application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample .NET MAUI desktop application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
-
-In this article, you do the following tasks:
+This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to a desktop application by using Azure Active Directory (Azure AD) for customer tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI desktop application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
 
 In this article, you do the following tasks:
 
-- Register a desktop application in the Microsoft Entra admin center.
-- Create a sign in and sign out user flow in Microsoft Entra admin center.
+In this article, you do the following tasks:
+
+- Register a .NET MAUI desktop application in the Azure AD tenant for customer.
+- Create a sign in and sign out user flow in Azure AD tenant for customer.
 - Associate your .NET MAUI desktop application with the user flow.
-- Update a sample .NET MAUI desktop application using your own Microsoft Entra for customers tenant details.
+- Update a sample .NET MAUI desktop application using your own Azure AD for customers tenant details.
 - Run and test the sample .NET MAUI desktop application.
 
 ## Prerequisites
@@ -34,9 +34,9 @@ In this article, you do the following tasks:
 - [Visual Studio Code](https://code.visualstudio.com/download) with the MAUI workload installed:
   - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
   - [Instructions for MacOS](/dotnet/maui/get-started/installation?tabs=vsmac)
-- Microsoft Entra for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
 
-## Register desktop app
+## Register .NET MAUI desktop app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-platform](./includes/register-app/add-platform-redirect-url-dotnet-maui.md)]
@@ -53,7 +53,7 @@ In this article, you do the following tasks:
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
-## Clone or download sample web application
+## Clone or download sample .NET MAUI desktop application
 
 To get the .NET MAUI desktop application sample code, [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample .NET MAUI desktop application from GitHub by running the following command:
 
