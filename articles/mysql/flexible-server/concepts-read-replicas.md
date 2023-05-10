@@ -102,7 +102,7 @@ Since replication is asynchronous, there's lag between the source and the replic
 > [!TIP]  
 > If you failover to the replica, the lag at the time you delink the replica from the source indicates how much data is lost.
 
-After you've decided you want to failover to a replica:
+After you've decided you want to fail over to a replica:
 
 1. Stop replication to the replica<br/>
    This step is necessary to make the replica server able to accept writes. As part of this process, the replica server is delinked from the source. After you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
