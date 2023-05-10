@@ -947,6 +947,8 @@
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md
+    - name: Audit and track changes to incident tasks
+      href: audit-track-tasks.md
     - name: Monitor Microsoft Sentinel health
       items:
       - name: Enable auditing and health monitoring
