@@ -469,11 +469,7 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-<<<<<<< HEAD
-  - name: MQTT messaging 
-=======
   - name: MQTT messaging
->>>>>>> 99a5275e03aedd8c40ab7121bd59909ea2174d05
     items:
     - name: Overview
       href: mqtt-overview.md
