@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to create a Node.js daemon application that acquires an access token, then calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Acquire an access token using client credentials flow in your Node.js daemon application
+# Call an API in your Node.js daemon application
 
 In this article, you learn how to acquire an access token, then call an a web API your own Node.js daemon application that you build. You add authorization to your web application against your Azure Active Directory (Azure AD) for customers tenant. 
 
