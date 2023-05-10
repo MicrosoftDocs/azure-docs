@@ -19,7 +19,7 @@ ms.subservice: calling
 This document delves into the DataChannel feature present in the ACS Calling SDK.
 While the DataChannel in this context bears some resemblance to the DataChannel in WebRTC, it's crucial to recognize subtle differences in their specifics.
 Throughout this document, we use terms *DataChannel API* or *DataChannel feature API* to denote the DataChannel API within the SDK.
-When referring to the DataChannel API in WebRTC, we use *WebRTC DataChannel API*.
+When referring to the DataChannel API in WebRTC, we explicitly use the term *WebRTC DataChannel API* for clarity and precision.
 
 The DataChannel feature API enables real-time messaging during audio and video calls. With this API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
 
