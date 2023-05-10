@@ -16,13 +16,12 @@ Heavy use of the [metrics API](https://learn.microsoft.com/rest/api/monitor/metr
 ## Request format 
  The metrics:getBatch API request has the following format:
  ```http
-POST /subscriptions/subscriptionId/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-03-01-preview
+POST /subscriptions/<subscriptionId>/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-03-01-preview
 Host: <region>.metrics.monitor.azure.com
 Content-Type: application/json
 Authorization: Bearer <token>
 {
-    "resourceids":["/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/<respource namespace>/<resource name>",
-                   "/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/<respource namespace>/<resource name>"]
+    "resourceids":[<comma separated list of resource IDs>]
 }
 
 ```
@@ -70,13 +69,13 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
  Replace  `management.azure.com` with a regional endpoint for the Azure Monitor Metrics data plane using the following format: `<region>.metrics.monitor.azure.com` where `region` is region of the resources you're requesting metrics for.  For the example, if the resources are in westus2, the hostname is  `westus2.metrics.monitor.azure.com`.
 
 1. Change the API name and path.  
- The metrics:getBatch API is a subscription level POST API. The resource metrics requested are specified in the request body rather than in the URL path. 
+ The metrics:getBatch API is a subscription level POST API. The resources for which the metrics are requested, are specified in the request body rather than in the URL path.  
  Change the url path as follows:  
     from `/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/microsoft.Insights/metrics`  
      to `/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch`
 
 1. The `metricNamespace` query param is required for metrics:getBatch. For Azure standard metrics, the namespace name is usually the resource type of the resources you've specified. To check the namespace value to use, see the [metrics namespaces API](https://learn.microsoft.com/rest/api/monitor/metric-namespaces/list?tabs=HTTP)
-1. Use the api-version query parameter as follows: `&api-version=2023-03-01-preview`
+1. Update the api-version query parameter as follows: `&api-version=2023-03-01-preview`
 1. The filter query param isn't prefixed with a `$` in the metrics:getBatch API. Change the query param from `$filter=` to `filter=`.
 1.  The metrics:getBatch API is a POST call with a body that contains a comma-separated list of resourceIds in the following format:
     For example:
@@ -97,7 +96,7 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
         }
     ```
 
-  Specify up to 50 unique resourceIds in each call. Each resource must belong to the same subscription, region, and of the same resource type.  
+  Up to 50 unique resource IDs may be specified in each call. Each resource must belong to the same subscription, region, and be of the same resource type.  
 
 > [!IMPORTANT] 
 > + The `resourceids` object property in the body must be lower case. 
@@ -623,10 +622,10 @@ The individual metrics API requires a user have the [Monitoring Reader](https://
 
 ### 529 throttling errors.
 
-While the data plane batch API is designed to help mitigate throttling problems, 529 error codes still occur which indicates that the metrics backend is currently throttling some customers. The recommended action is to implement an exponential backoff retry scheme.
+While the data plane batch API is designed to help mitigate throttling problems, 529 error codes can still occur which indicates that the metrics backend is currently throttling some customers. The recommended action is to implement an exponential backoff retry scheme.
 
 ## Paging 
-Paging is not supported but the metrics:getBatch API. The most common use-case for this API is frequently calling every few minutes for the same metrics and resources for the latest timeframe. Low latency is an important consideration so many customers parallelize their queries as much as possible. Paging forces customers into a sequential calling pattern that introduces additional query latency. In scenarios where requests return volumes of metric data where paging would be beneficial, it's recommended to split the query into multiple parallel queries.
+Paging is not supported by the metrics:getBatch API. The most common use-case for this API is frequently calling every few minutes for the same metrics and resources for the latest timeframe. Low latency is an important consideration so many customers parallelize their queries as much as possible. Paging forces customers into a sequential calling pattern that introduces additional query latency. In scenarios where requests return volumes of metric data where paging would be beneficial, it's recommended to split the query into multiple parallel queries.
 
 ## Billing
-Yes all metrics data plane and batching calls are billed. For more information, see [Basic Log Search Queries](https://azure.microsoft.com/pricing/details/monitor/#pricing)
+Yes all metrics data plane and batching calls are billed. For more information, see the **Azure Monitor native metrics** section in [Basic Log Search Queries](https://azure.microsoft.com/pricing/details/monitor/#pricing)
