@@ -24,7 +24,7 @@ In this article, you do the following tasks:
 - Register a .NET MAUI desktop application in the Azure AD for customers tenant.
 - Create a sign in and sign out user flow in Azure AD tenant for customer.
 - Associate your .NET MAUI desktop application with the user flow.
-- Update a sample .NET MAUI desktop application using your own Azure AD for customers tenant details.
+- Update a sample .NET MAUI desktop application to use your own Azure AD for customers tenant details.
 - Run and test the sample .NET MAUI desktop application.
 
 ## Prerequisites
