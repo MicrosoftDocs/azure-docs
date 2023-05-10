@@ -73,6 +73,23 @@ The value of the header (`1=1`) might be detected as an attack by the WAF. But i
 
 In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
 
+#### Request attribute examples
+
+The below table shows some examples of how you might structure your exclusion for a given match variable.
+
+| Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request |
+|-|-|-|-|-|
+| Query string | RequestArgKeys | Equals | etc/passwd | Uri:http://localhost:8080/?/etc/passwd=test |
+| Query string | RequestArgNames | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd |
+| Request body | RequestArgKeys | Contains | zshrc | Request body: {"test": ".zshrc"} |
+| Request body | RequestArgValues | Equals | test | Request body: {"test": ".zshrc"} |
+| Header | RequestHeaderKeys | Equals | X-Scanner | Header: {k: "X-Scanner", v: "test"} |
+| Header | RequestHeaderNames | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} |
+| Header | RequestHeaderValues | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} |
+| Cookie | RequestCookieKeys | Equals | /etc/passwd | Header: {k: "Cookie", v: "/etc/passwdtest=hello1"} |
+| Cookie | RequestHeaderNames | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} |
+| Cookie | RequestHeaderValues | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} |
+
 ## Exclusion scopes
 
 Exclusions can be configured to apply to a specific set of WAF rules, to rulesets, or globally across all rules.
