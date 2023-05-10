@@ -43,9 +43,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhb...TaXzf6tmC4jhog
 
 Consider the following restrictions on which resources can be batched together when deciding if the metrics:getBatch API is the correct choice for your scenario.
 
-1. All resources in a batch must be in the same subscription.
-1. All resources in a batch must be in the same Azure region.
-1. All resources in a batch must be the same resource type.
+- All resources in a batch must be in the same subscription.
+- All resources in a batch must be in the same Azure region.
+- All resources in a batch must be the same resource type.
 
 To help identify groups of resources that meet these criteria, run the following Azure Resource Graph query using the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade), or via the [Azure Resource Manager Resources query API](https://learn.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources?tabs=HTTP).
 
@@ -616,11 +616,11 @@ In the metrics:getBatch error response, the error content is wrapped inside a to
 + The top parameter applies per resource ID specified.  
 How the top parameter works in the context of the batch API can be a little confusing. Rather than enforcing a limit on the total time series returned by the entire call, it rather enforces the total time series returned *per metric per resource ID*. If you have a batch query with many '*' filters specified, two metrics, and four resource IDs with a top of 5. The maximum possible time series returned by that query is 40, that is 2x4x5 time series.
 
-### 401 authorization errors.
+### 401 authorization errors
 
 The individual metrics API requires a user have the [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) permission on the resource being queried. Because the metrics:getBatch API is a subscription level API, users must have the Monitoring Reader permission for the queried subscription to use the batch API. Even if users have Monitoring Reader on all the resources being queried in the batch API, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
 
-### 529 throttling errors.
+### 529 throttling errors
 
 While the data plane batch API is designed to help mitigate throttling problems, 529 error codes can still occur which indicates that the metrics backend is currently throttling some customers. The recommended action is to implement an exponential backoff retry scheme.
 
