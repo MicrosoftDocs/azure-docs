@@ -14,8 +14,16 @@ This article describes the steps to publish and consume events using the [CloudE
 Follow the steps in this article if you need to send application events to Event Grid so that they are received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-and-push-delivery-overview.md)).
 
 >[!Important]
-> Namespaces, namespace topics, and event subscriptions associated to namespace topics are currently available in the following regions:
-> - East US          
+> Namespaces, namespace topics, and event subscriptions associated to namespace topics are iniatially available in the following regions:
+>- US East
+>- Central US 
+>- US South Central
+>- West US 2 
+>- Asia East
+>- Southeast Asia
+>- Europe North
+>- Europe West
+>- UAE North
 
 >[!Important]
 > The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
@@ -33,14 +41,20 @@ Follow the steps in this article if you need to send application events to Event
 
 The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. We use this resource group to contain all resources created in this article. Click on **Open Cloud Shell** to see an Azure Cloud Shell window in the right pane. Copy the command and paste it in the Azure Cloud Shell window and press ENTER to run the command.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. We use this resource group to contain all resources created in this article.
 
-First, set the name of the resource group on an environmental variable.
+The general steps to use CloudShell to run commands are:
+- Click on **Open Cloud Shell** to see an Azure Cloud Shell window on the right pane. 
+- Copy the command and paste into the Azure Cloud Shell window.
+- Press ENTER to run the command.
+
+First, set the name of the resource group on an environmental variable. 
 
 ```azurecli-interactive
 resource_group=<your-resource-group-name>
 ```
 
+Create a resource group. Change the location as you see fit. 
 ```azurecli-interactive
 az group create --name $resource_group --location eastus
 ```
@@ -61,10 +75,10 @@ Set the name you want to provide to your namespace on an environmental variable.
 namespace=<your-namespace-name>
 ```
 
-Create a namespace:
+Create a namespace. You may want to change the location where it is deployed. 
 
 ```azurecli-interactive
-az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --properties "{ \"location\":\"eastus\" }"
+az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --location centraluseuap --properties "{}"
 ```
 
 ## Create a namespace topic
@@ -98,28 +112,28 @@ az resource create --resource-group $resource_group --namespace Microsoft.EventG
 ## Send events to your topic
 Follow the steps in the coming sections for a simple way to test sending events to your topic.
 
-### List access namespace access keys 
+### List namespace access keys
 
-Get the access keys associated to the namespace created. You use one of them to authenticate when publishing events. In order to list your keys, you need the full namespace resource ID first. 
+Get the access keys associated to the namespace created. You use one of them to authenticate when publishing events. In order to list your keys, you need the full namespace resource ID first.
 
 ```azurecli-interactive 
-subscription_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
+namespace_resource_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
 ```
 
 Get the first key from the namespace:
 
 ```azurecli-interactive
-key=$(az resource invoke-action --action listKeys --ids $subscription_id --query "key1" --output tsv)
+key=$(az resource invoke-action --action listKeys --ids $namespace_resource_id --query "key1" --output tsv)
 ```
 ### Publish an event
 
-Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent:
+Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. Please note that the following operations were first available with API version `2023-06-01-preview`.
 
 ```azurecli-interactive
-publisher_endpoint_url="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
+publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
 ```
 
-To simplify this article, you use sample event data to send to the namespace topic. The following example creates sample event data:
+Create a sample CloudEvents-compliant event:
 
 ```azurecli-interactive
 event=' { "specversion": "1.0", "id": "'"$RANDOM"'", "type": "com.yourcompany.order.ordercreatedV2", "source" : "/mycontext", "subject": "orders/O-234595", "time": "'`date +%Y-%m-%dT%H:%M:%SZ`'", "datacontenttype" : "application/json", "data":{ "orderId": "O-234595", "url": "https://yourcompany.com/orders/o-234595"}} '
@@ -130,7 +144,7 @@ The `data` element is the payload of your event. Any well-formed JSON can go in 
 CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the topic.
 
 ```azurecli-interactive
-curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $publisher_endpoint_url
+curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $publish_operation_uri
 ```
 
 ### Receive the event
@@ -138,11 +152,42 @@ curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:S
 You receive events from Event Grid using an endpoint that refers to an event subscription. Compose that endpoint with the following command:
 
 ```azurecli-interactive
-consumer_endpoint_url="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
+receive_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
 ```
 
 Submit a request to consume the event:
 
 ```azurecli-interactive
-curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $consumer_endpoint_url
+curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
+```
+### Acknowledge an event
+
+After you receive an event, you pass that event to your application for processing. Once you have successfully processed your event, you no longer need that event to be in your event subscription. To instruct Event Grid to delete the event, you **acknowledge** it using its lock token that you got on the receive operation's response. In the previous step, you should have received a response that includes a `brokerProperties` object with a `lockToken` property. Copy the lock token value and set it on an environment variable:
+
+```azurecli-interactive
+lockToken=<paste-the-lock-token-here>
+```
+
+Now, build the acknowledge operation payload, which specifies the lock token for the event you want to be acknowledged.
+
+```azurecli-interactive
+acknowledge_request_payload=' { "lockTokens": ["'$lockToken'"]} '
+```
+
+Proceed with building the string with the acknowledge operation URI:
+
+```azurecli-interactive
+acknowledge_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:acknowledge?api-version=2023-06-01-preview
+```
+
+Finally, submit a request to acknowledge the event received:
+
+```azurecli-interactive
+curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$acknowledge_request_payload" $acknowledge_operation_uri
+```
+
+If the acknowledge operation is executed before the lock token expires (300 seconds as set when we created the event subscription), you should see a response like the following:
+
+```json
+{"succeededLockTokens":["CiYKJDQ4NjY5MDEyLTk1OTAtNDdENS1BODdCLUYyMDczNTYxNjcyMxISChDZae43pMpE8J8ovYMSQBZS"],"failedLockTokens":[]}
 ```
