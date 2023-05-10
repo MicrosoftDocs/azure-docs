@@ -111,13 +111,13 @@ You can use parameters to make your test plan configurable instead of hard-codin
 
 1. Specify environment variables to pass nonsensitive parameters to your test script.
 
-    For example, you could use an environment variable to pass the target domain name or port number to the test script. Learn more about [using environment variables in a load test](./how-to-parameterize-load-tests.md#configure-load-tests-with-environment-variables).
+    For example, you could use an environment variable to pass the target domain name or port number to the test script. Learn more about [using environment variables in a load test](./how-to-parameterize-load-tests.md).
 
 1. Add references to secrets, backed by Azure Key Vault.
 
     Use secrets to pass sensitive parameters, such as passwords or authentication tokens, to the test script. You store the secret values in your Azure key vault, and add a reference to the key in the load test configuration. You can then reference the key in your script by using the parameter name. Azure Load Testing then retrieves the key value from Azure Key Vault.
 
-	Learn more about [using secrets in a load test](./how-to-parameterize-load-tests.md#configure-load-tests-with-secrets).
+	Learn more about [using secrets in a load test](./how-to-parameterize-load-tests.md).
 
 1. Add references to client certificates, backed by Azure Key Vault.
 
