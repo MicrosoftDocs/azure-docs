@@ -228,12 +228,12 @@ The following tables display the current Microsoft Sentinel feature availability
 |- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
 |- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
 | **Workspace Manager** | | |
-| - [Workspace manager](../../sentinel/workspace-manager.md) | Public Preview | Public preview |
+| - [Workspace manager](../../sentinel/workspace-manager.md) | Public Preview | Public Preview |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
-| - [Hunts](../../sentinel/hunts.md) | Public preview | Not Available |
+| - [Hunts](../../sentinel/hunts.md) | Public Preview | Not Available |
 | **Content  and content management** | | |
-| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Public preview |
+| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public Preview | Public Preview |
 | - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public Preview | Not Available |
 | **Data collection** | | |
 | - [Advanced SIEM Information Model (ASIM)](../../sentinel/normalization.md) | Public Preview | Not Available |
