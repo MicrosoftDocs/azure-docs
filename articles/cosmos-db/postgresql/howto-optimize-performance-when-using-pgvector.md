@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/10/2023
 ---
 
 # How to optimize performance when using pgvector on Azure Cosmos DB for PostgreSQL
