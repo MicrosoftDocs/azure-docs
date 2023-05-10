@@ -1,6 +1,6 @@
 ---
 title: How to create nested Azure IoT Edge device hierarchies
-description: How to create a hierarchy of IoT Edge devices. 
+description: How to create a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 author: PatAltimore
 
 ms.author: patricka
