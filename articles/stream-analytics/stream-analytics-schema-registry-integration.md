@@ -71,7 +71,7 @@ Azure Stream Analytics automatically fetches events from the streaming inputs. I
 2. Select the configured Event Hubs input. Make sure there's a file icon next to the selected input.
 3. The sample events will automatically appear in the **input preview**.
 
-    ![Screensht showing the Preview input page.](media/stream-analytics-schema-registry-integration/input-preview.png)
+    ![Screenshot showing the Preview input page.](media/stream-analytics-schema-registry-integration/input-preview.png)
 
 See [Test an Azure Stream Analytics job with sample data](stream-analytics-test-query.md) for more information about query testing.
 
