@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 2/20/2023
+ms.date: 5/10/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -18,10 +18,10 @@ ms.subservice: calling
 [!NOTE]
 This document delves into the DataChannel feature present in the ACS Calling SDK.
 While the DataChannel in this context bears some resemblance to the DataChannel in WebRTC, it's crucial to recognize subtle differences in their specifics.
-Throughout this document, we use terms *DataChannel API* or *DataChannel feature API* to denote the DataChannel API within the SDK.
+Throughout this document, we use terms *DataChannel API* or *API* to denote the DataChannel API within the SDK.
 When referring to the DataChannel API in WebRTC, we explicitly use the term *WebRTC DataChannel API* for clarity and precision.
 
-The DataChannel feature API enables real-time messaging during audio and video calls. With this API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
+The DataChannel API enables real-time messaging during audio and video calls. With this API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
 
 1. Real-time Messaging: The DataChannel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, messages can be sent all participants, a single participant, or a specific set of participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
 2. Unidirectional Communication: Unlike bidirectional communication, the DataChannel API is designed for unidirectional communication. It employs distinct objects for sending and receiving messages: the DataChannelSender object for sending and the DataChannelReceiver object for receiving. This separation simplifies message management in group calls, leading to a more streamlined user experience.
@@ -32,14 +32,14 @@ The DataChannel feature API enables real-time messaging during audio and video c
 
 ## Common use cases
 
-There are two common use cases:
+These are two common use cases:
 
 ### Messaging between particpants in a call
 
-The DataChannel API facilitates the exchange of messages of binary type between participants.
-With proper serialization, the messages can range from  chat texts to application metadata.
-Other messaging libraries can be integrated to offer messaging funtionality, the DataChannel API provides the advantage of low-latency communication.
-Moreover, it eliminates the need to maintain a separate participant list, thereby simplifying user management.
+The DataChannel API enables the transmission of binary type messages among call participants.
+With appropriate serialization, it can handle a variety of message types, extending beyond mere chat texts.
+Although other messaging libraries might offer similar funtionality, the DataChannel API provides the advantage of low-latency communication.
+Moreover, it removes the necessity for maintaining a separate participant list, thereby simplifying user management.
 
 ### File sharing
 
@@ -50,7 +50,18 @@ This setup offers an efficient method for file transfer, taking full advantage o
 ## Key concepts
 
 ### One-way communication
-The DataChannel feature API is designed for one-way communication, as opposed to bi-directional communication. It employs separate objects for sending and receiving messages, with DataChannelSender object responsible for sending messages and the DataChannelReceiver object for receiving messages. The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
+The DataChannel API is designed for one-way communication, as opposed to bi-directional communication. It employs separate objects for sending and receiving messages, with DataChannelSender object responsible for sending messages and the DataChannelReceiver object for receiving messages. The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
+
+### Channel id
+Every DataChannel message is associated with a specific channel identified by *channelId*.
+This id can be utilized to differentiate various application uses, such as using 10000 for chat messages and 10001 for image transfers.
+The channelId is assigned during the creation of a DataChannelSender object, 
+and can be either user-specified at this stage or automatically allocated by SDK if left unspecified.
+The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided,
+or if no channelId is provided, the SDK will assign an available channelId from within the valid range.
+
+### Session
+The DataChannel API has the concept of a session.
 
 ## Next steps
 For more information, see the following articles:
