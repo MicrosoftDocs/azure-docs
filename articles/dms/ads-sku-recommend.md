@@ -129,7 +129,7 @@ There are multiple configurable settings that could affect your recommendations.
 
 Select the **Edit parameters** option to adjust these parameters according to your needs.
 
-:::image type="content" source="media/ads-sku-recommend/recommendation-parameters-options.png" alt-text="Screenshot that shows the pane to import performance data for a SKU recommendation.":::
+:::image type="content" source="media/ads-sku-recommend/recommendation-parameters-options.png" alt-text="Screenshot that shows the different recommendation parameters.":::
 
 
 - **Scale factor**:   
@@ -234,8 +234,8 @@ GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [assessment];
 ```
 
 ## Unsupported scenarios and limitations
-- Azure Recommendations don't include price estimates, as this situation may vary depending on region, currency, and discounts such as the [Azure Hybrid Benefit](/azure/sql/azure-hybrid-benefit). To get price estimates, use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/), or create a [SQL assessment](/azure/migrate/concepts-azure-sql-assessment-calculation) in Azure Migrate.
-- Recommendations for Azure SQL Database with the [DTU-based purchasing model](/azure/sql/database/migrate-dtu-to-vcore) aren't supported.
+- Azure Recommendations don't include price estimates, as this situation may vary depending on region, currency, and discounts such as the [Azure Hybrid Benefit](/azure/azure-sql/azure-hybrid-benefit.md). To get price estimates, use the [Azure Pricing Calculator](azure.microsoft.com/en-us/pricing/calculator), or create a [SQL assessment](/azure/migrate/concepts-azure-sql-assessment-calculation) in Azure Migrate.
+- Recommendations for Azure SQL Database with the [DTU-based purchasing model](/azure/azure-sql/database/migrate-dtu-to-vcore) aren't supported.
 - Currently, Azure recommendations for Azure SQL Database serverless compute tier and Elastic Pools aren't supported.
 - Currently, Azure recommendations for SQL Server on Azure Virtual Machine using Premium SSD v2 aren't supported.
 
@@ -245,8 +245,8 @@ GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [assessment];
     - Access the logs from Azure Data Studio by going to Help > Show All Commands > Open Extension Logs Folder
     - Navigate to Microsoft.mssql > SqlAssessmentLogs > open SkuRecommendationEvent.log
     - The log contains a trace of every potential configuration that was assessed and the reason why it was/was not considered being an eligible configuration: 
-    :::image type="content" source="media/ads-sku-recommend/recommendation-log.png" border="false" alt-text="Diagram that shows the workflow of the SKU recommendation process.":::
-  - Try regenerating the recommendation with [elastic recommendation](##recommendation-parameters) enabled. This option uses an alternate recommendation model, which utilizes personalized price-performance profiling against existing on-cloud customers.
+    :::image type="content" source="media/ads-sku-recommend/recommendation-log.png" border="false" alt-text="Screenshot that shows SKU recommendations log.":::
+  - Try regenerating the recommendation with [elastic recommendation](#recommendation-parameters) enabled. This option uses an alternate recommendation model, which utilizes personalized price-performance profiling against existing on-cloud customers.
 
 ## Next steps
 
