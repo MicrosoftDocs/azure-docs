@@ -540,6 +540,8 @@ items:
         href: /python/api/overview/azure/event-grid
       - name: Node.js
         href: /javascript/api/overview/azure/event-grid
+      - name: Quotas and limits
+        href: quotas-limits.md
       - name: Monitoring data reference (MQTT delivery)
         href: monitor-mqtt-delivery-reference.md
     - name: Resources
