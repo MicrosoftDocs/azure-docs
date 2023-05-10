@@ -410,13 +410,13 @@
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
             - name: Unmanaged
-              -items:
-               - name: Use ingress-nginx
-                 items:
-                 - name: Create an ingress controller
-                   href: ingress-basic.md
-                 - name: Use TLS with an ingress controller
-                   href: ingress-tls.md
+              items:
+              - name: Use ingress-nginx
+                items:
+                - name: Create an ingress controller
+                  href: ingress-basic.md
+                - name: Use TLS with an ingress controller
+                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
