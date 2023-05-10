@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to know 
 
 ---
-# Custom authentication extensions
+# Add your own business logic
 
 Azure Active Directory (Azure AD) for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define actions for events at various points within the authentication flow.
 

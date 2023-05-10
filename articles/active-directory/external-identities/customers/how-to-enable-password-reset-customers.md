@@ -61,6 +61,10 @@ To enable self-service password reset, you need to enable the email one-time pas
 
 1. Select **Save**.
 
+## Customize the password reset flow
+
+You can configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. For details, see [To customize self-service password reset](how-to-customize-branding-customers.md#to-customize-self-service-password-reset) in the article [Customize the neutral branding in your customer tenant](how-to-customize-branding-customers.md).
+
 ## Test self-service password reset
 
 To go through the self-service password reset flow:
@@ -85,5 +89,4 @@ To go through the self-service password reset flow:
 
 ## Next steps
 
-- [Add Google as an identity provider](how-to-google-federation-customers.md)
-- [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
+- Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.

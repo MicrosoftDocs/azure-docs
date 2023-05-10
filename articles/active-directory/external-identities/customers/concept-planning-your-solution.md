@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/07/2023
+ms.date: 05/09/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -26,12 +26,12 @@ Adding secure sign-in to your app and setting up a customer identity and access 
 
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-steps-inline.png" alt-text="Diagram showing an overview of setup steps." lightbox="media/concept-planning-your-solution/overview-setup-steps-expanded.png" border="false":::
 
-| Step | Action | Description |
-|---------|---------|---------|
-|**1**     |      **Create a customer tenant**   | - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.</br>- Or, [start a free trial](https://aka.ms/ciam-free-trial). </br>Learn more in [Step 1: Create a customer tenant](#step-1-create-a-customer-tenant) later in this article. |
-|**2**     |      **Register your application**   | - [Register your application](how-to-register-ciam-app.md) with Azure Active Directory.</br>Learn more in [Step 2: Register your application](#step-2-register-your-application) later in this article.   |
-|**3**     |    **Integrate a sign-in flow with your app**.     | - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md). </br>- [Add your application](how-to-user-flow-add-application.md) to the user flow. </br>Learn more in [Step 3: Integrate a sign-in flow with your app](#step-3-integrate-a-sign-in-flow-with-your-app) later in this article.  |
-|**4**     |    **Customize and secure your sign-in**     |  - [Customize branding](concept-branding-customers.md). </br>- [Add identity providers](concept-authentication-methods-customers.md).  </br>- [Add attributes to collect](how-to-define-custom-attributes.md) and map claims to the token. </br>- [Add multifactor authentication](concept-security-customers.md).  </br>Learn more in [Step 4: Customize and secure your sign-in](#step-4-customize-and-secure-your-sign-in) later in this article.   |
+| Step |  Description |
+|---------|---------|
+| **[Step 1: Create a customer tenant](#step-1-create-a-customer-tenant)**   | &#8226; [Create a customer tenant](how-to-create-customer-tenant-portal.md)</br>&#8226; Or, [start a free trial](https://aka.ms/ciam-free-trial)  |
+|**[Step 2: Register your application](#step-2-register-your-application)**   | &#8226; [Register your application](how-to-register-ciam-app.md)  |
+|**[Step 3: Integrate a sign-in flow with your app](#step-3-integrate-a-sign-in-flow-with-your-app)**     | &#8226; [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md) </br>&#8226; [Add your application](how-to-user-flow-add-application.md) to the user flow  |
+|**[Step 4: Customize and secure your sign-in](#step-4-customize-and-secure-your-sign-in)**     |  &#8226; [Customize branding](concept-branding-customers.md) </br>&#8226; [Add identity providers](concept-authentication-methods-customers.md)  </br>&#8226; [Collect attributes during sign-up](how-to-define-custom-attributes.md)</br>&#8226; [Add attributes to the token] </br>&#8226; [Add multifactor authentication](concept-security-customers.md)    |
 
 The rest of this article explains each of these steps in more detail and outlines important planning considerations.
 
@@ -116,7 +116,7 @@ Following are planning considerations for configuring company branding, language
 
 - **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
 
-- **Extending the authentication token claims**. Azure AD for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [custom authentication extensions](concept-custom-extensions.md).
+- **Extending the authentication token claims**. Azure AD for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [adding your own business logic](concept-custom-extensions.md) with custom authentication extensions.
 
 - **Multifactor authentication (MFA)**. You can also enable application access security by enforcing MFA, which adds a critical second layer of security to user sign-ins by requiring verification via email one-time passcode. Learn more about [MFA for customers](concept-security-customers.md#multifactor-authentication).
 

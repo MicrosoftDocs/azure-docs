@@ -24,7 +24,7 @@ A domain name is an important part of the identifier for resources in many Azure
 
 When your organization is created, the initial domain name, such as ‘contoso.onmicrosoft.com,’ is also the primary domain name. The primary domain is the default domain name for a new user when you create a new user. Setting a primary domain name streamlines the process for an administrator to create new users in the portal. To change the primary domain name:
 
-1. Make sure you're using the directory that contains your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your customer directory in the Directory name list, and then select **Switch**.
 1. Go to Azure **Active Directory** > **Custom domain names**.
 1. Select the name of the domain that you want to be the primary domain.

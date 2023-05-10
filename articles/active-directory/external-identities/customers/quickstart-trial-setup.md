@@ -21,7 +21,7 @@ Get started with Active Directory (Azure AD) for customers (Preview) that lets y
 This article gives you an overview how to set up your customer tenant free trial. The free trial gives you a 30 day access to all product features with few exceptions. See the following table for comparison:
 
 |  Features | Azure Active Directory for customers trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
-|----------|-----------|------------|
+|----------|:-----------:|:------------:|
 | **User limits** | Up-to 10K |  Up-to 300 K  | 
 | **Self-service account experiences** (Sign-up, sign-in, and password recovery.)   | :heavy_check_mark: |  :heavy_check_mark:  | 
 | **MFA** (With email OTP.)  | :heavy_check_mark: |  :heavy_check_mark:  |  
