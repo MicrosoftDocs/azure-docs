@@ -43,7 +43,7 @@ Hotpatch gives you the ability to apply security updates on your VM without rebo
 | Operating system | Azure | Azure Stack HCI |
 | -- | -- | -- |
 | Windows Server 2022 Datacenter: Azure Edition (Core) | Generally available (GA) | Public preview |
-| Windows Server 2022 Datacenter: Azure Edition (Desktop Experience) | Public Preview | Public preview |
+| Windows Server 2022 Datacenter: Azure Edition (Desktop Experience) | Public preview | Public preview |
 
 ### SMB over QUIC
 
