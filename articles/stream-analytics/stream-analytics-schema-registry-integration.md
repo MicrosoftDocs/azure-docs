@@ -29,11 +29,14 @@ To access the Event Hubs Schema Registry, you need to assign [Schema Registry Re
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your Stream Analytics job page.
 2. Select **Managed Identity** page, and save the **Principal name** for later use. See [Managed Identities](stream-analytics-managed-identities-overview.md) for more details.
-![Screenshot showing the Managed Identity page.](media/stream-analytics-schema-registry-integration/get-principal-name.png)
+
+    ![Screenshot showing the Managed Identity page.](media/stream-analytics-schema-registry-integration/get-principal-name.png)
 3. Go to your Event Hubs namespace page that the Schema Registry is hosted. Select **Access Control** and **Add role assignment**.
-![Screenshot showing the Access Control page.](media/stream-analytics-schema-registry-integration/event-hub-access-control.png)
+
+    ![Screenshot showing the Access Control page.](media/stream-analytics-schema-registry-integration/event-hub-access-control.png)
 4. Search for **Schema Registry Reader** and click **Next**.
-![Screenshot showing the Add Role Assignment page.](media/stream-analytics-schema-registry-integration/add-role-assignment.png)
+
+    ![Screenshot showing the Add Role Assignment page.](media/stream-analytics-schema-registry-integration/add-role-assignment.png)
 5. At **Members** page, select the **Principal name** you saved from step 1 and click on **Review + assign**.
 
 ## Add Schema Registry to the Stream Analytics job
@@ -45,7 +48,8 @@ To access the Event Hubs Schema Registry, you need to assign [Schema Registry Re
     2. For **Subscription**, select the subscription that has the Event Hubs namespace, hosting the Schema Registry.
     3. For **Event Hubs namespace**, select the namespace that the Schema Registry is under.
     4. If you don't have access to the subscription, you can also use **manual entry**.
-    ![Screenshot showing the New schema registry page.](media/stream-analytics-schema-registry-integration/add-new-schema-registry.png)
+    
+        ![Screenshot showing the New schema registry page.](media/stream-analytics-schema-registry-integration/add-new-schema-registry.png)
 
 ## Configure the Event Hubs input
 
@@ -56,7 +60,8 @@ To access the Event Hubs Schema Registry, you need to assign [Schema Registry Re
 2. To connect the Schema Registry to the selected Event Hubs, scroll down to the bottom of the configuration page.
 3. Select **AVRO** for **Event Serialization format**.
 4. Select the Schema Registry from the drop-down menu and **Save**.
-![Screenshot showing the Event Hubs configuration page.](media/stream-analytics-schema-registry-integration/event-hub-configuration.png)
+
+    ![Screenshot showing the Event Hubs configuration page.](media/stream-analytics-schema-registry-integration/event-hub-configuration.png)
 
 ## Preview the input data
 
@@ -65,7 +70,8 @@ Azure Stream Analytics automatically fetches events from the streaming inputs. I
 1. On the Stream Analytics job page, select **Job Topology -> Query** to open the Query editor window.
 2. Select the configured Event Hubs input. Make sure there's a file icon next to the selected input.
 3. The sample events will automatically appear in the **input preview**.
-![Screensht showing the Preview input page.](media/stream-analytics-schema-registry-integration/input-preview.png)
+
+    ![Screensht showing the Preview input page.](media/stream-analytics-schema-registry-integration/input-preview.png)
 
 See [Test an Azure Stream Analytics job with sample data](stream-analytics-test-query.md) for more information about query testing.
 
