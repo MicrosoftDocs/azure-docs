@@ -240,11 +240,7 @@
         - name: Change feed design patterns
           href: change-feed-design-patterns.md
         - name: Change feed modes
-          items:
-            - name: Latest version mode
-              href: change-feed-latest-version.md
-            - name: All versions and deletes mode (preview)
-              href: change-feed-all-versions-and-deletes.md
+          href: change-feed-modes.md
         - name: Reading change feed
           href: read-change-feed.md
         - name: Change feed processor

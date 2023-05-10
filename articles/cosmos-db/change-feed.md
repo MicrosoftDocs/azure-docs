@@ -7,7 +7,7 @@ ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 05/09/2023
 ms.custom: seodec18, seo-nov-2020, ignite-2022
 ---
 
@@ -79,11 +79,11 @@ There are two change feed modes available: latest version mode and all versions 
 
 ### Latest version mode
 
-In latest version change feed mode, you see the latest change from an insert or update for all items in the feed, and the feed will be available for the life of the container. There's no indication whether a given change is from an insert or an update operation, and deletes aren't captured. Changes can be read from any point in time as far back as the origin of your container. However, if an item is deleted it will be removed from the change feed. See the [latest version change feed mode](nosql/change-feed-latest-version.md) article to learn more.
+In latest version change feed mode, you see the latest change from an insert or update for all items in the feed, and the feed will be available for the life of the container. There's no indication whether a given change is from an insert or an update operation, and deletes aren't captured. Changes can be read from any point in time as far back as the origin of your container. However, if an item is deleted it will be removed from the change feed. See the [latest version change feed mode](nosql/change-feed-modes.md#latest-version-change-feed-mode) article to learn more.
 
 ### All versions and deletes mode (preview)
 
-All versions and deletes (preview) mode allows you to see all changes to items from creates, updates, and deletes. You'll get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. To read from the change feed in all versions and deletes mode, you must have [continuous backups](continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account, which creates Azure Cosmos DBs all versions and deletes change log. In this mode, you'll only be able to read changes that occurred within the continuous backup period configured for the account. See the [all versions and deletes change feed mode](nosql/change-feed-all-versions-and-deletes.md) article to learn more, including how to enroll in the preview.
+All versions and deletes (preview) mode allows you to see all changes to items from creates, updates, and deletes. You'll get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. To read from the change feed in all versions and deletes mode, you must have [continuous backups](continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account, which creates Azure Cosmos DBs all versions and deletes change log. In this mode, you'll only be able to read changes that occurred within the continuous backup period configured for the account. See the [all versions and deletes change feed mode](nosql/change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview) article to learn more, including how to enroll in the preview.
 
 ## Change feed in APIs for Cassandra and MongoDB
 

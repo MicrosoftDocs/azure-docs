@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 05/09/2023
 ms.custom: devx-track-csharp
 ---
 
@@ -41,7 +41,7 @@ Each range is being read in parallel and its progress is maintained separately f
 
 ### [.NET](#tab/dotnet)
 
-The change feed processor in .NET is currently only available for [latest version mode](change-feed-latest-version.md). The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
+The change feed processor in .NET is currently only available for [latest version mode](change-feed-modes.md#latest-version-change-feed-mode). The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -130,7 +130,7 @@ The change feed processor will be initialized and start reading changes from the
 
 ### [Java](#tab/java)
 
-An example of a delegate implementation when reading the change feed in [latest version mode](change-feed-latest-version.md) would be:
+An example of a delegate implementation when reading the change feed in [latest version mode](change-feed-modes.md#latest-version-change-feed-mode) would be:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
@@ -138,7 +138,7 @@ An example of a delegate implementation when reading the change feed in [latest 
 > In the above we pass a variable `options` of type `ChangeFeedProcessorOptions`, which can be used to set various values including `setStartFromBeginning`:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
-The delegate implementation for reading the change feed in [all versions and deletes mode](change-feed-all-versions-and-deletes.md) is similar, but instead of calling `.handleChanges()` you call `.handleAllVersionsAndDeletesChanges()`. An example would be:
+The delegate implementation for reading the change feed in [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview) is similar, but instead of calling `.handleChanges()` you call `.handleAllVersionsAndDeletesChanges()`. An example would be:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessorForAllVersionsAndDeletesMode.java?name=Delegate)]
  
@@ -194,7 +194,7 @@ Moreover, the change feed processor can dynamically adjust to containers scale d
 By default, when a change feed processor starts the first time, it initializes the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
 
 > [!NOTE]
-> Modifying the starting time of the change feed processor is not available when you are using [all versions and deletes mode](change-feed-all-versions-and-deletes.md). Currently, you must use the default start time.
+> Modifying the starting time of the change feed processor is not available when you are using [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). Currently, you must use the default start time.
 
 ### Reading from a previous date and time
 
