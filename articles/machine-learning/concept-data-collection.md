@@ -10,7 +10,7 @@ ms.subservice: mlops
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.topic: conceptual 
-ms.date: 4/24/2023
+ms.date: 05/09/2023
 ms.custom: devplatv2, event-tier1-build-2023
 ---
 
@@ -46,7 +46,7 @@ Data collector has the following limitations:
 
 ## Next steps
 
-- [How to collect data from models in production](how-to-collect-production-data.md)
-- [Model monitoring with AzureML](concept-model-monitoring.md)
-- [How to monitor your models](how-to-monitor-model-performance.md)
+- [How to collect data from models in production (preview)](how-to-collect-production-data.md)
+- [Model monitoring with Azure Machine Learning (preview)](concept-model-monitoring.md)
+- [Monitor performance of models deployed to production (preview)](how-to-monitor-model-performance.md)
 - [What are Azure Machine Learning endpoints?](concept-endpoints.md)
