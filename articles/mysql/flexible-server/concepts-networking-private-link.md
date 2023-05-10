@@ -33,7 +33,7 @@ Consider a scenario with a user running MySQL Workbench inside an Azure Virtual 
 
 - Disable all Azure service traffic to Azure Database for MySQL flexible server via the public endpoint by setting *Allow Azure Services* to OFF. Ensure no IP addresses or ranges can access the server via [firewall rules](../single-server/concepts-firewall-rules.md).
 
-- Only allow traffic to the Azure Database for MySQL flexible server using the Private IP address of the VM. For more information, see the article on [VNet firewall rules](how-to-manage-vnet-using-portal.md).
+- Only allow traffic to the Azure Database for MySQL flexible server using the Private IP address of the VM. For more information, see the article on [VNet firewall rules](../single-server/how-to-manage-vnet-using-portal.md).
 
 - On the Azure VM, narrow down the scope of outgoing connection by using Network Security Groups (NSGs) and Service Tags as follows
 

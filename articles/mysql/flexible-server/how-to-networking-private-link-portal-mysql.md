@@ -87,7 +87,7 @@ In this section, you create a Virtual Network and the subnet to host the VM used
 
 ### Create an Azure Database for MySQL flexible server with a Private endpoint
 
-- Create an [Azure Database for MySQL flexible server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/quickstart-create-server-portal.md) with **Public access (allowed IP addresses) and Private endpoint** as the connectivity method.
+- [Create an [Azure Database for MySQL flexible server](quickstart-create-server-portal.md) with **Public access (allowed IP addresses) and Private endpoint** as the connectivity method.
 
 - Select **+ Add Private endpoint** to create private endpoint:
 
@@ -243,7 +243,7 @@ In this section, you learn how to add a private endpoint to the MySQL flexible s
     | Private DNS Zone | Select *(New)privatelink.mysql.database.Azure.com* |
 
   > [!NOTE]  
-  > Use your service's predefined private DNS zone or provide your preferred DNS zone name. For details, refer to the [Azure services DNS zone configuration](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns).
+  > Use your service's predefined private DNS zone or provide your preferred DNS zone name. For details, refer to the [[Azure services DNS zone configuration](../../private-link/private-endpoint-dns.md).
 
 1. Select **Review + create**. You're taken to the **Review + create** page, where Azure validates your configuration.
 
