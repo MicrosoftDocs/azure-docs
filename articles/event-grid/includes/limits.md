@@ -58,8 +58,8 @@ The following limits apply to events in Azure Event Grid namespace resource.
 | Event egress                                          | Up to 2,000 events per second or 2 MB per second per TU                            |
 | Event duration period in topic                        | 1 day                                                                              |
 | Subscriptions per topic                               | 100                                                                                |
-| Connected clients per namespace (queue subscriptions) | 5,000                                                                              |
-| Event size                                            | 1 MB                                                                               |
+| Connected clients per namespace (queue subscriptions) | 1,000                                                                              |
+| Maximum event size                                    | 1 MB                                                                               |
 | Batch size                                            | 1 MB                                                                               |
 | Events per request                                    | 5,000                                                                              |
 
