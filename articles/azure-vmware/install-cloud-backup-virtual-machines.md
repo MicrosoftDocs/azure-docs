@@ -18,7 +18,7 @@ Use Cloud Backup for VMs to:
 
 ## Prerequisites
 
-You must have the right permissions in Azure to create an Active Directory application and to assign the application to a role. For details, see [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+You must have the right permissions in Azure to create an Active Directory application and to assign the application to a role. For details, see [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Install Cloud Backup for Virtual Machines
 
