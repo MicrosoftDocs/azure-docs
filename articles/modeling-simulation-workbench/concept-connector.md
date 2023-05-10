@@ -16,11 +16,11 @@ Connectors are used to define and configure the network access between an organi
 
 ## VPN or Azure Express Route
 
-For organizations who have an Azure network setup to manage access for their employees, they can have strict controls of the VNet and Subnet addresses used for connecting into the chamber. At creation time of the connector, the Workbench Owner can connect a virtual network with VPN gateway and/or ExpressRoute gateway to establish a secure connection from your on-premises network to the chamber. The VNet selection can be dynamically configured to disconnect or connect to a different virtual network.
+For organizations who have an Azure network setup to manage access for their employees, they can have strict controls of the virtual network subnet addresses used for connecting into the chamber. At creation time of the connector, the Chamber Admin or Workbench Owner can connect a virtual network subnet with VPN gateway or ExpressRoute gateway to establish a secure connection from your on-premises network to the chamber. The subnet selection should be a non gateway subnet within the same virtual network with the gateway subnet for VPN gateway or ExpressRoute gateway.
 
-## Network Access Control Lists
+## Allowlisted Public IP addresses
 
-For those organizations who don't have an Azure network setup, or prefer to use the public network, they can configure their connector to allow access to the chamber via Network Access Control Lists (ACLs). The connector object allows the allowed IP list to be configured at creation time or added or removed dynamically after the connector object is created.
+For those organizations who don't have an Azure network setup, or prefer to use the public network, they can configure their connector to allow access to the chamber via allowlisted Public IP addresses. The connector object allows the allowed IP list to be configured at creation time or added or removed dynamically after the connector object is created.
 
 ## Next steps
 

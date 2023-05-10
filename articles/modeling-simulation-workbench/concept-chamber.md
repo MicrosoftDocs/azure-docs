@@ -19,7 +19,7 @@ For the Azure Modeling and Simulation Workbench user, the chamber component offe
 In Azure Modeling and Simulation Workbench, the term chamber describes a group of connected computers (nodes) working together as a single system. Only provisioned users can access the chamber environment. User provisioning is done at the chamber component utilizing IAM [(Access Control)](/azure/role-based-access-control/role-assignments-portal) Cross-team and/or cross-organization individuals can collaborate on the same projects through the chambers. Multifactor (MFA) authentication enabled through Azure AD enhances your organizations security and is recommended.
 
 - Chambers offer optimized infrastructure, allowing users to choose from varied VM sizes, storage options, and compute resources to constitute workloads.
-- Chambers enable a pre-config environment for license server access and full-featured workload tools.
+- Chambers enable a preconfig environment for license server access and full-featured workload tools.
 - On-demand chambers are nested to Modeling and Simulation [Workbench](./concept-workbench.md) resource.
 
 ## Chamber features

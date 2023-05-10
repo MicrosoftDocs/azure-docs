@@ -33,11 +33,13 @@ If you have trouble accessing the remote desktop dashboard URL provided for your
 
 If you see a blue sign-in screen when navigating to your chamber's remote desktop dashboard URL, the single sign-on authentication configuration isn't set up properly.
 
+1. Ensure your user has been provisioned as a chamber user or a chamber admin on the chamber resource. Not a parent resource with inherited permission, but IAM role set directly for that chamber.
+1. Ensure your user has a valid email set for their AAD profile, and they log into AAD with alias which matches their alias for their email. e.g. John Doe at Contoso with alias of _johnd_ should log in to AAD using _johnd_ alias, where their email is johnd@contoso.com. Not logging in with _johndoe_ or any other variation.
 1. Review the instructions to verify your App Registration is set up properly as defined here [Create an application in Azure Active Directory](./quickstart-create-portal.md#create-an-application-in-azure-active-directory)
 1. Ensure you've registered your chamber connector's redirect URIs as defined here [Update the application in Azure Active Directory](./quickstart-create-portal.md#update-the-application-in-azure-active-directory)
 1. If your application client secret has expired
     1. Generate a new secret, take note of the client secret value
-    1. Update your Key Vault app secret value with the newly generated client secret value
+    1. Update your Key Vault app secret value with the newly generated client **secret value**
     1. For your Modeling and Simulation Workbench instance, update the OTDS keyVault keys. If you reused your Key Vault app secret value key, make sure to provide version for the new secret value.<!---TODO Link to documentation for this step. If not the manage workbench or chamber, at least the REST API docs --->
 
 ## License server troubleshooting
@@ -91,6 +93,7 @@ If you see a blue sign-in screen when navigating to your chamber's remote deskto
     1. If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.
 1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User. <!--- TODO Add screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set --->
 1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [how to upload data](./howtoguide-upload-data.md)
+1. Check your version of azcopy, while we recommend 'latest', there are known issues with v10.18.0 so that version will not work.
 1. If the issue persists, contact your Microsoft account representative.
 
 ### Unable to request data download request

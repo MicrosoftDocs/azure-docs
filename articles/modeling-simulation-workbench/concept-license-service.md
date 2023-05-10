@@ -14,7 +14,7 @@ ms.date: 01/01/2023
 
 ## License service - an introduction
 
-Engineering design tools are widely used across industries to enable design teams to run their flows efficiently. Many these proprietary software requires licenses. FlexLM is the most commonly used license manager, and we have integrated license management via FlexLM in our flows. These FlexLM licenses are tied to hardware, so at the time of workbench initialization, within each deployed chamber we set up a license server and expose all the HostID's for license procurement.  
+Engineering design tools are widely used across industries to enable design teams to run their flows efficiently. Many these proprietary software requires licenses. FlexLM is the most commonly used license manager, and we have integrated license management via FlexLM in our flows. For each deployed chamber within the workbench, we set up a license server and expose the FlexLM HostID's to procure licenses.
 
 Users request tool licenses for the specific HostID. Once the license file is received from the tool vendor, users can then import that to kick off the license service from the Azure portal.  
 
