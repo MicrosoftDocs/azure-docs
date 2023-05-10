@@ -91,7 +91,7 @@ For enhanced security, you can use Azure Active Directory (Azure AD) to manage a
 
 ### Encryption of data at rest
 
-Learn how Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md).
+Learn how Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md). Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 ## Pricing
 
