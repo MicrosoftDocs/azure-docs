@@ -8,7 +8,7 @@ ms.date: 05/01/2023
 ms.custom: ignite-fall-2022, references_regions
 ---
 
-# Deploy a Kubernetes application from Azure Marketplace (preview)
+# Deploy a Kubernetes application from Azure Marketplace 
 
 [Azure Marketplace][azure-marketplace] is an online store that contains thousands of IT software applications and services built by industry-leading technology companies. In Azure Marketplace, you can find, try, buy, and deploy the software and services that you need to build new solutions and manage your cloud infrastructure. The catalog includes solutions for different industries and technical areas, free trials, and consulting services from Microsoft partners.
 
@@ -25,19 +25,7 @@ Included among these solutions are Kubernetes application-based container offers
 
 This feature is currently supported only in the following regions:
 
-- East US
-- West US
-- Central US
-- West Central US
-- South Central US
-- East US 2
-- West US 2
-- West Europe
-- North Europe
-- Canada Central
-- Southeast Asia
-- Australia East
-- Central India
+- East US, EastUS2EUAP, West US, Central US, West Central US, South Central US, East US2, West US2, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India 
 
 Kubernetes application-based container offers can't be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
@@ -111,9 +99,9 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 Verify the deployment by using the following command to list the extensions that are running on your cluster:
 
-   ```azurecli-interactive
-   az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
-   ```
+```azurecli-interactive
+az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
+```
 
 ### [Portal](#tab/azure-portal)
 
@@ -191,6 +179,11 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 
 <!-- LINKS -->
 [azure-marketplace]: /marketplace/azure-marketplace-overview
+
 [cluster-extensions]: ./cluster-extensions.md
+
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
+
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
+
