@@ -192,7 +192,7 @@ items:
               items: 
                 - name: Node.js
                   items:
-                    - name: Call an API
+                    - name: Acquire token, call an API
                       items:
                         - name: Overview
                           href: how-to-daemon-node-call-api-overview.md
