@@ -39,7 +39,7 @@ Azure Spring Apps supports both Java [Spring Boot](https://spring.io/projects/sp
 
 ## Service overview
 
-As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more as shown in the following illustration:
+As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more as shown in the following image:
 
 :::image type="content" source="media/overview/overview.png" alt-text="Diagram showing an overview of how Azure Spring Apps interacts with other services and tools." lightbox="media/overview/overview.png" border="false":::
 
@@ -47,7 +47,7 @@ Azure Spring Apps provides you with the following capabilities:
 
 * A fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
-* Deploy your JARs or code for your Spring Boot app or Zip for your Steeltoe app, and Azure Spring Apps automatically wires your apps with Spring service runtime and built-in app lifecycle.
+* Deploy your JARs or code for your Spring Boot app, or Zip for your Steeltoe app, and Azure Spring Apps automatically wires your apps with Spring service runtime and built-in app lifecycle.
 
 * Ease of monitoring. After deployment you can monitor app performance, fix errors, and rapidly improve applications.
 
@@ -85,14 +85,23 @@ You can run your apps in any combination of consumption or dedicated workload pr
 
 The Standard consumption and dedicated plan simplifies the virtual network experience for running polyglot applications. In the Standard consumption and dedicated plan, when you deploy frontend applications as containers in Azure Container Apps, all your applications share the same virtual network in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
+The following image shows the architecture of using a virtual network in Azure Spring Apps:
+
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
-## Get started with the Standard consumption plan
+### Get started with the Standard consumption plan
 
 The following articles help you get started using the Standard consumption plan:
 
 * [Provision an Azure Spring Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md)
 * [Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
+* [Access applications using Azure Spring Apps Standard consumption plan in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
+* [Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan](quickstart-deploy-event-driven-app-standard-consumption.md)
+* [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](quickstart-apps-autoscale-standard-consumption.md)
+* [Map a custom domain to Azure Spring Apps with the Standard consumption plan](quickstart-standard-consumption-custom-domain.md)
+* [Analyze logs and metrics in the Azure Spring Apps Standard consumption plan](quickstart-analyze-logs-and-metrics-standard-consumption.md)
+* [Enable your own persistent storage in Azure Spring Apps with the Standard consumption plan](how-to-custom-persistent-storage-with-standard-consumption.md)
+* [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](standard-consumption-customer-responsibilities.md)
 
 ## Enterprise plan
 
@@ -119,7 +128,7 @@ Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .
 
 You can manage and discover request routes and APIs exposed by applications using the fully managed Spring Cloud Gateway for VMware Tanzu® and API portal for VMware Tanzu®.
 
-Spring Cloud Gateway for Tanzu effectively routes diverse client requests to applications in Azure Spring Apps, Azure, and on-premises. Spring Cloud Gateway also addresses cross-cutting considerations for applications behind the Gateway. These considerations include securing, routing, rate limiting, caching, monitoring, resiliency and hiding applications. You can make the following configurations:
+Spring Cloud Gateway for Tanzu effectively routes diverse client requests to applications in Azure Spring Apps, Azure, and on-premises. Spring Cloud Gateway also addresses cross-cutting considerations for applications behind the Gateway. These considerations include securing, routing, rate limiting, caching, monitoring, resiliency and hiding applications. You can make the following configurations to Spring Cloud Gateway:
 
 * Single sign-on integration with your preferred identity provider without any extra code or dependencies.
 * Dynamic routing rules to applications without any application redeployment.
@@ -165,20 +174,6 @@ Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully manag
 | Use familiar development tools.                                    | IntelliJ, Visual Studio Code, Eclipse, Spring Tool Suite, Maven, or Gradle                            |
 
 After you create your Enterprise plan service instance and deploy your applications, you can monitor with Application Insights or any other application performance management tools of your choice.
-
-### Get started with the Standard consumption plan
-
-The following articles help you get started using the Standard consumption plan:
-
-* [Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md)
-* [Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
-* [Access applications using Azure Spring Apps Standard consumption plan in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
-* [Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan](quickstart-deploy-event-driven-app-standard-consumption.md)
-* [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](quickstart-apps-autoscale-standard-consumption.md)
-* [Map a custom domain to Azure Spring Apps with the Standard consumption plan](quickstart-standard-consumption-custom-domain.md)
-* [Analyze logs and metrics in the Azure Spring Apps Standard consumption plan](quickstart-analyze-logs-and-metrics-standard-consumption.md)
-* [Enable your own persistent storage in Azure Spring Apps with the Standard consumption plan](how-to-custom-persistent-storage-with-standard-consumption.md)
-* [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](standard-consumption-customer-responsibilities.md)
 
 ### Get started with the Enterprise plan
 
