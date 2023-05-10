@@ -36,7 +36,7 @@ This article applies to API version 2022-11-01-preview.
     "name": [string],
     "status": [string, enum("provisioning", "ready", "archived", "failed")],
     "filters": [array<SnapshotFilter>],
-    "composition_type": [string, enum("all", "group_by_key")],
+    "composition_type": [string, enum("key", "key_label")],
     "created": [datetime ISO 8601],
     "size": [number, bytes],
     "items_count": [number],
@@ -84,7 +84,7 @@ Link: </kv?snapshot=prod-2023-03-20&api-version={api-version}>; rel="items"
           "label": null
       }
   ],
-  "composition_type": "group_by_key",
+  "composition_type": "key",
   "created": "2023-03-20T21:00:03+00:00",
   "size": 2000,
   "items_count": 4,
@@ -258,8 +258,8 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 | filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
 | filters[\<index\>].key | yes | n/a | |
 | tags | no | {} | |
-| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") are not supported with 'group_by_key' composition type. |
-| composition_type | no | group_by_key | |
+| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") are not supported with 'key' composition type. |
+| composition_type | no | key | |
 | retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
 
 ```http
@@ -279,8 +279,8 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json
     "tag1": "value1",
     "tag2": "value2",
   },
-  "composition_type": "group_by_key",  // optional
-  "retention_period": 2592000          // optional
+  "composition_type": "key",          // optional
+  "retention_period": 2592000         // optional
 }
 ```
 
@@ -305,7 +305,7 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
           "label": "prod"
       }
   ],
-  "composition_type": "group_by_key",
+  "composition_type": "key",
   "created": "2023-03-20T21:00:03+00:00",
   "size": 2000,
   "items_count": 4,
