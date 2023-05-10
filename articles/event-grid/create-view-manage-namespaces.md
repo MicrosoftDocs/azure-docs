@@ -25,7 +25,7 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
     :::image type="content" source="media/create-view-manage-namespaces/overview-create.png" alt-text="Screenshot showing Event Grid overview.":::
 
-4. On the **Basics** tab, select the Azure subscription, resource group, name, location, [availability zone](concepts.md#availability-zones), and [throughput units](concepts.md#throughput-units) for your Event Grid namespace.
+4. On the **Basics** tab, select the Azure subscription, resource group, name, location, [availability zone](concepts.md#availability-zones), and [throughput units](concepts-pull-delivery.md#throughput-units) for your Event Grid namespace.
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
 

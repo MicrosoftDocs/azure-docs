@@ -27,11 +27,11 @@ The following table shows the current support for CloudEvents specification:
 The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 64-KB increments. For the properties that are sent in an event, see [CloudEvents schema](cloud-event-schema.md).
 
 ## Publishers
-A publisher is the application that sends events to Event Grid. It may be the same application where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service. You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
+A publisher is the application that sends events to Event Grid. It may be the same application where the events originated, the event source. You can publish events from your own application when using Namespace topics.
 
+ 
 ## Event sources
-
-An event source is where the event happens. Each event source is related to one or more event types. For example, Azure Storage is the event source for blob created events. IoT Hub is the event source for device created events. Your application is the event source for custom events that you define. Event sources are responsible for sending events to Event Grid.
+An event source is where the event happens. Each event source is related to one or more event types. For example, your application is the event source for custom events that you define. When using namespace topics, the event sources supported is your own applications.
 
 ## Namespaces
 An Event Grid Namespace is a management container for the following resources:<br/>
