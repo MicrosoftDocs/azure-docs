@@ -172,7 +172,7 @@ Let's print sample data from the feature set. The output information shows that 
 
 ## Cleanup
 
-[Part 4](./tutoriatutorial-enable-recurrent-materialization-and-run-batch-inferencel-use-features-to-train-and-experiment.md#cleanup) of this tutorial describes how to delete the resources
+[Part 4](./tutorial-enable-recurrent-materialization-and-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
