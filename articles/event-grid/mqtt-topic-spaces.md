@@ -34,7 +34,7 @@ Event Grid supports all the MQTT wildcards defined by the [MQTT specification](h
         - machines/humidity
         - machines/temp/alert etc.
 
-For more details about wildcards, see [Topic Wildcards in the MQTT spc](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
+For more information about wildcards, see [Topic Wildcards in the MQTT spc](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
 
 ## Topic templates
 
@@ -45,7 +45,7 @@ Topic templates are an extension of MQTT filters that support variables, along w
 Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wildcards (+ and #) and the following variables:
 
 - ${client.authenticationName}: this variable represents the authentication name of the client. [Learn more about client authentication names.](mqtt-clients.md#key-terms-of-client-metadata)
-- \${client.attributes.x}: this variable represents an assigned attribute to a client during client creation/update, such as "x" would be equal to the exact string of the attribute key. E.g., if a client has the attribute, a topic template “area/${client.attributes.area}/telemetry” will enable only the clients with the client attribute> “area:section1” to publish on the MQTT topic “area/section1/telemetry”. [Learn more about client attributes.](mqtt-clients.md)
+- \${client.attributes.x}: this variable represents an assigned attribute to a client during client creation/update, such as "x" would be equal to the exact string of the attribute key. E.g., if a client has the attribute, a topic template “area/${client.attributes.area}/telemetry”  enables only the clients with the client attribute> “area:section1” to publish on the MQTT topic “area/section1/telemetry”. [Learn more about client attributes.](mqtt-clients.md)
 
 **Note:**
 
@@ -63,6 +63,11 @@ Use the following steps to create a topic space:
 - Go to your namespace in the Azure portal.
 - Under Topic Spaces, select the +Topic Space.
 - Assign a Name to your topic space.
+
+> [!NOTE]
+> - Topic space name can be 3-50 characters long
+> - Topic space name can include alphanumeric, hyphen(-) and, no spaces
+
 - Add at least one topic template by selecting +Add topic template.
 - Select Create.
 
