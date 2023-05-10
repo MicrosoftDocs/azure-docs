@@ -32,7 +32,7 @@ When needed, you can also create a self-signed certificate programmatically by u
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial]((https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
 
 - [OpenSSL](https://wiki.openssl.org/index.php/Binaries) or you can easily install [OpenSSL](https://community.chocolatey.org/packages/openssl) in Windows via [Chocolatey](https://chocolatey.org/). 
 
@@ -69,7 +69,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
     ```console
     openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
     ```
-After you complete these steps, you should have a *.cer* format file and the *.key* format file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* file is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
+After you complete these steps, you should have a *.cer* file and the *.key* file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* file is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 
 
@@ -99,7 +99,7 @@ Once you associate your app registration with the certificate, you need to updat
     require('dotenv').config();
     const fs = require('fs'); //// import the fs module for reading the key file
     const crypto = require('crypto');
-    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const TENANT_SUBDOMAIN = process.env.TENANT_SUBDOMAIN || 'Enter_the_Tenant_Subdomain_Here';
     const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
     const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
@@ -124,7 +124,7 @@ Once you associate your app registration with the certificate, you need to updat
         const msalConfig = {
             auth: {
                 clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-                authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+                authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
                 //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
                 clientCertificate: {
                     thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
@@ -138,7 +138,7 @@ Once you associate your app registration with the certificate, you need to updat
         msalConfig,
         REDIRECT_URI,
         POST_LOGOUT_REDIRECT_URI,
-        TENANT_NAME
+        TENANT_SUBDOMAIN
     };
     ```   
     In your code, replace the placeholders: 
@@ -151,9 +151,9 @@ Once you associate your app registration with the certificate, you need to updat
     
     -  `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
     
-    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
-    We encrypted the key (we recommend that you do so), so we've to decrypt it before we pass it to MSAL configuration object.
+    We encrypted the key (we recommend that you do so), so we have to decrypt it before we pass it to MSAL configuration object.
 
     ```javascript
     //...
@@ -181,7 +181,7 @@ You can use your existing certificate directly from Azure Key Vault:
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+            authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
             //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         //...
@@ -268,4 +268,4 @@ You can use your existing certificate directly from Azure Key Vault:
 
 Learn how to:
 
-- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md).
+- [Sign in users and call an API in your own Node.js web application](how-to-web-app-node-sign-in-call-api-overview.md).

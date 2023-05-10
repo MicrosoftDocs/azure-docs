@@ -23,6 +23,15 @@ Clustering doesn't increase the number of connections available for a clustered 
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication, where the replication is managed by Azure Cache for Redis service.
 
+## Azure Cache for Redis now supports upto 30 shards (preview)
+
+Azure Cache for Redis now supports upto 30 shards for clustered caches. Clustered caches configured with two replicas can support upto 15 shards and clustered caches configured with three replicas can support upto 15 shards.
+
+**Limitations**
+* Shard limit for caches with Redis verion 4 is 10.
+* Shard limit for [caches affected by cloud service retirement](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic) is 10.
+* Maintenance will take longer as each node take roughly 20 minutes to update. Other maintenance operations will be blocked while your cache is under maintenance.
+
 ## Set up clustering
 
 Clustering is enabled  **New Azure Cache for Redis** on the left during cache creation.

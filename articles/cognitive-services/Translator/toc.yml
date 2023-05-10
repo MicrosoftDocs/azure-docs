@@ -13,9 +13,9 @@ items:
   - name: Pricing
     displayName: cost,free,standard,custom,tier,S1,S2,S3,S4,C2,C3,C4,D3,hosting
     href: https://azure.microsoft.com/pricing/details/cognitive-services/translator
-  - name: Request limits
+  - name: Service limits
     displayName: detection,detect,region,
-    href: request-limits.md
+    href: service-limits.md
   - name: What's new?
     displayName: release,ga,update,support
     href: whats-new.md
