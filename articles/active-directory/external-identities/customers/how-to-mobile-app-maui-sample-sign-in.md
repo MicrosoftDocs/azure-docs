@@ -79,15 +79,15 @@ Clean the solution, rebuild the solution, and run it.
 
 1. You can now test the sample .NET MAUI Android app. After you run the app, the Android app window appears in an emulator:
 
-   :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-sign-in.jpg" alt-text="Screenshot that shows sign in button.":::
+   :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-sign-in.jpg" alt-text="Screenshot of the sign-in button in the Android application.":::
 
 1. On the Android window that appears, select the **Sign In** button. A browser window opens, and you're prompted to sign in.
 
-   :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-sign-in-prompt.jpg" alt-text="Screenshot of user to enter credential.":::
+   :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-sign-in-prompt.jpg" alt-text="Screenshot of user prompt to enter credential in Android application.":::
 
    During the sign in process, you're prompted to grant various permissions (to allow the application to access your data). Upon successful sign in and consent, the application screen displays the main page.
 
-   :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-after-sign-in.png" alt-text="Screenshot of user to enter credential.":::
+   :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-after-sign-in.png" alt-text="Screenshot of the main page in the Android application after signing in.":::
 
 
 ## Next Steps

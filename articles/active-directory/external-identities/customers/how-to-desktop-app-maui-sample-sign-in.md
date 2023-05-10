@@ -36,7 +36,7 @@ In this article, you do the following tasks:
   - [Instructions for macOS](/dotnet/maui/get-started/installation?tabs=vsmac)
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
 
-## Register .NET MAUI desktop app
+## Register .NET MAUI desktop application
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-platform](./includes/register-app/add-platform-redirect-url-dotnet-maui.md)]
@@ -61,30 +61,30 @@ To get the .NET MAUI desktop application sample code, [download the .zip file](h
 git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 ```
 
-## Configure the sample .NET MAUI desktop app
+## Configure the sample .NET MAUI desktop application
 
 1. In Visual Studio, open `ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/appsettings.json` file.
 1. Find the placeholder:
    1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`.
    1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
 
-## Run and test sample .NET MAUI desktop app
+## Run and test sample .NET MAUI desktop application
 
 Choose the Windows platform to work on by setting the startup project in the Solution Explorer. Make sure that your platform of choice is marked for build and deploy in the Configuration Manager.
 
 Clean the solution, rebuild the solution, and run it.
 
-1. You can now test the sample .NET MAUI desktop app. After you run the app, the desktop app window appears automatically:
+1. You can now test the sample .NET MAUI desktop application. After you run the application, the desktop application window appears automatically:
 
-   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-page.jpg" alt-text="Screenshot that shows sign in button.":::
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-page.jpg" alt-text="Screenshot of the sign-in button in the desktop application":::
 
 1. On the desktop window that appears, select the **Sign In** button. A browser window opens, and you're prompted to sign in.
 
-   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-prompt.jpg" alt-text="Screenshot of user to enter credential.":::
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-prompt.jpg" alt-text="Screenshot of user prompt to enter credential in desktop application.":::
 
    During the sign in process, you're prompted to grant various permissions (to allow the application to access your data). Upon successful sign in and consent, the application screen displays the main page.
 
-   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-after-sign-in.png" alt-text="Screenshot of user to enter credential.":::
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-after-sign-in.png" alt-text="Screenshot of the main page in the desktop application after signing in..":::
 
 ## Next Steps
 
