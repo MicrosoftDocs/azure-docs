@@ -14,4 +14,4 @@ ms.author: dhruvmu
 | Free trial         |    0     |         0           |     0       |       0             |       0          |
 | Azure for Students |    0     |         0           |     0       |       0             |       0          |
 | Enterprise         |   80     |        10           |     5       |     200             |     500          |
-| MSDN               |  n/a     |         0           |     2       |     200             |     500          |
+| MSDN               |  n/a     |         5           |     2       |     200             |     500          |
