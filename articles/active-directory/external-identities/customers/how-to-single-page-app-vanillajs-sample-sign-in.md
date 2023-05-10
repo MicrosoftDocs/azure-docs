@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in a sample vanilla JavaScript single-page application
 
-This how-to guide uses a sample vanilla JavaScript Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure Azure Active Directory (AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample vanilla JavaScript single-Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure Azure Active Directory (AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 
@@ -88,8 +88,8 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 1. Open a web browser and navigate to `http://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your CIAM tenant, which starts the sign-up flow as a user for your application.
-1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+1. In the **Create account** window, enter the email address registered to your customer tenant, which starts the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
 1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
