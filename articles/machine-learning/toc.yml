@@ -1182,9 +1182,19 @@
             - name: Responsible AI insights (UI)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
               href: how-to-responsible-ai-insights-ui.md
+            - name: Responsible AI vision insights
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-vision-insights.md
+            - name: Responsible AI text insights 
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-text-insights.md
         - name: Using the Responsible AI dashboard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
+        - name: Using the Responsible AI image dashboard
+          href: how-to-responsible-ai-image-dashboard.md
+        - name: Using the Responsible AI text dashboard
+          href: how-to-responsible-ai-text-dashboard.md
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
