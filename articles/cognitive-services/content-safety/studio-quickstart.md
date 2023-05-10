@@ -24,30 +24,46 @@ In this quickstart, get started with the Content Safety service using Content Sa
 
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Content Safety](https://aka.ms/acs-create) Azure resource.
+* Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource. 
+
 
 ## Analyze text content
+The [Moderate text content](https://contentsafety.cognitive.azure.com/text) page provides capability for you to quickly try out text moderation.
 
-1. Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource.
+:::image type="content" source="media/analyzetext.png" alt-text="Screenshot of Analyze Text panel.":::
+
 1. Select the **Moderate text content** panel.
 1. Add text to the input field, or select sample text from the panels on the page.
 1. Select **Run test**.
 
-The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
+The service returns all the categories that were detected, with the severity level for each(0-Safe, 2-Low, 4-Medium, 6-High). It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
 The **Use blocklist** tab on the right lets you create, edit, and add a blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you get a **Blocklist detection** panel under **Results**. It reports any matches with the blocklist.
 
 ## Analyze image content
+The [Moderate image content](https://contentsafety.cognitive.azure.com/image) page provides capability for you to quickly try out image moderation.
 
-1. Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource.
+:::image type="content" source="media/analyzeimage.png" alt-text="Screenshot of Analyze Image panel.":::
+
 1. Select the **Moderate image content** panel.
 1. Select a sample image from the panels on the page, or upload your own image. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
 1. Select **Run test**.
 
-The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
+The service returns all the categories that were detected, with the severity level for each(0-Safe, 2-Low, 4-Medium, 6-High). It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
+
+## View and export code
+You can use the **View Code** feature in both *Analyze text content* or *Analyze image content* page to view and copy the sample code, which includes configuration for severity filtering, blocklists, and moderation functions. You can then deploy the code on your end.
+
+:::image type="content" source="media/viewcode.png" alt-text="Screenshot of the View code.":::
+
 
 ## Monitor online activity
 
-The [Monitor online activity](https://contentsafety.cognitive.azure.com/monitor) page lets you view your API usage and trends. You can choose which **Media type** to monitor, between image and text. You can choose the **Granularity** to change the visualizations, either **Auto**, **Hourly** or **Daily**. You can also specify the time range that you want to check by selecting **Show data for the last __**.
+The [Monitor online activity](https://contentsafety.cognitive.azure.com/monitor) page lets you view your API usage and trends. 
+
+:::image type="content" source="media/monitor.png" alt-text="Screenshot of Monitoring panel.":::
+
+You can choose which **Media type** to monitor. You can also specify the time range that you want to check by selecting **Show data for the last __**.
 
 In the **Reject rate per category** chart, you can also adjust the severity thresholds for each category.
 
@@ -55,9 +71,14 @@ In the **Reject rate per category** chart, you can also adjust the severity thre
 
 You can also edit blocklists if you want to change some terms, based on the **Top 10 blocked terms** chart.
 
+## Manage your resource
+To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the Form Recognizer Studio home page and select the **Resource** tab. If you have access to other resources, you can switch resources as well.
+
+:::image type="content" source="media/manageresource.png" alt-text="Screenshot of Manage Resource.":::
+
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove a Cognitive Services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 - [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
