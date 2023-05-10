@@ -1,6 +1,6 @@
 ---
-title: Migrate WAF policies for Azure Application Gateway
-description: Learn how to migrate Azure Web Application Firewall policies using Azure PowerShell.
+title: Upgrade WAF policies for Azure Application Gateway
+description: Learn how to upgrade Azure Web Application Firewall policies using Azure PowerShell.
 services: web-application-firewall
 ms.topic: how-to
 author: vhorne
@@ -10,13 +10,13 @@ ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate Web Application Firewall policies using Azure PowerShell
+# Upgrade Web Application Firewall policies using Azure PowerShell
 
-This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *migrate to WAF policy*, or you may want the new WAF features such as Geomatch custom rules, per-site WAF policy, and per-URI WAF policy (preview), or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
+This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *upgrade to WAF policy*, or you may want the new WAF features such as Geomatch custom rules, per-site WAF policy, and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
 
-For more information about creating a new WAF policy, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). For information about migrating, see [Migrate to WAF policy](create-waf-policy-ag.md#migrate-to-waf-policy).
+For more information about creating a new WAF policy, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). For information about migrating, see [upgrade to WAF policy](create-waf-policy-ag.md#upgrade-to-waf-policy).
 
-## To migrate to WAF policy using the migration script
+## To upgrade to WAF policy using the migration script
 
 Use the following steps to run the migration script: 
 
@@ -35,7 +35,7 @@ Use the following steps to run the migration script:
 ```azurepowershell-interactive
 <#PSScriptInfo
 .DESCRIPTION
-Will be used to migrate to the application-gateway to a top level waf policy experience.
+Will be used to upgrade to the application-gateway to a top level waf policy experience.
 
 .VERSION 1.0
 
@@ -90,7 +90,7 @@ function ValidateInput ($appgwName, $resourceGroupName) {
             foreach ($disabled in $appgw.WebApplicationFirewallConfiguration.DisabledRuleGroups) {
                 if ($disabled.Rules.Count -eq 0) {
                     $ruleGroupName = $disabled.RuleGroupName
-                    Write-Error "The ruleGroup '$ruleGroupName' is disabled. Currently we can't migrate to a firewall policy when an entire ruleGroup is disabled. This feature will be delivered shortly. To continue, kindly ensure the entire rulegroups are not disabled. "
+                    Write-Error "The ruleGroup '$ruleGroupName' is disabled. Currently we can't upgrade to a firewall policy when an entire ruleGroup is disabled. This feature will be delivered shortly. To continue, kindly ensure the entire rulegroups are not disabled. "
                     return $false
                 }
             }
@@ -100,7 +100,7 @@ function ValidateInput ($appgwName, $resourceGroupName) {
         if ($appgw.WebApplicationFirewallConfiguration.Exclusions) {
             foreach ($excl in $appgw.WebApplicationFirewallConfiguration.Exclusions) {
                 if ($null -ne $excl.MatchVariable -and $null -eq $excl.SelectorMatchOperator -and $null -eq $excl.Selector) {
-                    Write-Error " You have an exclusion entry(s) with the 'Equals any' operator. Currently we can't migrate to a firewall policy with 'Equals Any' operator. This feature will be delivered shortly. To continue, kindly ensure exclusion entries with 'Equals Any' operator is not present. "
+                    Write-Error " You have an exclusion entry(s) with the 'Equals any' operator. Currently we can't upgrade to a firewall policy with 'Equals Any' operator. This feature will be delivered shortly. To continue, kindly ensure exclusion entries with 'Equals Any' operator is not present. "
                     return $false
                 }
             }
