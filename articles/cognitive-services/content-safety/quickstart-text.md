@@ -47,4 +47,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
 
 > [!div class="nextstepaction"]
-> [Content Safety Studio quickstart](./studio-quickstart.md.md)
+> [Content Safety Studio quickstart](./studio-quickstart.md)
