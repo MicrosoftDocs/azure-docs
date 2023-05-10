@@ -1,5 +1,5 @@
 ---
-title: ign in users and call an API in a Node.js web application - acquire an access token
+title: Sign in users and call an API in a Node.js web application - acquire an access token
 description: Learn how to sign-in users and acquire an access token for calling an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
