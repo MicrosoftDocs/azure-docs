@@ -15,7 +15,6 @@ ms.custom: references_regions
 
 Before migrating to Azure SQL, you can use the SQL Migration extension in Azure Data Studio to help you generate right-sized recommendations (Preview) for Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure Virtual Machines targets. The tool helps you collect performance data from your source SQL instance (running on-premises or other cloud), and recommend a compute and storage configuration to meet your workload's needs.
 
-
 The diagram presents the workflow for Azure recommendations in the Azure SQL Migration extension for Azure Data Studio:
 
 :::image type="content" source="media/ads-sku-recommend/ads-sql-sku-recommend.png" border="false" alt-text="Diagram that shows the workflow of the SKU recommendation process.":::
