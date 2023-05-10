@@ -74,7 +74,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
     For other methods of installing the SMB CSI Driver, see [Install SMB CSI driver master version on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/blob/master/docs/install-csi-driver-master.md). 
 
-2.	Verify that the csi-smb controller pod is running and each worker node has a pod running using the kubectl get pods command:   
+2.	Verify that the `csi-smb` controller pod is running and each worker node has a pod running using the [`kubectl get pods`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command:   
 
     ```bash
     kubectl get pods -n kube-system | grep csi-smb
@@ -98,7 +98,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
     The following output is an example of the above command executed with real values. 
 
-    ```bash
+    ```output
     {
       ...
       "creationToken": "myvolname",
@@ -150,7 +150,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     kubectl apply -f pv-smb.yaml
     ```
 
-4. Verify the Status of the PersistentVolume is Available using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
+4. Verify the status of the persistent volume is *Available* using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe pv pv-smb
@@ -181,7 +181,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     kubectl apply -f pvc-smb.yaml
     ```
 
-    Verify the Status of the persistent volume claim is Bound using the kubectl describe command:   
+    Verify the status of the persistent volume claim is *Bound* by using the [kubectl describe][kubectl-describe] command:   
 
     ```bash
     kubectl describe pvc pvc-smb
@@ -270,7 +270,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     ...
     ```
 
-4. Verify your volume has been mounted on the pod by using the [kubectl exec][kubectl-exec] command to connect to the pod, and then use `df -h` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
+4. Verify your volume has been mounted on the pod by using the [kubectl exec][kubectl-exec] command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
 
     ```bash
     kubectl exec -it iis-pod –- cmd.exe
@@ -355,8 +355,8 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
 
     ```output
     Name:         trident
-	    Namespace:    
-	    Labels:       app.kubernetes.io/managed-by=Helm
+    Namespace:    
+	Labels:       app.kubernetes.io/managed-by=Helm
     Annotations:  meta.helm.sh/release-name: trident
                   meta.helm.sh/release-namespace: trident
     API Version:  trident.netapp.io/v1
@@ -601,7 +601,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
 ### Use the persistent volume
 
-After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an IIS pod that mounts the Azure NetApp Files SMB share created in the previous step. In this example, the volume is mounted at /inetpub/wwwroot.
+After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an IIS pod that mounts the Azure NetApp Files SMB share created in the previous step. In this example, the volume is mounted at `/inetpub/wwwroot`.
 
 1. Create a file named `anf-iis-pod.yaml` and copy in the following YAML:
 

@@ -78,7 +78,6 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 2. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from Step 1, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
 
     ```yaml
-    ---
     apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -101,7 +100,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
     kubectl apply -f pv-nfs.yaml
     ```
 
-4. Verify the *Status* of the `PersistentVolume` is *Available* by using the [kubectl describe][kubectl-describe] command:
+4. Verify the status of the persistent volume is *Available* by using the [kubectl describe][kubectl-describe] command:
 
     ```bash
     kubectl describe pv pv-nfs
@@ -312,6 +311,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
 1. Create a file named `backend-secret.yaml` and copy in the following YAML. Change the `Client ID` and `clientSecret` to the correct values for your environment.
 
     ```yaml    
+    apiVersion: v1
     kind: Secret
     metadata:
       name: backend-tbc-anf-secret
@@ -321,7 +321,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
       clientSecret: rR0rUmWXfNioN1KhtHisiSAnoTherboGuskey6pU
     ```
 
-2. Create a file named `backend-anf.yaml` and copy in the following YAML. Change the `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment. Use the `subscriptionID` for the Azure subscription where Azure NetApp Files is enabled. Obtain the `tenantID`, `clientID`, and `clientSecret` from an App Registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The location must be an Azure location that contains at least one delegated subnet created in a previous step. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
+2. Create a file named `backend-anf.yaml` and copy in the following YAML. Change the `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment. Use the `subscriptionID` for the Azure subscription where Azure NetApp Files is enabled. Obtain the `tenantID`, `clientID`, and `clientSecret` from an [application registration](../active-directory/develop/howto-create-service-principal-portal.md) in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The location must be an Azure location that contains at least one delegated subnet created in a previous step. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
 
     ```yaml
     apiVersion: trident.netapp.io/v1
@@ -341,7 +341,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
 
     For more information about backends, see [Azure NetApp Files backend configuration options and examples](https://docs.netapp.com/us-en/trident/trident-use/anf-examples.html). 
 
-3. Create the secret and backend using the kubectl apply command:
+3. Create the secret and backend using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl apply -f backend-secret.yaml -n trident
@@ -405,7 +405,7 @@ A storage class is used to define how a unit of storage is dynamically created w
     storageclass/azure-netapp-files created
     ```
 
-3.	Run the kubectl get command to view the status of the storage class: 
+3.	Run the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to view the status of the storage class: 
 
     ```bash
     kubectl get sc
@@ -439,11 +439,11 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
     kubectl apply -f anf-pvc.yaml
     ```
 
-  The output of the command resembles the following example:   
-
-  ```output
-  persistentvolumeclaim/anf-pvc created
-  ```
+    The output of the command resembles the following example:   
+    
+    ```output
+    persistentvolumeclaim/anf-pvc created
+    ```
 
 3. To view information about the persistent volume claim, run the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command:   
 
@@ -464,7 +464,7 @@ After the PVC is created, Astra Trident creates the persistent volume. A pod can
 
 The following manifest can be used to define an NGINX pod that mounts the Azure NetApp Files volume created in the previous step. In this example, the volume is mounted at `/mnt/data`.
 
-1. Create a file named anf-nginx-pod.yaml and copy in the following YAML:   
+1. Create a file named `anf-nginx-pod.yaml` and copy in the following YAML:   
 
     ```yaml
     kind: Pod
@@ -503,7 +503,7 @@ The following manifest can be used to define an NGINX pod that mounts the Azure 
     pod/nginx-pod created
     ``` 
 
-    Kubernetes has created a pod with the volume mounted and accessible within the nginx container at `/mnt/data`. You can confirm by checking the event logs for the pod using [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
+    Kubernetes has created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. You can confirm by checking the event logs for the pod using [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
 
     ```bash
     kubectl describe pod nginx-pod
