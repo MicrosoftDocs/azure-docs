@@ -107,7 +107,7 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
 | Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
-| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
@@ -144,11 +144,12 @@ You have a choice of operating systems that you can use for session hosts to pro
 |<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li><li>[Windows Server 2012 R2](/lifecycle/products/windows-server-2012-r2)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!IMPORTANT]
-> - Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table.
->
+> - The following items are not supported:
+>   - 32-bit operating systems or SKUs not listed in the previous table.
+>   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
+>   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+> 
 > - Support for Windows 7 ended on January 10, 2023.
->
-> - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported.
 
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:
 
@@ -239,4 +240,4 @@ To learn which URLs clients use to connect and that you must allow through firew
 Get started with Azure Virtual Desktop by creating a host pool. Head to the following tutorial to find out more.
 
 > [!div class="nextstepaction"]
-> [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)
+> [Create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md)
