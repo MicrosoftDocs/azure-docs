@@ -1,7 +1,7 @@
 ---
 title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory (preview)
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
-author: EdB_MSFT 
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 11/01/2022
 ---
