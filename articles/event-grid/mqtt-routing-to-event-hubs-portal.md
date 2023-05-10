@@ -24,9 +24,9 @@ In this tutorial, you perform the following tasks:
 - An Event Grid Namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-portal.md).
 - This tutorial uses Event Hubs, Event Grid custom topic, and Event Subscriptions.  You can find more information here:
 - Creating an Event Grid topic:  [Create a custom topic using portal](/azure/event-grid/custom-event-quickstart-portal).  While creating the Event Grid topic, ensure to create with Event Schema as Cloud Event Schema v1.0 in the Advanced tab.
-    
+
 :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/create-event-grid-topic-advanced-tab.png" alt-text="Screenshot showing Event Grid topic create flow Advanced tab.":::
-    
+
 - Creating an Event Hubs:  [Quickstart - Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
 
 - You can view the Event Hubs data using Stream Analytics:  [Process data from Event Hubs Azure using Stream Analytics](/azure/event-hubs/process-data-azure-stream-analytics).

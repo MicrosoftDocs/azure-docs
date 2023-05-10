@@ -8,9 +8,6 @@ ms.author: geguirgu
 ---
 # Topic Spaces in Azure Event Grid
 
-> [!IMPORTANT]
-> **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
-
 A topic space represents multiple topics through a set of topic templates. Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Each topic space represents the MQTT topics that the same set of clients need to use to communicate. 
 
 Topic spaces are used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of managing access for each individual topic. To publish or subscribe to any MQTT topic, you need to:
@@ -47,10 +44,10 @@ Topic templates are an extension of MQTT filters that support variables, along w
 
 Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wildcards (+ and #) and the following variables:
 
-- ${client.authenticationName}: this variable represents the authentication name of the client. [Learn more about client authentication names.](mqtt-client-authentication.md#key-terms-of-client-metadata)
-- \${client.attributes.x}: this variable represents an assigned attribute to a client during client creation/update, such as "x" would be equal to the exact string of the attribute key. E.g., if a client has the attribute a topic template “area/${client.attributes.area}/telemetry” will enable only the clients with the client attribute> “area:section1” to publish on the MQTT topic “area/section1/telemetry”. [Learn more about client attributes.](mqtt-clients-and-client-groups.md#what-are-client-attributes)
+- ${client.authenticationName}: this variable represents the authentication name of the client. [Learn more about client authentication names.](mqtt-clients.md#key-terms-of-client-metadata)
+- \${client.attributes.x}: this variable represents an assigned attribute to a client during client creation/update, such as "x" would be equal to the exact string of the attribute key. E.g., if a client has the attribute a topic template “area/${client.attributes.area}/telemetry” will enable only the clients with the client attribute> “area:section1” to publish on the MQTT topic “area/section1/telemetry”. [Learn more about client attributes.](mqtt-clients.md)
 
-**Note:** 
+**Note:**
 
 - A variable can represent a portion of a segment or an entire segment but can't cover more than one segment. For example, a topic template could include "machines/${client.authenticationName|.factory1}/temp" matches topics "machines/machine1.factory1/temp", "machines/machine2.factory1/temp", etc.
 - Topic templates use special characters \$ and | and these need to be escaped differently based on the shell being used. In PowerShell, \$ can be escaped with vehicles/${dollar}telemetry/#. If you’re using PowerShell, you can escape these special characters as shown in the following examples:
@@ -105,5 +102,5 @@ Learn more authorization and authentication:
 ### Concepts:
 
 - [Access control](mqtt-access-control.md)
-- [Clients and client groups](mqtt-clients-and-client-groups.md)
+- [Clients](mqtt-clients.md)
 - [Client authentication](mqtt-client-authentication.md)

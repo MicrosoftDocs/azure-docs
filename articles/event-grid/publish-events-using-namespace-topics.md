@@ -11,7 +11,7 @@ ms.date: 04/27/2023
 
 This article describes the steps to publish and consume events using the [CloudEvents](https://github.com/cloudevents/spec) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) using namespace topics and event subscriptions.
 
-Follow the steps in this article if you need to send application events to Event Grid so that they are received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-and-push-delivery-overview.md)).
+Follow the steps in this article if you need to send application events to Event Grid so that they are received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-delivery-overview.md)).
 
 >[!Important]
 > Namespaces, namespace topics, and event subscriptions associated to namespace topics are iniatially available in the following regions:
@@ -98,7 +98,7 @@ az resource create --resource-group $resource_group --namespace Microsoft.EventG
 
 ## Create an event subscription
 
-Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery-1). For more information on all configuration options, refer to the latest Event Grid control plane [REST API](/rest/api/eventgrid).
+Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md#pull-delivery-1). For more information on all configuration options, refer to the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
 Set the name of your event subscription on a variable:
 ```azurecli-interactive

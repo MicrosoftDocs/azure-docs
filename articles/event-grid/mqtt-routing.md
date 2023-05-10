@@ -1,5 +1,5 @@
 ---
-title: 'Routing MQTT Messages in  in Azure Event Grid'
+title: 'Routing MQTT Messages in Azure Event Grid'
 description: 'An overview of Routing MQTT Messages and how to configure it.'
 ms.topic: conceptual
 ms.date: 04/30/2023
@@ -8,8 +8,6 @@ ms.author: geguirgu
 ---
 # Routing MQTT Messages in Azure Event Grid
 
-> [!IMPORTANT]
-> **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
 
 Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by leveraging your IoT data for data analysis, storage, and visualizations, among other use cases. 
 
@@ -23,7 +21,7 @@ Routing the messages from your clients to an Azure service or your custom endpoi
 
 ## Routing configuration:
 
-The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). Use the following high-level steps to achieve this:
+The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). Use the following high-level steps to achieve this configuration:
 
 - [Create an Event Grid custom topic](custom-event-quickstart-portal.md) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid topic Requirements for Routing.](#event-grid-topic-requirements-for-routing)
 - Create an [Event Grid subscription](subscribe-through-portal.md) to route these messages to one of the supported Azure services or a custom endpoint.
@@ -31,10 +29,10 @@ The routing configuration enables you to send all your messages from your client
 
 ### Event Grid topic Requirements for Routing
 
-The Event grid topic that will be used for routing need to fulfill the following requirements:
+The Event Grid topic that is used for routing need to fulfill the following requirements:
 - It needs to be set to use the Cloud Event Schema v1.0
 - It needs to be in the same region as the namespace.
-- You need to assign "EventGrid Data Sender" role to yourself on the Event Grid Topic.
+- You need to assign "EventGrid Data Sender" role to yourself on the Event Grid topic.
     - In the portal, go to the created Event Grid topic resource.
     - In the "Access control (IAM)" menu item, select "Add a role assignment".
     - In the "Role" tab, select "EventGrid Data Sender", then select "Next".
@@ -47,7 +45,7 @@ Use the following steps to configure routing:
 
 - Go to your namespace in the Azure portal.
 - Under Routing, Check Enable Routing.
-- Under routing topic, select the Event Grid Topic that you have created where all MQTT messages will be routed.
+- Under routing topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
 - Select Apply.
 
 For enrichments configuration instructions, go to [Enrichment portal configuration](mqtt-routing-enrichment.md#azure-portal-configuration).

@@ -8,9 +8,6 @@ ms.author: geguirgu
 ---
 # MQTT Clients Life Cycle Events 
 
-> [!IMPORTANT]
-> **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
-
 Client Life Cycle events allow applications to react to client connection or disconnection events. For example, you can build an application that updates a database, creates a ticket, and delivers an email notification every time a client is disconnected for mitigating action.
 
 ## Event types
@@ -19,7 +16,7 @@ The Event Grid namespace publishes the following event types:
 
 | **Event type** | **Description** |
 |------------------------------------------------------|---------------------------------------------------------------------|
-| **Microsoft.EventGrid.MQTTClientSessionConnected** | Published when an MQTT client’s session is  connected to Event Grid. |
+| **Microsoft.EventGrid.MQTTClientSessionConnected** | Published when an MQTT client’s session is connected to Event Grid. |
 | **Microsoft.EventGrid.MQTTClientSessionDisconnected** | Published when an MQTT client’s session is disconnected from Event Grid. |
 
 
@@ -28,30 +25,12 @@ The Event Grid namespace publishes the following event types:
 
 The client life cycle events provide you with all the information about the client and session that got connected or disconnected. It also provides a disconnectionReason that you can use for diagnostics scenarios as it enables you to have automated mitigating actions.
 
-### MQTT Client Session Connected Schema
+# [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the CloudEvent schema of the event:
-
-```json
-{
-  "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
-  "time": "2023-04-28T00:49:04.0211141Z",
-  "type": "Microsoft.EventGrid.MQTTClientSessionConnected",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "/clients/device1/sessions/session1",
-  "specversion": "1.0",
-  "data": {
-    "namespaceName": "myns",
-    "clientAuthenticationName": "device1",
-    "clientSessionName": "session1",
-    "sequenceNumber": 1
-  }
-}
-```
-The following example shows the Event Grid schema of the event:
+This sample event shows the schema of an event raised when an MQTT client’s session is connected to Event Grid:
 
 ```json
-{
+[{
   "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
   "eventTime": "2023-04-28T00:49:04.0211141Z",
   "eventType": "Microsoft.EventGrid.MQTTClientSessionConnected",
@@ -65,15 +44,52 @@ The following example shows the Event Grid schema of the event:
     "clientSessionName": "session1",
     "sequenceNumber": 1
   }
-}
+}]
 ```
-
-### MQTT Client Session Disconnected Schema
-
-The following example shows the CloudEvent schema of the event:
+This sample event shows the schema of an event raised when an MQTT client’s session is disconnected to Event Grid:
 
 ```json
-{
+[{
+  "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
+  "eventTime": "2023-04-28T00:49:04.0211141Z",
+  "eventType": "Microsoft.EventGrid.MQTTClientSessionConnected",
+  "topic": "/subscriptions/ 00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "/clients/device1/sessions/session1",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "data": {
+    "namespaceName": "myns",
+    "clientAuthenticationName": "device1",
+    "clientSessionName": "session1",
+    "sequenceNumber": 1
+  }
+}]
+```
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+This sample event shows the schema of an event raised when an MQTT client's session is connected to an Event Grid:
+
+```json
+[{
+  "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
+  "time": "2023-04-28T00:49:04.0211141Z",
+  "type": "Microsoft.EventGrid.MQTTClientSessionConnected",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "/clients/device1/sessions/session1",
+  "specversion": "1.0",
+  "data": {
+    "namespaceName": "myns",
+    "clientAuthenticationName": "device1",
+    "clientSessionName": "session1",
+    "sequenceNumber": 1
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client’s session is disconnected to Event Grid:
+
+```json
+[{
   "id": "3b93123d-5427-4dec-88d5-3b6da87b0f64",
   "time": "2023-04-28T00:51:28.6037385Z",
   "type": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
@@ -87,29 +103,11 @@ The following example shows the CloudEvent schema of the event:
     "sequenceNumber": 1,
     "disconnectionReason": "ClientError"
   }
-}
+}]
 ```
 
-The following example shows the Event Grid schema of the event:
+---
 
-```json
-{
-  "id": "641fd543-a788-48aa-b22a-f54be3f7e1e2",
-  "eventTime": "2023-04-28T02:54:56.9162492Z",
-  "eventType": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
-  "topic": "/subscriptions/ 00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "/clients/device1/sessions/session1",
-  "dataVersion": "1",
-  "metadataVersion": "1",
-  "data": {
-	  "namespaceName": "myns",
-	  "clientAuthenticationName": "device1",
-	 "clientSessionName": "session1",
-	  "sequenceNumber": 1,
-    "disconnectionReason": "ClientError"
-  },
-}
-```
 ### Disconnection Reasons:
 
 The following list details the different values for the disconnectionReason and their description:
@@ -129,11 +127,10 @@ The following list details the different values for the disconnectionReason and 
 | SessionOverflow                     | the client's queue for unacknowledged QoS1 messages reached its limit, which resulted in a connection termination by the server                                                                          |
 | SessionTakenOver                    | the client reconnected with the same authentication name, which resulted in the termination of the previous connection.                                                                                                                |
 
+For a detailed description of each property, see [event schema for Event Grid Namespace](event-schema-event-grid-namespace.md#event-properties).
 
-### Recommendation for handling events:
-
-Handling high rate of fluctuations in connection states: When a client disconnect event is received, wait for a period (for example, 30 seconds) and verify that the client is still offline before taking a mitigating action. This optimization improves efficiency in handling rapidly changing states.
-
+> [!TIP]
+> Handling high rate of fluctuations in connection states: When a client disconnect event is received, wait for a period (for example, 30 seconds) and verify that the client is still offline before taking a mitigating action. This optimization improves efficiency in handling rapidly changing states.
 
 
 ## Configuration

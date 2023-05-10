@@ -97,11 +97,13 @@ For example, consider the following configuration:
 
 With this configuration, only the client with client authentication name “machine1” can publish on topic "machines/machine1/telemetry", and only the machine with client authentication name “machine 2” can publish on topic "machines/machine2/telemetry", and so on. Accordingly, machine2 can't publish false information on behalf of machine1, even though it has access to the same topic space, and vice versa.
 
+:::image type="content" source="media/mqtt-access-control/granular-access-control.png" alt-text="Diagram of the granular access control example.":::
 
 ## Next steps:
 
 Learn more about authorization and authentication:
 
 - [Client authentication](mqtt-client-authentication.md)
-- [Clients and client groups](mqtt-clients-and-client-groups.md)
+- [Clients](mqtt-clients.md)
+- [Client groups](mqtt-client-groups.md)
 - [Topic Spaces](mqtt-topic-spaces.md)

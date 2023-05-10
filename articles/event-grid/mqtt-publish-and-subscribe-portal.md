@@ -23,9 +23,28 @@ In this article, you use the Azure portal to do the following tasks:
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
 
-## Create a Namespace
+## Generate sample client certificate and thumbprint
+If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/).  Consider installing manually for Windows.
 
-An Event Grid Namespace serves as an application container that can house resources such as clients, topic spaces.  It gives you a unique FQDN.
+Once you installed Step, in Windows PowerShell, run the command to create root and intermediate certificates.
+
+```powershell
+.\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
+```
+
+Using the CA files generated to create certificate for the client.
+
+```powershell
+.\step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+```
+
+To view the thumbprint, run the Step command.
+
+```powershell
+.\step certificate fingerprint client1-authnID.pem
+```
+
+## Create a Namespace
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar, type Event Grid Namespaces, and then select **Event Grid Namespaces** from the drop-down list.
@@ -49,7 +68,10 @@ An Event Grid Namespace serves as an application container that can house resour
 > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.
 
 5. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.  In the Overview page, you see that the MQTT is in Disabled state.  To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
-6. On Configuration page, check the Enable MQTT option, and Apply the settings.
+6. On Configuration page, select the Enable MQTT option, and Apply the settings.
+
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT.":::
+
 
 ## Create clients
 
@@ -152,5 +174,4 @@ An Event Grid Namespace serves as an application container that can house resour
 :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app.":::
 
 ## Next steps
-
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
