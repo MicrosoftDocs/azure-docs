@@ -1,8 +1,9 @@
 ---
-title: How to enable and use pgvector - Azure Database for PostgreSQL
-description: How to enable and use pgvector on Azure Database for PostgreSQL
+title: How to enable and use pgvector - Azure Database for PostgreSQL - Flexible Server
+description: How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server
 ms.author: avijitgupta
 author: AvijitkGupta
+ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: build-2023
@@ -10,11 +11,11 @@ ms.topic: how-to
 ms.date: 05/09/2023
 ---
 
-# How to enable and use pgvector on Azure Database for PostgreSQL
+# How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[!INCLUDE [Introduction to Pgvector](../../cosmos-db/postgresql/includes/introduction-pgvector.md)]
+[!INCLUDE [Introduction to **Pgvector**](../../cosmos-db/postgresql/includes/introduction-pgvector.md)]
 
 ## Enable extension
 
