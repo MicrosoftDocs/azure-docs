@@ -13,6 +13,10 @@ items:
       items:
       - name: Pull delivery overview
         href: pull-delivery-overview.md
+    - name: Concepts
+      items:
+      - name: Terminology
+        href: concepts-pull-delivery.md
     - name: Quickstarts
       items:
       - name: Publish and subscribe using namespace topics
