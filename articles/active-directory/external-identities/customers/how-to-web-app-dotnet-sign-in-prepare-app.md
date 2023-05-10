@@ -1,5 +1,5 @@
 ---
-title: Prepare your application: Sign in users to an ASP.NET web app 
+title: Prepare your application - Sign in users to an ASP.NET web app 
 description: Create and prepare an ASP.NET web app for authentication
 services: active-directory
 author: cilwerner
