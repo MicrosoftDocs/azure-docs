@@ -1,6 +1,6 @@
 ---
 title: Prepare a React Single Page App (SPA) for authentication
-description: Learn how to prepare a React Single Page App (SPA) for authentication
+description: Learn how to prepare a React single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: godonnell
 manager: celestedg
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/12/2023
+ms.date: 05/23/2023
 ms.author: godonnell
 ms.custom: it-pro
 

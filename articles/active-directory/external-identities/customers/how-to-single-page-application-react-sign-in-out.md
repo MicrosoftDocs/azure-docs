@@ -1,6 +1,6 @@
 ---
-title: Add Sign-in and Sign-out to your React Single Page App
-description: Learn how to add Sign-in and Sign-out to your React Single Page App
+title: Sign in users with a React single-page-application
+description: Learn how to configure a React single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: godonnell
 manager: celestedg
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/12/2023
+ms.date: 05/23/2023
 ms.author: godonnell
 ms.custom: it-pro
 

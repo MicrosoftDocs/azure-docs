@@ -1,6 +1,6 @@
 ---
-title: Prepare your customer tenant for building a React Single Page App (SPA) 
-description: Learn how to prepare my customer tenant for building a React Single Page App (SPA) 
+title: Prepare your tenant to use a React single-page app for authentication. 
+description: Learn how to configure your Azure Active Directory (AD) for customers tenant for authentication with a React single-page app (SPA).
 services: active-directory
 author: godonnell
 manager: celestedg
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/12/2023
+ms.date: 05/23/2023
 ms.author: godonnell
 ms.custom: it-pro
 
@@ -27,14 +27,14 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-An Azure subscription. If you don't have one, [create a free account](https://aka.ms/ciam-hub-free-trial) before you begin.
+An Azure subscription. If you don't have one, [create a free account](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) before you begin.
 
 This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
 * Application administrator
 * Application developer
 * Cloud application administrator
 
-If you haven't already created your own customer tenant, [create one now](https://aka.ms/ciam-hub-free-trial). You can use an existing customer tenant if you have one.
+If you haven't already created your own customer tenant, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
 
 ## Register the application and record identifiers
 [!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
