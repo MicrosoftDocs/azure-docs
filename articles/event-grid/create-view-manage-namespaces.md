@@ -4,7 +4,7 @@ description: This article describes how to create, view and manage namespaces
 author: robece
 ms.topic: how-to
 ms.author: robece
-ms.date: 04/28/2023
+ms.date: 05/09/2023
 ---
 
 # Create, view, and manage namespaces
@@ -25,7 +25,7 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
     :::image type="content" source="media/create-view-manage-namespaces/overview-create.png" alt-text="Screenshot showing Event Grid overview.":::
 
-4. On the **Basics** tab, select the Azure subscription, resource group, name, and location for your Event Grid namespace.
+4. On the **Basics** tab, select the Azure subscription, resource group, name, location, [availability zone](concepts.md#availability-zones), and [throughput units](concepts.md#throughput-units) for your Event Grid namespace.
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
 
@@ -69,6 +69,18 @@ In case you want to enable the MQTT capabilities in the Azure Event Grid namespa
 
 > [!NOTE]
 > Please note once MQTT is enabled it cannot be disabled.
+
+## Configure throughput units (TUs) in created namespace
+
+If you already created a namespace and want to increase or decrease TUs, follow the next steps:
+
+1. Navigate to the Azure portal and select the Azure Event Grid namespace you would like to configure the throughput units.
+2. Once you have opened the resource, select the “Scale” blade.
+3. Select the number of TUs you want to increase or decrease.
+4. Select “Save” to apply the changes.
+5. The throughput units will then be enabled and available for use in your namespace.
+
+:::image type="content" source="media/create-view-manage-namespaces/namespace-scale.png" alt-text="Screenshot showing Event Grid scale blade.":::
 
 ## Delete a namespace
 

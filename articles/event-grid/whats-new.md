@@ -41,8 +41,6 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Customer enabled disaster recovery in Azure Event Grid](custom-disaster-recovery-client-side.md)
     - [How to establish multiple sessions for a single client](mqtt-establishing-multiple-sessions-per-client.md)
     - [Monitoring data reference for MQTT delivery](monitor-mqtt-delivery-reference.md)
-- [Scaling with Azure Event Grid](scaling-with-azure-event-grid.md)
-
 
 ## Microsoft.Azure.Management.EventGrid version 9.0.0 (REST API version 2022-06)
 This release corresponds to REST API version 2022-06-15, which includes the following features:
