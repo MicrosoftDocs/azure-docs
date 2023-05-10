@@ -16,7 +16,10 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created on the fly for you.  You focus on specifying your job specification, and let Azure Machine Learning take care of the rest.
+You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created, scaled, and managed by Azure Machine Learning for you.  You focus on specifying your job specification and resources the job needs, and let Azure Machine Learning take care of the rest. You don't need to create and manage compute lifecycle anymore to run training jobs or to learn about various compute concepts.
+There is no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace. 
+
+You can also optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would neeed.
 
 When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  Skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a command job, the job runs on serverless compute.
 
@@ -27,9 +30,8 @@ When you create your own compute cluster, you use its name in the command job, s
 * Omit the compute name in your CLI or SDK jobs to use serverless compute in:
 
   * Command jobs, including interactive jobs, parallel jobs, and distributed training
+  * AutoML jobs
   * Sweep jobs
-  * Spark jobs
-  * AutoML
 
 * For CLI pipelines use `default_compute: azureml:serverless` for your default compute.  For SDK pipelines use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
 * To use serverless in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
@@ -47,9 +49,9 @@ When you create your own compute cluster, you use its name in the command job, s
 
 Serverless compute can help speed up your training in the following ways:
 
-* **Insufficient quota:** When you create your own compute cluster, you're responsible for figuring out what VM family and node size to create.  When your job runs, if you don't have sufficient quota for the cluster the job will fail.  Serverless compute uses information about your quota to select an appropriate family and node size.  
+**Insufficient quota:** When you create your own compute cluster, you're responsible for figuring out what VM size and node count to create.  When your job runs, if you don't have sufficient quota for the cluster the job will fail.  Serverless compute uses information about your quota to select an appropriate VM size by default.  
 
-**Scale down optimization:** When a cluster is scaling down, a new job has to wait for scale down to happen and then scale up before job can run. With serverless compute, you don't have to wait for scale down and your job starts on another cluster/node (assuming you have quota).
+**Scale down optimization:** When a compute cluster is scaling down, a new job has to wait for scale down to happen and then scale up before job can run. With serverless compute, you don't have to wait for scale down and your job can start runnng on another cluster/node (assuming you have quota).
 
 **Cluster busy optimization:** when a job is running on a compute cluster and another job is submitted, your job is queued behind the currently running job. With serverless compute, you get another node/another cluster to start running the job (assuming you have quota).
 
@@ -59,7 +61,7 @@ When submitting the job, you still need sufficient quota to proceed (both worksp
 
 * If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family
 * If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
-* If you do have sufficient quota for VM family, but it's currently consumed by other jobs, you'll get a warning that your job must wait in a queue.  
+* If you do have sufficient quota for VM family to run the serverless job, but it's currently consumed by other jobs, you'll get a warning that your job must wait in a queue.  
 
 When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
 
@@ -106,7 +108,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
     ---
 
-* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`.
+* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity for the serverless job.
 
     # [Python SDK](#tab/python)
 
