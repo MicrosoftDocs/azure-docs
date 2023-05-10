@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users and call an API in sample Node.js web application 
 
-This how-to guide uses a sample Node.js web application to show you how to add authentication and authorization. The sample application sign in users to a Node.js web app, which then calls a .NET Core API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js web application to show you how to add authentication and authorization. The sample application sign in users to a Node.js web app, which then calls a .NET API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you complete the following tasks:
 
@@ -28,7 +28,7 @@ In this article, you complete the following tasks:
 
 - Create a sign-up and sign-in user flow in the Microsoft Entra admin center, and then associate a client web app with it.
 
-- Update a sample Node web application and ASP.NET Core web API to use your Azure AD for customers tenant details.
+- Update a sample Node web application and ASP.NET web API to use your Azure AD for customers tenant details.
 
 - Run and test the sample web application and API.
 
