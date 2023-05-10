@@ -1043,7 +1043,7 @@ SharedImageVersion properties:
 
 ## Properties: versioning
 
-The **versioning** property is an enum with two possible values:
+The **versioning** property is for the `sharedImage` distribute type only. It is an enum with two possible values:
 - **latest** - New strictly increasing schema per design
 - **source** - Schema based upon the version number of the source image.
 
