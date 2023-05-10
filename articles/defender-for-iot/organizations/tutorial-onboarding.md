@@ -101,8 +101,6 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor** > **OT**.
 
-    In the **Set up OT/ICS Security** page, you can leave the **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP** steps collapsed, because you've completed these tasks earlier in this tutorial.
-
     By default, on the **Set up OT/ICS Security** page, **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP​** of the wizard are collapsed.
 
     You'll install software and configure traffic mirroring later on in the deployment process, but should have your appliances ready and traffic mirroring method planned.
@@ -182,7 +180,7 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 1. Connect to the sensor, and verify that mirroring works.
 
-[!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
+[!INCLUDE [validate-traffic-mirroring](includes/validate-traffic-mirroring.md)]
 
 ## Download software for your virtual sensor
 
@@ -219,7 +217,7 @@ This procedure describes how to install the sensor software on your VM.
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to use.
 
-    For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
+    For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
     After you've selected the hardware profile, the following steps occur, and can take a few minutes:
 
@@ -260,13 +258,13 @@ This procedure describes how to install the sensor software on your VM.
 
     The default configuration is without a proxy.
 
-    For more information, see [Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (version 10.x)](../how-to-connect-sensor-by-proxy.md).
+    For more information, see [Configure proxy settings on an OT sensor](connect-sensors.md).
 
 1. <a name=credentials></a>The installation process starts running and then shows the credentials screen.
 
     Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are shown. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
-    For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
     Select `<Ok>` when you're ready to continue.
 
@@ -279,7 +277,7 @@ This procedure describes how to install the sensor software on your VM.
 
     When you've successfully signed in, the following confirmation screen appears:
 
-    :::image type="content" source="../media/tutorial-install-components/install-complete.png" alt-text="Screenshot of the sign-in confirmation.":::
+    :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of install confirmation.":::
 
 ### Post-installation validation
 
