@@ -54,7 +54,7 @@ Create a folder to host your Node.js daemon application, such as `ciam-call-api-
 In your terminal, install `axios`, `yargs` and `@azure/msal-node` packages by running the following command:
 
 ```console
-    npm install axios yargs @azure/msal-node   
+npm install axios yargs @azure/msal-node   
 ```
 
 ## Next steps
