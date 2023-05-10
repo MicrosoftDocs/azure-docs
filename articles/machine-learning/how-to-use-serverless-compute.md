@@ -32,7 +32,7 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * You don't need to learn about various compute concepts and related properties. 
 * There's no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace.  
 * You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would need.
-* To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses a instance type (VM size) based on factors like quota, cost, performance and disk size. 
+* To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
 * User identity and workspace user assigned managed identity is supported for job submission. 
 * Managed network isolation is supported. 
 
