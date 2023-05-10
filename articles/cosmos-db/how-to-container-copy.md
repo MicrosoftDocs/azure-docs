@@ -83,7 +83,9 @@ az cosmosdb dts copy `
     --source-mongo database=$sourceDatabase collection=$sourceCollection `
     --dest-mongo database=$destinationDatabase collection=$destinationCollection
 ```
-**Note**: *'--job-name'* should be unique for each job within an account.
+
+> [!NOTE]
+> `--job-name` should be unique for each job within an account.
 
 ## Monitor the progress of a container copy job
 
