@@ -111,7 +111,7 @@ An action group is a *global* service, so there's no dependency on a specific Az
 >
 > When you configure an action to notify a person by email or SMS, they receive a confirmation that indicates they were added to the action group.
 
-### Test an action group in the Azure portal (preview)
+### Test an action group in the Azure portal
 
 When you create or update an action group in the Azure portal, you can test the action group.
 
