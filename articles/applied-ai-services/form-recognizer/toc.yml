@@ -7,8 +7,6 @@ items:
   - name: What is Azure Form Recognizer?
     displayName: models, develop, development
     href: overview.md
-  - name: Overview test pattern
-    href: overview-too.md  
   - name: Choose a Form Recognizer model
     href: choose-the-best.md
   - name: Form Recognizer Studio
