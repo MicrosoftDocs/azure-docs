@@ -98,7 +98,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 ### Option 1: Call Microsoft Graph
 
-To call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in the API actions (this currently does not work for Microsoft Graph SDK v5+, see https://github.com/AzureAD/microsoft-identity-web/issues/2097). To expose Microsoft Graph:
+To call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in the API actions. 
+>[!NOTE] 
+> There is an ongoing issue for Microsoft Graph SDK v5+, for more information, refer to the [Github issue](https://github.com/AzureAD/microsoft-identity-web/issues/2097)
+
+To expose Microsoft Graph:
 
 1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to the project.
 1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in *Program.cs*. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
