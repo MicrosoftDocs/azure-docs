@@ -1,5 +1,5 @@
 ---
-title: Vector search on high-dimensional vector data
+title: Vector Search on embeddings
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use vector indexing and search to integrate AI-based applications in Azure Cosmos DB for MongoDB vCore
 author: gahl-levy
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/10/2023
 ---
 
-# Using Vector Search on high-dimensional vector data in Azure Cosmos DB for MongoDB vCore
+# Using Vector Search on embeddings in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -19,7 +19,7 @@ Use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate y
 
 ## What is Vector search?
 
-Vector search is a method that helps you find similar items based on their data characteristics rather than exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by representing data points as vectors (lists of numbers) in a high-dimensional space. It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
+Vector search is a method that helps you find similar items based on their data characteristics rather than exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by taking the vector representations (lists of numbers) of your data that you have created using an ML model, or an embeddings API. Examples of embeddings APIs could be [Azure OpenAI Embeddings](https://github.com/cognitive-services/openai/tutorials/embeddings.md) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
 
 By integrating vector search capabilities natively, you can now unlock the full potential of your data in applications built on top of the OpenAI API. You can also create custom-built solutions that use vector embeddings.
 
@@ -56,7 +56,7 @@ To create a vector index, use the following createIndex Spec template:
 | `similarity` | `string` | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance) or `IP` (inner product) |
 | `dimensions` | `integer` | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
-In these examples, we walk through steps how to vector indexing, adding data, vector search, and retrieving the index configuration.
+In the following examples, we walk through examples on how to index vectors, add documents with vector properties, perform a vector search, and retrieve the index configuration.
 
 ### Create a vectorIndex
 
@@ -82,11 +82,11 @@ db.runCommand({
 });
 ```
 
-This command creates a `vector-ivf` index against the "vectorContent" property in the documents stored in the specified collection. The `cosmosSearchOptions` property specifies the parameters for the IVF vector index. If your document has the vector stored in a nested property, you can set this property using a dot-notation path. For example, `text.vectorContent` if `vectorContent` is a subproperty of `text`.
+This command creates a `vector-ivf` index against the "vectorContent" property in the documents stored in the specified collection, `exampleCollection`. The `cosmosSearchOptions` property specifies the parameters for the IVF vector index. If your document has the vector stored in a nested property, you can set this property using a dot-notation path. For example, `text.vectorContent` if `vectorContent` is a subproperty of `text`.
 
 ## Adding vectors to your database
 
-To add vectors to your database's existing collection, you can use the OpenAI Embeddings model, another API (such as HuggingFace), or your own model to generate embeddings from the data. In this example, new documents are added with sample embeddings:
+To add vectors to your database's collection, you first need to create the embeddings using your own model, [Azure OpenAI Embeddings](https://github.com/cognitive-services/openai/tutorials/embeddings.md), or another API (such as [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/)). In this example, new documents are added with sample embeddings:
 
 ```javascript
 db.exampleCollection.insertMany([
@@ -116,7 +116,7 @@ To perform a vector search, use the `$search` aggregation pipeline stage in a Mo
 
 ### Query a vectorIndex using $search
 
-To continue with the above example, to query for the documents inserted in the previous step:
+Continuing with the above example, create another vector, `queryVector`. Vector search measures the distance between `queryVector` and the vectors in the `vectorContent` path of your documents. You can set the number of results the search returns by setting the parameter `k`, which is set to `2` here.
 
 ```javascript
 const queryVector = [0.52, 0.28, 0.12];
@@ -134,7 +134,7 @@ db.exampleCollection.aggregate([
 ]);
 ```
 
-In this example, a vector search is performed using the queryVector as input via the Mongo shell. The result is a list of the two most similar items to the query vector, sorted by their similarity scores.
+In this example, a vector search is performed using `queryVector` as an input via the Mongo shell. The search result is a list of the two most similar items to the query vector, sorted by their similarity scores.
 
 ```javascript
 [
@@ -155,7 +155,7 @@ In this example, a vector search is performed using the queryVector as input via
 
 ### Get vector index definitions
 
-Vector index definitions are returned as part of the `listIndexes` command.
+To retrieve your vector index definition from the collection, use the `listIndexes` command.
 
 ``` javascript
 db.exampleCollection.getIndexes();
@@ -190,7 +190,7 @@ In this example, the vectorIndex is returned along with all the cosmosSearch par
 
 ## Next steps
 
-This guide demonstrated how to create a vector index, add documents with vector data, perform a similarity search, and retrieve the index definition. By using vector search, you can efficiently store, index, and query high-dimensional vector data directly in Azure Cosmos DB for MongoDB vCore, enabling the development of AI-based applications with ease. Vector search enables you to unlock the full potential of your data with vector embeddings, and empowers you to build more accurate, efficient, and powerful applications.
+This guide demonstrated how to create a vector index, add documents with vector data, perform a similarity search, and retrieve the index definition. By using vector search, you can efficiently store, index, and query high-dimensional vector data directly in Azure Cosmos DB for MongoDB vCore. Vector search enables you to unlock the full potential of your data with vector embeddings, and empowers you to build more accurate, efficient, and powerful applications.
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure Cosmos DB for MongoDB vCore](introduction.md)
