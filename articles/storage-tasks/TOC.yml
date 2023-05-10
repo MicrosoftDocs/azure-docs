@@ -1,0 +1,31 @@
+items:
+- name: Azure Storage Tasks documentation
+  href: ../storage-mover/index.yml
+- name: Overview
+  items:
+  - name: What is Storage Tasks?
+    href: ../storage-mover/service-overview.md
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Concept article here
+    href: ../storage-mover/deployment-planning.md
+- name: How-To
+  items: 
+  - name: How to article here
+    href: ../storage-mover/storage-mover-create.md
+  expanded: true
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/storageservices/blob-service-rest-api
+- name: Resources
+  items:
+    - name: Azure updates
+      href: https://azure.microsoft.com/updates/?product=storage
+    - name: Storage Tasks on Microsoft Q&A
+      href: /answers/topics/azure-blob-storage.html
+    - name: Storage Tasks on Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-blob-storage
+    - name: Pricing for Storage Tasks
+      href: https://azure.microsoft.com/pricing/details/storage/blobs/
