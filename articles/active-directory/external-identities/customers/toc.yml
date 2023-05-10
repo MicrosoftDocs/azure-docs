@@ -63,34 +63,31 @@ items:
                       href: how-to-web-app-node-sample-sign-in.md
                     - name: Sign in users and call an API
                       href: how-to-web-app-node-sample-sign-in-call-api.md
-                - name: ASP.NET Core
+                - name: ASP.NET
                   items:
                     - name: Sign in users
-                      href: ../../develop/web-api-quickstart.md
+                      href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Browserless app
               items: 
-              - name: Node.js - Sign in users
+              - name: Node.js - sign in users
                 href: how-to-browserless-app-node-sample-sign-in.md
               - name: .NET - Sign in users
                 href: how-to-browserless-app-dotnet-sample-sign-in.md
-            - name: Headless app
-              href: ../../develop/console-app-quickstart.md
             - name: Daemon, service
               items:
-                - name: Node.js - Call an API
+                - name: Node.js - call an API
                   href: how-to-daemon-node-sample-call-api.md
                   displayName: client credentials grant
             - name: Desktop app
               items:
-                - name: Electron
+                - name: Electron - sign in users
                   href: how-to-desktop-app-electron-sample-sign-in.md
-                - name: .NET MAUI
+                - name: .NET MAUI - sign in users
                   href: how-to-desktop-app-maui-sample-sign-in.md
             - name: Mobile app
               items:
-                - name: Android (.NET MAUI)
+                - name: Android (.NET MAUI) - sign in users
                   href: how-to-mobile-app-maui-sample-sign-in.md
-              href: ../../develop/mobile-app-quickstart.md
         - name: Build and integrate apps
           items: 
             - name: Single-page app (SPA)
@@ -157,7 +154,7 @@ items:
                           href: how-to-web-app-dotnet-sign-in-sign-out.md
             - name: Web API
               items: 
-                - name: Protect ASP.NET Core API
+                - name: Protect ASP.NET API
                   items:
                     - name: Overview
                       href: how-to-protect-web-api-dotnet-core-overview.md
@@ -167,7 +164,6 @@ items:
                       href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
                     - name: Test the API
                       href: how-to-protect-web-api-dotnet-core-test-api.md
-
             - name: Browserless app
               items: 
                 - name: Node.js
@@ -182,7 +178,7 @@ items:
                           href: how-to-browserless-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
                           href: how-to-browserless-app-node-sign-in-sign-out.md
-                - name: .NET​ - Sign in users
+                - name: .NET​ - sign in users
                   items:
                     - name: Overview
                       href: how-to-browserless-app-dotnet-sign-in-overview.md
@@ -196,7 +192,7 @@ items:
               items: 
                 - name: Node.js
                   items:
-                    - name: Call an API
+                    - name: Acquire token, call an API
                       items:
                         - name: Overview
                           href: how-to-daemon-node-call-api-overview.md
@@ -205,7 +201,7 @@ items:
                           href: how-to-daemon-node-call-api-prepare-tenant.md
                         - name: Prepare app
                           href: how-to-daemon-node-call-api-prepare-app.md 
-                        - name: Acquire access token & call API
+                        - name: Acquire access token and call API
                           href: how-to-daemon-node-call-api-call-api.md 
     - name: Authenticate and authorize
       expanded: true

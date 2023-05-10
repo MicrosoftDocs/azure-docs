@@ -24,7 +24,7 @@ In this article, you do the following tasks:
 
 - Register a desktop application in the Microsoft Entra admin center. 
 
-- Create a sign in and sign out user flow in Microsoft Entra admin center.
+- Create a sign-in and sign-out user flow in Microsoft Entra admin center.
 
 - Associate your web application with the user flow. 
 
