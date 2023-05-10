@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 06/15/2022
+ms.date: 03/22/2023
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -45,6 +45,8 @@ Before you begin, you must have the following requirements in place:
 + The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
 ::: zone-end  
 
+[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+
 ### Prerequisite check
 
 Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources.
@@ -77,7 +79,7 @@ Verify your prerequisites, which depend on whether you're using Azure CLI or Azu
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using Python 3.9, 3.8, or 3.7, which are supported by Azure Functions.
 
 # [bash](#tab/bash)
 
@@ -136,7 +138,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configuration files named *[local.settings.json]*(functions-develop-local.md#local-settings-file) and *[host.json]*(functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -165,7 +167,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configuration files named *[local.settings.json]*(functions-develop-local.md#local-settings-file) and *[host.json]*(functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. The file `function_app.py` can include all functions within your project. To start with, there's already an HTTP function stored in the file.
 
@@ -177,7 +179,7 @@ app = func.FunctionApp()
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello")
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
-    return func.HttpResponse("HttpTrigger1 function processed a request!")%
+    return func.HttpResponse("HttpTrigger1 function processed a request!")
 ```
 ::: zone-end
 
@@ -211,7 +213,9 @@ For more information, see [Azure Functions HTTP triggers and bindings](./functio
 
 ## Start the storage emulator
 
-Before running the function locally, you must start the local Azurite storage emulator. You can skip this step if the `AzureWebJobsStorage` setting in the local.settings.json file is set to the connection string for an Azure Storage account.   
+By default, local development uses the Azurite storage emulator. This emulator is used when the `AzureWebJobsStorage` setting in the *local.settings.json* project file is set to `UseDevelopmentStorage=true`. When using the emulator, you must start the local Azurite storage emulator before running the function. 
+
+You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an Azure Storage account instead of `UseDevelopmentStorage=true`. 
 
 Use the following command to start the Azurite storage emulator:
 
@@ -252,18 +256,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-1. When you're using the Azure CLI, you can turn on the `param-persist` option that automatically tracks the names of your created resources. For more information, see [Azure CLI persisted parameter](/cli/azure/param-persist-howto).
-
-    # [Azure CLI](#tab/azure-cli)
-    ```azurecli
-    az config param-persist on
-    ```
-
-    # [Azure PowerShell](#tab/azure-powershell)
-
-    This feature isn't available in Azure PowerShell.
-
-    ---
 
 1. Create a resource group named `AzureFunctionsQuickstart-rg` in your chosen region.
 
@@ -297,7 +289,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
     The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
@@ -321,10 +313,10 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.9 --functions-version 4 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.9 --functions-version 4 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Python 3.8, 3.7, or 3.6, change `--runtime-version` to `3.8`, `3.7`, or `3.6`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Python 3.9, 3.8, or 3.7, change `--runtime-version` to `3.9`, `3.8`, or `3.7`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -332,7 +324,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccountName <STORAGE_NAME> -FunctionsVersion 4 -RuntimeVersion 3.9 -Runtime python -Location '<REGION>'
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.8, 3.7, or 3.6, change `-RuntimeVersion` to `3.8`, `3.7`, or `3.6`, respectively.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.9, 3.8, or 3.7, change `-RuntimeVersion` to `3.9`, `3.8`, or `3.7`, respectively.
 
     ---
 

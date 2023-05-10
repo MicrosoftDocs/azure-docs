@@ -1,8 +1,8 @@
 ---
 title: Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
 description: This article describes blob storage and Azure Data Lake Gen 2 as output for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
@@ -68,10 +68,6 @@ To receive exactly once delivery for your Blob storage or ADLS Gen2 account, you
 * Path Pattern becomes a required property, and must contain both{date} and {time}. No dynamic custom {field} name is allowed. Learn more about [custom path pattern](stream-analytics-custom-path-patterns-blob-storage-output.md).
 * If the job is started at a **custom time** before or after the last output time, there's risk of file being overwritten. For example, when the **time format** is HH, the file is generated every hour. If you stop the job at 8:15am, and restart the job at 8:30am, the file generated between 8am to 9am will only cover data from 8:30am to 9am. The data from 8am to 8:15am will be lost as it's overwritten.
 
-### Regions Availability
-
-The feature is currently supported in West Central US, Japan East, Canada Central, Korea Central, North Europe, and South India.
-
 ## Blob output files
 
 When you're using Blob storage as output, a new file is created in the blob in the following cases:
@@ -91,7 +87,7 @@ For partition key, use {date} and {time} tokens from your event fields in the pa
 
 ## Output batch size
 
-For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The maximum blob block size is 4 MB and the maximum blob bock count is 50,000.
+For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits). The maximum blob block size is 4 MB and the maximum blob bock count is 50,000.
 
 ## Limitations
 

@@ -3,7 +3,7 @@ title: Install Cloud Backup for Virtual Machines (Preview)
 description: Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/30/2022
+ms.date: 05/10/2023
 ---
 
 # Install Cloud Backup for Virtual Machines (Preview)
@@ -18,9 +18,9 @@ Use Cloud Backup for VMs to:
 
 ## Prerequisites
 
-Before you can install Cloud Backup for Virtual Machines, you need to create an Azure service principle with the required Azure NetApp Files privileges. If you've already created one, you can skip to the installation steps below.
+You must have the right permissions in Azure to create an Active Directory application and to assign the application to a role. For details, see [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-## Install Cloud Backup for Virtual Machines using the Azure portal
+## Install Cloud Backup for Virtual Machines
 
 You'll need to install Cloud Backup for Virtual Machines through the Azure portal as an add-on.  
 
@@ -57,17 +57,31 @@ Upon successful execution, the Cloud Backup for Virtual Machines will automatica
 
 ## Upgrade Cloud Backup for Virtual Machines 
 
-Use the following steps to execute a run command to upgrade the Cloud Backup for Virtual Machines to the next available version: 
+Before you initiate the upgrade, you must:
 
->[!IMPORTANT]
-> Before you initiate the upgrade, you must:
-> * Back up the MySQL database of Cloud Backup for Virtual Machines. 
-> * Take snapshot copies of Cloud Backup for Virtual Machines. 
+* Back up the MySQL database of Cloud Backup for Virtual Machines. 
+* With vSphere, take VMware snapshot copies of the Cloud Backup VM. 
+
+### Back up the MySQL database 
+
+You can use the maintenance console to restore a specific backup of the MySQL database (also called an NSM database) for the SnapCenter Plug-in for VMware vSphere virtual appliance.
+
+1. Open a maintenance console window.
+1. Access the maintenance console.
+1. From the main menu, enter option **1) Application Configuration**.
+1. From the Application Configuration Menu, enter option **6) MySQL backup and restore**.
+1. From the MySQL Backup and Restore Configuration Menu, enter option **2) List MySQL backups**. Make note of the backup you want to restore.
+1. From the MySQL Backup and Restore Configuration Menu, enter option **3) Restore MySQL backup.**
+1. At the prompt for "Restore using the most recent backup,” enter **n**.
+1. At the prompt “Backup to restore from,” enter the backup name, and then press Enter.
+1. The selected backup MySQL database is restored to its original location.
+
+### Upgrade
+
+Use the following steps to execute a run command to upgrade the Cloud Backup for Virtual Machines to the next available version.
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-UpgradeNetAppCBSAppliance**.
-
 1. Provide the required values, and then select **Run**. 
-
 1. Check **Notifications** or the **Run Execution Status** pane to monitor the progress. 
 
 ## Uninstall Cloud Backup for Virtual Machines 
@@ -80,9 +94,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 > * Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag will be deleted when you uninstall.
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Uninstall-NetAppCBSAppliance**.
-
 1. Provide the required values, and then select **Run**. 
-
 1. Check **Notifications** or the **Run Execution Status** pane to monitor the progress. 
 
 ## Change vCenter account password 
@@ -90,9 +102,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 Use the following steps to execute the command to reset the vCenter account password:
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-ResetNetAppCBSApplianceVCenterPasswordA**.
-
 1. Provide the required values, then select **Run**. 
-
 1. Check **Notifications** or the **Run Execution Status** pane to monitor the progress.
 
 ## Next steps

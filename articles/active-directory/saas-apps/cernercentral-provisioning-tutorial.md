@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for Cerner Central - Azure AD'
+title: 'Tutorial: User provisioning for Cerner Central'
 description: Learn how to configure Azure Active Directory to automatically provision users to a roster in Cerner Central.
 services: active-directory
 author: ArvindHarinder1
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: arvinh
 ---
 

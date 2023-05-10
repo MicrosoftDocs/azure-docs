@@ -27,8 +27,8 @@ Azure Cosmos DB requires both the unique identifier and the partition key value 
 
 To perform a point read of an item, use one of the following strategies:
 
-* [Return a ``TableEntity`` object using ``GetEntityAsync<>``](#read-an-item-using-a-built-in-class)
-* [Return an object of your own type using ``GetEntityAsync<>``](#read-an-item-using-your-own-type)
+- [Return a ``TableEntity`` object using ``GetEntityAsync<>``](#read-an-item-using-a-built-in-class)
+- [Return an object of your own type using ``GetEntityAsync<>``](#read-an-item-using-your-own-type)
 
 ### Read an item using a built-in class
 

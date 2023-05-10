@@ -79,7 +79,9 @@ You can connect your function to other services by using input or output binding
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md). 
+
+Specific binding extension versions are only supported while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
 ## Bindings code examples
 

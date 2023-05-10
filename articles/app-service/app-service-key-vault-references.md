@@ -28,7 +28,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 ### Access network-restricted vaults
 
-If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access.
+If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access. Vaults shouldn't depend on the app's public outbound IPs because the origin IP of the secret request could be different. Instead, the vault should be configured to accept traffic from a virtual network used by the app.
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
@@ -50,8 +50,10 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
+
 > [!NOTE]
 > Windows container currently does not support Key Vault references over VNet Integration.
+
 
 ### Access vaults with a user-assigned identity
 
@@ -121,7 +123,7 @@ To use a Key Vault reference for an [app setting](configure-common.md#configure-
 
 ### Considerations for Azure Files mounting
 
-Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount Azure Files as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests which modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it cannot locate or create the content share, the request is blocked.
+Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount [Azure Files](../storage/files/storage-files-introduction.md) as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests which modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it cannot locate or create the content share, the request is blocked.
 
 When using Key Vault references for this setting, this validation check will fail by default, as the secret itself cannot be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This will bypass all checks, and the content share will not be created for you. You should ensure it is created in advance. 
 
@@ -129,6 +131,10 @@ When using Key Vault references for this setting, this validation check will fai
 > If you skip validation and either the connection string or content share are invalid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
 As part of creating the site, it is also possible that attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate this. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. App Service will use a default file system until Azure Files is set up, and files are not copied over, so you will need to ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+
+### Considerations for Application Insights instrumentation
+
+Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](../azure-monitor/app/app-insights-overview.md). The portal experiences for App Service and Azure Functions also use these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, these experiences are not available, and you instead need to work directly with the Application Insights resource to view the telemetry. However, these values are [not considered secrets](../azure-monitor/app/sdk-connection-string.md#is-the-connection-string-a-secret), so you might alternatively consider configuring them directly instead of using the Key Vault references feature.
 
 ### Azure Resource Manager deployment
 
@@ -169,9 +175,9 @@ An example pseudo-template for a function app might look like the following:
                         "[resourceId('Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('appInsightsKeyName'))]"
                     ],
                     "properties": {
-                        "AzureWebJobsStorage": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringResourceId')).secretUriWithVersion, ')')]",
-                        "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringResourceId')).secretUriWithVersion, ')')]",
-                        "APPINSIGHTS_INSTRUMENTATIONKEY": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('appInsightsKeyResourceId')).secretUriWithVersion, ')')]",
+                        "AzureWebJobsStorage": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringName')).secretUriWithVersion, ')')]",
+                        "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('storageConnectionStringName')).secretUriWithVersion, ')')]",
+                        "APPINSIGHTS_INSTRUMENTATIONKEY": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('appInsightsKeyName')).secretUriWithVersion, ')')]",
                         "WEBSITE_ENABLE_SYNC_UPDATE_SITE": "true"
                         //...
                     }

@@ -2,15 +2,15 @@
 title: Microsoft identity platform overview
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
-author: CelesteDG
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/16/2022
-ms.author: celested
+ms.date: 04/28/2023
+ms.author: owenrichards
 ms.reviewer: saeeda
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
@@ -49,9 +49,15 @@ Choose your preferred [application scenario](authentication-flows-app-scenarios.
 - [Daemon app](scenario-daemon-overview.md)
 - [Mobile app](scenario-mobile-overview.md)
 
+For a more in-depth look at building applications using the Microsoft identity platform, see our multipart tutorial series for the following applications:
+
+- [React Single-page app (SPA)](single-page-app-tutorial-01-register-app.md)
+- [.NET Web app](web-app-tutorial-01-register-application.md)
+- [.NET Web API](web-api-tutorial-01-register-app.md)
+
 As you work with the Microsoft identity platform to integrate authentication and authorization in your apps, you can refer to this image that outlines the most common app scenarios and their identity components. Select the image to view it full-size.
 
-[![Metro map showing several application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+[![Metro map showing several application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
 
 ## Learn authentication concepts
 

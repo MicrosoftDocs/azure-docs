@@ -7,6 +7,7 @@ ms.author: dobett
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 ---
 
 # Export IoT data to Service Bus
@@ -100,7 +101,7 @@ az role assignment create --assignee $PI --role "Azure Service Bus Data Sender" 
 az role assignment list --assignee $PI --all -o table
 
 echo "Host name: $SBNS.servicebus.windows.net"
-echo "Queue: $CN"
+echo "Queue: $SBQ"
 ```
 
 To further secure your queue or topic and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).

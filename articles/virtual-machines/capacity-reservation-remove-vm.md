@@ -3,11 +3,11 @@ title: Remove a virtual machine association from a Capacity Reservation group
 description: Learn how to remove a virtual machine from a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/09/2021
-ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to
+ms.date: 04/24/2023
+ms.reviewer: cynthn, jushiman, mattmcinnes
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Remove a VM association from a Capacity Reservation group

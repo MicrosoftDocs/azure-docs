@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Teamphoria | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Teamphoria'
 description: Learn how to configure single sign-on between Azure Active Directory and Teamphoria.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -193,5 +193,3 @@ When you click the Teamphoria tile in the Access Panel, you should be automatica
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Teamphoria with Azure AD](https://aad.portal.azure.com/)

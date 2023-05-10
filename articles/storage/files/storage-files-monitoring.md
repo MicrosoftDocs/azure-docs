@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Files | Microsoft Docs
+title: Monitoring Azure Files
 description: Learn how to monitor the performance and availability of Azure Files. Monitor Azure Files data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
@@ -8,7 +8,8 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 10/06/2022
 ms.author: normesta
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.devlang: csharp
+ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Files
@@ -492,7 +493,6 @@ The following table lists some example scenarios to monitor and the proper metri
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
-- [Planning for an Azure Files deployment](./storage-files-planning.md)
-- [How to deploy Azure Files](./storage-how-to-create-file-share.md)
-- [Troubleshoot Azure Files on Windows](./storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files on Linux](./storage-troubleshoot-linux-file-connection-problems.md)
+- [Planning for an Azure Files deployment](storage-files-planning.md)
+- [How to deploy Azure Files](storage-how-to-create-file-share.md)
+- [Troubleshoot Azure Files](files-troubleshoot.md)

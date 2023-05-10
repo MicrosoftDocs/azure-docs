@@ -4,11 +4,10 @@ description: Follow the steps of this tutorial to learn how to publish multiple 
 author: dlepow
 
 ms.service: api-management
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: danlep
-
 ---
 # Tutorial: Publish multiple versions of your API 
 
@@ -92,7 +91,7 @@ When you create multiple versions, the Azure portal creates a *version set*, whi
 
 You can interact directly with version sets by using the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az-apim-api-versionset-list) command:
 

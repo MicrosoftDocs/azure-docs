@@ -1,14 +1,14 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
+title: Properties of a B2B guest user
 description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/12/2022
-ms.author: mimart
-author: msmimart
+ms.date: 01/23/2023
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
@@ -26,6 +26,10 @@ The following table describes B2B collaboration users based on how they authenti
 - **External member**: This B2B collaboration user has an account in an external Azure AD organization or an external identity provider (such as a social identity) and member-level access to resources in your organization. This scenario is common in organizations consisting of multiple tenants, where users are considered part of the larger organization and need member-level access to resources in the organization’s other tenants. The user object created in the resource Azure AD directory has a UserType of Member.
 - **Internal guest**: Before Azure AD B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest. If you have internal guest users like these, you can invite them to use B2B collaboration instead so they can use their own credentials, allowing their external identity provider to manage authentication and their account lifecycle.
 - **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
+
+The user type you choose has the following limitations for apps or services (but aren't limited to):
+    
+[!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
 
 > [!IMPORTANT]
 > The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
@@ -71,7 +75,7 @@ This property indicates the relationship of the user to the host tenancy. This p
 
 ### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
 > Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
@@ -83,8 +87,7 @@ Microsoft account |  This user is homed in a Microsoft account and authenticates
 {host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and isn't a Gmail address or a Microsoft account.
-phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and isn't a Gmail address or Microsoft account.
+mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
 ### Directory synced

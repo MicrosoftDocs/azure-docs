@@ -1,13 +1,13 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-ms.date: 06/09/2022
+ms.date: 02/01/2023
 ms.topic: overview
 ---
 
 # What is Azure Arc-enabled servers?
 
-Azure Arc-enabled servers lets you manage Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines, using standard Azure constructs such as Azure Policy and applying tags.
+Azure Arc-enabled servers lets you manage Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or other cloud provider. For the purposes of Azure Arc, these machines hosted outside of Azure are considered hybrid machines. The management of hybrid machines in Azure Arc is designed to be consistent with how you manage native Azure virtual machines, using standard Azure constructs such as Azure Policy and applying tags. (For additional information about hybrid environments, see [What is a hybrid cloud?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-hybrid-cloud-computing))
 
 When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
@@ -79,15 +79,17 @@ If a machine remains disconnected for 45 days, its status may change to **Expire
 
 ## Service limits
 
-Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level.
+There is no limit to how many Arc-enabled servers and VM extensions you can deploy in a resource group or subscription. The standard 800 resource limit per resource group applies to the Azure Arc Private Link Scope resource type.
 
 To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
 ## Data residency
 
-Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
+Azure Arc-enabled servers stores customer data. By default, customer data stays within the region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
 
 ## Next steps
 
 * Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/).
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
+* Explore the [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).

@@ -27,7 +27,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 - [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
 
-- [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) to add machine learning and AI models to your solution.
+- [Azure Machine Learning](../machine-learning/index.yml) to add machine learning and AI models to your solution.
 
 - [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
@@ -125,5 +125,5 @@ To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
 - [What is Azure IoT device and application development](../iot-develop/about-iot-develop.md)
-- [Fundamentals: Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md)
+- [Fundamentals: Azure IoT technologies and solutions](../iot/iot-services-and-technologies.md)
 

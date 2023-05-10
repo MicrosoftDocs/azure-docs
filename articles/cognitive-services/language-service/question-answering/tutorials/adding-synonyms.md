@@ -80,7 +80,7 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 ## Notes
 * Synonyms can be added in any order. The ordering is not considered in any computational logic.
 * Synonyms can only be added to a project that has at least one question and answer pair.
-* Synonyms can be added only when there is at least one question and answer pair present in a knowledge base.
+* Synonyms can be added only when there is at least one question and answer pair present in a project.
 * In case of overlapping synonym words between 2 sets of alterations, it may have unexpected results and it is not recommended to use overlapping sets.
 * Special characters are not allowed for synonyms. For hyphenated words like "COVID-19", they are treated the same as "COVID 19", and "space" can be used as a term separator. Following is the list of special characters **not allowed**:
 
@@ -111,5 +111,3 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create knowledge bases in multiple languages](multiple-languages.md)

@@ -3,10 +3,10 @@ title: Restore VMs using Cloud Backup for Virtual Machines (Preview)
 description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/30/2022
+ms.date: 05/10/2023
 ---
 
-# Restore VMs using Cloud Backup for Virtual Machines (Preview)
+# Restore VMs using Cloud Backup for Virtual Machines (preview)
 
 Cloud Backup for Virtual Machines enables you to restore virtual machines (VMs) from the cloud backup to the vCenter. 
 
@@ -129,6 +129,5 @@ If you need to change the MySQL database backup configuration, you can modify:
 1. From the main menu, enter option **1) Application Configuration**.
 1. From the Application Configuration menu, enter option **6) MySQL backup and restore**.
 1. From the MySQL Backup & Restore Configuration, menu, enter option **1) Configure MySQL backup**.
-
 
     :::image type="content" source="./media/cloud-backup/mysql-backup-configuration.png" alt-text="Screenshot of the CLI maintenance menu depicting menu options." lightbox="./media/cloud-backup/mysql-backup-configuration.png":::

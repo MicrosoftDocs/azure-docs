@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Access & create new tenant - Azure AD
+title: Quickstart - Access & create new tenant
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization.
 services: active-directory
 author: barclayn
@@ -25,6 +25,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
+>[!Note]
+>If you're unable to create Azure AD or Azure AD B2C tenant, review your user settings page to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
+
 ### To create a new tenant
 
 1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
@@ -45,11 +48,11 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
     ![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-    - Type _Contoso Organization_ into the **Organization name** box.
+    - Type your desired Organization name (for example _Contoso Organization_) into the **Organization name** box.
 
-    - Type _Contosoorg_ into the **Initial domain name** box.
+    - Type your desired Initial domain name (for example _Contosoorg_) into the **Initial domain name** box.
 
-    - Leave the _United States_ option in the **Country or region** box.
+    - Select your desired Country/Region or leave the _United States_ option in the **Country or region** box.
 
 1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **create**.
 
@@ -57,7 +60,7 @@ Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Your user account in the new tenant
 
-When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Admin](../roles/permissions-reference.md#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
+When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Administrator](../roles/permissions-reference.md#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
 
 By default, you're also listed as the [technical contact](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 

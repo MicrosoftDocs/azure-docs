@@ -6,13 +6,13 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 02/23/2023
 ms.custom: ignite-fall-2021
 ---
 
 # Microsoft Purview scanning best practices
 
-Microsoft Purview supports automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
+[Microsoft Purview governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) support automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
 
 Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 
@@ -143,6 +143,7 @@ After you register your source in the relevant [collection](./how-to-create-and-
     - **Scan type and schedule**
         - The scan process can be configured to run full or incremental scans.
         - Run the scans during non-business or off-peak hours to avoid any processing overload on the source.
+        - **Start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
         - Initial scan is a full scan, and every subsequent scan is incremental. Subsequent scans can be scheduled as periodic incremental scans.
         - The frequency of scans should align with the change management schedule of the data source or business requirements. For example:
             - If the source structure could potentially change weekly, the scan frequency should be in sync. Changes include new assets or fields within an asset that are added, modified, or deleted.

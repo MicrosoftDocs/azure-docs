@@ -6,11 +6,10 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 05/23/2022
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli 
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
-
 ---
 
 # Create and configure a key vault for Azure Disk Encryption
@@ -29,23 +28,10 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
-### Connect to your Azure account
-
-Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure PowerShell](/powershell/azure/authenticate-azureps), or supplying your credentials to the Azure portal when prompted.
-
-```azurecli-interactive
-az login
-```
-
-```azurepowershell-interactive
-Connect-AzAccount
-```
-
 [!INCLUDE [disk-encryption-key-vault](../../includes/disk-encryption-key-vault.md)]
  
 ## Next steps
 
 - [Azure Disk Encryption overview](disk-encryption-overview.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
-- [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
-
+- [Encrypt a Virtual Machine Scale Sets using the Azure CLI](disk-encryption-cli.md)
+- [Encrypt a Virtual Machine Scale Sets using the Azure PowerShell](disk-encryption-powershell.md)

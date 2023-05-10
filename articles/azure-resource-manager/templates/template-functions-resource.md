@@ -3,7 +3,7 @@ title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
 ms.date: 09/09/2022
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ---
 
 # Resource functions for ARM templates
@@ -780,7 +780,7 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
 
-### managementGrouopResourceID example
+### managementGroupResourceID example
 
 The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
 

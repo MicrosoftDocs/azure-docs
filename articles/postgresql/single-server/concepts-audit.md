@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Audit logging of database activities in Azure Database for PostgreSQL - Single Server is available through the PostgreSQL Audit extension, [pgAudit](https://www.pgaudit.org/). The pgAudit extension provides detailed session and object audit logging.
 
 > [!NOTE]

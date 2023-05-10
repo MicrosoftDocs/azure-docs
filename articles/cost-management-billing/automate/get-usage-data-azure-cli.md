@@ -8,6 +8,7 @@ ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
+ms.custom: devx-track-azurecli
 ms.reviewer: adwise
 ---
 
@@ -19,7 +20,7 @@ This article explains how you get cost and usage data with the Azure CLI. If you
 
 Start by preparing your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure an export job to export cost data to Azure storage
 

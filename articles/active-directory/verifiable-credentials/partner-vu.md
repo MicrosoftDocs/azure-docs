@@ -29,7 +29,7 @@ To learn more about VU Security and its complete set of solutions, visit
 
 To get started with the VU Identity Card, ensure the following prerequisites are met:
 
-- A tenant [configured](/azure/active-directory/verifiable-credentials/verifiablee-credentials-configure-tenant)
+- A tenant [configured](./verifiable-credentials-configure-tenant.md)
   for Entra Verified ID service.
 
   - If you don\'t have an existing tenant, you can [create an Azure

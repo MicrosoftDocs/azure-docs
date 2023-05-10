@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 04/04/2023
 ms.devlang: csharp
 ---
 
@@ -219,6 +219,8 @@ Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClie
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
 |`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
 |`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
+|`UserAgentSuffix`|`CosmosClientBuilder.ApplicationName` can be used to achieve the same effect.|
+|`UseMultipleWriteLocations`|Removed. The SDK automatically detects if the account supports multiple write endpoints.|
 
 ### Indexing policy
 
@@ -237,7 +239,7 @@ Where the v2 SDK exposed the session token of a response as `ResourceResponse.Se
 
 ### Timestamp
 
-Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../account-databases-containers-items.md#properties-of-an-item) to a property in their model.
+Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../resource-model.md#properties-of-an-item) to a property in their model.
 
 ### OpenAsync
 

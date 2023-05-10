@@ -12,15 +12,25 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 04/25/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
-This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
 
-The following diagram summarizes the categories of solution architectures that Azure NetApp Files offers:
+Azure NetApp Files is an enterprise storage service that offers an ideal landing zone component in Azure to accelerate and simplify the migration of various workload categories. Azure NetApp Files provides a high-performance, scalable, and secure storage service for running mission-critical applications and workloads in Azure.
 
+For businesses looking to migrate their applications and workloads to Azure, Azure NetApp Files provides a seamless experience for migrating Windows Apps and SQL server, Linux OSS Apps and Databases, and SAP on Azure. Azure NetApp Files' integration with Azure services makes the migration process easy, enabling users to move their workloads from on-premises to the cloud with minimal effort.
+
+In addition to migration, Azure NetApp Files provides a platform for running specialized workloads in High-Performance Computing (HPC) like Analytics, Oil and Gas, and Electronic Design Automation (EDA). These specialized workloads require high-performance computing resources, and Azure NetApp Files’ scalable and high-performance file storage solution provides the ideal platform for running these workloads in Azure. Azure NetApp Files also supports running Virtual Desktop Infrastructure (VDI) with Azure Virtual Desktop and Citrix, as well as Azure VMware Solution with guest OS mounts and datastores. 
+
+Azure NetApp Files’ integration with Azure native services like Azure Kubernetes Service, Azure Batch, and Azure Machine Learning provides users with a seamless experience and enables them to leverage the full power of Azure's cloud-native services. This integration allows businesses to run their workloads in a scalable, secure, and highly performant environment, providing them with the confidence they need to run mission-critical workloads in the cloud.
+
+The following diagram depicts the categorization of reference architectures, blueprints and solutions on this page as laid out in the above introduction:
+
+**Azure NetApp Files key use cases**
 :::image type="content" source="../media/azure-netapp-files/solution-architecture-categories.png" alt-text="Solution architecture categories." lightbox="../media/azure-netapp-files/solution-architecture-categories.png":::
+
+In summary, Azure NetApp Files is a versatile and scalable storage service that provides an ideal platform for migrating various workload categories, running specialized workloads, and integrating with Azure native services. Azure NetApp Files’ high-performance, security, and scalability features make it a reliable choice for businesses looking to run their applications and workloads in Azure.
 
 ## Linux OSS Apps and Database solutions
 
@@ -104,6 +114,8 @@ This section provides references to SAP on Azure solutions.
 * [SAP S/4HANA in Linux on Azure - Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-s4hana)
 * [Run SAP BW/4HANA with Linux VMs - Azure Architecture Center](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
 * [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [Optimize HANA deployments with Azure NetApp Files application volume group for SAP HANA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimize-hana-deployments-with-azure-netapp-files-application/ba-p/3683417)
+* [Using Azure NetApp Files AVG for SAP HANA to deploy HANA with multiple partitions (MP)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-netapp-files-avg-for-sap-hana-to-deploy-hana-with/ba-p/3742747)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
 * [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
@@ -113,8 +125,8 @@ This section provides references to SAP on Azure solutions.
 * [Azure Application Consistent Snapshot tool (AzAcSnap)](azacsnap-introduction.md)
 * [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
+* [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
-* [SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_backup_and_recovery_on_Azure_NetApp_Files_with_SnapCenter_Service.pdf)
 
 ### SAP AnyDB
 
@@ -122,7 +134,9 @@ This section provides references to SAP on Azure solutions.
 * [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md)
 * [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 * [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
+* [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
+* [DB2 Installation Guide on Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/db2-installation-guide-on-anf/ba-p/3709437)
 
 ### SAP IQ-NLS
 
@@ -142,12 +156,13 @@ This section provides references to SAP on Azure solutions.
 * [SAP Landscape sizing and volume consolidation with Azure NetApp Files](https://techcommunity.microsoft.com/t5/sap-on-microsoft/sap-landscape-sizing-and-volume-consolidation-with-anf/m-p/2145572/highlight/true#M14)
 * [Gain first hands-on experience with the new automated S/4HANA deployment in Microsoft Azure](https://blogs.sap.com/2021/09/13/gain-first-hands-on-experience-with-the-new-automated-s-4hana-deployment-in-microsoft-azure/)
 
-## Azure VMware Solutions
+## Azure VMware Solution solutions
 
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 * [Attach Azure NetApp Files to Azure VMware Solution VMs - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/) - Jetstream
+* [Enable App Volume Replication for Horizon VDI on Azure VMware Solution using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-migration-and/enable-app-volume-replication-for-horizon-vdi-on-azure-vmware/ba-p/3798178)
 
 ## Virtual Desktop Infrastructure solutions
 
@@ -177,6 +192,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Generic HPC
 
+* [Azure HPC OnDemand Platform](https://azure.github.io/az-hop/)
 * [Azure NetApp Files: Getting the most out of your cloud storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 * [Run MPI workloads with Azure Batch and Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
 * [Azure Cycle Cloud: CycleCloud HPC environments on Azure NetApp Files](/azure/cyclecloud/overview)
@@ -221,11 +237,12 @@ This section provides solutions for Azure platform services.
 * [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
 * [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
 * [Providing Disaster Recovery to CloudBees-Jenkins in AKS with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/providing-disaster-recovery-to-cloudbees-jenkins-in-aks-with/ba-p/3553412)
+* [Disaster protection for JFrog Artifactory in AKS with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-protection-for-jfrog-artifactory-in-aks-with-astra/ba-p/3701501)
 * [Develop and test easily on AKS with NetApp® Astra Control Service® and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/develop-and-test-easily-on-aks-with-netapp-astra-control-service/ba-p/3604225)
 
 ### Azure Machine Learning
 
-* [High-performance storage for AI Model Training tasks using Azure ML studio with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/high-performance-storage-for-ai-model-training-tasks-using-azure/ba-p/3609189#_Toc112321755)
+* [High-performance storage for AI Model Training tasks using Azure Machine Learning studio with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/high-performance-storage-for-ai-model-training-tasks-using-azure/ba-p/3609189#_Toc112321755)
 * [How to use Azure Machine Learning with Azure NetApp Files](https://github.com/csiebler/azureml-with-azure-netapp-files)
 
 ### Azure Red Hat Openshift   

@@ -28,5 +28,5 @@ To start training your model from within the [Language Studio](https://aka.ms/La
 
     > [!NOTE]
     > * Only successfully completed training jobs will generate models.
-    > * Training can take some time between a couple of minutes and several hours based on the size of your labeled data.
+    > * The time to train the model can take anywhere between a few minutes to several hours based on the size of your labeled data.
     > * You can only have one training job running at a time. You can't start other training job within the same project until the running job is completed.

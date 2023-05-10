@@ -17,7 +17,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a cluster
 
@@ -53,7 +53,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
     export clusterSizeInNodes=1
     export clusterVersion=4.0
     export clusterType=hadoop
-    export componentVersion=Hadoop=3.1.0
+    export componentVersion=Hadoop=3.1
     ```
 
 3. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:

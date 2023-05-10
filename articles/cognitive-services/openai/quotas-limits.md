@@ -8,32 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 04/25/2023
 ms.author: chrhoder
 ---
 
-# Azure OpenAI service quotas and limits
+# Azure OpenAI Service quotas and limits
 
-This article contains a quick reference and a detailed description of the quotas and limits for the Azure OpenAI service in Azure Cognitive Services.
+This article contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI in Azure Cognitive Services.
 
 ## Quotas and limits reference
 
-The following sections provide you with a quick guide to the quotas and limits that apply to the Azure OpenAI service
+The following sections provide you with a quick guide to the quotas and limits that apply to the Azure OpenAI:
 
 | Limit Name | Limit Value |
 |--|--|
-| OpenAI resources per region | 2 | 
-| Requests per second per deployment | 15 |
-| Max fine-tuned model deployments | 2 |
+| OpenAI resources per region per Azure subscription | 3 |
+| Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model (preview): 300 <br> GPT-4 models (preview): 18 <br> All other models: 300 |
+| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> GPT-4 8k model: 10,000 <br> GPT-4 32k model: 32,000 <br> All other models: 120,000 |
+| Max fine-tuned model deployments* | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 | 
 | Max Files per resource | 50 |
 | Total size of all files per resource | 1 GB | 
-| Max training job time (job will fail if exceeded) | 120 hours |
-| Max training job size (tokens in training file * # of epochs) | **Ada**: 40-M tokens <br> **Babbage**: 40-M tokens <br> **Curie**: 40-M tokens <br> **Cushman**: 40-M tokens <br> **Davinci**: 10-M |
+| Max training job time (job will fail if exceeded) | 720 hours |
+| Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 
+*The limits are subject to change. We anticipate that you will need higher limits as you move toward production and your solution scales. When you know your solution requirements, please reach out to us by applying for a quota increase here: <https://aka.ms/oai/quotaincrease>
+
+
+For information on max tokens for different models, consult the [models article](./concepts/models.md#model-summary-table-and-region-availability)
 
 ### General best practices to mitigate throttling during autoscaling
 
@@ -46,45 +51,14 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 The next sections describe specific cases of adjusting quotas.
 
-### Request an increase to a limit on transactions-per-second or number of fine-tuned models deployed
+### How to request increases to the default quotas and limits
 
-The limit of concurrent requests defines how high the service can scale before it starts to throttle your requests.
+At this time, due to overwhelming demand we cannot accept any new resource or quota increase requests.
 
-#### Have the required information ready
+ 
 
-- OpenAI Resource ID
-- Region
-- Deployment Name 
-  
-How to get this information:
-
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. Select the Azure OpenAI resource for which you would like to increase the request limit.
-1. From the **Resource Management** group, select **Properties**.
-1. Copy and save the values of the following fields:
-   - **Resource ID**
-   - **Location** (your endpoint region)
-1. From the **Resource Management** group, select **Deployments**.
-   - Copy and save the name of the Deployment you're requesting a limit increase
-
-## Create and submit a support request
-
-Initiate the increase of the limit for concurrent requests for your resource, or if necessary check the current limit, by submitting a support request. Here's how:
-
-1. Ensure you have the required information listed in the previous section.
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. Select the OpenAI service resource for which you would like to increase (or to check) the concurrency request limit.
-1. In the **Support + troubleshooting** group, select **New support request**. A new window will appear, with auto-populated information about your Azure subscription and Azure resource.
-1. In **Summary**, describe what you want (for example, "Increase OpenAI request limit").
-1. In **Problem type**, select **Quota or Subscription issues**.
-1. In **Problem subtype**, select **Increasing limits or access to specific functionality**
-1. Select **Next: Solutions**. Proceed further with the request creation.
-1. On the **Details** tab, in the **Description** field, enter the following:
-   - Include details on which limit you're requesting an increase for.
-   - The Azure resource information you [collected previously](#have-the-required-information-ready).
-   - Any other required information.
-1. On the **Review + create** tab, select **Create**. 
-1. Note the support request number in Azure portal notifications. You'll be contacted shortly about your request.
+> [!NOTE]
+> Ensure that you thoroughly assess your current resource utilization, approaching its full capacity. Be aware that we will not grant additional resources if efficient usage of existing resources is not observed.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Device identity and desktop virtualization - Azure Active Directory
+title: Device identity and desktop virtualization
 description: Learn how VDI and Azure AD device identities can be used together
 
 services: active-directory
@@ -38,6 +38,8 @@ It's important to ensure organizations manage stale devices that are created bec
 
 > [!IMPORTANT]
 > Failure to manage stale devices can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
+
+For successful execution of some scenarios, it is important to have unique device names in the directory. This can be achieved by proper management of stale devices, or you can guarantee device name uniqueness by using some pattern in device naming.
 
 This article will cover Microsoft's guidance to administrators on support for device identity and VDI. For more information about device identity, see the article [What is a device identity](overview.md).
 

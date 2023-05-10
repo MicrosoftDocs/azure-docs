@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -28,7 +28,7 @@ The code snippets in this guide are written in C# by using the Azure Cognitive S
 
 ## Setup
 
-This guide assumes that you already constructed a [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) object, named `faceClient`, with a Face key and endpoint URL. For instructions on how to set up this feature, follow one of the quickstarts.
+This guide assumes that you already constructed a [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) object, named `faceClient`, using a Face key and endpoint URL. For instructions on how to set up this feature, follow one of the quickstarts.
 
 ## Submit data to the service
 
@@ -36,7 +36,7 @@ To find faces and get their locations in an image, call the [DetectWithUrlAsync]
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for their unique IDs and a rectangle that gives the pixel coordinates of the face. This way, you can tell which face ID maps to which face in the original image.
+You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for the rectangles that give the pixel coordinates of each face. If you set _returnFaceId_ to `true` (approved customers only), you can get the unique ID for each face, which you can use in later face recognition tasks.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 

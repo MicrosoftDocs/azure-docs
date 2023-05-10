@@ -17,10 +17,6 @@ This article describes limitations of Azure Arc-enabled PostgreSQL.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Backup and restore 
-
-Enable automated backups. Include the `--storage-class-backups` argument when you create an Azure Arc-enabled PostgreSQL server. Restore has been temporarily removed as we finalize designs and experiences.
-
 ## High availability
 
 Configuring high availability to recover from infrastructure failures isn't yet available.

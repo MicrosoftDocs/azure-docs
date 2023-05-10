@@ -1,6 +1,5 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
-ms.service: azure-arc
 ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
@@ -252,4 +251,4 @@ To resolve this issue, modify your network policy to allow pod-to-pod internal c
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment.
 - Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
-- Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions.md#currently-available-extensions).
+- Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions-release.md).

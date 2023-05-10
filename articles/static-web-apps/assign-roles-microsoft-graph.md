@@ -19,10 +19,10 @@ In this tutorial, you learn to:
 - Deploy a static web app.
 - Create an Azure Active Directory app registration.
 - Set up custom authentication with Azure Active Directory.
-- Configure a [serverless function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles.
+- Configure a [serverless function](authentication-custom.md#manage-roles) that queries the user's Active Directory group membership and returns a list of custom roles.
 
 > [!NOTE]
-> This tutorial requires you to [use a function to assign roles](authentication-authorization.md?tabs=function#role-management). Function-based role management is currently in preview.
+> This tutorial requires you to [use a function to assign roles](authentication-custom.md#manage-roles). Function-based role management is currently in preview.
 
 ## Prerequisites
 

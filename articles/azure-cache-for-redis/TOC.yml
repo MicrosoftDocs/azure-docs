@@ -11,9 +11,9 @@
   items:
   - name: Create a cache
     items: 
-    - name: Basic, Standard and Premium tiers
+    - name: Create a cache in the Basic, Standard and Premium tiers
       href: quickstart-create-redis.md
-    - name: Enterprise tiers
+    - name: Create a cache in the Enterprise tiers
       href: quickstart-create-redis-enterprise.md
   - name: Use a cache
     items:
@@ -86,22 +86,24 @@
         href: ../availability-zones/migrate-cache-redis.md
     - name: Best practices
       items:
-       - name: Connection resilience
-         href: cache-best-practices-connection.md
-       - name: Server load management
-         href: cache-best-practices-server-load.md
-       - name: Memory management
-         href: cache-best-practices-memory-management.md
-       - name: Development
-         href: cache-best-practices-development.md
        - name: Client libraries
          href: cache-best-practices-client-libraries.md
-       - name: Scaling
-         href: cache-best-practices-scale.md
+       - name: Connection resilience
+         href: cache-best-practices-connection.md
+       - name: Development
+         href: cache-best-practices-development.md
+       - name: Enterprise tiers
+         href: cache-best-practices-enterprise-tiers.md
        - name: Kubernetes-hosted client applications
          href: cache-best-practices-kubernetes.md
+       - name: Memory management
+         href: cache-best-practices-memory-management.md
        - name: Performance testing
          href: cache-best-practices-performance.md
+       - name: Scaling
+         href: cache-best-practices-scale.md
+       - name: Server load management
+         href: cache-best-practices-server-load.md
     - name: Security
       items:
       - name: Network isolation options
@@ -179,12 +181,16 @@
       href: cache-configure.md
     - name: Import/Export data
       href: cache-how-to-import-export-data.md
+    - name: Configure disk encryption 
+      href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
     - name: Schedule updates
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Create and manage a cache using CLI
+      href: cache-manage-cli.md
     - name: Move between regions
       href: cache-moving-resources.md
     - name: Publishing Azure Cache for Redis events
@@ -201,9 +207,11 @@
       href: cache-how-to-monitor.md#create-alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
+    - name: Use Insights to understand performance and utilization
+      href: cache-insights-overview.md
   - name: Scale
     items:
-    - name: Update to a different size and tier
+    - name: Change the size and tier of a cache
       href: cache-how-to-scale.md
     - name: Use Redis cluster to scale in/out
       href: cache-how-to-premium-clustering.md

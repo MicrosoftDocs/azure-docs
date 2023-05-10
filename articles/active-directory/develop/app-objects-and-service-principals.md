@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/02/2022
+ms.date: 04/27/2023
 ms.author: ryanwi
 ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40
 ms.reviewer: sureshja
@@ -23,7 +23,7 @@ This article describes application registration, application objects, and servic
 
 To delegate identity and access management functions to Azure AD, an application must be registered with an Azure AD tenant. When you register your application with Azure AD, you're creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the Azure portal, you choose whether it's a [single tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), or [multi-tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), and can optionally set a [redirect URI](reply-url.md). For step-by-step instructions on registering an app, see the [app registration quickstart](quickstart-register-app.md).
 
-When you've completed the app registration, you've a globally unique instance of the app (the application object) which lives within your home tenant or directory. You also have a globally unique ID for your app (the app or client ID). In the portal, you can then add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
+When you've completed the app registration, you've a globally unique instance of the app (the application object) which lives within your home tenant or directory. You also have a globally unique ID for your app (the app/client ID). In the portal, you can then add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
 
 If you register an application in the portal, an application object and a service principal object are automatically created in your home tenant. If you register/create an application using the Microsoft Graph APIs, creating the service principal object is a separate step.
 

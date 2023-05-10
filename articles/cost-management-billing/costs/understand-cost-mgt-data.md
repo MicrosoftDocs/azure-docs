@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2022
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -114,7 +114,7 @@ Cost Management receives tags as part of each usage record submitted by the indi
 - Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed.
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a VM is deallocated.
-- Managing tags requires contributor access to each resource.
+- Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) RBAC role.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
     
 If you don't see a specific tag in Cost Management, consider the following questions:
@@ -138,7 +138,7 @@ If you don't see a specific tag in Cost Management, consider the following quest
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break down costs by organization, application, environment, and so on.
-- Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy.
+- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md) to apply resource group and subscription tags to child resource usage records. If you were using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
 - Use the Tags API with either Query or UsageDetails to get all cost based on the current tags.
 
 ## Cost and usage data updates and retention

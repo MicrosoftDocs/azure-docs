@@ -1,10 +1,9 @@
 ---
 title: Optimize log alert queries | Microsoft Docs
 description: This article gives recommendations for writing efficient alert queries.
-author: yanivlavi
-ms.author: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: yalavi
 ---
 # Optimize log alert queries
 
@@ -62,7 +61,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](../alerts/alerts-log-api-switch.md) to learn about switching.
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch) to learn about switching.
 
 ## Examples
 

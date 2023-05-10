@@ -69,7 +69,7 @@ Users enter the soft-delete state anytime the user object is deleted by using th
 
 The most frequent scenarios for user deletion are:
 
-* An administrator intentionally deletes a user in the Azure AD portal in response to a request or as part of routine user maintenance.
+* An administrator intentionally deletes a user in the Azure portal in response to a request or as part of routine user maintenance.
 * An automation script in Microsoft Graph or PowerShell triggers the deletion. For example, you might have a script that removes users who haven't signed in for a specified time.
 * A user is moved out of scope for synchronization with Azure AD Connect.
 * A user is removed from an HR system and is deprovisioned via an automated workflow.
@@ -143,7 +143,7 @@ Currently, service principals can be listed, viewed, hard deleted, or restored v
 
 ### Administrative units
 
-AUs can be listed, viewed, hard deleted, or restored via the deletedItems Microsoft Graph API. To restore AUs using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http).
+AUs can be listed, viewed, or restored via the deletedItems Microsoft Graph API. To restore AUs using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http). Once an AU is deleted it remains in a soft deleted state and can be restored for 30 days, but cannot be hard deleted during that time. Soft deleted AUs are hard deleted automatically after 30 days.
 
 ## Hard deletions
 
@@ -152,6 +152,8 @@ A hard deletion is the permanent removal of an object from your Azure AD tenant.
 * Users
 * Microsoft 365 Groups
 * Application registration
+* Service principal
+* Administrative unit
 
 > [!IMPORTANT]
 > All other item types are hard deleted. When an item is hard deleted, it can't be restored. It must be re-created. Neither administrators nor Microsoft can restore hard-deleted items. Prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.

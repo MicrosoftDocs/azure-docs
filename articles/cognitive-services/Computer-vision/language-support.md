@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ---
 

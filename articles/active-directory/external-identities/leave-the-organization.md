@@ -1,38 +1,43 @@
 ---
 
-title: Leave an organization - Azure Active Directory
-titleSuffix: Azure External Identities
+title: Leave an organization as a guest user
+titleSuffix: Azure Active Directory External Identities
 description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 01/17/2023
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan 
+author: csmulligan 
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 adobe-target: true
-ms.custom: engagement-fy23
+
+# Customer intent: As a tenant administrator, I want to make sure that guest users can leave the organization.
 ---
 
 # Leave an organization as an external user
 
-As an Azure Active Directory (Azure AD) [B2B collaboration](what-is-b2b.md) or [B2B direct connect](b2b-direct-connect-overview.md) user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
+As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
+
+## Before you begin
 
 You can usually leave an organization on your own without having to contact an administrator. However, in some cases this option won't be available and you'll need to contact your tenant admin, who can delete your account in the external organization. This article is intended for administrators. If you're a user looking for information about how to manage and leave an organization, see the [Manage organizations article.](https://support.microsoft.com/account-billing/manage-organizations-for-a-work-or-school-account-in-the-my-account-portal-a9b65a70-fec5-4a1a-8e00-09f99ebdea17)
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## What organizations do I belong to?
 
 1. To view the organizations you belong to, first open your **My Account** page. You either have a work or school account  created by an organization or a personal account such as for Xbox, Hotmail, or Outlook.com.  
 
    - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
-   - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your tenant name or tenant ID, for example: https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com or https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789.
+   - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your tenant name or tenant ID.
+   For example:
+    https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com
+    or 
+    https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789. You might need to open this URL in a private browser session.
 
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
@@ -65,7 +70,6 @@ In the **Home organization** section, there's no link to **Leave** your organiza
 
 For the external organizations listed under **Other organizations you collaborate with**, you might not be able to leave on your own, for example when:
 
-
 - the organization you want to leave doesn’t allow users to leave by themselves
 - your account has been disabled
 
@@ -87,7 +91,6 @@ Administrators can use the **External user leave settings** to control whether e
    - **Yes**: Users can leave the organization themselves without approval from your admin or privacy contact.
    - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin, or privacy contact to request removal from your organization.
 
-
    :::image type="content" source="media/leave-the-organization/external-user-leave-settings.png" alt-text="Screenshot showing External user leave settings in the portal.":::
 
 ### Account removal
@@ -104,12 +107,12 @@ If desired, a tenant administrator can permanently delete the account at any tim
 
 1. Select the check box next to a deleted user, and then select **Delete permanently**.
 
-Permanent deletion can be initiated by the admin, or it happens at the end of the soft deletion period. Permanent deletion can take up to an extra 30 days for data removal ([learn more](/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
+Permanent deletion can be initiated by the admin, or it happens at the end of the soft deletion period. Permanent deletion can take up to an extra 30 days for data removal.
 
-> [!NOTE]
-> For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to 30 days to complete ([learn more](/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant)).
+For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to 30 days to complete.
+
 
 ## Next steps
 
-- Learn more about [Azure AD B2B collaboration](what-is-b2b.md) and [Azure AD B2B direct connect](b2b-direct-connect-overview.md)
-- [Close your Microsoft account](/microsoft-365/commerce/close-your-account)
+- Learn more about [user deletion](/compliance/regulatory/gdpr-dsr-azure#step-5-delete) and about how to delete a user's data when there's [no account in the Azure tenant](/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant). 
+- For more information about GDPR, see the GDPR section of the [Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

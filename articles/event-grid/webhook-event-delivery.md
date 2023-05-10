@@ -54,10 +54,10 @@ An example SubscriptionValidationEvent is shown in the following example:
     "subject": "",
     "data": {
       "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-      "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/myeventsub/validate?id=0000000000-0000-0000-0000-00000000000000&t=2021-09-01T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+      "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/myeventsub/validate?id=0000000000-0000-0000-0000-00000000000000&t=2022-10-28T04:23:35.1981776Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
     },
     "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-    "eventTime": "2021-00-01T22:12:19.4556811Z",
+    "eventTime": "2022-10-28T04:23:35.1981776Z",
     "metadataVersion": "1",
     "dataVersion": "1"
   }
@@ -88,7 +88,7 @@ And, follow one of these steps:
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ## Endpoint validation with CloudEvents v1.0
-CloudEvents v1.0 implements its own abuse protection semantics using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
+CloudEvents v1.0 implements its own abuse protection semantics using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Event schema compatibility
 When a topic is created, an incoming event schema is defined. And, when a subscription is created, an outgoing event schema is defined. The following table shows you the compatibility allowed when creating a subscription. 

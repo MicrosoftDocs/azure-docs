@@ -1,5 +1,5 @@
 ---
-title: "Quickstart`:` Use a managed identity to access Azure Resource Manager - Azure AD"
+title: "Quickstart`:` Use a managed identity to access Azure Resource Manager"
 description: A quickstart that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-arm-template
 ---
 
 # Use a Linux VM system-assigned managed identity to access Azure Resource Manager

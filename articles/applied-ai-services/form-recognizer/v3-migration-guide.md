@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 10/20/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Form Recognizer v3.0 migration
@@ -21,14 +20,15 @@ recommendations: false
 
 ## Migrating from a v3.0 preview API version
 
-Preview APIs are periodically deprecated. If you're using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the 2022-08-31 (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the `2022-08-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
 
-The 2022-08-31 API has a few updates from the preview API versions:
+The `2022-08-31` API has a few updates from the preview API versions:
+
 * Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
 * Field deleted: entities removed from the result of the general document model.
 * Field rename: documentLanguage.languageCode to locale
 * Added support for HEIF format
-* Added paragraph detection, with role classification for layout and general document models
+* Added paragraph detection, with role classification for layout and general document models.
 * Added support for parsed address fields.
 
 ## Migrating from v2.1
@@ -223,17 +223,7 @@ Analyze response has been refactored to the following top-level results to suppo
 },
 "confidence": 0.95 // Extraction confidence
 }, ...
-], // List of extracted entities
-"entities": [
-{
-"category": "DateTime", // Primary entity category
-"subCategory": "Date", // Secondary entity category
-"content": "11/15/2019", // Entity content
-"boundingRegions": [ ... ], // Entity bounding regions
-"spans": [ ... ], // Entity spans
-"confidence": 0.99 // Extraction confidence
-}, ...
-], // List of extracted styles
+], 
 "styles": [
 {
 "isHandwritten": true, // Is content in this style handwritten?
@@ -386,5 +376,4 @@ In this migration guide, you've learned how to upgrade your existing Form Recogn
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
-
+* [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md)

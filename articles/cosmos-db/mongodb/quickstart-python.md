@@ -9,7 +9,7 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/08/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js, ignite-2022, devx-track-azurecli
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver
@@ -21,7 +21,7 @@ Get started with the PyMongo package to create databases, collections, and docum
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
 
-In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using one of the open-source MongoDB client drivers for Python, [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/). Also, you'll use the [MongoDB extension commands](./custom-commands.md), which are designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../account-databases-containers-items.md).
+In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using one of the open-source MongoDB client drivers for Python, [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/). Also, you'll use the [MongoDB extension commands](./custom-commands.md), which are designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../resource-model.md).
 
 ## Prerequisites
 
@@ -114,7 +114,13 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 ## Object model
 
-Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
+Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and documents.
+
+:::image type="complex" source="media/quickstart-nodejs/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+:::image-end:::
+
+Each type of resource is represented by a Python class. Here are the most common classes:
 
 * [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to Azure Cosmos DB's API for MongoDB. The client object is used to configure and execute requests against the service.
 
@@ -124,7 +130,7 @@ Let's look at the hierarchy of resources in the API for MongoDB and the object m
 
 * [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure. And common fields in a collection's documents may hold different types of data.
 
-To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../resource-model.md) article.
 
 ## Code examples
 

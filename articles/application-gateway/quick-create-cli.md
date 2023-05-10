@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/22/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 ---
@@ -24,7 +24,7 @@ You can also complete this quickstart using [Azure PowerShell](quick-create-powe
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

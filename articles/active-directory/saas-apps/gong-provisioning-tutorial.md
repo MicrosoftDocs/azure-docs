@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Gong for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Gong for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Gong.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 6c8285d3-4f35-4325-9adb-d1a44668a03a
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/09/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

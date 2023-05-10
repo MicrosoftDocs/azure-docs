@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator authentication method - Azure Active Directory
+title: Microsoft Authenticator authentication method
 description: Learn about using the Microsoft Authenticator in Azure Active Directory to help secure your sign-ins
 
 services: active-directory
@@ -43,6 +43,8 @@ The Authenticator app can help prevent unauthorized access to accounts and stop 
 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process.](media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-browser-prompt.png)
 
+In some rare instances where the relevant Google or Apple service responsible for push notifications is down, users may not receive their push notifications. In these cases users should manually navigate to the Microsoft Authenticator app (or relevant companion app like Outlook), refresh by either pulling down or hitting the refresh button, and approve the request. 
+
 > [!NOTE]
 > If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region as Google play services(including push notifications) are blocked in the region. However iOS notification do work. For Android devices ,alternate authentication methods should be made available for those users.
 
@@ -71,6 +73,15 @@ No changes in configurations are required in Microsoft Authenticator or the Azur
 Authenticator leverages the native Apple cryptography to achieve FIPS 140, Security Level 1 compliance on Apple iOS devices beginning with Microsoft Authenticator version 6.6.8. For more information about the certifications being used, see the [Apple CoreCrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web?azure-portal=true). 
 
 FIPS 140 compliance for Microsoft Authenticator on Android is in progress and will follow soon.
+
+## Determining Microsoft Authenticator registration type in My Security-Info 
+Managining and adding additional Microsoft Authenticator registrations can be performed by users by accessing https://aka.ms/mysecurityinfo or by selecting Security info from  from My Account. Specific icons are used to differentiate whether the Microsoft Authenticator registration is capable of passwordless phone sign-in or MFA. 
+
+Authenticator registration type | Icon
+------ | ------
+Microsoft Authenticator: Passwordless phone sign-in   | <img width="43" alt="Microsoft Authenticator passwordless sign-in Capable" src="https://user-images.githubusercontent.com/50213291/211923744-d025cd70-4b88-4603-8baf-db0fc5d28486.png">  
+Microsoft Authenticator: MFA capable | <img width="43" alt="Microsoft Authenticator MFA Capable" src="https://user-images.githubusercontent.com/50213291/211921054-d11983ad-4e0d-4612-9a14-0fef625a9a2a.png">
+
 
 ## Next steps
 

@@ -103,6 +103,35 @@ traces
 
 The runtime provides the `customDimensions.LogLevel` and `customDimensions.Category` fields. You can provide additional fields in logs that you write in your function code. For an example in C#, see [Structured logging](functions-dotnet-class-library.md#structured-logging) in the .NET class library developer guide.
 
+## Query function invocations
+
+Every function invocation is assigned a unique ID. `InvocationId` is included in the custom dimension and can be used to correlate all the logs from a particular function execution.
+
+```kusto
+traces
+| project customDimensions["InvocationId"], message
+```
+
+## Telemetry correlation
+
+Logs from different functions can be correlated using `operation_Id`. Use the following query to return all the logs for a specific logical operation.
+
+```kusto
+traces
+| where operation_Id == '45fa5c4f8097239efe14a2388f8b4e29'
+| project timestamp, customDimensions["InvocationId"], message
+| order by timestamp
+```
+
+## Sampling percentage
+
+Sampling configuration can be used to reduce the volume of telemetry. Use the following query to determine if sampling is operational or not. If you see that `RetainedPercentage` for any type is less than 100, then that type of telemetry is being sampled.
+
+```kusto
+union requests,dependencies,pageViews,browserTimings,exceptions,traces
+| where timestamp > ago(1d)
+| summarize RetainedPercentage = 100/avg(itemCount) by bin(timestamp, 1h), itemType
+```
 ## Query scale controller logs
 
 _This feature is in preview._

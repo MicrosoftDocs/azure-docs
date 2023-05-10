@@ -104,9 +104,10 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you have a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
 
-For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
+* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
+* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
 
 ### Why I see 'Advertised public prefixes' status as 'Validation needed', while configuring Microsoft peering?
 
@@ -185,7 +186,7 @@ If your service provider can establish two Ethernet virtual circuits over the ph
 
 No. We don't support layer 2 connectivity extensions into Azure.
 
-### Can I've more than one ExpressRoute circuit in my subscription?
+### Can I have more than one ExpressRoute circuit in my subscription?
 
 Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit is set to 50. You can contact Microsoft Support to increase the limit, if needed.
 
@@ -303,6 +304,12 @@ You should experience minimal to no impact during maintenance if you operate you
 
 You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is composed of multiple instances and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself won't experience any downtime.
 
+### Why are certain ports opened on my ExpressRoute gateway?
+
+They're required for Azure infrastructure to communicate. They're protected by Azure certificates. Without proper certificates, you can't establish a connection to the ports. 
+
+An ExpressRoute gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+
 ## ExpressRoute SKU scope access
 
 ### What is the connectivity scope for different ExpressRoute circuit SKUs?
@@ -359,7 +366,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 
 ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard SKU and the Premium SKU. A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. Specifically, with a Local SKU you can only advertise routes (over Microsoft and private peering) from the corresponding local region of the ExpressRoute circuit. You won't be able to receive routes for other regions different than the defined Local region.
 
-ExpressRoute Local may not be available for a ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
+ExpressRoute Local may not be available for an ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
 
 ### What are the benefits of ExpressRoute Local?
 
@@ -375,7 +382,7 @@ ExpressRoute Local also has the same limits on resources (for example, the numbe
 
 ### Where is ExpressRoute Local available and which Azure regions is each peering location mapped to?
 
-ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It isn't available at a peering location where there's no Azure region in that state or province or country/region. See the exact mappings on [the Locations page](expressroute-locations-providers.md).  
+ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It isn't available at a peering location where there's no Azure region in that state or province or country/region. See the exact mappings on [ExpressRoute Locations page](expressroute-locations-providers.md#partners).  
 
 ## ExpressRoute for Microsoft 365
 
@@ -414,7 +421,7 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 Yes. Microsoft 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. Check with your organization's networking team if the network at your location is configured to connect to Microsoft 365 services through ExpressRoute.
 
 ### How can I plan for high availability for Microsoft 365 network traffic on Azure ExpressRoute?
-See the recommendation for [High availability and failover with Azure ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
+See the recommendation for [High availability and failover with Azure ExpressRoute](./designing-for-high-availability-with-expressroute.md)
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
 
@@ -440,8 +447,8 @@ Your existing circuit will continue advertising the prefixes for Microsoft 365. 
 
 * Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 won't have any prefixes advertised until a route filter is attached to the circuit. You'll see no prefixes by default.
 
-### If I have multiple Virtual Networks (Vnets) connected to the same ExpressRoute circuit, can I use ExpressRoute for Vnet-to-Vnet connectivity?
-Vnet-to-Vnet connectivity over ExpressRoute isn't recommended. To achieve this, configure [Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md?msclkid=b64a7b6ac19e11eca60d5e3e5d0764f5).
+### If I have multiple Virtual Networks (VNets) connected to the same ExpressRoute circuit, can I use ExpressRoute for VNet-to-VNet connectivity?
+VNet-to-VNet connectivity over ExpressRoute isn't recommended. To achieve this, configure [Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md?msclkid=b64a7b6ac19e11eca60d5e3e5d0764f5).
 
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 

@@ -7,8 +7,9 @@ ms.author: vikramdh
 ---
 
 # Azure Communication Services - Chat events
+This article provides the properties and schema for communication services chat events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). These events are emitted for Azure Communication Services chats and Teams meeting chats.
 
-This article provides the properties and schema for communication services chat events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+Azure Communication Services emits chat events only when Azure Communication Services users are part of the meeting. Once all Azure Communication Services users leave the meeting, the communication services resource does not emit chat events.
 
 ## Event types
 
@@ -22,8 +23,6 @@ Azure Communication Services emits the following chat event types:
 | Microsoft.Communication.ChatThreadCreatedWithUser           | Published when the user is added as member at the time of creation of a chat thread.           |
 | Microsoft.Communication.ChatThreadWithUserDeleted           | Published when a chat thread is deleted which the user is member of.                           |
 | Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | Published when a chat thread's properties are updated that the user is member of.              |
-| Microsoft.Communication.ChatMemberAddedToThreadWithUser     | Published when the user is added as member to a chat thread.                                   |
-| Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | Published when the user is removed from a chat thread.                                         |
 | Microsoft.Communication.ChatParticipantAddedToThreadWithUser|  Published for a user when a new  participant is added to a chat thread, that the user is part of.|
 | Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser |  Published for a user when a participant is removed from a chat thread, that the user is part of. |
 | Microsoft.Communication.ChatThreadCreated  | Published when a chat thread is created  |
@@ -62,7 +61,7 @@ This section contains an example of what that data would look like for each even
           "id": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724"
         }
       },
-      "senderDisplayName": "Jhon",
+      "senderDisplayName": "Bob(Admin)",
       "composeTime": "2021-02-19T00:25:58.927Z",
       "type": "Text",
       "version": 1613694358927,
@@ -180,7 +179,7 @@ This section contains an example of what that data would look like for each even
         }
       },
       "properties": {
-        "topic": "Chat about new commuication services"
+        "topic": "Chat about new communication services"
       },
       "members": [
         {
@@ -455,7 +454,7 @@ This section contains an example of what that data would look like for each even
         }
       },
       "properties": {
-        "topic": "Talk about new Thread Events in commuication services"
+        "topic": "Talk about new Thread Events in communication services"
       },
       "participants": [
         {
@@ -522,7 +521,7 @@ This section contains an example of what that data would look like for each even
       },
       "editTime": "2021-02-20T00:04:07.7152073+00:00",
       "properties": {
-        "topic": "Talk about new Thread Events in commuication services"
+        "topic": "Talk about new Thread Events in communication services"
       },
       "createTime": "2021-02-20T00:00:40.126+00:00",
       "version": 1613779447695,
@@ -646,7 +645,7 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/sender/8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cdb-4916-07fd-084822002624",
     "data": {
-      "messageBody": "Talk about new Thread Events in commuication services",
+      "messageBody": "Talk about new Thread Events in communication services",
       "messageId": "1613783230064",
       "metadata": {
         "key": "value",
@@ -740,3 +739,4 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
+

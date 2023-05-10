@@ -1,5 +1,5 @@
 ---
-title: Create a Front Door with HTTP to HTTPS redirection using the Azure portal
+title: Create a Front Door with HTTP to HTTPS redirection - Azure portal
 description: Learn how to create a Front Door with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: front-door
 author: duongau

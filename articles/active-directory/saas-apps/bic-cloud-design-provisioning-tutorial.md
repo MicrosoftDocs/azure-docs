@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure BIC Cloud Design for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BIC Cloud Design for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BIC Cloud Design.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 1aace746-6f6d-4ac4-ad2c-7ba65bb86a72
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

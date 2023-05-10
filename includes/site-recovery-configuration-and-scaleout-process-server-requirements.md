@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: site-recovery
-author: rayne-wiselman
+author: ankitaduttaMSFT
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: raynew
+ms.date: 04/25/2023
+ms.author: ankitadutta
 ms.custom: include file
 ---
 
@@ -52,7 +52,7 @@ NIC type | VMXNET3 (if the configuration server is a VMware VM)
 https:\//login.microsoftonline.com | Used for replication management operations and coordination 
 time.nist.gov | Used to check time synchronization between system and global time
 time.windows.com | Used to check time synchronization between system and global time
-| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
+| <ul> <li> \*.management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.
 |
 

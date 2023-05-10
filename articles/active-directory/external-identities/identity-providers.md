@@ -1,11 +1,11 @@
 ---
-title: Identity providers for External Identities - Azure AD
+title: Identity providers for External Identities
 description: Learn how to use Azure AD as your default identity provider for sharing with external users.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/20/2023
 
 ms.author: mimart
 author: msmimart
@@ -38,6 +38,8 @@ External Identities offers a variety of identity providers.
 - **SAML/WS-Fed identity provider federation**: You can also set up federation with any external IdP that supports the SAML or WS-Fed protocols. SAML/WS-Fed IdP federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. See how to [set up SAML/WS-Fed IdP federation](direct-federation.md).
    > [!NOTE]
    > Federated SAML/WS-Fed IdPs can't be used in your self-service sign-up user flows.
+
+To configure federation with Google, Facebook, or a SAML/Ws-Fed identity provider, you'll need to be an [External Identity Provider Administrator](../roles/permissions-reference.md#external-identity-provider-administrator) or a [Global Administrator](../roles/permissions-reference.md#global-administrator) in your Azure AD tenant.
 
 ## Adding social identity providers
 

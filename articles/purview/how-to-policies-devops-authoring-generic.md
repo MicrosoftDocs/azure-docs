@@ -1,19 +1,19 @@
 ---
-title: Create, list, update and delete Microsoft Purview DevOps policies
-description: Step-by-step guide on provisioning access through Microsoft Purview DevOps policies
+title: Create, list, update and delete Microsoft Purview DevOps policies, so you can manage access to system health and performance counters.
+description: Use Microsoft Purview DevOps policies to provision access to database system metadata, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat. This guide covers the basic operations.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 04/27/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-This how-to guide covers how to provision access from Microsoft Purview to SQL-type data sources via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+This guide covers the configuration steps in Microsoft Purview to provision access to database system metadata using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*. It goes into detail on creating, listing, updating and deleting DevOps policies.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -39,7 +39,7 @@ To create a new DevOps policy, ensure first that you have the Microsoft Purview 
 1.  Select the **Data source type** and then one of the listed data sources under **Data source name**. Then click on **Select**. This will take you back to the New Policy experience
 ![Screenshot shows to select a data source for policy.](./media/how-to-policies-devops-authoring-generic/select-a-data-source.png)
 
-1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Note that Microsoft 365 groups are not supported. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
+1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Note that Microsoft 365 groups are supported but updates to group membership take up to 1 hour to get reflected by Azure AD. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
 ![Screenshot shows to select role and subject for policy.](./media/how-to-policies-devops-authoring-generic/select-role-and-subjects.png)
 
 1. Select **Save** to save the policy. A policy has been created and automatically published. Enforcement will start at the data source within 5 minutes.
@@ -79,11 +79,107 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 1. Check one of the policies and then select **Delete** as shown in the following screenshot:
 ![Screenshot shows to enter SQL DevOps policies to delete.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
+## Test the DevOps policy
+After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here a few examples. For more, you can consult the mapping of popular DMVs/DMFs in the [Microsoft Purview DevOps policies concept guide](./concept-policies-devops.md#mapping-of-popular-dmvs-and-dmfs)
+
+If you require additional troubleshooting, see the [Next steps](#next-steps) section in this guide.
+
+### Testing SQL Performance Monitor access
+If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
+```sql
+-- Returns I/O statistics for data and log files
+SELECT * FROM sys.dm_io_virtual_file_stats(DB_ID(N'testdb'), 2)
+-- Waits encountered by threads that executed. Used to diagnose performance issues
+SELECT wait_type, wait_time_ms FROM sys.dm_os_wait_stats
+```
+![Screenshot shows test for SQL Performance Monitor.](./media/how-to-policies-devops-authoring-generic/test-access-sql-performance-monitor.png)
+
+### Testing SQL Security Auditor access
+If you provided the Subject(s) of the policy SQL Security Auditor role, you can issue the following commands from SSMS or any SQL client
+```sql
+-- Returns the current state of the audit
+SELECT * FROM sys.dm_server_audit_status
+-- Returns information about the encryption state of a database and its associated database encryption keys
+SELECT * FROM sys.dm_database_encryption_keys
+```
+
+### Ensure no access to user data
+Next, try accessing a table in one of the databases. The Azure AD principal you are testing with should be denied, which means the data is protected from insider threat
+
+```sql
+-- Test access to user data
+SELECT * FROM [databaseName].schemaName.tableName
+```
+
+![Screenshot shows test to access user data.](./media/how-to-policies-devops-authoring-generic/test-access-user-data.png)
+
+
+## Role definition detail
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
+
+>[!NOTE]
+> The roles below may be expanded in the future to include additional actions that become available as long as they are consistent with the spirit of the role.
+
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
+|-------------------------------------|--------------------------------------|
+|                                     |                                      |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
+|||               
+| *SQL Security Auditor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+|||
+
+>[!NOTE]
+> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023, to include the following SQL side specific actions.
+
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
+|-------------------------------------|--------------------------------------|
+|                                     |                                      |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/DBCCs/ViewServerPerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Drop
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Drop |
+|||
+
 ## Next steps
-Check the blog, related videos and documents
+Check the blogs, videos and related documents
+* Blog: [Inexpensive solution for managing access to SQL health, performance and security information](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/inexpensive-solution-for-managing-access-to-sql-health/ba-p/3750512)
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
+* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
 * Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
-* Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
-* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
-* Document: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Document: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
+* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
+* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
+* Doc: [Microsoft Purview DevOps policies concept guide](./concept-policies-devops.md)
+* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
+* Doc: [Microsoft Purview DevOps policies on Azure SQL Database](./how-to-policies-devops-azure-sql-db.md)
+* Doc: [Microsoft Purview DevOps policies on entire resource groups or subscriptions](./how-to-policies-devops-resource-group.md)
+* Doc: [Troubleshoot Microsoft Purview policies for SQL data sources](./troubleshoot-policy-sql.md)

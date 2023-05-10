@@ -3,7 +3,7 @@ author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 09/15/2022
+ms.date: 02/17/2023
 ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
@@ -18,10 +18,12 @@ Use this quickstart to create a Named Entity Recognition (NER) application with 
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.7 or later](https://www.python.org/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
+
+
 
 ## Setting up
 
@@ -33,9 +35,11 @@ After installing Python, you can install the client library with:
 pip install azure-ai-textanalytics==5.2.0
 ```
 
+
+
 ## Code example
 
-Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -72,6 +76,8 @@ def entity_recognition_example(client):
         print("Encountered exception. {}".format(err))
 entity_recognition_example(client)
 ```
+
+
 
 ## Output
 

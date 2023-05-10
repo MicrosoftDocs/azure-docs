@@ -3,7 +3,7 @@ title: Manage role permissions and security in Azure Automation
 description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management and role permissions for Azure resources.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2021
+ms.date: 01/09/2023
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
@@ -321,6 +321,9 @@ Update Management can be used to assess and schedule update deployments to machi
 |**Actions on virtual machine** |**Permission** | |
 |Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
 |Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
+
+>[!NOTE]
+>When you use Update management, ensure that the execution policy for scripts is *RemoteSigned*.
 
 ## Configure Azure RBAC for your Automation account
 

@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: Understand the Azure IoT Edge runtime and its architecture
             url: iot-edge-runtime.md
+          - text: Azure IoT Edge versions and release notes
+            url: version-history.md
           - text: Azure IoT Edge supported systems
             url: support.md
       - linkListType: how-to-guide
@@ -41,7 +43,7 @@ landingContent:
             url: quickstart-linux.md
       - linkListType: tutorial
         links: 
-          - text: Develop IoT Edge modules for Linux devices
+          - text: Develop Azure IoT Edge modules using Visual Studio Code
             url: tutorial-develop-for-linux.md
       - linkListType: how-to-guide
         links:
@@ -49,8 +51,8 @@ landingContent:
             url: how-to-provision-single-device-linux-symmetric.md
           - text: Register and provision Linux devices at scale
             url: how-to-provision-devices-at-scale-linux-symmetric.md
-          - text: Use Visual Studio Code to develop and debug modules
-            url: how-to-vs-code-develop-module.md
+          - text: Debug IoT Edge modules using Visual Studio Code
+            url: debug-module-vs-code.md
       - linkListType: reference
         links:
           - text: IoT Edge open-source repository

@@ -6,13 +6,16 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: proximity-placement-groups
-ms.date: 11/01/2022
-ms.reviewer: cynthn
-ms.custom: mimckitt, devx-track-azurepowershell
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
+ms.custom: cynthn, devx-track-azurepowershell
 
 ---
 
 # Create a proximity placement group using PowerShell
+
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 

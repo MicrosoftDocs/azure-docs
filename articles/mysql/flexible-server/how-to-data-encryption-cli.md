@@ -1,12 +1,13 @@
 ---
-title: Set data encryption for Azure Database for MySQL flexible server by using the Azure CLI
-description: Learn how to set up and manage data encryption for your Azure Database for MySQL flexible server using Azure CLI.
+title: Set data encryption for Azure Database for MySQL - Flexible Server by using the Azure CLI
+description: Learn how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI.
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
-ms.date: 09/15/2022
+ms.date: 11/21/2022
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.topic: how-to
 ---
 
@@ -14,9 +15,9 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI preview.
+This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI.
 
-In this tutorial you'll learn how to:
+In this tutorial, you learn how to:
 
 - Create a MySQL flexible server with data encryption
 - Update an existing MySQL flexible server with data encryption
@@ -27,13 +28,13 @@ In this tutorial you'll learn how to:
 - An Azure account with an active subscription.
 
 - If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free) before you begin.
- 
-    > [!Note]
+
+    > [!NOTE]  
     > With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account.md).
 
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
-- Log in to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to Subscription ID for your Azure account:
+- Sign in to Azure account using the [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to the Subscription ID for your Azure account:
 
 ```azurecli-interactive
 az login
@@ -95,7 +96,7 @@ az mysql flexible-server update --resource-group testGroup --name testserver --d
 
 ## Create flexible server with geo redundant backup and data encryption enabled
 
-```azurecli-interactive      
+```azurecli-interactive
 az mysql flexible-server create -g testGroup -n testServer --location testLocation \\
 --geo-redundant-backup Enabled \\
 --key <key identifier of testKey> --identity testIdentity \\
@@ -254,6 +255,5 @@ The params **identityUri** and **primaryKeyUri** are the resource ID of the user
 
 ## Next steps
 
-- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key.md)
-- [Data encryption with Azure portal (Preview)](how-to-data-encryption-portal.md)
-
+- [Customer managed keys data encryption](concepts-customer-managed-key.md)
+- [Data encryption with Azure portal](how-to-data-encryption-portal.md)

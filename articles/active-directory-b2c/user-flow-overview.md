@@ -3,15 +3,15 @@ title: User flows and custom policies in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/03/2022
-ms.custom: project-no-code
-ms.author: kengaderdus
+ms.date: 10/24/2022
+ms.custom: project-no-code, engagement-fy23
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -27,7 +27,7 @@ In Azure AD B2C, there are two ways to provide identity user experiences:
 
 The following screenshot shows the user flow settings UI, versus custom policy configuration files.
 
-![Screenshot shows the user flow settings UI, versus custom policy configuration files.](media/user-flow-overview/user-flow-vs-custom-policy.png)
+:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot of the user flow settings UI, versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
 
 This article gives a brief overview of user flows and custom policies, and helps you decide which method will work best for your business needs.
 

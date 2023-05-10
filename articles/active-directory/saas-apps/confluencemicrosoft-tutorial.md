@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/23/2022
+ms.date: 11/21/2022
 ms.author: dhivyag
 ---
 
@@ -60,7 +60,7 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.20.0
+- Confluence: 7.0.1 to 8.1.0
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04

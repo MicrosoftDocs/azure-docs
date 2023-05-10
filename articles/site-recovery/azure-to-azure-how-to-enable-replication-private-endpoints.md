@@ -5,8 +5,8 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
-ms.custom: references_regions, subject-rbac-steps
+ms.date: 04/23/2022
+ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
 
@@ -222,7 +222,7 @@ following role permissions depending on the type of storage account:
 
 The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the Azure portal, navigate to your Azure SQL Server page.
+1. In the Azure portal, navigate to the cache storage account you created.
 
 1. Select **Access control (IAM)**.
 

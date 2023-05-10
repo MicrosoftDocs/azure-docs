@@ -2,15 +2,15 @@
 title: Test an Azure Stream Analytics job locally with sample data using Visual Studio Code
 description: How to test queries locally with sample data using Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
-author: su-jie
-ms.author: sujie
-ms.date: 11/10/2019
+author: alexlzx
+ms.author: zhenxilin
+ms.date: 12/27/2022
 ms.topic: how-to
 ---
 
 # Test Stream Analytics queries locally with sample data using Visual Studio Code
 
-You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally with sample data. You can find the query results in JSON files in the **LocalRunOutputs** folder of your project.
+You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally with sample data. The output results can be found as JSON files in the **LocalRunOutputs** folder of your project.
 
 For more information, see [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md).
 
@@ -26,13 +26,13 @@ You need to prepare sample input data files first. If you already have some samp
 
 1. Click **Preview data** in your input configuration file from the top line. Some input data will be fetched from IoT Hub and shown in the preview window.
 
-2. Once the data is shown, click **Save as** to save the data to a local file.
+2. Once the data is shown, select **Save as** to save the data to a local file.
 
  ![Preview live input](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## Define a local input
 
-1. Click **input.json** under Inputs folder in your Stream Analytics project. Then select **Add local input** from the top line.
+1. Select **input.json** under Inputs folder in your Stream Analytics project. Then select **Add local input** from the top line.
 
     ![Add local input from project](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
@@ -56,7 +56,7 @@ You need to prepare sample input data files first. If you already have some samp
 
     ![Enter local file path in Visual Studio](./media/vscode-local-run/local-file-path.png)
 
-6. Select **Preview Data** to preview the input data. The serialization type for your data is automatically detected if its JSON or CSV. Use the selector to view your data in **Table** or **Raw** format. The following table is an example of data in the **Table format**:
+6. Select **Preview Data** to preview the input data. The serialization type (JSON or CSV) for your data is automatically detected. Use the selector to view your data in **Table** or **Raw** format. The following table is an example of data in the **Table format**:
 
      ![Preview local data in table format](./media/vscode-local-run/local-file-preview-table.png)
 
@@ -72,7 +72,7 @@ Return to your query editor, and select **Run locally**. Then select **Use local
 
 ![Use local input](./media/vscode-local-run/run-locally-use-local-input.png)
 
-The result is shown in the right window. You can click **Run** to test again. You can also select **Open in folder** to see the result files in file explorer and further open them with other tools. The result files are only available in JSON format.
+The result is shown in the right window. You can select **Run** to test again. You can also select **Open in folder** to see the result files in file explorer and further open them with other tools. The result files are only available in JSON format.
 
 ![View local run result](./media/vscode-local-run/run-locally-result.png)
 

@@ -20,7 +20,7 @@ zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
+[!INCLUDE [Azure CLI](./includes/phone-numbers-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azp"
@@ -63,4 +63,9 @@ In this quickstart you learned how to:
 
 > [!div class="nextstepaction"]
 > [Send an SMS](../sms/send.md)
+> 
+> [!div class="nextstepaction"]
+> [Toll-free verification](../../concepts/sms/sms-faq.md#toll-free-verification)
+
+> [!div class="nextstepaction"]
 > [Get started with calling](../voice-video-calling/getting-started-with-calling.md)

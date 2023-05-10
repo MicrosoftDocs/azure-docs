@@ -112,12 +112,16 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
   "tasks": [
     {
       "kind": "AbstractiveSummarization",
-      "taskName": "Document Abstractive Summarization Task 1"
+      "taskName": "Document Abstractive Summarization Task 1",
+      "parameters": {
+        "sentenceCount": 1
+      }
     }
   ]
-}
 '
 ```
+If you do not specify `sentenceCount`, the model will determine the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20.
+
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
 - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
@@ -140,8 +144,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
+
 
 ### Abstractive document summarization example JSON response
 

@@ -7,6 +7,7 @@ manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurepowershell
 ms.date: 09/20/2022
 ms.author: duau
 ---
@@ -54,6 +55,9 @@ Clear-AzFrontDoorCdnEndpointContent `
    -ContentPath /scripts/*
 ```
 Cache purges on the Azure Front Door profile are case-insensitive. Additionally, they're query string agnostic, which means to purge a URL will purge all query-string variations of it. 
+
+> [!NOTE]
+> Cache purging can takes up to 10 mins to propagate throughout the network and across all edge locations.
 
 ## Next steps
 

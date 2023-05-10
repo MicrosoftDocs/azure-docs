@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with New Relic by Account | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with New Relic by Account'
 description: Learn how to configure single sign-on between Azure Active Directory and New Relic by Account.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/14/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 

@@ -1,18 +1,17 @@
 ---
 title: Microsoft identity platform delegated access scenario
-description: Learn about delegated access in the Microsoft identity platform endpoint.
+description: Learn about when and how to use delegated access in the Microsoft identity platform endpoint.
 services: active-directory
 author: omondiatieno
-manager: mwongerapk
-
+manager: celesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 03/15/2023
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
+
 ---
 # Understanding delegated access
 
@@ -25,6 +24,8 @@ When a user signs into an app and uses it to access some other resource, like Mi
 People frequently use different applications to access their data from cloud services. For example, someone might want to use a favorite PDF reader application to view files stored in their OneDrive. Another example can be a company’s line-of-business application that might retrieve shared information about their coworkers so they can easily choose reviewers for a request. In such cases, the client application, the PDF reader, or the company’s request approval tool needs to be authorized to access this data on behalf of the user who signed into the application.
 
 Use delegated access whenever you want to let a signed-in user work with their own resources or resources they can access. Whether it’s an admin setting up policies for their entire organization or a user deleting an email in their inbox, all scenarios involving user actions should use delegated access.
+
+![Diagram shows illustration of delegated access scenario.](./media/delegated-access-primer/delegated-access.png)
 
 In contrast, delegated access is usually a poor choice for scenarios that must run without a signed-in user, like automation. It may also be a poor choice for scenarios that involve accessing many users’ resources, like data loss prevention or backups. Consider using [application-only access](permissions-consent-overview.md) for these types of operations.
 
@@ -63,8 +64,9 @@ For client app authorization, OneDrive will check whether the client making the 
 
 The example given is simplified to illustrate delegated authorization. The production OneDrive service supports many other access scenarios, such as shared files.
 
-## Next steps
+## See also
 
 - [Open connect scopes](scopes-oidc.md)
 - [RBAC roles](custom-rbac-for-developers.md)
+- [Overview of permissions in Microsoft Graph](/graph/permissions-overview)
 - [Microsoft Graph permissions reference](/graph/permissions-reference)

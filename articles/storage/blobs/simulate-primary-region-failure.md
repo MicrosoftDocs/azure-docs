@@ -2,7 +2,6 @@
 title: Tutorial - Simulate a failure in reading data from the primary region
 titleSuffix: Azure Storage
 description: Simulate an error in reading data from the primary region when the storage account is configured for read-access geo-zone-redundant storage (RA-GZRS).
-services: storage
 author: pauljewellmsft
 
 ms.service: storage
@@ -52,7 +51,7 @@ While the application is paused, open a command prompt on Windows as an administ
 
 Get information about the storage account primary endpoint domain by entering the following command on a command prompt or terminal, replacing `STORAGEACCOUNTNAME` with the name of your storage account.
 
-```
+```bash
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 ```
 
@@ -64,13 +63,13 @@ To add a static route for a destination host, type the following command on a Wi
 
 #### Linux
 
-```
-route add <destination_ip> gw <gateway_ip>
+```bash
+sudo route add <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows
 
-```
+```console
 route add <destination_ip> <gateway_ip>
 ```
 
@@ -83,7 +82,7 @@ To simulate the primary endpoint becoming functional again, delete the invalid s
 #### Linux
 
 ```bash
-route del <destination_ip> gw <gateway_ip>
+sudo route del <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows

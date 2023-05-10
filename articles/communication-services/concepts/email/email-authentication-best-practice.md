@@ -6,31 +6,32 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Best practices for sender authentication support in Azure Communication Services Email
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+This article provides the Email Sending best practices on DNS records and  how to use the sender authentication methods that help prevent attackers from sending messages that look like they come from your domain.
 
-This article provides the best practices on how to use the sender authentication methods that help prevent attackers from sending messages that look like they come from your domain.
-
-## Email authentication
+## Email authentication and DNS setup
 Sending an email requires several steps which include verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
 
+### MX (Mail Exchange) record
+MX (Mail Exchange) record is used to route email to the correct server. It specifies the mail server responsible for accepting email messages on behalf of your domain. DNS needs to be updated with the latest information of MX records of your email domain otherwise it will result in some delivery failures.
+
 ### SPF (Sender Policy Framework)
-SPF  [RFC 7208](https://tools.ietf.org/html/rfc7208)  is a mechanism that allows domain owners to publish and maintain, via a standard DNS TXT record, a list of systems authorized to send email on their behalf.
+SPF  [RFC 7208](https://tools.ietf.org/html/rfc7208)  is a mechanism that allows domain owners to publish and maintain, via a standard DNS TXT record, a list of systems authorized to send email on their behalf. This record is used to specify which mail servers are authorized to send email on behalf of your domain. It helps to prevent email spoofing and increase email deliverability.
 
 ### DKIM (Domain Keys Identified Mail)
-DKIM  [RFC 6376](https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient
+DKIM  [RFC 6376](https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient. This record is also used to authenticate the domain the email is sent from, and helps to prevent email spoofing and increase email deliverability.
 
 ### DMARC (Domain-based Message Authentication, Reporting, and Conformance)
-DMARC [RFC 7489](https://tools.ietf.org/html/rfc7489) is a scalable mechanism by which a mail-originating organization can express domain-level policies and preferences for message validation, disposition, and reporting that a mail-receiving organization can use to improve mail handling.
+DMARC [RFC 7489](https://tools.ietf.org/html/rfc7489) is a scalable mechanism by which a mail-originating organization can express domain-level policies and preferences for message validation, disposition, and reporting that a mail-receiving organization can use to improve mail handling. It is also used to specify how email receivers should handle messages that fail SPF and DKIM checks. This improves email deliverability and helps to prevent email spoofing.
 
 ### ARC (Authenticated Received Chain) 
 The ARC protocol [RFC 8617](https://tools.ietf.org/html/rfc8617)  provides an authenticated chain of custody for a message, allowing each entity that handles the message to identify what entities handled it previously as well as the message’s authentication assessment at each hop. ARC is not yet an internet standard, but adoption is increasing. 
+
 
 ### How Email authentication works
 Email authentication verifies that email messages from a sender (for example, notification@contoso.com) are legitimate and come from expected sources for that email domain (for example, contoso.com.) 

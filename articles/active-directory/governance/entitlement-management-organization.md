@@ -1,5 +1,5 @@
 ---
-title: Add a connected organization in Azure AD entitlement management - Azure Active Directory
+title: Add a connected organization in entitlement management
 description: Learn how to allow people outside your organization to request access packages so that you can collaborate on projects.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/11/2020
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Add a connected organization in Azure AD entitlement management
+# Add a connected organization in entitlement management
 
-With Azure Active Directory (Azure AD) entitlement management, you can collaborate with people outside your organization. If you frequently collaborate with users in an external Azure AD directory or domain, you can add them as a connected organization. This article describes how to add a connected organization so that you can allow users outside your organization to request resources in your directory.
+With entitlement management, you can collaborate with people outside your organization. If you frequently collaborate with users in an external Azure AD directory or domain, you can add them as a connected organization. This article describes how to add a connected organization so that you can allow users outside your organization to request resources in your directory.
 
 ## What is a connected organization?
 
@@ -142,9 +142,22 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization) objects and set sponsors for them.
 
+### Manage connected organizations through Microsoft PowerShell
+
+You can also manage connected organizations in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
+
+This script below illustrates using the `v1.0` profile of Graph to retrieve all the connected organizations.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "v1.0"
+
+$co = Get-MgEntitlementManagementConnectedOrganization -all
+```
+
 ## State properties of connected organizations
 
-There are two different types of state properties for connected organizations in Azure AD entitlement management currently, configured and proposed: 
+There are two different types of state properties for connected organizations in entitlement management currently, configured and proposed: 
 
 - A configured connected organization is a fully functional connected organization that allows users within that organization access to access packages. When an admin creates a new connected organization in the Azure portal, it will be in the **configured** state by default since the administrator created and wants to use this connected organization. Additionally, when a connected org is created programmatically via the API, the default state should be **configured** unless set to another state explicitly. 
 

@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Tutorial: Deploy a multi-container group using a Resource Manager template
@@ -32,7 +32,7 @@ A Resource Manager template can be readily adapted for scenarios when you need t
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Configure a template
 

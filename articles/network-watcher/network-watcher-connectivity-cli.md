@@ -3,17 +3,13 @@ title: Troubleshoot connections - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure CLI.
 services: network-watcher
-documentationcenter: na
-author: damendo
-
-editor: 
-
+author: halkazwini
 ms.service: network-watcher
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 01/07/2021
-ms.author: damendo
+ms.author: halkazwini
 ---
 
 # Troubleshoot connections with Azure Network Watcher using the Azure CLI

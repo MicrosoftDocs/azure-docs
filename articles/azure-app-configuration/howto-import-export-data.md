@@ -2,11 +2,11 @@
 title: Import or export data with Azure App Configuration
 description: Learn how to import or export configuration data to or from Azure App Configuration. Exchange data between your App Configuration store and code project.
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 08/24/2022
-ms.author: malev
+ms.author: mcleans
 ---
 
 # Import or export configuration data
@@ -534,4 +534,4 @@ You may encounter the following error messages when importing or exporting App C
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Back up App Configuration stores automatically](./howto-backup-config-store.md)
+> [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md)

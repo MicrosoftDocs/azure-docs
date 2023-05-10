@@ -22,7 +22,7 @@ Here are the steps that a subscriber needs to perform to receive events from a p
 4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
 5. [Subscribe to events](#subscribe-to-events).
 
-[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+[!INCLUDE [register-provider](./includes/register-provider.md)]
 
 [!INCLUDE [authorize-partner-to-create-topic](includes/authorize-partner-to-create-topic.md)]
 
@@ -35,6 +35,7 @@ Here's the list of partners and a link to submit a request to enable events flow
 - [Auth0](auth0-how-to.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md)
 - [SAP](subscribe-to-sap-events.md)
+- [Tribal Group](subscribe-to-tribal-group-events.md)
 
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]

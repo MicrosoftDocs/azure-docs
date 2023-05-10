@@ -2,14 +2,15 @@
 title: Tutorial - Create user flows and custom policies - Azure Active Directory B2C
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/17/2022
-ms.author: kengaderdus
+ms.date: 10/26/2022
+ms.author: godonnell
+ms.custom: engagement-fy23
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -76,7 +77,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
-1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+1. For **User attributes and token claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
@@ -86,7 +87,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Select the user flow you created to open its overview page.
 1. At the top of the user flow overview page, select **Run user flow**. A pane opens at the right side of the page. 
-1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select the web application you wish to test, such as the one named *webapp1*. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**, and then select **Sign up now**.
 
     ![Run user flow page in portal with Run user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
@@ -111,7 +112,7 @@ To enable [self-service password reset](add-password-reset-policy.md) for the si
 ### Test the user flow
 
 1. Select the user flow you created to open its overview page, then select **Run user flow**.
-1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select the web application you wish to test, such as the one named *webapp1*. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**.
 1. From the sign-up or sign-in page, select **Forgot your password?**.
 1. Verify the email address of the account that you previously created, and then select **Continue**.
@@ -133,7 +134,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 1. Select the user flow you created to open its overview page.
 1. At the top of the user flow overview page, select **Run user flow**. A pane opens at the right side of the page. 
-1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select the web application you wish to test, such as the one named *webapp1*. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**, and then sign in with the account that you previously created.
 1. You now have the opportunity to change the display name and job title for the user. Select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 ::: zone-end
@@ -329,7 +330,7 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 ## Test the custom policy
 
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
-1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered.
+1. For **Select application** on the overview page of the custom policy, select the web application you wish to test, such as the one named *webapp1*.
 1. Make sure that the **Reply URL** is `https://jwt.ms`.
 1. Select **Run now**.
 1. Sign up using an email address.
