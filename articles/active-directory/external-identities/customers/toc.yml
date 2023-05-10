@@ -29,7 +29,7 @@ items:
       href: concept-authentication-methods-customers.md
     - name: Customizing the sign-in look and feel
       href: concept-branding-customers.md
-    - name: Custom authentication extensions
+    - name: Add your own business logic
       href: concept-custom-extensions.md
     - name: Security and governance
       href: concept-security-customers.md  	   	  

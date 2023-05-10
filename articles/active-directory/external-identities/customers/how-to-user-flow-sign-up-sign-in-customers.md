@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/07/2023
+ms.date: 05/09/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -48,9 +48,12 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Under **Identity providers**, select the **Email Accounts** check box, and then select one of these options:
 
-   - **Email with password**: Allows new users to sign up and sign in using an email address as the sign-in name and a password as their first-factor authentication method.
+   - **Email with password**: Allows new users to sign up and sign in using an email address as the sign-in name and a password as their first-factor authentication method. You can also configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page ([learn more](how-to-customize-branding-customers.md#to-customize-self-service-password-reset)).
 
    - **Email one-time passcode**: Allows new users to sign up and sign in using an email address as the sign-in name and email one-time passcode as their first-factor authentication method.
+
+   > [!NOTE]
+   > Other identity providers will be listed here only after you set up federation with them. For example, if you set up federation with [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md), you'll be able to select them here ([learn more](concept-authentication-methods-customers.md)).
 
    :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/create-user-flow-identity-providers.png" alt-text="Screenshot of Identity provider options on the Create a user flow page.":::
 

@@ -28,7 +28,7 @@ To add or delete users, your account must be assigned the *User administrator* o
 ## Create a customer account
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
 1. Under **Azure Active Directory**, select **Users** > **All users**.
 1. Select **New user** > **Create new user**. 
@@ -50,7 +50,7 @@ As an administrator, you can reset a user's password, if the user forgets their 
 To reset a customer's password:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
 1. Under **Azure Active Directory**, select **Users** > **All users**.
 1. Search for and select the user that needs the reset, and then select **Reset Password**.
@@ -60,7 +60,7 @@ To reset a customer's password:
 ## Delete a customer account
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
 1. Under **Azure Active Directory**, select **Users** > **All users**.
 1. Search for and select the user to delete.
