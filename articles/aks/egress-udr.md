@@ -18,7 +18,7 @@ This article walks through how to customize a cluster's egress route to support 
 
 ## Prerequisites
 
-* Azure CLI version 2.0.81 or greater. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli.md).
+* Azure CLI version 2.0.81 or greater. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * API version `2020-01-01` or greater.
 
 ## Requirements and limitations
