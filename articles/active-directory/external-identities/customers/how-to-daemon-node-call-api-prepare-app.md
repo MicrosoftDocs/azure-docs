@@ -14,7 +14,7 @@ ms.date: 05/10/2023
 ms.custom: developer
 ---
 
-# Call an API in your Node.js daemon application- Prepare your client app and web API
+# Call an API in your Node.js daemon application - Prepare your client app and web API
 
 In this article, you create app projects for both the client daemon app and web API. Later, you enable the client daemon app to acquire an access token using its own identity, then call the web API.
 

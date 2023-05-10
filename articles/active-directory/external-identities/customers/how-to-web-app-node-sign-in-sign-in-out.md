@@ -250,7 +250,7 @@ To extract a specific ID token claim, such as *given name*:
 
 ## Run and test the web app
 
-1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-node-express-web-app`.
+1. In your terminal, make sure you're in the project folder that contains your web app such as `ciam-sign-in-node-express-web-app`.
 
 1. Use the steps in [Run and test the web app](how-to-web-app-node-sample-sign-in.md#run-and-test-sample-web-app) article to test your web app.
 

@@ -184,7 +184,7 @@ At this point, you're ready to test your client web app and web API.
 
 1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests.
 
-1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-call-api-node-express-web-app`, then run the following command:
+1. In your terminal, make sure you're in the project folder that contains your client web app such as `ciam-sign-in-call-api-node-express-web-app`, then run the following command:
 
     ```console
     npm start
