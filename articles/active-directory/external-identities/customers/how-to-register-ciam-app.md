@@ -179,6 +179,7 @@ The following steps show you how to register your app in the admin center:
 
 1. The application's **Overview pane** is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
 
+### Add delegated permissions
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
 
 ### If you want to call an API follow the steps below (optional):
