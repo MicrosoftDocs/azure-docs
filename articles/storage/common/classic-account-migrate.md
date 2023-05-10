@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/02/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -108,9 +108,6 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 1. After a successful validation, select **Prepare** button to simulate the migration.
 
-  > [!IMPORTANT]
-  > There may be a delay of a few minutes after validation is complete before the Prepare button is enabled.
-
 1. If the Prepare step completes successfully, you'll see a link to the new resource group. Select that link to navigate to the new resource group. The migrated storage account appears under the **Resources** tab in the **Overview** page for the new resource group.
 
     At this point, you can compare the configuration and data in the classic storage account to the newly migrated storage account. You'll see both in the list of storage accounts in the portal. Both the classic account and the migrated account have the same name.
@@ -119,6 +116,9 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 1. If you're not satisfied with the results of the migration, select **Abort** to delete the new storage account and resource group. You can then address any problems and try again.
 1. When you're ready to commit, type **yes** to confirm, then select **Commit** to complete the migration.
+
+> [!IMPORTANT]
+> There may be a delay of a few minutes after validation is complete before the Prepare button is enabled.
 
 # [PowerShell](#tab/azure-powershell)
 
