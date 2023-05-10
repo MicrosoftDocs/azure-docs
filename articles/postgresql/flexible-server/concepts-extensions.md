@@ -115,10 +115,12 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
 After extensions are allow-listed and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
+> [!NOTE]
+> Third party extensions offered in Azure Database for PostgreSQL - Flexible Server are open source licensed code. Currently, we don't offer any third party extensions or extension versions with premium or proprietary licensing models.
+ 
 
 
-
-Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL supports a subset of key PostgreSQL extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 ## Postgres 14 extensions
 
 The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 14. 
