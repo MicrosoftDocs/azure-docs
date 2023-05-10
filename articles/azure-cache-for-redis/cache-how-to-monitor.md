@@ -141,6 +141,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
 - Cache Write
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
+- ConnectedClientsUsingAADToken
+  - The number of client connected to the cache using Azure AD token-based access during the specified reporting interval. Once the connection limit is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there can be a few instances of connected clients because of internal processes and connections.
 - Connected Clients
   - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
 - Connections Created Per Second
@@ -151,6 +153,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
 - Errors
   - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows:
+    - **AADAuthFailures (preview)** – when there’s an authentication failure with respect to a Azure AD Access Token
+    - **AADTokenExpired (preview)** - when there’s an auth token expiry event with respect to existing Azure AD token-based connection
     - **Failover** – when a cache fails over (subordinate promotes to primary)
     - **Dataloss** – when there's data loss on the cache
     - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes
