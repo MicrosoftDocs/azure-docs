@@ -18,7 +18,7 @@ zone_pivot_groups: spring-apps-plan-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Standard consumption & dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to deploy a small application to run on Azure Spring Apps.
 
@@ -47,7 +47,7 @@ At the end of this quickstart, you have a working Spring app running on Azure Sp
 ::: zone pivot="sc-consumption-plan"
 
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption plan by using the following command.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption & dedicated plan by using the following command.
 
   ```azurecli
   az extension remove --name spring && \
@@ -113,7 +113,8 @@ Use the following steps to create an Azure Spring Apps service instance.
    az containerapp env create \
        --name ${MANAGED_ENVIRONMENT} \
        --resource-group ${RESOURCE_GROUP} \
-       --location ${LOCATION}
+       --location ${LOCATION} \
+       --enable-workload-profiles
    ```
 
 1. Use the following command to create a variable to store the environment resource ID:
@@ -126,7 +127,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --output tsv)
    ```
 
-1. Use the following command to create an Azure Spring Apps service instance. The Azure Spring Apps Standard consumption plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
+1. Use the following command to create an Azure Spring Apps service instance. The Azure Spring Apps Standard consumption & dedicated plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
 
    ```azurecli-interactive
    az spring create \
@@ -160,7 +161,7 @@ Azure Spring Apps creates an empty welcome application and provides its URL in t
 
 :::image type="content" source="media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/app-welcome-page.png":::
 
-## (Optional) Create an app in your Azure Spring Apps instance with dedicated workload profiles
+## Create an app in your Azure Spring Apps instance with dedicated workload profiles
 
 [Dedicated workload profiles](../container-apps/workload-profiles-overview.md) support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
 
@@ -476,10 +477,10 @@ To learn how to use more Azure Spring capabilities, advance to the quickstart se
 
 ::: zone pivot="sc-consumption-plan"
 
-To learn how to create a Standard consumption plan in Azure Spring Apps for app deployment, advance to the Standard consumption quickstart series:
+To learn how to create a Standard consumption & dedicated plan in Azure Spring Apps for app deployment, advance to the Standard consumption & dedicated quickstart series:
 
 > [!div class="nextstepaction"]
-> [Provision an Azure Spring Apps Standard consumption plan service instance](./quickstart-provision-standard-consumption-service-instance.md)
+> [Provision an Azure Spring Apps Standard consumption & dedicated plan service instance](./quickstart-provision-standard-consumption-service-instance.md)
 
 ::: zone-end
 

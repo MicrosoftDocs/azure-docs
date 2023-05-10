@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy event-driven application to Azure Spring Apps with the Standard consumption plan
-description: Learn how to deploy an event-driven application to Azure Spring Apps with the Standard consumption plan.
+title: Quickstart - Deploy event-driven application to Azure Spring Apps with the Standard consumption & dedicated plan
+description: Learn how to deploy an event-driven application to Azure Spring Apps with the Standard consumption & dedicated plan.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
-# Quickstart: Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan
+# Quickstart: Deploy an event-driven application to Azure Spring Apps with the Standard consumption & dedicated plan
 
 > [!NOTE]
 > The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
@@ -17,9 +17,9 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption & dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption plan.
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption & dedicated plan.
 
 The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
@@ -148,14 +148,14 @@ Use the following steps to create the environment:
 1. Create the environment by using the following command:
 
    ```azurecli
-   az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT}
+   az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
    ```
 
 ## Create the Azure Spring Apps instance
 
-An Azure Spring Apps Standard consumption plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
+An Azure Spring Apps Standard consumption & dedicated plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
-1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption by using the following command:
+1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption & dedicated by using the following command:
 
    ```azurecli
    az extension remove --name spring && \
@@ -199,7 +199,7 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
        --assign-endpoint true
    ```
 
-## (Optional) Create an app in your Azure Spring Apps instance with dedicated workload profiles
+## Create an app in your Azure Spring Apps instance with dedicated workload profiles
 
 [Dedicated workload profiles](../container-apps/workload-profiles-overview.md) support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
 
@@ -276,7 +276,7 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
+> [Set up autoscale for applications in Azure Spring Apps Standard consumption & dedicated plan](./quickstart-apps-autoscale-standard-consumption.md)
 
 For more information, see the following articles:
 

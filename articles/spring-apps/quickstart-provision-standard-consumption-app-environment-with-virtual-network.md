@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network
+title: Quickstart - Create an Azure Spring Apps Standard consumption & dedicated plan instance in an Azure Container Apps environment with a virtual network
 description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
 author: karlerickson
 ms.author: xuycao
@@ -9,16 +9,16 @@ ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network
+# Quickstart: Create an Azure Spring Apps Standard consumption & dedicated plan instance in an Azure Container Apps environment with a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise  
+**This article applies to:** ✔️ Standard consumption & dedicated (Preview) ❌ Basic/Standard ❌ Enterprise  
 
 This article describes how create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network. An Azure Container Apps environment creates a secure boundary around a group of applications. Applications deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-When you create an Azure Spring Apps instance in an Azure Container Apps environment, it shares the same virtual network with other services and resources in the same Azure Container Apps environment. When you deploy frontend apps as containers in Azure Container Apps, and you also deploy Spring apps in the Azure Spring Apps Standard consumption plan, the apps are all in the same Azure Container Apps environment.
+When you create an Azure Spring Apps instance in an Azure Container Apps environment, it shares the same virtual network with other services and resources in the same Azure Container Apps environment. When you deploy frontend apps as containers in Azure Container Apps, and you also deploy Spring apps in the Azure Spring Apps Standard consumption & dedicated plan, the apps are all in the same Azure Container Apps environment.
 
 You can also deploy your Azure Container Apps environment to an existing virtual network created by your IT team. This scenario simplifies the virtual network experience for running polyglot apps.
 
@@ -58,7 +58,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
      - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
      - **Location**: Currently, only the following regions are supported: Australia East, Central US, East US, East US 2, West Europe, East Asia, North Europe, South Central US, UK South, West US 3.
 
-   - **Plan**: Select **Standard Consumption** for the **Pricing tier** option.
+   - **Plan**: Select **Standard Consumption & Dedicated** for the **Pricing tier** option.
 
    - **App Environment**:
 
@@ -66,9 +66,13 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
    :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps environment page for an Azure Spring Apps instance with Create new highlighted for Azure Container Apps environment." lightbox="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png":::
 
-1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name**, choose the plan and set **Zone redundancy** to **Enabled**.
+1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and choose **Consumption and Dedicated workload profiles** for the **Plan**.
 
    :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Basics tab selected." lightbox="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png":::
+
+1. Select **Workload profiles** tab and create some dedicated profiles if needed. For more details please see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps](../container-apps/workload-profiles-overview.md)
+
+    :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/create-workload-profiles.png" alt-text="Screenshot of Azure portal showing Create Workload Profiles tab." lightbox="media/quickstart-provision-app-environment-with-virtual-network/create-workload-profiles.png":::
 
 1. Select **Networking** and then specify the settings using the following guidelines:
 
@@ -155,7 +159,8 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --resource-group $RESOURCE_GROUP \
        --location $LOCATION \
-       --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
+       --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET \
+       --enable-workload-profiles
    ```
 
    > [!NOTE]
@@ -171,12 +176,12 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    | `infrastructure-subnet-resource-id` | The Resource ID of a subnet for infrastructure components and user application containers.                                                                                                 |
    | `internal-only`                     | (Optional) Sets the environment to use only internal IP addresses available in the custom virtual network instead of a public static IP. (Requires the infrastructure subnet resource ID.) |
 
-1. (Optional) Create a dedicated workload profile:
+1. Create a dedicated workload profile in the Azure Container Apps environment:
 
-    ```azurecli
-    az containerapp env workload-profile set -g $RESOURCE_GROUP -n $AZURE_CONTAINER_APPS_ENVIRONMENT
-        --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
-    ```
+   ```azurecli
+   az containerapp env workload-profile set -g $RESOURCE_GROUP -n $AZURE_CONTAINER_APPS_ENVIRONMENT
+      --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+   ```
 
 ---
 
@@ -194,4 +199,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Access applications using Azure Spring Apps Standard consumption plan in a virtual network](./quickstart-access-standard-consumption-within-virtual-network.md)
+> [Access applications using Azure Spring Apps Standard consumption & dedicated plan in a virtual network](./quickstart-access-standard-consumption-within-virtual-network.md)
