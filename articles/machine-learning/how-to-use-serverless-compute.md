@@ -56,8 +56,8 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as your compute.
 
 > [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information, see [workspace managed network isolation]().
-<!--how-to-managed-network.md  -->
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information, see [workspace managed network isolation](how-to-managed-network.md).
+
 
 ## Performance considerations
 
