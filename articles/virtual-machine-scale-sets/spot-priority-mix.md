@@ -105,6 +105,43 @@ New-AzVmss `
 
 ---
 
+## Updating your Spot Priority Mix
+Should your ideal percentage split of Spot and Standard VMs change, you can update your Spot Priority Mix after your scale set has been deployed. Updating your Spot Priority Mix will apply for all scale set actions *after* the change is made, existing VMs will remain as is.
+
+### [Portal](#tab/portal-1) 
+You can update your Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. 
+1. Navigate to the specific virtual machine scale set that you're adjusting the Spot Priority Mix on.
+1. In the left side bar, scroll down to and select **Configuration**.
+1. Your current Spot Priority Mix should be visible. Here you can change the **Base VM (uninterruptible) count** and **Instance distribution** of Spot and Standard VMs. 
+1. Update your Spot Mix as needed.
+1. Press the **Save** button to apply your changes. 
+
+### [Azure CLI](#tab/cli-1)
+
+You can update your Spot Priority Mix using Azure CLI by updating the `regular-priority-count` and `regular-priority-percentage` flags.  
+
+```azurecli
+az vmss update --resource-group myResourceGroup \
+        --name myScaleSet \
+        --regular-priority-count 10 \
+        --regular-priority-percentage 80 \
+```
+
+### [Azure PowerShell](#tab/powershell-1)
+
+You can update your Spot Priority Mix using Azure PowerShell by updating the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
+
+```azurepowershell
+Update-AzVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -BaseRegularPriorityCount 10 `
+        -RegularPriorityPercentage 80;
+
+```
+
+---
+
 ## Examples
 
 The following examples have scenario assumptions, a table of actions, and walk-through of results to help you understand how Spot Priority Mix configuration works. 
@@ -171,55 +208,6 @@ Example walk-through:
 1. You then scale-out twice to create 90 more VMs; 23 standard VMs and 67 Spot VMs.
 1. When you scale in by 10 VMs, 10 Spot VMs are *stop-deallocated*, creating an imbalance in your scale set.
 1. Your next scale-out operation creates another 2 standard VMs and 8 Spot VMs, bringing you closer to your 25% above base ratio.
-
-## Updating your Spot Priority Mix
-Should your ideal percentage split of Spot and Standard VMs change, you can update your Spot Priority Mix after your scale set has been deployed. Updating your Spot Priority Mix will apply for all scale set actions *after* the change is made, existing VMs will remain as is.
-
-### [Portal](#tab/portal-1) 
-You can update your Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. 
-1. Navigate to the specific virtual machine scale set that you're adjusting the Spot Priority Mix on.
-1. In the left side bar, scroll down to and select **Configuration**.
-1. Your current Spot Priority Mix should be visible. Here you can change the **Base VM (uninterruptible) count** and **Instance distribution** of Spot and Standard VMs. 
-1. Update your Spot Mix as needed.
-1. Press the **Save** button to apply your changes. 
-
-### [Azure CLI](#tab/cli-1)
-
-You can update your Spot Priority Mix using Azure CLI by updating the `regular-priority-count` and `regular-priority-percentage` flags.  
-
-```azurecli
-az vmss update --resource-group myResourceGroup \
-        --name myScaleSet \
-        --regular-priority-count 10 \
-        --regular-priority-percentage 80 \
-```
-
-### [Azure PowerShell](#tab/powershell-1)
-
-You can update your Spot Priority Mix using Azure PowerShell by updating the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
-
-```azurepowershell
-$vmssConfig = New-AzVmssConfig `
-            -Location "East US" `
-            -SkuCapacity 4 `
-            -SkuName Standard_D2_v5 `
-            -OrchestrationMode 'Flexible' `
-            -EvictionPolicy 'Delete' `
-            -PlatformFaultDomainCount 1 `
-            -Priority 'Spot' `
-            -BaseRegularPriorityCount 2 `
-            -RegularPriorityPercentage 50;
-
-New-AzVmss `
-            -ResourceGroupName myResourceGroup `
-            -Name myScaleSet `
-            -VirtualMachineScaleSet $vmssConfig;
-
-
-
-```
-
----
 
 ## Troubleshooting 
 
