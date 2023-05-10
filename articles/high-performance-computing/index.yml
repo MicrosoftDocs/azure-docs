@@ -155,18 +155,10 @@ additionalContent:
               url: https://www.youtube.com/watch?v=V0-laXwBI7I
             - text: "What is High Performance Computing - HPC?"
               url: https://www.youtube.com/watch?v=0biElmaDfFs
-            - text: "How to accelerate innovation with AI at Scale"
-              url: https://www.youtube.com/watch?v=DLw-wC4zntw&list=PLLasX02E8BPAFdOYrnPd3bJsqfhCasPse&index=3
             - text: "The benefits of HPC, AI, and the Cloud with Steve Scott"
-              url: https://www.youtube.com/watch?v=GmimOVxFSRY
-            - text: "Introduction to Azure HPC software platform | Azure HPC"
-              url: https://www.youtube.com/watch?v=qkiGJWGM6Ew
-            - text: "Unlock your innovation with Microsoft Azure HPC | Azure HPC"
-              url: https://www.youtube.com/watch?v=0lSZQ_3YY68
-            - text: "Azure HPC+AI Day: HPC + AI software"
-              url: https://www.youtube.com/watch?v=20wbd2gxuY0
-            - text: "Azure HPC+Al Day: AI Infra Platform Strategy"
-              url: https://www.youtube.com/watch?v=Nt7oGrvhRXo       
+              url: https://www.youtube.com/watch?v=GmimOVxFSRY  
+            - text: "Want to learn more? Here's the full 'HPC Business Strategy' playlist!"
+              url: https://aka.ms/HPCBusinessStrategy
         # Card
         - title: HPC Deep Dives
           summary: Azure Infrastructure
@@ -177,6 +169,8 @@ additionalContent:
               url: https://www.youtube.com/watch?v=LGkQi7BDf6w
             - text: "Day 1 - (3) UCX on Azure HPC and AI Clusters"
               url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
+            - text: "Want to learn more? Here's the full 'HPC Deep Dives' playlist!"
+              url: https://aka.ms/HPCDeepDives
     - title: HPC Conferences # < 60 chars (optional)
       #summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
       items:
