@@ -232,8 +232,6 @@ items:
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
         href: availability-zones-disaster-recovery.md
-      - name: Scaling with Azure Event Grid
-        href: scaling-with-azure-event-grid.md
       - name: Security
         items:
         - name: Security baseline
@@ -321,7 +319,7 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
-      - name: Customer enabled disaster recovery
+      - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
