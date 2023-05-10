@@ -37,7 +37,7 @@ Hotpatch gives you the ability to apply security updates on your VM without rebo
 #### Supported platforms
 
 > [!IMPORTANT]
-> Windows Server 2022 Datacenter: Azure Edition is currently in PREVIEW for certain platforms in the following table.
+> Hotpatch is currently in PREVIEW for certain platforms in the following table.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 | Operating system | Azure | Azure Stack HCI |
