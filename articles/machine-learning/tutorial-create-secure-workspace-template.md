@@ -31,6 +31,8 @@ In this tutorial, you learn how to use a [Microsoft Bicep](../azure-resource-man
     * Azure Machine Learning Virtual Machine (Data Science Virtual Machine)
     * The __Bicep__ template also creates an Azure Kubernetes Service cluster, and a separate resource group for it.
 
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
 ## Prerequisites
 
 Before using the steps in this article, you must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).

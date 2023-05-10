@@ -77,21 +77,27 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) and [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using a virtual network reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
-You might use a virtual private network (VPN) gateway to connect individual clients, or your own network, to the VNet
+You don't have to pick one or the other. For example, you can use a managed virtual network to secure managed compute resources and an Azure Virtual Network for your unmanaged resources or to secure client access to the workspace.
 
-The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNet. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
+* __Azure Machine Learning managed virtual network__ (preview) provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
 
-For more information, see the following documents:
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-* [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
-* [Secure workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure training environment](how-to-secure-training-vnet.md)
-* [Secure inference environment](./how-to-secure-inferencing-vnet.md)
-* [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
-* [Use custom DNS](how-to-custom-dns.md)
-* [Configure firewall](how-to-access-azureml-behind-firewall.md)
+    For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
+
+* __Azure Virtual Networks__ provides a more customizable virtual network offering. However, you're responsible for configuration and management. You may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
+
+    For more information, see the following documents:
+
+    * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+    * [Secure workspace resources](how-to-secure-workspace-vnet.md)
+    * [Secure training environment](how-to-secure-training-vnet.md)
+    * [Secure inference environment](./how-to-secure-inferencing-vnet.md)
+    * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
+    * [Use custom DNS](how-to-custom-dns.md)
+    * [Configure firewall](how-to-access-azureml-behind-firewall.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -105,7 +111,7 @@ Azure Machine Learning has several inbound and outbound network dependencies. So
 
 ## Vulnerability scanning
 
-[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure Machine Learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 
