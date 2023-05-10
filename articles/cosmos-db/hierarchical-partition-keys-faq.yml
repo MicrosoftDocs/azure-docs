@@ -19,6 +19,10 @@ sections:
   - name: General
     questions:
       - question: |
+          Can I add hierarchical partition keys to existing containers?
+        answer: |
+          This is not supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more guidance on how to do this, check out our [documentation] (intra-account-container-copy.md).
+      - question: |
           Is there a storage limit on the size of a logical partition key?
         answer: |
           Yes. Just like in Azure Cosmos DB today, the logical partition size is still limited to 20 GB. However, with hierarchical partition keys, the logical partition is now the entire partition key path. For example, if you partitioned by TenantId -> UserId, an example logical partition would be "Contoso_Alice". Utilizing subpartitioning means you can have 20 GB of data where the partition key value is "Contoso_Alice". The amount of storage allowed for data in "Contoso" is effectively 20 GB * number of unique UserIds for the tenant "Contoso."
