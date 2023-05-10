@@ -187,7 +187,7 @@ If you've purchased compute costs at a discounted rate by using reserved instanc
 
 ## Red Hat (RHEL) VMs with Azure Hybrid Benefit
 
-# [Red Hat (RHEL) PAYG to BYOS](#tab/rhelbyos)
+# [Red Hat (RHEL) BYOS to PAYG](#tab/rhelbyos)
 
 To start using Azure Hybrid Benefit for Red Hat:
 
@@ -216,7 +216,7 @@ To start using Azure Hybrid Benefit for Red Hat:
 > [!Note]
 > In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Microsoft support. This ensures that you don't get billed for software updates.  
 
-# [SUSE (SLES) Azure Hybrid Benefit](#tab/slesbyos)
+# [SUSE (SLES) BYOS to PAYG](#tab/slesbyos)
 
 To start using Azure Hybrid Benefit for SLES virtual machines:
 
