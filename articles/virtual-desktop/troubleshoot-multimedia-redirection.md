@@ -13,15 +13,6 @@ manager: femila
 > Multimedia Redirection Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
->[!NOTE]
->Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
->
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
->
->Multimedia redirection video playback redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
-> 
->Multimedia redirection call redirection (preview) on Azure Virtual Desktop is only available for the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
-
 This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
 
 ## Known issues and limitations
@@ -32,7 +23,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the web client, don't support multimedia redirection. Clients on any other non-Windows platforms, such as the macOS, iOS, Android, or Linux clients, don't support multimedia redirection.
 
-- Multimedia redirection won't work as expected if the VMs in your deployment are blocking cmd.exe.
+- Multimedia redirection won't work as expected if the session hosts in your deployment are blocking cmd.exe.
   
 - Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable call redirection for all sites](multimedia-redirection.md#enable-webrtc-call-redirection). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
 

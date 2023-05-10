@@ -70,19 +70,19 @@ Using Group Policy has the following benefits:
 
 #### Install the browser extension manually (optional)
 
-If installing hte host component doesn't automatically install the extension, you can also download it from Microsoft Edge Add-ons or the Chrome Web Store.
+If installing the host component doesn't automatically install the extension, you can also download it from Microsoft Edge Add-ons or the Chrome Web Store.
 
 To install the multimedia redirection extension manually, follow these steps:
 
 1. Sign in to Azure Virtual Desktop.
 
-2. In your browser, open one of the following links, depending on which browser you're using:
+1. In your browser, open one of the following links, depending on which browser you're using:
 
    - For **Microsoft Edge**: [Microsoft Multimedia Redirection Extension](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
 
    - For **Google Chrome**: [Microsoft Multimedia Redirection Extension](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-3. Install the extension by selecting **Get** (for Microsoft Edge) or **Add to Chrome** (for Google Chrome), then at the additional prompt, select **Add extension**. Once the installation is finished, you'll see a confirmation message saying that you've successfully added the extension.
+1. Install the extension by selecting **Get** (for Microsoft Edge) or **Add to Chrome** (for Google Chrome), then at the additional prompt, select **Add extension**. Once the installation is finished, you'll see a confirmation message saying that you've successfully added the extension.
 
 #### Install the browser extension using Group Policy
 
@@ -158,15 +158,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 If you want to test the MMR call redirection (preview) feature, you first need to configure the Remote Desktop client to use Insider features, then enable the feature. You won't be able to use the feature unless you have Insider features enabled.
 
-To enable Insider features, follow these instructions on your client device:
-
-1. Create a registry key with the following values:
-   
-   - **Key**: HKLM\Software\Microsoft\MSRDC\Policies
-   - **Type**: REG_SZ
-   - **Name**: ReleaseRing
-
-2. Set the key's value to **insider**.
+To enable Insider features, follow the instructions in [Enable Windows Insider releases](./users/client-features-windows.md#enable-windows-insider-releases).
 
 ## Check the extension status
 
@@ -198,9 +190,9 @@ To use multimedia redirection with Teams live events:
 
 The following sections describe additional settings you can configure in MMR.
 
-## Enable video playback redirection
+## Video playback redirection
 
-The following sections will show you how to enable video playback redirection for Azure Virtual Desktop.
+The following sections will show you how to enable and use various features related to video playback redirection for Azure Virtual Desktop.
 
 ### Enable video playback for all sites
 
@@ -210,9 +202,9 @@ Multimedia redirection is currently limited to the sites listed in [Websites tha
 
 1. Select **Show Advanced Settings**.
 
-1. Toggle **Enable video playback for all sites(beta)** to **on**.
+1. Toggle **Enable video playback for all sites (beta)** to **on**.
 
-### Enable redirected video outlines
+### Enable redirected video overlay
 
 Redirected video outlines will allow you to highlight the currently redirected video elements. When this is enabled, you will see a bright highlighted border around the video element that is being redirected. To enable redirected video outlines:
 
@@ -222,7 +214,7 @@ Redirected video outlines will allow you to highlight the currently redirected v
 
 1. Toggle **Redirected video outlines** to **on**. You will need to refresh the webpage for the change to take effect.
 
-### Enable video status overlay
+### Video status overlay
 
 When you enable video status overlay, you'll see a short message at the top of the video player that indicates the redirection status of the current video. The message will disappear after five seconds.  To enable video status overlay:
 
@@ -232,7 +224,11 @@ When you enable video status overlay, you'll see a short message at the top of t
 
 1. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
 
-## Enable WebRTC call redirection for all sites
+## Web RTC call redirection
+
+The following section will show you how to use advanced features for WebRTC call redirection.
+
+### Enable WebRTC call redirection for all sites
 
 Multimedia redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using a listed calling app with an internal URL, you must turn the **Enable WebRTC for all sites** setting on to use WebRTC call redirection in your deployment. You can also enable call redirection for all sites to test the feature with web apps that aren't officially supported yet.
 
@@ -248,9 +244,9 @@ To enable call redirection for all sites:
 
 1.	Next, on your Azure Virtual Desktop host VM, select the **extension icon** in your browser.
 
-2. Select **Show Advanced Settings**.
+1. Select **Show Advanced Settings**.
 
-3. Toggle **Enable call redirection for all sites (experimental)** on.
+1. Toggle **Enable call redirection for all sites (experimental)** on.
 
 ## Next steps
 
