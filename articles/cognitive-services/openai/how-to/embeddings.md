@@ -46,6 +46,29 @@ response = openai.Embedding.create(
 embeddings = response['data'][0]['embedding']
 print(embeddings)
 ```
+
+# [C#](#tab/csharp)
+```csharp
+using Azure;
+using Azure.AI.OpenAI;
+
+Uri oaiEndpoint = new ("https://YOUR_RESOURCE_NAME.openai.azure.com"");
+string oaiKey = "YOUR_API_KEY";
+
+AzureKeyCredential credentials = new (oaiKey);
+
+OpenAIClient openAIClient = new (oaiEndpoint, credentials);
+
+EmbeddingsOptions embeddingOptions = new ("Your text string goes here");
+
+var returnValue = openAIClient.GetEmbeddings("YOUR_DEPLOYMENT_NAME", embeddingOptions);
+
+foreach (float item in returnValue.Value.Data[0].Embedding)
+{
+    Console.WriteLine(item);
+}
+```
+
 ---
 
 ## Best Practices
