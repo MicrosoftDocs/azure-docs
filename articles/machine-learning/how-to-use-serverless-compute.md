@@ -16,10 +16,9 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created, scaled, and managed by Azure Machine Learning for you.  You focus on specifying your job specification and resources the job needs, and let Azure Machine Learning take care of the rest. You don't need to create and manage compute lifecycle anymore to run training jobs or to learn about various compute concepts.
-There is no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace. 
+You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, ML professionals can focus on their expertise of building ML models and not have to learn about and setup compute infra. ML professionals can specify the resources the job needs. AzureML manages compute infra and provides managed network isolation reducing the burden on customers. Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying compute and workspace level quota and Azure policies.
 
-You can also optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would neeed.
+Serverless compute can be used to run command, sweep, AutoML, pipeline, distributed training, and interactive jobs from AzureML Studio, SDK and CLI. You don't need to create, setup, and manage compute anymore to run training jobs or to learn about various compute concepts. There is no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace. User can specify the resources a job would need in terms of instance count and instance type (VM size) and don’t need to specify the compute name. User can also skip the resources altogether and Azure Machine Learning will default instance count of 1 and choose a CPU instance type (VM size) based on factors like quota, cost, performance and disk size. User identity and workspace user assigned managed identity is supported for job submission. Managed network isolation is also supported. User can choose standard (Dedicated) tier or spot (low-priority) VMs. You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would neeed. Serverless jobs consume the same quota as AzureML Compute quota.
 
 When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  Skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a command job, the job runs on serverless compute.
 
@@ -27,22 +26,22 @@ When you create your own compute cluster, you use its name in the command job, s
 
 ## How to use serverless compute
 
-* Omit the compute name in your CLI or SDK jobs to use serverless compute in:
+* Omit the compute name in your CLI or SDK jobs to use serverless compute in the following job types and optionally provide resources:
 
-  * Command jobs, including interactive jobs, parallel jobs, and distributed training
+  * Command jobs, including interactive jobs and distributed training
   * AutoML jobs
   * Sweep jobs
 
-* For CLI pipelines use `default_compute: azureml:serverless` for your default compute.  For SDK pipelines use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
-* To use serverless in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
+* For pipeline jobs through CLI use `default_compute: azureml:serverless` for pipeline level default compute.  For pipelines jobs through SDK use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
+* To use serverless job submission in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
 
     :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
 
-* When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as your compute cluster.
-* When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as your compute cluster.
+* When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as your compute
+* When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as your compute.
 
 > [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed virtual network (preview). For more information see [workspace managed network isolation]().
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information see [workspace managed network isolation]().
 <!--how-to-managed-network.md  -->
 
 ## Performance considerations
@@ -57,17 +56,17 @@ Serverless compute can help speed up your training in the following ways:
 
 ## Quota
 
-When submitting the job, you still need sufficient quota to proceed (both workspace and subscription level quota).  The default VM size/family is selected based on this quota.  If you specify your own VM size/family:
+When submitting the job, you still need sufficient Azure Machine Learning compute quota to proceed (both workspace and subscription level quota).  The default VM size for serverless jobs is selected based on this quota.  If you specify your own VM size/family:
 
-* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family
+* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family or changing the VM size
 * If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
-* If you do have sufficient quota for VM family to run the serverless job, but it's currently consumed by other jobs, you'll get a warning that your job must wait in a queue.  
+* If you do have sufficient quota for VM family to run the serverless job, but it's currently consumed by other jobs, you'll get a message that your job must wait in a queue until quota is available  
 
-When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
+When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" to see all the quota consumed by serverless jobs.
 
 ## Identity support and credential pass through
 
-* **User credential pass through** : Serverless compute fully supports credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. User credential pass through is the default.
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
 
     # [Python SDK](#tab/python)
 
@@ -108,7 +107,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
     ---
 
-* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity for the serverless job.
+* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity with the serverless job for storage access.
 
     # [Python SDK](#tab/python)
 
@@ -153,7 +152,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
 ## Configure properties
 
-If no compute target is specified for command, parallel, sweep, and AutoML jobs then the compute defaults to serverless compute.
+If no compute target is specified for command, sweep, and AutoML jobs then the compute defaults to serverless compute.
 For instance, for this command job:
 
 # [Python SDK](#tab/python)
@@ -195,12 +194,12 @@ The compute defaults to serverless compute with:
 
 * Single node for this job.  The default number of nodes is based on the type of job.  See following sections for other job types.
 * CPU virtual machine, determined based on quota, performance, cost, and disk size.
-* Dedicated priority
+* Dedicated virtual machines
 * Workspace location
 
 You can override these defaults.  If you want to specify the VM type or number of nodes for serverless compute, add `resources` to your job:
 
-* `instance_type` to choose a specific VM.  Use this parameter if you want a GPU family.
+* `instance_type` to choose a specific VM.  Use this parameter if you want a specific CPU/GPU VM size
 * `instance_count` to specify the number of nodes.
 
     # [Python SDK](#tab/python)
@@ -241,7 +240,7 @@ You can override these defaults.  If you want to specify the VM type or number o
 
     ---
 
-* To change priority, use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
+* To change job tier, use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
 
     # [Python SDK](#tab/python)
 
@@ -278,7 +277,7 @@ You can override these defaults.  If you want to specify the VM type or number o
 
 ## Example for all fields
 
-Here's an example of all fields specified including identity.
+Here's an example of all fields specified including identity. There is no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
 
 # [Python SDK](#tab/python)
 
@@ -329,6 +328,7 @@ resources:
 ---
 ## AutoML job
 
+
 # [Python SDK](#tab/python)
 
 If you want to specify the type or instance count, use the `ResourceConfiguration` class.
@@ -358,11 +358,9 @@ For a pipeline job, specify `azureml:serverless` as your default compute type to
 :::code language="yaml" source="~/azureml-examples-vj/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml":::
 
 
-
-
-
-
 ---
+## AutoML jobs 
+There is no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count is not specified then it is defaulted based on max_concurrent_trials and max_nodes parameters.
 
 ## Next steps
 
