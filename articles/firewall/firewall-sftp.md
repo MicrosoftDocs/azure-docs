@@ -54,7 +54,7 @@ Create the network infrastructure. This includes a virtual network, subnets and 
 ```azurepowershell
 
 # Create a new resource group
-New-AzResourceGroup -Name "$rg" -Location $location
+New-AzResourceGroup -Name $rg -Location $location
 
 # Create new subnets for the firewall
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
@@ -66,7 +66,7 @@ $testVnet = New-AzVirtualNetwork -Name test-fw-vn -ResourceGroupName $rg -Locati
 # Create a public IP address for the firewall
 $pip = New-AzPublicIpAddress `
     -ResourceGroupName $rg `
-    -Location eastus `
+    -Location $location `
     -AllocationMethod Static `
     -Sku Standard `
     -Name fw-pip
