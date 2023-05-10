@@ -34,7 +34,7 @@ highlightedContent:
       url: /azure/active-directory/external-identities/index-b2b      
     # Card
     - title: What is Azure AD B2C (business-to-consumer) identity?
-      itemType: architecture
+      itemType: overview
       url: /azure/active-directory-b2c/
 ## BAND 1 - HIGHLIGHTED CONTENT END ##########################################################################################################################
 
