@@ -8,9 +8,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Functions scenarios
 
-As the core serverless compute offering for Azure, Functions is frequently a key component in many cloud-based computing topologies. Triggers and bindings make it easy to integrate with an array of cloud services to provide feature-rich implementations. For a complete list of supported triggers and bindings, see [Supported bindings](./functions-triggers-bindings.md#supported-bindings).
+We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  event data streams, or even managing message queues - Azure Functions can be used to implement them.
 
-This article highlights a set of representative, _but by no means exhaustive_, set of scenarios for Azure Functions. 
+In many cases, a function [integrates with an array of cloud services](./functions-triggers-bindings.md) to provide feature-rich implementations.
+
+The following are a common, _but by no means exhaustive_, set of scenarios for Azure Functions.
 
 Choose your development language at the top of the article.
 
@@ -28,6 +30,12 @@ The following tutorial uses an Event Grid trigger to resize an image in a blob c
 ::: zone pivot="programming-language-javascript" 
 + [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=nodejsv10)
 ::: zone-end
+
+## Real-time stream processing
+
+Huge amounts of telemetry data is collected from a massive cloud app. That data is processed in near real-time and stored in a DB for use in an analytics dashboard.
+
+![Real-time stream processing](./media/functions-scenarios/real-time-stream-processing.png)
 
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript" 
 ## Data processing and AI
@@ -47,7 +55,9 @@ Functions can connect to other services to help process data and perform other A
 
 ## Run scheduled tasks 
 
-Functions provides a great way to run your code based on a [cron schedule](./functions-bindings-timer.md#usage) that you define. To learn more, see [Create a function in the Azure portal that runs on a schedule](./functions-create-scheduled-function.md).
+Functions provides a great way to run your code based on a [cron schedule](./functions-bindings-timer.md#usage) that you define. To learn more, see [Create a function in the Azure portal that runs on a schedule](./functions-create-scheduled-function.md). For example, a financial services customer database is analyzed for duplicate entries every 15 minutes, to avoid multiple communications being sent out to same customers.
+
+![Scheduled tasks](./media/functions-scenarios/scheduled-task.png)
 
 ::: zone pivot="programming-language-csharp,programming-language-java"
 ## Build a scalable web API
@@ -141,7 +151,6 @@ You can use Functions with Azure messaging services to create event-driven messa
 + Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
 + Training: [Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
 ::: zone-end
-
 
 ## Process data in real-time 
 

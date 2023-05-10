@@ -1,87 +1,87 @@
 ---
 title: Azure Functions Overview 
-description: Learn how you can use Azure Functions to build and deploy code in robust serverless apps and are triggered based on events in your cloud-computing infrastructure and can scale dynamically as needed.
+description: Learn how Azure Functions can help build robust serverless apps.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 04/11/2023
+ms.date: 05/27/2022
 ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 ---
 
 # Introduction to Azure Functions
 
-Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. You focus on the code that matters most to you, in the most productive language for you, and Azure Functions handles the rest.
+Azure Functions is an event-based, serverless compute experience that accelerates application development. It allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 
-If you want to jump right in creating your first functions, see [Getting started with Azure Functions](./functions-get-started.md) and select your preferred development language at the top of the article. To learn more about the benefits of Azure Functions, continue reading. 
+As you build your functions, you have the following options and resources available:
 
-## Serverless compute
+- **Use your preferred language**: Write functions in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md), or use a [custom handler](./functions-custom-handlers.md) to use virtually any other language.
 
-First and foremost, Azure Functions provides a simple, affordable, and scalable way to run your code in the cloud. Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called _functions_. Different functions can run on-demand, when scheduled, or anytime you need to respond to events in your cloud services. 
+- **Automate deployment**: From a tools-based approach to using external pipelines, there's a [myriad of deployment options](./functions-deployment-technologies.md) available.
 
-Providing compute resources on-demand is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/) in Azure Functions. When running in the [Consumption](./consumption-plan.md) plan, you only pay while your functions are running. 
+- **Troubleshoot a function**: Use [monitoring tools](./functions-monitoring.md) and [testing strategies](./functions-test-a-function.md) to gain insights into your apps.
 
-For more information, see [Azure Functions hosting options](./functions-scale.md).
+- **Flexible pricing options**: With the [Consumption](./pricing.md) plan, you only pay while your functions are running, while the [Premium](./pricing.md) and [App Service](./pricing.md) plans offer features for specialized needs.
 
-## Event-driven execution
+## Integrated programming model and runtime
 
-Any cloud-based compute service or web API must be responsive HTTP requests and scheduled executions, which Functions supports with HTTP and timer triggers, respectively. However, we also need systems that react to a series of critical events. Whether you're building a web API, responding to database changes, processing IoT data streams, or even managing message queues, every application needs a way to run some code as these events occur. 
+You can use built-in triggers and bindings to define when a function is invoked and to what data it connects. Azure Functions features input/output bindings which provide a means of pulling data or pushing data to other services. These bindings work for both Microsoft and third-party services without the need to hard-coding integrations. Refer to [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) for more information.
 
-In addition to scheduled jobs and HTTP requests, Functions also integrates with other Azure services so that your functions can easily consume events and related data from other Azure Services and select partner services. Functions includes a set of binding extensions that makes it easy to connect to and respond to event from other Azure services, including: Azure Cosmos DB, Azure Event Hubs, Azure IoT Hubs, Azure Service Bus, Azure SignalR, Azure SQL, and Azure Storage. Supported third-party and open-source binding extensions include: Dapr, Kafka, RabbitMQ, SendGrid, and Twilio. 
+![Integrated Programming Model](./media/functions-overview/integrated-programming-model.png)
 
-For more information, see [Azure Functions triggers and bindings concepts](./functions-triggers-bindings.md). 
+The Functions [runtime](https://github.com/Azure/azure-functions-host) and the trigger and bindings extensions are fully open-source. They are used regardless of where your functions run - locally on your developer environment or in the cloud. See [Azure Functions developer guide](functions-reference.md) to learn more. 
 
-## Dynamic scaling
+## End-to-end development experience
 
-As demands on your functions increase, Azure Functions meets the demand with as many resources and function instances as necessary, and only for as long as needed. As requests fall, any extra resources and application instances drop-off automatically. Dynamic scaling is offered in both [Consumption](./consumption-plan.md) and [Premium](./functions-premium-plan.md) plans. 
+Azure Functions offers a complete, end-to-end development experience — from building and debugging locally on major platforms like Windows, macOS, and Linux to deploying and [monitoring in the cloud](functions-monitoring.md).
 
-For more information, see [Event-driven scaling in Azure Functions](./event-driven-scaling.md).
+You can [develop and test your functions](functions-develop-local.md) on your local computer from your development tools, the command prompt, or terminal, and the local functions can connect to live Azure services. 
 
-Functions also supports Kubernetes-based event-driven autoscaling (KEDA) to dynamically scale your functions when deployed to Kubernetes clusters. For more information, see [Azure Functions on Kubernetes with KEDA](./functions-kubernetes-keda.md).
+![End-to-end development experience](./media/functions-overview/end-to-end-development-experience.png)
 
-## App Service infrastructure
+## Hosting options flexibility
 
-Functions lets you manage one or more individual functions together as a function app. The function app is a unit of deployment, management, and scaling for your functions. Like with web apps, a single local development project is deployed to a specific function app in Azure. Function apps benefit from the existing infrastructure provided by Azure App Service, including deployments, authentication/authorization, configuration, monitoring, and networking. 
- 
-Because of this, you can also host your function app in a dedicated [App Service](./dedicated-plan.md) plan. You can do this when you already have existing App Service resources available and you don't need the benefits of dynamic scaling. This means that you can also run your functions in an App Service Environment (ASE). 
+Choose the deployment model and hosting plan that better fits your business and application workload needs without compromising on the development experience.
 
-To learn more about deploying and managing function apps, see [Deployment technologies in Azure Functions](./functions-deployment-technologies.md) and [Manage your function app](./functions-how-to-use-azure-function-app-settings.md), respectively.
+Pick the Functions [hosting plan](functions-scale.md) that matches your business needs and application workload. You can deploy the same code to multiple  hosting options — from pay-per-execution, event driven scaling in the cloud in Consumption to your own Kubernetes cluster.
 
-## Developer-focused
+![Hosting options flexibility](./media/functions-overview/hosting-options-flexibility.png)
 
-Azure Functions lets you write your function code in your favorite programming language. Functions has native support for C#, Java, JavaScript, PowerShell, Python, and TypeScript. For more information, see [Supported languages in Azure Functions](./supported-languages.md).
+## Fully managed and cost-effective
 
-For popular development languages not natively supported by Functions, such as Go and Rust, you can still create functions in those languages using the _custom handlers_ feature. For more information, see [Azure Functions custom handlers](./functions-custom-handlers.md). 
+Automated and flexible scaling based on your workload volume, keeping the focus on adding value instead of managing infrastructure.
 
-The Azure Functions Core Tools provides a local development and runtime environment that streamlines function development on your local computer. Core Tools is a command-line utility that lets you create and execute your functions locally and then publish them to Azure resources. Both Visual Studio and Visual Studio Code feature deep and seemless integration of Core Tools into Azure Functions development projects. For more information, see [Code and test Azure Functions locally](./functions-develop-local.md). 
+When using one of the managed hosting options, the platform automatically handles all maintenance and updates and you can focus on building your application and let Azure Functions take care of the infrastructure.
 
-## Quickstart templates
+Azure Functions provides "compute on-demand" through the [event driven scaled hosting options](./functions-scale.md#scale). You use the Azure Functions programming models to implement your system's logic into readily available blocks of code called "functions" which can run anytime you need to respond to critical events. As requests increase, Azure Functions meets the demand with as many resources and function instances as necessary - but only while needed. As requests fall, any extra resources and application instances drop off automatically.
 
-To make it easy to get started writing your function code, Azure Functions provides a set of code templates in each natively supported language. You can use these templates to create new functions using any supported trigger. 
+Where do all the compute resources come from? Azure Functions [provides as many or as few compute resources as needed](./functions-scale.md) to meet your application's demand.
 
-To learn how to use language-specific templates, see [Getting started with Azure Functions](./functions-get-started.md), and choose the option for your programming language at the top of the article. 
+Providing compute resources on-demand is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/) in Azure Functions.
+
+![Fully managed and cost-effective](./media/functions-overview/fully-managed-and-cost-effective.png)
 
 ## Scenarios
 
-The following are a set of representative, _but by no means exhaustive_, set of scenarios in which Azure Functions might be featured:
+We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  event data streams, or even managing message queues - Azure Functions can be used to implement them.
 
-+ Processing file uploads
-+ Data processing and AI
-+ Running scheduled tasks
-+ Building a scalable web AP
-+ Responding to a webhook 
-+ Building serverless workflows
-+ Responding to database changes
-+ Building reliable messaging systems
-+ Processing data in real-time
+In many cases, a function [integrates with an array of cloud services](./functions-triggers-bindings.md) to provide feature-rich implementations.
 
-For more information and examples, see [Azure Functions scenarios](./functions-scenarios.md).
+The following are a common, _but by no means exhaustive_, set of scenarios for Azure Functions.
 
-## Watch a video
+| If you want to... | then... |
+| --- | --- |
+| **Build a web API** | Implement an endpoint for your web applications using the [HTTP trigger](./functions-bindings-http-webhook.md) |
+| **Process file uploads** | Run code when a file is uploaded or changed in [blob storage](./functions-bindings-storage-blob.md) |
+| **Build a serverless workflow** | Create an event-driven workflow from a series of functions using [durable functions](./durable/durable-functions-overview.md) |
+| **Respond to database changes** | Run custom logic when a document is created or updated in [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
+| **Run scheduled tasks** | Execute code on [pre-defined timed intervals](./functions-bindings-timer.md) |
+| **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
+| **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |
+| **Process data in real time** | Use [Functions and SignalR](./functions-bindings-signalr-service.md) to respond to data in the moment |
+| **Connect to a SQL database** | Use [SQL bindings](./functions-bindings-azure-sql.md) to read or write data from Azure SQL |
 
-You can watch this video for a quick overview of Azure Functions: 
-
-> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
+These scenarios allow you to build event-driven systems using modern architectural patterns. For more information, see [Azure Functions Scenarios](./functions-scenarios.md).
 
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Functions reference scenarios](./functions-scenarios.md)
+> [Get started through lessons, samples, and interactive tutorials](./functions-get-started.md)
