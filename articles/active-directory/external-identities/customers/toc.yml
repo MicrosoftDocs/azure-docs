@@ -237,3 +237,21 @@ items:
       href: reference-group-app-roles-support.md
     - name: Help and support options
       href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+    - name: MSAL references 
+      items:
+        - name: MSAL.NET
+          href: how-to-web-app-node-sign-in-overview.md
+        - name: Microsoft Identity Web
+          href: how-to-web-app-node-sign-in-overview.md
+        - name: Microsoft identity model
+          href: how-to-web-app-node-sign-in-overview.md
+        - name: MSAL.js
+          items:
+          - name: msal-angular
+            href: how-to-web-app-node-sign-in-overview.md
+          - name: msal-browser
+            href: how-to-web-app-node-sign-in-overview.md
+          - name: msal-react
+            href: how-to-web-app-node-sign-in-overview.md
+          - name: msal-node
+            href: how-to-web-app-node-sign-in-overview.md

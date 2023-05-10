@@ -218,7 +218,7 @@ async function main() {
 main();
 ```
 
-This code is the entry point to your app. You use the [yargs](https://www.npmjs.com/package/yargs) command-line argument parsing library for Node.js apps to interactively fetch an access token, then call API. You use the `getToken` and `callApi` functions you defined earlier:
+This code is the entry point to your app. You use the [yargs js](https://www.npmjs.com/package/yargs) command-line argument parsing library for Node.js apps to interactively fetch an access token, then call API. You use the `getToken` and `callApi` functions you defined earlier:
 
 ```javascript            
 const authResponse = await auth.getToken(auth.tokenRequest);
