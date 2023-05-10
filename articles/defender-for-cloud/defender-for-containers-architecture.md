@@ -1,8 +1,8 @@
 ---
 title: Container security architecture in Microsoft Defender for Cloud
 description: Learn about the architecture of Microsoft Defender for Containers for each container platform
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: overview
 ms.custom: ignite-2022
 ms.date: 06/19/2022
