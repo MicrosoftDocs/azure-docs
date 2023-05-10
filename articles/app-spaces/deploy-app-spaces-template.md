@@ -14,10 +14,10 @@ This article describes how to deploy a sample app to [Azure App Spaces](overview
 
 ## Prerequisites
 
-To use a sample app for Azure App Spaces, you must have the following:
+To use a sample app for Azure App Spaces, you must have the following items:
 
 - [Azure account and subscription](https://signup.azure.com/). You can only deploy with a subscription that you own.
-- GitHub account
+- [GitHub account](https://github.com/)
 
 ## Use a sample app
 
@@ -35,6 +35,8 @@ Do the following steps to deploy a sample app to App Spaces.
    :::image type="content" source="media/deploy-sample-app.png" alt-text="Screenshot showing App Space details selections and Deploy App Space button highlighted with red box.":::
 
 The sample web application code deploys to App Spaces.
+
+For more information about managing App Spaces, see [Manage components](quickstart-deploy-web-app.md#manage-components).
 
 ## Related articles
 

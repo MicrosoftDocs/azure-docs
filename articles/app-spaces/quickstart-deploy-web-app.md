@@ -30,74 +30,70 @@ Do the following steps to deploy an existing repository from GitHub.
    
    :::image type="content" source="media/start-deploying.png" alt-text="Screenshot showing button, Start deploying, highlighted by red box.":::
 
-4. Select a your organization, repository, and branch from your GitHub account. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). 
+4. Select an organization, repository, and branch from your GitHub account. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). 
    
    :::image type="content" source="media/connect-to-github.png" alt-text="Screenshot showing required selections to connect to GitHub.":::
    
-   This repository gets analyzed and App Spaces suggests one of three Azure services based on the code contained within the repository, which are Azure Container Apps, Azure Static Web apps, or Azure App Services.
+   App Spaces analyzes this repository suggests one of three Azure services that's based on the code that's contained within the repository.
 
 5. Based on the framework or Azure service that App Spaces recommends, choose the appropriate tab for further instructions.
 
 #### [App Services](#tab/app-service/)
 
-1. Confirm the auto-selected language, Azure service, and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from  **Choose another language**, **Choose another Azure service**, or **Compare plans**.
+6. Confirm the autoselected language, Azure service, and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from  **Choose another language**, **Choose another Azure service**, or **Compare plans**.
    
-   :::image type="content" source="media/define-app-space-details-app-services-deployment.png" alt-text="Screenshot showing auto-selected language, service, and plan in Define App Space details screen.":::
+   :::image type="content" source="media/define-app-space-details-app-services-deployment.png" alt-text="Screenshot showing autoselected language, service, and plan in Define App Space details screen.":::
 
-2. Enter a name for your App Space.
-3. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
+7. Enter a name for your App Space.
+8. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
    
    :::image type="content" source="media/select-subscription-and-region-app-space.png" alt-text="Screenshot showing subscription and region selection menus for deployment to App Spaces.":::
 
-4.  Select **Deploy App Space**.
+9.  Select **Deploy App Space**.
 
    App Spaces loads the components of your deployment.
 
    :::image type="content" source="media/app-space-deployment-in-progress.png" alt-text="Screenshot showing deployment in progress.":::
-
-GitHub Actions is set up to deploy directly to your app. Go to your app's **Deployment** tab to see your code deployment logs.
    
 #### [Container Apps](#tab/container-apps/)
 
-1. Confirm the auto-selected Azure service and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select **Choose another Azure service**.
+6. Confirm the autoselected Azure service and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select **Choose another Azure service**.
    
-   :::image type="content" source="media/define-app-space-details-container-apps-deployment.png" alt-text="Screenshot showing auto-selected language, service, and plan in Define App Space details screen.":::
+   :::image type="content" source="media/define-app-space-details-container-apps-deployment.png" alt-text="Screenshot showing autoselected language, service, and plan in Define App Space details screen.":::
 
-2. Enter a name for your App Space, and then choose the **Dockerfile location** and **Container app environment** from the dropdown menus.
+7. Enter a name for your App Space, and then choose the **Dockerfile location** and **Container app environment** from the dropdown menus.
 
-3. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
+8. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
    
    :::image type="content" source="media/select-subscription-and-region-app-space.png" alt-text="Screenshot showing subscription and region selection menus for deployment to App Spaces.":::
 
-4.  Select **Deploy App Space**.
-
-GitHub Actions is set up to deploy directly to your app. Go to your app's **Deployment** tab to see your code deployment logs.
+9.  Select **Deploy App Space**.
 
 #### [Static Web Apps](#tab/static-web-apps/)
 
-1. Confirm the auto-selected ?, Azure service, and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from  **Choose another Azure service**, **Framework dropdown menu**, or **Compare plans**.
+6. Confirm the autoselected Azure service and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from  **Choose another Azure service**, **Framework dropdown menu**, or **Compare plans**.
    
-   :::image type="content" source="media/define-app-space-details-static-web-apps-deployment.png" alt-text="Screenshot showing auto-selected service, framework, and plan in Define App Space details screen.":::
+   :::image type="content" source="media/define-app-space-details-static-web-apps-deployment.png" alt-text="Screenshot showing autoselected service, framework, and plan in Define App Space details screen.":::
 
-2. Enter a name for your App Space.
-3. Enter the following values to create a GitHub Actions workflow file for build and release, which you can modify later in your repository.
+7. Enter a name for your App Space.
+8. Enter the following values to create a GitHub Actions workflow file for build and release, which you can modify later in your repository.
 - App location
 - API location
 - Output location
 
-   :::image type="content" source="media/enter-values-for-github-actions-workflow-creation.png" alt-text="Screenshot showing  .":::
+   :::image type="content" source="media/enter-values-for-github-actions-workflow-creation.png" alt-text="Screenshot showing. ":::
 
-1. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
+9. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
    
    :::image type="content" source="media/select-subscription-and-region-app-space.png" alt-text="Screenshot showing subscription and region selection menus for deployment to App Spaces.":::
 
-2.  Select **Deploy App Space**.
-
-GitHub Actions is set up to deploy directly to your app.
+10.  Select **Deploy App Space**.
 
 * * *
 
 Your web application code deploys to App Spaces.
+
+GitHub Actions can now deploy directly to your app. Go to your app's **Deployment** tab to see your code deployment logs.
 
 ## Manage components
 
@@ -148,7 +144,7 @@ For more advanced configuration options, select **Go to advanced view**.
 
 :::image type="content" source="media/select-go-to-advanced-view.png" alt-text="Screenshot showing red box around button, Go to advanced view for App Space.":::
 
-You can also view the essentials for your Container Apps Environment and Managed Identities. This view is hidden by default.
+You can also view the essentials for your Container Apps Environment and Managed Identities on the **Additional** tab. This view is hidden by default.
 
 ## Related articles
 
