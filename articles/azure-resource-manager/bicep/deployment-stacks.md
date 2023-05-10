@@ -7,17 +7,22 @@ ms.date: 05/02/2023
 
 # Deployment stacks (Preview)
 
-Managing the lifecycle of cloud infrastructure in Azure can be challenging, especially when it involves managing multiple management groups, subscriptions, and resource groups. Deployment stacks can simplify the management of Azure deployments, irrespective of their complexity. A _deployment stack_ is a resource type native to Azure that facilitates executing operations on a collection of resources as a single atomic unit. In ARM, deployment stacks are defined as the `Microsoft.Resources/deploymentStacks` type.
+A deployment stack is a resource type for managing a collection of Azure resources as a single atomic unit. This resource type enables management capabilities on resources it deploys as described in the Bicep or ARM template. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to limit access to the deployment stack resource. You can use Azure CLI, Azure PowerShell, or Portal to create and update a deployment stack using Bicep files. These Bicep files are transpiled into ARM template JSON before they're deployed by the stack as a deployment object (link to deployment object docs). You can think of a deployment stack as a superset of capabilities to the existing and already familiar deployment resource.
 
-Because the deployment stack is a native Azure resource, you can perform all typical Azure Resource Manager (ARM) operations on the resource, including:
+Microsoft.Resources/deploymentStacks is the resource type for deployment stacks. It consists of a main template that can perform 1-to-many updates across scopes to the resources it describes, as well as block any unwanted changes to those resources.
 
-- Azure role-based access control (RBAC) assignments.
-- Security recommendations surfaced by Microsoft Defender for Cloud.
-- Azure Policy assignments.
-
-When you create a deployment stack, the stack control the lifecycle of teh resources managed by the stack. When you update the deployment stack, the new set of managed resources will be determined by the resources defined in the updated Bicep file.
+When designing your deployment and deciding which groups of resources should be in the same stack, consider the management lifecycle (create, update, and delete) of those resources. For example, today you might need to provision test VMs to multiple app teams at different resource group scopes. With a deployment stack you can easily provision these test environments and update those test VM configurations accordingly with a subsequent update to the deployment stack. Once a project is done, you might need to remove or delete resources created such as those test VMs. With a deployment stack you can delete these managed resources with the appropriate delete flag specified. This ends up saving a lot of time when cleaning up environments by performing a single update to the stack resource instead of updating or removing each test VM at different resource group scopes 1 yb 1.
 
 To create your first deployment stack, work through [Quickstart: create deployment stack](./quickstart-create-deployment-stacks.md).
+
+## Why use deployment stacks?
+
+Deployment stacks provide the following benefits:
+
+- The ease of provisioning and managing resources across various [scopes](./deploy-to-resource-group.md) as a single atomic unit.
+- The option to prevent undesirable changes to managed resources using the `DenySettingsMode`.
+- The ability to rapidly clean up environments by setting appropriate delete flags on a Deployment stack update.
+- The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
 
 ### Known issues
 
@@ -35,17 +40,20 @@ The `2022-08-01-preview` private preview API version has the following limitatio
 
 ## Create deployment stacks
 
-You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stacks), [add resources to a deployment stack](#add-resources-to-deployment-stack), and [delete managed resources from a deployment stack](#delete-managed-resources-from-deployment-stack).
+You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stacks).
 
 To create a deployment stack at the resource group scope:
+
+jgao: according to Dante - Recent swagger changes have made DenySettingsMode a required parameter for all New and Set commands.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeploymentStack `
-   -Name '<deployment-stack-name>' `
-   -ResourceGroupName '<resource-group-name>' `
-   -TemplateFile '<bicep-file-name>'
+  -Name '<deployment-stack-name>' `
+  -ResourceGroupName '<resource-group-name>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode none
 ```
 
 # [CLI](#tab/azure-cli)
@@ -54,7 +62,8 @@ New-AzResourceGroupDeploymentStack `
 az stack group create \
   --name <deployment-stack-name> \
   --resource-group <resource-group-name> \
-  --template-file <bicep-file-name>
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyWriteAndDelete
 ```
 
 ---
@@ -69,7 +78,8 @@ New-AzManagmentGroupDeploymentStack `
   -Location '<location>' `
   -TemplateFile '<bicep-file-name>' `
   -ManagementGroupId '<management-group-id>' `
-  -DeploymentSubscriptionId '<subscription-id>'
+  -DeploymentSubscriptionId '<subscription-id>' `
+  -DenySettingsMode none
 ```
 
 # [CLI](#tab/azure-cli)
@@ -80,7 +90,8 @@ az stack mg create \
   --location <location> \
   --template-file <bicep-file-name> \
   --management-group-id <management-group-id> \
-  --deployment-subscription-id <subscription-id>
+  --deployment-subscription-id <subscription-id> \
+  --deny-settings-mode denyWriteAndDelete
 ```
 
 ---
@@ -94,7 +105,8 @@ New-AzSubscriptionDeploymentStack `
    -Name '<deployment-stack-name>' `
    -Location '<location>' `
    -TemplateFile '<bicep-file-name>' `
-   -DeploymentResourceGroupName '<resource-group-name>'
+   -DeploymentResourceGroupName '<resource-group-name>' `
+  -DenySettingsMode none
 ```
 
 The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
@@ -106,7 +118,8 @@ az stack sub create \
   --name <deployment-stack-name> \
   --location <location> \
   --template-file <bicep-file-name> \
-  --deployment-resource-group-name <resource-group-name>
+  --deployment-resource-group-name <resource-group-name> \
+  --deny-settings-mode denyWriteAndDelete
 ```
 
 The `deployment-resource-group-name` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
@@ -178,13 +191,17 @@ To update a deployment stack, modify the underlying Bicep files, and then
 
 To update a deployment stack at the resource group scope:
 
+jgao: Dante says - Recent swagger changes have made DenySettingsMode a required parameter for all New and Set commands.
+jgao: This section is copied from create section. Double check the parameters specified in this section.
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
    -Name '<deployment-stack-name>' `
    -ResourceGroupName '<resource-group-name>' `
-   -TemplateFile '<bicep-file-name>'
+   -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode none
 ```
 
 # [CLI](#tab/azure-cli)
@@ -193,7 +210,8 @@ Set-AzResourceGroupDeploymentStack `
 az stack group create \
   --name <deployment-stack-name> \
   --resource-group <resource-group-name> \
-  --template-file <bicep-file-name>
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyWriteAndDelete
 ```
 
 ---
@@ -208,7 +226,8 @@ Set-AzManagmentGroupDeploymentStack `
   -Location '<location>' `
   -TemplateFile '<bicep-file-name>' `
   -ManagementGroupId '<management-group-id>' `
-  -DeploymentSubscriptionId '<subscription-id>'
+  -DeploymentSubscriptionId '<subscription-id>' `
+  -DenySettingsMode none
 ```
 
 # [CLI](#tab/azure-cli)
@@ -219,7 +238,8 @@ az stack mg create \
   --location <location> \
   --template-file <bicep-file-name> \
   --management-group-id <management-group-id> \
-  --deployment-subscription-id <subscription-id>
+  --deployment-subscription-id <subscription-id> \
+  --deny-settings-mode denyWriteAndDelete
 ```
 
 ---
@@ -233,7 +253,8 @@ Set-AzSubscriptionDeploymentStack `
    -Name '<deployment-stack-name>' `
    -Location '<location>' `
    -TemplateFile '<bicep-file-name>' `
-   -DeploymentResourceGroupName '<resource-group-name>'
+   -DeploymentResourceGroupName '<resource-group-name>' `
+  -DenySettingsMode none
 ```
 
 The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
@@ -245,7 +266,8 @@ az stack sub create \
   --name <deployment-stack-name> \
   --location <location> \
   --template-file <bicep-file-name> \
-  --deployment-resource-group-name <resource-group-name>
+  --deployment-resource-group-name <resource-group-name> \
+  --deny-settings-mode denyWriteAndDelete
 ```
 
 ### Use the new command
@@ -259,7 +281,7 @@ The deployment stack 'myStack' you're trying to create already already exists in
 
 ## Delete deployment stacks
 
-If you run the delete commands without the delete parameters, the managed resources will be detached but not deleted. To delete the managed resources, use the following switches:
+If you run the delete commands without the delete parameters, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -401,11 +423,16 @@ az stack sub show \
 
 ## Add resources to deployment stack
 
+jgao: combine this section with Update.
+
 To add a resource to a deployment stack, modify the original Bicep file by adding the resource, and then run the create deployment stack command. For more information, see [Create deployment stack](#create-deployment-stacks). This step highlights the modularity and centralized "command and control" offered by Azure deployment stacks. You control your list of managed resources entirely through the infrastructure as code (IaC) design pattern.
 
 ## Delete managed resources from deployment stack
 
-To instruct Azure to delete detached resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stacks).
+jgao: combine this section with Update.
+jgao: include the PowerShell switches.
+
+To instruct Azure to delete unmanaged resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stacks).
 
 - `--delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
 - `--delete-resources`: Flag to indicate delete rather than attach for managed resources only.
@@ -420,13 +447,14 @@ When you create a deployment stack, you can places a special type of lock on man
 
 # [PowerShell](#tab/azure-powershell)
 
-To manage deployment stack deny assignments with Azure PowerShell, include one of the following `-DenySettingsMode` parameters of the `New-AzSubscriptionDeploymentStack` command:
+To manage deployment stack deny assignments with Azure PowerShell, include one of the following `-DenySettingsMode` parameters of the `New-AzSubscriptionDeploymentStack` command or the `Set-AzSubscriptionDeploymentStack` command:
 
 - `None`: Do not apply a lock to managed resources
 - `DenyDelete`: Prevent delete operations
 - `DenyWriteAndDelete`: Prevent deletion or modification
 
 jgao: what is the a default value if -DenySettingMode is not specified?
+jgao: include the commands of other scope (in addition to subscription)?
 
 For example:
 
@@ -471,9 +499,9 @@ jgao: denyDelete is not listed in the help.  Please verify.
 
 ---
 
-## Detach managed resource
+## Detach managed resources
 
-By default, deployment stacks detach and don't delete managed resources when they're no longer contained within the stack's management scope.
+By default, deployment stacks detach and don't delete unmanaged resources when they're no longer contained within the stack's management scope.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -492,6 +520,8 @@ New-AzSubscriptionDeploymentStack `
   -TemplateFile '<bicep-file-name>' `
   -DeleteAll
 ```
+
+jgao: include  -DenySettingsMode none here?
 
 # [CLI](#tab/azure-cli)
 
@@ -575,7 +605,7 @@ az stack sub export \
 
 ---
 
-## Troubleshooting
+## Troubleshooting (Discuss with the dev team about this secion)
 
 jgao: please provide the cli commands for this section.
 

@@ -19,7 +19,7 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 
 ## Create Bicep files
 
-Create two Bicep files to create two resource groups with one public IP address within each resource group. By deploying these Bicep files, you'll create two resource groups (ds-rg1 and ds-rg2) with one public IP address resource (publicIP1 and publicIP2, respectively) in each respective group.
+Create two Bicep files. By deploying these Bicep files, you'll create two resource groups (ds-rg1 and ds-rg2) with one public IP address resource (publicIP1 and publicIP2, respectively) in each respective group.
 
 The main.bicep file looks like:
 
@@ -240,8 +240,9 @@ You can also verify the deployment by list the managed resources in the deployme
 ```azurecli
 az stack sub show --name mySubStack --output json
 ```
-
 ---
+
+jgao: show the output for both CLI and PS.
 
 ## Update the deployment stack
 
