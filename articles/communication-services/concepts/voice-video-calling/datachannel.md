@@ -29,7 +29,7 @@ The DataChannel API enables real-time messaging during audio and video calls. Wi
 3. Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. Note that text messages must be serialized into a byte buffer before they can be transmitted.
 4. Sender options: The DataChannel API provides three configurable options when creating a sender object, including reliability, priority, and bitrate.
  The reliable mode gurantees ordered and lossless message delivery. However, in the unreliable mode, message order isn't ensured, and if the SDK fails to send a message, it's silently dropped. In the contrast, the reliable mode throws an exception in such instances. In the Native SDK, the high priority option prioritizes the processing of DataChannel messages over video packets, while in the Web SDK, this priority setting only applies between different channels of the DataChannel.
-5. Security: All messages exchanged\ between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
+5. Security: All messages exchanged between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
 
 ## Common use cases
 
@@ -44,28 +44,51 @@ Moreover, it removes the necessity for maintaining a separate participant list, 
 
 ### File sharing
 
-File sharing represents another widespread use cases for the DataChannel API.
-In a peer-to-peer call senario, the DataChannel connection operates on peer-to-peer bases.
+File sharing represents another common use cases for the DataChannel API.
+In a peer-to-peer call scenario, the DataChannel connection works on a peer-to-peer basis.
 This setup offers an efficient method for file transfer, taking full advantage of the direct, peer-to-peer connection to enhance speed and reduce latency.
+
+In a group call scenario, files can still be shared among participants.
+Additionally, broadcasting the file content to all participants can be achieved by setting an empty participant list.
+However, it's important to keep in mind that, in additional to bandwidth limitations,
+ are further restrictions imposed during a group call whenbroadcasting messages.
 
 ## Key concepts
 
-### One-way communication
-The DataChannel API is designed for one-way communication, as opposed to bi-directional communication. It employs separate objects for sending and receiving messages, with DataChannelSender object responsible for sending messages and the DataChannelReceiver object for receiving messages. The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
+### Unidirectional communication
+The DataChannel API is designed for unidirectional communication, as opposed to bi-directional communication in WebRTC DataChannel.
+It employs separate objects for sending and receiving messages, with DataChannelSender object responsible for sending messages and the DataChannelReceiver object for receiving messages.
+
+The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
 
 ### Channel id
 Every DataChannel message is associated with a specific channel identified by *channelId*.
-This id can be utilized to differentiate various application uses, such as using 10000 for chat messages and 10001 for image transfers.
+It's important to clarify that this channelId is not related to the id property in the WebRTC DataChannel.
+This channelId can be utilized to differentiate various application uses, such as using 10000 for chat messages and 10001 for image transfers.
+
 The channelId is assigned during the creation of a DataChannelSender object, 
-and can be either user-specified at this stage or automatically allocated by SDK if left unspecified.
+and can be either user-specified or automatically allocated by SDK if left unspecified.
+
 The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided,
 or if no channelId is provided, the SDK will assign an available channelId from within the valid range.
 
 ### Session
-The DataChannel API has the concept of a session, which corresponds to open-close semantics.
+The DataChannel API introduces the concept of a session, which adheres to open-close semantics.
 In the SDK, the session is associated to the sender or the receiver object.
-When you create a sender object with a new channelId, the sender is in open state.
-If you call close() API on the sender object, the session is closed, you cannot send message on a closed sender.
+
+Upon creating a sender object with a new channelId, the sender object is in open state.
+If the close() API is invoked on the sender object, the session becomes closed and can no longer facilitate message sending.
+At the same time, the sender object will notify all participants in the call that the session is closed.
+
+If a sender object is created with an already existing channelId, the existing sender object associated with the channelId will be closed.
+In turn, any messages sent from the newly created sender object will be recognized as part of a new session.
+
+From the receiver's perspective, messages coming from different sessions on the sender's side are directed to distinct receiver objects.
+If the SDK identifies a new session associated with an existing channelId on the receiver's side, it creates a new receiver object.
+The SDK won't close the older receiver object; such closure will only take place when the receiver object receives a closure notification from the sender,
+or if the session hasn't received any messages from the sender for over two minutes.
+
+If a receiver object...
 
 ### Sequence number
 The sequence number is a 32 bit unsigned interger included in the sender's message to indicate the order of messages within a channel.
