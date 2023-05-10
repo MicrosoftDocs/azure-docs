@@ -23,7 +23,7 @@ You can query the deployment programmatically using the [Prediction API](https:/
 
 You can use Language Studio to submit the custom entity recognition task and visualize the results. 
 
-[!INCLUDE [Test model](../includes/language-studio/test-model.md)]
+[!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
 ---
 
@@ -31,13 +31,13 @@ You can use Language Studio to submit the custom entity recognition task and vis
 
 # [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Get prediction URL](../includes/language-studio/get-prediction-url.md)]
+[!INCLUDE [Get prediction URL](../../includes/custom/language-studio/get-prediction-url.md)]
 
 # [REST API](#tab/rest-api)
 
 First you will need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md)]
 
 ### Submit a custom NER task
 
@@ -51,7 +51,7 @@ First you will need to get your resource key and endpoint:
 
 First you will need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md))]
 
 3. Download and install the client library package for your language of choice:
     
