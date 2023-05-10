@@ -13,7 +13,7 @@ ms.date: 05/23/2023
 ms.custom: cliv2
 ---
 
-# CLI (v2) feature specification YAML schema
+# CLI (v2) feature set specification YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
