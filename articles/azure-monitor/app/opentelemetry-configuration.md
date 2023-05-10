@@ -24,10 +24,6 @@ Use one of the following three ways to configure the connection string:
 
 - Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
     ```csharp
-    using Azure.Monitor.OpenTelemetry.AspNetCore;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.Extensions.DependencyInjection;
-
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
@@ -83,7 +79,23 @@ Use one of the following two ways to configure the connection string:
 
 ### [Python](#tab/python)
 
-Currently unavailable.
+Use one of the following two ways to configure the connection string:
+
+- Set an environment variable:
+        
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+
+- Pass into `configure_azure_monitor`:
+
+```python
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
+```
 
 ---
 
@@ -264,7 +276,12 @@ const appInsights = new ApplicationInsightsClient(config);
 #### [Python](#tab/python)
     
 ```python
-Currently unavailable.
+from azure.identity import ManagedIdentityCredential
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor(
+    credential=ManagedIdentityCredential(),
+)
 ```
 
 ---
@@ -397,22 +414,22 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 #### [Node.js](#tab/nodejs)
 
-1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package in your project.
+1. Install the [OpenTelemetry Collector Trace Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-http) package in your project.
 
     ```sh
-        npm install @opentelemetry/exporter-otlp-http
+        npm install @opentelemetry/exporter-trace-otlp-http
     ```
 
 2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
-    const { OTLPTraceExporter } = require('@opentelemetry/exporter-otlp-http');
+    const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+    const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
     
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const otlpExporter = new OTLPTraceExporter();
-    appInsights.getTraceHandler().getTracerProvider().addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
+    appInsights.getTraceHandler().addSpanProcessor(new BatchSpanProcessor(otlpExporter));
     ```
 
 #### [Python](#tab/python)

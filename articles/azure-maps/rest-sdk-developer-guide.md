@@ -2,8 +2,8 @@
 title: REST SDK Developer Guide
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the various SDK Developer how-to articles.
-author: eriklindeman
-ms.author: eriklind
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 10/31/2021
 ms.topic: how-to
 ms.service: azure-maps
