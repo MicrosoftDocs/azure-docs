@@ -27,27 +27,28 @@ ms.custom: cliv2
 | $schema | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including $schema at the top of your file enables you to invoke schema and resource completions. |  |  |
 | name | string | **Required.** Name of the feature store. |  |  |
 | compute_runtime | object | The compute runtime configuration used for materialization job. |  |  |
-| compute_runtime.spark_runtime_version | string | The AzureML spark runtime version. | 3.2 | 3.2 |
+| compute_runtime.spark_runtime_version | string | The Azure Machine Learning Spark runtime version. | 3.2 | 3.2 |
 | offline_store | object |  |  |  |
 | offline_store.type | string | **Required** if offline_store is provided. The type of offline store. Only data lake gen2 type of storage is supported. | azure_data_lake_gen2 |  |
-| offline_store.target | string | **Required** if offline_store is provided. The datalake gen2 storage URI in the format of `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default/containers/<container>`. |  |  |
-| materialization_identity | object | The user-assigned managed identity that used for the materialization job. This identity needs to be granted neccessary roles to access Feature Store service, the data source and the offline storage. |  |  |
-| materialization_identity.client_id | string | The client id for your user-assigned managed identity. |  |  |
-| materialization_identity.resource_id | string | The resource id for your user-assigned managed identity. |  |  |
+| offline_store.target | string | **Required** if offline_store is provided. The datalake Gen2 storage URI in the format of `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default/containers/<container>`. |  |  |
+| materialization_identity | object | The user-assigned managed identity that used for the materialization job. This identity needs to be granted necessary roles to access Feature Store service, the data source and the offline storage. |  |  |
+| materialization_identity.client_id | string | The client ID for your user-assigned managed identity. |  |  |
+| materialization_identity.resource_id | string | The resource ID for your user-assigned managed identity. |  |  |
+| materialization_identity.principal_id | string | the principal ID for your user-assigned managed identity.|  |  |
 | description | string | Description of the feature store. |  |  |
 | tags | object | Dictionary of tags for the feature store. |  |  |
-| display_name | string | Display name of the feature store in the studio UI. Can be non-unique within the resource group. |  |  |
+| display_name | string | Display name of the feature store in the studio UI. Can be nonunique within the resource group. |  |  |
 | location | string | The location of the feature store. |  | The resource group location. |
-| resource_group | string | **Required.** The resource group containing the feature store. If the resource group does not exist, a new one will be created. |  |  |
+| resource_group | string |The resource group containing the feature store. If the resource group doesn't exist, a new one is created. |  |  |
 
 You can include other [workspace properties](reference-yaml-workspace.md).
 
 ## Remarks
 
-The `az ml feature-store` command can be used for managing Azure ML feature store workspaces.
+The `az ml feature-store` command can be used for managing Azure Machine Learning feature store workspaces.
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli). Some common examples are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli). Some common examples are shown in below.
 
 ## YAML basic
 
