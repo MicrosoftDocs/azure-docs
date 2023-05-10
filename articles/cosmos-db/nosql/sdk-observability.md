@@ -15,7 +15,7 @@ ms.reviewer: jucocchi
 
 The Azure Cosmos DB .NET and Java SDKs support distributed tracing to help you monitor your applications. Tracing the flow of requests is helpful in debugging, analyzing latency and performance, and gathering diagnostics. Instrument tracing for your applications using [OpenTelemetry](https://opentelemetry.io/), which is vendor-neutral and has a set of semantic conventions to ensure a standardized data format regardless of your chosen exporter, or use the [Application Insights SDK or Azure Monitor OpenTelemetry Distro](../../azure-monitor/app/app-insights-overview.md#how-do-i-use-application-insights).
 
-## Getting started
+## Get started
 
 Distributed tracing is available in the following SDKs:
 
@@ -116,7 +116,7 @@ The following sample shows how to configure Application Insights for a .NET cons
 
 Once trace data is ingested into Application Insights, you can visualize it in the Azure portal to understand the request flow in your application. Here's an example of trace data from a cross partition query in the transaction search in the left navigation of the Azure portal.
 
-:::image type="content" source="./media/sdk-observability/appInsights-integration.png" alt-text="Distributed tracing of an Azure Cosmos DB cross partition query in the Application Insights transaction search." border="false":::
+:::image type="content" source="./media/sdk-observability/app-insights-integration.png" lightbox="./media/sdk-observability/app-insights-integration.png" alt-text="Screenshot of distributed tracing of an Azure Cosmos DB cross-partition query in the Application Insights transaction search." border="true":::
 
 ## Next Steps
 
