@@ -7,10 +7,14 @@ items:
       href: modeling-simulation-workbench-overview.md
 - name: Quickstart
   items: 
+    - name: Azure onboarding
+      href: ./quickstart-create-portal.md#azure-onboarding
+    - name: Modeling and Simulation Workbench onboarding
+      href: ./quickstart-create-portal.md#modeling-and-simulation-workbench-onboarding
     - name: Create Workbench
       items: 
         - name: Azure portal
-          href: ./quickstart-create-portal.md      
+          href: ./quickstart-create-portal.md
 #- name: Tutorials
 #  items: 
 #    - name: Create Azure Modeling and Simulation Workbench
