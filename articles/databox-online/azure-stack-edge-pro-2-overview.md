@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 05/10/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -21,8 +21,6 @@ The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the
 - This series offers multiple models that closely align with your compute, storage, and memory needs. Depending on the model you choose, the compute acceleration could be via one or two Graphical Processing Units (GPU) on the device. 
 - This series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
 - These devices have low acoustic emissions and meet the requirements for noise levels in an office environment.
-
-[!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md)]
 
 ## Use cases
 
@@ -88,6 +86,8 @@ The Azure Stack Edge Pro 2 physical device, Azure resource, and target storage a
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 To understand how to choose a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+[!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md)]
 
 ## Billing and pricing 
 

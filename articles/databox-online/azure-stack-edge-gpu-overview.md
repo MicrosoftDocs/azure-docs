@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 02/07/2023
+ms.date: 05/10/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending it to Azure.
 ---
@@ -88,6 +88,8 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+[!INCLUDE [azure-stack-edge-ase-use-case-parameters](../../includes/azure-stack-edge-ase-use-case-parameters.md)]
 
 ## Billing model
 

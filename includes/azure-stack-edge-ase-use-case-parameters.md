@@ -3,48 +3,39 @@ author: alkohli
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 ---
 
 
-## Azure Stack Edge use case parameters
+## Device availability for new customers
 
-Azure Stack Edge is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. The solution provides hardware as a service and seamless cloud-to-edge experiences.
-
-Azure Stack Edge is only available to new customers with the following use cases:
+Azure Stack Edge devices are only available to new customers with the following use cases:
  - Validated partner workloads.
  - Large scale deployments.
 
 ### Validated partner workloads
 
-For workload partners who utilize Azure Stack Edge as an infrastructure platform to validate their solution. 
+Devices are available for new customers who utilize Azure Stack Edge as an infrastructure platform to validate their solution.
 
-End customers use Azure Stack Edge to run one of the validated workloads. We continue to support these partners, their solutions, and their end customers.
+If you already use Azure Stack Edge to run validated workloads, we support you, your solutions, and your end customers.
 
-- [Azure Private MEC / Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core/#overview>) - Offers simple, scalable, and secure deployment of private 5G core networks within the Azure private multi-access edge compute (MEC) solution. There's an additional screening process to be approved as an Azure PMEC customer.
-- [Azure Orbital Cloud Access](https://azure.microsoft.com/solutions/space/#overview) (for US government solutions) - Azure Orbital Cloud Access brings connectivity from the cloud wherever businesses and public sector organizations need it most. Azure Orbital Cloud Access enables low-latency, one hop access to the cloud from anywhere on the planet, making it easier to bring satellite-based communications into your enterprise cloud operation.
-- **SAP Digital Manufacturing Cloud (DMC)** - SAP DMC is a cloud-based marketing execution system (MES) designed to provide the link between production and business in supply chain management.
-- **US government** – We continue to facilitate and support US government customers and the Defense Industrial Base in support of US government.
+- [Azure Private MEC / Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core/#overview>) offers simple, scalable, and secure deployment of private 5G core networks within the Azure private multi-access edge compute solution. There's an additional screening process to be approved as an Azure PMEC customer.
+- [Azure Orbital Cloud Access](https://azure.microsoft.com/solutions/space/#overview) for Azure Government solutions enables connectivity from the cloud wherever businesses and public sector organizations need it. Azure Orbital Cloud Access provides low-latency, one hop access to the cloud from anywhere on the planet, making it easier to bring satellite-based communications into your enterprise cloud operation.
+- **SAP Digital Manufacturing Cloud (DMC)** is a cloud-based marketing execution system designed to provide the link between production and business in supply chain management.
+- **Azure Government** – We continue to facilitate and support Azure Government customers and the Defense Industrial Base.
 
 ### Large scale deployments
 
-Azure Stack Edge is optimized for edge scenarios that typically involve hundreds or thousands of devices across a high number of locations.
+Azure Stack Edge is optimized for edge scenarios that typically involve hundreds or thousands of devices across a high number of locations. Our hardware as a service solution is only available for deployments of at least 100 nodes.
 
-- **Total deployment scale** - Our Azure Stack Edge hardware as a service solution is only available for deployments of at least 100 nodes.
+### Next steps for existing customers with qualified workloads
 
-### More options
-
-Use the following links to get information about alternate infrastructure solutions:
-
- - [Azure Arc – Hybrid and multicloud management and solutions](https://azure.microsoft.com/products/azure-arc/#overview>).
- - [Azure Stack HCI – Hyperconverged infrastructure | Microsoft Azure](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
- 
-### Next steps for qualified workloads and existing customers
-
-- Submit an Azure Stack Edge sign-Up form via Azure portal.
+- Submit an Azure Stack Edge sign-up form via Azure portal.
 
 ### Next steps for alternate edge solutions
 
-- [Azure Arc – Hybrid and multicloud Management and Solution](https://azure.microsoft.com/products/azure-arc/#overview>).
+Use the following links to get information about alternate infrastructure solutions:
+
+- [Azure Arc – Hybrid and multicloud management solution](https://azure.microsoft.com/products/azure-arc/#overview>).
 - [Azure Stack HCI – Hyperconverged infrastructure solution](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
-- Explore the [HCI catalog](https://azurestackhcisolutions.azure.microsoft.com/#/catalog).
+- Explore the [HCI Integrated Systems catalog](https://azurestackhcisolutions.azure.microsoft.com/#/catalog).
