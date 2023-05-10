@@ -40,7 +40,7 @@ These steps don't apply if you're installing older version of Azure Backup Serve
    ReportingMachineUserName=<username>
    ReportingMachinePassword=<reporting admin password>
    ReportingMachineDomainName=<domain>
-   VaultCredentialFilePath=<vault credential full path and complete name>
+   VaultCredentialFilePath=<vault credential full path and complete name, without spaces in both>
    SecurityPassphrase=<passphrase>
    PassphraseSaveLocation=<passphrase save location>
    UseExistingSQL=<1/0 use or do not use existing SQL>
