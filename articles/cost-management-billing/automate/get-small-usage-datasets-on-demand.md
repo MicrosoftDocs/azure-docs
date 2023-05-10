@@ -25,7 +25,8 @@ The [Cost Details](/rest/api/cost-management/generate-cost-details-report) repor
 
 To use the Cost Details API, you need read only permissions for supported features and scopes.
 
-The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) doesn't support management groups for either EA or MCA customers.
+>[!NOTE]
+> The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) doesn't support management groups for either EA or MCA customers.
 
 For more information, see: 
 
