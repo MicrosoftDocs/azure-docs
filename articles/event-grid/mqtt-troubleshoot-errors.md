@@ -51,7 +51,7 @@ If your client is connected but it isn't receiving any MQTT messages, a few thin
 - Ensure the message expiry interval is optimized for the client's connectivity patterns.
 - If the maximum message size property is configured, ensure that the published messages meet the size requirements of the subscribing client.  Learn more about the [message size limits](mqtt-support.md)
 - If response topics are used, ensure that the client is subscribing to the response topics before publishing on the request topic.
-- Use QoS 1 setting to have service guarantee the delivery of messages at least once.  And, ensure the client sends acknowledgment on receipt of messages.  If acknowledgment isn't receive, service will stop sending messages to the client after 16 unacknowledged messages.
+- Use QoS 1 setting to have service guarantee the delivery of messages at least once.  And, ensure the client sends acknowledgment on receipt of messages.  If acknowledgment isn't received, service will stop sending messages to the client after 16 unacknowledged messages.
 - Check the limits on publishing messages.
 
 ## Failing to route the MQTT messages to an endpoint
