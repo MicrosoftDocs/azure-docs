@@ -91,7 +91,7 @@ All the required code snippets have been added, so the application can now be ca
     npm start
     ```
 
-1. Open a web browser and navigate to `http://localhost:3000/`.
+1. Open a web browser and navigate to `http://localhost:4200/`.
 
 1. Sign-in with an account registered to the Azure AD for customers tenant.
 
