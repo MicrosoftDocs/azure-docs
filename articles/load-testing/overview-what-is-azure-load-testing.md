@@ -34,6 +34,19 @@ The following diagram shows an architecture overview of Azure Load Testing.
 
 Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
+## Usage scenarios
+
+Azure Load Testing uses Apache JMeter and supports a wide range of application types and communication protocols. The following list provides examples of supported application or endpoint types:
+
+- Web applications, using HTTP or HTTPS
+- REST APIs
+- Databases via JDBC
+- TCP-based endpoints
+
+By [using JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, you can load test more application types.
+
+With the quick test experience you can [test a single URL-based HTTP endpoint](./quickstart-create-and-run-load-test.md). By [uploading a JMeter script](how-to-create-and-run-load-test-with-jmeter-script.md), you can use all JMeter-supported communication protocols.
+
 ## Identify performance bottlenecks by using high-scale load tests
 
 Performance problems often remain undetected until an application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
