@@ -4,16 +4,16 @@ items:
 - name: Overview
   items:
   - name: What is Storage Tasks?
-    href: ../storage-mover/service-overview.md
+    href: overview.md
   expanded: true
 - name: Concepts
   items: 
   - name: Concept article here
-    href: ../storage-mover/deployment-planning.md
+    href: conceptual-article.md
 - name: How-To
   items: 
   - name: How to article here
-    href: ../storage-mover/storage-mover-create.md
+    href: storage-task-how-to.md
   expanded: true
 - name: Reference
   items:
