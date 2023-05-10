@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 05/10/2023
 ms.custom: developer
 
 #Customer intent: As a dev, I want to learn how to test my protected web API.
@@ -34,12 +34,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
 
 Apps authenticating by themselves require app permissions.
 
-1. In the app's registration screen, select the **API permissions** > **Add a permission** blade in the left.
-1. Select the **My APIs** tab. In the list of APIs, select the protected web API that you created.
-1. Select **Application permissions**, which should be the type of permissions that apps should use when they're authenticating just as themselves and not signing-in users.
-1. In the **Application permissions** section, select the roles you want to assign. In this case, we use *ToDoList.Read.All*, *ToDoList.ReadWrite.All*.
-1. Select the **Add permissions** button at the bottom.
-1. At this stage, the permissions are assigned correctly but since the client app doesn't allow users to interact, the users' themselves can't consent to these permissions. Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You should be a tenant admin to carry out this operation.
+[!INCLUDE [Add app client secret](./includes/register-app/grant-api-permissions-app-permissions.md)]
 
 ## Write code
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 05/10/2023
 ms.custom: developer
 
 #Customer intent: As a dev, I want to configure my web API settings so as to protect it using Microsoft Entra.
@@ -60,7 +60,7 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
 ```json
 {
     "AzureAd": {
-        "Instance": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
+        "Instance": "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/",
         "TenantId": "Enter_the_Tenant_Id_Here",
         "ClientId": "Enter_the_Application_Id_Here",
     },
@@ -68,6 +68,14 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
   "AllowedHosts": "*"
 }
 ```
+
+Replace the following placeholders as shown:
+
+- Replace `Enter_the_Application_Id_Here` with your application (client) ID.
+- Replace `Enter_the_Tenant_Id_Here` with your Directory (tenant) ID.
+- Replace `Enter_the_Tenant_Subdomain_Here` with your Directory (tenant) subdomain. For example, if your primary domain is *contoso.onmicrosoft.com*, replace `Enter_the_Tenant_Subdomain_Here` with *contoso*. 
+
+If you don't have these values, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details)
 
 ## Add app role and scope
 

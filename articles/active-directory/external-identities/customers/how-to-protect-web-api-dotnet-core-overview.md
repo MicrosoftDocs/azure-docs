@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 05/10/2023
 ms.custom: developer
 
 #Customer intent: As a dev, I want to secure my web API registered in the customer's tenant using Microsoft Entra.
