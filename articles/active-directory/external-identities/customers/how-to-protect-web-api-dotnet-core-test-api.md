@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 05/10/2023
 ms.custom: developer
 
 #Customer intent: As a dev, I want to learn how to test my protected web API.
