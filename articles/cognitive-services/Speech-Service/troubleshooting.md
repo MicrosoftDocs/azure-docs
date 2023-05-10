@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 12/08/2022
 ms.author: eur
 ---
