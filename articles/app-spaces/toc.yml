@@ -1,5 +1,4 @@
 - name: App Spaces documentation
-  href: index.yml
 - name: Overview
   items:
     - name: About App Spaces
