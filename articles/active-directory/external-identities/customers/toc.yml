@@ -226,8 +226,8 @@ items:
             href: how-to-google-federation-customers.md
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
-          - name: Use application roles to manage access
-            href: how-to-use-app-roles-customers.md
+      - name: Use application roles to manage access
+        href: how-to-use-app-roles-customers.md
     - name: Customize
       expanded: true
       items:

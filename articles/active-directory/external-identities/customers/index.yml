@@ -22,10 +22,16 @@ landingContent:
         links:
           - text: About Azure AD for customers
             url: overview-customers-ciam.md 
+      - linkListType: concept
+        links:
           - text: Planning for customer identity and access management
             url: concept-planning-your-solution.md 
-          - text: Azure AD features in customer tenants
+          - text: Feature support in customer tenants
             url: concept-planning-your-solution.md 
+          - text: Security and governance
+            url: concept-security-customers.md
+          - text: Demo - Woodgrove Groceries
+            url: overview-solutions-customers.md
   - title: Add sign-in to your application
     linkLists:
       - linkListType: concept
@@ -56,72 +62,45 @@ landingContent:
             url: how-to-customize-languages-customers.md
           - text: Collect user information during sign-up
             url: how-to-define-custom-attributes.md  
-  - title: Secure your customer-facing app
+          - text: Add user attributes to the token 
+            url: how-to-add-attributes-to-token.md  
+  - title: Developer guides for samples
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Security and governance
-            url: concept-security-customers.md
       - linkListType: how-to-guide
         links:
-          - text: Add multifactor authentication (MFA)
-            url: how-to-multifactor-authentication-customers.md
-          - text: Use Identity Protection
-            url: how-to-identity-protection-customers.md
-  - title: Samples for customer-facing apps
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Find all samples and guides
-            url: samples-ciam-all.md
-      - linkListType: how-to-guide
-        links:
-          - text: JavaScript single-page application (SPA)
+          - text: JavaScript SPA sign-in
             url: how-to-single-page-app-vanillajs-sample-sign-in.md
-          - text: React single-page application (SPA)
+          - text: React SPA sign-in
             url: how-to-single-page-application-react-sample.md
-          - text: Node.js web application
+          - text: Node.js web app sign-in
             url: how-to-web-app-node-sample-sign-in.md
-          - text: Node.js sign in users and call an API
+          - text: Node.js web app sign in and call an API
             url: how-to-web-app-node-sample-sign-in-call-api.md
-          - text: ASP.NET web app
+          - text: ASP.NET web app sign-in
             url: how-to-web-app-dotnet-sample-sign-in.md
-          - text: Node.js browserless app using device code flow
-            url: how-to-browserless-app-node-sample-sign-in.md
-          - text: ASP.NET browserless app using device code flow
-            url: how-to-browserless-app-dotnet-sample-sign-in.md
-          - text: Electron desktop application
-            url: how-to-browserless-app-dotnet-sample-sign-in.md
-          - text: ASP.NET browserless app using device code flow
-            url: how-to-browserless-app-dotnet-sample-sign-in.md
-          - text: Node.js daemon application
-            url: how-to-daemon-node-sample-call-api.md
-  - title: "Developers: Build and integrate your own app"
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: All build and integrate guides
+          - text: More code sample guides
             url: samples-ciam-all.md
+  - title: Guides for building and integrating your app
+    linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Vanilla JS single-page application (SPA)
+          - text: Vanilla JS SPA
             url: how-to-single-page-app-vanillajs-prepare-tenant.md
-          - text: React single-page application (SPA)
+          - text: React SPA
             url: how-to-single-page-application-react-prepare-tenant.md
-          - text: Node.js web application
+          - text: Node.js web app
             url: how-to-web-app-node-sign-in-overview.md
-          - text: Node.js sign in users and call an API
-            url: how-to-web-app-node-sign-in-call-api-overview.md
           - text: ASP.NET web app
             url: how-to-web-app-dotnet-sign-in-prepare-tenant.md
           - text: Secure an ASP.NET web API
             url: how-to-protect-web-api-dotnet-core-overview.md
-          - text: Node.js browserless app using device code flow
-            url: how-to-browserless-app-node-sign-in-overview.md
-          - text: ASP.NET browserless app using device code flow
-            url: how-to-browserless-app-dotnet-sign-in-overview.md  
-
-  
-
-
-
+          - text: More build and integrate guides
+            url: samples-ciam-all.md
+  - title: Samples by app type and language/platform 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Code sample guides by app type
+            url: samples-ciam-all.md?tabs=apptype
+          - text: Code sample guides by language
+            url: samples-ciam-all.md?tabs=language
