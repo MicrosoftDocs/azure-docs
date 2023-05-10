@@ -89,7 +89,7 @@ public class TodoListController : Controller
 
   public async Task<ActionResult> Details(int id)
   {
-    var value = await _downstreamApi.CallWebApiForUserAsync(
+    var value = await _downstreamApi.CallApiForUserAsync(
       ServiceName,
       options =>
       {
@@ -106,7 +106,7 @@ The `CallWebApiForUserAsync` also has strongly typed generic overrides that enab
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
-        var value = await _downstreamApi.CallWebApiForUserAsync<object, Todo>(
+        var value = await _downstreamApi.CallApiForUserAsync<object, Todo>(
             ServiceName,
             null,
             options =>
@@ -210,7 +210,7 @@ public class TodoListController : Controller
   public async Task<ActionResult> Details(int id)
   {
     var downstreamApi = this.GetDownstreamApi();
-    var value = await downstreamApi.CallWebApiForUserAsync(
+    var value = await downstreamApi.CallApiForUserAsync(
       ServiceName,
       options =>
       {
@@ -221,14 +221,14 @@ public class TodoListController : Controller
 }
 ```
 
-The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+The `CallApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
 
 ```csharp
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
         var downstreamApi = this.GetDownstreamApi();
-        var value = await downstreamApi.CallWebApiForUserAsync<object, Todo>(
+        var value = await downstreamApi.CallApiForUserAsync<object, Todo>(
             ServiceName,
             null,
             options =>
