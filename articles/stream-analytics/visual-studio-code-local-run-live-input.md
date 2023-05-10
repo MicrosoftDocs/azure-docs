@@ -65,10 +65,6 @@ The default time for the job to start creating output is set to **Now**. You can
 
 ![View local run result](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
-## Specify partitons for Event Hub inputs
-
-## Submit job
-
 ## Next steps
 
 * [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md)
