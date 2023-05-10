@@ -72,7 +72,7 @@ To resolve this issue:
 
 * Upgrade to the latest available version.
 
-### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by AAD token in data plane"
+### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by Azure AD token in data plane"
 
 This error means that your function is attempting to [perform a non-data operation by using Azure Active Directory (Azure AD) identities](troubleshoot-forbidden.md#non-data-operations-are-not-allowed). You can't use `CreateLeaseContainerIfNotExists = true` when you're using Azure AD identities.
 
