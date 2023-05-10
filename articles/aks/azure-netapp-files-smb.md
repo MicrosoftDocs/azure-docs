@@ -46,7 +46,7 @@ This section describes how to create an SMB volume on Azure NetApp Files and exp
         --protocol-types CIFS
     ```
 
-### Create a secret with the domain credentials (SMB)
+### Create a secret with the domain credentials
 
 1. Create a secret on your AKS cluster to access the AD server using the [`kubectl create secret`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) command. This secret will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command to create the secret, replacing `USERNAME` with your username, `PASSWORD` with your password, and `DOMAIN_NAME` with your domain name for your Active Directory.
 
@@ -85,7 +85,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     csi-smb-node-win-tfxvk                3/3     Running   0          3m47s
     ```
 
-### Create the persistent volume (SMB)
+### Create the persistent volume
 
 1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
 
@@ -157,7 +157,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     kubectl describe pv pv-smb
     ```
 
-### Create a persistent volume claim (SMB)
+### Create a persistent volume claim
 
 1. Create a file name `pvc-smb.yaml` and copy in the following YAML. 
 
@@ -188,7 +188,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     kubectl describe pvc pvc-smb
     ```
 
-### Mount with a pod (SMB)
+### Mount with a pod 
 
 1. Create a file named `iis-smb.yaml` and copy in the following YAML. This file will be used to create an Internet Information Services pod to mount the volume to path `/inetpub/wwwroot`.
 
@@ -300,16 +300,16 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
 This section covers how to use Astra Trident to dynamically create an SMB volume on Azure NetApp Files and automatically mount it to a containerized windows application.  
 
-### Install Astra Trident (SMB)
+### Install Astra Trident 
 
 To dynamically provision SMB volumes, you need to install Astra Trident version 22.10 or later. Dynamically provisioning SMB volumes requires windows worker nodes. 
 
 Astra Trident is NetApp's dynamic storage provisioner that is purpose-built for Kubernetes. Simplify the consumption of storage for Kubernetes applications using Astra Trident's industry-standard [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) driver. Astra Trident deploys on Kubernetes clusters as pods and provides dynamic storage orchestration services for your Kubernetes workloads.
 
-Trident can be installed using the Trident operator (manually or using [Helm](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html)) or [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html). The instructions provided later in this article explain how Astra Trident can be installed using Helm. To learn more about these installation methods and how they work, see the [Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
+Trident can be installed using the Trident operator (manually or using [Helm](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html)) or [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html). To learn more about these installation methods and how they work, see the [Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
 
 
-### Install Astra Trident using Helm (SMB)  
+#### Install Astra Trident using Helm   
 
 [Helm](https://helm.sh/) must be installed on your workstation to install Astra Trident using this method. For other methods of installing Astra Trident, see the [Astra Trident Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html). If you have windows worker nodes in the cluster, ensure to enable windows with any installation method. 
 
@@ -416,7 +416,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
       Normal  Installed   46s   trident-operator.netapp.io  Trident installed
     ```
 
-### Create a backend (SMB)
+### Create a backend 
 
 A backend must be created to instruct Astra Trident about the Azure NetApp Files subscription and where it needs to create volumes. For more information about backends, see [Azure NetApp Files backend configuration options and examples](https://docs.netapp.com/us-en/trident/trident-use/anf-examples.html).
 
@@ -486,7 +486,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
     tbe-9shfq   backend-tbc-anf-smb   09cc2d43-8197-475f-8356-da7707bae203
     ``` 
 
-### Create a secret with the domain credentials (SMB)
+### Create a secret with the domain credentials for SMB
 
 1. Create a secret on your AKS cluster to access the AD server using the [`kubectl create secret`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) command. This information will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command, replacing `DOMAIN_NAME\USERNAME` with your domain name and username and `PASSWORD` with your password. 
 
@@ -507,7 +507,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
     smbcreds   Opaque   2      2h
     ```
 
-### Create a storage class (SMB)
+### Create a storage class
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume Azure NetApp Files volumes, a storage class must be created.  
 
@@ -547,7 +547,7 @@ A storage class is used to define how a unit of storage is dynamically created w
     anf-sc-smb   csi.trident.netapp.io   Delete          Immediate           true                   13s
     ```
 
-### Create a persistent volume claim (SMB)
+### Create a PVC
 
 A persistent volume claim (PVC) is a request for storage by a user. Upon the creation of a persistent volume claim, Astra Trident automatically creates an Azure NetApp Files SMB share and makes it available for Kubernetes workloads to consume.
 
@@ -600,7 +600,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
     pvc-209268f5-c175-4a23-b61b-e34faf5b6239   100Gi      RWX            Delete           Bound    default/anf-pvc-smb   anf-sc-smb              5m52s
     ```
 
-### Use the persistent volume (SMB)
+### Use the persistent volume
 
 After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an IIS pod that mounts the Azure NetApp Files SMB share created in the previous step. In this example, the volume is mounted at /inetpub/wwwroot.
 

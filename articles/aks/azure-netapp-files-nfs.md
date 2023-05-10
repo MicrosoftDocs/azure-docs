@@ -45,7 +45,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
         --protocol-types NFSv3
     ```
 
-### Create the persistent volume (NFS)
+### Create the persistent volume
 
 1. List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]. Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
 
@@ -107,7 +107,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
     kubectl describe pv pv-nfs
     ```
 
-### Create a persistent volume claim (NFS)
+### Create a persistent volume claim
 
 1. Create a file named `pvc-nfs.yaml` and copy in the following YAML. This manifest creates a PVC named `pvc-nfs` for 100Gi Storage and `ReadWriteMany` access mode, matching the PV created above.
 
@@ -137,7 +137,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
     kubectl describe pvc pvc-nfs
     ```
 
-### Mount with a pod (NFS)
+### Mount with a pod
 
 1. Create a file named `nginx-nfs.yaml` and copy in the following YAML. This manifest defines a `nginx` pod that uses the persistent volume claim. 
 
@@ -195,13 +195,13 @@ Astra Trident may be used to dynamically provision NFS or SMB files on Azure Net
 
 This section describes how to use Astra Trident to dynamically create a NFS volume on Azure NetApp Files and automatically mount it to a containerized application. 
 
-### Install Astra Trident (NFS) 
+### Install Astra Trident
 
 To dynamically provision NFS volumes, you need to install Astra Trident. Astra Trident is NetApp's dynamic storage provisioner that is purpose-built for Kubernetes. Simplify the consumption of storage for Kubernetes applications using Astra Trident's industry-standard [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) driver. Astra Trident deploys on Kubernetes clusters as pods and provides dynamic storage orchestration services for your Kubernetes workloads.   
 
-Trident can be installed using the Trident operator (manually or using [Helm](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html)) or [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html). The instructions provided later in this article explain how Astra Trident can be installed using Helm. To learn more about these installation methods and how they work, see the [Astra Trident Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
+Trident can be installed using the Trident operator (manually or using [Helm](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html)) or [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html). To learn more about these installation methods and how they work, see the [Astra Trident Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
 
-### Install Astra Trident using Helm (NFS)
+#### Install Astra Trident using Helm
 
 [Helm](https://helm.sh/) must be installed on your workstation to install Astra Trident using this method. For other methods of installing Astra Trident, see the [Astra Trident Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
 
@@ -306,7 +306,7 @@ The output of the command resembles the following example:
       Normal  Installed   2m31s  trident-operator.netapp.io  Trident installed
     ``` 
 
-### Create a backend (NFS)  
+### Create a backend
 
 To instruct Astra Trident about the Azure NetApp Files subscription and where it needs to create volumes, a backend is created. This step requires details about the account that was created in a previous step. 
 
@@ -377,7 +377,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
     tbe-kfrdh   backend-tbc-anf   8da4e926-9dd4-4a40-8d6a-375aab28c566
     ```
 
-### Create a storage class (NFS)
+### Create a storage class
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume Azure NetApp Files volumes, a storage class must be created. 
 
@@ -414,7 +414,7 @@ A storage class is used to define how a unit of storage is dynamically created w
     azure-netapp-files   csi.trident.netapp.io   Delete          Immediate           false                  
     ```
 
-### Create a persistent volume claim (NFS)
+### Create a PVC
 
 A persistent volume claim (PVC) is a request for storage by a user. Upon the creation of a persistent volume claim, Astra Trident automatically creates an Azure NetApp Files volume and makes it available for Kubernetes workloads to consume. 
 
@@ -459,7 +459,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
     anf-pvc   Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO            azure-netapp-files   62s
     ```  
 
-### Use the persistent volume (NFS) 
+### Use the persistent volume
 
 After the PVC is created, Astra Trident creates the persistent volume. A pod can be spun up to mount and access the Azure NetApp Files volume. 
 
