@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
