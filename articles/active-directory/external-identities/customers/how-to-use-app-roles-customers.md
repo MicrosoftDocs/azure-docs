@@ -1,6 +1,6 @@
 ---
-title: Groups and app roles support in customer tenants
-description: Find out which core Azure AD features related to the user and group management model and application assignment are available in customer tenants.
+title: Using role-based access control for apps
+description: Learn how to define application roles for your customer-facing application and assign those roles to users and groups in customer tenants.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: mimart
 ms.custom: it-pro
 ---
 
-# Role-based access control for application developers
+# Using role-based access control for applications
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When an organization uses RBAC, an application developer defines roles for the application. An administrator can then assign roles to different users and groups to control who has access to content and functionality in the application.
 
@@ -92,7 +92,7 @@ To emit the group membership claims in security tokens, follow these steps:
 
 ### Add members to a group
 
-Now that you've added app groups claim in your application, add users to the security groups. If you don't have security group, [create one](../../active-directory/fundamentals/how-to-manage-groups#create-a-basic-group-and-add-members).
+Now that you've added app groups claim in your application, add users to the security groups. If you don't have security group, [create one](../../active-directory/fundamentals/how-to-manage-groups.md#create-a-basic-group-and-add-members).
 
 1. In the left menu, select **Groups**, and then select **All groups**.
 1. Select the group you want to manage.
