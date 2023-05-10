@@ -199,7 +199,7 @@ Event-driven jobs are triggered by events from supported [custom scalers](scale-
 
 Container apps and event-driven jobs use [KEDA](https://keda.sh/) scalers. They both evaluate scaling rules on a polling interval to measure the volume of events for an event source, but the way they use the results is different.
 
-Win an app, each replica continuously processes events and a scaling rule determines the number of replicas to run to meet demand. In event-driven jobs, each job typically processes a single event, and a scaling rule determines the number of jobs to run.
+In an app, each replica continuously processes events and a scaling rule determines the number of replicas to run to meet demand. In event-driven jobs, each job typically processes a single event, and a scaling rule determines the number of jobs to run.
 
 Use jobs when each event requires a new instance of the container with dedicated resources or needs to run for a long time. Event-driven jobs are conceptually similar to [KEDA scaling jobs](https://keda.sh/docs/latest/concepts/scaling-jobs/).
 
