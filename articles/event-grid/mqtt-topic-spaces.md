@@ -82,7 +82,6 @@ az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --
 ```json
 { 
     "properties": {
-        "subscriptionSupport": "LowFanout",
         "topicTemplates": [
             "segment1/+/segment3/${client.authenticationName}",
             "segment1/${client.attributes.attribute1}/segment3/#"
