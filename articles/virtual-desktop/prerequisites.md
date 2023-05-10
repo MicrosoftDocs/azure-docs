@@ -107,7 +107,7 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
 | Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
-| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
@@ -240,4 +240,4 @@ To learn which URLs clients use to connect and that you must allow through firew
 Get started with Azure Virtual Desktop by creating a host pool. Head to the following tutorial to find out more.
 
 > [!div class="nextstepaction"]
-> [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)
+> [Create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md)
