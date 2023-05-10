@@ -1,7 +1,7 @@
 ---
-title: Use Translator V3 connector to build a Text Translator flow.
+title: Use Translator V3 connector to configure a Text Translator flow.
 titleSuffix: Azure Cognitive Services
-description: Use Microsoft Translator V3 connector and Power Automate to build a Text Translator flow.
+description: Use Microsoft Translator V3 connector and Power Automate to configure a Text Translator flow.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -17,13 +17,13 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# Create a text translation flow (v3 preview)
+# Create a text translation flow (preview)
 
 > [!IMPORTANT]
 >
 > * The Translator connector is currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
-This guide shows you how to configure a Microsoft Translator V3 connector cloud flow that supports text translation and transliteration. The Translator V3 connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+This article guides you through configuring a Microsoft Translator V3 connector cloud flow that supports text translation and transliteration. The Translator V3 connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
 
 Text translation is a cloud-based REST API feature of the Azure Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time.
 
@@ -61,7 +61,7 @@ Now that you've completed the prerequisites, let's get started.
 
    :::image type="content" source="../media/connectors/choose-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step.":::
 
-## Configure your cloud flow
+## Structure your cloud flow
 
 Let's select an action. Choose to translate or transliterate text.
 

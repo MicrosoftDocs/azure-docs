@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use Translator V3 connector to build a Document Translation flow."
+title: "Use Translator V3 connector to build a Document Translation flow."
 titleSuffix: Azure Cognitive Services
 description: Use Microsoft Translator V3 connector and Power Automate to build a Document Translation flow.
 author: laujan
@@ -17,7 +17,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# Tutorial: Configure a Document Translation flow (v3 preview)
+# Configure a Document Translation flow (v3 preview)
 
 > [!IMPORTANT]
 >
@@ -38,11 +38,11 @@ In this tutorial:
 
 ## Prerequisites
 
-To get started, you need a [**Translator resource**](#translator-resource), [**Azure storage account**](#azure-storage) with at least two containers, and a [**system-assigned managed identity**](#managed-identity-with-rbac) with role-based access.
+Here's what you need to get started: [**Translator resource**](#translator-resource), [**Azure storage account**](#azure-storage) with at least two containers, and a [**system-assigned managed identity**](#managed-identity-with-rbac) with role-based access.
 
 ### Translator resource
 
-* You need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+* If you don't have an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/), you can [**create one for free**](https://azure.microsoft.com/free/).
 
 * Create a [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). As you complete the Translator project and instance details fields, pay special attention to the following entries:
 
@@ -50,7 +50,7 @@ To get started, you need a [**Translator resource**](#translator-resource), [**A
 
   * **Pricing tier**. Select **Standard S1** to try the service.
 
-* You use the **key** and **name** from your Translator resource to connect your application to Power Automate. Your Translator resource keys are found under the Resource Management section in the Azure portal and your resource name is located at the top of the page.
+* Use the **key** and **name** from your Translator resource to connect your application to Power Automate. Your Translator resource keys are found under the Resource Management section in the Azure portal and your resource name is located at the top of the page.
 
    :::image type="content" source="../media/connectors/keys-resource-details.png" alt-text="Get key and endpoint.":::
 
@@ -83,7 +83,7 @@ To get started, you need a [**Translator resource**](#translator-resource), [**A
 
 ### Managed identity with RBAC
 
- Finally, before you can use the V3 connector's operations for document translation, you must grant your Translator resource access to your storage account using a managed identity with role based identity control (RBAC).
+ Finally, before you can use the Translator V3 connector's operations for document translation, you must grant your Translator resource access to your storage account using a managed identity with role based identity control (RBAC).
 
   :::image type="content" source="../document-translation/media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
@@ -406,11 +406,11 @@ In this step, you retrieve the translated document from Azure blob storage and u
 1. In the **Storage account name or blob endpoint** field, select **Enter custom value** and enter your storage account name.
 1. Select the **Blob path** field to show the **Dynamic content** window, select **Expression** and enter the following logic in the formula field:
 
-```powerappsfl
+   ```powerappsfl
 
-   concat(split(outputs('Get_documents_status')?['body/path'],'/')[3],'/',split(outputs('Get_documents_status')?['body/path'],'/')[4],'/',split(outputs('Get_documents_status')?['body/path'],'/')[5])
+      concat(split(outputs('Get_documents_status')?['body/path'],'/')[3],'/',split(outputs('Get_documents_status')?['body/path'],'/')[4],'/',split(outputs('Get_documents_status')?['body/path'],'/')[5])
 
-```
+   ```
 
 1. Select **Add an action**, enter **Azure blob Storage** in the search box, and select the **Get Blob Metadata using path (V2)** action.
 1. In the **Storage account name or blob endpoint** field, select **Enter custom value** and enter your storage account name.
@@ -419,11 +419,11 @@ In this step, you retrieve the translated document from Azure blob storage and u
 
 1. Select the **Blob path** field to show the **Dynamic content** window, select **Expression** and enter the following logic in the formula field:
 
-```powerappsfl
+   ```powerappsfl
 
-   concat(split(outputs('Get_documents_status')?['body/path'],'/')[3],'/',split(outputs('Get_documents_status')?['body/path'],'/')[4],'/',split(outputs('Get_documents_status')?['body/path'],'/')[5])
+      concat(split(outputs('Get_documents_status')?['body/path'],'/')[3],'/',split(outputs('Get_documents_status')?['body/path'],'/')[4],'/',split(outputs('Get_documents_status')?['body/path'],'/')[5])
 
-```
+   ```
 
 ##### Create new folder
 
@@ -461,7 +461,7 @@ Let's check your document translation flow and results.
 
 ---
 
-That's it! You have learned to automate document translation processes using the Microsoft Translator V3 connector and Power Automate.
+That's it! You've learned to automate document translation processes using the Microsoft Translator V3 connector and Power Automate.
 
 ## Next steps
 
