@@ -6,8 +6,99 @@ items:
     - name: What is Event Grid?
       href: overview.md
     - name: What's new?
-      href: whats-new.md
-  - name: Pull delivery (HTTP)
+      href: whats-new.
+  - name: MQTT messaging
+    items:
+    - name: Overview
+      href: mqtt-overview.md
+    - name: Quickstarts
+      items:
+      - name: Publish and subscribe on an MQTT topic using CLI
+        href: mqtt-publish-and-subscribe-cli.md
+      - name: Publish and subscribe on an MQTT topic using portal
+        href: mqtt-publish-and-subscribe-portal.md
+    - name: Tutorials
+      items:
+      - name: Route MQTT messages to Event Hubs using CLI
+        href: mqtt-routing-to-event-hubs-cli.md
+      - name: Route MQTT messages to Event Hubs using portal
+        href: mqtt-routing-to-event-hubs-portal.md
+    - name: Samples
+      href: /samples/browse/?term=MQTT+Application
+    - name: Concepts
+      items:
+      - name: Terminology
+        href: mqtt-event-grid-namespace-terminology.md
+      - name: MQTT client authentication
+        href: mqtt-client-authentication.md      
+      - name: Access control for MQTT clients
+        href: mqtt-access-control.md
+      - name: MQTT clients
+        href: mqtt-clients.md
+      - name: Client groups
+        href: mqtt-client-groups.md      
+      - name: Topic spaces
+        href: mqtt-topic-spaces.md
+      - name: Routing MQTT messages
+        href: mqtt-routing.md
+        items:
+        - name: Routing event schema
+          href: mqtt-routing-event-schema.md
+        - name: Filtering routed MQTT messages
+          href: mqtt-routing-filtering.md
+        - name: Routing enrichments
+          href: mqtt-routing-enrichment.md
+      - name: MQTT support
+        href: mqtt-support.md
+      - name: MQTT clients life cycle events
+        href: mqtt-client-life-cycle-events.md
+    - name: How-to guides
+      items:
+      - name: Create and manage namespaces
+        href: create-view-manage-namespaces.md
+      - name: MQTT client authentication using certificate chain
+        href: mqtt-certificate-chain-client-authentication.md
+      - name: Customer enabled disaster recovery
+        href: custom-disaster-recovery-client-side.md
+      - name: How to configure multiple sessions for an MQTT client
+        href: mqtt-establishing-multiple-sessions-per-client.md
+      - name: Troubleshoot MQTT runtime issues
+        href: mqtt-troubleshoot-errors.md
+    - name: Reference
+      items:
+      - name: Azure CLI
+        href: /cli/azure/eventgrid
+      - name: PowerShell
+        href: /powershell/module/az.eventgrid
+      - name: REST
+        href: /rest/api/eventgrid
+      - name: .NET
+        href: /dotnet/api/overview/azure/eventgrid
+      - name: Java
+        href: /java/api/overview/azure/eventgrid
+      - name: Python
+        href: /python/api/overview/azure/event-grid
+      - name: Node.js
+        href: /javascript/api/overview/azure/event-grid
+      - name: Quotas and limits
+        href: quotas-limits.md
+      - name: Monitoring data reference (MQTT delivery)
+        href: monitor-mqtt-delivery-reference.md
+    - name: Resources
+      items:
+      - name: Build your skills with Microsoft Learn training
+        href: /training/browse/?products=azure-event-grid
+      - name: FAQ
+        href: faq.yml
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/event-grid/
+      - name: Pricing Calculator
+        href: https://azure.microsoft.com/pricing/calculator/
+      - name: Stack Overflow
+        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
+  - name: Pull delivery 
     items:
     - name: Overview
       items:
@@ -63,7 +154,7 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-  - name: Push delivery (HTTP)
+  - name: Push delivery
     items:
     - name: Overview
       items:
@@ -164,6 +255,8 @@ items:
       items:
       - name: Event Grid terminology
         href: concepts.md
+      - name: Event Grid on Kubernetes documentation
+        href: kubernetes/index.yml
       - name: Custom topics
         href: custom-topics.md
       - name: System topics
@@ -469,98 +562,4 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-  - name: MQTT messaging
-    items:
-    - name: Overview
-      href: mqtt-overview.md
-    - name: Quickstarts
-      items:
-      - name: Publish and subscribe on an MQTT topic using CLI
-        href: mqtt-publish-and-subscribe-cli.md
-      - name: Publish and subscribe on an MQTT topic using portal
-        href: mqtt-publish-and-subscribe-portal.md
-    - name: Tutorials
-      items:
-      - name: Route MQTT messages to Event Hubs using CLI
-        href: mqtt-routing-to-event-hubs-cli.md
-      - name: Route MQTT messages to Event Hubs using portal
-        href: mqtt-routing-to-event-hubs-portal.md
-    - name: Samples
-      href: https://github.com/Azure-Samples/MqttApplicationSamples/tree/main
-    - name: Concepts
-      items:
-      - name: Terminology
-        href: mqtt-event-grid-namespace-terminology.md
-      - name: MQTT client authentication
-        href: mqtt-client-authentication.md      
-      - name: Access control for MQTT clients
-        href: mqtt-access-control.md
-      - name: MQTT clients
-        href: mqtt-clients.md
-      - name: Client groups
-        href: mqtt-client-groups.md      
-      - name: Topic spaces
-        href: mqtt-topic-spaces.md
-      - name: Routing MQTT messages
-        href: mqtt-routing.md
-        items:
-        - name: Routing event schema
-          href: mqtt-routing-event-schema.md
-        - name: Filtering routed MQTT messages
-          href: mqtt-routing-filtering.md
-        - name: Routing enrichments
-          href: mqtt-routing-enrichment.md
-      - name: MQTT support
-        href: mqtt-support.md
-      - name: MQTT clients life cycle events
-        href: mqtt-client-life-cycle-events.md
-    - name: How-to guides
-      items:
-      - name: Create and manage namespaces
-        href: create-view-manage-namespaces.md
-      - name: MQTT client authentication using certificate chain
-        href: mqtt-certificate-chain-client-authentication.md
-      - name: Customer enabled disaster recovery
-        href: custom-disaster-recovery-client-side.md
-      - name: How to configure multiple sessions for an MQTT client
-        href: mqtt-establishing-multiple-sessions-per-client.md
-      - name: Troubleshoot MQTT runtime issues
-        href: mqtt-troubleshoot-errors.md
-    - name: Reference
-      items:
-      - name: Azure CLI
-        href: /cli/azure/eventgrid
-      - name: PowerShell
-        href: /powershell/module/az.eventgrid
-      - name: REST
-        href: /rest/api/eventgrid
-      - name: .NET
-        href: /dotnet/api/overview/azure/eventgrid
-      - name: Java
-        href: /java/api/overview/azure/eventgrid
-      - name: Python
-        href: /python/api/overview/azure/event-grid
-      - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
-      - name: Quotas and limits
-        href: quotas-limits.md
-      - name: Monitoring data reference (MQTT delivery)
-        href: monitor-mqtt-delivery-reference.md
-    - name: Resources
-      items:
-      - name: Build your skills with Microsoft Learn training
-        href: /training/browse/?products=azure-event-grid
-      - name: FAQ
-        href: faq.yml
-      - name: Azure Roadmap
-        href: https://azure.microsoft.com/roadmap/
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/event-grid/
-      - name: Pricing Calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-
-  - name: Event Grid on Kubernetes documentation
-    href: kubernetes/index.yml
 
