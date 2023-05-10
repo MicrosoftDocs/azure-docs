@@ -32,7 +32,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 | `EnableMongoRetryableWrites`        | Enables support for retryable writes on the account                                                                                          | Yes       |
 | `EnableMongo16MBDocumentSupport`    | Enables support for inserting documents upto 16 MB in size                                                                                   | No        |
 | `EnableUniqueCompoundNestedDocs`    | Enables support for compound and unique indexes on nested fields, as long as the nested field is not an array.                               | No        |
-| `EnableTtlOnCustomPath`             | Enables support for unique partial index which allows you more flexibility to specify exactly which fields in documents you'd like to index. | No        |
+| `EnableTtlOnCustomPath`             | Provides the ability to set a custom TTL on any one field in a collection                                                                    | No        |
 | `EnablePartialUniqueIndex`          | Enables support for unique partial index which allows you more flexibility to specify exactly which fields in documents you'd like to index. | No        |
 
 ## Enable a capability

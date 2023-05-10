@@ -618,6 +618,36 @@ Azure Cosmos DB doesn't yet support server-side sessions commands.
 
 Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
 
+#### Custom Time-To-Live (TTL)
+
+This feature provides the ability to set a customer TTL on any one field in a collection.
+
+On a collection with TTL enabled on a field:
+
+Acceptable types are: BSON date type and numeric types (integer, long, double) which will be interpreted as a unix milliseconds timestamp, for the purpose of expiration.
+
+- If the TTL field is an array, then the smallest element of the array that is of an acceptable type is considered for document expiry.
+
+- If the TTL field is missing from a document, the document won’t expire.
+
+- If the TTL field is not an acceptable type, the document will not expire.
+
+##### Limitations of Custom TTL
+
+- Only one field in a collection can have a TTL set on it.
+
+- With a custom TTL field set, the \_ts field cannot be used for document expiration
+
+- Is `\_ts` field in addition possible? No
+
+##### Configuration
+
+This feature can be enabled by updating the account capability "EnableTtlOnCustomPath". Refer [how to configure capabilities](../../cosmos-db/mongodb/how-to-configure-capabilities.md)
+
+#### To set up the TTL:
+
+- `db.coll.createIndex({"YOUR_CUSTOM_TTL_FIELD":1}, {expireAfterSeconds: 10})`
+
 ## Transactions
 
 Multi-document transactions are supported within an unsharded collection. Multi-document transactions aren't supported across collections or in sharded collections. The timeout for transactions is a fixed 5 seconds.
