@@ -58,13 +58,13 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 1. In the Azure portal, go to your IoT hub.
 
-1. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
+2. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
    :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new Event Hubs route in your IoT hub.":::
 
 # [Event Hubs](#tab/eventhubs)
 
-1. On the **Endpoint** tab, select an existing Event Hubs endpoint or create a new one by providing the following information:
+3. On the **Endpoint** tab, select an existing Event Hubs endpoint or create a new one by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -77,7 +77,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-1. On the **Endpoint** tab, select an existing Service Bus queue endpoint or create a new one by providing the following information:
+3. On the **Endpoint** tab, select an existing Service Bus queue endpoint or create a new one by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -90,7 +90,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 # [Service Bus topic](#tab/servicebustopic)
 
-1. On the **Endpoint** tab, select an existing Service Bus topic endpoint or create a new one by providing the following information:
+3. On the **Endpoint** tab, select an existing Service Bus topic endpoint or create a new one by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -103,7 +103,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 # [Azure Storage](#tab/azurestorage)
 
-1. On the **Endpoint** tab, select an existing Storage endpoint or create a new one by providing the following information:
+3. On the **Endpoint** tab, select an existing Storage endpoint or create a new one by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -115,7 +115,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 # [Azure Cosmos DB](#tab/cosmosdb)
 
-1. On the **Endpoint** tab, select an existing Cosmos DB endpoint or create a new one by providing the following information:
+3. On the **Endpoint** tab, select an existing Cosmos DB endpoint or create a new one by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -132,9 +132,9 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 ---
 
-1. Select **Create + next** to create the endpoint and continue to create a route.
+4. Select **Create + next** to create the endpoint and continue to create a route.
 
-1. On the **Route** tab, create a new route to your Event Hubs endpoint by providing the following information:
+5. On the **Route** tab, create a new route to your Event Hubs endpoint by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -142,13 +142,13 @@ Routes send messages or event logs to an Azure service for storage or processing
    | **Data source** | Use the drop-down menu to select a data source for the route. You can route telemetry messages or [non-telemetry events](./iot-hub-devguide-messages-d2c.md#non-telemetry-events). |
    | **Routing query** | Optionally, add a query to filter the data before routing. For more information, see [IoT Hub message routing query syntax](./iot-hub-devguide-routing-query-syntax.md). |
 
-   :::image type="content" source="../media/how-to-routing-portal/create-route.png" alt-text="Screenshot that shows all options for adding a route.":::
+   :::image type="content" source="./media/how-to-routing-portal/create-route.png" alt-text="Screenshot that shows all options for adding a route.":::
 
-1. If you added a routing query, use the **Test** feature to provide a sample message and test the route against it.
+6. If you added a routing query, use the **Test** feature to provide a sample message and test the route against it.
 
-1. If you want to add a message enrichment to your route, select **Create + add enrichments**. For more information, see [Message enrichments](./iot-hub-message-enrichments-overview.md). If not, select **Create + skip enrichments**.
+7. If you want to add a message enrichment to your route, select **Create + add enrichments**. For more information, see [Message enrichments](./iot-hub-message-enrichments-overview.md). If not, select **Create + skip enrichments**.
 
-1. Back on the **Message routing** overview, confirm that your new route appears on the **Routes** tab, and that your new endpoint appears on the **Custom endpoints** tab.
+8. Back on the **Message routing** overview, confirm that your new route appears on the **Routes** tab, and that your new endpoint appears on the **Custom endpoints** tab.
 
 ## Update a route
 
