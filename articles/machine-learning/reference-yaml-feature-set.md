@@ -29,19 +29,19 @@ ms.custom: cliv2
 | version | string | **Required.** Feature set version. |  |  |
 | description | string | Feature set description. |  |  |
 | specification | object | **Required.** Feature set specification. |  |  |
-| specification.path | string | **Required** if specification is configured. Path to the local feature set spec folder. |  |  |
+| specification.path | string | **Required** Path to the local feature set spec folder. |  |  |
 | entities | object (list of string) | **Required.** The entities that this feature set is associated to. |  |  |
 | stage | string | Feature set stage. | Development, Production, Archived | Development |
 | tags | object | Dictionary of tags for the feature set. |  |  |
 | materialization_settings | object | Feature set materialization setting. |  |  |
 | materialization_settings.offline_enabled | boolean | Whether materializing feature values to an offline storage is enabled. | True, False |  |
 | materialization_settings.schedule | object | The materialization schedule. See [CLI (v2) schedule YAML schema](reference-yaml-schedule.md) |  |  |
-| materialization_settings.schedule.frequency | string | **Required** if schedule is configured. Enum to describe the frequency of a recurrence schedule. | Day, Hour, Minute, Week, Month | day |
+| materialization_settings.schedule.frequency | string | **Required** if schedule is configured. Enum to describe the frequency of a recurrence schedule. | Day, Hour, Minute, Week, Month | Day |
 | materialization_settings.schedule.interval | integer | **Required** if schedule is configured. The interval between recurrent jobs. |  |  |
-| materialization_settings.schedule.time_zone | string | The schedule trigger time zone. |  |  |
+| materialization_settings.schedule.time_zone | string | The schedule trigger time zone. |  | UTC |
 | materialization_settings.schedule.start_time | string | The schedule trigger time. |  |  |
 | materialization_settings.notification | object | The materialization notification setting. |  |  |
-| materialization_settings.notification.email_on_status | object (list of string) | **Required** if notification is configured. The email notification is sent when job status matches this setting. | JobFailed, JobCompleted, JobCancelled. |  |
+| materialization_settings.notification.email_on | object (list of string) | **Required** if notification is configured. The email notification is sent when job status matches this setting. | JobFailed, JobCompleted, JobCancelled. |  |
 | materialization_settings.notification.emails | object (list of string) | **Required** if notification is configured. The email address the notification is sent to. |  |  |
 | materialization_settings.resource | object | The Azure Machine Learning Spark compute resource used for materialization job. |  |  |
 | materialization_settings.resource.instance_type | string | Azure Machine Learning Spark compute instance type. | Standard_E4s_v3, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3. Refer to  [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](interactive-data-wrangling-with-apache-spark-azure-ml.md) to get updated list of supported types. |  |
@@ -63,7 +63,7 @@ name: transactions
 version: "1"
 description: 7-day and 3-day rolling aggregation of transactions featureset
 specification:
-  path: ./spec # path to feature set specification folder. Can be local (absolute path or relative path to current location) or cloud uri. Contains FeaturesetSpec.yaml + transformation code
+  path: ./spec # path to feature set specification folder. Can be local (absolute path or relative path to current location) or cloud uri. Contains FeatureSetSpec.yaml + transformation code
 entities: # entities associated with this feature-set
   - azureml:account:1
 stage: Development
@@ -76,7 +76,7 @@ name: transactions
 version: "1"
 description: 7-day and 3-day rolling aggregation of transactions featureset
 specification:
-  path: ./spec # path to feature set specification folder. Can be local (absolute path or relative path to current location) or cloud uri. Contains FeaturesetSpec.yaml + transformation code
+  path: ./spec # path to feature set specification folder. Can be local (absolute path or relative path to current location) or cloud uri. Contains FeatureSetSpec.yaml + transformation code
 entities: # entities associated with this feature-set
   - azureml:account:1
 stage: Development
@@ -84,11 +84,11 @@ materialization_settings:
     offline_enabled: True
     schedule: # we use existing definition of schedule under job with some constraints. Recurrence pattern will not be supported.
         type: recurrence  # Only recurrence type would be supported
-        frequency: day # Will only support day and hours
+        frequency: Day # Only support Day and Hour
         interval: 1 #every day
         time_zone: "Pacific Standard Time"
-    notification: # We use the existing definition of notification under job
-        email_on_status:
+    notification: 
+        email_on:
         - JobFailed
         emails:
         - alice@microsoft.com

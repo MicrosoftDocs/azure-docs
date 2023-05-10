@@ -24,12 +24,12 @@ ms.custom: cliv2
 
 | Key | Type | Description | Allowed values | Default value |
 |--|--|--|--|--|
-| serialization_version | string | The version to serialize this spec file. |  |  |
+| serialization_version | string | The version to serialize this spec file. | 2 |  |
 | featurestores | list of object | The feature stores. |  |  |
 | featurestores.featurestore | object | The feature store object. |  |  |
 | featurestores.featurestore.features | list of object | The list of features to retrieve from this feature store. |  |  |
 | featurestores.featurestore.features.feature_name | string | The feature name. |  |  |
-| featurestores.featurestore.features.featureset | string | The feature name and version in the format of `featureset_name:version`. |  |  |
+| featurestores.featurestore.features.feature_set | string | The feature name and version in the format of `featureset_name:version`. |  |  |
 | featurestores.featurestore.location | string | The location of the feature store. |  |  |
 | featurestores.featurestore.uri | string | The URI of the feature store in the format of `azureml://subscriptions/{sub_id}/resourceGroups/{rg}/workspaces/{featurestore_name}`. |  |  |
 | featurestores.featurestore.workspace_id | string | The feature store workspace ID. |  |  |
@@ -44,9 +44,9 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 featurestores:
 - features:
   - feature_name: transaction_1d_count
-    featureset: transaction1d:1
+    feature_set: transaction1d:1
   - feature_name: transaction_amount_1d_sum
-    featureset: transaction1d:1
+    feature_set: transaction1d:1
   location: eastus2euap
   uri: azureml://subscriptions/{sub_id}/resourcegroups/{rg}/workspaces/{ws_name}
   workspace_id: {ws_id}

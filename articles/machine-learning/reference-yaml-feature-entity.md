@@ -29,7 +29,7 @@ ms.custom: cliv2
 | name | string | **Required.** Feature store entity name. |  |  |
 | version | string | **Required.** Feature store entity version. |  |  |
 | description | string | Feature store entity description. |  |  |
-| stage | string | Feature set stage. | Development, Production, Archived | Development |
+| stage | string | Feature store entity stage. | Development, Production, Archived | Development |
 | tags | object | Dictionary of tags for the feature store entity. |  |  |
 | index_columns | list of object | **Required.** The index columns of the feature store entity. |  |  |
 | index_columns.name | string | **Required.** The index column name. |  |  |
