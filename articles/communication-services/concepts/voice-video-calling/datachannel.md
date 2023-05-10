@@ -29,7 +29,7 @@ The DataChannel API enables real-time messaging during audio and video calls. Wi
 3. Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. Note that text messages must be serialized into a byte buffer before they can be transmitted.
 4. Sender options: The DataChannel API provides three configurable options when creating a sender object, including reliability, priority, and bitrate.
  The reliable mode gurantees ordered and lossless message delivery. However, in the unreliable mode, message order isn't ensured, and if the SDK fails to send a message, it's silently dropped. In the contrast, the reliable mode throws an exception in such instances. In the Native SDK, the high priority option prioritizes the processing of DataChannel messages over video packets, while in the Web SDK, this priority setting only applies between different channels of the DataChannel.
-5. Security: All messages exchanged between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
+5. Security: All messages exchanged\ between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
 
 ## Common use cases
 
@@ -66,6 +66,14 @@ The DataChannel API has the concept of a session, which corresponds to open-clos
 In the SDK, the session is associated to the sender or the receiver object.
 When you create a sender object with a new channelId, the sender is in open state.
 If you call close() API on the sender object, the session is closed, you cannot send message on a closed sender.
+
+### Sequence number
+The sequence number is a 32 bit unsigned interger included in the sender's message to indicate the order of messages within a channel.
+It's important to note this number is generated from the sender's perspective. Consequently, a receiver may notice a gap in the sequence numbers if the sender alters the recipients during sending messages.
+
+For instance, consider a scenario where a sender sends three messages. Initially, the recipients are Participant A and Participant B.
+After the first message, the sender changes the recipient to Participant B, and before the third message, the recipient is switched to participant A.
+In this case, Participant A will receive two messages with sequence numbers 1 and 3. However, this doesn't signify message loss, it only reflects the change in the recipients by the sender.
 
 ## Next steps
 For more information, see the following articles:
