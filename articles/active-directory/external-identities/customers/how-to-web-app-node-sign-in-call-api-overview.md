@@ -1,5 +1,5 @@
 ---
-title: Sign in users and call an API in your own Node.js web application 
+title: Sign in users and call an API in a Node.js web application 
 description: Learn how to sign in users and call an API in your own Node.js web application 
 services: active-directory
 author: kengaderdus
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, I want to learn about how to Sign in users and call an API in your own Node.js web application by using Azure Active Directory (Azure AD) for customers tenant.
 ---
 
-# Sign in users and call an API in your Node.js web application 
+# Sign in users and call an API in a Node.js web application 
 
 In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Azure Active Directory (AD) for customers. To authorize access to the web API, you must serve requests that include a valid access token, which is issued by Azure AD for customers itself.
 

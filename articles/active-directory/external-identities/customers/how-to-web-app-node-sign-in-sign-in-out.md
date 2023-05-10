@@ -1,5 +1,5 @@
 ---
-title: Sign in users in your own Node.js web application  - Add sign-in and sign-out
+title: Sign in users in a Node.js web application  - add sign-in and sign-out
 description: Learn about how to add sign-in and sign-out in your own Node.js web application.
 services: active-directory
 author: kengaderdus
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application  - Add sign-in and sign-out
+# Sign in users in a Node.js web application  - add sign-in and sign-out
 
 In this article, you add sign in and sign out to the web app project that you prepared in the previous chapter, [Prepare your web app](how-to-web-app-node-sign-in-prepare-app.md). The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application.
 

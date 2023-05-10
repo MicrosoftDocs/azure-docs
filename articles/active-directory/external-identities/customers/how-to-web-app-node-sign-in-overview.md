@@ -1,5 +1,5 @@
 ---
-title: Sign in users in your own Node.js web application  - Overview
+title: Sign in users in your own Node.js web application
 description: Learn about how to Sign in users in your own Node.js web application.
 services: active-directory
 author: kengaderdus

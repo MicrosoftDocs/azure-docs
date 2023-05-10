@@ -1,5 +1,5 @@
 ---
-title: Sign in users and call an API in your own Node.js web application - Prepare your tenant
+title: Sign in users and call an API in a Node.js web application  - prepare your tenant
 description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users and call an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application  - Prepare your tenant
+# Sign in users and call an API in a Node.js web application  - prepare your tenant
 
 In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication and authorization. To prepare your tenant, you do the following tasks:
 

@@ -1,5 +1,5 @@
 ---
-title: Sign in users and call an API in your own Node.js web application  - Sign-in users and acquire an access token
+title: ign in users and call an API in a Node.js web application - acquire an access token
 description: Learn how to sign-in users and acquire an access token for calling an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application  - Sign-in users and acquire an access token
+# Sign in users and call an API in a Node.js web application - acquire an access token
 
 In this article, you add sign in, then acquire an access token to the web app project that you prepared in the previous chapter, [Prepare your client app and API](how-to-web-app-node-sign-in-call-api-prepare-app.md). The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication and authorization to your node web application.
 

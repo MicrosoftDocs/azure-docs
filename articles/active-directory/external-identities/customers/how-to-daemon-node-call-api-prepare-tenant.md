@@ -1,5 +1,5 @@
 ---
-title: Acquire an access token using client credentials flow in your Node.js daemon application - Prepare your tenant
+title: Call an API in your Node.js daemon application - prepare your tenant
 description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to acquire an access token using client credentials flow in your Node.js daemon application
 services: active-directory
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Call an API in your Node.js daemon application - Prepare your tenant
+# Call an API in your Node.js daemon application - prepare your tenant
 
 In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authorization. To prepare your tenant, you do the following tasks:
 

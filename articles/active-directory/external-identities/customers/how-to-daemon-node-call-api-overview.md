@@ -1,6 +1,6 @@
 ---
 title: Call an API in your Node.js daemon application
-description: Learn how to Configure your own Node.js daemon application that calls an API protected Azure Active Directory (Azure AD) for customers 
+description: Learn how to configure your Node.js daemon application that calls an API. The API is protected by Azure Active Directory (Azure AD) for customers 
 services: active-directory
 author: kengaderdus
 manager: mwongerapk

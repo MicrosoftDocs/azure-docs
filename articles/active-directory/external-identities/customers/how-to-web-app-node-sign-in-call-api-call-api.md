@@ -1,5 +1,5 @@
 ---
-title: Sign in users and call an API in your own Node.js web application  - Call an API
+title: Sign in users and call an API in a Node.js web application - call an API
 description: Learn how to call a protected API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application  - Call an API
+# Sign in users and call an API in a Node.js web application - call an API
 
 In this article, you learn how to call the ASP.NET API from your Node.js client web app using the access token you've acquired in [Acquire access token](how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md#acquire-access-token).
 

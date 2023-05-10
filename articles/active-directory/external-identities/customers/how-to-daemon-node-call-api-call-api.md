@@ -1,5 +1,5 @@
 ---
-title:  Call an API in your Node.js daemon application - Acquire an access token and call API
+title:  Call an API in your Node.js daemon application - acquire an access token
 description: Learn how to acquire an access token by using client credentials flow, the use the token to call a web API in your own Node.js daemon application.
 services: active-directory
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-#  Call an API in your Node.js daemon application - Acquire an access token and call a web API
+#  Call an API in your Node.js daemon application - acquire an access token
 
 In this article, you update the daemon app you prepared in the previous chapter, [prepare your client app and API](how-to-daemon-node-call-api-prepare-app.md), to acquire an access token, then call a web API. The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authorization to your node daemon application.
 
@@ -24,7 +24,6 @@ In your code editor, open *authConfig.js* file, then add the following code:
 
 ```javascript
 require('dotenv').config();
-const fs = require('fs');
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -202,8 +201,6 @@ async function main() {
             try {
                 const authResponse = await auth.getToken(auth.tokenRequest);
                 const todos = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);                
-                console.log(todos);
-
             } catch (error) {
                 console.log(error);
             }
@@ -223,7 +220,6 @@ This code is the entry point to your app. You use the [yargs js](https://www.npm
 ```javascript            
 const authResponse = await auth.getToken(auth.tokenRequest);
 const todos = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);                
-console.log(todos);
 ```
 ## Run and test daemon app and API
 
@@ -237,7 +233,7 @@ At this point, you're ready to test your client daemon app and web API:
     node . --op getToDos
     ```
 
-If your daemon app and web API successfully run, you should see data returned by the web API endpoint in the console.
+If your daemon app and web API successfully run, you should find the data returned by the web API endpoint `todos` variable.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Sign in users and call an API in your own Node.js web application - Prepare your client app and API
+title: Sign in users and call an API a Node.js web application - prepare client app and API
 description: Learn about how to prepare your Node.js client web app and ASP.NET web API. The app you here prepare is what you configure later to sign in users, then call an API.
 services: active-directory
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application  - Prepare your client app and API
+# Sign in users and call an API a Node.js web application - prepare client app and API
 
 In this article, you create app projects for both the client web app and web API. Later, you add authentication and authorization to this app. You create app projects for an ASP.NET web API and a Node.js web app client. 
 

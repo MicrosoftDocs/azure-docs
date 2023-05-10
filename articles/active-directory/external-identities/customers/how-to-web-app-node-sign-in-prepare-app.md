@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application  - Prepare your web app
+# Sign in users in your own Node.js web application  - prepare your app
 
 In this article, you create a Node.js(Express) project and organize all the folders and files you require. You add authentication to the application you build here. This Node.js(Express) web application's views use [Handlebars](https://handlebarsjs.com).
 
