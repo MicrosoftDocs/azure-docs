@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample .NET MAUI mobile application by using Azure AD for customer tenant
-description: Learn how to configure a sample .NET MAUI mobile to sign in and sign out users by using Azure AD for customer tenant.
+title: Sign in users in a sample .NET MAUI mobile application by using Azure AD for customers tenant
+description: Learn how to configure a sample .NET MAUI mobile to sign in and sign out users by using Azure AD for customers tenant.
 services: active-directory
 author: henrymbuguakiarie
 manager: mwongerapk
@@ -12,19 +12,19 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/10/2023
 ms.custom: developer
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI mobile app to sign in and sign out users with Microsoft Entra for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI mobile app to sign in and sign out users with Azure AD for customers tenant
 ---
 
 # Sign in users in a sample .NET MAUI Android application
 
-This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to an Android application by using Azure Active Directory (Azure AD) for customer tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI Android application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
+This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to an Android application by using Azure Active Directory (Azure AD) for customers tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI Android application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
 
 In this article, you do the following tasks:
 
-- Register a .NET MAUI Android application in the Azure AD tenant for customer.
-- Create a sign in and sign out user flow in Azure AD tenant for customer.
+- Register a .NET MAUI Android application in the Azure AD for customers tenant.
+- Create a sign-in and sign-out user flow in the Azure AD for customers tenant.
 - Associate your .NET MAUI Android application with the user flow.
-- Update a sample .NET MAUI Android application using your own Azure AD for customers tenant details.
+- Update a sample .NET MAUI Android application to use your own Azure AD for customers tenant details.
 - Run and test the sample .NET MAUI Android application.
 
 ## Prerequisites
@@ -32,7 +32,7 @@ In this article, you do the following tasks:
 - [Visual Studio Code](https://code.visualstudio.com/download) with the MAUI workload installed:
   - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
   - [Instructions for macOS](/dotnet/maui/get-started/installation?tabs=vsmac)
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Register .NET MAUI Android application
 
@@ -61,17 +61,17 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 
 ## Configure the sample .NET MAUI Android application
 
-1. In Visual Studio, open `ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/appsettings.json` file.
+1. In Visual Studio, open *ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/appsettings.json* file.
 1. Find the placeholder:
-   1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`.
+   1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
    1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
-1. In Visual Studio, open `ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/Platforms/Android/AndroidManifest.xml` file.
+1. In Visual Studio, open *ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/Platforms/Android/AndroidManifest.xml* file.
 1. Find the placeholder:
    1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
 
 ## Run and test sample .NET MAUI Android application
 
-Choose the Android platform to work on by setting the startup project in the Solution Explorer. Make sure that your platform of choice is marked for build and deploy in the Configuration Manager.
+Select the Android platform to work on by setting the startup project in the **Solution Explorer**. Make sure that your platform of choice is marked for build and deploy in the configuration manager.
 
 Clean the solution, rebuild the solution, and run it.
 
