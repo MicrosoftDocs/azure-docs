@@ -122,7 +122,7 @@ In the code:
     const cca = new msal.ConfidentialClientApplication(msalConfig);
     ```
 
-- You then use the the [acquireTokenByClientCredential](/javascript/api/@azure/msal-node/confidentialclientapplication?view=azure-node-latest#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
+- You then use the the [acquireTokenByClientCredential](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
 
     ```javascript
     cca.acquireTokenByClientCredential(tokenRequest);
@@ -239,3 +239,7 @@ At this point, you're ready to test your client daemon app and web API:
     ```
 
 If your daemon app and web API successfully run, you should see data returned by the web API endpoint in the console.
+
+## Next steps
+
+Learn how to [Use client certificate instead of a secret for authentication in your Node.js confidential app](how-to-web-app-node-use-certificate.md).
