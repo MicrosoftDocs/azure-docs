@@ -60,10 +60,7 @@ Before you initiate the upgrade, you must:
 
 ### Back up the MySQL database 
 
-The SnapCenter VMware plug-in includes a MySQL database (also called an NSM database) that contains the metadata for all jobs performed by the plug-in.
-
->[!NOTE]
->Do not start a job to back up the MySQL database when an on-demand backup job is already running.
+Do not start back up of the MySQL database when an on-demand backup job is already running.
 
 1. From the VMware vSphere web client, select the VM where the SnapCenter VMware plug-in is located.
 1. Right-click the VM. On the **Summary** tab of the virtual appliance, select **Launch Remote Console or Launch Web Console** to open a maintenance console window.
