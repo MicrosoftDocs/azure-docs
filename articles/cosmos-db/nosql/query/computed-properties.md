@@ -283,7 +283,7 @@ Add a composite index on two properties where one is computed, `cp_myComputedPro
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Getting started with queries](./getting-started.md)
 - [Managing indexing policies](../how-to-manage-indexing-policy.md)
