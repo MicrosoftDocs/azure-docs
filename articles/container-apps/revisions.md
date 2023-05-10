@@ -42,7 +42,9 @@ Revisions go through a series of states, based on status and availability.
 
 ### Provisioning status
 
-When a new revision is first created, it's set to "provisioning" which measures the time between creation (initial request) and being ready to accept work.  Replica provisioning status values include:
+When a new revision is first created, it's set to "provisioning," a value that measures the time between creation (initial request) and availability.  (Revisions can't accept work until they're running.)
+
+Replica provisioning status values include:
 
 - _Provisioning:_ It's being provisioned.
 
@@ -52,13 +54,17 @@ When a new revision is first created, it's set to "provisioning" which measures 
 
 ### Running status
 
-After the revision is provisioned, it is running. Use running status to monitor the status of a revision after a successful provision. Running status values include:
+After the revision is provisioned, it is running. Use running status to monitor the status of a revision after a successful provision. 
+
+Running status values include:
 
 - _Running:_ The revision is running; no issues have been identified.
 
-- _Unhealthy:_ The revision has encountered a problem. Causes and urgency vary; use the revision running status to learn more.
+- _Unhealthy:_ The revision has encountered a problem. 
+
+    Causes and urgency vary; use the revision running status to learn more.
     
-    Common issues include:
+    Common issues include:  
 
     - Container crashing
     - Resource quota exceeded
@@ -66,13 +72,16 @@ After the revision is provisioned, it is running. Use running status to monitor 
 
 - _Failed:_ Critical errors cause revisions to fail.  The running state provides details. 
  
-        Common causes include:
-        - Terminated
-        - Exit code 137
+  Common causes include:
+
+  - Terminated
+  - Exit code 137
 
 ### Inactive status
 
-A revision can be set to active or inactive.  Inactive revisions don't have provisioning or running states.
+A revision can be set to active or inactive.  
+
+Inactive revisions don't have provisioning or running states.
 
 Inactive revisions remain in a list of up to 100 inactive revisions.    
  
