@@ -291,7 +291,7 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 ```bash
 docker-compose up
 ```
-Given the resources on the machine, the General Document container might take some time to startup.
+Given the resources on the machine, the General Document container might take some time to start up.
 
 ### Invoice
 
@@ -622,7 +622,7 @@ services:
 
  ```
 
-The custom template container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you are using Azure Storage queues. When running locally, delete these variables.
+The custom template container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you're using Azure Storage queues. When running locally, delete these variables.
 
 ### Ensure the service is running
 
@@ -635,7 +635,7 @@ $source .env
 
 $docker-compose up
 ```
-Custom template containers require a few different configuration and support additional optional configurations
+Custom template containers require a few different configurations and support other optional configurations
 
 
 | Setting | Required | Description |
@@ -646,31 +646,31 @@ Custom template containers require a few different configuration and support add
 | Queue:Azure:ConnectionString	| No| Azure Queue connection string |
 |Storage:ObjectStore:AzureBlob:ConnectionString	| No| Azure Blob connection string |
 | HealthCheck:MemoryUpperboundInMB	| No |	Memory threshold for reporting unhealthy to liveness. Default: Same as recommended memory |
-| StorageTimeToLiveInMinutes	| No| TTL duration to remove all intermediate and final files. Default: 2 days, TTL can set between 5 mins to 7 days |
+| StorageTimeToLiveInMinutes	| No| TTL duration to remove all intermediate and final files. Default: Two days, TTL can set between five minutes to seven days |
 | Task:MaxRunningTimeSpanInMinutes |	No| Maximum running time for treating request as timeout. Default: 60 minutes |
 | HTTP_PROXY_BYPASS_URLS | No |	Specify URLs for bypassing proxy Example: HTTP_PROXY_BYPASS_URLS = abc.com, xyz.com |
-| AzureCognitiveServiceReadHost (Recipt, IdDocument Containers Only)| Yes	| Specify Read container uri Example:AzureCognitiveServiceReadHost=http://onprem-frread:5000 |
+| AzureCognitiveServiceReadHost (Receipt, IdDocument Containers Only)| Yes	| Specify Read container uri Example:AzureCognitiveServiceReadHost=http://onprem-frread:5000 |
 | AzureCognitiveServiceLayoutHost (Document, Invoice Containers Only) |	Yes	| Specify Layout container uri Example:AzureCognitiveServiceLayoutHost=http://onprem-frlayout:5000 |
 
 #### Use the Form Recognizer Studio to train a model
 
 * Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 
-* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed, if this is your local machine, the endpoint is [http://localhost:5001](http://localhost:5001).
+* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is [http://localhost:5001](http://localhost:5001).
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description
-* On the configure your resource step, provide the endpoint to your custom template model. IF you deployed the containers on your local machine, this is [http://localhost:5000](http://localhost:5000)
-* Provide a sub-folder for where you training data will be saved within the files folder.
+* On the "configure your resource" step, provide the endpoint to your custom template model. IF you deployed the containers on your local machine, this is [http://localhost:5000](http://localhost:5000)
+* Provide a subfolder for where your training data is located within the files folder.
 * Finally, create the project
 
-You should now have a project created, ready for labeling. Upload your training data and get started labeling. If you are new to labeling, see [build and train a custom model](../how-to-guides/build-a-custom-model.md)
+You should now have a project created, ready for labeling. Upload your training data and get started labeling. If you're new to labeling, see [build and train a custom model](../how-to-guides/build-a-custom-model.md)
 
 #### Using the API to train
 
 If you plan to call the APIs directly to train a model, the custom template model train API requires a base64 encoded zip file that is the contents of your labeling project. You can omit the PDF or image files and submit only the JSON files.
 
-Once you have your dataset labeled and *.ocr.json, *.labels.json and fields.json files added to a zip, use the PowerShell commands below to generate the base64 encoded string.
+Once you have your dataset labeled and *.ocr.json, *.labels.json and fields.json files added to a zip, use the PowerShell commands to generate the base64 encoded string.
 
 ```powershell
 $bytes = [System.IO.File]::ReadAllBytes("<your_zip_file>.zip")
@@ -1153,7 +1153,7 @@ There are several ways to validate that the container is running:
   |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
   |
 
-:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure container welcome page.":::
+:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure containers welcome page.":::
 
 ## Stop the containers
 
