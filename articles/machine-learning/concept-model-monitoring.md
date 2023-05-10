@@ -28,7 +28,7 @@ To implement monitoring, Azure Machine Learning acquires monitoring signals thro
 
 Azure Machine Learning provides the following capabilities for continuous model monitoring:
 
-* **Pre-built monitoring signals**. Model monitoring provides built-in monitoring signals for tabular data. These monitoring signals include data drift, prediction drift, data quality, and feature attribution drift.
+* **Built-in monitoring signals**. Model monitoring provides built-in monitoring signals for tabular data. These monitoring signals include data drift, prediction drift, data quality, and feature attribution drift.
 * **Out-of-box model monitoring setup with Azure Machine Learning online endpoint**. If you deploy your model to production in an Azure Machine Learning online endpoint, Azure Machine Learning collects production inference data automatically and uses it for continuous monitoring.
 * **Use of multiple monitoring signals for a broad view**. You can easily include several monitoring signals in one monitoring setup. For each monitoring signal, you can select your preferred metric(s) and fine-tune an alert threshold.
 * **Use of recent past production data or training data as comparison baseline dataset**. For model signals and metrics, Azure Machine Learning lets you set these datasets as the baseline dataset for comparison.

@@ -66,7 +66,15 @@ Before following the steps in this article, make sure you have the following pre
 
 If you deploy your model to production in an Azure Machine Learning online endpoint, Azure Machine Learning collects production inference data automatically and uses it for continuous monitoring.
 
-You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-of-box setup of model monitoring.
+You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-of-box setup of model monitoring. The out-of-box model monitoring provides following monitoring capabilities:
+
+* Azure Machine Learning will automatically detect the production inference dataset associated with a deployment to an Azure Machine Learning online endpoint and use the dataset for model monitoring.
+* The recent past production inference dataset is used as the comparison baseline dataset.
+* Monitoring setup automatically includes and tracks the built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, Azure Machine Learning uses:
+  * the recent past production inference dataset as the comparison baseline dataset.
+  * smart defaults for metrics and thresholds.
+* A monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
+
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -102,14 +110,6 @@ create_monitor:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
 ```
 
-Once you set up model monitoring using the previous CLI command and YAML definition, you'll have the following out-of-box model monitoring capabilities:
-
-* Azure Machine Learning will automatically detect the production inference dataset associated with a deployment to an Azure Machine Learning online endpoint and use the dataset for model monitoring.
-* The recent past production inference dataset is used as the comparison baseline dataset.
-* Monitoring setup automatically includes and tracks the built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, Azure Machine Learning uses:
-  * the recent past production inference dataset as the comparison baseline dataset.
-  * smart defaults for metrics and thresholds.
-* A monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
 
 # [Python](#tab/python)
 
@@ -152,6 +152,25 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 # [Studio](#tab/azure-studio)
 
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+1. Under **Manage**, select **Monitoring**.
+1. Select **Add**.
+
+   :::image type="content" source="media/how-to-monitor-models/momo-add-monitoring.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. Select model for monitoring. "Select deployment" dropdown list should be automatically pouplated if the model is deployed as AzureML online endpoint/deployment.
+1. Select deployment.
+1. Select training data as comparison baseline (optional).
+1. Entering name for model monitoring.
+1. Select VM instance type for Spark pool.
+1. Select Spark runtime version. 
+1. Select your time zone for monitoring job run.
+1. Select "Recurrence" or "Cron expression" scheduling.
+1. For "Recurrence" scheduling, select repeat frequency and data/time.
+1. For "Cron expression" scheduling, enter cron expression for monitoring run.
+
+   :::image type="content" source="media/how-to-monitor-models/momo-basic-setup.png" alt-text="Screenshot of settings for model monitoring.":::
+
 ---
 
 ## Set up advanced model monitoring
@@ -161,7 +180,6 @@ Azure Machine Learning provides many capabilities for continuous model monitorin
 * Use of multiple monitoring signals for a broad view
 * Use of historical model training data or validation data as the comparison baseline dataset
 * Monitoring of top N features and individual features
-* Monitoring data drift for a specific subset of the population
 
 You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for advanced setup of model monitoring.
 
@@ -214,27 +232,6 @@ create_monitor:
           metric_name: jensen_shannon_distance
           threshold: 0.01
         - applicable_feature_type: categorical
-          metric_name: chi_squared_test
-          threshhod: 0.02
-    advanced_data_drift_subpopulation:
-      type: data_drift
-      # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
-      baseline_dataset:
-        input_dataset:
-          path: azureml:my_model_training_data:1
-          type: mltable
-        dataset_context: training
-        # features: by default monitor top 10 features with training dataset available
-      data_segment:
-        feature_name: state # monitor data drift for Washington and California state data
-        feature_values:
-          - WA
-          - CA
-      metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: jensen_shannon_distance
-          threshold: 0.01
-       - applicable_feature_type: categorical
           metric_name: chi_squared_test
           threshhod: 0.02
     advanced_data_quality:
@@ -303,7 +300,7 @@ cpu_cluster = ml_client.computes.get("cpu_cluster")
 monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
 
 # training data to be used as baseline dataset
-monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable, path="azureml:my_model_training_data:1"))
+monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable", path="azureml:my_model_training_data:1"))
 
 # create an advanced data drift signal
 features = MonitorFeatureFilter(top_n_feature_importance=20)
@@ -313,9 +310,6 @@ metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
 
 advanced_data_drift = DataDriftSignal(baseline_dataset=monitor_input_data, features=features, metric_thresholds=metric_thresholds)
 
-# create another advanced data drift signal with subpopulation
-data_segment = DataSegment(feature_name="state", feature_values=['WA', 'CA'])
-advanced_data_drift_subpopulation = DataDriftSignal(baseline_dataset=monitor_input_data, features=features, data_segment=data_segment, metric_thresholds=metric_thresholds)
 
 # create an advanced data quality signal
 features = ['feature_A', 'feature_B', 'feature_C']
@@ -326,13 +320,13 @@ metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
 advanced_data_quality = DataQualitySignal(baseline_dataset=monitor_input_data, features=features, metric_thresholds=metric_thresholds, alert_enabled="False")
 
 # create feature attribution drift signal
-monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable, path="azureml:my_model_training_data:1"), target_column_name="fraud_detected")
+monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable", path="azureml:my_model_training_data:1"), target_column_name="fraud_detected")
 metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.05)
 
 feature_attribution_drift = FeatureAttributionDriftSignal(baseline_dataset=monitor_input_data, model_type="classification", metric_thresholds=metric_thresholds, alert_enabled="False")
 
 # put all monitoring signals in a dictionary
-monitoring_signals = {'data_drift_advanced':advanced_data_drift, 'data_drift_subpopulation':advanced_data_drift_subpopulation, 'data_quality_advanced':advanced_data_quality, 'feature_attribution_drift':feature_attribution_drift}
+monitoring_signals = {'data_drift_advanced':advanced_data_drift, 'data_quality_advanced':advanced_data_quality, 'feature_attribution_drift':feature_attribution_drift}
 
 # create alert notification object
 alert_notification = AlertNotification(['abc@example.com', 'def@example.com'])
@@ -355,6 +349,53 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 ```
 
 # [Studio](#tab/azure-studio)
+
+1. Complete basic settings page and select "More options" for advanced setup wizard.
+
+   :::image type="content" source="media/how-to-monitor-models/momo-more-options.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. In "Configure dataset" section, add dataset to be used as comparison baseline. We recommend model training data as comparison for data drift and data quality, and model validation data as comparison baseline for prediction drift.
+
+1. Select "Next".
+
+   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-data.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. In "Select monitoring singals" section, you will see 3 monitoring signals already added if you have selected AzureML online deployment earlier: Data Drift, Prediction Drift, Data Quality. All these prepopulated monitoring signals use recent past production data as comparison baseline, and use smart defaults for metrics and threshold.
+1. Select "Edit" for data drift signal.
+
+   :::image type="content" source="media/how-to-monitor-models/momo-advanced-select-signals.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. In Data Drift edit signal panel, follow instructions to configure following:
+  * Change baseline dataset to use training data.
+  * Monitor drift for top 1-20 important features, or monitor drift for sepecific set of features.
+  * Select your preferred metrics and set thresholds.
+1. Select "Save".
+1. You are back to "Select monitoring signals" section. Select "Add" to add one additional signal.
+
+   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-edit-signal.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. In "Add Signal" screen, select "Feature Attribution Drift" panel.
+1. Enter a name for "Feature Attribution Drift" signal.
+1. Adjust data window size according to your business case.
+1. Select training data as baseline dataset. 
+1. Select target column name.
+1. Adjust threshold according to your need.
+1. Select "Save" and back to "Select monitoring signals".
+1. If you are done with editting or adding signals, select "Next".
+
+   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-add-signal.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. In "Notification" screen, you can enable/disable alert notification for each signal. You can also enable "Azure Monitor" for all metrics to be sent to Azure Monitor.
+1. Select "Next".
+
+   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-notification.png" alt-text="Screenshot of settings for model monitoring.":::
+
+1. "Rview monitoring settings" give you a final chance to review everything for your model monitoring setup.
+1. If you are happy with everything, select "Create".
+
+Congratualations, you have completed advanced model monitoring setup!
+
+   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-review.png" alt-text="Screenshot of settings for model monitoring.":::
 
 ---
 
