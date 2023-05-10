@@ -30,9 +30,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pull delivery
-            url: pull-and-push-delivery-overview.md#pull-delivery-1
+            url: pull-delivery-overview.md#pull-delivery-1
           - text: Push delivery
-            url: pull-and-push-delivery-overview.md#push-delivery-1
+            url: push-delivery-overview.md#push-delivery-1
           - text: MQTT support overview
             url: mqtt-overview.md
           - text: Concepts

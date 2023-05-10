@@ -1,7 +1,7 @@
 ---
 title: Remote-write in Azure Monitor Managed Service for Prometheus using managed identity (preview)
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. 
-author: bwren 
+author: EdB-MSFT 
 ms.topic: conceptual
 ms.date: 11/01/2022
 ---
@@ -152,7 +152,7 @@ This step isn't required if you're using an AKS identity since it will already h
     | Value | Description |
     |:---|:---|
     | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230323.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
