@@ -11,7 +11,7 @@ ms.date: 01/13/2023
 
 # Cloud feature availability for commercial and US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA**(Generally Available), **Public Preview**, or **Not Available** for the following security services:
+This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available** for the following security services:
 
 - [Azure Information Protection](#azure-information-protection)
 - [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
