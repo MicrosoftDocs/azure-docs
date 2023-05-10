@@ -198,7 +198,7 @@ The following YAML contains the definition for advanced model monitoring.
 $schema:  http://azureml/sdk-2-0/Schedule.json
 name: fraud_detection_model_monitoring
 display_name: Fraud detection model monitoring
-description: Loan approval model monitoring setup with minimal configurations
+description: Fraud detection model monitoring with advanced configurations
 
 trigger:
   # perform model monitoring activity daily at 3:15am
@@ -399,15 +399,201 @@ Congratualations, you have completed advanced model monitoring setup!
 
 ---
 
-## Set up model monitoring with your own production inference data
+## Set up model monitoring for models deployed outside of AzureML
+
+You can also setup model monitoring for models deployed as AzureML batch endpoint or for models deployed outside of AzureML. To do so there are a few prerequisites:
+* You have a way to collect production inference data from models deployed in production.
+* You can registered the collected production inference data as AzureML data asset, and ensure continous update of data.
+* Provide a data preprocessing component and register it as AzureML component. The AzureML component must have following input and output signatures:
+
+  | input/output | signature name | type | description | example value |
+  |---|---|---|---|---|
+  | input | data_window_start | literal, string | data window start-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
+  | input | data_window_end | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
+  | input | input_data | uri_folder | The collected production inference data which is registered as AzrueML data asset. | azureml:myproduction_inference_data:1 |
+  | output | preprocessed_data | mltable | A tabular dataset which matches a subset of baseline data schema. | |
+
 
 # [Azure CLI](#tab/azure-cli)
 
+Assuming you have meet above prerequiste requirements, you can setup model monitoring with the following CLI command and YAML definition:
+
+```azurecli
+az ml schedule -f ./model-monitoring-with-collected-data.yaml
+```
+
+The following YAML contains the definition for model monitoring with your own collected production inference data.
+
+```yaml
+# model-monitoring-with-collected-data.yaml
+$schema:  http://azureml/sdk-2-0/Schedule.json
+name: fraud_detection_model_monitoring
+display_name: Fraud detection model monitoring
+description: Fraud detection model monitoring with your own production data
+
+trigger:
+  # perform model monitoring activity daily at 3:15am
+  type: recurrence
+  frequency: day #can be minute, hour, day, week, month
+  interval: 1 # #every day
+  schedule: 
+    hours: 3 # at 3am
+    minutes: 15 # at 15 mins after 3am
+
+create_monitor:
+  compute: 
+    instance_type: standard_e8s_v3
+    runtime_version: 3.2
+  monitoring_target:
+    endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
+  
+  monitoring_signals:
+    advanced_data_drift: # monitoring signal name, any user defined name works
+      type: data_drift
+      # define target dataset with your collected data
+      target_dataset:
+        dataset:
+          input_dataset:
+            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as AzureML asset
+            type: uri_folder
+          data_context: model_inputs
+          pre_processing_component: azureml:production_data_preprocessing:1
+      baseline_dataset:
+        input_dataset:
+          path: azureml:my_model_training_data:1 # use training data as comparison baseline
+          type: mltable
+        dataset_context: training
+      features: 
+        top_n_feature_importance: 20 # monitor drift for top 20 features
+      metric_thresholds:
+        - applicable_feature_type: numerical
+          metric_name: jensen_shannon_distance
+          threshold: 0.01
+        - applicable_feature_type: categorical
+          metric_name: chi_squared_test
+          threshhod: 0.02
+    advanced_prediction_drift: # monitoring signal name, any user defined name works
+      type: prediction_drift
+      # define target dataset with your collected data
+      target_dataset:
+        dataset:
+          input_dataset:
+            path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as AzureML asset
+            type: uri_folder
+          data_context: model_outputs
+          pre_processing_component: azureml:production_data_preprocessing:1
+      baseline_dataset:
+        input_dataset:
+          path: azureml:my_model_validation_data:1 # use training data as comparison baseline
+          type: mltable
+        dataset_context: validation
+      metric_thresholds:
+        - applicable_feature_type: categorical
+          metric_name: chi_squared_test
+          threshhod: 0.02
+    advanced_data_quality:
+      type: data_quality
+      target_dataset:
+        dataset:
+          input_dataset:
+            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as AzureML asset
+            type: uri_folder
+          data_context: model_inputs
+          pre_processing_component: azureml:production_data_preprocessing:1
+      baseline_dataset:
+        input_dataset:
+          path: azureml:my_model_training_data:1
+          type: mltable
+        dataset_context: training
+      metric_thresholds:
+        - metric_name: null_value_rate
+          # use default threshold from training data baseline
+        - metric_name: out_of_bounds_rate
+          # use default threshold from training data baseline
+  
+  alert_notification:
+    emails:
+      - abc@example.com
+      - def@example.com
+
+```
 
 # [Python](#tab/python)
 
+Assuming you have meet above prerequiste requirements, you can setup model monitoring using Python snippets below:
 
-# [Studio](#tab/azure-studio)
+```python
+#get a handle to the workspace
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+
+from azure.ai.ml import MLClient, Input
+from azure.ai.ml.constants import TimeZone
+from azure.ai.ml.dsl import pipeline
+from azure.ai.ml.entities import (
+    MonitorSchedule,
+    RecurrencePattern,
+    RecurrenceTrigger
+)
+from azure.ai.ml.entities.monitoring import (
+    MonitorSchedule,
+    RecurrencePattern,
+    RecurrenceTrigger
+)
+
+ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
+
+cpu_cluster = ml_client.computes.get("my_spark_compute")
+
+monitoring_target = MonitoringTarget(model_id="azureml:fraud_detection_model:1")
+
+#define target dataset (production dataset)
+input_data = MonitorInputData(input_dataset=Input(type="mltable", path="azureml:my_model_training_data:1"), dataset_context="model_inputs", pre_processing_component="azureml:production_data_preprocessing:1")
+
+input_data_target = TargetDataset(dataset=input_data)
+
+# training data to be used as baseline dataset
+input_data_baseline = MonitorInputData(input_dataset=Input(type="mltable", path="azureml:my_model_training_data:1"), dataset_context="training")
+
+# create an advanced data drift signal
+features = MonitorFeatureFilter(top_n_feature_importance=20)
+numerical_metric_threshold = DataDriftMetricThreshold(applicable_feature_type="numerical", metric_name="jensen_shannon_distance", threshold=0.01)
+categorical_metric_threshold = DataDriftMetricThreshold(applicable_feature_type="categorical", metric_name="chi_squared_test", threshold=0.02)
+metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
+
+advanced_data_drift = DataDriftSignal(target_dataset=input_data_target, baseline_dataset=input_data_baseline, features=features, metric_thresholds=metric_thresholds)
+
+
+# create an advanced data quality signal
+features = ['feature_A', 'feature_B', 'feature_C']
+numerical_metric_threshold = DataQualityMetricThreshold(applicable_feature_type="numerical", metric_name="null_value_rate", threshold=0.01)
+categorical_metric_threshold = DataQualityMetricThreshold(applicable_feature_type="categorical", metric_name="out_of_bound_rate", threshold=0.02)
+metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
+
+advanced_data_quality = DataQualitySignal(target_dataset=input_data_target, baseline_dataset=input_data_baseline, features=features, metric_thresholds=metric_thresholds, alert_enabled="False")
+
+# put all monitoring signals in a dictionary
+monitoring_signals = {'data_drift_advanced':advanced_data_drift, 'data_quality_advanced':advanced_data_quality}
+
+# create alert notification object
+alert_notification = AlertNotification(['abc@example.com', 'def@example.com'])
+
+# Finally monitor definition
+monitor_definition = MonitorDefinition(compute=cpu_cluster, monitoring_target=monitoring_target, monitoring_signals=monitoring_signals, alert_notification=alert_notification)
+
+recurrence_trigger = RecurrenceTrigger(
+    frequency="day",
+    interval=1,
+    schedule=RecurrencePattern(hours=3, minutes=15)
+)
+
+model_monitor = MonitorSchedule(name="fraud_detection_model_monitoring", 
+                                trigger=recurrence_trigger, 
+                                create_monitor=monitor_definition)
+
+ml_client.schedules.begin_create_or_update(model_monitor)
+
+```
+
 
 ---
 ## Next steps
