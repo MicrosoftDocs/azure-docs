@@ -189,7 +189,7 @@ On the downlink side, a vRF receives a signal from Azure Orbital.  A DIFI stream
 * The digitizer's gain mode is set to use automatic gain control (AGC) with a power target of -10 dBFS
 * No spectral inversion is used
 * No frequency offset is used
-* The user VM MTU size should be set to 3650 for X-Band and 1500 for S-Band, as this is the max packet size coming from Azure Orbital
+* The user VM MTU size should be set to 3650 for X-Band and 1500 for S-Band, which is the max packet size coming from Azure Orbital
 
 On the uplink side, the user must provide a DIFI stream to Azure Orbital throughout the pass, for Azure Orbital to transmit.  The following notes may be of interest to an uplink vRF designer:
 
