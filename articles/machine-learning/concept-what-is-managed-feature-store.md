@@ -22,7 +22,7 @@ By integrating with our feature store across the machine learning life cycle, yo
 For more information on top level entities in feature store, including feature set specifications, see [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md).
 
 ## What are features?
-Features are the input data for your model. For data-driven use cases in an enterprise context, features are often transformations on historical data (simple aggregates, window aggregates, row level transforms). For example, consider a machine learning model for customer churn. The inputs to the model could include customer interaction data like  `7day_transactions_sum` (number of transactions in the past 30 days) or `7day_complaints_sum` (number of complaints in the past 7 days). Note that both are aggregate functions that are computed on the past 7 day data.
+Features are the input data for your model. For data-driven use cases in an enterprise context, features are often transformations on historical data (simple aggregates, window aggregates, row level transforms). For example, consider a machine learning model for customer churn. The inputs to the model could include customer interaction data like  `7day_transactions_sum` (number of transactions in the past 30 days) or `7day_complaints_sum` (number of complaints in the past 7 days). Both are aggregate functions that are computed on the past 7 day data.
 
 ## Problems solved by feature store
 To better understand managed feature store, it helps to understand what problems feature store solves for you. 
@@ -47,7 +47,7 @@ Feature store is a new type of workspace that can be used by multiple project wo
 
 Managed features store provides the following capabilities: discovery and reuse of features, feature transformation, materialization, training/inference data generation, lineage and security.
 
-### Benefits of using Azure ML managed feature store
+### Benefits of using Azure Machine Learning managed feature store
 
 - __Increases agility in shipping the model (prototyping to operationalization):__
     - Discover and reuse features instead of creating from scratch
@@ -59,16 +59,16 @@ Managed features store provides the following capabilities: discovery and reuse 
     - Feature sets are versioned and immutable: Newer version of models can use newer version of features without disrupting the older version of the model
     - Monitoring of feature set materialization
     - Materialization avoids training/serving skew
-    - Feature retrieval supports point-in-time temporal joins (aka time travel) to avoid data leakage.
+    - Feature retrieval supports point-in-time temporal joins (also known as time travel) to avoid data leakage.
 - __Reduces cost__
     - Reuse features created by others in the organization
-    - Materialization and monitoring is system managed – Engineering cost is avoided
+    - Materialization and monitoring are system managed – Engineering cost is avoided
 
 ### Discover and manage features
 
 Managed feature store provides the following capabilities for discovering and managing features:
 
-- **Search and reuse features** - You are able to search and reuse features across feature stores
+- **Search and reuse features** - You're able to search and reuse features across feature stores
 - **Versioning support** - Feature sets are versioned and immutable, thereby allowing you to independently manage the feature set lifecycle. You can deploy new versions of models using different versions of features without disrupting the older version of the model.
 - **View cost at feature store level** - The primary cost associated with the feature store usage is the managed spark materialization jobs. You can see the cost at the feature store level
 - **Feature set usage** - You can see the list of registered models using the feature sets.
