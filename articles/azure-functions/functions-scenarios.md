@@ -8,9 +8,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Functions scenarios
 
-We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  event data streams, or even managing message queues - Azure Functions can be used to implement them.
-
-In many cases, a function [integrates with an array of cloud services](./functions-triggers-bindings.md) to provide feature-rich implementations.
+We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  event data streams, or even managing message queues, Azure Functions can be used to implement them.
 
 The following are a common, _but by no means exhaustive_, set of scenarios for Azure Functions.
 
@@ -19,9 +17,13 @@ Choose your development language at the top of the article.
 ::: zone pivot="programming-language-csharp,programming-language-javascript"
 ## Process file uploads
 
-There are several ways to use functions to process files into or out of a blob storage container. To learn more about options for triggering on a blob container, see [Working with blobs](./storage-considerations.md#working-with-blobs) in the best practices documentation. 
+There are several ways to use functions to process files into or out of a blob storage container. To learn more about options for triggering on a blob container, see [Working with blobs](./storage-considerations.md#working-with-blobs) in the best practices documentation.
 
-The following tutorial uses an Event Grid trigger to resize an image in a blob container:
+For example, in a retail solution, a partner system can submit product catalog information as files into blob storage. You can use a blob triggered function to validate, transform, and process the files into the main system's Azure SQL Database as they're uploaded. 
+
+![Process file uploads](./media/functions-scenarios/process-file-uploads.png)
+
+Another common scenario is image processing. The following tutorial uses an Event Grid trigger to resize an image in a blob container:
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp" 
@@ -33,12 +35,17 @@ The following tutorial uses an Event Grid trigger to resize an image in a blob c
 
 ## Real-time stream processing
 
-Huge amounts of telemetry data is collected from a massive cloud app. That data is processed in near real-time and stored in a DB for use in an analytics dashboard.
+Huge amounts of telemetry data is generated and collected from a cloud applications, networking devices, or IoT devices. Azure Functions can be used to process that data in near real-time as the hot path, and stored in a Cosmos DB for use in an analytics dashboard.
 
 ![Real-time stream processing](./media/functions-scenarios/real-time-stream-processing.png)
 
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript" 
+
 ## Data processing and AI
+
+Besides data processing, Azure Functions can be used to infer on models. For example, images can be ran through a function that calls a TensorFlow model, or submits it to Azure AI Cognitive Services,  to perform classification on a stream of images.
+
+![Data processing and AI](./media/functions-scenarios/data-processing-and-ai.png)
 
 Functions can connect to other services to help process data and perform other AI-related tasks.
 ::: zone-end
@@ -62,7 +69,9 @@ Functions provides a great way to run your code based on a [cron schedule](./fun
 ::: zone pivot="programming-language-csharp,programming-language-java"
 ## Build a scalable web API
 
-An HTTP triggered function defines an HTTP endpoint. These endpoints run function code that can connect to other services directly or by using binding extensions. You can compose the endpoints into a web-based API. For examples, see the following:
+An HTTP triggered function defines an HTTP endpoint. These endpoints run function code that can connect to other services directly or by using binding extensions. You can compose the endpoints into a web-based API. 
+
+For examples, see the following:
 ::: zone-end
 ::: zone pivot="programming-language-csharp" 
 + Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
@@ -82,7 +91,12 @@ You can create an HTTP triggered function endpoint that can consume a webhook, s
 ::: zone pivot="programming-language-csharp" 
 ## Build a serverless workflow
 
-Functions is often the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations using the Durable Functions extension. 
+Functions is often the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/durable-functions-overview.md).
+
+
+![Build a serverless workflow](./media/functions-scenarios/build-a-serverless-workflow.png)
+
+ 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp" 
@@ -127,7 +141,13 @@ There are processes where you might need to log, audit, or perform some other op
 
 ## Create reliable message systems 
 
-You can use Functions with Azure messaging services to create event-driven messaging systems. For example, you can use triggers on Azure Storage queues as a way to chain together a series of function executions. The following article shows how to write output to a storage queue.
+You can use Functions with Azure messaging services to create event-driven messaging systems. For example, you can use triggers on Azure Storage queues as a way to chain together a series of function executions.
+
+For example, online orders are saved to a ueue, then picked up and processed by Azure unctions and the resulting data is stored in a database.
+
+![Create reliable message systems](./media/functions-scenarios/create-reliable-message-systems.png)
+
+ The following article shows how to write output to a storage queue.
 
 ::: zone pivot="programming-language-csharp" 
 + Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
