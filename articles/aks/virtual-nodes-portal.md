@@ -48,7 +48,7 @@ You need the ACI service provider registered on your subscription.
    * *Project details*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*.
    * *Cluster details*: Enter a **Kubernetes cluster name**, such as *myAKSCluster*. Select a region and Kubernetes version for the AKS cluster.
 5. Select **Next: Node pools** and check **Enable virtual nodes*.
-    :::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In a browser, shows creating a cluster with virtual nodes enabled on the Azure portal. The option 'Enable virtual nodes' is highlighted.":::
+    :::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="Screenshot that shows creating a cluster with virtual nodes enabled on the Azure portal. The option 'Enable virtual nodes' is highlighted.":::
 6. Select **Review + create**.
 7. After the validation completes, select **Create**.
 
