@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample Angular single-page application using Azure Active Directory for Customers
+title: Sign in users in a sample Angular single-page application.
 description: Learn how to configure a sample Angular Single Page Application (SPA) using Azure Active Directory for Customers
 services: active-directory
 author: garrodonnell
