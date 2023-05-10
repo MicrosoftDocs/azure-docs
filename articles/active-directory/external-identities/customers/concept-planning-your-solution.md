@@ -48,7 +48,7 @@ When planning for your new customer tenant, consider the following points:
 
 - When you create a customer tenant, you can set your correct geographic location and your domain name.
 
-- This new workforce and customer tenant model does't affect your already existing B2C tenants.
+- This new workforce and customer tenant model doesn't affect your already existing B2C tenants.
 
 - There are two types of users in a customer tenant: admin and customer. You can [create and manage admin accounts](how-to-manage-admin-accounts.md) for your customer tenant. Customer accounts are typically created through self-service sign-up, but you can [create and manage customer local accounts](how-to-manage-customer-accounts.md).
 
