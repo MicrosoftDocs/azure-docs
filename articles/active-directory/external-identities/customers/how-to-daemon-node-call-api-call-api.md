@@ -199,7 +199,6 @@ async function main() {
 
     switch (yargs.argv['op']) {
         case 'getToDos':
-
             try {
                 const authResponse = await auth.getToken(auth.tokenRequest);
                 const todos = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);                
