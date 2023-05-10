@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 05/10/2023
 ms.author: lajanuar
 ---
 
@@ -200,7 +200,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 :::moniker range="form-recog-3.0.0"
 
-### Read
+### [Read](#tab/read)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with the `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
@@ -229,7 +229,7 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### Layout
+### [Layout](#tab/layout)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
@@ -258,7 +258,7 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### General Document
+### [General Document](#tab/general-document)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your General Document and Layout container instances.
 
@@ -282,7 +282,7 @@ services:
           - EULA=accept
           - billing={FORM_RECOGNIZER_ENDPOINT_URI}
           - apiKey={FORM_RECOGNIZER_KEY}
-    
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
@@ -290,9 +290,10 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 ```bash
 docker-compose up
 ```
+
 Given the resources on the machine, the General Document container might take some time to start up.
 
-### Invoice
+### [Invoice](#tab/invoice)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Invoice container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Invoice and Layout container instances.
 
@@ -316,7 +317,7 @@ services:
           - EULA=accept
           - billing={FORM_RECOGNIZER_ENDPOINT_URI}
           - apiKey={FORM_RECOGNIZER_KEY}
-    
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
@@ -325,7 +326,7 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### Receipt
+### [Receipt](#tab/receipt)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt and Read container instances.
 
@@ -350,7 +351,7 @@ services:
             - billing={FORM_RECOGNIZER_ENDPOINT_URI}
             - apiKey={FORM_RECOGNIZER_KEY}
 
-    
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
@@ -359,7 +360,7 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### ID Document
+### [ID Document](#tab/id-document)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your ID and Read container instances.
 
@@ -384,7 +385,7 @@ The following code sample is a self-contained `docker compose`  example to run t
                 - billing={FORM_RECOGNIZER_ENDPOINT_URI}
                 - apiKey={FORM_RECOGNIZER_KEY}
 
-    
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
@@ -399,33 +400,33 @@ In addition to the [prerequisites](#prerequisites), you need to do the following
 
 #### Create a folder to store the following files
 
-  * [**.env**](#-create-an-environment-file)
-  * [**nginx.conf**](#-create-an-nginx-file)
-  * [**docker-compose.yml**](#-create-a-docker-compose-file)
+* [**.env**](#-create-an-environment-file)
+* [**nginx.conf**](#-create-an-nginx-file)
+* [**docker-compose.yml**](#-create-a-docker-compose-file)
 
 #### Create a folder to store your input data
 
-  * Name this folder **files**.
-  * We reference the file path for this folder as  **{FILE_MOUNT_PATH}**.
-  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called files, located in the same folder as the docker-compose file, the .env file entry is `FILE_MOUNT_PATH="./files"`
+* Name this folder **files**.
+* We reference the file path for this folder as  **{FILE_MOUNT_PATH}**.
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called files, located in the same folder as the docker-compose file, the .env file entry is `FILE_MOUNT_PATH="./files"`
 
 #### Create a folder to store the logs  written by the Form Recognizer service on your local machine
 
-  * Name this folder **output**.
-  * We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
-  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called output, located in the same folder as the docker-compose file, the .env file entry is `OUTPUT_MOUNT_PATH="./output"`
+* Name this folder **output**.
+* We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called output, located in the same folder as the docker-compose file, the .env file entry is `OUTPUT_MOUNT_PATH="./output"`
 
 #### Create a folder for storing internal processing shared between the containers
 
-  * Name this folder **shared**.
-  * We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
-  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called shared, located in the same folder as the docker-compose file, the .env file entry is `SHARED_MOUNT_PATH="./shared"`
-  
+* Name this folder **shared**.
+* We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called shared, located in the same folder as the docker-compose file, the .env file entry is `SHARED_MOUNT_PATH="./shared"`
+
 #### Create a folder for the Studio to store project related information
 
-  * Name this folder **db**.
-  * We reference the file path for this folder as  **{DB_MOUNT_PATH}**.
-  * Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called db, located in the same folder as the docker-compose file, the .env file entry is `DB_MOUNT_PATH="./db"`
+* Name this folder **db**.
+* We reference the file path for this folder as  **{DB_MOUNT_PATH}**.
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called db, located in the same folder as the docker-compose file, the .env file entry is `DB_MOUNT_PATH="./db"`
 
 #### Create an environment file
 
@@ -505,9 +506,9 @@ http {
             }
 
             proxy_pass http://docker-layout/formrecognizer/documentModels/prebuilt-layout;
-        }	
-		
-		location /formrecognizer/documentModels {
+        }
+
+        location /formrecognizer/documentModels {
             proxy_set_header Host $host:$server_port;
             proxy_set_header Referer $scheme://$host:$server_port;
 
@@ -634,22 +635,22 @@ $source .env
 
 $docker-compose up
 ```
-Custom template containers require a few different configurations and support other optional configurations
 
+Custom template containers require a few different configurations and support other optional configurations
 
 | Setting | Required | Description |
 |-----------|---------|-------------|
-| Eula | Yes	| License acceptance Example: Eula=accept|
-|Billing	| Yes |	Billing endpoint URI of the FR resource |
-|ApiKey	| Yes	| The endpoint key of the FR resource |
-| Queue:Azure:ConnectionString	| No| Azure Queue connection string |
-|Storage:ObjectStore:AzureBlob:ConnectionString	| No| Azure Blob connection string |
-| HealthCheck:MemoryUpperboundInMB	| No |	Memory threshold for reporting unhealthy to liveness. Default: Same as recommended memory |
-| StorageTimeToLiveInMinutes	| No| TTL duration to remove all intermediate and final files. Default: Two days, TTL can set between five minutes to seven days |
-| Task:MaxRunningTimeSpanInMinutes |	No| Maximum running time for treating request as timeout. Default: 60 minutes |
-| HTTP_PROXY_BYPASS_URLS | No |	Specify URLs for bypassing proxy Example: HTTP_PROXY_BYPASS_URLS = abc.com, xyz.com |
-| AzureCognitiveServiceReadHost (Receipt, IdDocument Containers Only)| Yes	| Specify Read container uri Example:AzureCognitiveServiceReadHost=http://onprem-frread:5000 |
-| AzureCognitiveServiceLayoutHost (Document, Invoice Containers Only) |	Yes	| Specify Layout container uri Example:AzureCognitiveServiceLayoutHost=http://onprem-frlayout:5000 |
+|EULA | Yes    | License acceptance Example: Eula=accept|
+|Billing    | Yes |    Billing endpoint URI of the FR resource |
+|ApiKey    | Yes    | The endpoint key of the FR resource |
+| Queue:Azure:ConnectionString    | No| Azure Queue connection string |
+|Storage:ObjectStore:AzureBlob:ConnectionString    | No| Azure Blob connection string |
+| HealthCheck:MemoryUpperboundInMB    | No |    Memory threshold for reporting unhealthy to liveness. Default: Same as recommended memory |
+| StorageTimeToLiveInMinutes    | No| TTL duration to remove all intermediate and final files. Default: Two days, TTL can set between five minutes to seven days |
+| Task:MaxRunningTimeSpanInMinutes |    No| Maximum running time for treating request as timeout. Default: 60 minutes |
+| HTTP_PROXY_BYPASS_URLS | No |    Specify URLs for bypassing proxy Example: HTTP_PROXY_BYPASS_URLS = abc.com, xyz.com |
+| AzureCognitiveServiceReadHost (Receipt, IdDocument Containers Only)| Yes    | Specify Read container uri Example:AzureCognitiveServiceReadHost=http://onprem-frread:5000 |
+| AzureCognitiveServiceLayoutHost (Document, Invoice Containers Only) |    Yes    | Specify Layout container uri Example:AzureCognitiveServiceLayoutHost=http://onprem-frlayout:5000 |
 
 #### Use the Form Recognizer Studio to train a model
 
@@ -659,7 +660,7 @@ Custom template containers require a few different configurations and support ot
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description
-* On the "configure your resource" step, provide the endpoint to your custom template model. IF you deployed the containers on your local machine, this is [http://localhost:5000](http://localhost:5000)
+* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL [http://localhost:5000](http://localhost:5000)
 * Provide a subfolder for where your training data is located within the files folder.
 * Finally, create the project
 
@@ -685,7 +686,7 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
     "modelId": "mymodel",
     "description": "test model",
     "buildMode": "template",
-   
+
     "base64Source": "<Your base64 encoded string>",
     "tags": {
        "additionalProp1": "string",
