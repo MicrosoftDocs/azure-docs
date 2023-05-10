@@ -49,7 +49,23 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 ### [Service Connector](#tab/Service-Connector)
 
-Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with database username and password.
+Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity.
+
+1. Use the following command to install the Service Connector passwordless extension for the Azure CLI.
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
+   ```
+
+1. Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
+
+   ```azurecli
+   AZ_IDENTITY_RESOURCE_ID=$(az identity create \
+    --name $AZURE_USER_IDENTITY_NAME \
+    --resource-group $AZURE_IDENTITY_RESOURCE_GROUP \
+    --query id \
+    --output tsv)
+   ```
 
 1. Run the `az spring connection create` command, as shown in the following example. Be sure to replace the variables in the example with actual values.
 
@@ -61,11 +77,8 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
        --target-resource-group $MYSQL_RESOURCE_GROUP \
        --server $MYSQL_SERVER_NAME \
        --database $DATABASE_NAME \
-       --secret name=$DATABASE_USERNAME secret=$DATABASE_PASSWORD
+       --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
    ```
-  
-> [!NOTE]
-> Alternatively, you can use a system-assigned identity for a passwordless experience. For more information, see [Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app).
 
 ### [Terraform](#tab/Terraform)
 
