@@ -9,16 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 05/09/2023
+
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to register an app on the Microsoft Entra admin center.
 ---
 # Register your app in the customer tenant
 
-Azure AD for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
+Azure Active Directory (Azure AD) for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
 
-Azure AD for customers supports authentication for various modern application architectures, for example Web app or Single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
+To enable your application to sign in with Azure AD for customers, you need to register your app in the Azure AD for customers. The app registration establishes a trust relationship between the app and Azure AD for customers.
+During app registration, you specify the redirect URI. The redirect URI is the endpoint to which users are redirected by Azure AD for customers after they authenticate. The app registration process generates an application ID, also known as the client ID, that uniquely identifies your app.
+
+Azure AD for customers supports authentication for various modern application architectures, for example web app or single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
 In this article, you’ll learn how to register an application in your customer tenant.
 
@@ -32,9 +36,33 @@ In this article, you’ll learn how to register an application in your customer 
 # [Single-page app (SPA)](#tab/spa)
 ## How to register your Single-page app?
 
-[!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
+The following steps show you how to register your app in the admin center:
 
-[!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-spa-common.md)] 
+1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+
+1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
+    
+    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
+
+1. On the sidebar menu, select **Azure Active Directory**.
+
+1. Select **Applications**, then select **App Registrations**.
+
+1. Select **+ New registration**.
+
+1. In the **Register an application page** that appears, enter your application's registration information:
+    
+    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    
+    1. Under **Supported account types**, select **Accounts in this organizational directory only**.
+	
+	1. Under **Redirect URI (optional)**, select **Single-page application (SPA)** and then, in the URL box, enter `http://localhost:3000/`.
+
+1. Select **Register**.
+
+1. The application's **Overview pane** is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
 
 [!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)]  
 
@@ -56,9 +84,33 @@ If you'd like to learn how to expose the permissions by adding a link, go to the
 # [Web app](#tab/webapp)
 ## How to register your Web app?
 
-[!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
+The following steps show you how to register your app in the admin center:
 
-[!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-web-app-common.md)] 
+1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+
+1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
+    
+    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
+
+1. On the sidebar menu, select **Azure Active Directory**.
+
+1. Select **Applications**, then select **App Registrations**.
+
+1. Select **+ New registration**.
+
+1. In the **Register an application page** that appears, enter your application's registration information:
+    
+    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    
+    1. Under **Supported account types**, select **Accounts in this organizational directory only**.
+	
+	1. Under **Redirect URI (optional)**, select **Web** and then, in the URL box, enter `http://localhost:3000/`.
+
+1. Select **Register**.
+
+1. The application's **Overview pane** is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
 
 [!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)] 
 
@@ -67,6 +119,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
+### Create a client secret 
 [!INCLUDE [add a client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
 ### If you want to call an API follow the steps below (optional):
@@ -97,10 +150,35 @@ This app signs in users. You can add delegated permissions to it, by following t
 # [Desktop or Mobile app](#tab/desktopmobileapp)
 ## How to register your Desktop or Mobile app?
 
-[!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
+The following steps show you how to register your app in the admin center:
 
-[!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-mobile-desktop-common.md)]
+1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
+1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
+    
+    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
+
+1. On the sidebar menu, select **Azure Active Directory**.
+
+1. Select **Applications**, then select **App Registrations**.
+
+1. Select **+ New registration**.
+
+1. In the **Register an application page** that appears, enter your application's registration information:
+    
+    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    
+    1. Under **Supported account types**, select **Accounts in this organizational directory only**.
+	
+	1. Under **Redirect URI (optional)**, select the **Mobile and desktop applications** option and then, in the URL box, enter a URI with a unique scheme. For example, Electron desktop app's redirect URI looks something similar to `http://localhost` while that of a .NET Multi-platform App UI (MAUI) looks similar to `msal{ClientId}://auth`. 
+
+1. Select **Register**.
+
+1. The application's **Overview pane** is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
+
+### Add delegated permissions
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
 
 ### If you want to call an API follow the steps below (optional):
