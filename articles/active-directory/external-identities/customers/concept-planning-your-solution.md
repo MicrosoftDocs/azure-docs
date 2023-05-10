@@ -40,7 +40,7 @@ This article describes each of these steps and outlines important planning consi
 
 ## Step 1: Create a customer tenant
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-1a.png" alt-text="Diagram showing step 1 in the setup flow." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-1.png" alt-text="Diagram showing step 1 in the setup flow." border="false":::
 
 A customer tenant is the first resource you need to create to get started with Azure AD for customers. Your customer tenant is where you register your customer-facing application. It also contains a directory where you manage customer identities and access, separate from your workforce tenant.
 
@@ -60,7 +60,7 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 
 ## Step 2: Register your application
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2a.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
 
 Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Microsoft Entra performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
 
@@ -74,7 +74,7 @@ We provide code sample guides and in-depth integration guides for several app ty
 
 ## Step 3: Integrate a sign-in flow with your app
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-3a.png" alt-text="Diagram showing step 3 in the setup flow." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-3.png" alt-text="Diagram showing step 3 in the setup flow." border="false":::
 
 Once you've set up your customer tenant and registered your application, create a sign-up and sign-in user flow. Then integrate your application with the user flow so that anyone who accesses it goes through the sign-up and sign-in experience you've designed.
 
@@ -112,7 +112,7 @@ When planning your sign-up and sign-in experience, determine your requirements:
 
 ## Step 4: Customize and secure your sign-in
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-4a.png" alt-text="Diagram showing step 4 in the setup flow." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-4.png" alt-text="Diagram showing step 4 in the setup flow." border="false":::
 
 When planning for configuring company branding, language customizations, and custom extensions, consider the following points:
 
