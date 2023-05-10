@@ -1,5 +1,5 @@
 ---
-title: Generate Responsible AI Text Insights with YAML and Python in Azure Machine Learning
+title: Generate Responsible AI text insights with YAML and Python in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to generate a Responsible AI text insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Generate Responsible AI Text Insights with YAML and Python (preview)
+# Generate Responsible AI text insights with YAML and Python (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -31,21 +31,21 @@ Supported scenarios:
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Responsible AI component 
+## Responsible AI component
 
-The core component for constructing the Responsible AI text dashboard in Azure Machine Learning is only the Responsible AI Text Insights component, which is different from how you construct the Responsible AI pipeline for tabular data.
+The core component for constructing the Responsible AI text dashboard in Azure Machine Learning is only the Responsible AI text insights component, which is different from how you construct the Responsible AI pipeline for tabular data.
 
-In the following sections are specifications of the RAI Text Insights component and examples of code snippets in YAML and Python. 
+In the following sections are specifications of the Responsible AI text insights component and examples of code snippets in YAML and Python.
 
 ### Limitation  
 
 - All models must be registered in Azure Machine Learning.  
-- Models in MLflow format and with a sklearn or PyTorch flavor are supported. 
+- Models in MLflow format and with a sklearn or PyTorch flavor are supported.
 - HuggingFace models are supported.  
 - The dataset input must be in mltable format.  
 - For performance reason, the test dataset is restricted to 5,000 rows of the visualization UI.  
 
-## Responsible AI Text Insights
+## Responsible AI text insights
 
 This component has three major input ports:
 
@@ -57,7 +57,7 @@ The easiest way to supply the model is to register the input model and reference
 
 The two datasets should be in mltable format. The training and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. 
 
-The Responsible AI Text Insights component also accepts the following parameters:
+The Responsible AI text insights component also accepts the following parameters:
 
 | Parameter name | Description | Type |
 |----------------|-------------|------|
@@ -131,12 +131,12 @@ rai_text_insights_component = ml_client_registry.components.get(
 ---
 
 ## Understand the Responsible AI text dashboard
- 
-To learn more about how to use the Responsible AI text dashboard, see [Responsible AI test dashboard Azure Machine Learning studio](how-to-responsible-ai-dashboard-text-insights.md).
+
+To learn more about how to use the Responsible AI text dashboard, see [Responsible AI test dashboard Azure Machine Learning studio](how-to-responsible-ai-text-dashboard.md).
 
 ## Next steps
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate a Responsible AI dashboard with YAML or Python.
 - Learn more about how you can use the Responsible AI Text dashboard to debug image data and models and inform better decision-making in this [tech community blog post]().
-- Learn about how the Responsible AI Text dashboard was used by ERM for a [business use case](https://aka.ms/erm-customer-story). 
+- Learn about how the Responsible AI Text dashboard was used by ERM for a [business use case](https://aka.ms/erm-customer-story).

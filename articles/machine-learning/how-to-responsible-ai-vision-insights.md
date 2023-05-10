@@ -1,5 +1,5 @@
 ---
-title: Generate Responsible AI Vision Insights with YAML and Python in Azure Machine Learning
+title: Generate Responsible AI vision insights with YAML and Python in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to generate a Responsible AI vision insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml 
 ---
 
-# Generate Responsible AI Vision Insights with YAML and Python (preview)
+# Generate Responsible AI vision insights with YAML and Python (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -28,36 +28,36 @@ Supported scenarios:
 | Object Detection                              | Locate and identify the class of multiple objects for a given image. An object is defined with a bounding box. |`task_type="object_detection"` |
 
 > [!IMPORTANT]
-> Responsible AI Vision Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Responsible AI vision insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Responsible AI component
 
-The core component for constructing the Responsible AI Vision dashboard in Azure Machine Learning is the **RAI Vision Insights component**, which differs from how to construct the Responsible AI dashboard for tabular data.
+The core component for constructing the Responsible AI image dashboard in Azure Machine Learning is the **RAI Vision Insights component**, which differs from how to construct the Responsible AI dashboard for tabular data.
 
-The following sections contain specifications of the RAI Vision Insights component and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebooks]().
+The following sections contain specifications of the RAI vision insights component and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
 
 ## Limitations
 
 - All models must be registered in Azure Machine Learning in MLflow format and with a PyTorch flavor. HuggingFace models are also supported.  
 - The dataset inputs must be in mltable format.
 - For performance reasons, the test dataset is restricted to 5,000 rows of the visualization UI.  
-- Complex objects (such as lists of column names) have to be supplied as single JSON-encoded string before being passed to the RAI Vision Insights component.
+- Complex objects (such as lists of column names) have to be supplied as single JSON-encoded string before being passed to the Responsible AI vision insights component.
 - Guided_gradcam doesn't work with vision-transformer models
 - SHAP isn't supported for AutoML computer vision models
 - Hierarchical cohort naming (creating a new cohort from a subset of an existing cohort) and adding images to an existing cohort is unsupported.  
 - IOU threshold values can't be changed (the current default value is 50%).
 
-## Responsible AI Vision Insights
+## Responsible AI vision insights
 
-The Responsible AI Vision Insights component has three major input ports:
+The Responsible AI vision insights component has three major input ports:
 
 - The machine learning model
 - The training dataset
 - The test dataset
 
-To start, register your input model in Azure Machine Learning and reference the same model in the model input port of the Responsible AI Vision Insights component. To generate model-debugging insights (model performance, data explorer, and model interpretability tools) and populate visualizations in your Responsible AI dashboard, use the training and test image dataset that you used when training your model. The two datasets should be in mltable format. The training and test dataset can be the same.
+To start, register your input model in Azure Machine Learning and reference the same model in the model input port of the Responsible AI vision insights component. To generate model-debugging insights (model performance, data explorer, and model interpretability tools) and populate visualizations in your Responsible AI dashboard, use the training and test image dataset that you used when training your model. The two datasets should be in mltable format. The training and test dataset can be the same.
 
  Dataset schema for the different vision task types:
 
@@ -83,7 +83,7 @@ To start, register your input model in Azure Machine Learning and reference the 
     DataFrame({ ‘image_path_1’ : ‘label_1’, ‘image_path_2’ : ‘label_2’ ... })
     ```
 
-The RAI Vision Insights component also accepts the following parameters:
+The RAI vision insights component also accepts the following parameters:
 
 | Parameter name                    | Description                                                                        | Type                         |
 |-----------------------------------|------------------------------------------------------------------------------------|------------------------------|
@@ -162,22 +162,22 @@ rai_vision_insights_component = ml_client_registry.components.get(
 ## Integration with AutoML Image
 
 
-Automated ML in Azure Machine Learning supports model training for computer vision tasks like image classification and object detection. To debug AutoML vision models and explain model predictions, AutoML models for computer vision are integrated with Responsible AI dashboard. To generate Responsible AI insights for AutoML computer vision models, register your best AutoML model in the Azure Machine Learning workspace and run it through the Responsible AI Vision Insights pipeline. To learn, see [how to set up AutoML to train computer vision models](how-to-auto-train-image-models.md#register-and-deploy-model).
+Automated ML in Azure Machine Learning supports model training for computer vision tasks like image classification and object detection. To debug AutoML vision models and explain model predictions, AutoML models for computer vision are integrated with Responsible AI dashboard. To generate Responsible AI insights for AutoML computer vision models, register your best AutoML model in the Azure Machine Learning workspace and run it through the Responsible AI vision insights pipeline. To learn, see [how to set up AutoML to train computer vision models](how-to-auto-train-image-models.md#register-and-deploy-model).
 
 Notebooks related to the AutoML supported computer vision tasks can be found in [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs) repository.
 
-### Mode of submitting the Responsible AI Vision Insights pipeline
+### Mode of submitting the Responsible AI vision insights pipeline
 
-The Responsible AI Vision Insights pipeline could be submitted through one of the following methods
+The Responsible AI vision Insights pipeline could be submitted through one of the following methods
 
-- Python SDK: To learn how to submit the pipeline through Python, see [the AutoML Image Classification scenario with RAI Dashboard sample notebook](). For constructing the pipeline, refer to section 5.1 in the notebook.
+- Python SDK: To learn how to submit the pipeline through Python, see [the AutoML Image Classification scenario with RAI Dashboard sample notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai). For constructing the pipeline, refer to section 5.1 in the notebook.
 - Azure CLI: To submit the pipeline via Azure-CLI, see the component YAML in section 5.2 of the example notebook linked above.
 - UI (via Azure Machine Learning studio): From the Designer in Azure Machine Learning studio, the RAI-vision insights component can be used to create and submit a pipeline.
 
 
-### Responsible AI Vision Insights component parameter (AutoML specific)
+### Responsible AI vision insights component parameter (AutoML specific)
 
-In addition to the list of Responsible AI Vision Insights parameters provided in the previous section, the following are parameters to set specifically for AutoML models.
+In addition to the list of Responsible AI vision insights parameters provided in the previous section, the following are parameters to set specifically for AutoML models.
 
 > [!NOTE]
 > A few parameters are specific to the XAI algorithm chosen and are optional for other algorithms.
