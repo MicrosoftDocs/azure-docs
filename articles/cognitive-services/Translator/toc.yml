@@ -257,12 +257,12 @@ items:
       href: document-translation/language-studio.md
   - name: Translator V3 connector
     items:
+    - name: "🆕 Automate document translation (preview)"
+      displayName: connect, power, automate, flow
+      href: connector/document-translation-flow.md
     - name: 🆕 Automate text translation (preview)
       displayName: connect, power, automate, flow
       href: connector/text-translator-flow.md
-    - name: "🆕 Tutorial: Automate document translation (preview)"
-      displayName: connect, power, automate, flow
-      href: connector/document-translation-flow.md
 - name: Resources
   items:
   - name: Modifications to Translator Service
