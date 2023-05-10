@@ -57,6 +57,10 @@ items:
                   items:
                     - name: Sign in users and call an API
                       href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                - name: Angular
+                  items:
+                    - name: Sign in users
+                      href: how-to-single-page-application-angular-sample.md
             - name: Web app
               items:
                 - name: Node.js
