@@ -12,9 +12,9 @@ author: asudbring
 
 # Customize cluster egress with a user-defined routing table in Azure Kubernetes Service (AKS)
 
-You can customize the egress for your Azure Kubernetes Service (AKS) clusters can to fit specific scenarios. AKS provisions a `Standard` SKU load balancer for egress by default. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or the scenario requires extra hops for egress.
+You can customize the egress for your Azure Kubernetes Service (AKS) clusters to fit specific scenarios. AKS provisions a `Standard` SKU load balancer for egress by default. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or the scenario requires extra hops for egress.
 
-This article walks through how to customize a cluster's egress route to support custom network scenarios, such as those which disallow public IPs and require the cluster to sit behind a network virtual appliance (NVA).
+This article walks through how to customize a cluster's egress route to support custom network scenarios. These scenarios include ones which disallow public IPs and require the cluster to sit behind a network virtual appliance (NVA).
 
 ## Prerequisites
 
