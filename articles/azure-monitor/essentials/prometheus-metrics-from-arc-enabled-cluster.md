@@ -9,34 +9,34 @@ ms.date: 05/07/2023
 
 # Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview)
 
-This article describes how to configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus. When you configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the Azure Monitor agent is installed with a metrics extension. Then you specify the Azure Monitor workspace where the data should be sent.
+This article describes how to configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus. When you configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the Azure Monitor agent is installed with a metrics extension. You  then specify the Azure Monitor workspace where the data should be sent.
 
 > [!NOTE]
-> The process described here doesn't enable Container insights on the cluster even though the Azure Monitor agent installed in this process is the same one used by Container insights.
-> For different methods to enable Container insights on your cluster, see Enable Container insights. For details on adding Prometheus collection to a cluster that already has Container insights enabled, see Collect Prometheus metrics with Container insights.  
+> The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster even though the Azure Monitor agent installed in this process is the same agent used by Container insights.
+> For different methods to enable Container insights on your cluster, see [Enable Container insights](../containers/container-insights-onboard.md). For details on adding Prometheus collection to a cluster that already has Container insights enabled, see [Collect Prometheus metrics with Container insights](../containers/container-insights-prometheus.md).
 
 ## Supported configurations
 
 The following configurations are supported:
 
 + Azure Monitor Managed Prometheus supports monitoring Azure Arc-enabled Kubernetes. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
-+ Docker.
-+ Moby.
-+ CRI compatible container runtimes such CRI-O.
++ Docker
++ Moby
++ CRI compatible container runtimes such CRI-O
 
 Windows isn't currently supported.
 
 ## Prerequisites
 
 + Prerequisites listed in [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions#prerequisites)
-+ An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md). 
-+ The cluster must use managed identity authentication. 
-+ The following resource providers must be registered in the subscription of the Arc-enabled Kubernetes cluster and the Azure Monitor workspace: 
-    + Microsoft.Kubernetes
-    + Microsoft.Insights
-    + Microsoft.AlertsManagement
-+ The following endpoints must be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud)  
-   + Azure public cloud
++ An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md).
++ The cluster must use [managed identity authentication](https://review.learn.microsoft.com/azure/aks/use-managed-identity).
++ The following resource providers must be registered in the subscription of the Arc-enabled Kubernetes cluster and the Azure Monitor workspace:
+  + Microsoft.Kubernetes
+  + Microsoft.Insights
+  + Microsoft.AlertsManagement
++ The following endpoints must be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud):  
+   **Azure public cloud**
 
    |Endpoint|Port|
    |---|--|
@@ -49,6 +49,27 @@ Windows isn't currently supported.
    |<cluster-region-name>.handler.control.monitor.azure.com |443 |
 
 ## Create an extension instance
+
+### [Portal](#tab/portal)
+
+### Onboard from Azure Monitor workspace
+
+1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
+
+1. Select **Managed Prometheus** to display a list of AKS and Arc clusters.
+1. Select **Configure** for the cluster you want to enable.
+
+:::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/azure-monitor-workspace-monitored-clusters.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/azure-monitor-workspace-monitored-clusters.png" alt-text="A screenshot showing the Managed clusters page for an Azure monitor workspace." :::
+
+### Onboard from Container insights
+
+1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster that you wish to monitor.
+
+1. From the resource pane on the left, select **Insights** under the **Monitoring** section.
+1. On the onboarding page, select **Configure monitoring**.
+1. Select the **Enable Prometheus metrics** checkbox 
+
+:::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/arc-enabled-k8s-onboarding.png" alt-text="A screenshot of the monitoring onboarding page for Azure Arc-enabled kubernetes clusters.":::
 
 ### [CLI](#tab/cli)
 
@@ -113,27 +134,6 @@ az k8s-extension create \
 --configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist "namespaces=[k8s-label-1,k8s-label-n]" \
 --configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList "pods=[k8s-annotation-1,k8s-annotation-n]" 
 ```
-
-### [Portal](#tab/portal)
-
-### Onboard from Azure Monitor workspace
-
-1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
-
-1. Select **Managed Prometheus** to display a list of AKS and Arc clusters.
-1. Select **Configure** for the cluster you want to enable.
-
-:::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/azure-monitor-workspace-monitored-clusters.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/azure-monitor-workspace-monitored-clusters.png" alt-text="A screenshot showing the Managed clusters page for an Azure monitor workspace." :::
-
-### Onboard from Container Insights
-
-1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster that you wish to monitor.
-
-1. From the resource pane on the left, select **Insights** under the **Monitoring** section.
-1. On the onboarding page, select **Configure monitoring**.
-1. Select the **Enable Prometheus metrics** checkbox 
-
-:::image type="content" source="./media/prometheus-metrics-from-arc-enabled-cluster/configure-container-insights.png" lightbox="./media/prometheus-metrics-from-arc-enabled-cluster/arc-enabled-k8s-onboarding.png" alt-text="A screenshot of the monitoring onboarding page for Azure Arc-enabled kubernetes clusters.":::
 
 ### [Resource Manager](#tab/resource-manager)
 
