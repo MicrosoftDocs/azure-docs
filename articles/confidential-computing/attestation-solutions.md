@@ -11,7 +11,7 @@ ms.author: grbury
 ---
 
 # Attestation
-Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing trust and ensuring that computing technologies we rely on are trustworthy.
+Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing and ensuring that computing technologies we rely on are trustworthy.
 
 In this document, we are looking at what attestation is, types of attestation Microsoft offers today, and how customers can utilize these types of attestation scenarios in Microsoft solutions. 
 
