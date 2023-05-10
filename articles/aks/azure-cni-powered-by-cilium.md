@@ -1,15 +1,15 @@
 ---
-title: Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
+title: Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Azure CNI Powered by Cilium.
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 10/24/2022
+ms.date: 05/09/2023
 ---
 
-# Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
+# Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)
 
 Azure CNI Powered by Cilium combines the robust control plane of Azure CNI with the dataplane of [Cilium](https://cilium.io/) to provide high-performance networking and security. 
 
@@ -55,42 +55,6 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 > [!NOTE]
 > Previous AKS API versions (2022-09-02preview to 2023-01-02preview) used the field [`networkProfile.ebpfDataplane=cilium`](https://github.com/Azure/azure-rest-api-specs/blob/06dbe269f7d9c709cc225c92358b38c3c2b74d60/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2022-09-02-preview/managedClusters.json#L6939-L6955). AKS API versions since 2023-02-02preview use the field [`networkProfile.networkDataplane=cilium`](https://github.com/Azure/azure-rest-api-specs/blob/06dbe269f7d9c709cc225c92358b38c3c2b74d60/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2023-02-02-preview/managedClusters.json#L7152-L7173) to enable Azure CNI Powered by Cilium.
-
-## Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-## Register the 'CiliumDataplanePreview' feature flag
-
-Register the `CiliumDataplanePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Create a new AKS Cluster with Azure CNI Powered by Cilium
 
@@ -169,6 +133,3 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
