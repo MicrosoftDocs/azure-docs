@@ -31,8 +31,36 @@ items:
         href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
+      - name: Azure CLI
+        href: /cli/azure/eventgrid
+      - name: PowerShell
+        href: /powershell/module/az.eventgrid
+      - name: REST
+        href: /rest/api/eventgrid
+      - name: .NET
+        href: /dotnet/api/overview/azure/eventgrid
+      - name: Java
+        href: /java/api/overview/azure/eventgrid
+      - name: Python
+        href: /python/api/overview/azure/event-grid
+      - name: Node.js
+        href: /javascript/api/overview/azure/event-grid
       - name: Monitoring data reference (pull delivery)
         href: monitor-pull-reference.md
+    - name: Resources
+      items:
+      - name: Build your skills with Microsoft Learn training
+        href: /training/browse/?products=azure-event-grid
+      - name: FAQ
+        href: faq.yml
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/event-grid/
+      - name: Pricing Calculator
+        href: https://azure.microsoft.com/pricing/calculator/
+      - name: Stack Overflow
+        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
   - name: Push delivery (HTTP)
     items:
     - name: Overview
@@ -498,8 +526,37 @@ items:
         href: mqtt-troubleshoot-errors.md
     - name: Reference
       items:
+      - name: Azure CLI
+        href: /cli/azure/eventgrid
+      - name: PowerShell
+        href: /powershell/module/az.eventgrid
+      - name: REST
+        href: /rest/api/eventgrid
+      - name: .NET
+        href: /dotnet/api/overview/azure/eventgrid
+      - name: Java
+        href: /java/api/overview/azure/eventgrid
+      - name: Python
+        href: /python/api/overview/azure/event-grid
+      - name: Node.js
+        href: /javascript/api/overview/azure/event-grid
       - name: Monitoring data reference (MQTT delivery)
         href: monitor-mqtt-delivery-reference.md
+    - name: Resources
+      items:
+      - name: Build your skills with Microsoft Learn training
+        href: /training/browse/?products=azure-event-grid
+      - name: FAQ
+        href: faq.yml
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/event-grid/
+      - name: Pricing Calculator
+        href: https://azure.microsoft.com/pricing/calculator/
+      - name: Stack Overflow
+        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
+
   - name: Event Grid on Kubernetes documentation
     href: kubernetes/index.yml
 
