@@ -113,7 +113,7 @@ additionalContent:
           summary: Web API that is called from a web app or from a web client.
           url: how-to-protect-web-api-dotnet-core-overview.md          
           # Card
-        - title: Headless app
+        - title: Browserless app
           summary: A web app without a user interface.
           url: ../../develop/console-app-quickstart.md  
         # Card
