@@ -72,12 +72,6 @@ By using Security Admin rules and NSGs together, you can enforce network securit
 
 ## Benefits of security admin rules
 
-With security admin rules, you can:
-- protect your virtual networks from malicious traffic on high risk ports.
-- manage your security policies at scale.
-
-## Why Use Security Admin Rules?
-
 Security admin rules provide many benefits for securing your organization's resources. By using security admin rules, you can enforce allowed traffic and prevent denial by conflicting network security group rules. You can also create default security admin rules that don't depend on NSGs to exist. These default rules can be especially useful when application owners misconfigure or forget to establish NSGs. Additionally, security admin rules provide a way to manage security at scale, which is important for large organizations with many resources.
 
 ### Protect high-risk ports
@@ -170,6 +164,8 @@ You can define specific common ports to block from the source or to the destinat
 | 80 | HTTP |
 | 443 | HTTPS |
 | 3389 | RDP |
+|     |     |
+| 1433 | SQL |
 
 ## Next steps 
 
