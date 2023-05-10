@@ -87,7 +87,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 ## <a id="cli"></a>Migrate using CLI
 
-1. 1. Install the latest version of Azure CLI:
+1. Install the latest version of Azure CLI:
 * If you don’t have the Azure CLI already installed, see [install Azure CLI](/cli/azure/).  Alternatively, you can also use the Azure Cloud Shell from the Azure portal.
 2. Sign in to your Azure account and run the following command to migrate your account to continuous mode:
 
