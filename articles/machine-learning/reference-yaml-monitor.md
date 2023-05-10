@@ -90,6 +90,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 #### Data Drift
 
+
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ------------| ---------------| ------------- |
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here. | `data_drift` | `data_drift` |
@@ -97,12 +98,12 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `target_dataset.data_window_size` | Integer |Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period. | |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `training`, `test`, `validation` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
 | `data_segment` | Object | **Optional**. Description of specific data segment to be monitored for data drift. | | |
 | `data_segment.feature_name` | String | The name of feature used to filter for data segment. | | |
@@ -113,7 +114,9 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
 | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
+
 #### Prediction Drift
+
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
@@ -122,20 +125,22 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_outputs` |  |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `target_dataset.data_window_size` | Integer |Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset come from | `model_inputs`, `model_outputs`, `test`, `validation` |  | |
 | `baseline_dataset.target_column_name` | String | The name of target column. | | |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `numerical` metric `population_stability_index` with threshold of `0.02` and `categorical` metric `normalized_wasserstein_distance' with threshold of `0.02`|
 |`metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
 | `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
 
+
 #### Data Quality
+
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------ | -------------- | ----------  |
@@ -144,18 +149,18 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs`, `model_outputs` | |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `target_dataset.data_window_size` | Integer | Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-with-your-own-production-inference-data). | | |
+| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `features` | Object | **Optional**. Target features to be monitored for data quality. Some models might have hundreds or thousands of features. It's always recommeneded to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default to `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | |By default, the object contains following `numerical` and ` categorical` metrics: `null_value_rate`, `data_type_error_rate`, and `out_of_bounds_rate` |
 | `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` and `categorical` metric names are: `null_value_rate`, `data_type_error_rate`, `out_of_bound_rate` | |
-| `metric_thresholds.thresold` | Number | The threshold for the specified metric. | | |
+| `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
 
 #### Feature Attribution Drift
 
