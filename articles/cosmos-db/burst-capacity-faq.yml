@@ -50,7 +50,7 @@ sections:
           You can use the [Azure Cosmos DB Resource Provider REST API version 2022-11-15-preview](https://learn.microsoft.com/rest/api/cosmos-db-resource-provider/2022-11-15-preview/database-accounts/update?tabs=HTTP) or a [Resource Manager template](manage-with-templates.md) with API version 2022-11-15-preview to set the property **enableBurstCapacity** to true.
           You can also use the Azure CLI or PowerShell.
 
-          #### [CLI](#tab/azure-powershell)
+          #### [PowerShell](#tab/azure-powershell)
 
           ```azurepowershell
           // Add the preview extension 2.0.5-preview or higher
@@ -61,6 +61,7 @@ sections:
           }
           Install-Module @installParameters
 
+          // Enable burst capacity on an account
           $parameters = @{
           ResourceGroupName = "<resource-group-name>"
           Name = "<cosmos-account-name>"
@@ -74,6 +75,7 @@ sections:
           ```azurecli
           // Add the preview extension version 0.24.0 or higher
           az extension add --name cosmosdb-preview --version 0.24.0
+
           // Enable burst capacity on an account
           az cosmosdb update  \
           --resource-group '<resource-group-name>' \
