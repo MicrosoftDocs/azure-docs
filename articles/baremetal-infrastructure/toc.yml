@@ -103,4 +103,6 @@
   - name: Nutanix Cloud Clusters on Azure
     items: 
     href: ./workloads/nc2-on-azure/toc.yml
-  
+  - name: Epic for Azure Large Instances
+    items: 
+    href: ./workloads/epic/toc.yml
