@@ -1,8 +1,8 @@
 ---
 title: Deploy the Azure Monitor Agent with Microsoft Defender for Cloud
 description: Learn how to deploy the Azure Monitor Agent on your Azure, multicloud, and on-premises servers to support Microsoft Defender for Cloud protections.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 03/01/2023
 ms.custom: template-how-to, ignite-2022

@@ -177,6 +177,12 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
+    - name: Managed feature store
+      items:
+        - name: What is a managed feature store?
+          href: concept-what-is-managed-feature-store.md
+        - name: Top-level entities in managed feature store
+          href: concept-top-level-entities-in-managed-feature-store.md
     - name: Train models
       items:
         - name: Model training
@@ -245,6 +251,8 @@
           href: concept-prebuilt-docker-images-inference.md
     - name: Monitor models
       items:
+        - name: Model data collection
+          href: concept-data-collection.md
         - name: Model monitoring
           href: concept-model-monitoring.md
     - name: MLflow
@@ -366,54 +374,61 @@
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
-        - name: Secure workspace resources
-          displayName: vnet, workspace, container instance, container registry
-          href: how-to-secure-workspace-vnet.md
-        - name: Secure machine learning registry
-          href: how-to-registry-network-isolation.md
-        - name: Secure training environment
-          displayName: vnet, No public IP
-          href: how-to-secure-training-vnet.md
-        - name: Secure inference environment
-          displayName: vnet, Managed Endpoint, AKS
-          href: how-to-secure-inferencing-vnet.md
-        # v1 stuff
-        - name: Secure workspace resources
-          displayName: vnet, workspace, container instance, container registry
-          href: ./v1/how-to-secure-workspace-vnet.md
-        - name: Secure training environment
-          displayName: vnet, No public IP
-          href: ./v1/how-to-secure-training-vnet.md
-        - name: Secure inference environment
-          displayName: vnet, Managed Endpoint, AKS
-          href: ./v1/how-to-secure-inferencing-vnet.md
-        # end v1
-        - name: Use studio in a virtual network
-          displayName: vnet
-          href: how-to-enable-studio-virtual-network.md
-        - name: Use private endpoint
-          displayName: private endpoint
-          href: how-to-configure-private-link.md
-        # v1
-        - name: Use private endpoint
-          displayName: private endpoint
-          href: ./v1/how-to-configure-private-link.md
-        - name: Configure secure web services (v1)
-          displayName: ssl, tls
-          href: ./v1/how-to-secure-web-service.md
-        # end v1
-        - name: Use custom DNS
-          href: how-to-custom-dns.md
-        - name: Configure required network traffic
-          displayName: firewall, user-defined route, udr
-          href: how-to-access-azureml-behind-firewall.md
-        - name: Data exfiltration prevention
-          displayName: loss
-          href: how-to-prevent-data-loss-exfiltration.md
-        - name: Configure network isolation with v2
-          href: how-to-configure-network-isolation-with-v2.md
-        - name: Securely attach Azure Databricks
-          href: how-to-securely-attach-databricks.md
+        - name: Use managed virtual network
+          displayName: vnet, workspace, network isolation
+          href: how-to-managed-network.md
+        - name: Troubleshoot managed virtual network
+          href: how-to-troubleshoot-managed-network.md
+        - name: Use Azure Virtual Network
+          items:
+          - name: Secure workspace resources
+            displayName: vnet, workspace, network isolation, container registry
+            href: how-to-secure-workspace-vnet.md
+          - name: Secure machine learning registry
+            href: how-to-registry-network-isolation.md
+          - name: Secure training environment
+            displayName: vnet, No public IP
+            href: how-to-secure-training-vnet.md
+          - name: Secure inference environment
+            displayName: vnet, Managed Endpoint, AKS
+            href: how-to-secure-inferencing-vnet.md
+          # v1 stuff
+          - name: Secure workspace resources
+            displayName: vnet, workspace, container instance, container registry
+            href: ./v1/how-to-secure-workspace-vnet.md
+          - name: Secure training environment
+            displayName: vnet, No public IP
+            href: ./v1/how-to-secure-training-vnet.md
+          - name: Secure inference environment
+            displayName: vnet, Managed Endpoint, AKS
+            href: ./v1/how-to-secure-inferencing-vnet.md
+          # end v1
+          - name: Use studio in a virtual network
+            displayName: vnet
+            href: how-to-enable-studio-virtual-network.md
+          - name: Use private endpoint
+            displayName: private endpoint
+            href: how-to-configure-private-link.md
+          # v1
+          - name: Use private endpoint
+            displayName: private endpoint
+            href: ./v1/how-to-configure-private-link.md
+          - name: Configure secure web services (v1)
+            displayName: ssl, tls
+            href: ./v1/how-to-secure-web-service.md
+          # end v1
+          - name: Use custom DNS
+            href: how-to-custom-dns.md
+          - name: Configure required network traffic
+            displayName: firewall, user-defined route, udr
+            href: how-to-access-azureml-behind-firewall.md
+          - name: Data exfiltration prevention
+            displayName: loss
+            href: how-to-prevent-data-loss-exfiltration.md
+          - name: Configure network isolation with v2
+            href: how-to-configure-network-isolation-with-v2.md
+          - name: Securely attach Azure Databricks
+            href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
@@ -709,6 +724,12 @@
               displayName: designer, data, import, dataset, datastore
               href: ./v1/how-to-designer-import-data.md
         # end v1
+    - name: Managed feature store
+      items:
+        - name: Manage access to managed feature store
+          href: how-to-setup-access-control-feature-store.md
+        - name: Troubleshoot managed feature store errors
+          href: troubleshooting-managed-feature-store.md
     - name: Train models
       items:
         - name: Train a model (SDK, CLI, REST)
@@ -1035,6 +1056,9 @@
         # end v1
     - name: Monitor models
       items: 
+        - name: Collect inferencing data from production
+          displayName: model data collection, data drift, data quality, model quality
+          herf: how-to-collect-production-data.md
         - name: Perform continuous monitoring
           displayName: model monitoring, data drift, data quality, model quality
           herf: how-to-monitor-model-performance.md
@@ -1184,9 +1208,19 @@
             - name: Responsible AI insights (UI)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
               href: how-to-responsible-ai-insights-ui.md
+            - name: Responsible AI vision insights
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-vision-insights.md
+            - name: Responsible AI text insights 
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-text-insights.md
         - name: Using the Responsible AI dashboard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
+        - name: Using the Responsible AI image dashboard
+          href: how-to-responsible-ai-image-dashboard.md
+        - name: Using the Responsible AI text dashboard
+          href: how-to-responsible-ai-text-dashboard.md
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
@@ -1326,6 +1360,18 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
+        - name: Feature store
+          items:
+            - name: Feature store
+              href: reference-yaml-feature-store.md
+            - name: Feature set
+              href: reference-yaml-feature-set.md
+            - name: Feature entity
+              href: reference-yaml-feature-entity.md
+            - name: Feature retrieval spec
+              href: reference-yaml-feature-retrieval-spec.md
+            - name: Feature set spec
+              href: reference-yaml-featureset-spec.md
         - name: Endpoint
           items:
             - name: Online (real-time)

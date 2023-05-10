@@ -5,7 +5,7 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: troubleshooting
-ms.date: 10/16/2019
+ms.date: 05/08/2023
 ms.author: charwen
 ---
 
@@ -24,9 +24,9 @@ For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).
 
 ## <a name="sshkey"></a>Unable to use my SSH key with Azure Bastion
 
-**Q:** When I try to browse my SSH key file, I get the following error: *'SSH Private key must start with -----BEGIN RSA PRIVATE KEY----- and ends with -----END RSA PRIVATE KEY-----'*.
+**Q:** When I try to browse my SSH key file, I get the following error: *'SSH Private key must start with -----BEGIN RSA/DSA/OPENSSH PRIVATE KEY----- and ends with -----END RSA/DSA/OPENSSH PRIVATE KEY-----'*.
 
-**A:** Azure Bastion supports only RSA SSH keys, at this point in time. Make sure that you browse a key file that is RSA private key for SSH, with public key provisioned on the target VM. 
+**A:** Azure Bastion supports RSA, DSA, and OPENSSH private keys, at this point in time. Make sure that you browse a key file that is RSA, DSA, or OPENSSH private key for SSH, with public key provisioned on the target VM. 
 
 As an example, you can use the following command to create a new RSA SSH key:
 

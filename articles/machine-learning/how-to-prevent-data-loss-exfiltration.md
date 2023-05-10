@@ -31,6 +31,11 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
 
+> [!TIP]
+> The information in this article is primarily about using an Azure Virtual Network. Azure Machine Learning can also use a **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. 
+>
+> To address data exfiltration concerns, managed virtual networks allow you to restrict egress to only approved outbound traffic. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
+
 ## Prerequisites
 
 * An Azure subscription

@@ -26,31 +26,34 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 :::moniker-end
 
-Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
+Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
-> [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> :::moniker range="azureml-api-2"
-> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-> * [Secure machine learning registries (preview)](how-to-registry-network-isolation.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](how-to-custom-dns.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
-> :::moniker-end
-> :::moniker range="azureml-api-1"
-> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
-> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
-> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](how-to-custom-dns.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-> :::moniker-end
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+:::moniker range="azureml-api-2"
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure machine learning registries (preview)](how-to-registry-network-isolation.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+* [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+* [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
+
+For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Prerequisites
 
@@ -256,11 +259,13 @@ After securing the workspace with a private endpoint, use the following steps to
 
 :::moniker range="azureml-api-2"
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 :::moniker-end
 :::moniker range="azureml-api-1"
 1. [Enable public access](./v1/how-to-configure-private-link.md#enable-public-access) to the workspace.
-:::moniker-end
 1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
+:::moniker-end
+
 
 ## Optional: enable studio functionality
 

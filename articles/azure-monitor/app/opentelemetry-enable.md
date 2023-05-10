@@ -130,18 +130,9 @@ To enable Azure Monitor Application Insights, you will make a minor modification
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
 
 ```csharp
-using Azure.Monitor.OpenTelemetry.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(
-
-//Uncomment the line below when setting the Application Insights Connection String via code
-//options => options.ConnectionString = "<Your Connection String>"
-
-);
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -165,10 +156,6 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 ```javascript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 const config = new ApplicationInsightsConfig();
-
-//Uncomment the line below when setting the Application Insights Connection String via code
-//config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
-
 const appInsights = new ApplicationInsightsClient(config);
 ```
 
@@ -230,7 +217,7 @@ To paste your Connection String, select from the options below:
 
   C. Set via Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
   
-  Uncomment the code line with `<Your Connection String>`, and replace the placeholder with *your* unique connection string.
+  See [Connection String Configuration](opentelemetry-configuration.md#connection-string) for example setting Connection String via code.
 
   > [!NOTE]
   > If you set the connection string in more than one place, we adhere to the following precendence:
@@ -487,7 +474,7 @@ The following table represents the currently supported custom telemetry types:
 | Language                                  | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
@@ -746,45 +733,6 @@ private static IEnumerable<Measurement<int>> GetThreadState(Process process)
     foreach (ProcessThread thread in process.Threads)
     {
         yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
-    }
-}
-```
-
-
-```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
-public class Program
-{
-    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
-
-    public static void Main()
-    {
-        using var meterProvider = Sdk.CreateMeterProviderBuilder()
-            .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
-            .Build();
-
-        var process = Process.GetCurrentProcess();
-        
-        ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
-
-        System.Console.WriteLine("Press Enter key to exit.");
-        System.Console.ReadLine();
-    }
-    
-    private static IEnumerable<Measurement<int>> GetThreadState(Process process)
-    {
-        foreach (ProcessThread thread in process.Threads)
-        {
-            yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
-        }
     }
 }
 ```
@@ -1314,11 +1262,11 @@ To add span attributes, use either of the following two ways:
 * Add a custom span processor.
 
 > [!TIP]
-> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
+> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) and the [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) itself. They can select anything from it and store it as an attribute.
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 1. Use a custom processor:
 
@@ -1339,10 +1287,6 @@ app.Run();
 Add `ActivityEnrichingProcessor.cs` to your project with the following code:
 
 ```csharp
-using System.Diagnostics;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
     public override void OnEnd(Activity activity)
@@ -1401,7 +1345,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
     onEnd(span: ReadableSpan){
         span.attributes["CustomDimension1"] = "value1";
         span.attributes["CustomDimension2"] = "value2";
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
     }
 }
 
@@ -1566,7 +1509,23 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 
 #### [Node.js](#tab/nodejs)
   
-Currently unavailable.
+Attributes could be added only when calling manual track APIs only, log attributes for console, bunyan and winston are currently not supported.
+
+```javascript
+const config = new ApplicationInsightsConfig();
+config.instrumentations.http = httpInstrumentationConfig;
+const appInsights = new ApplicationInsightsClient(config);
+const logHandler = appInsights.getLogHandler();
+const attributes = {
+    "testAttribute1": "testValue1",
+    "testAttribute2": "testValue2",
+    "testAttribute3": "testValue3"
+};
+logHandler.trackEvent({
+    name: "testEvent",
+    properties: attributes
+});
+```
 
 #### [Python](#tab/python)
   
@@ -1611,10 +1570,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     Add `ActivityFilteringProcessor.cs` to your project with the following code:
     
     ```csharp
-    using System.Diagnostics;
-    using OpenTelemetry;
-    using OpenTelemetry.Trace;
-    
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
         public override void OnStart(Activity activity)
@@ -1888,3 +1843,5 @@ To provide feedback:
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---
+
+<!-- PR for Hector-->

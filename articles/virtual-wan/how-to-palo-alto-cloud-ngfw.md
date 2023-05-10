@@ -13,10 +13,6 @@ ms.custom : references_regions
 
 ---
 # Configure Palo Alto Networks Cloud NGFW in Virtual WAN (preview)
-
-> [!IMPORTANT]
-> Portal capabilities for Palo Alto Networks Cloud NGFW in Virtual WAN are currently rolling out and may not be available for  users in all geographical regions. If you cannot see Palo Alto Networks Cloud NGFW as an option in Portal, please use the following [portal link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridNetworking=mpacflight).
-
 > [!IMPORTANT]
 > Palo Alto Cloud NGFW for Virtual WAN is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

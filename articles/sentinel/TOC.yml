@@ -867,6 +867,8 @@
         href: watchlists-manage.md
   - name: Hunt for threats
     items:
+    - name: Conduct end-to-end hunts
+      href: hunts.md
     - name: Hunt with Jupyter notebooks
       items:
       - name: Get started with notebooks and MSTICPy
