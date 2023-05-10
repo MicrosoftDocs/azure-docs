@@ -1039,6 +1039,36 @@ SharedImageVersion properties:
 - **imageVersionId** - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
 - **exactVersion** - Exact ARM resource id of the image version. This read-only field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest
 
+- **uri**- Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+
+## Properties: versioning
+
+The **versioning** property is an enum with two possible values:
+- **latest** - New strictly increasing schema per design
+- **source** - Schema based upon the version number of the source image.
+
+The default version numbering schema is `latest`. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version. 
+
+> [!NOTE]
+> The existing version generation logic for `sharedImage` distribution is deprecated. Two new options are provided: monotonically increasing versions that are always the latest version in a gallery, and versions generated based on the version number of the source image. The enum specifying the version generation schema allows for expansion in the future with additional version generation schemas.
+
+
+
+```json
+"versioning": {
+    "scheme": "Latest",
+    "major": 1
+}
+```
+---
+
+versioning properties:
+- **scheme** - Generate new version number for distribution. `Latest` or `Source` are two possible values.
+- **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `Latest`. For example, in a gallery with the following versions published: 0.1.1, 0.1.2, 1.0.0, 1.0.1, 1.1.0, 1.1.1, 1.2.0, 2.0.0, 2.0.1, 2.1.0
+    - With major not set or major set to 2, The `Latest` scheme generates version 2.1.1
+    - With major set to 1, the Latest scheme generates version 1.1.2
+    - With major set to 0, the Latest scheme generates version 0.1.3
+
 ### Distribute: VHD
 
 You can output to a VHD. You can then copy the VHD, and use it to publish to Azure MarketPlace, or use with Azure Stack.
@@ -1115,35 +1145,6 @@ distribute: [
 
 ---
 
-- **uri**- Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
-
-## Properties: versioning
-
-The **versioning** property is an enum with two possible values:
-- **latest** - New strictly increasing schema per design
-- **source** - Schema based upon the version number of the source image.
-
-The default version numbering schema is `latest`. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version. 
-
-> [!NOTE]
-> The existing version generation logic for `sharedImage` distribution is deprecated. Two new options are provided: monotonically increasing versions that are always the latest version in a gallery, and versions generated based on the version number of the source image. The enum specifying the version generation schema allows for expansion in the future with additional version generation schemas.
-
-
-
-```json
-"versioning": {
-    "scheme": "Latest",
-    "major": 1
-}
-```
----
-
-versioning properties:
-- **scheme** - Generate new version number for distribution. `Latest` or `Source` are two possible values.
-- **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `Latest`. For example, in a gallery with the following versions published: 0.1.1, 0.1.2, 1.0.0, 1.0.1, 1.1.0, 1.1.1, 1.2.0, 2.0.0, 2.0.1, 2.1.0
-    - With major not set or major set to 2, The `Latest` scheme generates version 2.1.1
-    - With major set to 1, the Latest scheme generates version 1.1.2
-    - With major set to 0, the Latest scheme generates version 0.1.3
 
 ## Properties: source
 
