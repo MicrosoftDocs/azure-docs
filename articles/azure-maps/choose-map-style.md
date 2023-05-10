@@ -63,10 +63,13 @@ var map = new atlas.Map('map', {
 );
 ```
 
-<br/>
+:::image type="content" source="./media/choose-map-style/set-base-map-style-on-initialization.png" alt-text="Screenshot showing the grayscale dark style being set during the map load process.":::
 
+<!-----------------------------------------------------------------------------------------------
+<br/>
 <iframe height='500' scrolling='no' title='Setting the style on map load' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Setting the style on map load</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------------------------------------------------->
 
 ### Update the base map style
 
