@@ -42,8 +42,12 @@ az eventgrid topic create --name {EG custom topic name} -l {region name} -g {res
 - Assign Data Sender role to the Event Grid topic
 
 ```azurecli-interactive
-az role assignment create --assignee "{Your Service Principal ID}" --role "EventGrid Data Sender" --scope "/subscriptions/{Subscription ID}/resourcegroups/{Resource Group ID}/providers/Microsoft.EventGrid/topics/{EG Custom Topic Name}" 
+az role assignment create --assignee "{Your Principal ID}" --role "EventGrid Data Sender" --scope "/subscriptions/{Subscription ID}/resourcegroups/{Resource Group ID}/providers/Microsoft.EventGrid/topics/{EG Custom Topic Name}" 
 ```
+
+> [!NOTE]
+> You can find your principal ID using the command in PowerShell
+> az ad signed-in-user show
 
 ## Create Event Subscription with Event Hubs as endpoint
 - Create Event Grid Subscription.  Update it with your subscription ID, resource group ID, EG custom topic name.

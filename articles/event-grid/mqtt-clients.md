@@ -74,6 +74,12 @@ Here’s a sample schema for the client with attribute definition:
 
 While configuring the client attributes, consider the topics that the clients publish (subscribe) to.  Thinking backwards from topics to clients helps identify the commonalities across client roles easier and defining the client attributes to make the client grouping simpler.
 
+> [!NOTE]
+> - Client attribute keys must be unique in the client.  Keys cannot be repeated.
+> - Client attribute values can be of `string`, `integer` or `array of strings` types.
+> - The total size of the client attributes for a client must always be less than 4KB.
+> - Client attribute name (key) can only contain alphanumeric characters and underscore(_).
+
 ### Sample contracts
 
 Example for certificate chain based client authentication

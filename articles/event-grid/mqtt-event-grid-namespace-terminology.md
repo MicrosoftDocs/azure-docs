@@ -10,18 +10,49 @@ ms.author: veyaddan
 # Terminology
 Key terms relevant for Event Grid namespace and MQTT resources are explained.
 
-| Term | Definition |
-| ------------ | ------------ |
-| MQTT Broker | An MQTT broker is an intermediary entity that enables MQTT clients to communicate. Specifically, an MQTT broker receives messages published by clients, filters the messages by topic, and distributes them to subscribers.|
-| Namespace | An Event Grid namespace is a declarative space that provides a scope to all the nested resources or subresources such as topics, certificates, clients, client groups, topic spaces, permission bindings.  Namespace is a tracked resource with 'tags' and a 'location' properties, and once created can be found on resources.azure.com.  Using the namespace, you can organize the subresources into logical groups and manage them as a single unit in your Azure subscription.  Deleting a namespace deletes all the subresources encompassed within the namespace.|
-| Client | Client is a device or an application that can publish and/or subscribe MQTT messages |
-| Certificate / Cert | Certificate is a form of asymmetric credential. They're a combination of a public key from an asymmetric keypair and a set of metadata describing the valid uses of the keypair. If the keypair of the issuer is the same keypair as the certificate, the certificate is said to be "self-signed". Third-party certificate issuers are sometimes called Certificate Authorities (CA). |
-| Client attributes | Client attributes represent a set of key-value pairs that provide descriptive information about the client. Client attributes are used in creating client groups and as variables in Topic Templates. For example, client type is an attribute that provides the client's type. |
-| Client group | Client group is a collection of clients.  Clients can be grouped together using common client attribute(s). Client groups can be given permissions to publish and/or subscribe to a specific topic space |
-| Topic space | Topic space is a set of topic templates. It's used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of individual topics. |
-| Topic filter | An MQTT topic filter is an MQTT topic that can include wildcards for one or more of its segments, allowing it to match multiple MQTT topics. It's used to simplify subscriptions declarations as one topic filter can match multiple topics. |
-| Topic template | Topic templates are an extension of the topic filter that supports variables. It's used for fine-grained access control within a client group. |
-| Permission bindings | A Permission Binding grants access to a specific client group to either publish or subscribe on a specific topic space. |
+## Namespace
+
+An Event Grid namespace is a declarative space that provides a scope to all the nested resources or subresources such as topics, certificates, clients, client groups, topic spaces, permission bindings.  It gives you a unique FQDN.  
+
+Namespace is a tracked resource with 'tags' and a 'location' properties, and once created can be found on resources.azure.com.  
+
+Using the namespace, you can organize the subresources into logical groups and manage them as a single unit in your Azure subscription.  Deleting a namespace deletes all the subresources encompassed within the namespace.
+
+## Client
+
+Client is a device or an application that can publish and/or subscribe MQTT messages.
+
+## Certificate / Cert
+
+Certificate is a form of asymmetric credential. They're a combination of a public key from an asymmetric keypair and a set of metadata describing the valid uses of the keypair. If the keypair of the issuer is the same keypair as the certificate, the certificate is said to be "self-signed". Third-party certificate issuers are sometimes called Certificate Authorities (CA).
+
+## Client attributes
+
+Client attributes represent a set of key-value pairs that provide descriptive information about the client. Client attributes are used in creating client groups and as variables in Topic Templates. For example, client type is an attribute that provides the client's type.
+
+## Client group
+
+Client group is a collection of clients.  Clients can be grouped together using common client attribute(s). Client groups can be given permissions to publish and/or subscribe to a specific topic space.
+
+## Topic space
+
+Topic space is a set of topic templates. It's used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of individual topics.
+
+## Topic filter
+
+An MQTT topic filter is an MQTT topic that can include wildcards for one or more of its segments, allowing it to match multiple MQTT topics. It's used to simplify subscriptions declarations as one topic filter can match multiple topics.
+
+## Topic template
+
+Topic templates are an extension of the topic filter that supports variables. It's used for fine-grained access control within a client group. 
+
+## Permission bindings
+
+A Permission Binding grants access to a specific client group to either publish or subscribe on a specific topic space.
+
+## Throughput units
+
+Throughput units (TUs) control the capacity of Azure Event Grid namespace and allow user to control capacity of their namespace resource for message ingress and egress. For more information about limits, see [Azure Event Grid quotas and limits](quotas-limits.md).
 
 ## Next steps
 - Learn about [creating an Event Grid namespace](create-view-manage-namespaces.md)
