@@ -25,8 +25,8 @@ Scaling is defined by the combination of limits and rules.
 
     | Scale limit | Default value | Min value | Max value |
     |---|---|---|---|
-    | Minimum number of replicas per revision | 0 | 0 | 30 |
-    | Maximum number of replicas per revision | 10 | 1 | 30 |
+    | Minimum number of replicas per revision | 0 | 0 | 300 |
+    | Maximum number of replicas per revision | 10 | 1 | 300 |
 
     To request an increase in maximum replica amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
 
