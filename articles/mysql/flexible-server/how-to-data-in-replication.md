@@ -316,5 +316,3 @@ To skip a replication error and allow replication to continue, use the following
 ## Next steps
 
 - Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL - Flexible Server.
-
-
