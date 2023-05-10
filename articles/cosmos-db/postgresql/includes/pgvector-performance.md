@@ -26,10 +26,10 @@ EXPLAIN (VERBOSE, BUFFERS) SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]'
 
 Third party sites, like [explain.depesz.com](https://explain.depesz.com/) can be helpful in understanding query plans. Some questions that you should try to answer are:
 
-1. [Was the query parallelized](#parallel-execution)?
-1. [Was an index used?](#indexing)
-1. [Did I use the same condition in the WHERE clause as in a partial index definition?](#partial-indexes)
-1. [If I use partitioning, were not-needed partitions pruned?](#partitioning)
+* [Was the query parallelized](#parallel-execution)?
+* [Was an index used?](#indexing)
+* [Did I use the same condition in the WHERE clause as in a partial index definition?](#partial-indexes)
+* [If I use partitioning, were not-needed partitions pruned?](#partitioning)
 
 If your vectors are normalized to length 1, like OpenAI embeddings. You should consider using inner product (`<=>`) for best performance.
 
@@ -64,8 +64,8 @@ When possible, always load your data before indexing it. It's both faster to cre
 
 ### Limits
 
-1. In order to index a column, it has to have dimensions defined. Attempting to index a column defined as `col vector` results in the error: `ERROR:  column does not have dimensions`.
-1. You can only index a column that has up to 2000 dimensions. Attempting to index a column with more dimensions results in the error: `ERROR:  column cannot have more than 2000 dimensions for ivfflat index`.
+* In order to index a column, it has to have dimensions defined. Attempting to index a column defined as `col vector` results in the error: `ERROR:  column does not have dimensions`.
+* You can only index a column that has up to 2000 dimensions. Attempting to index a column with more dimensions results in the error: `ERROR:  column cannot have more than 2000 dimensions for ivfflat index`.
 
 While you can store vectors with more than 2000 dimensions, you can't index them. You can use dimensionality reduction to fit within the limits. Alternatively rely on partitioning and/or sharding with Azure Cosmos DB for PostgreSQL to achieve acceptable performance without indexing.
 
