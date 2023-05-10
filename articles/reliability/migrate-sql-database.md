@@ -18,7 +18,7 @@ Enabling zone redundancy for Azure SQL Database guarantees high availability as 
 
 ## Prerequisites
 
-Before migrating to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones].
+Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones].
 
 | Service tier | Deployment model | Zone redundancy availability |
 |-----|-----|-----|
@@ -32,7 +32,7 @@ Before migrating to availability zone support, refer to the following table to e
 
 Migration for Premium, Business Critical, and General Purpose service tier is an online operation with a brief disconnect towards the end to finish the migration process. If you have implemented [retry logic for standard transient errors](/azure/azure-sql/database/troubleshoot-common-connectivity-issues?view=azuresql#retry-logic-for-transient-errors), you won't notice the failover. 
 
-For Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the resource is provisioned. If you wish to move to availability zone support, you'll need to transfer the data by means of database copy, point-in-time restore, or geo-replica. If the target database is in a different region than the source or if the database backup storage redundancy for the target differs from the source database, then downtime will be proportional to the size of the data operation.  
+For Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the resource is provisioned. If you wish to move to availability zone support, you'll need to transfer the data with database copy, point-in-time restore, or geo-replica. If the target database is in a different region than the source or if the database backup storage redundancy for the target differs from the source database, then downtime is proportional to the size of the data operation.  
 
 ## Option 1: Migration (Premium, Business Critical, and General Purpose)
 
@@ -85,7 +85,7 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 
 
 >[!IMPORTANT]
->Enabling zone redundancy support for elastic pools will make all databases within the pool zone redundant.
+>Enabling zone redundancy support for elastic pools makes all databases within the pool zone redundant.
 
 
 # [Azure portal](#tab/portal)
@@ -132,7 +132,7 @@ To enable zone redundancy, see [Elastic Pools - Create Or Update in ARM](/rest/a
 
 ## Option 2: Redeployment (Hyperscale)
 
-For the Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the database is provisioned. If you wish to gain zone redundancy support, you'll need to perform a data transfer from your existing Hyperscale service tier single database. To perform the transfer and enable the zone redundancy option, a clone must be created using database copy, point-in-time restore, or geo-replica.  
+For the Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the database is provisioned. If you wish to gain zone redundancy support, you need to perform a data transfer from your existing Hyperscale service tier single database. To perform the transfer and enable the zone redundancy option, a clone must be created using database copy, point-in-time restore, or geo-replica.  
 
 ### Redeployment considerations
 
@@ -140,7 +140,7 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
     - **Database copy and point-in-time restore methods (Offline mode)** create a transactionally consistent database at a certain point in time. As a result, any data changes performed after the copy or restore operation have been initiated won't be available on the copied or restored database.
     
-    - **Geo replica method (Online mode)** is a mode of redeployment wherein any data changes from source will be synchronized to target.  
+    - **Geo replica method (Online mode)** is a mode of redeployment wherein any data changes from source is synchronized to target.  
 
 - Connection string for the application must be updated to point to the zone redundant database. 
 
@@ -177,7 +177,7 @@ To create a geo-replica of the database:
 
     - Create with Azure CLI. Use the `--zone-redundant` switch to [configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=azure-cli).
 
-1. The replica will be seeded, and the time taken for seeding the data will depend upon size of source database. You can monitor the status of seeding in the Azure portal or by running the following TSQL queries on the replica database:
+1. The replica is seeded, and the time taken for seeding the data depends upon size of source database. You can monitor the status of seeding in the Azure portal or by running the following TSQL queries on the replica database:
 
     ```tsql
         select * from sys.dm_geo_replication_link_status 
@@ -185,7 +185,7 @@ To create a geo-replica of the database:
     ```
 1. Once the database seeding is finished, perform a planned (no data loss) failover to make the zone redundant target database as primary.  
 
-1. Since the server name for the zone redundant database will be different, connection strings for the application must be updated.  
+1. Update the server name in the connection strings for the application to reflect the new zone redundant database.
 
 1. To clean up, consider removing the original non-zone redundant database from the geo replica relationship. You can choose to delete it.  
 
