@@ -68,28 +68,11 @@ Namespace topics are topics that are created within an Event Grid [namespace](#n
 Namespace topics support [pull delivery](pull-delivery-overview.md#pull-delivery-1). See [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if pull delivery is the right approach given your requirements.
 
 ## Event subscriptions
-
-A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event Subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md).
-
-Event subscriptions for Namespace topic expose a set of configuration properties. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
-
-For examples of creating subscriptions for custom, system, and partner topics as well as Domains, see:
-
-* [Create custom topic and subscribe to events using Azure CLI](scripts/cli-subscribe-custom-topic.md)
-* [Azure PowerShell samples for Event Grid](powershell-samples.md)
-* [Azure Resource Manager templates for Event Grid](template-samples.md)
-
-For information about getting your current Event Grid subscriptions, see [Query Event Grid subscriptions](query-event-subscriptions.md).
+A subscription tells Event Grid which events on a namespace topic you're interested in receiving. You can filter the events consumers receive. You can filter by event type or event subject, for example. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
 
 For an example of creating subscriptions for namespace topics, refer to:
 
 * [Publish and consume messages using namespace topics using CLI](publish-events-using-namespace-topics.md)
-
-
-## Event subscription expiration
-You can set an expiration time for event subscriptions associated to custom, system, partner, and domain topics as well as to Domain subscriptions. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time and you don't want to worry about cleaning up those subscriptions. For example, when creating an event subscription to test a scenario, you might want to set an expiration.
-
-For an example of setting an expiration, see [Subscribe with advanced filters](how-to-filter-events.md#subscribe-with-advanced-filters).
 
 ## Batching
 When using Namespace topics, you can publish a single event without using an array.
