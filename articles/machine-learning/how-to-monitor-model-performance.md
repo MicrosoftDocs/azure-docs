@@ -415,7 +415,7 @@ You can also set up model monitoring for models deployed to Azure Machine Learni
 
 # [Azure CLI](#tab/azure-cli)
 
-One you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
+Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
 
 ```azurecli
 az ml schedule -f ./model-monitoring-with-collected-data.yaml
@@ -519,7 +519,7 @@ create_monitor:
 
 # [Python](#tab/python)
 
-One you've satisfied the previous requirements, you can set up model monitoring using the following Python code:
+Once you've satisfied the previous requirements, you can set up model monitoring using the following Python code:
 
 ```python
 #get a handle to the workspace
