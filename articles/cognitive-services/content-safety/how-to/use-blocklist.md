@@ -57,7 +57,7 @@ curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_
 }'
 ```
 
-The response code should be `201` and the URL to get the created list should be contained in the header, named **Location**.
+The response code should be `201`(created a new list) or `200`(updated an existing list).
 
 #### [Python](#tab/python)
 
@@ -109,11 +109,11 @@ if __name__ == "__main__":
 
 ---
 
-### Add or modify a blockItem in the list
+### Add blockItems in the list
 
 > [!NOTE]
 >
-> There is a maximum limit of **10,000 terms** in total across all lists.
+> There is a maximum limit of **10,000 terms** in total across all lists. You can add at most 100 blockItems in one request.
 
 #### [REST API](#tab/rest)
 
@@ -130,7 +130,7 @@ curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '"blockItems": [{
-    "description": "my first word",
+    "description": "string",
     "text": "bleed"
 }]'
 ```
@@ -139,22 +139,23 @@ curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_
 > You can add multiple blockItems in one API call. Make the request body a JSON array of data groups:
 >
 > [{
->    "description": "my first word",
+>    "description": "string",
 >    "text": "bleed"
 > },
 > {
->    "description": "my second word",
+>    "description": "string",
 >    "text": "blood"
 > }]
 
 
-The response code should be `201` and the URL to get the created list should be contained in the header, named **Location**. The response body will contain an ID value of the blockItem you just added.
+The response code should be `200`.
 
 ```console
 {
-  "blocklistName": "<your_list_id>",
-  "description": "my first word",
-  "blockItemId": "c4491d5b-9ea9-4d2a-97c7-70ae8e6fc8c1"
+  "blockItemId": "string",
+  "description": "string",
+  "text": "bleed"
+  
 }
 ```
 
@@ -257,9 +258,9 @@ The JSON response will contain a `"blocklistMatchResults"` that indicates any ma
 {
   "blocklistMatchResults": [
     {
-      "blocklistName": "1234",
-      "blockItems": "01",
-      "itemText": "bleed",
+      "blocklistName": "string",
+      "blockItemID": "string",
+      "blockItemText": "bleed",
       "offset": "28",
       "length": "5"
     }
@@ -347,8 +348,8 @@ The status code should be `200` and the response body should look like this:
 {
  "values": [
   {
-   "blockItemId": "01",
-   "description": "my first word",
+   "blockItemId": "string",
+   "description": "string",
    "text": "bleed",
   }
  ]
