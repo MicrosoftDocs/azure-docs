@@ -26,7 +26,7 @@ Azure Machine Learning **Data collector** logs inference data in Azure blob stor
 
 Data collected with the provided Python SDK is automatically registered as a data asset in your Azure Machine Learning workspace. This data asset can be used for model monitoring.
 
-If you're interested in collecting production inference data for a MLFlow model deployed to a real-time endpoint, doing so can be done with a single toggle. To learn how to do this, see [Data collection for MLFlow models](#data-collection-for-mlflow-models).
+If you're interested in collecting production inference data for a MLFlow model deployed to a real-time endpoint, doing so can be done with a single toggle. To learn how to do this, see [Data collection for MLFlow models](#collect-data-for-mlflow-models).
 
 
 ## Prerequisites
