@@ -27,7 +27,7 @@ ms.author: pafarley
 The following section walks through a sample request with the Python SDK.
 
 1. Open a command prompt, navigate to your project folder, and create a new file named *quickstart.py*.
-1. Run this command to install the Azure AI Vision client library:
+1. Run this command to install the Azure Content Safety library:
 
     ```console
     python -m pip install azure-ai-contentsafety
