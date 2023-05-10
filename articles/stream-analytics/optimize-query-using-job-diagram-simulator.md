@@ -23,7 +23,7 @@ If you want to learn more about query parallelization, see [Leverage query paral
 
 
 
-## Use job simulation in VSCode
+## Use job simulation in VS Code
 
 The **Job diagram simulator** feature simulates the job running topology in Azure and provides suggestions for adjusting Streaming Units. Therefore, you must configure live inputs and outputs for your Stream Analytics job and use them in the query. 
 
