@@ -1,7 +1,7 @@
 ---
-title: "Use Translator V3 connector to build a Document Translation flow."
+title: "Use Translator V3 connector to create a Document Translation flow."
 titleSuffix: Azure Cognitive Services
-description: Use Microsoft Translator V3 connector and Power Automate to build a Document Translation flow.
+description: Use Microsoft Translator V3 connector and Power Automate to create a Document Translation flow.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -17,7 +17,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# Configure a Document Translation flow (preview)
+# Create a Document Translation flow (preview)
 
 > [!IMPORTANT]
 >
