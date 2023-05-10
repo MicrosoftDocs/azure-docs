@@ -35,7 +35,7 @@ In Azure, [Virtual machine scale sets](../../virtual-machine-scale-sets/overview
 > [!CAUTION]
 > After the creation of the scale set, the orchestration mode and configuration type (with or without VM profile) cannot be modified or updated at a later time.
 
-## Reference architecture of SAP workload deployed with Virtual Machine Scale Set with Flexible Orchestration
+## Reference architecture of SAP workload deployed with Flexible Virtual Machine Scale Set
 
 When creating virtual machine scale set with flexible orchestration across availability zones, it's important to mention all the availability zones where you would be deploying your SAP system. It's worth noting that the availability zones must be mentioned while creating the scale set, as they can't be modified at a later stage.
 
