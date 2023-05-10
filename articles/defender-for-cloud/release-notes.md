@@ -26,6 +26,7 @@ Updates in May include:
 - [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
+- [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -127,6 +128,17 @@ Defender for DevOps Code and IaC has expanded its recommendation coverage in Mic
 Previously, coverage for Azure DevOps security scanning only included the secrets recommendation.   
 
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+
+### New default setting for Defender for Servers vulnerability assessment solution
+
+Vulnerability assessment (VA) solutions are essential to safeguard machines from cyberattacks and data breaches.
+
+Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a built-in solution in the Defender for Servers plan that doesn't have a VA solution selected.
+
+If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
+
+Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
+
 ## April 2023
 
 Updates in April include:

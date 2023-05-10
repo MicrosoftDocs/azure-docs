@@ -45,7 +45,7 @@ Get started with [adding load testing to your CI/CD workflow](./tutorial-identif
 
 In the test configuration, [specify test fail criteria](./how-to-define-test-criteria.md) to catch application performance or stability regressions early in the development cycle. For example, get alerted when the average response time or the number of errors exceed a specific threshold.
 
-Azure Load Testing will automatically stop an automated load test in response to specific error conditions. You can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
+Azure Load Testing will automatically stop an automated load test in response to specific error conditions. Alternately, you can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL. Learn how you can [configure auto stop for your load test](./how-to-define-test-criteria.md#auto-stop-configuration).
 
 You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
 
