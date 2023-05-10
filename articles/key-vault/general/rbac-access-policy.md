@@ -32,7 +32,7 @@ Azure RBAC offers several advantages over access policies:
 However, it has three disadvantages when compared to access policies:
 - Latency -- it can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
 - Limited number of role assignments -- Azure RBAC allows only 2000 roles assignments across all services per subscription versus 1024 access policies per Key Vault
-- Less flexibility -- previously, automation and users could create a Key Vault and grant other service principals or managed identities access via access policies. However, this is no longer possible without the necessary permissions, which may not be suitable for most automated deployments (e.g., Azure Pipelines, Bicep, Terraform).
+- Less flexibility -- previously, automation and users could create a Key Vault and grant other service principals or managed identities access via access policies. However, this is no longer possible without the necessary permissions, which may not be suitable for some automated deployments (e.g., Azure Pipelines, Bicep, Terraform).
 
 To transition your Key Vault data plane access control from access policies to RBAC, see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
 
