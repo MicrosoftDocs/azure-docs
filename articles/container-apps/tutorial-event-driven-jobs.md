@@ -133,6 +133,25 @@ To deploy the job, you must first build a container image for the job and push i
         --env-vars "AZURE_QUEUE_NAME=$QUEUE_NAME" "AZURE_STORAGE_CONNECTION_STRING=secretref:connection-string-secret"
     ```
 
+    The following table describes the key parameters used in the command.
+
+    | Parameter | Description |
+    | --- | --- |
+    | `--replica-timeout` | The maximum duration a replica can execute. |
+    | `--replica-retry-limit` | The number of times to retry a replica. |
+    | `--replica-completion-count` | The number of replicas to complete successfully before a job execution is considered successful. |
+    | `--parallelism` | The number of replicas to start per job execution. |
+    | `--min-executions` | The minimum number of job executions to run per polling interval. |
+    | `--max-executions` | The maximum number of job executions to run per polling interval. |
+    | `--scale-polling-interval` | The polling interval at which to evaluate the scale rule. |
+    | `--scale-rule-name` | The name of the scale rule. |
+    | `--scale-rule-type` | The type of scale rule to use. |
+    | `--scale-rule-metadata` | The metadata for the scale rule. |
+    | `--scale-rule-auth` | The authentication for the scale rule. |
+    | `--secrets` | The secrets to use for the job. |
+    | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
+    | `--env-vars` | The environment variables to use for the job. |
+
 The event-driven job is now created in the Container Apps environment. 
 
 ## Verify the deployment
