@@ -50,7 +50,7 @@ Selecting the **Dashboard settings** button reveals a side panel with details on
 2. **Delete:** removes the component from the dashboard.
 
 > [!NOTE]
-> Each component row can be selected and dragged to move it to a different location
+> Each component row can be selected and dragged to move it to a different location.
 
 Selecting the **Switch cohort** button on the dashboard or in the *Cohort settings* sidebar or at the top of the dashboard creates a popup that allows you to do that.
 

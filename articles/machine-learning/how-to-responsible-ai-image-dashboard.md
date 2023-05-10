@@ -73,7 +73,7 @@ Object detection:
 - **Table of metrics for each dataset cohort**: View columns of dataset cohorts, the sample size of each cohort, and the selected model performance metrics for each cohort – aggregated based on the selected aggregation method.
 - Visualizations
     - Bar graph (Image Classification, Multilabel classification): Compare aggregated performance metrics across selected dataset cohort(s).
-    - Confusion matrix (Image Classification, Multilabel classification): View a selected model performance metric across selected dataset cohort(s) and selected class(s).
+    - Confusion matrix (Image Classification, Multilabel classification): View a selected model performance metric across selected dataset cohort(s) and selected class(es).
 - **Choose metric (x-axis)**: Select this button to choose which metric to view in the visualization (confusion matrix or scatterplot).
 - **Choose cohorts (y-axis)**: Select this button to choose which cohorts to view in the confusion matrix..
     :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-choose.png" alt-text="Screenshot of the choose cohort button and pane." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-choose.png":::
@@ -159,7 +159,7 @@ Table view for multiclass classification:
 
 Table view for object detection:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/table-view-object.png" alt-text="Screenshot of the vision data explorer on the table view for object classification" lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/table-view-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/table-view-object.png" alt-text="Screenshot of the vision data explorer on the table view for object classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/table-view-object.png":::
 
 ### Class view
 
