@@ -1,5 +1,5 @@
 ---
-title: Vector Search on embeddings
+title: Vector search on embeddings
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use vector indexing and search to integrate AI-based applications in Azure Cosmos DB for MongoDB vCore
 author: gahl-levy
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/10/2023
 ---
 
-# Using Vector Search on embeddings in Azure Cosmos DB for MongoDB vCore
+# Using vector search on embeddings in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
