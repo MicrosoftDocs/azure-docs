@@ -453,7 +453,7 @@
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
-            - name: Unmanaged
+            - name: Unmanaged 
               items:
               - name: Use ingress-nginx
                 items:
