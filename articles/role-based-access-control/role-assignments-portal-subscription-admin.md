@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 05/10/2023
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
