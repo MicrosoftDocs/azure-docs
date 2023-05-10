@@ -165,7 +165,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
         azure:
           appconfiguration:
             stores:
-              - endpoint: ${APP_CONFIGURATION_ENDPOINT}
+              endpoint: ${APP_CONFIGURATION_ENDPOINT}
     ```
 
     ### [properties](#tab/properties)
