@@ -201,9 +201,13 @@ The results should appear similar to the following. Make sure to note the binary
     ```
 4.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
 
-   ```azurecli-interactive
-      az mysql flexible-server gtid reset --resource-group <resource group> --server-name <source server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
-	```
+    ```azurecli-interactive
+    az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <source server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
+    ```
+
+    For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).
+   
+
 
 ## Link source and replica servers to start Data-in replication
 
@@ -316,3 +320,4 @@ To skip a replication error and allow replication to continue, use the following
 ## Next steps
 
 - Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL - Flexible Server.
+ 
