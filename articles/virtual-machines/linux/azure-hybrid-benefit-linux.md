@@ -73,11 +73,11 @@ To start using Azure Hybrid Benefit for SUSE:
 
 ---
 
-### Convert to PAYG in the Azure portal
+### Enable AHB in the Azure portal
 
 In the Azure portal, you can enable Azure Hybrid Benefit on existing virtual machines or on new virtual machines at the time that you create them.
 
-#### Convert to PAYG on an existing virtual machine in the Azure portal
+#### Convert to BYOS on an existing virtual machine in the Azure portal
 
 To enable Azure Hybrid Benefit on an existing virtual machine:
 
@@ -87,7 +87,7 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 ![Screenshot of the Azure portal that shows the Licensing section of the configuration page for Azure Hybrid Benefit.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-#### Convert to PAYG in the Azure portal
+#### Convert to BYOS in the Azure portal
 
 To enable Azure Hybrid Benefit when you create a virtual machine, use the following procedure. (The SUSE workflow is the same as the RHEL example shown here.)
 
@@ -128,9 +128,9 @@ To return a VM to a PAYG model, use a `--license-type` value of `None`:
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
-#### Convert multiple VMs to PAYG simultaneously using the Azure CLI
+#### Convert multiple VM license models simultaneously using the Azure CLI
 
-To switch to PAYG on a large number of virtual machines, you can use the `--ids` parameter in the Azure CLI:
+To switch the licensing model on a large number of virtual machines, you can use the `--ids` parameter in the Azure CLI:
 
 ```azurecli
 # This will enable BYOS on a RHEL virtual machine. In this example, ids.txt is an
@@ -153,7 +153,7 @@ az vm list -o json | jq '.[] | {Virtual MachineName: .name, ResourceID: .id}'
 
 In addition to applying Azure Hybrid Benefit to existing pay-as-you-go virtual machines, you can invoke it at the time of virtual machine creation. Benefits of doing so are threefold:
 
-- You can provision both pay-as-you-go and BYOS virtual machines by using the same image and process.
+- You can provision both PAYG and BYOS virtual machines by using the same image and process.
 - It enables future licensing mode changes. These changes aren't available with a BYOS-only image or if you bring your own virtual machine.
 - The virtual machine is connected to Red Hat Update Infrastructure (RHUI) by default, to help keep it up to date and secure. You can change the updated mechanism after deployment at any time.
 
@@ -184,7 +184,7 @@ If you've purchased compute costs at a discounted rate by using reserved instanc
 >[!NOTE]
 >If you've already purchased reservations for RHEL or SUSE pay-as-you-go software on Azure Marketplace, please wait for the reservation tenure to finish before using Azure Hybrid Benefit for pay-as-you-go virtual machines.
 
-## Converting to BYOS with Azure Hybrid Benefit
+## Red Hat (RHEL) VMs with Azure Hybrid Benefit
 
 # [Red Hat (RHEL) PAYG to BYOS](#tab/rhelbyos)
 
@@ -241,7 +241,7 @@ After you successfully install the `AHBForRHEL` extension, you can use the `az v
 
 ---
 
-### Converting to BYOS using the Azure CLI
+### Converting a VM license model using the Azure CLI
 
 # [RHEL](#tab/rhelEnablebyos)
 
@@ -325,7 +325,7 @@ After you successfully install the `AHBForRHEL` extension, you can use the `az v
 
 ---
 
-## Enable BYOS for SLES
+## SUSE (SLES) VMs with Azure Hybrid Benefit
 
 After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES_STANDARD`, `SLES_SAP`, or `SLES_HPC`.
 
