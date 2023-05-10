@@ -54,7 +54,10 @@ To create a vector index, use the following createIndex Spec template:
 | `similarity` | `string` | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance) or `IP` (inner product) |
 | `dimensions` | `integer` | Number of dimensions for vector similarity. The maximum number of supported dimensions is 2000. |
 
-### Example: Create a vectorIndex
+In the examples below, we'll walk through steps how to vector indexing, adding data, vector search, and retrieving the index configuration.
+
+
+### Create a vectorIndex
 
 ```javascript
 use test
@@ -94,7 +97,7 @@ To perform a vector search, use the `$search` aggregation pipeline stage in a Mo
 }
 ```
 
-### Example: Query a vectorIndex using $search
+### Query a vectorIndex using $search
 Continuing with the above example, to query for the documents inserted in the previous step:
 
 ```javascript
