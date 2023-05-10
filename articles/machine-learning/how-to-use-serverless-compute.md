@@ -325,50 +325,19 @@ resources:
 ```
 
 ---
-
-## Sweep job
-
-The resources field is used in a Sweep job to define the default instance_type while the *limits.max_concurrent_trials* is used to default number of nodes for serverless compute. This default makes it more likely trial runs run concurrently without being gated by the size of compute cluster.  If your quota for this size isn't sufficient, you should override the default with your own values.
+## AutoML job
 
 # [Python SDK](#tab/python)
 
+If you want to specify the type or instance count, use the `ResourceConfiguration` class.
+
+[!notebook-python[] (~/azureml-examples-vj/sdk/python/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
+
 # [Azure CLI](#tab/cli)
 
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json
-type: sweep
-trial:
-  command: >-
-    python hello-sweep.py
-    --A ${{inputs.A}}
-    --B ${{search_space.B}}
-    --C ${{search_space.C}}
-  code: src
-  environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-inputs:
-  A: 0.5
-resources:
-  instance_type: Standard_NC12
-sampling_algorithm: random
-search_space:
-  B:
-    type: choice
-    values: ["hello", "world", "hello_world"]
-  C:
-    type: uniform
-    min_value: 0.1
-    max_value: 1.0
-objective:
-  goal: minimize
-  primary_metric: random_metric
-limits:
-  max_total_trials: 4
-  max_concurrent_trials: 2
-  timeout: 3600
-display_name: hello-sweep-example
-experiment_name: hello-sweep-example
-description: Hello sweep job example.
-```
+If you want to specify the type or instance count, add a  `resources` section.
+
+:::code language="yaml" source="~/azureml-examples-vj/cli/jobs/automl-standalone-jobs/cli-automl-classification-task-bankmarketing/cli-automl-classification-task-bankmarketing-serverless.yml":::
 
 ---
 
@@ -378,80 +347,18 @@ description: Hello sweep job example.
 
 For a pipeline job, specify `"serverless"` as your default compute type to use serverless compute.
 
+[!notebook-python[] (~/azureml-examples-vj/sdk/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
+
 # [Azure CLI](#tab/cli)
 
-For a pipeline job, specify `azureml:serverless` as your default compute type to use serverless compute.
+For a pipeline job, specify `azureml:serverless` as your default compute type to use serverless compute.  
 
-```yaml
-$schema: http://azureml/sdk-2-0/PipelineJob.json
-type: pipeline
-description: "E2E dummy train-score-eval pipeline with jobs defined inline in pipeline job"
+:::code language="yaml" source="~/azureml-examples-vj/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml":::
 
-inputs:
-  pipeline_job_training_input: 
-    path: file:./data
-  pipeline_job_test_input:
-    path: file:./data
-  pipeline_job_training_max_epocs: 20
-  pipeline_job_training_learning_rate: 1.8
-  pipeline_job_learning_rate_schedule: 'time-based'
 
-outputs: 
-  pipeline_job_trained_model:
-    mode: rw_mount
-  pipeline_job_scored_data:
-    mode: rw_mount
-  pipeline_job_evaluation_report:
-    mode: rw_mount
 
-settings:
-  default_compute: azureml:serverless
 
-jobs:
-  train-job:
-    type: command
-    code: ./train_src
-    environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:5
-    command: >-
-        python train.py 
-        --training_data ${{inputs.training_data}} 
-        --max_epocs ${{inputs.max_epocs}}   
-        --learning_rate ${{inputs.learning_rate}} 
-        --learning_rate_schedule ${{inputs.learning_rate_schedule}} 
-        --model_output ${{outputs.model_output}}
-    inputs:
-        training_data: ${{parent.inputs.pipeline_job_training_input}}
-        max_epocs: ${{parent.inputs.pipeline_job_training_max_epocs}}
-        learning_rate: ${{parent.inputs.pipeline_job_training_learning_rate}}
-        learning_rate_schedule: ${{parent.inputs.pipeline_job_learning_rate_schedule}}
-    outputs:
-        model_output: ${{parent.outputs.pipeline_job_trained_model}}
-    resources:
-      instance_count: 2
-      instance_type: Standard_NC6
-    queue_settings:
-      job_tier: standard  
 
-  score-job:
-    type: command
-    code: ./score_src
-    environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:5
-    command: >-
-        python score.py 
-        --model_input ${{inputs.model_input}} 
-        --test_data ${{inputs.test_data}}
-        --score_output ${{outputs.score_output}}
-    inputs:
-        model_input: ${{parent.jobs.train-job.outputs.model_output}}
-        test_data: ${{parent.inputs.pipeline_job_test_input}}
-    outputs:
-        score_output: ${{parent.outputs.pipeline_job_scored_data}}
-    resources:
-      instance_count: 1
-      instance_type: Standard_NC12
-    queue_settings:
-      job_tier: standard  
-```
 
 ---
 
