@@ -382,7 +382,7 @@ A storage class is used to define how a unit of storage is dynamically created w
 
 1.	Create a file named `anf-storageclass.yaml` and copy in the following YAML:
 
-    ```yml
+    ```yaml
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
@@ -419,7 +419,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
 1.	Create a file named `anf-pvc.yaml` and copy in the following YAML. In this example, a 1-TiB volume is needed with ReadWriteMany access.
 
-    ```yml
+    ```yaml
     kind: PersistentVolumeClaim
     apiVersion: v1
     metadata:
@@ -466,8 +466,7 @@ The following manifest can be used to define an NGINX pod that mounts the Azure 
 
 1. Create a file named anf-nginx-pod.yaml and copy in the following YAML:   
 
-    ```yml
-    ymlCopy
+    ```yaml
     kind: Pod
     apiVersion: v1
     metadata:

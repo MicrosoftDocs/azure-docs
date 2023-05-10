@@ -21,7 +21,6 @@ This section describes how to create an SMB volume on Azure NetApp Files and exp
 1. Define variables for later usage. Replace *myfilepath*, *myvolsize*, *myvolname*, and *virtnetid* with an appropriate value for your environment. The filepath must be unique within all ANF accounts.
 
     ```azurecli-interactive
-    Azure CLICopy
     UNIQUE_FILE_PATH="myfilepath"
     VOLUME_SIZE_GIB="myvolsize"
     VOLUME_NAME="myvolname"
