@@ -11,7 +11,7 @@ ms.date: 05/09/2023
 # Change feed modes in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-There are two change feed modes in Azure Cosmos DB. Each mode offers the same core functionality with differences including the operations captured in the feed, metadata available for each change, and retention period of changes. You can consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container depending on the requirements of your workload.
+There are two change feed modes in Azure Cosmos DB. Each mode offers the same core functionality with differences including the operations captured in the feed, metadata available for each change, and retention period of changes. You can consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container to fit the requirements of each workload.
 
 ## Latest version change feed mode
 
@@ -19,7 +19,7 @@ Latest version mode is a persistent record of changes to items from creates and 
 
 ## All versions and deletes change feed mode (preview)
 
-All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode.
+All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts.
 
 ## Change feed use cases
 
@@ -31,7 +31,7 @@ The following are scenarios well suited to this mode:
 
 * Migrations of an entire container to a secondary location.
 
-* Ability to reprocess changes from the beginning of the container
+* Ability to reprocess changes from the beginning of the container.
 
 * Real time processing of changes to items in a container resulting from create and update operations.
 
@@ -41,7 +41,7 @@ The following are scenarios well suited to this mode:
 
 The all versions and deletes change feed mode enables new scenarios for change feed, and simplifies others. You can read every change that occurred to items even in cases where multiple changes occurred between change feed reads, identify the operation type of changes being processed, and get changes resulting from deletes. 
 
-A few common scenarios this mode enhances and enables are: 
+A few common scenarios this mode enables and enhances are: 
 
 * Real-time transfer of data between two locations without having to implement a soft delete.
 
@@ -63,13 +63,15 @@ In addition to the [common features across all change feed modes](../change-feed
 
 * This mode of change feed doesn't log deletes. You can capture deletes by setting a "soft-delete" flag within your items instead of deleting them directly. For example, you can add an attribute in the item called "deleted" with the value "true" and then set a TTL on the item. The change feed captures it as an update and the item is automatically deleted when the TTL expires. Alternatively, you can set a finite expiration period for your items with the [TTL capability](time-to-live.md). With this solution, you have to process the changes within a shorter time interval than the TTL expiration period.
 
-* Only the most recent change for a given item is included in the change log. Intermediate changes may not be available.
+* Only the most recent change for a given item is included in the change feed. Intermediate changes may not be available.
 
 * When an item is deleted, it's no longer available in the change feed.
 
 * Changes can be synchronized from any point-in-time, and there's no fixed data retention period for which changes are available.
 
 * You can't filter the change feed for a specific type of operation. One possible alternative, is to add a "soft marker" on the item for updates and filter based on that when processing items in the change feed.
+
+* The starting point to read change feed can be from the beginning of the container, from a point in time, from "now", or from a specific checkpoint. The precision of the start time is ~5 secs.
 
 ### [All versions and deletes mode (preview)](#tab/all-versions-and-deletes)
 
@@ -79,7 +81,9 @@ In addition to the [common features across all change feed modes](../change-feed
 
 * Change feed items come in the order of their modification time. Deletes from TTL expirations aren't guaranteed to appear in the feed immediately after the item expires. They appear when the item is purged from the container. 
 
-* All changes that occurred within the retention window set for continuous backups on the account are able to be read. Attempting to read changes that occurred outside of the retention window results in an error. For example, if your container was created eight days ago and your continuous backup period retention period is seven days, then you can only read changes from the last seven days. You can't read changes from the beginning of the container in this mode.
+* All changes that occurred within the retention window set for continuous backups on the account are able to be read. Attempting to read changes that occurred outside of the retention window results in an error. For example, if your container was created eight days ago and your continuous backup period retention period is seven days, then you can only read changes from the last seven days. 
+
+* The change feed starting point can be from "now" or from a specific checkpoint within your retention period. You can't read changes from the beginning of the container or from a specific point in time using this mode.
 
 ---
 
@@ -154,7 +158,7 @@ The response object is an array of items representing each change with the follo
 
 * Supported for Azure Cosmos DB for NoSQL accounts. Other Azure Cosmos DB account types aren't supported.
 
-* Continuous backups are required to use this change feed mode, the limitations of which can be found [here](../continuous-backup-restore-introduction.md#current-limitations).
+* Continuous backups are required to use this change feed mode, the [limitations](../continuous-backup-restore-introduction.md#current-limitations) of which can be found in the documentation.
 
 * Reading changes on a container that existed before continuous backups were enabled on the account isn't supported.
 
@@ -163,6 +167,8 @@ The response object is an array of items representing each change with the follo
 * Receiving the previous version of items that have been updated isn't currently available.
 
 * Accounts using [Private Endpoints](../how-to-configure-private-endpoints.md) aren't supported.
+
+* Accounts that have enabled [merging partitions](../merge.md) aren't supported.
 
 ---
 

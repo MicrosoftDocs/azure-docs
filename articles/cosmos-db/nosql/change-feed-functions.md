@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 05/10/2023
 ---
 
 # Serverless event-based architectures with Azure Cosmos DB and Azure Functions
@@ -21,7 +21,7 @@ Azure Functions provides the simplest way to connect to the [change feed](../cha
 With the [Azure Functions trigger for Azure Cosmos DB](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), you can leverage the [Change Feed Processor](change-feed-processor.md)'s scaling and reliable event detection functionality without the need to maintain any [worker infrastructure](change-feed-processor.md). Just focus on your Azure Function's logic without worrying about the rest of the event-sourcing pipeline. You can even mix the Trigger with any other [Azure Functions bindings](../../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
-> The Azure Functions trigger uses [latest version change feed mode.](change-feed-latest-version.md) Currently, the Azure Functions trigger for Azure Cosmos DB is supported for use with the API for NoSQL only.
+> The Azure Functions trigger uses [latest version change feed mode.](change-feed-modes.md#latest-version-change-feed-mode) Currently, the Azure Functions trigger for Azure Cosmos DB is supported for use with the API for NoSQL only.
 
 ## Requirements
 
