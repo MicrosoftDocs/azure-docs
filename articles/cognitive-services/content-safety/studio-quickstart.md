@@ -74,7 +74,7 @@ You can also edit blocklists if you want to change some terms, based on the **To
 ## Manage your resource
 To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the Content Safety Studio home page and select the **Resource** tab. If you have other resources, you can switch resources here as well.
 
-:::image type="content" source="media/manageresource.png" alt-text="Screenshot of Manage Resource.":::
+:::image type="content" source="media/manage-resource.png" alt-text="Screenshot of Manage Resource.":::
 
 ## Clean up resources
 
