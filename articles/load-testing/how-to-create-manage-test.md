@@ -35,7 +35,7 @@ To load test a single HTTP endpoint, you can use the quick test experience in th
 
 When you create a quick test, Azure Load Testing generates the corresponding JMeter script, determines the load test configuration, and runs the load test.
 
-To specify the target load, choose from two options. For each option you can then enter different settings to define the application load.
+To specify the target load, choose from two options. For each option, you can then enter different settings to define the application load.
 
 | Load type               | Description | Load settings   |
 |-------------------------|-------------|-----------------|
@@ -94,9 +94,9 @@ Alongside the test script, you can upload a user property file, configuration fi
 
 1. If your test uses CSV input data, you can choose to enable **Split CSV evenly between test engines**.
 
-    By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. If you have multiple CSV files, each file will be split evenly.
+    By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. If you have multiple CSV files, each file is split evenly.
 
-    For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers. Learn more about how to [read a CSV file in your load test](./how-to-read-csv-data.md).
+    For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance processes 1/10th of the customers. Learn more about how to [read a CSV file in your load test](./how-to-read-csv-data.md).
 
     :::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal.":::
 
@@ -109,7 +109,7 @@ You can use parameters to make your test plan configurable instead of hard-codin
 
 :::image type="content" source="media/how-to-create-manage-test/configure-parameters.png" alt-text="Screenshot that shows how to configure parameters when creating a test in the Azure portal.":::
 
-1. Specify environment variables to pass non-sensitive parameters to your test script.
+1. Specify environment variables to pass nonsensitive parameters to your test script.
 
     For example, you could use an environment variable to pass the target domain name or port number to the test script. Learn more about [using environment variables in a load test](./how-to-parameterize-load-tests.md#configure-load-tests-with-environment-variables).
 
@@ -137,7 +137,7 @@ You can use parameters to make your test plan configurable instead of hard-codin
 
 1. Configure virtual network connectivity.
 
-    You can connect your load test to an Azure virtual network for load testing privately hosted or on-premise endpoints. Learn more about [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
+    You can connect your load test to an Azure virtual network for load testing privately hosted or on-premises endpoints. Learn more about [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
 
     To connect to a virtual network, select the *Private* **Traffic mode**, and then select the **Virtual network** and **Subnet**.
 
@@ -200,7 +200,7 @@ You can perform the following actions:
 - Start a new test run. The run uses the current test configuration settings.
 - Delete the load test. All test runs for the load test are also deleted.
 - Configure the test configuration:
-    - Configure the test plan. You can add or remove any of the files for the load test. If you want to update a file, first remove it and then add the updated version.
+    - Configure the test plan. You can add or remove any of the files for the load test. If you want to update a file, first remove it, and then add the updated version.
     - Add or remove Azure app components.
     - Configure resource metrics for the app components. Azure Load Testing automatically selects the relevant resource metrics for each app component. Add or remove metrics for any of the app components in the load test.
 - [Compare test runs](./how-to-compare-multiple-test-runs.md). Select two or more test runs in the list to visually compare them in the results dashboard.
