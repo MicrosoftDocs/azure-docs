@@ -19,7 +19,7 @@ This article provides a reference of log and metric data collected to analyze th
 | MQTT.SuccessfulSubscriptionOperations | MQTT: Successful Subscription Operations | Count | Total | The number of successful subscription operations (Subscribe, Unsubscribe). This metric is incremented for every topic filter within your subscription request that gets accepted by Event Grid.  | OperationType, Protocol |
 | MQTT.FailedSubscriptionOperations | MQTT: Failed Subscription Operations | Count | Total | The number of failed subscription operations (Subscribe, Unsubscribe). This metric is incremented for every topic filter within your subscription request that gets rejected by Event Grid. | OperationType, Protocol, Error |
 | MQTT.Connections | MQTT: Active Connections | Count | Total | The number of active connections in the namespace. The value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | Protocol |
-| MQTT.Throughput | MQTT: Throughput | Count | Total | The total bytes per second published to or delivered by the namespace. | Direction |
+| MQTT.Throughput | MQTT: Throughput | Count | Total | The total bytes published to or delivered by the namespace. | Direction |
 
 > [!NOTE]
 > Each subscription request increments the MQTT.RequestCount metric, while each topic filter within the subscription request increments the subscription operation metrics. For example, consider a subscription request that is sent with five different topic filters. Three of these topic filters were succeessfully processed while two of the topic filters failed to be processed. The following list represent the resulting increments to the metrics:

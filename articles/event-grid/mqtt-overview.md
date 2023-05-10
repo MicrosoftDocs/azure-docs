@@ -52,7 +52,7 @@ The publish-subscribe messaging model provides a scalable and asynchronous commu
 
 ### Namespace
 
-Event Grid Namespace is a management container for resources supporting the MQTT broker functionality, along with the resources supporting the [pull delivery functionality](pull-delivery-overview.md). Your MQTT client can connect to Event Grid and publish/subscribe to messages, while Event Grid authenticates your clients, authorizes publish/subscribe requests, and forward messages to interested clients. Learn more about [the namespace concept.](mqtt-event-grid-namespace-terminology)
+Event Grid Namespace is a management container for the resources supporting the MQTT broker functionality, along with the resources supporting the [pull delivery functionality](pull-delivery-overview.md). Your MQTT client can connect to Event Grid and publish/subscribe to messages, while Event Grid authenticates your clients, authorizes publish/subscribe requests, and forwards messages to interested clients. Learn more about [the namespace concept.](mqtt-event-grid-namespace-terminology.md)
 
 ### Clients
 
