@@ -8,16 +8,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/16/2022
+ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
+
 ---
 
 # Secure hybrid access with Azure Active Directory partner integrations
 
 Azure Active Directory (Azure AD) supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Azure AD and provide authentication for legacy applications.
 
-Learn more: [Zero Trust Deployment Guide for Microsoft Azure Active Directory](/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
+Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
 Azure AD natively supports modern protocols:
 
@@ -35,10 +37,10 @@ The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
   * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure AD portal
+* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure AD portal
+* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 
@@ -255,7 +257,7 @@ After the SaaS applications are registered in Azure AD, the applications need to
 
 ### Connect apps to Azure AD with legacy authentication
 
-Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply Azure AD Conditional Access policies. Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
+Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply [Azure AD Conditional Access policies](../conditional-access/overview.md). Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
 
 #### Create a SAML application registration
 
@@ -355,10 +357,10 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-Customers and partners can use the Microsoft Graph API to create or apply Conditional Access policies to customer applications. For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
 
-- Assign the application to a Conditional Access policy
-- Create a new Conditional Access policy and assign the application to it
+- [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
+- [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
 
 #### Use a Conditional Access policy
 

@@ -2,14 +2,16 @@
 title: End-user experiences for applications
 description: Learn about the customizable ways to deploy applications to end users in your organization with Azure Active Directory (Azure AD)
 services: active-directory
-author: lnalepa
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/08/2022
-ms.author: lenalepa
+ms.author: jomondi
+ms.reviewer: lenalepa
+ms.custom: enterprise-apps
 ---
 
 # End-user experiences for applications

@@ -1,17 +1,18 @@
 ---
-title: Azure Virtual Desktop screen capture protection
+title: Screen capture protection in Azure Virtual Desktop
 titleSuffix: Azure
-description: How to set up screen capture protection for Azure Virtual Desktop.
+description: Learn how to enable screen capture protection in Azure Virtual Desktop (preview) to help prevent sensitive information from being captured on client endpoints.
 author: femila
-ms.topic: conceptual
-ms.date: 01/03/2023
+ms.topic: how-to
+ms.date: 01/27/2023
 ms.author: femila
-ms.service: virtual-desktop
 ---
 
-# Screen capture protection
+# Screen capture protection in Azure Virtual Desktop
 
-Screen capture protection prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
+Screen capture protection, alongside [watermarking](watermarking.md), helps prevent sensitive information from being captured on client endpoints. When you enable screen capture protection, remote content will be automatically blocked or hidden in screenshots and screen sharing. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
+
+In Windows 11, version 22H2 or later, you can enable screen capture protection on session host VMs as well as remote clients. Protection on session host VMs works just like protection for remote clients.
 
 ## Prerequisites
 
@@ -19,25 +20,29 @@ Screen capture protection is configured on the session host level and enforced o
 
 You must connect to Azure Virtual Desktop with one of the following clients to use support screen capture protection:
 
-- The Windows Desktop client supports screen capture protection for full desktops only.
-- The macOS client (version 10.7.0 or later) supports screen capture protection for both RemoteApps and full desktops.
+- The Remote Desktop client for Windows and the Azure Virtual Desktop Store app support screen capture protection for full desktops. You can also use them with RemoteApps when using the client on Windows 11, version 22H2 or later.
+- The Remote Desktop client for macOS (version 10.7.0 or later) supports screen capture protection for both RemoteApps and full desktops.
 
 ## Configure screen capture protection
 
 To configure screen capture protection:
 
-1. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the cab file and zip archive.
+1. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (*AVDGPTemplate.cab*). You can use File Explorer to open *AVDGPTemplate.cab*, then extract the zip archive inside the *AVDGPTemplate.cab* file to a temporary location.
 2. Copy the **terminalserver-avd.admx** file to the **%windir%\PolicyDefinitions** folder.
 3. Copy the **en-us\terminalserver-avd.adml** file to the **%windir%\PolicyDefinitions\en-us** folder.
 4. To confirm the files copied correctly, open the Group Policy Editor and go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see one or more Azure Virtual Desktop policies, as shown in the following screenshot.
 
-   :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor" lightbox="media/azure-virtual-desktop-gpo.png":::
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
    > [!TIP]
    > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
    > For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-5. Finally, open the **"Enable screen capture protection"** policy and set it to **"Enabled"**.
+5. Open the **"Enable screen capture protection"** policy and set it to **"Enabled"**. 
+6. To configure screen capture for client and server, set the **"Enable screen capture protection"** policy to **"Block Screen capture on client and server"**. By default, the policy will be set to **"Block Screen capture on client"**. 
+
+   >[!NOTE]
+   >You can only use screen capture protection on session host VMs that use Windows 11, version 22H2 or later.
 
 ## Limitations and known issues
 

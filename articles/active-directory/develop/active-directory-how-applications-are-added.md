@@ -2,7 +2,7 @@
 title: How and why apps are added to Azure AD
 description: What does it mean for an application to be added to Azure AD and how do they get there?
 services: active-directory
-author: rwike77
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/26/2022
-ms.author: ryanwi
+ms.author: cwerner
 ms.custom: aaddev, engagement-fy23
 ms.reviewer: lenalepa, sureshja
 ---

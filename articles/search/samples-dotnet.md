@@ -45,7 +45,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 | Code sample | Related article  | Purpose |
 |-------------|------------------|---------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | [Quickstart: Create a search index](search-get-started-dotnet.md) | Covers the basic workflow for creating, loading, and querying a search index in C# using sample data. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) | [Quickstart: Create a search index](search-get-started-dotnet.md) | Covers the basic workflow for creating, loading, and querying a search index in C# using sample data. |
 | [search-website](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/search-website-functions-v4) | [Tutorial: Add search to web apps](tutorial-csharp-overview.md) | Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [How to use the .NET client library](search-howto-dotnet-sdk.md) | Steps through the basic workflow, but in more detail and with discussion of API usage.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md) | Synonym lists are used for query expansion, providing matchable  terms that are external to an index. |
@@ -54,7 +54,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)  | [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). | Merges content from two data sources into one search index.
 | [Optimize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) | [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md).| Demonstrates optimization techniques for pushing data into a search index. |
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | [Tutorial: AI-generated searchable content from Azure blobs](cognitive-search-tutorial-blob-dotnet.md) | Shows how to configure an indexer and skillset. |
-| [Create your first app in C#](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) |  [Tutorial: Create your first search app](tutorial-csharp-create-first-app.md) | While most samples are console applications, this MVC sample uses a web page to front the sample Hotels index, demonstrating basic search, pagination, autocomplete and suggested queries, facets, and filters.|
+| [create-mvc-app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-mvc-app) |  [Tutorial: Add search to an ASP.NET Core (MVC) app](tutorial-csharp-create-mvc-app.md) | While most samples are console applications, this MVC sample uses a web page to front the sample Hotels index, demonstrating basic search, pagination, and other server-side behaviors.|
 
 ## Other samples
 

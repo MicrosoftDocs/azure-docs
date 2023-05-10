@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with HRworks Single Sign-On | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with HRworks Single Sign-On'
 description: Learn how to configure single sign-on between Azure Active Directory and HRworks Single Sign-On.
 services: active-directory
 author: jeevansd

@@ -5,7 +5,7 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/19/2023
 ms.author: halkazwini 
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you decide to install and use PowerShell locally instead, this quickstart requires you to use Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. For installation and upgrade information, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you decide to install and use PowerShell locally instead, this article requires you to use Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. For installation and upgrade information, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 Finally, if you're running PowerShell locally, you'll also need to run `Connect-AzAccount`. That command creates a connection with Azure.
 
@@ -60,7 +60,6 @@ Get-AzPeeringServiceLocation -Country "United States"
 ```
 
 Use [Get-AzPeeringServiceProvider](/powershell/module/az.peering/get-azpeeringserviceprovider) to get a list of available [Peering Service providers](location-partners.md):
-              
 ```azurepowershell-interactive
 Get-AzPeeringServiceProvider
 ```

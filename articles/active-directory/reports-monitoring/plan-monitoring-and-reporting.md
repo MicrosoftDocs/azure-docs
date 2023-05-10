@@ -1,6 +1,6 @@
 ---
 
-title: Plan reports & monitoring deployment - Azure AD
+title: Plan reports & monitoring deployment
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
 author: gargi-sinha
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/19/2022
+ms.date: 01/20/2023
 ms.author: sarahlipsey
 ms.reviewer: plenzke 
 # Customer intent: For an Azure AD administrator to monitor logs and report on access 
@@ -119,7 +119,7 @@ Learn more:
 #### Stream logs to storage and SIEM tools
 
 * [Integrate Azure AD logs with Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
-* [Analyze Azure AD activity logs with Azure Monitor logs](/MicrosoftDocs/azure-docs/blob/main/articles/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
+* [Analyze Azure AD activity logs with Azure Monitor logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
 * Learn how to [stream logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * Learn how to [Archive Azure AD logs to an Azure Storage account](./quickstart-azure-monitor-route-logs-to-storage-account.md).
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)

@@ -4,11 +4,8 @@ description: In this article, you learn how to connect virtual networks with vir
 services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
-
 tags: azure-resource-manager
 # Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to

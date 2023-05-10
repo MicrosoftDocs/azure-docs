@@ -2,14 +2,16 @@
 title: Manage consent to applications and evaluate consent requests
 description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
 services: active-directory
-author: psignoret
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/14/2022
-ms.author: phsignor
+ms.author: jomondi
+ms.reviewer: phsignor
+ms.custom: enterprise-apps
 ---
 
 # Manage consent to applications and evaluate consent requests

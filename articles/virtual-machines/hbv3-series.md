@@ -4,7 +4,7 @@ description: Specifications for the HBv3-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ---
 
@@ -35,11 +35,11 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 |Standard_HB120-16rs_v3 |16  |AMD EPYC 7V73X |448 |350 |1.9 |3.0 |3.5 |200 |All |2 * 960 |32 |8 |
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hbv3-series-overview.md)
-- Supported [software stack](./workloads/hpc/hbv3-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv3-performance.md) of the HBv3-series VM
+- [Architecture and VM topology](hbv3-series-overview.md)
+- Supported [software stack](hbv3-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hbv3-performance.md) of the HBv3-series VM
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

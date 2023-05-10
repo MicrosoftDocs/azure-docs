@@ -8,7 +8,6 @@ ms.date: 08/31/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices

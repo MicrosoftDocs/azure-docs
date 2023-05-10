@@ -3,8 +3,8 @@ title: Azure Policy applicability logic
 description: Describes the rules Azure Policy uses to determine whether the policy is applied to its assigned resources.
 ms.date: 09/22/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # What is applicability in Azure Policy?
 
@@ -53,6 +53,11 @@ Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condit
 - Microsoft.KeyVault.Data/vaults/certificates
 - Microsoft.KeyVault.Data/vaults/keys
 - Microsoft.KeyVault.Data/vaults/secrets
+
+### Microsoft.ManagedHSM.Data
+
+Policies with mode `Microsoft.ManagedHSM.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type: 
+- Microsoft.ManagedHSM.Data/managedHsms/keys
 
 ### Microsoft.Network.Data
 

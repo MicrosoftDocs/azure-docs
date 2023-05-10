@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TransPerfect GlobalLink Dashboard | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TransPerfect GlobalLink Dashboard'
 description: Learn how to configure single sign-on between Azure Active Directory and TransPerfect GlobalLink Dashboard.
 services: active-directory
 author: jeevansd

@@ -80,7 +80,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 }
 ```
 
-### Notes
+### Limitations
 Known issues on Linux:
 1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
 2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
@@ -125,6 +125,9 @@ Known issues on Linux:
   ]
 }
 ```
+
+### Limitations
+Currently, the Windows agent doesn't reduce memory pressure when other applications increase their memory usage. If the overall memory usage exceeds 100%, the Windows agent may crash.
 
 ## Virtual memory pressure
 
@@ -305,18 +308,18 @@ Known issues on Linux:
 }
 ```
 
-## Stop Windows service
+## Stop service
 
 | Property | Value |
 |-|-|
 | Capability Name | StopService-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
-| Description | Uses the Windows Service Controller APIs to stop a Windows service during the fault, restarting it at the end of the duration or if the experiment is canceled. |
+| Supported OS Types | Windows, Linux |
+| Description | Stops a Windows service or a Linux systemd service during the fault, restarting it at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
-| serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names aren't supported. |
+| serviceName | The name of the Windows service or Linux systemd service you want to stop. |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
@@ -344,6 +347,10 @@ Known issues on Linux:
   ]
 }
 ```
+
+### Limitations
+* Windows: service friendly names aren't supported. Use `sc.exe query` in the command prompt to explore service names.
+* Linux: other service types besides systemd, like sysvinit, aren't supported.
 
 ## Time change
 
@@ -486,9 +493,9 @@ Known issues on Linux:
 |-|-|
 | Capability Name | NetworkLatency-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS Types | Windows, Linux |
 | Description | Increases network latency for a specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | (Windows) Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
@@ -535,9 +542,9 @@ Known issues on Linux:
 |-|-|
 | Capability Name | NetworkDisconnect-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS Types | Windows, Linux |
 | Description | Blocks outbound network traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | (Windows) Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
@@ -760,6 +767,9 @@ Configuring the shutdown fault:
   ]
 }
 ```
+
+### Limitations
+Currently, only Virtual Machine Scale Sets configured with the **Uniform** orchestration mode are supported. If your Virtual Machine Scale Set uses **Flexible** orchestration, you can use the ARM virtual machine shutdown fault to shut down selected instances.
 
 ## Azure Cosmos DB failover
 
@@ -1157,12 +1167,12 @@ Configuring the shutdown fault:
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
 | Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
-| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers aren't supported. |
+| Prerequisites | N/A |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
 | Fault type | Discrete |
 | Parameters (key, value) |  |
 | rebootType | The node types where the reboot action is to be performed which can be specified as PrimaryNode, SecondaryNode or AllNodes.  |
-| shardId | The ID of the shard to be rebooted.  |
+| shardId | The ID of the shard to be rebooted. Only relevant for Premium Tier caches. |
 
 ### Sample JSON
 
@@ -1224,7 +1234,42 @@ Configuring the shutdown fault:
 }
 ```
 
+## Disable Autoscale
+
+| Property | Value |
+| --- | --- |
+| Capability name | DisaleAutoscale |
+| Target type | Microsoft-AutoscaleSettings |
+| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as Virtual Machine Scale Sets, Web apps, Service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application.
+| Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio.
+| Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
+| Fault type | Continuous |
+| Parameters (key, value) |   |
+| enableOnComplete | Boolean. Configures whether autoscaling will be re-enabled once the action is done. Default is `true`. |
+
+
+```json
+{
+  "name": "BranchOne", 
+  "actions": [ 
+    { 
+    "type": "continuous", 
+    "name": "urn:csci:microsoft:autoscaleSetting:disableAutoscale/1.0", 
+    "parameters": [ 
+     { 
+      "key": "enableOnComplete", 
+      "value": "true" 
+      }                 
+  ],                                 
+   "duration": "PT2M", 
+   "selectorId": "Selector1",           
+  } 
+ ] 
+} 
+```
+
 ## Key Vault Deny Access
+
 | Property | Value |
 |-|-|
 | Capability Name | DenyAccess-1.0 |
@@ -1246,6 +1291,169 @@ Configuring the shutdown fault:
       "type": "continuous",
       "name": "urn:csci:microsoft:keyvault:denyAccess/1.0",
       "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Key Vault Disable Certificate
+
+
+| Property  | Value |
+| ---- | --- |
+| Capability Name | DisableCertificate-1.0 |
+| Target Type | Microsoft-KeyVault |
+| Description | Using certificate properties, fault will disable the certificate for specific duration (provided by user) and enables it after this fault duration. |
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault. |
+| Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
+| Fault Type | Continuous |
+| Parameters (key, value) | |
+| certificateName | Name of AKV certificate on which fault will be executed |
+| version | The certificate version that should be updated; if not specified, the latest version will be updated. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:disableCertificate/1.0",
+      "parameters": [
+        {
+            "key": "certificateName",
+            "value": "<name of AKV certificate>"
+        },
+        {
+            "key": "version",
+            "value": "<certificate version>"
+        }
+
+],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Key Vault Increment Certificate Version
+	
+| Property  | Value |
+| ---- | --- |
+| Capability Name | IncrementCertificateVersion-1.0 |
+| Target Type | Microsoft-KeyVault |
+| Description | Generates new certificate version and thumbprint using the Key Vault Certificate client library. Current working certificate will be upgraded to this version. |
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault. |
+| Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
+| Fault Type | Discrete |
+| Parameters (key, value) | |
+| certificateName | Name of AKV certificate on which fault will be executed |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0",
+      "parameters": [
+        {
+            "key": "certificateName",
+            "value": "<name of AKV certificate>"
+        }
+    ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Key Vault Update Certificate Policy
+
+| Property  | Value |        
+| ---- | --- |  
+| Capability Name | UpdateCertificatePolicy-1.0        |
+| Target Type | Microsoft-KeyVault        |
+| Description | Certificate policies (examples: certificate validity period, certificate type, key size, or key type) are updated based on the user input and reverted after the fault duration.        |
+| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault.       |
+| Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
+| Fault Type | Continuous        |
+| Parameters (key, value) |     |    
+| certificateName | Name of AKV certificate on which fault will be executed |
+| version | The certificate version that should be updated; if not specified, the latest version will be updated. |
+| enabled | Bool. Value indicating whether the new certificate version will be enabled  |
+| validityInMonths | The validity period of the certificate in months  |
+| certificateTransparency | Indicates whether the certificate should be published to the certificate transparency list when created  |
+| certificateType | the certificate type |
+| contentType | The content type of the certificate, eg Pkcs12 when the certificate contains raw PFX bytes, or Pem when it contains ASCII PEM-encoded btes. Pkcs12 is the default value assumed |
+| keySize | The size of the RSA key: 2048, 3072, or 4096 |
+| exportable | Boolean. Value indicating if the certificate key is exportable from the vault or secure certificate store |
+| reuseKey | Boolean. Value indicating if the certificate key should be reused when rotating the certificate|
+| keyType | The type of backing key to be generated when issuing new certificates: RSA or EC |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0",
+      "parameters": [
+        {
+            "key": "certificateName",
+            "value": "<name of AKV certificate>"
+        },
+        {
+            "key": "version",
+            "value": "<certificate version>"
+        },
+        {
+            "key": "enabled",
+            "value": "True"
+        },
+        {
+            "key": "validityInMonths",
+            "value": "12"
+        },
+        {
+            "key": "certificateTransparency",
+            "value": "True"
+        },
+        {
+            "key": "certificateType",
+            "value": "<certificate type>"
+        },
+        {
+            "key": "contentType",
+            "value": "Pem"
+        },
+        {
+            "key": "keySize",
+            "value": "4096"
+        },
+                {
+            "key": "exportable",
+            "value": "True"
+        },
+        {
+            "key": "reuseKey",
+            "value": "False"
+        },
+        {
+            "key": "keyType",
+            "value": "RSA"
+        }
+
+     ],
       "duration": "PT10M",
       "selectorid": "myResources"
     }

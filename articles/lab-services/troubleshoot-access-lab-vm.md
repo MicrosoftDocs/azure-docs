@@ -14,6 +14,12 @@ ms.date: 12/05/2022
 
 In this article, you learn about the different approaches for troubleshooting lab VMs. Understand how each approach affects your lab environment and user data on the lab VM. There can be different reasons why you're unable to connect to a lab VM in Azure Lab Services, or why you're stuck to complete a course. For example, the underlying VM is experiencing issues, your organization's firewall settings have changed, or a software change in the lab VM operating system.
 
+## Prerequisites
+
+- To change settings for the lab plan, your Azure account needs the Owner or Contributor Azure Active Directory role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+
+- To redeploy or reset a lab VM, you need to be either the lab user that is assigned to the VM, or your Azure account has the Owner, Contributor, Lab Creator, Lab Contributor, or Lab Operator role. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+
 ## Symptoms
 
 To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or Secure Shell (SSH). You may experience difficulties to access your lab VM:
@@ -45,9 +51,9 @@ To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or S
 
 When you create a new lab from an exported lab VM image, perform the following steps:
 
-1. Reuse the same credentials as the original template VM when creating the new lab.
+1. Reuse the same credentials that were used in the original, exported, template VM.
 
-1. After the lab creation finishes, you can [reset the username and password](./how-to-set-virtual-machine-passwords.md).
+1. After the lab creation finishes, you can [reset the password](./how-to-set-virtual-machine-passwords.md).
 
 ### After logging in, the lab VM is not working correctly
 
@@ -88,9 +94,9 @@ As students use a lab VM to advance through a course, they might get stuck at sp
 
 Learn how to [set up a new lab](./tutorial-setup-lab.md#create-a-lab) and how to [create and manage templates](./how-to-create-manage-template.md).
 
-## Contact us for help
+## Advanced troubleshooting
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot), or ask [Azure community support](/answers/topics/azure-labservices.html).
+[!INCLUDE [contact Azure support](includes/lab-services-contact-azure-support.md)]
 
 ## Next steps
 

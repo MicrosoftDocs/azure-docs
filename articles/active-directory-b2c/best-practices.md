@@ -39,6 +39,8 @@ Define your application and service architecture, inventory current systems, and
 | Usability vs. security | Your solution must strike the right balance between application usability and your organization's acceptable level of risk. |
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
+| Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
+|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1.25 million objects (user accounts and applications). You can increase this limit to 5.25 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
 | Use Identity Protection and Conditional Access | Use these capabilities for greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation
@@ -86,5 +88,6 @@ Stay up to date with the state of the service and find support options.
 | Best practice | Description |
 |--|--|
 | [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Stay up to date with Azure AD B2C product updates and announcements. |
-| [Microsoft Support](support-options.md) | File a support request for Azure AD B2C technical issues. Billing and subscription management support is provided at no cost. |
+| [Microsoft Support](find-help-open-support-ticket.md) | File a support request for Azure AD B2C technical issues. Billing and subscription management support is provided at no cost. |
 | [Azure status](https://azure.status.microsoft/status) | View the current health status of all Azure services. |
+

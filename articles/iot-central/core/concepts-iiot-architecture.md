@@ -62,7 +62,7 @@ Extend your IIoT solution by using the following IoT Central features:
 
 - Use the REST APIs to extend your solution in companion experiences and to automate interactions.
 
-- Use data export to stream data from your industrial assets to other services. Data export can enrich messages, use filters, and transform the data. These capabilities can deliver business insights to industrial operators. For example, see the [IoT Central sample for calculating overall equipment effectiveness (OEE) of industrial equipment](https://github.com/Azure/iot-central-industrial-OEE).
+- Use data export to stream data from your industrial assets to other services. Data export can enrich messages, use filters, and transform the data. These capabilities can deliver business insights to industrial operators.
 
 :::image type="content" source="media/concepts-iiot-architecture/iiot-export.png" alt-text="Diagram that shows the I O T Central data export process." border="false":::
 

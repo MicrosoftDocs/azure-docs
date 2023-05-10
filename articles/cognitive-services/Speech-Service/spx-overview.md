@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 09/16/2022
 ms.author: eur
-ms.custom: devx-track-azurecli
 ---
 
 # What is the Speech CLI?

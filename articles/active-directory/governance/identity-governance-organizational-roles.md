@@ -1,5 +1,5 @@
 ---
-title: Govern access with an organizational role model - Azure AD
+title: Govern access with an organizational role model
 description: Microsoft Entra Identity Governance allows you to model organizational roles using access packages, so you can migrate your existing role definitions to entitlement management.
 services: active-directory
 documentationcenter: ''
@@ -31,7 +31,7 @@ This article discusses how to model organizational roles, using entitlement mana
 
 ## Migrating an organizational role model
 
-The following table illustrates how concepts in organizational role definitions you might be familiar with in other products correspond to capabilities in Entra Identity Governance entitlement management.
+The following table illustrates how concepts in organizational role definitions you might be familiar with in other products correspond to capabilities in entitlement management.
 
 | Concept in organizational role modeling | Representation in Entitlement Management |
 | --- | --- |

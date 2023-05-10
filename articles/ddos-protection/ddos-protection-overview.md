@@ -2,15 +2,13 @@
 title: Azure DDoS Protection Overview
 description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2023
 ms.author: abell
-ms.custom: references_regions
+ms.custom: ignite-2022, references_regions
 ---
 
 # What is Azure DDoS Protection?
@@ -20,21 +18,6 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes.
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
-## Region Availability
-
-DDoS IP Protection is currently available in the following regions.
-
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific        |
-|------------------|----------------------|---------------|--------------------|---------------------|
-| West Central US  | France Central       | UAE Central   | South Africa North | Australia Central   |
-| North Central US | Germany West Central | Qatar Central |                    | Korea Central       |
-| West US          | Switzerland North    |               |                    | Japan East          |
-| West US 3        | France South         |               |                    | West India          |
-|                  | Norway East          |               |                    | Jio India Central    |
-|                  | Sweden Central       |               |                    | Australia Central 2 |
-|                  | Germany North        |               |                    |                     |
-
-
 
 ## Key benefits
 
@@ -52,7 +35,7 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
  
 ## SKU
 
-Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection Preview and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
+Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
 
 
 ### Native platform integration
@@ -68,7 +51,7 @@ When deployed with a web application firewall (WAF), Azure DDoS Protection prote
  All L3/L4 attack vectors can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
 
 ### Attack analytics
-Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
+Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
 
 ### Attack metrics
  Summarized metrics from each attack are accessible through Azure Monitor. See [View and configure DDoS protection telemetry](telemetry.md) to learn more.

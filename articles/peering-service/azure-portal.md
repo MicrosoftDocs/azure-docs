@@ -1,12 +1,12 @@
 ---
 title: Create, change, or delete a Peering Service connection - Azure portal
-description: Learn how to create, change, or delete a Peering Service connection using the Azure portal
+description: Learn how to create, change, or delete a Peering Service connection using the Azure portal.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
 ms.workload: Infrastructure-services
-ms.date: 01/13/2023
+ms.date: 01/19/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -86,7 +86,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    - Prefix received with longer AS path(>3), contact Peering Service provider.
    - Prefix received with private AS in the path, contact Peering Service provider.
 
-### Add or remove a prefix
+## Add or remove a prefix
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
@@ -99,7 +99,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 > [!NOTE]
 > You can't modify an existing prefix.
 
-### Delete a Peering Service connection
+## Delete a Peering Service connection
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
@@ -114,3 +114,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 - To learn more about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 - To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+

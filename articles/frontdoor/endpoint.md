@@ -4,7 +4,7 @@ description: Learn about endpoints when using Azure Front Door.
 services: frontdoor
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/22/2022
 ms.author: jodowns

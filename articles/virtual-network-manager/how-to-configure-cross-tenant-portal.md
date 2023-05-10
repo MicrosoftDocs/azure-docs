@@ -5,17 +5,23 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
-ms.date: 09/19/2022
+ms.date: 03/22/2023
 ms.custom: template-how-to 
 #customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
 
 # Configure a cross-tenant connection in Azure Virtual Network Manager Preview - portal
 
-In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the Azure portal. First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants to your network group and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from a single network manager.
+In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the Azure portal. Cross-tenant support allows organizations to use a central network manager for managing virtual networks across tenants and subscriptions.
+
+First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants to your network group and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from a single network manager.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview. We provide this preview version without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -35,10 +41,12 @@ Creation of the scope connection begins on the central management tenant with a 
 
 In this task, you set up a scope connection to add a subscription from a target tenant:
 
-1. Go to Azure Virtual Network Manager.
+1. Log in to the Azure portal on the central management tenant.
+1. Search for **Virtual network managers" and select your network manager from the list.
 1. Under **Settings**, select **Cross-tenant connections**, and then select **Create cross-tenant connection**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-cross-tenant-connection.png" alt-text="Screenshot of cross-tenant connections in a network manager.":::
+
 1. On the **Create a connection** page, enter the connection name and target tenant information, and then select **Create**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-connection-settings.png" alt-text="Screenshot of settings entered to create a connection.":::
@@ -48,13 +56,15 @@ In this task, you set up a scope connection to add a subscription from a target 
 
 After you create the scope connection, switch to the target managed tenant. Connect to the target managed tenant by creating another cross-tenant connection in the **Virtual Network Manager** hub:
 
-1. In the target tenant, search for **virtual network manager** and select **Virtual Network Manager**.
-1. Under **Virtual network manager**, select **Cross-tenant connections**.
+1. In the target tenant, search for **Virtual network manager** and select **Virtual Network Managers**.
+1. Under **Virtual Network Manager**, select **Cross-tenant connections**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/virtual-network-manager-overview.png" alt-text="Screenshot of network managers in Virtual Network Manager on a target tenant.":::
-1. Select **Create a connection**.
+
+1. Select **+ Create** or **Create a connection**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-connection-target.png" alt-text="Screenshot of the pane for cross-tenant connections.":::
+
 1. On the **Create a connection** page, enter the information for your central management tenant, and then select **Create**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-connection-settings-target.png" alt-text="Screenshot of settings for creating a cross-tenant connection.":::
@@ -80,7 +90,8 @@ Now, add virtual networks from both tenants into a network group for static memb
 1. On the **Manually add members** page, select **Tenant:...** next to the search box, select the linked tenant from the list, and then select **Apply**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/select-target-tenant-network-group.png" alt-text="Screenshot of available tenants to choose for static network group membership.":::
-1. To view the available virtual networks from the target managed tenant, select **authenticate** and proceed through the authentication process. If you have multiple Azure accounts, select the one you're currently signed in with that has permissions to the target managed tenant.
+
+1. To view the available virtual networks from the target managed tenant, select **Authenticate** and proceed through the authentication process. If you have multiple Azure accounts, select the one you're currently signed in with that has permissions to the target managed tenant.
 1. Select the virtual networks to include in the network group, and then select **Add**.
 
 ## Verify group members

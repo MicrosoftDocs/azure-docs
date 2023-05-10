@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Academy Attendance | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Academy Attendance"
 description: Learn how to configure single sign-on between Azure Active Directory and Academy Attendance.
 services: active-directory
 author: jeevansd

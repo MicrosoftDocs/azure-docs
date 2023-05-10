@@ -4,11 +4,9 @@ description: Create your first Azure Resource Manager template (ARM template). I
 author: mumian
 ms.date: 06/15/2022
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
-
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Azure Resource Manager templates, so I can use them to deploy Azure resources.
-
 ---
 
 # Tutorial: Create and deploy your first ARM template

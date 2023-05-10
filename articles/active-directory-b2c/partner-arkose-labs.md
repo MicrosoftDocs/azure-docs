@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/4/2023
+ms.date: 01/18/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---

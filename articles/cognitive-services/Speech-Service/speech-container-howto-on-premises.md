@@ -76,7 +76,7 @@ textToSpeech:
   optimizeForTurboMode: true
   image:
     registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speechservices/speech-to-text
+    repository: azure-cognitive-services/speechservices/text-to-speech
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -234,7 +234,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://v2.helm.sh/docs/helm/#helm-test
-[ms-helm-hub]: https://hub.helm.sh/charts/microsoft
+[ms-helm-hub]: https://artifacthub.io/packages/search?repo=microsoft
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 
 <!-- LINKS - internal -->

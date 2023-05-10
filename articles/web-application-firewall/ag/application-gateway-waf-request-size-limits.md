@@ -7,7 +7,6 @@ ms.service: web-application-firewall
 ms.date: 07/26/2022
 ms.author: victorh
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Web Application Firewall request size limits

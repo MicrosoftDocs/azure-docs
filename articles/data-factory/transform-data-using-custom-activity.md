@@ -7,7 +7,7 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: synapse
 ms.date: 09/22/2022
 ---
 

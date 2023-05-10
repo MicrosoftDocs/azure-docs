@@ -1,7 +1,7 @@
 ---
 title: 'How to use the Codex models to work with code'
-titleSuffix: Azure OpenAI
-description: Learn how to use the Codex models on the Azure OpenAI Service to handle a variety of coding tasks
+titleSuffix: Azure OpenAI Service
+description: Learn how to use the Codex models on Azure OpenAI to handle a variety of coding tasks
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -13,7 +13,7 @@ ms.author: chrhoder
 keywords: 
 ---
 
-# Codex models and Azure OpenAI
+# Codex models and Azure OpenAI Service
 
 The Codex model series is a descendant of our GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
@@ -27,7 +27,7 @@ You can use Codex for a variety of tasks including:
 
 ## How to use the Codex models
 
-Here are a few examples of using Codex that can be tested in the [Azure OpenAI Studio's](https://oai.azure.com) playground with a deployment of a Codex series model, such as `code-davinci-002`.
+Here are a few examples of using Codex that can be tested in [Azure OpenAI Studio's](https://oai.azure.com) playground with a deployment of a Codex series model, such as `code-davinci-002`.
 
 ### Saying "Hello" (Python)
 

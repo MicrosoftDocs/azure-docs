@@ -58,19 +58,9 @@ Select the **Add to pipeline** button on the upper right corner to add a noteboo
 
 ### Designate a parameters cell
 
-# [Classic notebook](#tab/classical)
-
-To parameterize your notebook, select the ellipses (...) to access the other cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
-
-[![screenshot-showing-toggle-parameter](./media/synapse-notebook-activity/toggle-parameter-cell.png)](./media/synapse-notebook-activity/toggle-parameter-cell.png#lightbox)
-
-# [Preview notebook](#tab/preview)
-
 To parameterize your notebook, select the ellipses (...) to access the **more commands** at the cell toolbar. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
 [![screenshot-showing-azure-notebook-toggle-parameter](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png)](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png#lightbox)
-
----
 
 Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
@@ -107,10 +97,6 @@ You can reference other notebooks in a Synapse notebook activity via calling [%r
 
 - [%run magic](./spark/apache-spark-development-using-notebooks.md#notebook-reference) copies all cells from the referenced notebook to the %run cell and shares the variable context. When notebook1 references notebook2 via `%run notebook2` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function, the cell execution in notebook1 will be stopped. We recommend you use %run magic when you want to "include" a notebook file.
 - [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md#notebook-utilities) calls the referenced notebook as a method or a function. The variable context isn't shared. When notebook1 references notebook2 via `mssparkutils.notebook.run("notebook2")` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function, the cell execution in notebook1 will continue. We recommend you use mssparkutils notebook utilities when you want to  "import" a notebook.
-
->[!Note]
-> Run another Synapse notebook from a Synapse pipeline will only work for a notebook with Preview enabled.
-
 
 ## See notebook activity run history
 
@@ -170,7 +156,7 @@ Here's the sample JSON definition of a Synapse notebook activity:
 Here's the sample JSON of a Synapse notebook activity output:
 
 ```json
-
+{
 {
     "status": {
         "Status": 1,
@@ -214,3 +200,5 @@ Here's the sample JSON of a Synapse notebook activity output:
 }
 
 ```
+## Known issues
+If the notebook name is parametrized in the Pipeline Notebook activity, then the notebook version in unpublished status can't be referenced in the debug runs.

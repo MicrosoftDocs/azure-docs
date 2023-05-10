@@ -64,6 +64,7 @@ Unless specified otherwise, a model is generally available.
     * Textless slate detection, including scene matching.
 
     For details, see [Slate detection](slate-detection-insight.md).
+* **Textual logo detection** (preview): Matches a specific predefined text using Azure Video Indexer OCR. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. For more information, see [Detect textual logo](detect-textual-logo.md).
 
 ### Audio models
 
@@ -114,6 +115,7 @@ To learn about compliance, privacy and security in Azure Video Indexer please vi
 
 You're ready to get started with Azure Video Indexer. For more information, see the following articles:
 
+- [Indexing and configuration guide](indexing-configuration-guide.md)
 - [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
 - [Get started with the Azure Video Indexer website](video-indexer-get-started.md).
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).

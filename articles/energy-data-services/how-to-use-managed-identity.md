@@ -1,152 +1,159 @@
 ---
-title: Use managed identities for Microsoft Energy Data Services on Azure	
-description: Learn how to use Managed Identity to access Microsoft Energy Data Services from other Azure services. 
+title: Use managed identities for Microsoft Azure Data Manager for Energy Preview on Azure	
+description: Learn how to use a managed identity to access Azure Data Manager for Energy Preview from other Azure services. 
 author: sandeepchads
 ms.author: sancha
 ms.service: energy-data-services	
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.custom: template-how-to
-#Customer intent: As a developer, I want to use managed identity to access Microsoft Energy Data Services from other Azure services such as Azure Functions.
+#Customer intent: As a developer, I want to use a managed identity to access Azure Data Manager for Energy Preview from other Azure services, such as Azure Functions.
 ---
 
 
-# Use managed identity to access Microsoft Energy Data Services from other Azure services
+# Use a managed identity to access Azure Data Manager for Energy Preview from other Azure services
 
-This article provides an overview on how to access data plane or control plane of Microsoft Energy Data Services from other Microsoft Azure Services using *managed identity*.
+This article describes how to access the data plane or control plane of Azure Data Manager for Energy Preview from other Microsoft Azure services by using a *managed identity*.
 
-There's a need for services such as Azure Functions etc. to be able to consume Microsoft Energy Data Services APIs. This interoperability will allow you to use the best of multiple Azure services, for example, you can write a script in Azure Function to ingest data in Microsoft Energy Data Services. Here, we should assume that Azure Functions is the source service while Microsoft Energy Data Services is the target service. To understand how this scenario works, it's important to understand the concept of managed identity.
+There's a need for services such as Azure Functions to be able to consume Azure Data Manager for Energy Preview APIs. This interoperability allows you to use the best capabilities of multiple Azure services. 
 
-## Managed Identity 
+For example, you can write a script in Azure Functions to ingest data in Azure Data Manager for Energy Preview. In that scenario, you should assume that Azure Functions is the source service and Azure Data Manager for Energy Preview is the target service. 
 
-A managed identity from Azure Active Directory (Azure AD) allows your application to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to create or rotate any secrets. Any Azure service that wants to access Microsoft Energy Data Services control plane or data plane for any operation can use managed identity to do so. 
+This article walks you through the five main steps for configuring Azure Functions to access Azure Data Manager for Energy Preview.
 
-Managed identity is of two types. It could be a system assigned managed identity or user assigned managed identity. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+## Overview of managed identities 
 
-Currently, other services can connect to Microsoft Energy Data Services using system or user assigned managed identity. However, Microsoft Energy Data Services doesn't support system assigned managed identity.
+A managed identity from Azure Active Directory (Azure AD) allows your application to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to create or rotate any secrets. Any Azure service that wants to access Azure Data Manager for Energy Preview control plane or data plane for any operation can use a managed identity to do so. 
 
-For this scenario, we'll use a user assigned managed identity in Azure Function to call a data plane API in Microsoft Energy Data Services.
+There are two types of managed identities:
 
-## Pre-requisites
+- *System-assigned* managed identities have their lifecycle tied to the resource that created them. 
+- *User-assigned* managed identities can be used on multiple resources. 
 
-Before you begin, make sure:
+To learn more about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
-* You've created a [Microsoft Energy Data Services instance](quickstart-create-microsoft-energy-data-services-instance.md).
+Currently, other services can connect to Azure Data Manager for Energy Preview by using a system-assigned or user-assigned managed identity. However, Azure Data Manager for Energy Preview doesn't support system-assigned managed identities.
 
-* You've created a [Azure Function App](../azure-functions/functions-create-function-app-portal.md).
+For the scenario in this article, you'll use a user-assigned managed identity in Azure Functions to call a data plane API in Azure Data Manager for Energy Preview.
 
-* You've created a [Python Azure Function using portal](../azure-functions/create-first-function-vs-code-python.md) or using [command line.](../azure-functions/create-first-function-cli-python.md)
+## Prerequisites
 
-* You've created [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). You can create a system assigned identity as well however, this document will explain the flow using user assigned managed identity.
+Before you begin, create the following resources:
+
+* [Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
+
+* [Azure function app](../azure-functions/functions-create-function-app-portal.md)
+
+* Python-based Azure function, by using the [Azure portal](../azure-functions/create-first-function-vs-code-python.md) or the [command line](../azure-functions/create-first-function-cli-python.md)
+
+* [User-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 
-## Steps for Azure Functions to access Microsoft Energy Data Services using Managed Identity
+## Step 1: Retrieve the object ID 
 
-There are five important steps to configure Azure Functions to access Microsoft Energy Data Services.
+To retrieve the object ID for the user-assigned identity that will access the Azure Data Manager for Energy Preview APIs:
 
-
-### Step 1: Retrieve the Object ID of system or user-assigned identity that wants to access the Microsoft Energy Data Services APIs.
-
-1.	You can get the *Object ID* of system assigned identity associated with Azure Functions by navigating to *Identity* screen of the Azure Function. 
-
-[![Screenshot of object id for system assigned identity.](media/how-to-use-managed-identity/1-object-id-system-assigned-identity.png)](media/how-to-use-managed-identity/1-object-id-system-assigned-identity.png#lightbox) 
- 
-2.	Similarly, navigate to the *Overview* tab of the user assigned identity to find its *Object ID*.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Go to the managed identity, and then select **Overview**.
+3. Under **Essentials**, note the **Object (principal) ID** value. 
   
-[![Screenshot of object id for user assigned identity.](media/how-to-use-managed-identity/2-object-id-user-assigned-identity.png)](media/how-to-use-managed-identity/2-object-id-user-assigned-identity.png#lightbox)
+[![Screenshot of the object ID for a user-assigned identity.](media/how-to-use-managed-identity/2-object-id-user-assigned-identity.png)](media/how-to-use-managed-identity/2-object-id-user-assigned-identity.png#lightbox)
 
-### Step 2. Retrieve the *Application ID* of system or user-assigned identity using the Object ID.
+## Step 2: Retrieve the application ID
 
-1.	Navigate to *Azure Active Directory (Azure AD)* in Azure
-2.	Navigate to *Enterprise Application* tab.
-3.	Search for the *Object ID* of the user assigned identity or system assigned identity in the *Search by application name or Object ID* search box.
-4.	Copy the *Application ID* from Enterprise Application section of Azure Active Directory.
+Retrieve the application ID of the user-assigned identity by using the object ID:
+
+1. In the Azure portal, go to **Azure Active Directory**.
+2. On the left menu, select **Enterprise applications**.
+3. In the **Search by application name or object ID** box, enter the object ID.
+4. For the application that appears in the results, note the **Application ID** value.
  
-[![Screenshot of Application Id for user assigned identity.](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png)](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png#lightbox)
+[![Screenshot of the application ID for a user-assigned identity.](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png)](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png#lightbox)
 
-### Step 3: Add the user assigned managed identity to Azure Functions
+## Step 3: Add the user-assigned managed identity to Azure Functions
 
-1.	Sign in to the Azure portal.
-2.	In the Azure portal, navigate to your Azure Function.
-3.	Under Account Settings, select Identity.
-4.	Select the User assigned tab, and then select Add.
-5.	Select your existing user-assigned managed identity and then select Add. You'll then be returned to the User assigned tab.
+1. In the Azure portal, go to your Azure function.
+2. Under **Account Settings**, select **Identity**.
+3. Select the **User assigned** tab, and then select **Add**.
+4. Select your existing user-assigned managed identity, and then select **Add**. You're then returned to the **User assigned** tab.
  
-[![Screenshot of adding user assigned identity to Azure Function.](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png)](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png#lightbox)
+[![Screenshot of a newly added user-assigned identity to an Azure function.](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png)](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png#lightbox)
 
-### Step 4: Add the application ID to entitlement groups to access Microsoft Energy Data Services APIs
-Next, you need to add this Application ID to appropriate groups using the entitlement service to access Microsoft Energy Data Services APIs. You need to perform the following actions: 
+## Step 4: Add the application ID to entitlement groups 
 
-1.	Find the tenant-id, client-id, client-secret, Microsoft Energy Data Services url, and data partition-id and generate the [access token](how-to-manage-users.md#prerequisites). You should have the following information handy with you:
-
-* tenant-id
-* client-id
-* client-secret
-* microsoft energy data services uri
-* data-partition-id
-* access token
-* Application ID of the managed identity
-
-
-2.	Next, use the [add-member-api](https://microsoft.github.io/meds-samples/rest-apis/index.html?page=/meds-samples/rest-apis/entitlements_openapi.yaml#/add-member-api/addMemberUsingPOST) to add the Application ID of the user managed identity to appropriate entitlement groups. For example, in this case, we'll add the Application ID to two groups:
+Next, add the application ID to the appropriate groups that will use the entitlement service to access Azure Data Manager for Energy Preview APIs. The following example adds the application ID to two groups:
 
 * users@[partition ID].dataservices.energy
 * users.datalake.editors@[partition ID].dataservices.energy
 
-> [!NOTE]
-> In the below commands use the Application ID of the managed identity and not the Object Id of the managed identity in the below command. 
+To add the application ID:
 
-* Adding Application ID of the managed identity to users@[partition ID].dataservices.energy
+1. Gather the following information: 
 
-3. Run the following CURL command on Azure bash:
+   * Tenant ID
+   * Client ID
+   * Client secret
+   * Azure Data Manager for Energy Preview URI
+   * Data partition ID
+   * [Access token](how-to-manage-users.md#prerequisites)
+   * Application ID of the managed identity
 
-```bash
- curl --location --request POST 'https://<microsoft energy data services uri>/api/entitlements/v2/groups/users@ <data-partition-id>.dataservices.energy/members' \
-    --header 'data-partition-id: <data-partition-id>' \
-    --header 'Authorization: Bearer \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-                    "email": "<Application ID of the managed identity>",
-                    "role": "MEMBER"
-                }'
-```
+2. Use the [Add Member API](https://microsoft.github.io/meds-samples/rest-apis/index.html?page=/meds-samples/rest-apis/entitlements_openapi.yaml#/add-member-api/addMemberUsingPOST) to add the application ID of the user-assigned managed identity to the appropriate entitlement groups. 
 
-Sample response:
-```JSON 
-{
-    "email": "<Application ID of the managed identity>",
-    "role": "MEMBER"
-    }
-```
-* Adding Application ID of the managed identity to users.datalake.editors@[partition ID].dataservices.energy
+   > [!NOTE]
+   > In the following commands, be sure to use the application ID of the managed identity and not the object ID. 
 
-4. Run the following CURL command on Azure bash:
+   1. To add the application ID to the users@[partition ID].dataservices.energy group, run the following cURL command via Bash in Azure:
 
-```bash
- curl --location --request POST 'https://<microsoft energy data services uri>/api/entitlements/v2/groups/ users.datalake.editors@ <data-partition-id>.dataservices.energy/members' \
-    --header 'data-partition-id: <data-partition-id>' \
-    --header 'Authorization: Bearer \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-                    "email": "<Application ID of the managed identity>",
-                    "role": "MEMBER"
-                }'
-```
+      ```bash
+       curl --location --request POST 'https://<Azure Data Manager for Energy Preview URI>/api/entitlements/v2/groups/users@ <data-partition-id>.dataservices.energy/members' \
+          --header 'data-partition-id: <data-partition-id>' \
+          --header 'Authorization: Bearer \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+                          "email": "<application ID of the managed identity>",
+                          "role": "MEMBER"
+                      }'
+      ```
 
-Sample response:
-```JSON
-{
-    "email": "<Application ID of the managed identity>",
-    "role": "MEMBER"
-    }
-```
+      Here's a sample response:
 
-### Step 5: Generate token for accessing Microsoft Energy Data Services from Azure Function
+      ```json 
+      {
+          "email": "<application ID of the managed identity>",
+          "role": "MEMBER"
+          }
+      ```
+   
+   1. To add the application ID to the users.datalake.editors@[partition ID].dataservices.energy group, run the following cURL command via Bash in Azure:
 
-Now Azure Functions is ready to access Microsoft Energy Data Services APIs.  
+      ```bash
+       curl --location --request POST 'https://<Azure Data Manager for Energy Preview URI>/api/entitlements/v2/groups/ users.datalake.editors@ <data-partition-id>.dataservices.energy/members' \
+          --header 'data-partition-id: <data-partition-id>' \
+          --header 'Authorization: Bearer \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+                          "email": "<application ID of the managed identity>",
+                          "role": "MEMBER"
+                      }'
+      ```
 
-In this case, Azure function generates a token using User Assigned identity. The Azure function uses the Application ID present in the Microsoft Energy Data Services instance, while generating the token.
-Sample Azure function code.
+      Here's a sample response:
+
+      ```json
+      {
+          "email": "<application ID of the managed identity>",
+          "role": "MEMBER"
+          }
+      ```
+
+## Step 5: Generate a token
+
+Now Azure Functions is ready to access Azure Data Manager for Energy Preview APIs.  
+
+The Azure function generates a token by using the user-assigned identity. The function uses the application ID that's present in the Azure Data Manager for Energy Preview instance while generating the token.
+
+Here's an example of the Azure function code:
 
 ```python
 import logging
@@ -157,16 +164,15 @@ from msrestazure.azure_active_directory import MSIAuthentication
 def main(req: func.HttpRequest) -> str:
     logging.info('Python HTTP trigger function processed a request.')
 
-    //To Authenticate using Managed Identity, we need to pass the Microsoft Energy Data Services Application ID as the resource.     
-    //If we want to use a user-assigned identity, we should also include the   
-    //Client ID as an additional parameter.
-    //Managed Identity using System Assigned Identity:  MSIAuthentication(resource)
-    //Managed Identity using user Assigned Identity: MSIAuthentication(client_id, resource)
+    //To authenticate by using a managed identity, you need to pass the Azure Data Manager for Energy Preview application ID as the resource.     
+    //To use a user-assigned identity, you should include the   
+    //client ID as an additional parameter.
+    //Managed identity using user-assigned identity: MSIAuthentication(client_id, resource)
 
     creds = MSIAuthentication(client_id="<client_id_of_managed_identity>”, resource="<meds_app_id>")
     url = "https://<meds-uri>/api/entitlements/v2/groups"
     payload = {}
-    // Passing data partition ID of Microsoft Energy Data Services in headers along with the token received using MI.
+    // Passing the data partition ID of Azure Data Manager for Energy Preview in headers along with the token received using the managed instance.
     headers = {
         'data-partition-id': '<data partition id>',
         'Authorization': 'Bearer ' + creds.token["access_token"]
@@ -176,14 +182,14 @@ def main(req: func.HttpRequest) -> str:
 
 ```
 
-You should get the following successful response from Azure Function:
+You should get the following successful response from Azure Functions:
 
-[![Screenshot of success message from Azure Function.](media/how-to-use-managed-identity/5-azure-function-success.png)](media/how-to-use-managed-identity/5-azure-function-success.png#lightbox)
+[![Screenshot of a success message from Azure Functions.](media/how-to-use-managed-identity/5-azure-function-success.png)](media/how-to-use-managed-identity/5-azure-function-success.png#lightbox)
  
-With the following steps completed, you're now able to use Azure Functions to access Microsoft Energy Data Services APIs with appropriate use of managed identities.
+With the preceding steps completed, you can now use Azure Functions to access Azure Data Manager for Energy Preview APIs with appropriate use of managed identities.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-To learn more about Lockbox in Microsoft Energy Data Services
+
+Learn about Lockbox:
 > [!div class="nextstepaction"]
-> [Lockbox in Microsoft Energy Data Services](how-to-create-lockbox.md)
+> [Lockbox in Azure Data Manager for Energy Preview](how-to-create-lockbox.md)

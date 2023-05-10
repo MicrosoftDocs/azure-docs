@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: balapv
 author: balapv
 ms.date: 05/10/2022
-ms.custom: cliv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, cliv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Azure Machine Learning SDK & CLI (v1) 
@@ -20,7 +20,7 @@ ms.custom: cliv1, event-tier1-build-2022, ignite-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension or Python SDK you are using:"]
 > * [v1](introduction.md)
-> * [v2 (current version)](../index.yml)
+> * [v2 (current version)](../index.yml?view=azureml-api-2&preserve-view=true)
 
 All articles in this section document the use of the first version of Azure Machine Learning Python SDK (v1) or Azure CLI ml extension (v1).  
 
@@ -34,8 +34,8 @@ We recommend not to install both versions of the SDK on the same environment, si
 
 ## How do I know which SDK version I have?
 
-* To find out whether you have Azure ML Python SDK v1, run `pip show azureml-core`. (Or, in a Jupyter notebook, use `%pip show azureml-core` )
-* To find out whether you have Azure ML Python SDK v2, run `pip show azure-ai-ml`. (Or, in a Jupyter notebook, use `%pip show azure-ai-ml`)
+* To find out whether you have Azure Machine Learning Python SDK v1, run `pip show azureml-core`. (Or, in a Jupyter notebook, use `%pip show azureml-core` )
+* To find out whether you have Azure Machine Learning Python SDK v2, run `pip show azure-ai-ml`. (Or, in a Jupyter notebook, use `%pip show azure-ai-ml`)
 
 Based on the results of `pip show` you can determine which version of SDK you have.
 
@@ -57,7 +57,7 @@ To find which extensions you have installed, use `az extension list`.
 For more information on installing and using the different extensions, see the following articles:
 
 * `azure-cli-ml` - [Install, set up, and use the CLI (v1)](reference-azure-machine-learning-cli.md)
-* `ml` - [Install and set up the CLI (v2)](../how-to-configure-cli.md)
+* `ml` - [Install and set up the CLI (v2)](../how-to-configure-cli.md?view=azureml-api-2&preserve-view=true)
 
 For more information on installing and using the different SDK versions:
 

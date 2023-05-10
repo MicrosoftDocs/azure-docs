@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with DataCamp | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with DataCamp'
 description: Learn how to configure single sign-on between Azure Active Directory and DataCamp.
 services: active-directory
 author: jeevansd

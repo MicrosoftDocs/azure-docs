@@ -1,15 +1,18 @@
 ---
-title: Working with the change feed support in Azure Cosmos DB 
-description: Use Azure Cosmos DB change feed support to track changes in documents, event-based processing like triggers, and keep caches and analytic systems up-to-date 
+title: Working with the change feed
+titleSuffix: Azure Cosmos DB 
+description: Use Azure Cosmos DB change feed to track changes, process events, and keep other systems up-to-date.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 02/27/2023
 ms.custom: seodec18, seo-nov-2020, ignite-2022
 ---
+
 # Change feed in Azure Cosmos DB
+
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
 
 Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing.
@@ -18,14 +21,14 @@ Learn more about [change feed design patterns](change-feed-design-patterns.md).
 
 ## Supported APIs and client SDKs
 
-This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
+The change feed feature is currently supported in the following Azure Cosmos DB SDKs.
 
 | **Client drivers** | **NoSQL** | **Apache Cassandra** | **MongoDB** | **Apache Gremlin** | **Table** | **PostgreSQL** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Yes | Yes | Yes | Yes | No | No |
-|Java|Yes|Yes|Yes|Yes|No|No|
-|Python|Yes|Yes|Yes|Yes|No|No|
-|Node/JS|Yes|Yes|Yes|Yes|No|No|
+| --- | --- | --- | --- | --- | --- | --- |
+| .NET | ![Icon indicating that this feature is supported in the .NET SDK for the API for NoSQL.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the .NET SDK for the API for Apache Cassandra.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the .NET SDK for the API for MongoDB.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the .NET SDK for the API for Apache Gremlin.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is not supported in the .NET SDK for the API for Table.](media/change-feed/no-icon.svg) | ![Icon indicating that this feature is not supported in the .NET SDK for the API for PostgreSQL.](media/change-feed/no-icon.svg) |
+| Java | ![Icon indicating that this feature is supported in the Java SDK for the API for NoSQL.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the Java SDK for the API for Apache Cassandra.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the Java SDK for the API for MongoDB.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the Java SDK for the API for Apache Gremlin.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is not supported in the Java SDK for the API for Table.](media/change-feed/no-icon.svg) | ![Icon indicating that this feature is not supported in the Java SDK for the API for PostgreSQL.](media/change-feed/no-icon.svg) |
+| Python | ![Icon indicating that this feature is supported in the Python SDK for the API for NoSQL.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the Python SDK for the API for Apache Cassandra.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the Python SDK for the API for MongoDB.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the Python SDK for the API for Apache Gremlin.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is not supported in the Python SDK for the API for Table.](media/change-feed/no-icon.svg) | ![Icon indicating that this feature is not supported in the Python SDK for the API for PostgreSQL.](media/change-feed/no-icon.svg) |
+| Node/JavaScript | ![Icon indicating that this feature is supported in the JavaScript SDK for the API for NoSQL.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the JavaScript SDK for the API for Apache Cassandra.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the JavaScript SDK for the API for MongoDB.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is supported in the JavaScript SDK for the API for Apache Gremlin.](media/change-feed/yes-icon.svg) | ![Icon indicating that this feature is not supported in the JavaScript SDK for the API for Table.](media/change-feed/no-icon.svg) | ![Icon indicating that this feature is not supported in the JavaScript SDK for the API for PostgreSQL.](media/change-feed/no-icon.svg) |
 
 ## Working with change feed
 
@@ -52,7 +55,7 @@ Change feed is available for partition key ranges of an Azure Cosmos DB containe
 
 * Each change appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. For more information, see the [using change feed with change feed processor](nosql/change-feed-processor.md) article.
 
-* Changes from different partitions can be processed in parallel by multiple consumers. 
+* Changes are available in parallel for all logical partition keys of an Azure Cosmos DB container. This capability allows multiple consumers to process changes from large containers in parallel. 
 
 * Applications can request multiple change feeds on the same container simultaneously. 
 
@@ -64,7 +67,7 @@ Change feed items come in the order of their modification time. This sort order 
 
 ### Consistency level
 
-If you are consuming the change feed in an Eventual consistency level, there could be duplicate events in-between subsequent change feed read operations (the last event of one read operation appears as the first of the next).
+Consuming the change feed in an Eventual consistency level can result in duplicate events in-between subsequent change feed read operations. For example, the last event of one read operation could appear as the first event of the next operation.
 
 ### Change feed in multi-region Azure Cosmos DB accounts
 

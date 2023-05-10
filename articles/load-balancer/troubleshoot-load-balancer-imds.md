@@ -1,15 +1,15 @@
 ---
 title: Common error codes for Azure Instance Metadata Service (IMDS)
 titleSuffix: Azure Load Balancer
-description: Overview of common error codes and corresponding mitigation methods for Azure Instance Metadata Service (IMDS)
+description: Overview of common error codes and corresponding mitigation methods for Azure Instance Metadata Service (IMDS).
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 02/12/2021
 ms.author: mbender
-
 ---
+
 # Error codes: Common error codes when using IMDS to retrieve load balancer information
 
 This article describes common deployment errors and how to resolve those errors while using the Azure Instance Metadata Service (IMDS).

@@ -88,7 +88,7 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Application integration guidance
+    - name: Integrate SaaS applications
       href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
@@ -140,7 +140,7 @@
         href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate an AD FS app to Azure
+      - name: Migrate an AD FS app to Azure AD
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
@@ -162,7 +162,7 @@
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
-      - name: Cloudflare
+      - name: Configure Cloudflare with Azure AD
         href: cloudflare-azure-ad-integration.md
       - name: Datawiza
         items:
@@ -172,6 +172,8 @@
           href: datawiza-azure-ad-sso-oracle-jde.md
         - name: Configure Oracle PeopleSoft with Azure AD 
           href: datawiza-azure-ad-sso-oracle-peoplesoft.md
+        - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
+          href: datawiza-azure-ad-sso-mfa-oracle-ebs.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -207,7 +209,7 @@
               - name: SSL-VPN
                 href: f5-aad-password-less-vpn.md  
               - name: B2C
-                href: ../../active-directory-b2c/partner-f5.md
+                href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on

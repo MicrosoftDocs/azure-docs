@@ -63,22 +63,22 @@ The articles in this guide provide guidance on configuring VM insights and using
 
 
 ## Security monitoring
-Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Microsoft Sentinel](/azure/sentinel/). Configuration of these services is not included in this guide.
+Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) and [Microsoft Sentinel](../../sentinel/index.yml). Configuration of these services is not included in this guide.
 
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.
 
-
-### Integration with Azure Monitor
 The following table lists the integration points for Azure Monitor with the security services. All the services use the same Azure Monitor agent, which reduces complexity because there are no other components being deployed to your virtual machines. Defender for Cloud and Microsoft Sentinel store their data in a Log Analytics workspace so that you can use log queries to correlate data collected by the different services. Or you can create a custom workbook that combines security data and availability and performance data in a single view.
 
 See [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for guidance on the most effective workspace design for your requirements taking into account all your services that use them.
 
 | Integration point       | Azure Monitor | Microsoft Defender for Cloud | Microsoft Sentinel | Defender for Endpoint |
 |:---|:---:|:---:|:---:|:---:|
-| Collects security events     |   | X | X | X |
+| Collects security events     | X<sup>1</sup> | X | X | X |
 | Stores data in Log Analytics workspace | X | X | X |   | 
 | Uses Azure Monitor agent     | X | X | X | X | 
+
+<sup>1</sup> Azure Monitor agent can collect security events but will send them to the [Event table](/azure/azure-monitor/reference/tables/event) with other events. Microsoft Sentinel provides additional features to collect and analyze these events.
 
 > [!IMPORTANT]
 > Azure Monitor agent is in preview for some service features. See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for current details.

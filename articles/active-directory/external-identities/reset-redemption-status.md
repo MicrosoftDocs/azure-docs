@@ -1,6 +1,6 @@
 ---
 
-title: Reset a guest user's redemption status - Azure AD
+title: Reset a guest user's redemption status
 description: Learn how to reset the invitation redemption status for an Azure Active Directory B2B guest users in Azure AD External Identities.
 
 services: active-directory
@@ -82,7 +82,7 @@ Connect-MgGraph -Scopes "User.ReadWrite.All"
 $user = Get-MgUser -Filter "startsWith(mail, 'john.doe@fabrikam.net')"
 New-MgInvitation `
     -InvitedUserEmailAddress $user.Mail `
-    -InviteRedirectUrl "http://myapps.microsoft.com" `
+    -InviteRedirectUrl "https://myapps.microsoft.com" `
     -ResetRedemption `
     -SendInvitationMessage `
     -InvitedUser $user
@@ -123,4 +123,3 @@ ContentType: application/json
 
 - [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
 - [Properties of an Azure AD B2B guest user](user-properties.md)
-- [B2B for Azure AD integrated apps](configure-saas-apps.md)

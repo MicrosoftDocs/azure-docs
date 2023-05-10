@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 01/18/2023
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -68,7 +68,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
-| Translator connected |`2` cores, 2-GB memory |`4` cores, 8-GB memory | 4 |
+| Translator |`2` cores, 2-GB memory |`4` cores, 8-GB memory | 4 |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster. 
 
@@ -89,6 +89,13 @@ Application for Gated Services**](https://aka.ms/csgate-translator) to request a
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
+
+## Translator container image
+
+The Translator container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest`.
+
+To use the latest version of the container, you can use the `latest` tag. You can find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/tags).
+
 ## Get container images with **docker commands**
 
 > [!IMPORTANT]
@@ -105,7 +112,7 @@ docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 -e eula=accept \
 -e billing={ENDPOINT_URI} \
 -e Languages=en,fr,es,ar,ru  \
-mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview
+mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 ```
 
 The above command:

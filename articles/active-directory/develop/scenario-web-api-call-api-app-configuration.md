@@ -2,14 +2,15 @@
 title: Configure a web API that calls web APIs
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/12/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
@@ -125,10 +126,28 @@ using Microsoft.Identity.Web;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
     .EnableTokenAcquisitionToCallDownstreamApi()
-    .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+    .AddDownstreamWebApi("MyApi", Configuration.GetSection("MyApiScope"))
     .AddInMemoryTokenCaches();
 // ...
 ```
+If the web app needs to call another API resource, repeat the `.AddDownstreamWebApi()` method with the relevant scope as shown in the following snippet:
+
+```csharp
+using Microsoft.Identity.Web;
+
+// ...
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+    .EnableTokenAcquisitionToCallDownstreamApi()
+    .AddDownstreamWebApi("MyApi", Configuration.GetSection("MyApiScope"))
+    .AddDownstreamWebApi("MyApi2", Configuration.GetSection("MyApi2Scope"))
+    .AddInMemoryTokenCaches();
+// ...
+```
+
+Note that `.EnableTokenAcquisitionToCallDownstreamApi` is called without any parameter, which means that the access token will be acquired just in time as the controller requests the token by specifying the scope.  
+
+The scope can also be passed in when calling `.EnableTokenAcquisitionToCallDownstreamApi`, which would make the web app acquire the token during the initial user login itself. The token will then be pulled from the cache when controller requests it.  
 
 Similar to web apps, various token cache implementations can be chosen. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
         

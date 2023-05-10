@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ClearCompany | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ClearCompany'
 description: Learn how to configure single sign-on between Azure Active Directory and ClearCompany.
 services: active-directory
 author: jeevansd

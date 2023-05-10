@@ -2,15 +2,16 @@
 title: My Apps portal overview
 description: Learn about how to manage applications in the My Apps portal.
 services: active-directory
-author: saipradeepb23
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/24/2022
-ms.author: saibandaru
-ms.custom: contperf-fy23q1
+ms.author: jomondi
+ms.reviewer: saibandaru
+ms.custom: contperf-fy23q1, enterprise-apps
 #Customer intent: As an Azure AD administrator, I want to make applications available to users in the My Apps portal.
 
 ---

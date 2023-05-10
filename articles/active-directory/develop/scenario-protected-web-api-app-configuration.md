@@ -2,14 +2,15 @@
 title: Configure protected web API apps
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 12/09/2022
-ms.author: jmprieur
+ms.date: 05/08/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
@@ -69,7 +70,7 @@ You need to specify the `TenantId` only if you want to accept access tokens from
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "Enter_the_Application_(client)_ID_here"
+    "ClientId": "Enter_the_Application_(client)_ID_here",
     "TenantId": "common"
   },
   "Logging": {
@@ -101,6 +102,8 @@ If you've accepted the default App ID URI proposed by the Azure portal, you don'
 When an app is called on a controller action that holds an **[Authorize]** attribute, ASP.NET and ASP.NET Core extract the access token from the Authorization header's bearer token. The access token is then forwarded to the JwtBearer middleware, which calls Microsoft IdentityModel Extensions for .NET.
 
 #### Microsoft.Identity.Web
+
+# [ASP.NET Core](#tab/aspnetcore)
 
 Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package when developing a web API with ASP.NET Core.
 
@@ -156,6 +159,57 @@ app.MapControllers();
 app.Run();
 ```
 
+# [ASP.NET](#tab/aspnet)
+
+Microsoft recommends you use the [Microsoft.Identity.Web.OWIN](https://www.nuget.org/packages/Microsoft.Identity.Web.OWIN) NuGet package when developing a web API with ASP.NET.
+
+*Microsoft.Identity.Web.OWIN* provides the glue between ASP.NET, the ASP.NET authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
+
+It uses the same configuration file as ASP.NET Core (appsettings.json) and you need to make sure that this file is copied with the output of your project (property copy always in the file properties in Visual Studio or in the .csproj)
+
+*Microsoft.Identity.Web.OWIN* adds an extension methods to IAppBuilder named `AddMicrosoftIdentityWebApi`. These method takes as a parameter an instance of `OwinTokenAcquirerFactory` that you get calling `OwinTokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>()` and that surfaces an instance of `IServiceCollection` to which you can add many services to call downstream APIs or configure the token cache.
+
+
+Here is some sample code for [Startup.Auth.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/tests/DevApps/aspnet-mvc/OwinWebApp/App_Start/Startup.Auth.cs). The full code is available from [tests/DevApps/aspnet-mvc/OwinWebApp](https://github.com/AzureAD/microsoft-identity-web/tree/master/tests/DevApps/aspnet-mvc/OwinWebApp)
+
+```CSharp
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Client;
+using Microsoft.Identity.Abstractions;
+using Microsoft.Identity.Web.OWIN;
+using System.Web.Services.Description;
+
+namespace OwinWebApp
+{
+    public partial class Startup
+    {
+        public void ConfigureAuth(IAppBuilder app)
+        {
+            app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+            OwinTokenAcquirerFactory factory = TokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>();
+
+            app.AddMicrosoftIdentityWebApp(factory);
+            factory.Services
+                .Configure<ConfidentialClientApplicationOptions>(options => { options.RedirectUri = "https://localhost:44386/"; })
+                .AddMicrosoftGraph()
+                .AddDownstreamApi("DownstreamAPI1", factory.Configuration.GetSection("DownstreamAPI"))
+                .AddInMemoryTokenCaches();
+            factory.Build();
+        }
+    }
+}
+```
+
+--
+
+
 ## Token validation
 
 In the preceding snippet, the JwtBearer middleware, like the OpenID Connect middleware in web apps, validates the token based on the value of `TokenValidationParameters`. The token is decrypted as needed, the claims are extracted, and the signature is verified. The middleware then validates the token by checking for this data:
@@ -196,14 +250,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApi(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-  var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;
-  options.Events.OnTokenValidated = async context =>
-  {
-       await existingOnTokenValidatedHandler(context);
-      // Your code to add extra configuration that will be executed after the current event implementation.
-      options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
-      options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  };
+  options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
 });
 ```
 

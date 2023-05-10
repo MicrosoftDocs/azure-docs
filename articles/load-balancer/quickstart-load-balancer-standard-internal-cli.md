@@ -1,16 +1,17 @@
 ---
 title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer by using the Azure CLI.
+description: This quickstart shows how to create an internal load balancer using the Azure CLI.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/23/2022
+ms.date: 05/01/2023
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api, template-quickstart,engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
-# Quickstart: Create an internal load balancer to load balance VMs by using the Azure CLI
+
+# Quickstart: Create an internal load balancer to load balance VMs using the Azure CLI
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
 
@@ -37,7 +38,7 @@ When you create an internal load balancer, a virtual network is configured as th
 
 ## Create the virtual network
 
-Before you deploy VMs and test your load balancer, create the supporting virtual network and subnet. The virtual network and subnet will contain the resources deployed later in this article.
+Before you deploy VMs and test your load balancer, create the supporting virtual network and subnet. The virtual network and subnet contain the resources deployed later in this article.
 
 Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -53,7 +54,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 ## Create an Azure Bastion host
 
-In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
+In this example, you create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
 
 ### Create a bastion public IP address
@@ -117,8 +118,8 @@ Create an internal load balancer with [az network lb create](/cli/azure/network/
     --sku Standard \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool
+    --backend-pool-name myBackEndPool \
+    --frontend-ip-name myFrontEnd
 ```
 
 ### Create the health probe

@@ -1,7 +1,6 @@
 ---
 title: Install existing applications with Helm in AKS
 description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
-services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 12/07/2020

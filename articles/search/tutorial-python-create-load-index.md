@@ -21,7 +21,7 @@ Continue to build your search-enabled website by following these steps:
 
 ## Create an Azure Cognitive Search resource
 
-Create a new search resource using PowerShell and the **Az.Search** module.
+Create a new search resource using PowerShell and the **Az.Search** module. In this section, you'll also create a query key used for read-access to the index, and get the built-in admin key used for adding objects.
 
 1. In Visual Studio Code, open a new terminal window.
 

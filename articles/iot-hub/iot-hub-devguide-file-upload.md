@@ -1,12 +1,11 @@
 ---
-title: Understand Azure IoT Hub file upload | Microsoft Docs
+title: Understand Azure IoT Hub file upload
 description: This article shows how to use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/30/2022
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -81,7 +80,7 @@ The following settings control file upload notifications to backend services.
 | **enableFileUploadNotifications** |Controls whether file upload notifications are written to the file notifications endpoint. |Bool. Default: False. |
 | **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48 hours (minimum one minute). Default: one hour. |
 | **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds. Default: 60 seconds. |
-| **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
+| **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 10. |
 
 ## File upload using an SDK
 
@@ -89,10 +88,10 @@ The following how-to guides provide complete, step-by-step instructions to uploa
 
 | How-to guide | Device SDK example | Service SDK example |
 |---------|--------|---------|
-| [.NET](iot-hub-csharp-csharp-file-upload.md) | Yes | Yes |
-| [Java](iot-hub-java-java-file-upload.md) | Yes | Yes |
-| [Node.js](iot-hub-node-node-file-upload.md) | Yes | Yes |
-| [Python](iot-hub-python-python-file-upload.md) | Yes | No (not supported) |
+| [.NET](./file-upload-dotnet.md) | Yes | Yes |
+| [Java](./file-upload-java.md) | Yes | Yes |
+| [Node.js](./file-upload-node.md) | Yes | Yes |
+| [Python](./file-upload-python.md) | Yes | No (not supported) |
 
 > [!NOTE]
 > The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L328) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L350). These functions perform all aspects of the file upload in a single call: initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes. This interaction means that, in addition to whatever protocol the device is using to communicate with IoT Hub, the device also needs to be able to communicate over HTTPS with Azure storage as these functions make calls to the Azure storage APIs.
@@ -236,7 +235,7 @@ Services can use notifications to manage uploads. For example, they can trigger 
 
 ## Next steps
 
-* [File upload how-to guides](iot-hub-csharp-csharp-file-upload.md)
+* [File upload how-to guides](./file-upload-dotnet.md)
 
 * [How to configure file uploads on IoT Hub](iot-hub-configure-file-upload.md)
 

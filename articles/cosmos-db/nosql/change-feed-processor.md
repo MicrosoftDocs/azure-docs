@@ -1,6 +1,6 @@
 ---
 title: Change feed processor in Azure Cosmos DB 
-description: Learn how to use the Azure Cosmos DB change feed processor to read the change feed, the components of the change feed processor
+description: Learn how to use the Azure Cosmos DB Change Feed Processor to read the change feed, the components of the change feed processor
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 04/26/2023
 ms.custom: devx-track-csharp
 ---
 
@@ -23,16 +23,16 @@ The main benefit of change feed processor is its fault-tolerant behavior that as
 
 There are four main components of implementing the change feed processor:
 
-1. **The monitored container:** The monitored container has the data from which the change feed is generated. Any inserts and updates to the monitored container are reflected in the change feed of the container.
+* **The monitored container:** The monitored container has the data from which the change feed is generated. Any inserts and updates to the monitored container are reflected in the change feed of the container.
 
-1. **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account.
+* **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account.
 
-1. **The compute instance**: A compute instance hosts the change feed processor to listen for changes. Depending on the platform, it could be represented by a VM, a kubernetes pod, an Azure App Service instance, or an actual physical machine. It has a unique identifier referenced as the *instance name* throughout this article.
+* **The compute instance**: A compute instance hosts the change feed processor to listen for changes. Depending on the platform, it could be represented by a VM, a kubernetes pod, an Azure App Service instance, or an actual physical machine. It has a unique identifier referenced as the *instance name* throughout this article.
 
-1. **The delegate:** The delegate is the code that defines what you, the developer, want to do with each batch of changes that the change feed processor reads.
+* **The delegate:** The delegate is the code that defines what you, the developer, want to do with each batch of changes that the change feed processor reads.
 
-To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored container stores documents and uses 'City' as the partition key. We see that the partition key values are distributed in ranges that contain items, each range representing a [physical partition](../partitioning-overview.md#physical-partitions).
-There are two compute instances with unique names and the change feed processor is assigning different ranges to each instance to maximize compute distribution.
+To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored container stores items and uses 'City' as the partition key. The partition key values are distributed in ranges (each range representing a [physical partition](../partitioning-overview.md#physical-partitions)) that contain items.
+There are two compute instances and the change feed processor is assigning different ranges to each instance to maximize compute distribution, each instance has a unique and different name.
 Each range is being read in parallel and its progress is maintained separately from other ranges in the lease container through a *lease* document. The combination of the leases represents the current state of the change feed processor.
 
 :::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Change feed processor example" border="false":::
@@ -45,16 +45,15 @@ The change feed processor in .NET is currently only available for [latest versio
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-Where the first parameter is a distinct name that describes the goal of this processor and the second name is the delegate implementation that will handle changes. 
+Where the first parameter is a distinct name that describes the goal of this processor and the second name is the delegate implementation that handles changes.
 
 An example of a delegate would be:
 
-
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Afterwards, you define the compute instance name or unique identifier with `WithInstanceName`, the name should be unique and different in each compute instance you're deploying. Finally, define the container to maintain the lease state with `WithLeaseContainer`.
+Afterwards, you define the compute instance name or unique identifier with `WithInstanceName`, which should be unique and different in each compute instance you're deploying, and finally, which is the container to maintain the lease state with `WithLeaseContainer`.
 
-Calling `Build` will give you the processor instance that you can start by calling `StartAsync`.
+Calling `Build` gives you the processor instance that you can start by calling `StartAsync`.
 
 ## Processing life cycle
 
@@ -67,7 +66,7 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check the latest point in time the lease store has for that range of partition key values. The thread will restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
+The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes stops, and a new thread is eventually created. The new thread checks the latest point in time the lease store has saved for that range of partition key values, and restarts from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
 
 > [!NOTE]
 > There is only one scenario where a batch of changes will not be retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. On those cases, the retry would use the [initial starting configuration](#starting-time), which might or might not include the last batch.
@@ -90,31 +89,25 @@ The change feed processor lets you hook to relevant events in its [life cycle](#
 
 A single change feed processor deployment unit consists of one or more compute instances with the same `processorName` and lease container configuration but different instance name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
 
-For example, you might have one deployment unit that triggers an external API anytime there's a change in your container. Another deployment unit might move data, in real time, each time there's a change. When a change happens in your monitored container, all your deployment units will get notified.
+For example, you might have one deployment unit that triggers an external API anytime there's a change in your container. Another deployment unit might move data, in real time, each time there's a change. When a change happens in your monitored container, all your deployment units get notified.
 
 ## Dynamic scaling
 
 As mentioned before, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
 
-1. All instances should have the same lease container configuration.
-1. All instances should have the same `processorName`.
-1. Each instance needs to have a different instance name (`WithInstanceName`).
+* All instances should have the same lease container configuration.
+* All instances should have the same `processorName`.
+* Each instance needs to have a different instance name (`WithInstanceName`).
 
-If these three conditions apply, then the change feed processor will distribute all the leases in the lease container across all running instances of that deployment unit. The change feed processor uses an equal distribution algorithm to parallelize compute. One lease can only be owned by one instance at a given time, so the number of instances shouldn't be greater than the number of leases.
+If these three conditions apply, then the change feed processor distributes all the leases in the lease container across all running instances of that deployment unit and parallelizes compute using an equal distribution algorithm. A lease is owned by one instance at a given time, so the number of instances shouldn't be greater than the number of leases.
 
 The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
 
 Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
 
-## Change feed and provisioned throughput
-
-Change feed read operations on the monitored container will consume [request units](../request-units.md). Make sure your monitored container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you'll experience delays in receiving change feed events on your processors.
-
-Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. If your lease container is experiencing [throttling](troubleshoot-request-rate-too-large.md) you'll experience delays in receiving change feed events on your processors. In some cases where throttling is high, the processors might stop processing completely.
-
 ## Starting time
 
-By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+By default, when a change feed processor starts the first time, it initializes the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor is initialized for the first time aren't detected.
 
 ### Reading from a previous date and time
 
@@ -123,9 +116,6 @@ It's possible to initialize the change feed processor to read changes starting a
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
 The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
-
-> [!NOTE]
-> Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
 
 ### Reading from the beginning
 
@@ -170,7 +160,7 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check the latest point in time the lease store has for that range of partition key values. The thread will restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
+The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes is stopped, and a new thread is created. The new thread checks the latest point in time the lease store has saved for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
 
 > [!NOTE]
 > There is only one scenario where a batch of changes will not be retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. On those cases, the retry would use the [initial starting configuration](#starting-time), which might or might not include the last batch.
@@ -179,45 +169,29 @@ To prevent your change feed processor from getting "stuck" continuously retrying
 
 In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed.
 
-<!-- ## Life-cycle notifications
-
-The change feed processor lets you hook to relevant events in its [life cycle](#processing-life-cycle), you can choose to be notified to one or all of them. The recommendation is to at least register the error notification:
-
-* Register a handler for `WithLeaseAcquireNotification` to be notified when the current host acquires a lease to start processing it.
-* Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
-* Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues).
-
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)] -->
-
 ## Deployment unit
 
 A single change feed processor deployment unit consists of one or more compute instances with the same lease container configuration, the same `leasePrefix`, but different `hostName` name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
 
-For example, you might have one deployment unit that triggers an external API anytime there's a change in your container. Another deployment unit might move data, in real time, each time there's a change. When a change happens in your monitored container, all your deployment units will get notified.
+For example, you might have one deployment unit that triggers an external API anytime there's a change in your container. Another deployment unit might move data, in real time, each time there's a change. When a change happens in your monitored container, all your deployment units get notified.
 
 ## Dynamic scaling
 
 As mentioned before, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
 
-1. All instances should have the same lease container configuration.
-1. All instances should have the same value set in `options.setLeasePrefix` (or none set at all).
-1. Each instance needs to have a different `hostName`.
+* All instances should have the same lease container configuration.
+* All instances should have the same value set in `options.setLeasePrefix` (or none set at all).
+* Each instance needs to have a different `hostName`.
 
-If these three conditions apply, then the change feed processor will distribute all the leases in the lease container across all running instances of that deployment unit. The change feed processor uses an equal distribution algorithm to parallelize compute. One lease can only be owned by one instance at a given time, so the number of instances shouldn't be greater than the number of leases.
+If these three conditions apply, then the change feed processor distributes all the leases in the lease container across all running instances of that deployment unit and parallelizes compute using an equal distribution algorithm. A lease is owned by one instance at a given time, so the number of instances shouldn't be greater than the number of leases.
 
 The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly. Deployment units can share the same lease container, but they should each have a different `leasePrefix`.
 
 Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
 
-## Change feed and provisioned throughput
-
-Change feed read operations on the monitored container will consume [request units](../request-units.md). Make sure your monitored container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you'll experience delays in receiving change feed events on your processors.
-
-Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. If your lease container is experiencing [throttling](troubleshoot-request-rate-too-large.md) you'll experience delays in receiving change feed events on your processors. In some cases where throttling is high, the processors might stop processing completely.
-
 ## Starting time
 
-By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+By default, when a change feed processor starts the first time, it initializes the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
 
 > [!NOTE]
 > Modifying the starting time of the change feed processor is not available when you are using [all versions and deletes mode](change-feed-all-versions-and-deletes.md). Currently, you must use the default start time.
@@ -226,21 +200,33 @@ By default, when a change feed processor starts the first time, it will initiali
 
 It's possible to initialize the change feed processor to read changes starting at a **specific date and time**, by setting `setStartTime` in `options`. The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
 
-> [!NOTE]
-> Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
-
 ### Reading from the beginning
 
-In our above sample, we set `setStartFromBeginning` to `false`, which is the same as the default value. In other scenarios like data migrations or analyzing the entire history of a container, we need to read the change feed from **the beginning of that container's lifetime**. To do that, we can set `setStartFromBeginning` to `true`. The change feed processor will be initialized and start reading changes from the beginning of the lifetime of the container.
+In our sample, we set `setStartFromBeginning` to `false`, which is the same as the default value. In other scenarios like data migrations or analyzing the entire history of a container, we need to read the change feed from **the beginning of that container's lifetime**. To do that, we can set `setStartFromBeginning` to `true`. The change feed processor will be initialized and start reading changes from the beginning of the lifetime of the container.
 
 > [!NOTE]
 > These customization options only work to setup the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
 
 ---
 
+## Change feed and provisioned throughput
+
+Change feed read operations on the monitored container consume [request units](../request-units.md). Make sure your monitored container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md), it adds delays in receiving change feed events on your processors.
+
+Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption is. Make sure your lease container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md), it adds delays in receiving change feed events and can even stop processing completely.
+
 ## Sharing the lease container
 
 You can share the lease container across multiple [deployment units](#deployment-unit), each deployment unit would be listening to a different monitored container or have a different `processorName`. With this configuration, each deployment unit would maintain an independent state on the lease container. Review the [request unit consumption on the lease container](#change-feed-and-provisioned-throughput) to make sure the provisioned throughput is enough for all the deployment units.
+
+## Advanced lease configuration
+
+There are three key configurations that can affect the change feed processor behavior, in all cases, they'll affect the [request unit consumption on the lease container](#change-feed-and-provisioned-throughput). These configurations can be changed during the creation of the change feed processor but should be used carefully:
+
+* Lease Acquire: By default every 17 seconds. A host will periodically check the state of the lease store and consider acquiring leases as part of the [dynamic scaling](#dynamic-scaling) process. This process is done by executing a Query on the lease container. Reducing this value makes rebalancing and acquiring leases faster but increase [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
+* Lease Expiration: By default 60 seconds. Defines the maximum amount of time that a lease can exist without any renewal activity before it's acquired by another host. When a host crashes, the leases it owned will be picked up by other hosts after this period of time plus the configured renewal interval. Reducing this value will make recovering after a host crash faster, but the expiration value should never be lower than the renewal interval.
+* Lease Renewal: By default every 13 seconds. A host owning a lease will periodically renew it even if there are no new changes to consume. This process is done by executing a Replace on the lease. Reducing this value lowers the time required to detect leases lost by host crashing but increase [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
+
 
 ## Where to host the change feed processor
 
@@ -252,7 +238,7 @@ The change feed processor can be hosted in any platform that supports long runni
 * A serverless function in [Azure Functions](/azure/architecture/best-practices/background-jobs#azure-functions).
 * An [ASP.NET hosted service](/aspnet/core/fundamentals/host/hosted-services).
 
-While change feed processor can run in short lived environments, because the lease container maintains the state, the startup cycle of these environments will add delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).
+While change feed processor can run in short lived environments because the lease container maintains the state, the startup cycle of these environments adds delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).
 
 ## Additional resources
 

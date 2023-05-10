@@ -6,10 +6,10 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 01/30/2023
 ---
 
-# How to ingest data using pg_azure_storage
+# How to ingest data using pg_azure_storage in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

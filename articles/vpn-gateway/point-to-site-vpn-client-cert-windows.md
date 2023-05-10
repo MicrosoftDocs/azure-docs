@@ -4,8 +4,9 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN clients for P2S configurations that use certificate authentication. This article applies to Windows.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 05/04/2023
 ms.author: cherylmc
 ---
 
@@ -109,7 +110,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then click **Open**.
 
-1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**.
+1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**. You can also (optionally) select a [Secondary Profile](#secondary-profile).
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
 
@@ -127,7 +128,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 The following sections discuss additional optional configuration settings that are available for the Azure VPN Client.
 
-#### Secondary VPN client profile
+#### Secondary Profile
 
 [!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
 
