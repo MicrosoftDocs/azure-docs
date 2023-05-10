@@ -402,6 +402,72 @@ az spring gateway sync-cert \
 
 ---
 
+## Configure log levels
+
+You can adjust log levels of Spring Cloud Gateway to get more details or to reduce logs:
+- The default log level for Spring Cloud Gateway is `INFO`.
+- You can set log levels to `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `OFF`.
+- You can turn off logs by set log levels to `OFF`.
+- When log levels are set to `WARN`, `ERROR`, `OFF`, you may be required to adjust it to `INFO` when requesting support from Azure Spring Apps team. And this will cause a **RESTART** of Spring Cloud Gateway.
+- When log levels are set to `TRACE`, `DEBUG`, it may impact the performance of Spring Cloud Gateway, try avoid them in your production environment.
+- You can set log levels for `root` logger or specific loggers like `io.pivotal.spring.cloud.gateway`.
+
+The following loggers may contain valuable troubleshooting information at the `TRACE` and `DEBUG` levels:
+```
+io.pivotal.spring.cloud.gateway              # filters and predicates, including custom extensions
+org.springframework.cloud.gateway            # API gateway
+org.springframework.http.server.reactive     # HTTP server interactions
+org.springframework.web.reactive             # API gateway reactive flows
+org.springframework.boot.autoconfigure.web   # API gateway autoconfiguration
+org.springframework.security.web             # Authentication & Authorization information
+reactor.netty                                # Reactor Netty
+```
+
+You can get environment variable keys by add **`logging.level.`** prefix, and then set log level by configure environment `logging.level.{loggerName}={logLevel}`. Examples with Azure portal and Azure CLI:
+
+#### [Azure portal](#tab/Azure-portal)
+
+To configure log levels in the Azure portal, use the following steps:
+1. Open your Azure Spring Apps instance.
+1. Select Spring Cloud Gateway in the navigation pane, and then select Configuration.
+1. Specify key-value pairs for the log level environment variables in the **Environment variables** sections.
+1. When you've provided all the configurations, select Save to save your changes.
+
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-log-level-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway environment variables to configure log levels." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-log-level-environment-variables.png":::
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to configure log levels using Azure CLI:
+```
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --properties <key=value>
+```
+
+The follow command shows an example:
+```
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --properties \
+      logging.level.root=INFO \
+      logging.level.io.pivotal.spring.cloud.gateway=DEBUG \
+      logging.level.org.springframework.cloud.gateway=DEBUG \
+      logging.level.org.springframework.boot.autoconfigure.web=TRACE \
+      logging.level.org.springframework.security.web=ERROR
+```
+
+---
+
+## Configure environment variables
+
+1. You can configure environments for application performance monitoring, see [Configure application performance monitoring](#configure-application-performance-monitoring) section.
+1. You can configure environments for log levels, see [Configure log levels](#configure-log-levels) section.
+
+> [!NOTE]
+> When environment variables are updated, Spring Cloud Gateway will be restarted.
+
 ## Next steps
 
 - [How to Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md)
