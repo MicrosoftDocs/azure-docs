@@ -16,9 +16,9 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
-There are multiple tiers supported by Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](./quotas.md#azure-spring-apps-service-plans-and-limits). In this quickstart, it shows how to provision a Basic or Standard tier Azure Spring Apps service instance. About how to create instances for other tiers, please check below documents.
+There are multiple tiers supported by Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](./quotas.md#azure-spring-apps-service-plans-and-limits). In this quickstart, it shows how to provision a Basic or Standard tier Azure Spring Apps service instance. About how to create instances for other tiers, check below documents.
 - Create an Enterprise tier instance, see [provision Enterprise tier instance](./how-to-migrate-standard-tier-to-enterprise-tier.md#provision-a-service-instance)
-- Create an Standard consumption plan service instance, see [provision Standard consumption plan instance](./quickstart-provision-standard-consumption-service-instance.md)
+- Create a Standard consumption plan service instance, see [provision Standard consumption plan instance](./quickstart-provision-standard-consumption-service-instance.md)
 
 You can provision an instance of the Azure Spring Apps service using the Azure portal or the Azure CLI.  Both methods are explained below.
 
@@ -47,7 +47,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
    - **Subscription**: Select the subscription you want to be billed for this resource.
-   - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
+   - **Resource group**: Creating new resource groups for new resources is a best practice. You'll use this value in later steps as **\<resource group name\>**.
    - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
    - **Location**: Select the location for your service instance.
    - Select **Standard** for the **Pricing tier** option.
