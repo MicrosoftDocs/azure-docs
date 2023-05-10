@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms-author: edbaynash
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/28/2022
+ms.date: 05/10/2023
 ---
 
 # Azure Monitor managed service for Prometheus (preview)
@@ -23,6 +23,7 @@ Azure Monitor managed service for Prometheus can currently collect data from any
 
 - Azure Kubernetes service (AKS)
 - Any Kubernetes cluster running self-managed Prometheus using [remote-write](https://aka.ms/azureprometheus-promio-prw).
+- Azure Arc-enabled Kubernetes 
 
 ## Enable
 The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. Once this workspace is created, you can onboard services that collect Prometheus metrics.
@@ -30,6 +31,7 @@ The only requirement to enable Azure Monitor managed service for Prometheus is t
 - To collect Prometheus metrics from your AKS cluster without using Container insights, see [Collect Prometheus metrics from AKS cluster (preview)](prometheus-metrics-enable.md).
 - To add collection of Prometheus metrics to your cluster using Container insights, see [Collect Prometheus metrics with Container insights](../containers/container-insights-prometheus.md#send-data-to-azure-monitor-managed-service-for-prometheus).
 - To configure remote-write to collect data from your self-managed Prometheus server, see [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md).
+- To collect Prometheus metrics from your Azure Arc-enabled Kubernetes cluster without using Container insights, see [Collect Prometheus metrics from Azure Arc-enabled Kubernetes cluster](./prometheus-metrics-from-arc-enabled-cluster.md)
 
 ## Grafana integration
 The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). [Connect your Azure Monitor workspace to a Grafana workspace](./azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
