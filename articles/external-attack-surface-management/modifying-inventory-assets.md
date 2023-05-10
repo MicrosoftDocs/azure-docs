@@ -63,7 +63,7 @@ Select a color for your new label, then select **Add**. This action will navigat
 
 ![Screenshot of "Modify Asset" pane with newly created label applied.](media/labels-5.png)
 
-8. Allow a few moments for the labels to be applied. Once complete, the page will automatically refresh and display your asset list with the labels visible. A banner at the top of the screen will confirm that your labels have been applied.  
+8. Allow a few moments for the labels to be applied. You will immediately see a notification that confirms the update is in progress. Once complete, you'll see a "completed" notification and the page will automatically refresh and display your asset list with the labels visible. A banner at the top of the screen will confirm that your labels have been applied.  
 
 [![Screenshot of inventory list view with the selected assets now displaying the new label.](media/labels-6.png)](media/labels-6.png#lightbox)
 
@@ -110,15 +110,24 @@ This page displays all the labels within your Defender EASM inventory. Please no
 The Labels page will automatically refresh and the label will be removed from the list, as well as removed from any assets that had the label applied. A banner will appear to confirm the removal.  
 
 
-## Task manager 
+## Task manager and notifications
 
-The Defender EASM system takes a few minutes to modify large numbers of assets at one time. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better undertand the completion of updates. 
+Once a task is submitted, you will immediately see a notification pop-up that confirms that the update is in progress.  From any page in Azure, simply click on the notification (bell) icon to view additional information about recent tasks. 
+
+![Screenshot of "Task submitted" notification immediately after submitting a task.](media/labels-12.png) ![Screenshot of opened Notifications panel displaying recent task statuses.](media/labels-13.png)
+
+
+The Defender EASM system can take seconds to udpdate a handful of assets or minutes to update thousands. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better undertand the completion of submitted updates. 
 
 1. From your Defender EASM resource, select **Task Manager** on the left-hand navigation menu. 
 
-SCREENSHOT 
+![Screenshot of "Task Manager" page with appropriate section in navigation pane highlighted.](media/labels-11a.png)
 
-2. 
+2. This page displays all your recent tasks and their status. Tasks will be listed as "Completed", "Failed" or "In Progress" with a completion percentage and progress bar also displayed. To see more details about a specific task, simply select the task name. A right-hand pane will open that provides additional information. 
+
+3. Select **Refresh** to see the latest status of all items in the Task Manager. 
+
+
 
 ## Filtering for labels 
 
