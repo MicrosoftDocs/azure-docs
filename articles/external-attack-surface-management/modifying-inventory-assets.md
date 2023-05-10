@@ -11,11 +11,11 @@ ms.topic: how-to
 
 # Modifying inventory assets 
 
-This article outlines how to modify inventory assets.  Users can change the state of an asset or apply labels to help better contextualize and operationalize inventory data. This article describes how to modify a single asset or multiple assets, as well as track any updates with the Task Manager.
+This article outlines how to modify inventory assets.  Users can change the state of an asset or apply labels to help better contextualize and operationalize inventory data. This article describes how to modify a single asset or multiple assets, and track any updates with the Task Manager.
 
 # Labeling assets
 
-Labels help you organize your attack surface and apply business context in a highly customizable way; you can apply any text label to a subset of assets to group assets and better operationalize your inventory. Customers commonly categorize assets that:  
+Labels help you organize your attack surface and apply business context in a highly customizable way. You can apply any text label to a subset of assets to group assets and better operationalize your inventory. Customers commonly categorize assets that:  
 
 - have recently come under your organization’s ownership through a merger or acquisition  
 - require compliance monitoring 
@@ -40,7 +40,7 @@ You should modify assets from the inventory list page if you want to update nume
 
 1. Select the **Inventory** page from the left-hand navigation pane of your Defender EASM resource.  
 
-2. Apply filters that will produce your intended results. In this example, we are looking for domains expiring within 30 days that require renewal. The applied label will help you more quickly access any expiring domains, simplifying the remediation process. This is a simple use case; users can apply as many filters as needed to obtain the specific results needed. For more information on filters, see the [Inventory filters overview](inventory-filters.md) article. 
+2. Apply filters to produce your intended results. In this example, we are looking for domains expiring within 30 days that require renewal. The applied label will help you more quickly access any expiring domains, simplifying the remediation process. This is a simple use case; users can apply as many filters as needed to obtain the specific results needed. For more information on filters, see the [Inventory filters overview](inventory-filters.md) article. 
 
 ![Screenshot of inventory list view with 'add filter' dropdown opened, displaying the query editor.](media/labels-2.png)
 
@@ -52,7 +52,7 @@ You should modify assets from the inventory list page if you want to update nume
 
 5. This action opens a new “Modify Assets” pane on the right-hand side of your screen. From this screen, you can quickly change the state of the selected asset(s). For this example, we will create a new label.  Select **Create a new label**. 
 
-6. Determine the label name and display text values. The label name cannot be changed after you initially create the label, but the display text can be edited at a later time. The label name will be used to query for the label in the product interface or via API, so edits are disabled to ensure these queries work properly. To edit a label name, you need to delete the original label and create a new one.  
+6. Determine the label name and display text values. The label name cannot be changed after you initially create the label, but the display text can be edited at a later time. The label name is used to query for the label in the product interface or via API, so edits are disabled to ensure these queries work properly. To edit a label name, you need to delete the original label and create a new one.  
  
 Select a color for your new label, then select **Add**. This action will navigate you back to the “Modify Assets” screen. 
 
@@ -63,7 +63,7 @@ Select a color for your new label, then select **Add**. This action will navigat
 
 ![Screenshot of "Modify Asset" pane with newly created label applied.](media/labels-5.png)
 
-8. Allow a few moments for the labels to be applied. You will immediately see a notification that confirms the update is in progress. Once complete, you'll see a "completed" notification and the page will automatically refresh and display your asset list with the labels visible. A banner at the top of the screen will confirm that your labels have been applied.  
+8. Allow a few moments for the labels to be applied. You will immediately see a notification that confirms the update is in progress. Once complete, you'll see a "completed" notification and the page automatically refreshes, displaying your asset list with the labels visible. A banner at the top of the screen will confirm that your labels have been applied.  
 
 [![Screenshot of inventory list view with the selected assets now displaying the new label.](media/labels-6.png)](media/labels-6.png#lightbox)
 
