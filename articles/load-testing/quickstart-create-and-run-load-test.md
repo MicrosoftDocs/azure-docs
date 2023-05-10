@@ -66,7 +66,7 @@ You can specify the target load with a quick test by using either of two options
 
 1. Select **Run test** to create and start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-vu.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying virtual users.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-virtual-users.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying virtual users.":::
 
 ## [Requests per second (RPS)](#tab/rps)
 
@@ -95,7 +95,7 @@ You can specify the target load with a quick test by using either of two options
 
 1. Select **Run test** to create and start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-rps.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying requests per second.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-requests-per-second.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying requests per second.":::
 
 ---
 
