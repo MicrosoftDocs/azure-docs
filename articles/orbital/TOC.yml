@@ -43,10 +43,12 @@ items:
     
 - name: Tutorials
   items:
-  - name: Schedule a contact with NASA's AQUA public satellite
+  - name: Downlink data from NASA's Aqua public satellite
     href: downlink-aqua.md 
-  - name: Collect and process AQUA satellite payload
+  - name: Process Aqua satellite data using NASA-provided tools
     href: satellite-imagery-with-orbital-ground-station.md
+  - name: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+    href: virtual-rf-tutorial.md
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC
