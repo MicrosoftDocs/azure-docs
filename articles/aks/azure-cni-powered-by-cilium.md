@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 05/09/2023
+ms.date: 05/23/2023
 ---
 
 # Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)
@@ -61,9 +61,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 ## Prerequisites
 
-* Azure CLI version 2.41.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-* Azure CLI with aks-preview extension 0.5.135 or later.
+* Azure CLI version 2.48.1 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * If using ARM templates or the REST API, the AKS API version must be 2022-09-02-preview or later.
 
@@ -82,7 +80,7 @@ az group create --name <resourceGroupName> --location <location>
 ```
 
 ```azurecli-interactive
-# Create a VNet with a subnet for nodes and a subnet for pods
+# Create a virtual network with a subnet for nodes and a subnet for pods
 az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
 az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
 az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
@@ -140,7 +138,4 @@ Learn more about networking in AKS in the following articles:
 
 <!-- LINKS - Internal -->
 [aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
+
