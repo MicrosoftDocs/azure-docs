@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/05/2023
+ms.date: 05/10/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -98,7 +98,6 @@ Azure CNI Overlay has the following limitations:
 - Windows support is still in Preview
     - Windows Server 2019 node pools are **not** supported for Overlay
     - Traffic from host network pods is not able to reach Windows Overlay pods.
-- Sovereign Clouds are not supported
 - Virtual Machine Availability Sets (VMAS) are not supported for Overlay
 - Dualstack networking is not supported in Overlay
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
@@ -167,14 +166,9 @@ You can update an existing Azure CNI cluster to Overlay if the cluster meets cer
 The upgrade process will trigger each node pool to be re-imaged simultaneously (i.e. upgrading each node pool separately to Overlay is not supported). Any disruptions to cluster networking will be similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
 
 > [!WARNING] 
-> Due to the limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, this has a more detrimental effect for clusters upgrading to Overlay.
-While nodes are being upgraded to use the CNI Overlay feature, pods that are on nodes which haven't been upgraded yet will not be able to communicate with pods on Windows nodes that have been upgraded to Overlay. In other words, Overlay Windows pods will not be able to reply to any traffic from pods still running with an IP from the node subnet.
+> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, this had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**
 
 This network disruption will only occur during the upgrade. Once the migration to Overlay has completed for all node pools, all Overlay pods will be able to communicate successfully with the Windows pods.
-
-> [!NOTE]
-> The upgrade completion doesn't change the existing limitation that host network pods **cannot** communicate with Windows Overlay pods.
-
 
 ## Next steps
 
