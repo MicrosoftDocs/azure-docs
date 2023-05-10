@@ -329,6 +329,7 @@ resources:
 
 ## AutoML job
 
+There is no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count is not specified then it is defaulted based on max_concurrent_trials and max_nodes parameters.
 
 # [Python SDK](#tab/python)
 
@@ -360,8 +361,7 @@ For a pipeline job, specify `azureml:serverless` as your default compute type to
 
 
 ---
-## AutoML jobs 
-There is no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count is not specified then it is defaulted based on max_concurrent_trials and max_nodes parameters.
+
 
 ## Next steps
 
