@@ -71,13 +71,13 @@ Next, update your code to use passwordless connections.
     ```go
     cred, err := azidentity.NewDefaultAzureCredential(nil)
     if err != nil {
-        // code omitted for brevity
+        // handle error
     }
 
     serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
     client, err := azblob.NewClient(serviceURL, cred, nil)
     if err != nil {
-        // code omitted for brevity
+        // handle error
     }
     ```
 

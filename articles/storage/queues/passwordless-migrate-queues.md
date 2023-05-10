@@ -84,13 +84,13 @@ The Azure Identity client library, for each of the following ecosystems, provide
     ```go
     cred, err := azidentity.NewDefaultAzureCredential(nil)
     if err != nil {
-        // code omitted for brevity
+        // handle error
     }
 
     serviceURL := fmt.Sprintf("https://%s.queue.core.windows.net/", storageAccountName)
     client, err := azqueue.NewQueueClient(serviceURL, cred, nil)
     if err != nil {
-        // code omitted for brevity
+        // handle error
     }
     ```
 
