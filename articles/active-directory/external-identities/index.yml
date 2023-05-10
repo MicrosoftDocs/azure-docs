@@ -72,16 +72,12 @@ additionalContent:
       items:      
         # Card
         - title: Overview
-          summary: Learn basic partner concepts and processes.
+          summary: Learn basic B2B concepts and processes.
           url: /azure/active-directory/external-identities/external-identities-overview
-        # Card
-        - title: Compare External Identities solutions
-          summary: Learn about different solutions for external users.
-          url: /active-directory/external-identities/external-identities-overview
         # Card
         - title: What is Azure AD B2B collaboration?
           summary: Learn about the Azure AD B2B collaboration feature.
-          url: /active-directory/external-identities/what-is-b2b       
+          url: /azure/active-directory/external-identities/what-is-b2b      
         # Card
         - title: What is Azure AD B2B direct connect?
           summary: Learn about the Azure AD B2B direct connect feature.
