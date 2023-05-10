@@ -1,7 +1,7 @@
 ---
 title: "Use blocklists for text moderation"
 titleSuffix: Azure Cognitive Services
-description: Learn how to customize text moderation in Content Safety by using your own list of blocked terms.
+description: Learn how to customize text moderation in Content Safety by using your own list of blockItems.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -49,7 +49,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_id>?api-version=2022-12-30-preview' \
+curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_id>?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -121,12 +121,12 @@ Copy the cURL command below to a text editor and make the following changes:
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
-1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Replace `<your_list_id>` (in the URL) with the ID value you used in the list creation step.
 1. Optionally replace the value of the `"description"` field with a custom description.
-1. Replace the value of the `"text"` field with the item you'd like to add to your blocklist.
+1. Replace the value of the `"text"` field with the item you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 
 ```shell
-curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_id>:addBlockItems?api-version=2022-12-30-preview' \
+curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_id>:addBlockItems?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '"blockItems": [{
@@ -201,11 +201,10 @@ if __name__ == "__main__":
     blocklist_name = "<your_list_id>"
 
     block_item_text_1 = "k*ll"
-    block_item_text_2 = "h*te"
     input_text = "I h*te you and I want to k*ll you."
 
     # add block items
-    result = add_block_items(name=blocklist_name, items=[block_item_text_1, block_item_text_2])
+    result = add_block_items(name=blocklist_name, items=[block_item_text_1])
     if result is not None:
         print("Block items added: {}".format(result))
 ```
@@ -213,7 +212,8 @@ if __name__ == "__main__":
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_id>` with the ID value you used in the list creation step.
-1. Replace the value of the `block_item_text_1` field with the item you'd like to add to your blocklist.
+1. Replace the value of the `block_item_text_1` field with the item you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Optionally add more blockItem strings to the `add_block_items` parameter.
 1. Run the script.
 
 
@@ -227,14 +227,6 @@ if __name__ == "__main__":
 
 #### [REST API](#tab/rest)
 
-The below fields must be included in the URL of your Analyze API call:
-
-| Name         | Description | Type     |
-| :---------------- | :-------------- | ----------- |
-| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~        `      Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}?api-version=2022-12-30-preview"` | String      |
-| **blockItems**    | (Required) This is the blocklistName to be checked.     Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview"` | BCP 47 code |
-| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview` | String      |
-
 Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
@@ -243,7 +235,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Optionally change the value of the `"text"` field to whatever text you want to analyze. 
 
 ```shell
-curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview&' \
+curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-04-30-preview&' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -344,7 +336,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
 
 ```shell
-curl --location --request GET '<endpoint>/contentsafety/text/blocklists/<your_list_id>/blockItems?api-version=2022-12-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/blocklists/<your_list_id>/blockItems?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -422,7 +414,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request GET '<endpoint>/contentsafety/text/blocklists?api-version=2022-12-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/blocklists?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -535,7 +527,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_id>/removeBlockItems?api-version=2022-12-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_id>/removeBlockItems?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 --data-raw '"blockItemIds":[
@@ -589,8 +581,7 @@ if __name__ == "__main__":
     blocklist_name = "<your_list_id>"
     
     # remove one blocklist item
-    if sample.remove_block_items(name=blocklist_name, items=[result[0]]):
-        print("Block item removed: {}".format(result[0]))
+    if sample.remove_block_items(name=blocklist_name, items=["<your_item_id>"]):
 
     result = sample.list_block_items(name=blocklist_name)
     if result is not None:
@@ -600,6 +591,7 @@ if __name__ == "__main__":
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Replace `<your_item_id>` with the ID value for the blockItem. This is the value of the `"blockItemId"` field from the **Add blockItem** or **Get all blockItems** API calls.
 1. Run the script.
 
 ---
@@ -620,7 +612,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
 
 ```shell
-curl --location --request DELETE '<endpoint>/contentsafety/text/lists/<your_list_id>?api-version=2022-12-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_id>?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 ```
@@ -630,7 +622,6 @@ The response code should be `204`.
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
-
 
 ```python
 import os

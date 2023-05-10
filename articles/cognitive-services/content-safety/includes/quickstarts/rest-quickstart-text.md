@@ -42,14 +42,19 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
 }'
 ```
 
-The JSON fields that can be included in the request body are defined in this table:
+The below fields must be included in the url:
 
-| Name        | Description         | Type    |
-| :---------- | :----------------- | ------- |
-| **Text**              | (Required) This is the raw text to be checked. Other non-ASCII characters can be included. | String  |
-| **Categories**        | (Optional) This is assumed to be an array of category names. See the **Concepts** section for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
-| **BlocklistNames**    | Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~`. You could attach multiple lists name here. | Array   |
-| **BreakByBlocklists** | If set this field to `true`, once a blocklist is matched, the analysis returns immediately without model output. Default is `false`. | Boolean |
+| Name            | Description             | Type   |
+| :-------------- | :------------------------ | ------ |
+| **API Version** | (Required) This is the API version to be checked. Current version is: api-version=2023-04-30-preview. Example: `<endpoint>/contentsafety/text:analyze?api-version=2023-04-30-preview` | String |
+
+The parameters in the request body are defined in this table:
+| Name                  | Type     | Description             | Type    |
+| :-------------------- | -------- | :----------------------- | ------- |
+| **text**              | Required | This is the raw text to be checked. Other non-ascii characters can be included. | String  |
+| **categories**        | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We will use multiple categories to get scores in a single request. | String  |
+| **blocklistNames**    | Required | Text blocklist Name. Only support following characters:  `0-9 A-Z a-z - . _ ~`. You could attach multiple lists name here. | Array   |
+| **breakByBlocklists** | Required | When set to `true`, further analyses of harmful content will not be performed in cases where blocklists are hit. When set to `false`, all analyses of harmful content will be performed, whether or not blocklists are hit. | Boolean |
 
 See the following sample request body:
 
@@ -75,22 +80,22 @@ You should see the text moderation results displayed as JSON data in the console
 
 ```json
 {
-    "blocklistMatchResults": [],
+    "blocklistsMatchResults": [],
     "hateResult": {
         "category": "Hate",
-        "riskLevel": 2
+        "severity": 0
     },
     "selfHarmResult": {
         "category": "SelfHarm",
-        "riskLevel": 0
+        "severity": 0
     },
     "sexualResult": {
         "category": "Sexual",
-        "riskLevel": 0
+        "severity": 0
     },
     "violenceResult": {
         "category": "Violence",
-        "riskLevel": 0
+        "severity": 0
     }
 }
 ```
@@ -99,24 +104,6 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Content flags](../../concepts/content-flags.md)| String |
-| **Severity Level** | The higher the severity of input content, the larger this value is. The values can be: 0,2,4,6.	  | Integer |
+| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Harm categories](../../concepts/harm-categories.md)| String |
+| **Severity** | The higher the severity of input content, the larger this value is. The values can be: 0,2,4,6.	  | Integer |
 
-
-## Response codes
-
-The content APIs may return the following HTTP response codes:
-
-| Response code | Description                                                  |
-| :------------ | :----------------------------------------------------------- |
-| `200`           | OK - Standard response for successful HTTP requests.         |
-| `201`           | Created - The request has been fulfilled, resulting in the creation of a new resource. |
-| `204`           | No content - The server successfully processed the request, and isn't returning any content. Usually this is returned for the DELETE operation. |
-| `400`           | Bad request – The server can't process the request due to a client error (for example, malformed request syntax, size too large, invalid request message framing, or deceptive request routing). |
-| `401`           | Unauthorized – Authentication is required and has failed.    |
-| `403`           | Forbidden – User not having the necessary permissions for a resource. |
-| `404`           | Not found - The requested resource couldn't be found.       |
-| `429`           | Too many requests – The user has sent too many requests in a given amount of time. Refer to "Quota Limit" section for limitations. |
-| `500`           | Internal server error – An unexpected condition was encountered on the server side. |
-| `503`           | Service unavailable – The server can't handle the request temporarily. Try again at a later time. |
-| `504`           | Gateway time out – The server didn't receive a timely response from the upstream service. Try again at a later time. |

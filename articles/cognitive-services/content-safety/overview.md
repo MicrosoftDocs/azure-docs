@@ -19,17 +19,17 @@ ms.custom: references_regions
 
 # What is Azure Content Safety? (preview)
 
-The Azure Content Safety public preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. Content Safety offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
+Azure Content Safety detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
 
-You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+Content filtering software can help your app comply with regulations or maintain the intended environment for your users.
 
-Azure Content Safety can be accessed through RESTful APIs and a Python client SDK.
+
 
 This documentation contains the following article types:  
 
 * **[Quickstarts](./quickstart-text.md)** are getting-started instructions to guide you through making requests to the service.  
 * **[How-to guides](./how-to/use-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
-* **[Concepts](concepts/content-flags.md)** provide in-depth explanations of the service functionality and features.  
+* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 
 ## Where it's used
 
@@ -81,7 +81,7 @@ In Content Safety Studio, the following Content Safety service features are avai
 
 The default maximum length for text submissions is 1000 characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
 
-The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
+The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
 
 ## Pricing
 

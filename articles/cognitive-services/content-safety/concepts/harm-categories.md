@@ -1,5 +1,5 @@
 ---
-title: "Content flags in Azure Content Safety"
+title: "Harm categories in Azure Content Safety"
 titleSuffix: Azure Cognitive Services
 description: Learn about the different content moderation flags and severity levels that the Content Safety service returns.
 services: cognitive-services
@@ -14,11 +14,11 @@ keywords:
 ---
 
 
-# Content flags in Azure Content Safety
+# Harm categories in Azure Content Safety
 
-This guide describes all of the content categories and ratings that Content Safety uses to flag content. Both text and image content use the same set of flags.
+This guide describes all of the harm categories and ratings that Content Safety uses to flag content. Both text and image content use the same set of flags.
 
-## Content categories
+## Harm categories
 
 Content Safety recognizes four distinct categories of objectionable content.
 
@@ -33,7 +33,7 @@ Classification can be multi-labeled. For example, when a text sample goes throug
 
 ## Severity levels
 
-Every content flag the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
+Every harm category the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
 
 | Severity | Label |
 | -------- | ----------- |

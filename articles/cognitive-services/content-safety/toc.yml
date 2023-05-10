@@ -39,14 +39,16 @@ items:
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-safety/context/context
 - name: Concepts
   items:
-  - name: Content flags
-    href: concepts/content-flags.md
+  - name: Harm categories
+    href: concepts/harm-categories.md
 - name: Reference
   items:
   - name: Content Safety REST API
     href: https://aka.ms/content-safety-api
   - name: Content Safety Python SDK
     href: https://aka.ms/content-safety-python-sdk
+  - name: Response codes
+    href: concepts/response-codes.md
 - name: Resources
   items:
   - name: Enterprise readiness

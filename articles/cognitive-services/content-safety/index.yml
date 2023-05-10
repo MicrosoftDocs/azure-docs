@@ -40,8 +40,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Content flags
-            url: concepts/content-flags.md
+          - text: Harm categories
+            url: concepts/harm-categories.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
@@ -53,8 +53,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Content flags
-            url: concepts/content-flags.md
+          - text: Harm categories
+            url: concepts/harm-categories.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio

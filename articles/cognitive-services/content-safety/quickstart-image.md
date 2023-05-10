@@ -45,7 +45,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-Become more familiar with the content flags that Content Safety uses to evaluate content.
+Become more familiar with the harm categories that Content Safety uses to evaluate content.
 
 > [!div class="nextstepaction"]
-> [Content flags](./concepts/content-flags.md)
+> [Harm categories](./concepts/harm-categories.md)
