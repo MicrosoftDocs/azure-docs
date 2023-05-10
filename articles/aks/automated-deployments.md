@@ -49,11 +49,11 @@ Fill out the fields, providing details about your application that will be used 
 
 Pick your dockerfile and your ACR and image.
 
-    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen." lightbox="media/automated-deployments/ad-image-expanded.png":::
+:::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen." lightbox="media/automated-deployments/ad-image-expanded.png":::
 
 Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
 
-    :::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen." lightbox="media/automated-deployments/ad-deployment-details-expanded.png":::
+:::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen." lightbox="media/automated-deployments/ad-deployment-details-expanded.png":::
 
 When finished, select **Next: Deployment details** to finalize the artifacts, select **Next: Review** to review them, and finally select **Next: Deploy** to finalize the automated deployment.
 
@@ -63,15 +63,15 @@ When finished, select **Next: Deployment details** and **Next: Review**, and rev
 
 Click **view pull request** to see your GitHub Action.
 
-    :::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted." lightbox="media/automated-deployments/ad-view-pr-expanded.png" :::
+:::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted." lightbox="media/automated-deployments/ad-view-pr-expanded.png" :::
 
 Merge the pull request to kick off the GitHub Action and deploy your application.
 
-    :::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted." lightbox="media/automated-deployments/ad-accept-pr-expanded.png" :::
+:::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted." lightbox="media/automated-deployments/ad-accept-pr-expanded.png" :::
 
 Once your application is deployed, go back to automated deployments to see your history.
 
-    :::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments." lightbox="media/automated-deployments/ad-view-history-expanded.png" :::
+:::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments." lightbox="media/automated-deployments/ad-view-history-expanded.png" :::
 
 ## Clean up resources
 
