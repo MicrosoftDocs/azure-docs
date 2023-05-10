@@ -10,11 +10,12 @@ ms.date: 07/25/2022
 ---
 # Asset details page in the Microsoft Purview Data Catalog
 
-This article discusses how assets are displayed in the Microsoft Purview Data Catalog. It describes how you can view relevant information or take  action on assets in your catalog.
+This article discusses how assets are displayed in the Microsoft Purview Data Catalog, and all the features and details available to them. It describes how you can view relevant information or take  action on assets in your catalog.
+
 ## Prerequisites
 
 - Set up your data sources and scan the assets into your catalog.
-- *Or* Use the Microsoft Purview Atlas APIs to ingest assets into the catalog. 
+- *Or* Use the Microsoft Purview Atlas APIs to ingest assets into the catalog.
 
 ## Open an asset details page
 
@@ -36,6 +37,7 @@ Once you find the asset you're looking for, you can view all of the asset inform
 - **Related** - This tab lets you navigate through the technical hierarchy of assets that are related to the current asset you're viewing.
 
 ## Asset overview
+
 The overview section of the asset details gives a summarized view of an asset. The sections that follow explains the different parts of the overview page.
 
 :::image type="content" source="media/catalog-asset-details/asset-detail-overview.png" alt-text="Screenshot that shows the asset details overview page.":::
@@ -114,6 +116,7 @@ You can navigate to the contact tab of the edit screen to update owners and expe
 Both column-level and asset-level updates such as adding a description, glossary term or classification don't impact scan updates. Scans will update new columns and classifications regardless if these changes are made.
 
 If you update the **name** or **data type** of a column, subsequent scans **won't** update the asset schema. New columns and classifications **won't** be detected.
+
 ### Request access to data
 
 If a [self-service data access workflow](how-to-workflow-self-service-data-access-hybrid.md) has been created, you can request access to a desired asset directly from the asset details page! To learn more about Microsoft Purview's data policy applications, see [how to enable data use management](how-to-enable-data-use-management.md).
@@ -148,6 +151,69 @@ Any asset you delete using the delete button is permanently deleted in Microsoft
 
 If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset won't get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan. For example, say you manually delete a SQL table from the Microsoft Purview Data Map. Later, a data engineer adds a new column to the source table. When Microsoft Purview scans the database, the table will be reingested into the data map and be discoverable in the data catalog.
 
+## Ratings
+
+Assets can be rated by all users with read access, or better, to that asset in Microsoft Purview.
+Ratings allow users to give an asset a rating from 1 to 5 stars, and leave a comment about the asset.
+
+These ratings can be seen by all users with read access, and rating can be [added as a facet](how-to-search-catalog.md#use-the-facets) when [searching the data catalog](how-to-search-catalog.md) so users can find assets with a certain rating.
+
+### View ratings
+
+1. [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for your asset in Microsoft Purview and select it.
+1. In the header of the asset you can see a rating, which will show an aggregate star rating of the asset, and the number of reviews.
+    :::image type="content" source="media/catalog-asset-details/view-rating-aggregate.png" alt-text="Screenshot of a rating in the header of an asset.":::
+1. To see a percentage breakdown of the ratings, select the rating.
+1. To see specific ratings and their comments, or to add your own rating, select **Open ratings**.
+    :::image type="content" source="media/catalog-asset-details/open-rating-details.png" alt-text="Screenshot of a selected rating in the header of an asset showing the percentage breakdown.":::
+
+### Add a rating to an asset
+
+1. [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for your asset in Microsoft Purview and select it.
+1. Select the ratings button in the asset's header.
+1. Select the **Open ratings** button.
+    :::image type="content" source="media/catalog-asset-details/open-ratings.png" alt-text="Screenshot that shows the ratings button selected, and the open ratings button highlighted.":::
+1. Choose a star rating, add a comment, and select **Submit**.
+    :::image type="content" source="media/catalog-asset-details/rate-asset.png" alt-text="Screenshot of a rating, showing five start selected and a comment about the quality of the data.":::
+
+## Edit or delete your rating
+
+1. Select the ratings button in the asset's header.
+1. Select the **Open ratings** button.
+1. Under **My rating** select the ellipsis button in your rating.
+    :::image type="content" source="media/catalog-asset-details/edit-rating.png" alt-text="Screenshot of the user's rating, shown under the My rating menu, with the ellipsis button selected.":::
+1. To delete your rating, select **Delete rating**.
+1. To edit your rating, select **Edit rating**, then update your score and comment and select **Submit**.
+
+## Tags
+
+Asset can be tagged by users with data curator permissions or better, and any users with reader permissions on these assets in Microsoft Purview can see these tags.
+Users can add tags [as a filter](how-to-search-catalog.md#refine-results) when [searching the data catalog](how-to-search-catalog.md), so users can see all assets with certain tags.
+
+>[!NOTE]
+>Tag limitations:
+>
+> - An asset can only have up to 50 tags
+> - Tags can only be 50 characters
+> - Allowed characters: numbers, letters, -, and _
+
+### Add a tag to an asset
+
+If you have [data curator](catalog-permissions.md) permissions Microsoft Purview, you can add a tag to an asset by:
+
+1. [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for your asset in Microsoft Purview and select it.
+1. Select the **+ Add Tag** button under the asset's name.
+    :::image type="content" source="media/catalog-asset-details/add-new-tag.png" alt-text="Screenshot that shows the new tag button highlighted on an asset detail page.":::
+1. Select an existing available tag, or input a new tag.
+
+### Remove a tag from an asset
+
+If you have [data curator](catalog-permissions.md) permissions Microsoft Purview, you can remove a tag from an asset by:
+
+1. [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for your asset in Microsoft Purview and select it.
+1. Select the **X** button next to an existing tag under the asset's name.
+    :::image type="content" source="media/catalog-asset-details/remove-tag.png" alt-text="Screenshot that shows the remove tag button highlighted next to an existing page.":::
+1. Confirm the removal of the tag.
 
 ## Next steps
 

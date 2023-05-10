@@ -1,9 +1,9 @@
 ---
-title: Monitor an Azure Kubernetes Service (AKS) cluster deployed
-description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
+title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
+description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-terraform, ignite-2022
 ms.reviewer: aul
 ---
 
@@ -385,8 +385,10 @@ AKS clusters with system-assigned identity must first disable monitoring and the
       ```
 
 ## Private link
+Use one of the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md).
 
-To enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md), your cluster must be using managed identity authentication with Azure Monitor Agent.
+### Managed identity authentication
+Use the following procedure if your cluster is using managed identity authentication with Azure Monitor Agent.
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your Azure Monitor private link service.
 
@@ -415,10 +417,39 @@ To enable network isolation by connecting your cluster to the Log Analytics work
 
 1. Enable monitoring with the managed identity authentication option by using the steps in [Migrate to managed identity authentication](#migrate-to-managed-identity-authentication).
 
+### Without managed identity authentication
+Use the following procedure if you're not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
+
+1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+
+2. Disable public Ingestion on your Log Analytics workspace. 
+
+    Use the following command to disable public ingestion on an existing workspace.
+
+    ```cli
+    az monitor log-analytics workspace update --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+    Use the following command to create a new workspace with public ingestion disabled.
+
+    ```cli
+    az monitor log-analytics workspace create --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
+
+
+4. Enable monitoring for the AKS cluster.
+
+    ```cli
+    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
+    ```
+
+
 ## Limitations
 
 - Enabling managed identity authentication (preview) isn't currently supported by using Terraform or Azure Policy.
-- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-name\>-\<cluster-region\>*. Currently, this name can't be modified.
+- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
 ## Next steps
 

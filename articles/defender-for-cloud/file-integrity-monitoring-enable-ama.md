@@ -1,14 +1,14 @@
 ---
 title: Enable File Integrity Monitoring (Azure Monitor Agent)
 description: Learn how to enable File Integrity Monitor when you collect data with the Azure Monitor Agent (AMA)
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/14/2022
 ---
 # Enable File Integrity Monitoring when using the Azure Monitor Agent
 
-To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Azure Monitor Agent (AMA) collects data from machines according to [Data Collection Rules](../azure-monitor/essentials/data-collection-rule-overview.md). When the current state of your system files is compared with the state during the previous scan, FIM notifies you about suspicious modifications.
+To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Azure Monitor Agent (AMA) collects data from machines according to [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md). When the current state of your system files is compared with the state during the previous scan, FIM notifies you about suspicious modifications.
 
 File Integrity Monitoring with the Azure Monitor Agent offers:
 
@@ -43,7 +43,7 @@ To track changes to your files on machines with AMA:
 
 ## Enable File Integrity Monitoring with AMA
 
-To enable File Integrity Monitoring (FIM), use the FIM recommendation to select machines for file integrity monitoring:
+To enable File Integrity Monitoring (FIM), use the FIM recommendation to select machines to monitor:
 
    1. From Defender for Cloud's sidebar, open the **Recommendations** page.
    1. Select the recommendation [File integrity monitoring should be enabled on machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b7d740f-c271-4bfd-88fb-515680c33440). Learn more about [Defender for Cloud recommendations](review-security-recommendations.md).

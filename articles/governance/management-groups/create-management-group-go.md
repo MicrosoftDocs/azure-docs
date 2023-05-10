@@ -68,10 +68,10 @@ can be used, including [bash on Windows 10](/windows/wsl/install-win10) or local
 
    ```bash
    # Add the management group package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups
+   go install github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups@latest
 
    # Add the Azure auth package for Go
-   go get -u github.com/Azure/go-autorest/autorest/azure/auth
+   go install github.com/Azure/go-autorest/autorest/azure/auth@latest
    ```
 
 ## Application setup

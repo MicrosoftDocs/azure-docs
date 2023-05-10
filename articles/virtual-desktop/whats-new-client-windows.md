@@ -1,10 +1,10 @@
 ---
 title: What's new in the Remote Desktop client for Windows - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for Windows
-ms.topic: conceptual
+ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 01/24/2023
+ms.date: 05/09/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -15,23 +15,78 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
-| Release | Latest version | Minimum supported version | Download |
-|---------|----------------|---------------------------|--|
-| Public  | 1.2.3770       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.3916       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 1.2.4159       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4240       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.3916 (Insider)
+## Updates for version 1.2.4240 (Insider) 
 
-*Date published: January 24, 2023*
+*Date published: May 4, 2023* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
-- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
+In this release, we've made the following changes: 
+
+- Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
+- Made minor changes to connection bar UI, including improved button sizing. 
+- Fixed an issue where the client stopped responding if closed from the system tray. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4159
+
+*Date published: May 9, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
+
+- Redesigned the connection bar for session desktops.
+- Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
+- Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
+- Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
+- Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
+- Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
+- Fixed an issue that generated duplicate Activity IDs for unique connections. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed an application compatibility issue for preview versions of Windows.
+
+## Updates for version 1.2.4066
+
+*Date published: March 28, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW10DEa), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW10GYu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW10GYw)
+
+In this release, we've made the following changes:
+
+- General improvements to Narrator experience.
+- Fixed a bug that caused the client to stop responding when disconnecting from the session early.
+- Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
+- Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
+- Disabled UPnP for non-Insiders customers after reports of connectivity issues.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Updates to MMR for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to Teams for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
+   - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
+
+>[!NOTE]
+>This release was originally version 1.2.4065, but we made a hotfix after reports that UPnP was causing connectivity issues. version 1.2.4066 has replaced the previous version and has disabled UPnP.
+
+## Updates for version 1.2.3918
+
+*Date published: February 7, 2023*
+
+In this release, we've made the following changes:
+
 - Fixed a bug where refreshes increased memory usage.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Bug fix for Background Effects persistence between Teams sessions.
-- Various bug fixes for multimedia redirection (MMR) video playback redirection.
+- Updates to MMR for Azure Virtual Desktop, including the following:
+   - Various bug fixes for multimedia redirection (MMR) video playback redirection.
+   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available. 
 
 >[!IMPORTANT]
 >This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
@@ -39,8 +94,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 ## Updates for version 1.2.3770
 
 *Date published: December 14, 2022*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 In this release, we've made the following changes:
 
@@ -52,8 +105,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.3667
 
 *Date published: November 30, 2022*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvS), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvR), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5aCCE)
 
 In this release, we've made the following changes:
 
@@ -99,7 +150,7 @@ In this release, we've made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
    - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md).
+   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
 
@@ -203,7 +254,7 @@ In this release, we've made the following changes:
 - Updated the error message that appears when users are unable to subscribe to their feed.
 - Updated the disconnect dialog boxes that appear when the user locks their remote session or puts their local computer in sleep mode to be only informational.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
+- [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
 - Improved connection reliability for Teams on Azure Virtual Desktop.
 
 ## Updates for version 1.2.2927

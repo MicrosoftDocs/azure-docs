@@ -4,9 +4,9 @@ description: Use Azure role-based access control to manage access to backup mana
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 02/28/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Use Azure role-based access control to manage Azure Backup recovery points

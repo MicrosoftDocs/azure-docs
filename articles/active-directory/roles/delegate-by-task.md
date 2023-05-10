@@ -1,5 +1,5 @@
 ---
-title: Least privileged roles by task - Azure Active Directory | Microsoft Docs
+title: Least privileged roles by task
 description: Least privileged roles to delegate for tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -264,7 +264,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | ---- | --------------------- | ---------------- |
 > | Manage identity providers | [External Identity Provider Administrator](permissions-reference.md#external-identity-provider-administrator) |  |
 > | Manage settings | [Global Administrator](permissions-reference.md#global-administrator) |  |
-> | Manage terms of use | [Global Administrator](permissions-reference.md#global-administrator) |  |
+> | Manage privacy statement and contact | [Global Administrator](permissions-reference.md#global-administrator) |  |
 > | Read all configuration | [Global Reader](permissions-reference.md#global-reader) |  |
 
 ## Password reset
@@ -387,7 +387,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Create user | [User Administrator](permissions-reference.md#user-administrator) |  |
 > | Delete users | [User Administrator](permissions-reference.md#user-administrator) |  |
 > | Invalidate refresh tokens of limited admins | [User Administrator](permissions-reference.md#user-administrator) |  |
-> | Invalidate refresh tokens of non-admins | [Password Administrator](permissions-reference.md#password-administrator) | [User Administrator](permissions-reference.md#user-administrator) |
+> | Invalidate refresh tokens of non-admins | [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | [User Administrator](permissions-reference.md#user-administrator) |
 > | Invalidate refresh tokens of privileged admins | [Privileged Authentication Administrator](permissions-reference.md#privileged-authentication-administrator) |  |
 > | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
 > | Reset password for limited admins | [User Administrator](permissions-reference.md#user-administrator) |  |

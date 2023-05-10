@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 12/17/2022
+ms.date: 02/28/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -22,6 +22,10 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## February 2023
+
+[**Document Translation in Language Studio**](document-translation/language-studio.md) is now available for Public Preview. The feature provides a no-code user interface to interactively translate documents from local or Azure blob storage.
 
 ## November 2022
 
@@ -108,7 +112,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 ### [Text and document support for more than 100 languages](https://www.microsoft.com/translator/blog/2021/10/11/translator-now-translates-more-than-100-languages/)
 
 * Translator service has added [text and document language support](language-support.md) for the following languages:
-  * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three dialect groups: Southern, Eastern, and Northwestern.
+  * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three regional language groups: Southern, Eastern, and Northwestern.
   * **Dhivehi**. Also known as Maldivian, it's an Indo-Aryan language primarily spoken in the island country of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
@@ -196,7 +200,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 * **New release**: Custom Translator V2 phase 1 is available. The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Microsoft Translator blog: Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 
-### [Text and document translation support for two Kurdish dialects](https://www.microsoft.com/translator/blog/2020/08/20/translator-adds-two-kurdish-dialects-for-text-translation/)
+### [Text and document translation support for two Kurdish regional languages](https://www.microsoft.com/translator/blog/2020/08/20/translator-adds-two-kurdish-dialects-for-text-translation/)
 
 * **Northern (Kurmanji) Kurdish** (15 million native speakers) and **Central (Sorani) Kurdish** (7 million native speakers). Most Kurdish texts are written in Kurmanji and Sorani.
 

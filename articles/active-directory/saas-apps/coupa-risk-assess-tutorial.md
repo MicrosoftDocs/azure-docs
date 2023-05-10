@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coupa Risk Assess | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coupa Risk Assess'
 description: Learn how to configure single sign-on between Azure Active Directory and Coupa Risk Assess.
 services: active-directory
 author: jeevansd

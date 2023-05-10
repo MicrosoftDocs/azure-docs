@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BlueJeans for Azure AD | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BlueJeans for Azure AD'
 description: Learn how to configure single sign-on between Azure Active Directory and BlueJeans for Azure AD.
 services: active-directory
 author: jeevansd

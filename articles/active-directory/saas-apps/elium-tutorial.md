@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Elium | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Elium'
 description: Learn how to configure single sign-on between Azure Active Directory and Elium.
 services: active-directory
 author: jeevansd

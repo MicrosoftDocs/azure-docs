@@ -16,29 +16,29 @@ In this tutorial, you learn how to:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Link a question answering project/knowledge base to an Azure Bot Service
+> * Link a question answering project to an Azure Bot Service
 > * Deploy a Bot
 > * Chat with the Bot in web chat
 > * Enable the Bot in supported channels
 
-## Create and publish a knowledge base
+## Create and publish a project
 
-Follow the [getting started article](../how-to/create-test-deploy.md). Once the knowledge base has been successfully deployed, you will be ready to start this article.
+Follow the [getting started article](../how-to/create-test-deploy.md). Once the project has been successfully deployed, you will be ready to start this article.
 
 ## Create a bot
 
-After deploying your project/knowledge base, you can create a bot from the **Deploy knowledge base** page:
+After deploying your project, you can create a bot from the **Deploy project** page:
 
-* You can create several bots quickly, all pointing to the same knowledge base for different regions or pricing plans for the individual bots.
+* You can create several bots quickly, all pointing to the same project for different regions or pricing plans for the individual bots.
 
-* When you make changes to the knowledge base and redeploy, you don't need to take further action with the bot. It's already configured to work with the knowledge base, and works with all future changes to the knowledge base. Every time you publish a knowledge base, all the bots connected to it are automatically updated.
+* When you make changes to the project and redeploy, you don't need to take further action with the bot. It's already configured to work with the project, and works with all future changes to the project. Every time you publish a project, all the bots connected to it are automatically updated.
 
-1. In Language Studio, on the question answering **Deploy knowledge base** page, select **Create bot**.
+1. In Language Studio, on the question answering **Deploy project** page, select the **Create a bot** button.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of UI with option to create a bot in Azure.](../media/bot-service/create-bot-in-azure.png)
 
-1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service.
+1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service and hit the **Create** button.
 
     |Setting |Value|
     |----------|---------|
@@ -49,7 +49,7 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
     | Pricing tier | Choose pricing tier |
     |App name | App service name for your bot |
     |SDK language | C# or Node.js. Once the bot is created, you can download the code to your local development environment and continue the development process. |
-    | QnA Auth key | This key is automatically populated deployed question answering project/knowledge base |
+    | Language Resource Key  | This key is automatically populated deployed question answering project |
     | App service plan/Location | This value is automatically populated, do not change this value |
 
 1. After the bot is created, open the **Bot service** resource.
@@ -62,7 +62,7 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
 
     `How do I setup my surface book?`
 
-    The chat bot responds with an answer from your knowledge base.
+    The chat bot responds with an answer from your project.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of bot test chat response containing a question and bot generated answer.](../media/bot-service/bot-chat.png)
@@ -81,5 +81,3 @@ If you're not going to continue to use this application, delete the associate qu
 ## Next steps
 
 Advance to the next article to learn how to customize your FAQ bot with multi-turn prompts.
-> [!div class="nextstepaction"]
-> [Multi-turn prompts](guided-conversations.md)

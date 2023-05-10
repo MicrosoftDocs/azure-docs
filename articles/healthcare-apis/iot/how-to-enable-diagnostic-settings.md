@@ -1,23 +1,26 @@
 ---
 title: How to enable the MedTech service diagnostic settings - Azure Health Data Services
-description: This article explains how to enable the MedTech service diagnostic settings.
+description: Learn how to enable the MedTech service diagnostic settings.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 1/26/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
 # How to enable diagnostic settings for the MedTech service
 
-In this article, you'll learn how to enable diagnostic settings for the MedTech service to:
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+In this article, learn how to enable diagnostic settings for the MedTech service to:
 
 > [!div class="checklist"]
-> - Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.
-> - Use the Azure Log Analytics workspace to view the MedTech service logs.
-> - Access the MedTech service pre-defined Azure Log Analytics queries.
+> * Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.
+> * Use the Azure Log Analytics workspace to view the MedTech service logs.
+> * Access the MedTech service pre-defined Azure Log Analytics queries.
 
 ## Create a diagnostic setting for the MedTech service
 
@@ -125,7 +128,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 > [!WARNING]
 > The above custom query is not saved and will have to be recreated if you leave your Log Analytics workspace without saving the custom query.
 >
-> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
+> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](../../azure-monitor/logs/save-query.md) 
 
 > [!TIP]
 > To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
@@ -154,7 +157,7 @@ The MedTech service comes with pre-defined queries that can be used anytime in y
 > [!WARNING]
 > Any changes that you've made to the pre-defined queries are not saved and will have to be recreated if you leave your Log Analytics workspace without saving custom changes you've made to the pre-defined queries.
 >
-> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
+> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](../../azure-monitor/logs/save-query.md) 
 
 > [!TIP]
 > To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).

@@ -43,7 +43,7 @@ In some parts of this article, the steps you must take depend on whether your de
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
     - With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).
-1. Meet any other requirements in the _Network Connectivity Specification_ for Operator Connect or Teams Phone Mobile.
+1. Meet any other requirements in the _Network Connectivity Specification_ for Operator Connect or Teams Phone Mobile. If you don't have access to this specification, contact your onboarding team.
 
 ## 2. Ask your onboarding team to register your test enterprise tenant
 
@@ -57,7 +57,7 @@ Your onboarding team must register the test enterprise tenant that you chose in 
 
 ## 3. Assign numbers to test users in your tenant
 
-1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name has the suffix `azcog`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
+1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.

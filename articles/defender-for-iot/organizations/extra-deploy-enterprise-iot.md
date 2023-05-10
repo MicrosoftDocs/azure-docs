@@ -1,8 +1,9 @@
 ---
 title: Extra deployment steps and samples for Enterprise IoT deployment - Microsoft Defender for IoT
 description: Describes extra deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ms.date: 08/08/2022
+ms.custom: enterprise-iot
 ---
 
 # Extra steps and samples for Enterprise IoT deployment

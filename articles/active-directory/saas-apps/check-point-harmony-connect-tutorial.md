@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Harmony Connect | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Harmony Connect'
 description: Learn how to configure single sign-on between Azure Active Directory and Check Point Harmony Connect.
 services: active-directory
 author: jeevansd

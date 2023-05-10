@@ -2,8 +2,8 @@
 title: Create custom styles for indoor maps
 titleSuffix: Azure Maps Creator
 description: Learn how to use Maputnik with Azure Maps Creator to create custom styles for your indoor maps.
-author: stevemunk
-ms.author: v-munksteve
+author: brendansco
+ms.author: Brendanc
 ms.date: 9/23/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -16,24 +16,24 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 ## Prerequisites
 
-- Understanding of [Creator concepts](creator-indoor-maps.md).
-- An Azure Maps Creator [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
+- Understanding of [Creator concepts].
+- An Azure Maps Creator [tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
 
 ## Create custom styles using Creators visual editor
 
-While it's possible to modify your indoor maps styles using [Creators Rest API][creator api], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article will focus exclusively on creating custom styles using this style editor.
+While it's possible to modify your indoor maps styles using [Creators Rest API], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article focuses exclusively on creating custom styles using this style editor.
 
 ### Open style
 
-When an indoor map is created in your Azure Maps Creator service, default styles are automatically created for you. In order to customize the styling elements of your indoor map, you'll need to open that default style.
+When an indoor map is created in your Azure Maps Creator service, default styles are automatically created for you. In order to customize the styling elements of your indoor map, open that default style.
 
-Open the [Creator Style Editor][style editor] and select the **Open** toolbar button.
+Open the [style editor] and select the **Open** toolbar button.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/open-menu.png" alt-text="A screenshot of the open menu in the visual style editor.":::
 
 The **Open Style** dialog box opens.
 
-Enter your [subscription key][subscription key] in the **Enter your Azure Maps subscription key** field.
+Enter your [subscription key] in the **Enter your Azure Maps subscription key** field.
 
 Next, select the geography associated with your subscription key in the drop-down list.
 
@@ -44,7 +44,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 :::image type="content" source="./media/creator-indoor-maps/style-editor/select-the-map-configuration.png" alt-text="A screenshot of the open style dialog box in the visual style editor with the Select map configuration drop-down list highlighted.":::
 
 > [!NOTE]
-> If the map configuration was created as part of a custom style and has a user provided alias, that alias will appear in the map configuration drop-down list, otherwise the `mapConfigurationId` will appear. The default map configuration ID for any given tileset can be found by using the [tileset Get][tileset get] HTTP request and passing in the tileset ID:
+> If the map configuration was created as part of a custom style and has a user provided alias, that alias appears in the map configuration drop-down list, otherwise the `mapConfigurationId` appears. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
 >
 > ```http
 > https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2022-09-01-preview
@@ -56,7 +56,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 > "defaultMapConfigurationId": "68d74ad9-4f84-99ce-06bb-19f487e8e692"
 > ```
 
-Once the map configuration drop-down list is populated with the IDs of all the map configurations in your creator resource, select the desired map configuration, then the drop-down list of style + tileset tuples will appear. The *style + tileset* tuples consists of the style alias or ID, followed by the plus (**+**) sign then the `tilesetId`.
+Once the map configuration drop-down list is populated with the IDs of all the map configurations in your creator resource, select the desired map configuration, then the drop-down list of style + tileset tuples appears. The *style + tileset* tuples consists of the style alias or ID, followed by the plus (**+**) sign then the `tilesetId`.
 
 Once you've selected the desired style, select the **Load selected style** button.
 
@@ -66,10 +66,10 @@ Once you've selected the desired style, select the **Load selected style** butto
 
 | # | Description                                                                                 |
 |---|---------------------------------------------------------------------------------------------|
-| 1 | Your Azure Maps account [subscription key][subscription key]                                |
+| 1 | Your Azure Maps account [subscription key]                               |
 | 2 | Select the geography of the Azure Maps account.                                             |
-| 3 | A list of map configuration aliases. If a given map configuration has no alias, the `mapConfigurationId` will be shown instead. |
-| 4 | This value is created from a combination of the style and tileset. If the style has as alias it will be shown, if not the `styleId` will be shown. The `tilesetId` will always be shown for the tileset value. |
+| 3 | A list of map configuration aliases. If a given map configuration has no alias, the `mapConfigurationId` is shown instead. |
+| 4 | This value is created from a combination of the style and tileset. If the style has an alias it's shown, if not the `styleId` is shown. The `tilesetId` is always shown for the tileset value. |
 
 ### Modify style
 
@@ -77,7 +77,7 @@ Once your style is open in the visual editor, you can begin to modify the variou
 
 #### Change background color
 
-To change the background color for all units in the specified layer, put your mouse pointer over the desired unit and select it using the left mouse button. You’ll be presented with a popup menu showing the layers that are associated with the categories the unit is associated with. Once you select the layer that you wish to update the style properties on, you’ll see that layer ready to be updated in the left pane.
+To change the background color for all units in the specified layer, put your mouse pointer over the desired unit and select it using the left mouse button. You’re presented with a popup menu showing the layers that are associated with the categories the unit is associated with. Once you select the layer that you wish to update the style properties on, that layer is ready to be updated in the left pane.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png" alt-text="A screenshot of the unit layer pop-up dialog box in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png":::
 
@@ -87,19 +87,19 @@ Open the color palette and select the color you wish to change the selected unit
 
 #### Base map
 
-The base map drop-down list on the visual editor toolbar presents a list of base map styles that affect the style attributes of the base map that your indoor map is part of. It will not affect the style elements of your indoor map but will enable you to see how your indoor map will look with the various base maps.
+The base map drop-down list on the visual editor toolbar presents a list of base map styles that affect the style attributes of the base map that your indoor map is part of. It doesn't affect the style elements of your indoor map but enables you to see how your indoor map looks with the various base maps.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/base-map-menu.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
 
 #### Save custom styles
 
-Once you have made all of the desired changes to your styles, save the changes to your Creator resource. You can overwrite your style with the changes or create a new style.
+Once you have made the desired changes to your styles, save the changes to your Creator resource. You can overwrite your style with the changes or create a new style.
 
 To save your changes, select the **Save** button on the toolbar.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/save-menu.png" alt-text="A screenshot of the save menu in the visual style editor.":::
 
-The will bring up the **Upload style & map configuration** dialog box:
+This brings up the **Upload style & map configuration** dialog box:
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/upload-style-map-config.png" alt-text="A screenshot of the upload style and map configuration dialog box in the visual style editor.":::
 
@@ -108,34 +108,34 @@ The following table describes the four fields you're presented with.
 | Property                      | Description                                                                                           |
 |-------------------------------|-------------------------------------------------------------------------------------------------------|
 | Style description             | A user-defined description for this style.                                                            |
-| Style alias                   | An alias that can be used to reference this style.<BR>When referencing programmatically, the style will need to be referenced by the style ID if no alias is provided. |
+| Style alias                   | An alias that can be used to reference this style.<BR>When referencing programmatically, the style is referenced by the style ID if no alias is provided. |
 | Map configuration description | A user-defined description for this map configuration.                                                |
-| Map configuration alias       | An alias used to reference this map configuration.<BR>When referencing programmatically, the map configuration will need to be referenced by the map configuration ID if no alias is provided. |
+| Map configuration alias       | An alias used to reference this map configuration.<BR>When referencing programmatically, the map configuration is referenced by the map configuration ID if no alias is provided. |
 
 Some important things to know about aliases:
 
 1. Can be named using alphanumeric characters (0-9, a-z, A-Z), hyphens (-) and underscores (_).
-1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since neither the style or map configuration can be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
+1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since the style and map configuration can't be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
 
 > [!WARNING]
-> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, the style or map configuration that alias points to will be overwritten and the existing style or map configuration will be deleted and references to that ID will result in errors. See [map configuration](creator-indoor-maps.md#map-configuration) in the concepts article for more information.
+> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, the style or map configuration that alias points to will be overwritten and the existing style or map configuration will be deleted and references to that ID will result in errors. See [map configuration] in the concepts article for more information.
 
 Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
 > [!TIP]
-> Make a note of the map configuration `alias` value, it will be required when you [Instantiate the Indoor Manager][Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
+> Make a note of the map configuration `alias` value, it will be required when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
 
 ## Custom categories
 
-Azure Maps Creator has defined a [list of categories][categories]. When you create your [manifest][manifest], you associate each unit in your facility to one of these categories in the [unitProperties][unitProperties] object.
+Azure Maps Creator has defined a list of [categories]. When you create your [manifest], you associate each unit in your facility to one of these categories in the [unitProperties] object.
 
-There may be times when you want to create a new category. For example, you may want the ability to apply different styling attributes to all rooms with special accommodations for people with disabilities like a phone room with phones that have screens showing what the caller is saying for those with hearing impairments.
+There may be times when you want to create a new category. For example, you may want the ability to apply different styling attributes to all rooms with special accommodations for people with disabilities like a phone room with phones that have screens showing what the caller is saying for people with hearing impairments.
 
 To do this, enter the desired value in the `categoryName` for the desired `unitName` in the manifest JSON before uploading your drawing package.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/category-name.png" alt-text="A screenshot showing the custom category name in the manifest.":::
 
-Once opened in the visual editor, you'll notice that this category name isn't associated with any layer and has no default styling. In order to apply styling to it, you'll need to create a new layer and add the new category to it.
+The category name isn't associated with any layer when viewed in a visual editor and has no default styling. In order to apply styling to it, create a new layer and add the new category to it.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/category-name-changed.png" alt-text="A screenshot showing the difference in the layers that appear after changing the category name in the manifest.":::
 
@@ -226,7 +226,7 @@ For example, the filter JSON might look something like this:
 ]
 ```
 
-Now when you select that unit in the map, the pop-up menu will have the new layer ID, which if following this example would be `indoor_unit_room_accessible`. Once selected you can make style edits.
+Now when you select that unit in the map, the pop-up menu has the new layer ID, which if following this example would be `indoor_unit_room_accessible`. Once selected you can make style edits.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/custom-category-name-complete.png" alt-text="A screenshot of the pop-up menu showing the new layer appearing when the phone 11 unit is selected.":::
 
@@ -235,13 +235,15 @@ Now when you select that unit in the map, the pop-up menu will have the new laye
 > [!div class="nextstepaction"]
 > [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md)
 
+[Creator concepts]: creator-indoor-maps.md
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [tileset get]: /rest/api/maps/v20220901preview/tileset/get
-[tutorial]: tutorial-creator-indoor-maps.md
-[creator api]: /rest/api/maps-creator/
+[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
+[Creators Rest API]: /rest/api/maps-creator/
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [manifest]: drawing-requirements.md#manifest-file-requirements
 [unitProperties]: drawing-requirements.md#unitproperties
-[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json
+[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
+[map configuration]: creator-indoor-maps.md#map-configuration

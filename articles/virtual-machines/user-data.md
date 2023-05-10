@@ -6,9 +6,9 @@ author: ningk
 manager: rogardle
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 02/28/2023
 ms.author: ningk
-ms.reviewer: azmetadata
+ms.reviewer: azmetadata, mattmcinnes
 ---
 
 # User Data for Azure Virtual Machine 
@@ -17,7 +17,7 @@ User data allows you to pass your own scripts or metadata to your virtual machin
 
 ## What is "user data"
 
-User data is a set of scripts or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
+User data is a set of scripts or other metadata that's inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
 
 User data is a new version of [custom data](./custom-data.md)  and it offers added benefits:
 
@@ -29,21 +29,21 @@ User data is a new version of [custom data](./custom-data.md)  and it offers add
 
 * User data can be queried via GET VM/VMSS API with $expand option.
 
- In addition, if user data is not added at provision time, you can still add it after provision.
+ In addition, if user data isn't added at provision time, you can still add it after provision.
 
 **Security warning**
 
 > [!WARNING]
 > User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
 
-Make sure you get the latest Azure Resource Manager API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
+Make sure you get the latest Azure Resource Manager API to use the new user data features. The contents should be base64 encoded before passed to the API. The size can't exceed 64 KB.
 
 ## Create user data for Azure VM/VMSS
 
 **Adding user data when creating new VM**
 
 Use [this Azure Resource Manager template](https://aka.ms/ImdsUserDataArmTemplate) to create a new VM with user data.
-If you are using rest API, for single VMs, add 'UserData' to the "properties" section with the PUT request to create the VM.
+If you're using rest API, for single VMs, add 'UserData' to the "properties" section with the PUT request to create the VM.
 
 ```json
 {
@@ -69,9 +69,9 @@ If you are using rest API, for single VMs, add 'UserData' to the "properties" se
 }
 ```
 
-**Adding user data when you create new virtual machine scale set**
+**Adding user data when you create new Virtual Machine Scale Set**
 
-Using rest API, add 'UserData' to the "virtualMachineProfile" section with the PUT request when creating the virtual machine scale set.
+Using rest API, add 'UserData' to the "virtualMachineProfile" section with the PUT request when creating the Virtual Machine Scale Set.
 ```json
 {
   "location": "West US",
@@ -132,17 +132,17 @@ Single VMs:
 
 `GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachines/{VMName}?$expand=userData"`
 
-Virtual machine scale set:
+Virtual Machine Scale Set:
 
 `GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}?$expand=userData"`
 
-Virtual machine scale set VM:
+Virtual Machine Scale Set VM:
 
 ` GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}/virtualmachines/{vmss instance id}?$expand=userData" `
 
 ## Updating user data
 
-With REST API, you can use a normal PUT or PATCH request to update the user data. The user data will be updated without the need to stop or reboot the VM.
+With REST API, you can use a normal PUT or PATCH request to update the user data. The user data is updated without the need to stop or reboot the VM.
 
 `PUT
 "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/ virtualMachines/{VMName}
@@ -200,11 +200,11 @@ The VM.Properties in these requests should contain your desired UserData field, 
       } 
 ```
 > [!NOTE]
-> If you pass in an empty string for "userData" in this case, the user data will be deleted.
+> If you pass in an empty string for "userData" in this case, the user data is deleted.
 
 ## User data and custom data
 
-Custom data will continue to work the same way as today. Note you cannot retrieve custom data from IMDS. 
+Custom data continues to work the same way as today. Note you can't retrieve custom data from IMDS. 
 
 ## Adding user data to an existing VM 
 

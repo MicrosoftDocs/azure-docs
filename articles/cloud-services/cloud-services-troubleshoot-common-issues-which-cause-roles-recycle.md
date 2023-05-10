@@ -3,11 +3,11 @@ title: Common causes of Cloud Service (classic) roles recycling | Microsoft Docs
 description: A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime.
 ms.topic: troubleshooting
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Common issues that cause Azure Cloud Service (classic) roles to recycle

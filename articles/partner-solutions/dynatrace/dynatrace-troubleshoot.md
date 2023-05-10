@@ -1,12 +1,9 @@
 ---
 title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
-author: flang-msft
 
-ms.author: franlanglois
 ms.topic: conceptual
-ms.collection: na
-ms.date: 01/06/2023
+ms.date: 02/02/2023
 
 ---
 
@@ -57,6 +54,10 @@ This document contains information about troubleshooting your solutions that use
    To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
 
 - **App not showing in Single sign-on settings page** - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
+
+### Metrics checkbox disabled
+
+- To collect metrics you must have owner permission on the subscription. If you are a contributor, refer to the contributor guide mentioned in [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
 ## Next steps
 

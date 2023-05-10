@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 12/15/22
+  ms.date: 03/28/2023
   ms.custom: engagement-fy23
 
 landingContent:
@@ -39,10 +39,10 @@ landingContent:
       links:
         - text: Connect a Microchip ATSAME54-XPro to IoT Hub
           url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
-        - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Hub
-          url: quickstart-devkit-stm-b-l4s5i-iot-hub.md
         - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
           url: quickstart-devkit-stm-b-l475e-iot-hub.md
+        - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Hub
+          url: quickstart-devkit-stm-b-l4s5i-iot-hub.md
         - text: Connect an NXP MIMXRT1060-EVK to IoT Hub
           url: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
   - title: Build device solutions
@@ -51,6 +51,10 @@ landingContent:
       links:
         - text: Connect a sample device to IoT Hub
           url: tutorial-connect-device.md
+    - linkListType: concept
+      links:
+        - text: Manage device reconnections
+          url: concepts-manage-device-reconnections.md
   - title: Device development framework
     linkLists:
     - linkListType: concept

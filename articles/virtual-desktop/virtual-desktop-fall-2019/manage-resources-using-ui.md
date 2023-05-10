@@ -3,6 +3,7 @@ title: Deploy management tool with an Azure Resource Manager template - Azure
 description: How to install a user interface tool with an Azure Resource Manager template to manage Azure Virtual Desktop (classic) resources.
 author: Heidilohr
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila

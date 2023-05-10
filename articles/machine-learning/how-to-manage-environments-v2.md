@@ -1,8 +1,7 @@
 ---
 title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
-description: Learn how to manage Azure ML environments using Python SDK and Azure CLI extension for Machine Learning.
-services: machine-learning
+description: Learn how to manage Azure Machine Learning environments using Python SDK and Azure CLI extension for Machine Learning.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
@@ -18,14 +17,14 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-environments.md)
+> * [v1](./v1/how-to-use-environments.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-manage-environments-v2.md)
 
 
 
-Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure ML uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
+Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure Machine Learning uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
 
-In this article, learn how to create and manage Azure ML environments using the SDK & CLI (v2).
+In this article, learn how to create and manage Azure Machine Learning environments using the SDK & CLI (v2).
 
 
 ## Prerequisites
@@ -52,11 +51,11 @@ Note that `--depth 1` clones only the latest commit to the repository, which red
 
 # [Azure CLI](#tab/cli)
 
-When using the Azure CLI, you need identifier parameters - a subscription, resource group, and workspace name. While you can specify these parameters for each command, you can also set defaults that will be used for all the commands. Use the following commands to set default values. Replace `<subscription ID>`, `<AzureML workspace name>`, and `<resource group>` with the values for your configuration:
+When using the Azure CLI, you need identifier parameters - a subscription, resource group, and workspace name. While you can specify these parameters for each command, you can also set defaults that will be used for all the commands. Use the following commands to set default values. Replace `<subscription ID>`, `<Azure Machine Learning workspace name>`, and `<resource group>` with the values for your configuration:
 
 ```azurecli
 az account set --subscription <subscription ID>
-az configure --defaults workspace=<AzureML workspace name> group=<resource group>
+az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
 ```
 
 # [Python SDK](#tab/python)
@@ -71,7 +70,7 @@ from azure.identity import DefaultAzureCredential
 #import required libraries for environments examples
 from azure.ai.ml.entities import Environment, BuildContext
 
-#Enter details of your AzureML workspace
+#Enter details of your Azure Machine Learning workspace
 subscription_id = '<SUBSCRIPTION_ID>'
 resource_group = '<RESOURCE_GROUP>'
 workspace = '<AZUREML_WORKSPACE_NAME>'
@@ -84,13 +83,13 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 ## Curated environments
 
-There are two types of environments in Azure ML: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
+There are two types of environments in Azure Machine Learning: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
 
-Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They're backed by cached Docker images, which reduce job preparation cost and model deployment time.
+Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Azure Machine Learning routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They're backed by cached Docker images, which reduce job preparation cost and model deployment time.
 
 You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` or `azureml:<curated-environment-name>@latest` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
-You can see the set of available curated environments in the Azure ML studio UI, or by using the CLI (v2) via `az ml environments list`.
+You can see the set of available curated environments in the Azure Machine Learning studio UI, or by using the CLI (v2) via `az ml environments list`.
 
 ## Create an environment
 
@@ -128,17 +127,17 @@ ml_client.environments.create_or_update(env_docker_image)
 ---
 
 > [!TIP]
-> Azure ML maintains a set of CPU and GPU Ubuntu Linux-based base images with common system dependencies. For example, the GPU images contain Miniconda, OpenMPI, CUDA, cuDNN, and NCCL. You can use these images for your environments, or use their corresponding Dockerfiles as reference when building your own custom images.
+> Azure Machine Learning maintains a set of CPU and GPU Ubuntu Linux-based base images with common system dependencies. For example, the GPU images contain Miniconda, OpenMPI, CUDA, cuDNN, and NCCL. You can use these images for your environments, or use their corresponding Dockerfiles as reference when building your own custom images.
 >  
 > For the set of base images and their corresponding Dockerfiles, see the [AzureML-Containers repo](https://github.com/Azure/AzureML-Containers).
 
 ### Create an environment from a Docker build context
 
-Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
+Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile (not larger than 1MB) and any other files needed to build the image.
 
 # [Azure CLI](#tab/cli)
 
-The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
+The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
 In this example, the build context contains a Dockerfile named `Dockerfile` and a `requirements.txt` file that is referenced within the Dockerfile for installing Python packages.
 
@@ -152,7 +151,7 @@ az ml environment create --file assets/environment/docker-context.yml
 
 # [Python SDK](#tab/python)
 
-In the following example, the local path to the build context folder is specified in the `path' parameter. Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
+In the following example, the local path to the build context folder is specified in the `path' parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
 ```python
 env_docker_context = Environment(
@@ -165,19 +164,19 @@ ml_client.environments.create_or_update(env_docker_context)
 
 ---
 
-Azure ML will start building the image from the build context when the environment is created. You can monitor the status of the build and view the build logs in the studio UI.
+Azure Machine Learning will start building the image from the build context when the environment is created. You can monitor the status of the build and view the build logs in the studio UI.
 
 ### Create an environment from a conda specification
 
 You can define an environment using a standard conda YAML configuration file that includes the dependencies for the conda environment. See [Creating an environment manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) for information on this standard format.
 
-You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages won't exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the job in that environment instead of using any Python libraries that you installed on the base image.
+You must also specify a base Docker image for this environment. Azure Machine Learning will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages won't exist in the execution environment thus causing runtime failures. By default, Azure Machine Learning will build a Conda environment with dependencies you specified, and will execute the job in that environment instead of using any Python libraries that you installed on the base image.
 
 ## [Azure CLI](#tab/cli)
 
-The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure ML environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
+The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure Machine Learning environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yaml":::
 
 To create the environment:
 
@@ -201,11 +200,11 @@ ml_client.environments.create_or_update(env_docker_conda)
 
 ---
 
-Azure ML will build the final Docker image from this environment specification when the environment is used in a job or deployment. You can also manually trigger a build of the environment in the studio UI.
+Azure Machine Learning will build the final Docker image from this environment specification when the environment is used in a job or deployment. You can also manually trigger a build of the environment in the studio UI.
 
 ## Manage environments
 
-The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure ML environment assets.
+The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure Machine Learning environment assets.
 
 ### List
 
@@ -327,7 +326,7 @@ ml_client.environments.archive(name="docker-image-example", version="1")
 
 # [Azure CLI](#tab/cli)
 
-To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure ML environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, don't specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and aren't tracked in your environment asset registry.
+To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure Machine Learning environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, don't specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and aren't tracked in your environment asset registry.
 
 # [Python SDK](#tab/python)
 

@@ -3,11 +3,11 @@ title: What is Azure Cloud Services (classic) | Microsoft Docs
 description: Learn about what Azure Cloud Services is, specifically that it's designed to support applications that are scalable, reliable, and inexpensive to operate.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Overview of Azure Cloud Services (classic)

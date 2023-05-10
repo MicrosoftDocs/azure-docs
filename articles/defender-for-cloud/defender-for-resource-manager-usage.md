@@ -3,8 +3,8 @@ title: How to respond to Microsoft Defender for Resource Manager alerts
 description: Learn about the steps necessary for responding to alerts from Microsoft Defender for Resource Manager
 ms.date: 11/09/2021
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 # Respond to Microsoft Defender for Resource Manager alerts
@@ -37,7 +37,7 @@ To investigate security alerts from Microsoft Defender for Resource Manager:
 1. Look for suspicious activities.
 
 > [!TIP]
-> For a better, richer investigation experience, stream your Azure activity logs to Microsoft Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity).
+> For a better, richer investigation experience, stream your Azure activity logs to Microsoft Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors/azure-activity.md).
 
 ## Step 3. Immediate mitigation 
 

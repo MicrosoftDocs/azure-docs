@@ -1,10 +1,9 @@
 ---
 title: Monitor multiple time series in a single metric alert rule
 description: Alert at scale by using a single alert rule for multiple time series.
-author: harelbr
-ms.author: harelbr
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: harelbr
 ---
 
 # Monitor multiple time series in a single metric alert rule

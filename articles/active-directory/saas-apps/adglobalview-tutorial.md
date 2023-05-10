@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ADP Globalview (Deprecated) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ADP Globalview (Deprecated)'
 description: Learn how to configure single sign-on between Azure Active Directory and ADP Globalview (Deprecated).
 services: active-directory
 author: jeevansd

@@ -1,11 +1,11 @@
 ---
-title: Cross-tenant access overview - Azure AD
+title: Cross-tenant access overview
 description: Get an overview of cross-tenant access in Azure AD External Identities. Learn how to manage your B2B collaboration with other Azure AD organizations through this overview of cross-tenant access settings.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -46,7 +46,7 @@ The default cross-tenant access settings apply to all Azure AD organizations ext
 
 - **Organizational settings**: No organizations are added to your Organizational settings by default. This means all external Azure AD organizations are enabled for B2B collaboration with your organization.
 
-- **Cross-tenant sync (preview)**: No users from other tenants are synchronized into your tenant with cross-tenant synchronization.
+- **Cross-tenant sync**: No users from other tenants are synchronized into your tenant with cross-tenant synchronization.
 
 The behaviors described above apply to B2B collaboration with other Azure AD tenants in your same Microsoft Azure cloud. In cross-cloud scenarios, default settings work a little differently. See [Microsoft cloud settings](#microsoft-cloud-settings) later in this article.
 
@@ -65,10 +65,6 @@ You can configure organization-specific settings by adding an organization and m
 
 ### Automatic redemption setting
 
-> [!IMPORTANT]
-> Automatic redemption is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 [!INCLUDE [automatic-redemption-include](../includes/automatic-redemption-include.md)]
 
 To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API. For information about building your own onboarding experience, see [B2B collaboration invitation manager](external-identities-overview.md#azure-ad-microsoft-graph-api-for-b2b-collaboration).
@@ -77,18 +73,11 @@ For more information, see [Configure cross-tenant synchronization](../multi-tena
 
 ### Cross-tenant synchronization setting
 
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 [!INCLUDE [cross-tenant-synchronization-include](../includes/cross-tenant-synchronization-include.md)]
 
 To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md).
 
 ## Microsoft cloud settings
-
-> [!NOTE]
-> Microsoft cloud settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
@@ -107,7 +96,7 @@ To set up B2B collaboration, both organizations configure their Microsoft cloud 
 > [!NOTE]
 > B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
 
-For configuration steps, see [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md).
+For configuration steps, see [Configure Microsoft cloud settings for B2B collaboration](cross-cloud-settings.md).
 
 ### Default settings in cross-cloud scenarios
 
@@ -142,9 +131,6 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 ## Identify inbound and outbound sign-ins
 
 Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you should examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access isn't lost.
-
-> [!NOTE]
-> During the preview of Microsoft cloud settings, sign-in events for cross-cloud scenarios will be reported in the resource tenant, but not in the home tenant.
 
 ### Cross-tenant sign-in activity PowerShell script
 

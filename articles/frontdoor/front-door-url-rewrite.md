@@ -1,5 +1,6 @@
 ---
-title: Azure Front Door - URL Rewrite
+title: URL Rewrite
+titleSuffix: Azure Front Door
 description: This article helps you understand how URL rewrites works in Azure Front Door.
 services: front-door
 author: duongau

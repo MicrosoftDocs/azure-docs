@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2022
+ms.date: 03/02/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
@@ -22,7 +22,7 @@ You can create a one-way outbound trust from Azure AD DS to one or more on-premi
 - Environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password.
 - Hybrid scenarios that still require access to on-premises domains.
 
-Trusts can be created in both resource forest and user forest domain types. The resource forest domain type will automatically block sync for any user accounts that were synchronized to Azure AD DS from an on-premises domain. This is the safest domain type to use for trusts as it ensures that there will be no UPN collisions when users are authenticating. Trusts created in a user forest are not inherently safe but allow you more flexibility in what gets synchronized from Azure AD.
+Trusts can be created in any domain. The domain will automatically block synchronization from an on-premises domain for any user accounts that were synchronized to Azure AD DS. This prevents UPN collisions when users authenticate. 
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/tutorial-create-forest-trust/forest-trust-relationship.png)
 
@@ -44,7 +44,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain created using a user or resource forest and configured in your Azure AD tenant.
+* An Azure Active Directory Domain Services managed domain.
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
@@ -229,10 +229,9 @@ In this tutorial, you learned how to:
 > * Create a one-way outbound forest trust in Azure AD DS
 > * Test and validate the trust relationship for authentication and resource access
 
-For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust].
+For more conceptual information about forest in Azure AD DS, see [How do forest trusts work in Azure AD DS?][concepts-trust].
 
 <!-- INTERNAL LINKS -->
-[concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md

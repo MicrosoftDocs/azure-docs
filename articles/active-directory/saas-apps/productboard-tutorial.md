@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with productboard | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with productboard'
 description: Learn how to configure single sign-on between Azure Active Directory and productboard.
 services: active-directory
 author: jeevansd

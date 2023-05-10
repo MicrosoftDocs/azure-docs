@@ -27,11 +27,13 @@ Before you begin, you must have the following:
 
 + One of the following tools for creating Azure resources:
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 9.4.0 or later.
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
+
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 ### Prerequisite check
 
@@ -49,7 +51,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
++ Run `(Get-Module -ListAvailable Az).Version` and verify version 9.4.0 or later.
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 

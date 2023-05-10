@@ -4,11 +4,11 @@ description: Learn how to use the portal to configure auto scale rules for a clo
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: autoscale
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # How to configure auto scaling for a Cloud Service (classic) in the portal

@@ -7,10 +7,10 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/14/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template
 ---
 
 # Enable and manage blob versioning
@@ -107,6 +107,10 @@ To list a blob's versions in the Azure portal:
 
     :::image type="content" source="media/versioning-enable/portal-list-blob-versions.png" alt-text="Screenshot showing how to list blob versions in the Azure portal":::
 
+1. Toggle the **Show deleted versions** button to display soft-deleted versions. If blob soft delete is enabled for the storage account, then any soft-deleted versions that are still within the soft-delete retention interval will appear in the list.
+
+    :::image type="content" source="media/versioning-enable/portal-list-deleted-versions.png" alt-text="Screenshot showing how to list soft-deleted versions in Azure portal.":::
+
 # [PowerShell](#tab/powershell)
 
 To list a blob's versions with PowerShell, call the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) command with the `-IncludeVersion` parameter:
@@ -149,22 +153,6 @@ az storage blob list \
 N/A
 
 ---
-
-## Modify a blob to trigger a new version
-
-The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
-
-The example creates a block blob, and then updates the blob's metadata. Updating the blob's metadata triggers the creation of a new version. The example retrieves the initial version and the current version, and shows that only the current version includes the metadata.
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
-
-## List blob versions with .NET
-
-To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** field.
-
-The following code example shows how to list blobs version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
 ## Next steps
 
