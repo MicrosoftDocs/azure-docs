@@ -79,7 +79,7 @@ The requirements are:
 
 1. Select **Validate**.
 
-1. Once validation succeeds, select *Add**.
+1. Once validation succeeds, select **Add**.
 
     It may take several minutes to issue the certificate and add the domain to your container app.
 
