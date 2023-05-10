@@ -39,7 +39,7 @@ To create multiple sessions per client:
 - Provide the Username property in the CONNECT packet to signify your client authentication name
 - Provide the ClientID property in the CONNECT packet to signify the session name such as there are one or more values for the ClientID for each Username.
 
-For example, the following combinations of Username and ClientIds in the CONNECT packet enable the client Mgmt-application to connect to Event Grid over three independent sessions:
+For example, the following combinations of Username and ClientIds in the CONNECT packet enable the client "Mgmt-application" to connect to Event Grid over three independent sessions:
 
 - First Session:
   - Username: Mgmt-application
@@ -62,11 +62,11 @@ For more information, see [How to establish multiple sessions for a single clien
 Event Grid supports the following MQTT features:
 
 ### Quality of Service (QoS)
-Event Grid supports QoS 0 and 1, which defines the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and Event Grid. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication. 
+Event Grid supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and Event Grid. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication. 
 ### Persistent sessions
 Event Grid supports persistent sessions for MQTT v3.1.1 such that Event Grid preserves information about a client’s session in case of disconnections to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false. 
 ### Clean start and session expiry
-MQTT v5 has introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with Event Grid, discarding any previous session data. Session Expiry allows a client to inform Event Grid when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set cleanStart flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that may have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
+MQTT v5 has introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with Event Grid, discarding any previous session data. Session Expiry allows a client to inform Event Grid when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set Clean Start flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that may have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
 ### User properties 
 Event Grid supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile based on your needs. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
 ### Request-response pattern
@@ -80,13 +80,13 @@ In MQTT v5, flow control refers to the mechanism for managing the rate and size 
 ### Negative acknowledgments and server-initiated disconnect packet
 For MQTT v5, Event Grid is able to send negative acknowledgments (NACKs) and server-initiated disconnect packets that provide the client with more information about failures for  message delivery or connection. These features help the client diagnose the reason behind a failure and take appropriate mitigating actions. Event Grid uses the reason codes that are defined in the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
-## Limitations
+## Current limitations
 
-Event Grid is adding more MQTT v5 and MQTT v3.1.1 features in the future, but the following list details the current limitations for Event Grid's MQTT support:
+Event Grid is adding more MQTT v5 and MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following list details the current differences in Event Grid's MQTT support from the MQTT specifications:
 
-### MQTTv5 limitations
+### MQTTv5 current limitations
 
-MQTT v5 support is limited in following ways:
+MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 - Shared Subscriptions aren't supported yet.
 - Retain flag isn't supported yet.
 - Will Message isn't supported yet. Receiving a CONNECT request with Will Message results in CONNACK with 0x83 (Implementation specific error).
@@ -98,12 +98,12 @@ MQTT v5 support is limited in following ways:
 - The server responds to a CONNECT request with either Authentication Method or Authentication Data with a CONNACK with code 0x8C (Bad authentication method) or 0x87 (Not Authorized) respectively.
 - Topic Alias Maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within set limit.
 - CONNACK doesn't return Response Information property even if the CONNECT request contains Request Response Information property.
-- If the server receives a PUBACK from a client with nonsuccess response code, the connection is terminated.
+- If the server receives a PUBACK from a client with non-success response code, the connection is terminated.
 - Keep Alive Maximum is 1160 seconds.
 
-### MQTTv3.1.1 limitations
+### MQTTv3.1.1 current limitations
 
-MQTT v3.1.1 support is limited in the following ways:
+MQTT v5 currently differs from the [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
 - Will Message isn't supported yet. Receiving a CONNECT request with Will Message results in a connection failure.
 - QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 fails and closes the connection.
 - Message ordering isn't guaranteed.

@@ -48,18 +48,14 @@ In this tutorial, you perform the following tasks:
 ## Configure routing in the Event Grid Namespace
 
 1. Navigate to Routing page in your Event Grid Namespace.
-
 :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png" alt-text="Screenshot showing the Event Grid routing configuration page to enable routing for the namespace.":::
-
 2. Select **Enable routing**
-3. Select your Routing topic from the dropdown menu.  If you don't see your Event Grid topic in the dropdown menu, it may not be created in the same region as the Namespace.
+3. Under Topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+    - This topic needs to fulfill the Event Grid topic requirements for routing.
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/add-permission-to-routing-topic.png" alt-text="Screenshot showing the Event Grid routing configuration with Add Permission button highlighted.":::
+:::image type="content" source="./media/mqtt-routing/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal.":::
 
-4. If your Event Grid topic doesn't have Event Grid Data Sender permission, you can select **+ Add permission** to add the permission.
-    - The button disappears while the permission is added.
-    - You can press the Refresh button to see if the permission assignment is completed.
-5. Select **Apply**, once the permissions are granted.
+4. Select **Apply**
 
 
 ## Viewing the routed MQTT messages in Azure Event Hubs using Azure Stream Analytics query

@@ -9,11 +9,11 @@ ms.author: geguirgu
 # Enrichments for MQTT Routed Messages
 
 
-The enrichments support enables you to add up to 10 custom key-value properties to your messages before they're sent to the Event Grid topic. These enrichments enable you to:
+The enrichments support enables you to add up to 20 custom key-value properties to your messages before they're sent to the Event Grid custom topic. These enrichments enable you to:
 
 - Add contextual data to your messages. For example, enriching the message with the client's name or the namespace name could provide endpoints with information about the source of the message.
 - Reduce computing load on endpoints. For example, enriching the message with the MQTT publish request's payload format indicator or the content type informs endpoints how to process the message's payload without trying multiple parsers first.
-- Filter your routed messages through Event Grid Subscriptions based on the added data. For example, enriching a client attribute enables you to filter the messages to be routed to the endpoint based on the different attribute's values.
+- Filter your routed messages through Event Grid event subscriptions based on the added data. For example, enriching a client attribute enables you to filter the messages to be routed to the endpoint based on the different attribute's values.
 
 ## Configuration
 
@@ -21,7 +21,7 @@ The enrichments support enables you to add up to 10 custom key-value properties 
 
 The enrichment key is a string that needs to comply with these requirements:
 - Include only lower-case alphanumerics: only (a-z) and (0-9)
-- Must not be "specversion", "id", "time", "type", "source", "subject", "datacontenttype", "dataschema", or "data".
+- Must not be "specversion", "id", "time", "type", "source", "subject", "datacontenttype", "dataschema", "data", or "data_base64".
 - Must not start with “azsp”.
 - Must not be duplicated.
 - Must not be more than 20 characters.
