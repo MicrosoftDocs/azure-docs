@@ -50,7 +50,7 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * For pipeline jobs through CLI use `default_compute: azureml:serverless` for pipeline level default compute.  For pipelines jobs through SDK use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
 * To use serverless job submission in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
 
-    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png.":::
+    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
 
 * When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as your compute.
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as your compute.
