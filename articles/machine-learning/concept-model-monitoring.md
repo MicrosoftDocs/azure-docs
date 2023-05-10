@@ -86,4 +86,4 @@ Each machine learning model and its use cases are unique. Therefore, model monit
 - [Explore out-of-box model monitoring example with Azure Machine Learning online endpoint](https://github.com/Azure/azureml-examples) 
 - [Explore advanced model monitoring setup with training data as comparison baseline](https://github.com/Azure/azureml-examples)
 - [Model data collection](concept-data-collection.md)
-- [Collect production inference data](how-to-collect-inference-data.md)
+- [Collect production inference data](how-to-collect-production-data.md)

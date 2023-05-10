@@ -48,17 +48,17 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
-  *  For monitoring a model that is deployed to an Azure Machine Learning online endpoint (Managed Online Endpoint or Kubernetes Online Endpoint):
+*  For monitoring a model that is deployed to an Azure Machine Learning online endpoint (Managed Online Endpoint or Kubernetes Online Endpoint):
 
-      * A model deployed to an Azure Machine Learning online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported. If you don't have a model deployed to an Azure Machine Learning online endpoint, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
+    * A model deployed to an Azure Machine Learning online endpoint. Both Managed Online Endpoint and Kubernetes Online Endpoint are supported. If you don't have a model deployed to an Azure Machine Learning online endpoint, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
-      * Data collection enabled for your model deployment. You can enable data collection during the deployment step for Azure Machine Learning online endpoints. For more information, see [Collect production data from models deployed to a real-time endpoint](how-to-collect-production-data.md).
+    * Data collection enabled for your model deployment. You can enable data collection during the deployment step for Azure Machine Learning online endpoints. For more information, see [Collect production data from models deployed to a real-time endpoint](how-to-collect-production-data.md).
 
-  *  For monitoring a model that is deployed to an Azure Machine Learning batch endpoint or deployed outside of Azure Machine Learning:
+*  For monitoring a model that is deployed to an Azure Machine Learning batch endpoint or deployed outside of Azure Machine Learning:
 
-      * A way to collect production data and register it as an Azure Machine Learning data asset.
-      * The registered Azure Machine Learning data asset is continuously updated for model monitoring.
-      * (Recommended) The model should be registered in Azure Machine Learning workspace, for lineage tracking.
+    * A way to collect production data and register it as an Azure Machine Learning data asset.
+    * The registered Azure Machine Learning data asset is continuously updated for model monitoring.
+    * (Recommended) The model should be registered in Azure Machine Learning workspace, for lineage tracking.
 
 ---
 
@@ -73,7 +73,7 @@ You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-
 * Monitoring setup automatically includes and tracks the built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, Azure Machine Learning uses:
   * the recent past production inference dataset as the comparison baseline dataset.
   * smart defaults for metrics and thresholds.
-* A monitoring job is scheduled to run daily at 3:15am to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
+* A monitoring job is scheduled to run daily at 3:15am (for this example) to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -156,20 +156,20 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 1. Under **Manage**, select **Monitoring**.
 1. Select **Add**.
 
-   :::image type="content" source="media/how-to-monitor-models/momo-add-monitoring.png" alt-text="Screenshot of settings for model monitoring.":::
+   :::image type="content" source="media/how-to-monitor-models/add-model-monitoring.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
 
-1. Select model for monitoring. "Select deployment" dropdown list should be automatically pouplated if the model is deployed as AzureML online endpoint/deployment.
-1. Select deployment.
-1. Select training data as comparison baseline (optional).
-1. Entering name for model monitoring.
-1. Select VM instance type for Spark pool.
-1. Select Spark runtime version. 
-1. Select your time zone for monitoring job run.
+1. Select the model to monitor. The "Select deployment" dropdown list should be automatically populated if the model is deployed to an Azure Machine Learning online endpoint.
+1. Select the deployment in the **Select deployment** box.
+1. Select the training data to use as the comparison baseline in the **(Optional) Select training data** box.
+1. Enter a name for the monitoring in **Monitor name**.
+1. Select VM instance type for Spark pool in the **Select compute type** box.
+1. Select  "Spark 3.2" for the **Spark runtime version**. 
+1. Select your **Time zone** for monitoring the job run.
 1. Select "Recurrence" or "Cron expression" scheduling.
-1. For "Recurrence" scheduling, select repeat frequency and data/time.
-1. For "Cron expression" scheduling, enter cron expression for monitoring run.
+1. For "Recurrence" scheduling, specify the repeat frequency, day, and time. For "Cron expression" scheduling, you would have to enter cron expression for monitoring run.
+1. Select **Finish**.
 
-   :::image type="content" source="media/how-to-monitor-models/momo-basic-setup.png" alt-text="Screenshot of settings for model monitoring.":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-basic-setup.png" alt-text="Screenshot of settings for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-basic-setup.png":::
 
 ---
 
@@ -219,7 +219,7 @@ create_monitor:
   monitoring_signals:
     advanced_data_drift: # monitoring signal name, any user defined name works
       type: data_drift
-      # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
+      # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online endpoint
       baseline_dataset:
         input_dataset:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
@@ -236,7 +236,7 @@ create_monitor:
           threshhod: 0.02
     advanced_data_quality:
       type: data_quality
-      # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
+      # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online depoint
       baseline_dataset:
         input_dataset:
           path: azureml:my_model_training_data:1
@@ -253,7 +253,7 @@ create_monitor:
           # use default threshold from training data baseline
     feature_attribution_drift_signal:
       type: feature_attribution_drift
-      # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
+      # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online depoint
       baseline_dataset:
         input_dataset:
           path: azureml:my_model_training_data:1
@@ -350,61 +350,60 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 # [Studio](#tab/azure-studio)
 
-1. Complete basic settings page and select "More options" for advanced setup wizard.
+1. Complete the entires on the basic settings page as described in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
+1. Select **More options** to open the advanced setup wizard.
 
-   :::image type="content" source="media/how-to-monitor-models/momo-more-options.png" alt-text="Screenshot of settings for model monitoring.":::
+1. In the "Configure dataset" section, add a dataset to be used as the comparison baseline. We recommend using the model training data as the comparison baseline for data drift and data quality, and using the model validation data as the comparison baseline for prediction drift.
 
-1. In "Configure dataset" section, add dataset to be used as comparison baseline. We recommend model training data as comparison for data drift and data quality, and model validation data as comparison baseline for prediction drift.
+1. Select **Next**.
 
-1. Select "Next".
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
 
-   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-data.png" alt-text="Screenshot of settings for model monitoring.":::
+1. In the "Select monitoring signals" section, you'll see three monitoring signals already added if you have selected Azure Machine Learning online deployment earlier. These signals are: data drift, prediction drift, and data quality. All these prepopulated monitoring signals use recent past production data as the comparison baseline and use smart defaults for metrics and threshold.
+1. Select **Edit** next to the data drift signal.
 
-1. In "Select monitoring singals" section, you will see 3 monitoring signals already added if you have selected AzureML online deployment earlier: Data Drift, Prediction Drift, Data Quality. All these prepopulated monitoring signals use recent past production data as comparison baseline, and use smart defaults for metrics and threshold.
-1. Select "Edit" for data drift signal.
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png" alt-text="Screenshot showing how to select monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png":::
 
-   :::image type="content" source="media/how-to-monitor-models/momo-advanced-select-signals.png" alt-text="Screenshot of settings for model monitoring.":::
+1. In the data drift "Edit signal" window, configure following:
+    1. Change the baseline dataset to use training data.
+    1. Monitor drift for top 1-20 important features, or monitor drift for sepecific set of features.
+    1. Select your preferred metrics and set thresholds.
+1. Select **Save** to return to the "Select monitoring signals" section. 
 
-1. In Data Drift edit signal panel, follow instructions to configure following:
-  * Change baseline dataset to use training data.
-  * Monitor drift for top 1-20 important features, or monitor drift for sepecific set of features.
-  * Select your preferred metrics and set thresholds.
-1. Select "Save".
-1. You are back to "Select monitoring signals" section. Select "Add" to add one additional signal.
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-edit-signal.png" alt-text="Screenshot showing how to edit signal settings for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-edit-signal.png":::
 
-   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-edit-signal.png" alt-text="Screenshot of settings for model monitoring.":::
+1. Select **Add** to add another signal.
+1. In the "Add Signal" screen, select the **Feature Attribution Drift** panel.
+1. Enter a name for Feature Attribution Drift signal.
+1. Adjust the data window size according to your business case.
+1. Select the training data as the baseline dataset. 
+1. Select the target column name.
+1. Adjust the threshold according to your need.
+1. Select **Save** to return to the "Select monitoring signals" section.
+1. If you're done with editing or adding signals, select **Next**.
 
-1. In "Add Signal" screen, select "Feature Attribution Drift" panel.
-1. Enter a name for "Feature Attribution Drift" signal.
-1. Adjust data window size according to your business case.
-1. Select training data as baseline dataset. 
-1. Select target column name.
-1. Adjust threshold according to your need.
-1. Select "Save" and back to "Select monitoring signals".
-1. If you are done with editting or adding signals, select "Next".
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-add-signal.png" alt-text="Screenshot showing settings for adding signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-add-signal.png":::
 
-   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-add-signal.png" alt-text="Screenshot of settings for model monitoring.":::
+1. In the "Notification" screen, enable alert notification for each signal.
+1. (Optional) Enable "Azure Monitor" for all metrics to be sent to Azure Monitor.
+1. Select **Next**.
 
-1. In "Notification" screen, you can enable/disable alert notification for each signal. You can also enable "Azure Monitor" for all metrics to be sent to Azure Monitor.
-1. Select "Next".
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png" alt-text="Screenshot of settings on the notification screen." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png":::
 
-   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-notification.png" alt-text="Screenshot of settings for model monitoring.":::
+1. Review your settings on the "Review monitoring settings" page.
+1. Select **Create** to confirm your settings for advanced model monitoring.
 
-1. "Rview monitoring settings" give you a final chance to review everything for your model monitoring setup.
-1. If you are happy with everything, select "Create".
-
-Congratualations, you have completed advanced model monitoring setup!
-
-   :::image type="content" source="media/how-to-monitor-models/momo-advanced-config-review.png" alt-text="Screenshot of settings for model monitoring.":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-review.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
 
 ---
 
-## Set up model monitoring for models deployed outside of AzureML
+## Set up model monitoring for models deployed outside of Azure Machine Learning
 
-You can also setup model monitoring for models deployed as AzureML batch endpoint or for models deployed outside of AzureML. To do so there are a few prerequisites:
+You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. To monitor these models, you must meet the following requirements:
+
 * You have a way to collect production inference data from models deployed in production.
-* You can registered the collected production inference data as AzureML data asset, and ensure continous update of data.
-* Provide a data preprocessing component and register it as AzureML component. The AzureML component must have following input and output signatures:
+* You can register the collected production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
+* You can provide a data preprocessing component and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
 
   | input/output | signature name | type | description | example value |
   |---|---|---|---|---|
@@ -416,13 +415,13 @@ You can also setup model monitoring for models deployed as AzureML batch endpoin
 
 # [Azure CLI](#tab/azure-cli)
 
-Assuming you have meet above prerequiste requirements, you can setup model monitoring with the following CLI command and YAML definition:
+One you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
 
 ```azurecli
 az ml schedule -f ./model-monitoring-with-collected-data.yaml
 ```
 
-The following YAML contains the definition for model monitoring with your own collected production inference data.
+The following YAML contains the definition for model monitoring with production inference data that you've collected.
 
 ```yaml
 # model-monitoring-with-collected-data.yaml
@@ -454,7 +453,7 @@ create_monitor:
       target_dataset:
         dataset:
           input_dataset:
-            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as AzureML asset
+            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
             type: uri_folder
           data_context: model_inputs
           pre_processing_component: azureml:production_data_preprocessing:1
@@ -478,7 +477,7 @@ create_monitor:
       target_dataset:
         dataset:
           input_dataset:
-            path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as AzureML asset
+            path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as Azure Machine Learning asset
             type: uri_folder
           data_context: model_outputs
           pre_processing_component: azureml:production_data_preprocessing:1
@@ -496,7 +495,7 @@ create_monitor:
       target_dataset:
         dataset:
           input_dataset:
-            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as AzureML asset
+            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
             type: uri_folder
           data_context: model_inputs
           pre_processing_component: azureml:production_data_preprocessing:1
@@ -520,7 +519,7 @@ create_monitor:
 
 # [Python](#tab/python)
 
-Assuming you have meet above prerequiste requirements, you can setup model monitoring using Python snippets below:
+One you've satisfied the previous requirements, you can set up model monitoring using the following Python code:
 
 ```python
 #get a handle to the workspace
@@ -594,6 +593,9 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 ```
 
+# [Studio](#tab/azure-studio)
+
+The studio currently does not support monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python tabs instead.
 
 ---
 ## Next steps
