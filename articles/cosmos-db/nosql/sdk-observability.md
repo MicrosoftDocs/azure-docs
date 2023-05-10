@@ -96,35 +96,12 @@ In addition to getting diagnostic logs for failed requests, you can configure di
 To use OpenTelemetry with the Azure Cosmos DB SDKs, add the `Azure.Cosmos.Operation` source to your trace provider. OpenTelemetry is compatible with many exporters that can ingest your data. The following sample uses the `Azure Monitor OpenTelemetry Exporter`, but you can choose to configure any exporter you wish. Depending on your chosen exporter, you may see a delay ingesting data of up to a few minutes.
 
 > [!TIP]
-> If you use the `Azure.Monitor.OpenTelemetry.Exporter` package, ensure you're using version >= `1.0.0-beta11`.
+> If you use the `Azure.Monitor.OpenTelemetry.Exporter` package, ensure you're using version >= `1.0.0-beta.11`.
 > If you're using ASP.NET Core and Azure Monitor, we recommend using the [Azure Monitor OpenTelemetry Distro](../../azure-monitor/app/opentelemetry-enable.md) instead.
 
 This sample shows how to configure OpenTelemetry for a .NET console app. See the [complete sample](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/OpenTelemetry) on GitHub.
 
-```csharp
-    ResourceBuilder resource = ResourceBuilder.CreateDefault().AddService(
-                serviceName: serviceName,
-                serviceVersion: "1.0.0");
-
-    // Set up logging to forward logs to chosen exporter
-    using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddOpenTelemetry(options =>
-        {
-            options.IncludeFormattedMessage = true;
-            options.SetResourceBuilder(resource);
-            options.AddAzureMonitorLogExporter(o => o.ConnectionString = aiConnectionString); // Set up exporter of your choice
-        }));
-
-    AzureEventSourceLogForwarder logforwader = new AzureEventSourceLogForwarder(loggerFactory);
-    logforwader.Start();
-
-    // Configure OpenTelemetry trace provider
-    AppContext.SetSwitch("Azure.Experimental.EnableActivitySource", true);
-    _traceProvider = Sdk.CreateTracerProviderBuilder()
-        .AddSource("Azure.Cosmos.Operation") // Azure Cosmos DB source for operation level telemetry
-        .AddAzureMonitorTraceExporter(o => o.ConnectionString = aiConnectionString) // Set up exporter of your choice
-        .SetResourceBuilder(resource)
-        .Build();
-```
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/OpenTelemetry/Program.cs?name=SetUpOpenTelemetry)]
 
 ## Configure the Application Insights SDK
 
@@ -135,13 +112,7 @@ There are many different ways to configure Application Insights depending on the
 
 The following sample shows how to configure Application Insights for a .NET console app. See the [complete sample](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/OpenTelemetry) on GitHub.
 
-```csharp
-    IServiceCollection services = new ServiceCollection();
-    services.AddApplicationInsightsTelemetryWorkerService((ApplicationInsightsServiceOptions options) => options.ConnectionString = aiConnectionString);
-
-    IServiceProvider serviceProvider = services.BuildServiceProvider();
-    _telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
-```
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ApplicationInsights/Program.cs?name=SetUpApplicationInsights)]
 
 Once trace data is ingested into Application Insights, you can visualize it in the Azure portal to understand the request flow in your application. Here's an example of trace data from a cross partition query in the transaction search in the left navigation of the Azure portal.
 
