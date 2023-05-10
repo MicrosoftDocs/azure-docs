@@ -22725,7 +22725,7 @@
         },
         {
             "source_path_from_root": "/articles/cosmos-db/serverless-1TB.md",
-            "redirect_url": "/articles/cosmos-db/serverless-performance.md",
+            "redirect_url": "/azure/cosmos-db/serverless-performance",
             "redirect_document_id": false
         }
 

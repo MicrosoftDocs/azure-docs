@@ -9,13 +9,13 @@ ms.date: 12/01/2022
 ms.reviewer: dech
 ---
 
-# Serverless Performance 
+# Serverless performance 
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB Serverless resources have distinct performance characteristics that differ from those provided by provisioned throughput resources. Specifically, serverless containers do not offer any guarantees of predictable throughput or latency. However, the maximum capacity of a serverless container is determined by the data stored within it. We'll explore how this capacity varies with storage in the following section.
 
-## Changes in Request Unit
+## Changes in request units
 
 Azure Cosmos DB Serverless offers 5000 RU/s for a container. However, if your workload increases beyond 250 GB or more than five physical partitions, whichever is earlier, then the request units grow linearly with number of underlying physical partitions created in the container. Beyond 5 physical partitions, with every addition of a new physical partition, 1000 RU/s are added to the container's maximum throughput capacity.
 

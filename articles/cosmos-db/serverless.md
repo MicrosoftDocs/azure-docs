@@ -49,8 +49,8 @@ Any container that is created in a serverless account is a serverless container.
   - You can't pass any throughput when creating a serverless container and doing so returns an error.
   - You can't read or update the throughput on a serverless container and doing so returns an error.
   - You can't create a shared throughput database in a serverless account and doing so returns an error.
-- Serverless containers can store a maximum of 1 TB of data and indexes.
-- Serverless containers offer a maximum throughput ranging from 5000 RU/s to 20,000 RU/s subject to data stored in the container. For more information, see [Serverless Performance](serverless-performance.md).
+- Serverless container can store a maximum of 1 TB of data and indexes.
+- Serverless container offers a maximum throughput ranging from 5000 RU/s to 20,000 RU/s, depending on the number of available partitions. In the ideal scenario, a 1 TB data set would require 20,000 RU/s, but the available throughput can exceed this. For further details, please refer to the documentation on [Serverless Performance](serverless-performance.md).
 
 ## Monitoring your consumption
 
