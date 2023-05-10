@@ -42,7 +42,7 @@ To enable sign-in for customers with a Google account, you need to create an app
     1. Enter a suitable **Name** for your application, such as "Azure AD for customers."
     1. For the **Authorized redirect URIs**, enter:
         - `https://login.microsoftonline.com`
-        -  `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`. Replace the tenant ID with your Azure AD for customers tenant ID. To find your tenant ID, go to the Azure portal. Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
+        -  `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`. Replace the tenant ID with your Azure AD for customers tenant ID. To find your tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
         - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp`. Replace the tenant name with your Azure AD for customers tenant name.
 1. Select **Create**.
 1. Copy the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
@@ -52,7 +52,7 @@ To enable sign-in for customers with a Google account, you need to create an app
 
 ## Configure Google federation in Azure AD for customers
 
-After you create the Google application, in this step you set the Google client ID and client secret in Azure AD. You can use the Azure portal or PowerShell to do so. To configure Google federation in the Microsoft Entra admin center, follow these steps:
+After you create the Google application, in this step you set the Google client ID and client secret in Azure AD. You can use the Microsoft Entra admin center or PowerShell to do so. To configure Google federation in the Microsoft Entra admin center, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as the global administrator of your customer tenant.
 1. Go to **Azure Active Directory** > **External Identities** > **All identity providers**.
@@ -93,3 +93,4 @@ At this point, the Google identity provider has been set up in your Azure AD, bu
 ## Next steps
 
 - [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
+- [Customize the branding for customer sign-in experiences](how-to-customize-branding-customers.md)

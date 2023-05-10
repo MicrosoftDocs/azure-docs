@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample ASP.NET web application by using Microsoft Entra
-description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample ASP.NET web application by using an Azure AD for customers tenant
+description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using an Azure AD for customers tenant.
 services: active-directory
 author: cilwerner
 manager: celestedg
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample ASP.NET web application by using Microsoft Entra
+# Sign in users in a sample ASP.NET web application by using an Azure Active Directory (AD) for customers tenant
 
 This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for ASP.NET to handle authentication.
 
@@ -26,7 +26,7 @@ In this article, you'll register a web application in the Microsoft Entra admin 
 
 - Although any IDE that supports ASP.NET applications can be used, Visual Studio Code is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 - [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet).
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
 
 ## Register the web app
 
@@ -72,7 +72,7 @@ To get the web app sample code, you can do either of the following tasks:
     ```
 
 1. Open the *appsettings.json* file.
-1. In **Authority**, find `Enter_the_Tenant_Name_Here` and replace it with the name of your tenant.
+1. In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
 1. Replace `Enter_the_Client_Secret_Here` with the client secret value you set up in [Add app client secret](#add-app-client-secret).
 
@@ -86,7 +86,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 1. Open your web browser and navigate to `https://localhost:7274`.
 
-1. Sign-in with an account registered to the CIAM tenant.
+1. Sign-in with an account registered to the customer tenant.
 
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
@@ -99,4 +99,4 @@ To get the web app sample code, you can do either of the following tasks:
 - [Enable password reset](how-to-enable-password-reset-customers.md)
 - [Customize the default branding](how-to-customize-branding-customers.md)
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
-- [Sign in users in your own ASP.NET web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-prepare-app.md)
+- [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-app.md)

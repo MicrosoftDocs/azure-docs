@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 # Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub
 
-**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
+**Applies to**: [General device developers](about-iot-develop.md#general-device-development)
 
 :::zone pivot="programming-language-ansi-c"
 

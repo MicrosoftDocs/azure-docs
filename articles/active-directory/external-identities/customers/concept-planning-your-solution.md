@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 05/07/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -16,104 +16,111 @@ ms.custom: it-pro
 
 # Planning for customer identity and access management
 
-Azure AD for customers offers a customizable and extensible solution for integrating your customer-facing applications with Azure AD. Because Azure AD for customers is built on the Microsoft Entra platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand how Azure AD for customers works, how it differs from an Azure AD workforce scenario, and which underlying Azure AD features benefit your scenario.
+Azure AD for customers offers a customizable and extensible solution for integrating your customer-facing applications with Azure AD. Because Azure AD for customers is built on the Microsoft Entra platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
 
-This article describes the general steps for getting started with Azure AD for customers. It outlines the important considerations as you design and configure your solution.
+This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations.
 
 ## Integrating your app with Azure AD for customers
 
-Adding secure sign-in to your app and setting up a customer identity and access management involves four general steps, as illustrated in the following diagram.
+Adding secure sign-in to your app and setting up a customer identity and access management involves four general steps.
 
-![Diagram showing an overview of setup steps.](media/concept-planning-your-solution/overview-setup-steps.png)
-
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-steps-inline.png" alt-text="Diagram showing an overview of setup steps." lightbox="media/concept-planning-your-solution/overview-setup-steps-expanded.png" border="false":::
 
 | Step | Action | Description |
 |---------|---------|---------|
-|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-hub-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-hub-free-trial) in the Microsoft Entra admin center.   |
-|2     |      Register your application   | In the Microsoft Entra admin center, [register your application](how-to-register-ciam-app.md) with Azure Active Directory.    |
-|3     |    Integrate your app with a sign-in flow     | - Create a user flow </br>- Associate the app with the user flow </br>- Update the app code with your customer tenant info </br>See [Samples and guidance by app type and language](samples-ciam-all.md)   |
-|4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-extensions-customers.md) if you want to extend the authentication flow   |
+|**1**     |      **Create a customer tenant**   | - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.</br>- Or, [start a free trial](https://aka.ms/ciam-free-trial). </br>Learn more in [Step 1: Create a customer tenant](#step-1-create-a-customer-tenant) later in this article. |
+|**2**     |      **Register your application**   | - [Register your application](how-to-register-ciam-app.md) with Azure Active Directory.</br>Learn more in [Step 2: Register your application](#step-2-register-your-application) later in this article.   |
+|**3**     |    **Integrate a sign-in flow with your app**.     | - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md). </br>- [Add your application](how-to-user-flow-add-application.md) to the user flow. </br>Learn more in [Step 3: Integrate a sign-in flow with your app](#step-3-integrate-a-sign-in-flow-with-your-app) later in this article.  |
+|**4**     |    **Customize and secure your sign-in**     |  - [Customize branding](concept-branding-customers.md). </br>- [Add identity providers](concept-authentication-methods-customers.md).  </br>- [Add attributes to collect](how-to-define-custom-attributes.md).   </br>- [Add claims to the application token](how-to-add-attributes-to-token.md). </br>- [Add multifactor authentication](concept-security-customers.md).  </br>Learn more in [Step 4: Customize and secure your sign-in](#step-4-customize-and-secure-your-sign-in) later in this article.   |
 
-## Customer tenant and user model
+The rest of this article explains each of these steps in more detail and outlines important planning considerations.
 
-Azure AD for customers uses the standard tenant model and overlays it with customized onboarding journeys for workforce or customer scenarios. B2B collaboration is part of workforce configurations. With the introduction of Azure AD for customers, Microsoft Entra now offers two different types of tenants that you can create and manage:
+## Step 1: Create a customer tenant
 
-- A **workforce tenant** contains your employees and the apps and resources that are internal to your organization. If you've worked with Azure Active Directory, a workforce tenant is the type of tenant you're already familiar with. You might already have an existing workforce tenant for your organization.
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-1.png" alt-text="Diagram showing step 1 in the setup flow." border="false":::
 
-- A **customer tenant** represents your customer-facing app, resources, and directory of customer accounts. A customer tenant is distinct and separate from your workforce tenant.
+A customer tenant is the first resource you need to create to get started with Azure AD for customers. A customer tenant, separate from your workforce tenant, represents your customer-facing app, resources, and directory of customer accounts. You create a tenant specifically for your customer-facing apps and services, and you manage accounts and resources in the dedicated customer tenant. Register your customer-facing apps in this tenant, and manage customer identities and access in the dedicated directory, separate from your workforce tenant.
 
-### Components of a customer tenant
+> [!NOTE]
+> If you don't have an Azure AD account and want to try out Azure AD for customers, you can [start a free trial](https://aka.ms/ciam-free-trial).
 
-A customer tenant is the first resource you need to create to get started with Azure AD for customers. To establish a CIAM solution for a customer-facing app or service, you create a new customer tenant. A customer tenant contains:
+When planning for your new customer tenant, consider the following points:
 
-- **A directory**: The directory stores your users' credentials and profile data. When a user signs up for your app, a local account is created for the user in your customer tenant.
+- When you create a customer tenant, you can set your correct geographic location and your domain name.
 
-- **Application registrations**: Microsoft Entra performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Microsoft Entra
+- This new workforce and customer tenant model doesn't affect your already existing B2C tenants.
 
-- **User flows**: The customer tenant contains the self-service sign-up, sign-in, and password reset experiences that you enable for your customers.
+- There are two types of users in a customer tenant: admin and customer. You can [create and manage admin accounts](how-to-manage-admin-accounts.md) for your customer tenant. Customer accounts are typically created through self-service sign-up, but you can [create and manage customer local accounts](how-to-manage-customer-accounts.md).
 
-- **Extensions**: If you need to add user attributes and data from external systems, you can create [custom authentication extensions](concept-extensions-customers.md) for your user flows.
+- Customer accounts have a [default set of permissions](reference-user-permissions.md). Customers are restricted from accessing information about other users in the customer tenant. By default, customers can’t access information about other users, groups, or devices.
 
-- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. [Learn more](concept-authentication-methods-customers.md)
+**To create a customer tenant**:
 
-- **Encryption keys** Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
+- You can [create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center. You can set your correct geographic location and your domain name at this step.
 
-### Customer and admin accounts
+- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial).
 
-A customer tenant contains two types of user accounts:
+## Step 2: Register your application
 
-- **Customer account**: Accounts that represent the customers who access your applications.
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
 
-- **Admin account**: Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
+Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Microsoft Entra performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
 
-## User flows for self-service sign-up
+When planning for app registration, consider the following points:
 
-A self-service sign-up user flow creates a sign-up experience for your customers through the application you want to share. The user flow can be associated with one or more of your applications. First you enable self-service sign-up for your tenant and federate with the identity providers you want to allow external users to use for sign-in. Then you create and customize the sign-up user flow and assign your applications to it.
-You can configure user flow settings to control how the customer signs up for the application:
+- Azure AD for customers supports authentication for various modern application architectures, including web apps, single-page apps (SPAs), web APIs, and more. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
-- Account types used for sign-in, such as social accounts like Facebook, or email address
-- Attributes to be collected from the user signing up, such as first name, postal code, or country/region of residency
+- We provide code sample guides and in-depth integration guides for several app types and languages. Depending on the type of app you want to register, you can find guidance on our [Samples by app type and language page](samples-ciam-all.md).
 
-The customer can sign in to your application, via the web, mobile, desktop, or single-page application (SPA). The application initiates an authorization request to the user flow provided endpoint. The user flow defines and controls the customer's experience. When the customer completes the sign-up user flow, Azure AD generates a token and redirects the customer back to your application. Upon completion of sign-up, a guest account is provisioned for the customer in the directory. Multiple applications can use the same user flow.
+**To register your application**:
 
-Learn how to [create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
+- Find guidance specific to the application you want to register on our [Samples by app type and language page](samples-ciam-all.md).
 
-## Extensibility
+- Or, refer to the general instructions for [registering an application](how-to-register-ciam-app.md) in a customer tenant.
 
-Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define additional actions for events at various points within the authentication flow.
+## Step 3: Integrate a sign-in flow with your app
 
-![Diagram showing extensibility points in the authentication flow.](media/concept-planning-your-solution/authentication-flow-events.png)
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-3.png" alt-text="Diagram showing step 3 in the setup flow." border="false":::
 
-- **Use custom authentication extensions to enrich tokens**.  Add claims from external systems to the application token just before the token is issued to the application.
+Next, create a sign-up and sign-in user flow and associate it with your application. When a user attempts to sign in, the application sends an authorization request to the endpoint you provided when you associated the app with the user flow. The user flow defines and controls the customer's experience. When the customer completes the sign-up user flow, Azure AD generates a token and redirects the customer back to your application. Upon completion of sign-up, a customer account is created for the customer in the directory.
 
-- **Add logic to attribute collection**. Define validation actions at the start of attribute collection or just before attribute submission.
+When planning to integrate a user flow with your application, consider these points:
 
-## Collecting attributes from users during sign-up
+- Each application can have just one sign-up and sign-in user flow.
 
-For each application, you might have different requirements for the information you want to collect during sign-up from your customers. 
+- If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows.
 
-Learn more about [custom authentication extensions](concept-extensions-customers.md).
-### Built-in attributes
+- Although we describe setting up company branding and language customizations later in Step 4, you can do so anytime, either before or after you integrate an app with a user flow. If you configure company branding before you create the user flow, the sign in pages reflect that branding. Otherwise, the sign in pages reflect the default, neutral branding.
 
-Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD for customers, you can select the built-in attributes you want to collect from customers when they sign up for your app. These attributes are stored with the customer's profile in your directory.
+- In the user flow settings, you can select from a set of built-in user attributes you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. If you want to collect more information, you can [define custom attributes](how-to-define-custom-attributes.md) and add them to your user flow.
 
-### Custom attributes
+- If your application requires specific user attributes, you can include them in the token sent to your application.
 
-You can [create custom attributes](how-to-define-custom-attributes.md) in the Azure portal and use them in your self-service sign-up user flows. You can also read and write these attributes by using the Microsoft Graph API. Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_<extensions-app-id>_attributename`. For example:
+- You can set up social identity providers [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md) and then add them to your user flow as sign-in options.
 
-```JSON
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-```
+**To integrate a sign-in flow with your app**:
 
-The `<extensions-app-id>` is specific to your tenant. To find this identifier, navigate to **Azure Active Directory** > **App registrations** > **All applications**. Search for the app that starts with "aad-extensions-app" and select it. On the app's Overview page, note the Application (client) ID.
+- If you want to collect information from customers beyond the built-in user attributes, [define custom attributes](how-to-define-custom-attributes.md) so they're available as you configure to your user flow.
 
-## Microsoft Entra security features
+- [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).
 
-The Microsoft Entra platform helps IT protect access to applications and resources. By taking advantage of the security benefits of Microsoft Entra, you can provide SSO access to your applications. If you want to make multiple apps available, SSO allows a customer to sign in once with a single account and get access to all apps, whether they're web, mobile, or single page applications.
+- [Add your application](how-to-user-flow-add-application.md) to the user flow.
 
-You can also enable application access security by enforcing multifactor authentication, which adds a critical second layer of security to user sign-ins by requiring verification via email one-time passcode.
+## Step 4: Customize and secure your sign-in
 
-Learn more about [security and governance](concept-security-customers.md) features available in your customer tenant.
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-4.png" alt-text="Diagram showing step 4 in the setup flow." border="false":::
+
+When planning for configuring company branding, language customizations, and custom extensions, consider the following points:
+
+- **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
+
+- **Extending the authentication token claims**. Azure AD for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [custom authentication extensions](concept-custom-extensions.md).
+
+- **Multifactor authentication (MFA)**. You can also enable application access security by enforcing MFA, which adds a critical second layer of security to user sign-ins by requiring verification via email one-time passcode. Learn more about [MFA for customers](concept-security-customers.md#multifactor-authentication).
+
+- **Security and governance**. Learn about [security and governance](concept-security-customers.md) features available in your customer tenant, such as Identity Protection and Identity Governance.
 
 ## Next steps
-- [Get started with creating your customer tenant](https://aka.md/ciam-hub-free-trial)
+- [Start a free trial](https://aka.ms/ciam-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
+- [Find samples and guidance for integrating your app](samples-ciam-all.md).
+- See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample vanilla JavaScript single-page application by using Microsoft Entra
-description: Learn how to configure a sample SPA to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample vanilla JavaScript single-page application
+description: Learn how to configure a sample SPA to sign in and sign out users.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -10,31 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/09/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample vanilla JavaScript single-page application by using Microsoft Entra
+# Sign in users in a sample vanilla JavaScript single-page application
 
-This how-to guide uses a sample vanilla JavaScript Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure AD for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
-
-In this article:
-
-> [!div class="checklist"]
->
-> * Register a web application in the Microsoft Entra admin center.
-> * Create a sign in and sign out user flow in Microsoft Entra admin center.
-> * Associate your web application with the user flow.
-> * Update a vanilla JavaScript SPA web application using your own Azure Active Directory (Azure AD) for customers tenant details.
-> * Run and test the sample web application.
+This how-to guide uses a sample vanilla JavaScript single-page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure Azure Active Directory (AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 
 * Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
-* Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
+* Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
 
 ## Register the SPA in the Microsoft Entra admin center
 
@@ -85,7 +75,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 1. Open `authConfig.js`.
 1. Find `Enter_the_Tenant_Name_Here` and replace it with the name of your tenant.
-1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
+1. In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 1. Save the file.
 
 ## Run your project and sign in
@@ -98,8 +88,8 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 1. Open a web browser and navigate to `http://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your CIAM tenant, which starts the sign-up flow as a user for your application.
-1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+1. In the **Create account** window, enter the email address registered to your customer tenant, which starts the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
 1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 

@@ -15,7 +15,7 @@ ms.custom: it-pro
 
 # Default user permissions in customer tenants
 
-A customer tenant provides clear separation between your corporate workforce directory and your customer-facing app directory. Furthermore, users created in your customer tenant are restricted from accessing information about other users in the customer tenant. By default, customers can manage their own profiles, but they can’t access information about other users, groups, or devices.
+A customer tenant provides clear separation between your corporate workforce directory and your customer-facing app directory. Furthermore, users created in your customer tenant are restricted from accessing information about other users in the customer tenant. By default, customers can’t access information about other users, groups, or devices.
 
 The following table describes the default permissions assigned to a customer.
 

@@ -6,6 +6,7 @@ ms.topic: include
 ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
+An API need to publish a minimum of one scope, also called [Delegated Permission](../../../../develop/permissions-consent-overview.md), for the client apps to obtain an access token for a user successfully. To publish a scope, follow these steps:
 
 1. From the **App registrations** page, select the API application that you created (*ciam-ToDoList-api*) to open its **Overview** page.
 
@@ -16,7 +17,6 @@ ms.author: kengaderdus
 1. Accept the proposed Application ID URI such as `api://{clientId}`, and select **Save**. When your web application requests an access token for the web API, it adds the URI as the prefix for each scope that you define for the API.
  
 1. Under **Scopes defined by this API**, select **Add a scope**.
-1. For **Scope name**, enter *ToDoList.Read*.
     
     1. For **Scope name**, enter *ToDoList.Read*.
     
@@ -44,4 +44,4 @@ ms.author: kengaderdus
 
 1. Select **Save**.
 
-Learn more about [the principle of least privilege when publishing permissions](https://learn.microsoft.com/security/zero-trust/develop/protected-api-example) for a web API. 
+Learn more about [the principle of least privilege when publishing permissions](/security/zero-trust/develop/protected-api-example) for a web API. 

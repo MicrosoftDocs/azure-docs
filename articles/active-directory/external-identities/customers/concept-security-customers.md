@@ -16,7 +16,11 @@ ms.custom: it-pro
 
 # Security and governance in Azure AD for customers
 
-The integration of customer capabilities into Azure Active Directory (Azure AD) means that your customer scenarios benefit from the advanced security and governance features available in Azure AD. Your customers are able to self-service register for your applications using their preferred authentication methods, including social accounts through identity providers like Google and Facebook. And you can use feature like multifactor authentication (MFA), Conditional Access, and Identity Protection to mitigate threats and detect risks.
+The integration of customer capabilities into Azure Active Directory (Azure AD) means that your customer scenarios benefit from the advanced security and governance features available in Azure AD. Your customers are able to self-service register for your applications using their preferred authentication methods, including social accounts through identity providers like Google and Facebook. And you can use features like multifactor authentication (MFA), Conditional Access, and Identity Protection to mitigate threats and detect risks.
+
+> [!NOTE]
+> In Conditional Access, MFA, and Identity Protection aren't available in free trial customer tenants.
+
 
 ## Multifactor authentication
 
@@ -43,8 +47,8 @@ Identity Protection comes with risk reports that can be used to investigate iden
 
 Identity Governance in a customer tenant enables you to mitigate access risk by protecting, monitoring, and auditing access to your critical assets. It includes identity access lifecycle capabilities that help you manage access over time as needs change. Identity Governance also helps you scale efficiently to be able to develop and enforce access policy and controls on an ongoing basis.
 
-Start using Identity Governance in the [Microsoft Entra admin center](https://entra.microsoft.com) by selecting the **Identity Governance** tile. On the Identity Governance page, find information for getting started with capabilities such as Entitlement Management, access reviews, Privileged Identity Management, and terms of use.  
+Start using Identity Governance in the [Microsoft Entra admin center](https://entra.microsoft.com) by selecting the **Identity Governance** tile. On the Identity Governance page, find information for getting started with capabilities such as Entitlement Management, access reviews, and Privileged Identity Management.
 
 ## Next steps
 
-- [Planning for CIAM](concept-planning-your-solution.md)
+- [Planning for customer identity and access management](concept-planning-your-solution.md)
