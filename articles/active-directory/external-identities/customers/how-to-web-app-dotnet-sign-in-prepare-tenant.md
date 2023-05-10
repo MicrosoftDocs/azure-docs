@@ -1,5 +1,5 @@
 ---
-title: Prepare your tenant: Sign in users to an ASP.NET web app
+title: Prepare your tenant - Sign in users to an ASP.NET web app
 description: Learn about how to prepare your Azure Active Directory (AD) for customers tenant for customers to sign in users in your own ASP.NET web application by using Azure AD for customers tenant.
 services: active-directory
 author: cilwerner
