@@ -70,7 +70,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
         | project TimeGenerated, Computer, Category, EventID, sourceHealthServiceId, ParameterXml, EventData
         ```
     
-1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale small-scale testing. Using policy also ensures automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
+1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale. Using policy also ensures automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
     
     Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
     
