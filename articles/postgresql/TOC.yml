@@ -713,7 +713,7 @@
           href: flexible-server/how-to-use-pgvector.md
           displayName: pgvector
         - name: Optimize performance when using pgvector
-          href: flexible-server/howto-optimize-performance-when-using-pgvector.md
+          href: flexible-server/howto-optimize-performance-pgvector.md
           displayName: pgvector
 - name: Hyperscale (Citus)
   items:

@@ -34,4 +34,4 @@ SELECT CREATE_EXTENSION('vector');
 Learn more around performance, indexing and limitations using pgvector.
 
 > [!div class="nextstepaction"]
-> [Optimize performance using pgvector](howto-optimize-performance-when-using-pgvector.md)
+> [Optimize performance using pgvector](howto-optimize-performance-pgvector.md)

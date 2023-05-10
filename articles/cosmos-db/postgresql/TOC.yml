@@ -213,7 +213,7 @@
           href: howto-use-pgvector.md
           displayName: pgvector
         - name: Optimize performance when using pgvector
-          href: howto-optimize-performance-when-using-pgvector.md
+          href: howto-optimize-performance-pgvector.md
           displayName: pgvector
     - name: Troubleshoot
       items:
