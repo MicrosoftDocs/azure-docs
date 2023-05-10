@@ -32,7 +32,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) with the MAUI workload installed:
   - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
-  - [Instructions for MacOS](/dotnet/maui/get-started/installation?tabs=vsmac)
+  - [Instructions for macOS](/dotnet/maui/get-started/installation?tabs=vsmac)
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
 
 ## Register .NET MAUI Android application
@@ -66,10 +66,10 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 1. In Visual Studio, open `ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/appsettings.json` file.
 1. Find the placeholder:
    1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`.
-   1. `Enter_the_Application_Id_Here` and and replace it with the Application (client) ID of the app you registered earlier.
+   1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
 1. In Visual Studio, open `ms-identity-ciam-dotnet-tutorial-main/1-Authentication/2-sign-in-maui/Platforms/Android/AndroidManifest.xml` file.
 1. Find the placeholder:
-    1. `Enter_the_Application_Id_Here` and and replace it with the Application (client) ID of the app you registered earlier.
+    1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
 
 ## Run and test sample .NET MAUI Android application
 
@@ -85,7 +85,7 @@ Clean the solution, rebuild the solution, and run it.
 
    :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-sign-in-prompt.jpg" alt-text="Screenshot of user to enter credential.":::
 
-   During the sign in process, you will be prompted to grant various permissions (to allow the application to access your data). Upon successful sign in and consent, the application screen will display the main page.
+   During the sign in process, you're prompted to grant various permissions (to allow the application to access your data). Upon successful sign in and consent, the application screen displays the main page.
 
    :::image type="content" source="media/how-to-mobile-app-maui-sample-sign-in/maui-android-after-sign-in.png" alt-text="Screenshot of user to enter credential.":::
 
