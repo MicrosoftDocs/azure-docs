@@ -1,6 +1,6 @@
 ---
-title: Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Sign-in users and acquire an access token
-description: Learn how to sign-in users and acquire an access token for calling an API in your own Node.js web application by using Microsoft Entra.
+title: Sign in users and call an API in a Node.js web application - acquire an access token
+description: Learn how to sign-in users and acquire an access token for calling an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -10,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Sign-in users and acquire an access token
+# Sign in users and call an API in a Node.js web application - acquire an access token
 
 In this article, you add sign in, then acquire an access token to the web app project that you prepared in the previous chapter, [Prepare your client app and API](how-to-web-app-node-sign-in-call-api-prepare-app.md). The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication and authorization to your node web application.
 
@@ -25,7 +25,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
 ```javascript
     require('dotenv').config();
     
-    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const TENANT_SUBDOMAIN = process.env.TENANT_SUBDOMAIN || 'Enter_the_Tenant_Subdomain_Here';
     const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
     const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
@@ -37,7 +37,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+            authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
             clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         system: {
@@ -66,7 +66,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
     module.exports = {
         msalConfig,
         protectedResources,
-        TENANT_NAME,
+        TENANT_SUBDOMAIN,
         REDIRECT_URI,
         POST_LOGOUT_REDIRECT_URI,
     };
@@ -78,7 +78,7 @@ In your `authConfig.js` file, replace:
 
 - `Enter_the_Application_Id_Here` with the Application (client) ID of the client web app that you registered earlier.
 
-- `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+- `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 - `Enter_the_Client_Secret_Here` with the client web app secret value that you copied earlier.
 
@@ -228,7 +228,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
     
     ```javascript
         //...
-         const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
+         const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_SUBDOMAIN}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
 
         req.session.destroy(() => {
             res.redirect(logoutUri);

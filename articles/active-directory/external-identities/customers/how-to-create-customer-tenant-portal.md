@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/09/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -28,10 +28,11 @@ In this article, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Azure account that's been assigned at least the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role within the subscription or a resource group within the subscription is required.
+- An Azure account that's been assigned at least the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role scoped to the subscription or to a resource group within the subscription.
 - If you don't have an Azure account, sign up for a [30-day free trial](quickstart-trial-setup.md).
 
-## Create a new customer tenant  <!--  The link https://aka.ms/ciam/create brings me to the correct manage tenants page, but in the Azure portal and not in the MS Entra admin center, even if I'm logged in to the MS Entra admin center. I manually have to copy tht URL to the admin center if I want to see this page there. (https://entra.microsoft.com/?enableNewTenantCreationUX=true&Microsoft_AAD_B2CAdmin_dc=CPIMEUSSU001-PPE-BL6P&Microsoft_AAD_B2CAdmin_slice=001-001#view/Microsoft_AAD_IAM/SelectTenantType.ReactView) -->
+## Create a new customer tenant  
+
 1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. From the left menu, select **Azure Active Directory** > **Overview**.
 1. On the overview page, select **Manage tenants**
@@ -43,12 +44,12 @@ In this article, you learn how to:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
 
-1. If you're creating a customer tenant for the first time, you have the option to create a trial tenant that doesn't require an Azure subscription. Otherwise, use the Azure Subscription card to continue to the next step.
+1. If you're creating a customer tenant for the first time, you have the option to create a trial tenant that doesn't require an Azure subscription. Otherwise, use the Azure Subscription option to continue to the next step.
  
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-first-customer-tenant.png" alt-text="Screenshot of the two customer tenant options available during the initial CIAM tenant creation.":::
 
-1. If you choose the 30-day free trial, it doesn't require an Azure subscription.
-1. If you choose the second card, **Use Azure Subscription** you'll see the tenant creation page. On the **Basics** tab, in the **Create a tenant for customers** page, enter the following information:
+1. If you choose the 30-day free trial, an Azure subscription isn't required.
+1. If you choose **Use Azure Subscription** option, then the admin center displays the tenant creation page. On the **Basics** tab, in the **Create a tenant for customers** page, enter the following information:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/add-basics-to-customer-tenant.png" alt-text="Screenshot of the Basics tab.":::
 
@@ -70,22 +71,25 @@ In this article, you learn how to:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/add-subscription.png" alt-text="Screenshot that shows the subscription settings.":::
 
-1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+1. Select **Next: Review + Create**. If the information that you entered is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+1. The tenant creation may take a few minutes to complete. You can monitor the progress by checking the notification bell at the top right corner of the screen. Once the tenant is successfully created, you can navigate to it by selecting the link provided below.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-successfully-created.png" alt-text="Screenshot that shows the link to the new customer tenant.":::
 
 ## Get the customer tenant details
 
 If you're not sure which directory contains your customer tenant, you can find the tenant name and ID both in the Microsoft Entra admin center and in the Azure portal.
 
-1. To make sure you're using the directory that contains your Azure AD for customers tenant, select the **Directories + subscriptions** icon in the toolbar.
+1. To make sure you're using the directory that contains your customer tenant, select the **Directories + subscriptions** icon in the toolbar.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/directories-subscription.png" alt-text="Screenshot of the Directories + subscriptions icon.":::
 
-1. On the **Portal settings | Directories + subscriptions** page, find your customer directory under the **All Directories** tab in the **Directory name** list, and then select **Switch**.
+1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
 1. On the tenant's home page, select the **Overview** tab. You can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Basic information**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-overview.png" alt-text="Screenshot of the tenant details.":::
 
-If you're sure that you are in the right directory, go to **Azure Active Directory** in both the Microsoft Entra admin center and the Azure portal. On the **Azure Active Directory** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
+You can find the same details if you go to **Azure Active Directory** either in the Microsoft Entra admin center or in the Azure portal. On the **Azure Active Directory** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
 
 ## Next steps
 - [Register an app](how-to-register-ciam-app.md)

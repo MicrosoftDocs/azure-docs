@@ -1,7 +1,6 @@
 ---
-title: Sign in users to a Vanilla JS single-page application using Microsoft Entra - Configure application for authentication
-description: Learn how to configure vanilla JavaScript single-page app (SPA) for authentication and authorization with Azure AD CIAM.
-
+title: Configure a vanilla JavaScript single-page app for authentication
+description: Learn how to configure authentication for a vanilla JavaScript single-page app (SPA) with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -11,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/23/2023
 ms.custom: developer
 
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
+#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
 # Create components for authentication and authorization
 
-In the previous article, you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). The library is used to authenticate users and acquire access tokens from Azure AD CIAM.
+In the previous article, you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). The library is used to authenticate users and acquire access tokens from Azure Active Directory (AD) for customers.
 
 ## Prerequisites
 
@@ -27,7 +26,7 @@ In the previous article, you created a vanilla JavaScript (JS) single-page appli
 
 ## Creating the authentication configuration file
 
-The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that doesn't require a back-end server. The flow redirects the user to the Azure AD CIAM sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
+The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that doesn't require a back-end server. The flow redirects the user to the sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
 
 1. In your IDE, create a new folder and name it **public**
 1. In the *public* folder, create a new file and name it *authConfig.js*.
@@ -95,12 +94,12 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
      ```
 
 1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
-1. Find `Enter_the_Tenant_Subdomain_Here` and replace it with the name of your tenant.
+1. In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 1. Save the file.
 
 ## Creating the redirection file
 
-A redirection file is required to handle the response from the Azure AD CIAM sign-in page. The redirection file is used to extract the access token from the URL fragment and use it to call the protected API.
+A redirection file is required to handle the response from the sign-in page. The redirection file is used to extract the access token from the URL fragment and use it to call the protected API.
 
 1. In the *public* folder, create a new file and name it *authRedirect.js*.
 1. Open *authRedirect.js* and add the following code snippet:
@@ -190,7 +189,7 @@ A redirection file is required to handle the response from the Azure AD CIAM sig
 
 ## Creating the authPopup.js file
 
-The application uses *authPopup.js* to handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in to Azure AD CIAM and the application needs to get an access token for a different resource. 
+The application uses *authPopup.js* to handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in and the application needs to get an access token for a different resource. 
 
 1. In the *public* folder, create a new file and name it *authPopup.js*.
 1. Open *authPopup.js* and add the following code snippet:

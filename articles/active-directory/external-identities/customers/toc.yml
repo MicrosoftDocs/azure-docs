@@ -6,7 +6,7 @@ items:
   items:   
     - name: What is Azure Active Directory for customers?  
       href: overview-customers-ciam.md 
-    - name: "Solutions at-a-glance: Woodgrove demo"
+    - name: Demo overview
       href: overview-solutions-customers.md 
 - name: Quickstarts
   expanded: true
@@ -29,7 +29,7 @@ items:
       href: concept-authentication-methods-customers.md
     - name: Customizing the sign-in look and feel
       href: concept-branding-customers.md
-    - name: Custom authentication extensions
+    - name: Add your own business logic
       href: concept-custom-extensions.md
     - name: Security and governance
       href: concept-security-customers.md  	   	  
@@ -47,6 +47,10 @@ items:
                   items:
                     - name: Sign in users
                       href: how-to-single-page-app-vanillajs-sample-sign-in.md
+                - name: Angular
+                  items:
+                    - name: Sign in users
+                      href: how-to-single-page-application-angular-sample.md
                 - name: React
                   items:
                     - name: Sign in users
@@ -59,17 +63,33 @@ items:
                       href: how-to-web-app-node-sample-sign-in.md
                     - name: Sign in users and call an API
                       href: how-to-web-app-node-sample-sign-in-call-api.md
-                - name: ASP.NET
+                - name: ASP.NET Core
                   items:
                     - name: Sign in users
-                      href: how-to-web-app-dotnet-sample-sign-in.md
+                      href: ../../develop/web-api-quickstart.md
+            - name: Browserless app
+              items: 
+              - name: Node.js - Sign in users
+                href: how-to-browserless-app-node-sample-sign-in.md
+              - name: .NET - Sign in users
+                href: how-to-browserless-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: ../../develop/console-app-quickstart.md
+            - name: Daemon, service
+              items:
+                - name: Node.js - Call an API
+                  href: how-to-daemon-node-sample-call-api.md
+                  displayName: client credentials grant
             - name: Desktop app
               items:
                 - name: Electron
                   href: how-to-desktop-app-electron-sample-sign-in.md
+                - name: .NET MAUI
+                  href: how-to-desktop-app-maui-sample-sign-in.md
             - name: Mobile app
+              items:
+                - name: Android (.NET MAUI)
+                  href: how-to-mobile-app-maui-sample-sign-in.md
               href: ../../develop/mobile-app-quickstart.md
         - name: Build and integrate apps
           items: 
@@ -91,8 +111,6 @@ items:
                   items:
                     - name: Sign in users
                       items:
-                        - name: Overview
-                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
                           href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
@@ -139,40 +157,61 @@ items:
                           href: how-to-web-app-dotnet-sign-in-sign-out.md
             - name: Web API
               items: 
-                - name: Protect ASP.NET API
+                - name: Protect ASP.NET Core API
                   items:
                     - name: Overview
                       href: how-to-protect-web-api-dotnet-core-overview.md
-                    - name: Prepare API app
+                    - name: Prepare the API
                       href: how-to-protect-web-api-dotnet-core-prepare-api.md
                     - name: Protect API endpoints
                       href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
-                    - name: Test API
+                    - name: Test the API
                       href: how-to-protect-web-api-dotnet-core-test-api.md
 
-            - name: Headless app
+            - name: Browserless app
               items: 
-                - name: Node​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-console.md
+                - name: Node.js
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: how-to-browserless-app-node-sign-in-overview.md
+                        - name: Prepare tenant 
+                          href: how-to-browserless-app-node-sign-in-prepare-tenant.md
+                        - name: Prepare app 
+                          href: how-to-browserless-app-node-sign-in-prepare-app.md
+                        - name: Add sign-in and sign-out
+                          href: how-to-browserless-app-node-sign-in-sign-out.md
                 - name: .NET​ - Sign in users
-                  href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
-            - name: Desktop app
+                  items:
+                    - name: Overview
+                      href: how-to-browserless-app-dotnet-sign-in-overview.md
+                    - name: Prepare tenant 
+                      href: how-to-browserless-app-dotnet-sign-in-prepare-tenant.md
+                    - name: Prepare app 
+                      href: how-to-browserless-app-dotnet-sign-in-prepare-app.md
+                    - name: Add sign-in
+                      href: how-to-browserless-app-dotnet-sign-in-sign-in.md
+            - name: Daemon, service
               items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
-                - name: Electron​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-desktop.md
-            - name: Mobile app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
+                - name: Node.js
+                  items:
+                    - name: Call an API
+                      items:
+                        - name: Overview
+                          href: how-to-daemon-node-call-api-overview.md
+                          displayName: client credentials flow
+                        - name: Prepare tenant
+                          href: how-to-daemon-node-call-api-prepare-tenant.md
+                        - name: Prepare app
+                          href: how-to-daemon-node-call-api-prepare-app.md 
+                        - name: Acquire access token & call API
+                          href: how-to-daemon-node-call-api-call-api.md 
     - name: Authenticate and authorize
       expanded: true
       items:
       - name: Create a customer tenant
-        items:
-          - name: Create a customer tenant in the admin center
-            href: how-to-create-customer-tenant-portal.md
+        href: how-to-create-customer-tenant-portal.md
       - name: Register an app
         href: how-to-register-ciam-app.md
       - name: Add a sign-up and sign-in flow
@@ -187,6 +226,8 @@ items:
             href: how-to-google-federation-customers.md
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
+          - name: Use application roles to manage access
+            href: how-to-use-app-roles-customers.md
     - name: Customize
       expanded: true
       items:
@@ -198,8 +239,10 @@ items:
               href: how-to-customize-languages-customers.md
         - name: Customize attribute collection
           items:
-            - name: Define custom attributes for user flows
+            - name: Collect user attributes during sign-up
               href: how-to-define-custom-attributes.md
+            - name: Add attributes to the token
+              href: how-to-add-attributes-to-token.md
         - name: Add claims from external systems
           items:
            - name: About custom authentication extensions
@@ -229,3 +272,21 @@ items:
       href: reference-group-app-roles-support.md
     - name: Help and support options
       href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+    - name: MSAL references 
+      items:
+        - name: MSAL.NET
+          href: /dotnet/api/microsoft.identity.client.advanced
+        - name: Microsoft Identity Web
+          href: /dotnet/api/microsoft.identity.web
+        - name: Microsoft identity model
+          href: /dotnet/api/microsoft.identitymodel.abstractions
+        - name: MSAL.js
+          items:
+          - name: msal-angular
+            href: /javascript/api/@azure/msal-angular/
+          - name: msal-browser
+            href: /javascript/api/@azure/msal-browser/
+          - name: msal-react
+            href: /javascript/api/@azure/msal-react/
+          - name: msal-node
+            href: /javascript/api/@azure/msal-node/

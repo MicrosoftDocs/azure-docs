@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 05/09/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -47,9 +47,7 @@ The following screenshots show the self-service password rest flow. From the app
 
 To enable self-service password reset, you need to enable the email one-time passcode (Email OTP) authentication method for all users in your tenant. To ensure that the Email OTP feature is enabled follow the steps below:
 
-   1. On the Microsoft Entra admin center home page, select **Azure Active Directory**.
-
-   1. Select **Protect & secure** > **Authentication methods** > **Policies**.
+   1. Select **Protect & secure** from the sidebar under **Azure Active Directory** and then **Authentication methods** > **Policies**.
 
    1. Under **Method** select **Email OTP (preview)**.
    
@@ -60,6 +58,10 @@ To enable self-service password reset, you need to enable the email one-time pas
       :::image type="content" source="media/how-to-enable-password-reset-customers/enable-otp.png" alt-text="Screenshot of enabling OTP.":::
 
 1. Select **Save**.
+
+## Customize the password reset flow
+
+You can configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. For details, see [To customize self-service password reset](how-to-customize-branding-customers.md#to-customize-self-service-password-reset) in the article [Customize the neutral branding in your customer tenant](how-to-customize-branding-customers.md).
 
 ## Test self-service password reset
 
@@ -85,5 +87,4 @@ To go through the self-service password reset flow:
 
 ## Next steps
 
-- [Add Google as an identity provider](how-to-google-federation-customers.md)
-- [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
+- Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.

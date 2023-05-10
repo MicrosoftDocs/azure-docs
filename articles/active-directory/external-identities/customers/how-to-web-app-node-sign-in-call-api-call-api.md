@@ -1,6 +1,6 @@
 ---
-title: Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Call an API
-description: Learn how to call a protected API in your own Node.js web application by using Microsoft Entra.
+title: Sign in users and call an API in a Node.js web application - call an API
+description: Learn how to call a protected API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -10,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/22/2023
 ms.custom: developer
 ---
 
-# Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Call an API
+# Sign in users and call an API in a Node.js web application - call an API
 
 In this article, you learn how to call the ASP.NET API from your Node.js client web app using the access token you've acquired in [Acquire access token](how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md#acquire-access-token).
 
@@ -182,9 +182,9 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
 
 At this point, you're ready to test your client web app and web API. 
 
-1. Use the steps you learned in [Secure an ASP.NET web API by using Microsoft Entra](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests.
+1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests.
 
-1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-call-api-node-express-web-app`, then run the following command:
+1. In your terminal, make sure you're in the project folder that contains your client web app such as `ciam-sign-in-call-api-node-express-web-app`, then run the following command:
 
     ```console
     npm start
@@ -201,4 +201,4 @@ You may want to:
 
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
 
-- [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md)
+- [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md)

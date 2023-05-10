@@ -10,6 +10,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/09/2023
+
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to register an app on the Microsoft Entra admin center.
@@ -28,7 +29,7 @@ In this article, you’ll learn how to register an application in your customer 
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-free-trial).
+- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Choose your app type
 
@@ -135,13 +136,11 @@ This app signs in users. You can add delegated permissions to it, by following t
 [!INCLUDE [register app](../customers/includes/register-app/register-api-app.md)]
 
 ### Expose permissions
-This API needs to expose permissions, which a client needs to acquire to call it:
 
 [!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
 ### If you want to add app roles follow the steps below (optional):
 
-App roles enable the client app to obtain an access token as themselves. This is common when the client app isn't signing-in a user:
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
 ## Next steps

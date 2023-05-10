@@ -21,7 +21,7 @@ Get started with Active Directory (Azure AD) for customers (Preview) that lets y
 This article gives you an overview how to set up your customer tenant free trial. The free trial gives you a 30 day access to all product features with few exceptions. See the following table for comparison:
 
 |  Features | Azure Active Directory for customers trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
-|----------|-----------|------------|
+|----------|:-----------:|:------------:|
 | **User limits** | Up-to 10K |  Up-to 300 K  | 
 | **Self-service account experiences** (Sign-up, sign-in, and password recovery.)   | :heavy_check_mark: |  :heavy_check_mark:  | 
 | **MFA** (With email OTP.)  | :heavy_check_mark: |  :heavy_check_mark:  |  
@@ -36,7 +36,7 @@ This article gives you an overview how to set up your customer tenant free trial
 
 ## Sign up to your customer tenant free trial
 
-1. Open your browser and visit [https://aka.ms/ciam-free-trial](https://aka.ms/ciam-free-trial).
+1. Open your browser and visit [https://aka.ms/ciam-free-trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 1. You can sign in to the customer trial tenant using your personal account, and your Microsoft account (MSA) or GitHub account.  
 1. You'll notice that a domain name and location have been set for you. The domain name and the data location can't be changed later in the free trial. Select **Change settings** if you would like to adjust them.
 1. Select **Continue** and hang on while we set up your trial. It will take a few minutes for the trial to become ready for the next step.

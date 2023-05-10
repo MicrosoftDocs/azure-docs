@@ -1,5 +1,5 @@
 ---
-title: Overview of solutions with Microsoft Entra for customers
+title: Overview of the Woodgrove Groceries demo
 description: Learn about the customer identity and access management solutions for your customer-facing apps that are provided by Azure AD for customers.
 services: active-directory
 author: msmimart
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 04/17/2023
+ms.date: 05/10/2023
 ms.author: mimart
 ms.custom: it-pro
 
 ---
-# Solutions at a glance: Woodgrove Groceries demo
+# Overview of the Woodgrove Groceries demo
 
 Azure Active Directory (Azure AD) for customers offers solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
 
@@ -57,21 +57,13 @@ Email one-time passcode sign-in method is a type of passwordless authentication 
 
 You can enable email one-time passcode in the admin center under **Authentication methods**. For the exact steps, see [Enable email one-time passcode](how-to-enable-password-reset-customers.md#enable-email-one-time-passcode).
 
-### Sign-in with custom extension
+### Sign-in using your own business logic
 
 When users authenticate to your application with Azure Active Directory, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles. Beyond the default set of claims that are contained in the security token you can define your own custom claims from external systems using a REST API you develop.
  
 In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the Woodgrove top bar select your name and check your profile. It contains information that return by the Azure AD custom extension REST API.
 
 If you want to understand how custom extensions work, you can refer to the [Custom extension overview](/azure/active-directory/develop/custom-extension-overview) article. For information on custom claims providers, you can check out the [Custom claims provider](/azure/active-directory/develop/custom-claims-provider-overview) article.
-
-### Input constrained devices (Kiosk)
-
-Input-constrained devices are devices where the screen or monitor is limited to text-only and they don't have a web browser. For example, smart TV, IoT device, robot, gaming console, printers. Or applications with limited user interface, such as a command line application.
-
-These devices are connected to the internet, but due to the input constrains, the authentication should be done on another device. The input constrained device gets a device code from Azure AD and asks the user to visit a webpage in a browser on a second (rich device), such as smartphone, tablets, or PCs.
- 
-In this use case, from the Kiosk page select sign-in. Use the second device, such as smartphone, and scan the QR code. Then on the sign-in page, enter the device code and complete the sign-in. Once you're signed in, the Kiosk (input-constrained device) is able to get security tokens and authenticate you. You should see your name in the top-right corner of the page.
 
 ### Edit your account
 

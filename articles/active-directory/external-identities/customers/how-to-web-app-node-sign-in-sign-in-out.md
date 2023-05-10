@@ -1,6 +1,6 @@
 ---
-title: Sign in users in your own Node.js web application by using Microsoft Entra - Add sign-in and sign-out
-description: Learn about how to add sign-in and sign-out in your own Node.js web application by using Microsoft Entra.
+title: Sign in users in a Node.js web application  - add sign-in and sign-out
+description: Learn about how to add sign-in and sign-out in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/22/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application by using Microsoft Entra - Add sign-in and sign-out
+# Sign in users in a Node.js web application  - add sign-in and sign-out
 
 In this article, you add sign in and sign out to the web app project that you prepared in the previous chapter, [Prepare your web app](how-to-web-app-node-sign-in-prepare-app.md). The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application.
 
@@ -27,7 +27,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
 ```javascript
     require('dotenv').config();
     
-    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const TENANT_SUBDOMAIN = process.env.TENANT_SUBDOMAIN || 'Enter_the_Tenant_Subdomain_Here';
     const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
     const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
@@ -39,7 +39,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
+            authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // replace "Enter_the_Tenant_Subdomain_Here" with your tenant name
             clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         system: {
@@ -57,7 +57,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
         msalConfig,
         REDIRECT_URI,
         POST_LOGOUT_REDIRECT_URI,
-        TENANT_NAME
+        TENANT_SUBDOMAIN
     };
 ```
 
@@ -67,7 +67,7 @@ In your *authConfig.js* file, replace:
 
 - `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
 
-- `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+- `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
  
 - `Enter_the_Client_Secret_Here` with the app secret value you copied earlier.
 
@@ -79,15 +79,15 @@ If you use the *.env* file to store your configuration information:
 
     ```
         CLIENT_ID=Enter_the_Application_Id_Here
-        TENANT_NAME=Enter_the_Tenant_Name_Here
+        TENANT_SUBDOMAIN=Enter_the_Tenant_Subdomain_Here
         CLIENT_SECRET=Enter_the_Client_Secret_Here
         REDIRECT_URI=http://localhost:3000/auth/redirect
         POST_LOGOUT_REDIRECT_URI=http://localhost:3000
     ```
 
-1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Name_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
+1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Subdomain_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
 
-You export `msalConfig`, `REDIRECT_URI`, `TENANT_NAME` and `POST_LOGOUT_REDIRECT_URI` variables in the *authConfig.js* file. This makes them accessible wherever you require the file.
+You export `msalConfig`, `REDIRECT_URI`, `TENANT_SUBDOMAIN` and `POST_LOGOUT_REDIRECT_URI` variables in the *authConfig.js* file. This makes them accessible wherever you require the file.
 
 ## Add express routes
 
@@ -188,7 +188,7 @@ The `/` route is the entry point to the application. It renders the *views/index
              * session with Azure AD. For more information, visit:
              * https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#send-a-sign-out-request
              */
-            const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${this.config.postLogoutRedirectUri}`;
+            const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_SUBDOMAIN}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${this.config.postLogoutRedirectUri}`;
     
             req.session.destroy(() => {
                 res.redirect(logoutUri);
@@ -250,7 +250,7 @@ To extract a specific ID token claim, such as *given name*:
 
 ## Run and test the web app
 
-1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-node-express-web-app`.
+1. In your terminal, make sure you're in the project folder that contains your web app such as `ciam-sign-in-node-express-web-app`.
 
 1. Use the steps in [Run and test the web app](how-to-web-app-node-sample-sign-in.md#run-and-test-sample-web-app) article to test your web app.
 
