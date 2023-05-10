@@ -10,20 +10,20 @@ ms.date: 05/10/2023
 
 From the VMware vSphere client, you can back up datastores and Virtual Machines (VMs) to the cloud. This article explains how to configure your subscription, create a backup policy, and create and back up a resource group. 
 
-## Prerequisites 
-
-Before you can back up your Azure NetApp Files datastore or VM with Cloud Backup for Virtual Machines, you need to create an Azure service principal with the required Azure NetApp Files privileges.
-
 ## Configure subscriptions
 
 Before you back up your Azure NetApp Files datastores, you must add your Azure and Azure NetApp Files cloud subscriptions.
+
+### Prerequisites 
+
+Before you can back up your Azure NetApp Files datastore or VM with Cloud Backup for Virtual Machines, you need to create an Azure service principal with the required Azure NetApp Files privileges.
 
 ### Add Azure cloud subscription 
 
 1.	Sign in to the VMware vSphere client.
 2.	From the left navigation, select **Cloud Backup for Virtual Machines**.
 3.	Select the **Settings** page and then select the **Cloud Subscription** tab.
-4.	Select **Add** and then provide the required values from your Azure subscription.
+4.	Select **Add** then provide then provide the **Subscription ID**, **Tenant ID**, **Client IID**, and **Client secret key** from the app registration you previously created.
 
 ### Add Azure NetApp Files cloud subscription account
 
