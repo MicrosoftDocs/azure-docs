@@ -176,5 +176,4 @@ Selecting the **Individual feature importances** tab shifts views to explain how
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate a Responsible AI dashboard with YAML or Python.
-- Learn more about how you can use the Responsible AI text dashboard to debug image data and models and inform better decision-making in this [tech community blog post]().
 - Learn about how the Responsible AI text dashboard was used by ERM for a [business use case](https://aka.ms/erm-customer-story).

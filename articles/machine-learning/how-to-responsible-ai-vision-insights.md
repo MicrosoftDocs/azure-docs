@@ -198,10 +198,6 @@ Once the pipeline is complete and the Responsible AI dashboard is generated, you
 > [!NOTE]
 > For image classification models, methods like XRAI and Integrated gradients usually provide better visual explanations when compared to guided backprop and guided gradCAM, but are much more compute intensive.
 
-A sample screen with explanations is shown below (on the right). The explanations are generated using guided backprop method. The full parameter list is shown on the left.
-
-[ screenshot]
-
 ## Understand the Responsible AI image dashboard
  
 To learn more about how to use the Responsible AI image dashboard, see [Responsible AI image dashboard in Azure Machine Learning studio](how-to-responsible-ai-image-dashboard.md).
@@ -210,5 +206,5 @@ To learn more about how to use the Responsible AI image dashboard, see [Responsi
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate a Responsible AI dashboard with YAML or Python.
-- Learn more about how you can use the Responsible AI Vision dashboard to debug image data and models and inform better decision-making in this [tech community blog post](https://aka.ms/rai-object-detection-blog).
+- Learn more about how you can use the Responsible AI image dashboard to debug image data and models and inform better decision-making in this [tech community blog post](https://aka.ms/rai-object-detection-blog).
 - Learn about how the Responsible AI dashboard was used by Clearsight in a [real-life customer story](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).
