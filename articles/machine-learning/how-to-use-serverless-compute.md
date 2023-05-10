@@ -16,13 +16,28 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, ML professionals can focus on their expertise of building ML models and not have to learn about and setup compute infra. ML professionals can specify the resources the job needs. AzureML manages compute infra and provides managed network isolation reducing the burden on customers. Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying compute and workspace level quota and Azure policies.
-
-Serverless compute can be used to run command, sweep, AutoML, pipeline, distributed training, and interactive jobs from AzureML Studio, SDK and CLI. You don't need to create, setup, and manage compute anymore to run training jobs or to learn about various compute concepts. There is no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace. User can specify the resources a job would need in terms of instance count and instance type (VM size) and don’t need to specify the compute name. User can also skip the resources altogether and Azure Machine Learning will default instance count of 1 and choose a CPU instance type (VM size) based on factors like quota, cost, performance and disk size. User identity and workspace user assigned managed identity is supported for job submission. Managed network isolation is also supported. User can choose standard (Dedicated) tier or spot (low-priority) VMs. You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would neeed. Serverless jobs consume the same quota as AzureML Compute quota.
-
-When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  Skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a command job, the job runs on serverless compute.
+You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create.  It's created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, ML professionals can focus on their expertise of building ML models and not have to learn about and setup compute infra. 
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network isolation reducing the burden on customers.
+
+Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying compute and workspace level quota and Azure policies.
+
+Serverless compute can be used to run command, sweep, AutoML, pipeline, distributed training, and interactive jobs from Azure Machine Learning studio, SDK and CLI. 
+
+## Advantages of serverless compute
+
+* You don't need to create, setup, and manage compute anymore to run training jobs or to learn about various compute concepts. 
+* There's no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace. 
+* You can specify the resources a job would need in terms of instance count and instance type (VM size) and don’t need to specify the compute name. 
+* You can also skip the resources altogether and Azure Machine Learning defaults the instance count of 1, and chooses a CPU instance type (VM size).  Base your configuration on factors like quota, cost, performance and disk size. 
+* User identity and workspace user assigned managed identity is supported for job submission. 
+* Managed network isolation is also supported. 
+* You can choose standard (Dedicated) tier or spot (low-priority) VMs. 
+* You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. 
+* You can monitor the utilization metrics of the job to optimize the resources a job would need. Serverless jobs consume the same quota as Azure Machine Learning Compute quota.
+* When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  With serverless, you can skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a command job, the job runs on serverless compute.
 
 ## How to use serverless compute
 
@@ -35,22 +50,22 @@ When you create your own compute cluster, you use its name in the command job, s
 * For pipeline jobs through CLI use `default_compute: azureml:serverless` for pipeline level default compute.  For pipelines jobs through SDK use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
 * To use serverless job submission in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
 
-    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
+    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png.":::
 
-* When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as your compute
+* When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as your compute.
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as your compute.
 
 > [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information see [workspace managed network isolation]().
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information, see [workspace managed network isolation]().
 <!--how-to-managed-network.md  -->
 
 ## Performance considerations
 
 Serverless compute can help speed up your training in the following ways:
 
-**Insufficient quota:** When you create your own compute cluster, you're responsible for figuring out what VM size and node count to create.  When your job runs, if you don't have sufficient quota for the cluster the job will fail.  Serverless compute uses information about your quota to select an appropriate VM size by default.  
+**Insufficient quota:** When you create your own compute cluster, you're responsible for figuring out what VM size and node count to create.  When your job runs, if you don't have sufficient quota for the cluster the job fails.  Serverless compute uses information about your quota to select an appropriate VM size by default.  
 
-**Scale down optimization:** When a compute cluster is scaling down, a new job has to wait for scale down to happen and then scale up before job can run. With serverless compute, you don't have to wait for scale down and your job can start runnng on another cluster/node (assuming you have quota).
+**Scale down optimization:** When a compute cluster is scaling down, a new job has to wait for scale down to happen and then scale up before job can run. With serverless compute, you don't have to wait for scale down and your job can start running on another cluster/node (assuming you have quota).
 
 **Cluster busy optimization:** when a job is running on a compute cluster and another job is submitted, your job is queued behind the currently running job. With serverless compute, you get another node/another cluster to start running the job (assuming you have quota).
 
@@ -191,7 +206,7 @@ You can override these defaults.  If you want to specify the VM type or number o
 
 ## Example for all fields
 
-Here's an example of all fields specified including identity. There is no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
+Here's an example of all fields specified including identity. There's no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
 
 # [Python SDK](#tab/python)
 
@@ -329,7 +344,7 @@ resources:
 
 ## AutoML job
 
-There is no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count is not specified then it is defaulted based on max_concurrent_trials and max_nodes parameters.
+There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters.
 
 # [Python SDK](#tab/python)
 
