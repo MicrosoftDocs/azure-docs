@@ -346,6 +346,8 @@
       href: cicd-tools.md
     - name: Set up a pipeline with Azure DevOps
       href: set-up-cicd-pipeline.md
+    - name: Set up a pipeline using GitHub Actions
+      href: cicd-github-actions.md
     - name: Configure autoscale settings
       href: cicd-autoscale.md
   - name: Visual Studio
