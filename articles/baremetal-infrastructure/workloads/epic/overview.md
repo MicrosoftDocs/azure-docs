@@ -1,8 +1,8 @@
 ---
 title: What is BareMetal Infrastructure on Azure?
-description: Provides an overview of the BareMetal Infrastructure on Azure.
-ms.custom: references_regions
+description: Provides an overview of Epic for ALI.
 ms.topic: conceptual
+ms.subservice: baremetal-epic
 ms.date: 04/01/2023
 ---
 

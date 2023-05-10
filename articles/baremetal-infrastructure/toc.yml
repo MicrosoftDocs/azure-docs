@@ -102,7 +102,7 @@
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
   - name: Nutanix Cloud Clusters on Azure
     items: 
-    href: ./workloads/nc2-on-azure/toc.yml
+    href: ./workloads/epic/toc.yml
   - name: Epic for Azure Large Instances
     items: 
     href: ./workloads/epic/toc.yml

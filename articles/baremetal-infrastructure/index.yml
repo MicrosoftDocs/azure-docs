@@ -154,4 +154,4 @@ landingContent:
       - linkListType: concept
         links:
          - text: Solution design
-           url: workloads//solution-design.md
+           url: workloads/epic/solution-design.md
