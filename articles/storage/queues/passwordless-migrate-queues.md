@@ -75,7 +75,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```go
     import (
-	  "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     )
     ```
 
@@ -83,11 +83,15 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```go
     cred, err := azidentity.NewDefaultAzureCredential(nil)
-    handleError(err)
+    if err != nil {
+        // code omitted for brevity
+    }
 
     serviceURL := fmt.Sprintf("https://%s.queue.core.windows.net/", storageAccountName)
     client, err := azqueue.NewQueueClient(serviceURL, cred, nil)
-    handleError(err)
+    if err != nil {
+        // code omitted for brevity
+    }
     ```
 
 ## [Java](#tab/java)

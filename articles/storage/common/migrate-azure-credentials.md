@@ -62,7 +62,7 @@ Next, update your code to use passwordless connections.
 
     ```go
     import (
-	  "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     )
     ```
 
@@ -70,11 +70,15 @@ Next, update your code to use passwordless connections.
 
     ```go
     cred, err := azidentity.NewDefaultAzureCredential(nil)
-    handleError(err)
+    if err != nil {
+        // code omitted for brevity
+    }
 
     serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
     client, err := azblob.NewClient(serviceURL, cred, nil)
-    handleError(err)
+    if err != nil {
+        // code omitted for brevity
+    }
     ```
 
 ## [Java](#tab/java)
