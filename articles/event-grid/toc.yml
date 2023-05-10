@@ -5,7 +5,7 @@ items:
     items:
     - name: What is Event Grid?
       href: overview.md
-    - name: Release notes
+    - name: What's new?
       href: whats-new.md
   - name: Pull delivery (HTTP)
     items:
