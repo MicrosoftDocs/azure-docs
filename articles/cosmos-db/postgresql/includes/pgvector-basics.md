@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+author: AvijitkGupta
+ms.author: avijitgupta
+ms.service: cosmos-db
+ms.subservice: postgresql
+ms.topic: include
+ms.date: 05/10/2023
+ms.custom: include file, build-2023
+---
+
 ## Concepts
 ### Vector similarity
 

@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+author: mulander
+ms.author: adamwolk
+ms.service: cosmos-db
+ms.subservice: postgresql
+ms.topic: include
+ms.date: 05/10/2023
+ms.custom: include file, build-2023
+---
+
 ## Performance
 
 You should always start by investigating the query plan. If your query terminates reasonably fast, run `EXPLAIN (ANALYZE,VERBOSE, BUFFERS)`.
