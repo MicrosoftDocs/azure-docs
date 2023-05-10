@@ -170,7 +170,7 @@ In this code, you make a call to the web API, by passing the access token as a b
  Authorization: `Bearer ${accessToken}`
 ```
 
-You use the access token you acquire earlier in [Acquire an access token](#acquire-an-access-token). 
+You use the access token that you acquired earlier in [Acquire an access token](#acquire-an-access-token). 
 
 Once the web API receives the request, it evaluates it then determines that it's an application request. If the access token is valid, the web API returns requested data. Otherwise, the API returns a `401 Unauthorized` HTTP error.
 
