@@ -20,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 This connector allows you to stream [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
 
-As [Microsoft Defender for Cloud's enhanced security features](../defender-for-cloud/enhanced-security-features-overview.md) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
+As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-for-cloud-introduction.md#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -38,9 +38,11 @@ As [Microsoft Defender for Cloud's enhanced security features](../defender-for-c
 
 - You must have read and write permissions on your Microsoft Sentinel workspace.
 
-- You must have the Security Reader role in the subscriptions of the logs you stream.
+- You must have the **Contributor** or **Owner** role on the subscription you want to connect to Microsoft Sentinel.
 
 - You will need to enable at least one plan within Microsoft Defender for Cloud for each subscription where you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
+
+- You will need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and the ways to register it.
 
 - To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
 

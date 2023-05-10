@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 07/18/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, sdkv1
+ms.custom: UpdateFrequency5, has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, sdkv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows using SDK v1
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-	
+    
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](how-to-setup-authentication.md)
-> * [v2 (current version)](../how-to-setup-authentication.md)
+> * [v2 (current version)](../how-to-setup-authentication.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
@@ -119,7 +119,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     ```
 
 1. To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    * [How to assign roles and actions in AzureML](../how-to-assign-roles.md)
+    * [How to assign roles and actions in Azure Machine Learning](../how-to-assign-roles.md)
     * [How to assign roles in the CLI](../../role-based-access-control/role-assignments-cli.md)
 
     > [!IMPORTANT]
@@ -255,10 +255,10 @@ ws = Workspace(subscription_id="your-sub-id",
 ## Use Conditional Access
 
 As an administrator, you can enforce [Azure AD Conditional Access policies](../../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
+can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Next steps
 
-* [How to use secrets in training](../how-to-use-secrets-in-runs.md).
+* [How to use secrets in training](how-to-use-secrets-in-runs.md).
 * [How to configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).

@@ -10,7 +10,8 @@ ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
 ms.date: 10/21/2021
-ms.custom: seoapril2019, seodec18, ignite-2022
+ms.custom: UpdateFrequency5, seoapril2019, seodec18, ignite-2022
+monikerRange: 'azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
@@ -104,7 +105,7 @@ You produce a run when you submit a script to train a model. A run can have zero
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Run configuration**
 
-A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
+A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure Machine Learning environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 

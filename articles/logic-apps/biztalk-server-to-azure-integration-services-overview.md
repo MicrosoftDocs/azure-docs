@@ -248,7 +248,6 @@ Most connectors in Azure Logic Apps are either a built-in connector or managed c
 
 For more information, see the following documentation:
 
-- [About connectors in Azure Logic Apps](../connectors/apis-list.md)
 - [Built-in connectors overview](../connectors/built-in.md)
 - [Managed connectors overview](../connectors/managed.md)
 - [Managed connectors available in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)

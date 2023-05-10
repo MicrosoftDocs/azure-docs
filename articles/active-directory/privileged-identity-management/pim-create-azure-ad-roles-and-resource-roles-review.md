@@ -1,5 +1,5 @@
 ---
-title: Create an access review of Azure resource and Azure AD roles in PIM - Azure AD | Microsoft Docs
+title: Create an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to create an access review of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

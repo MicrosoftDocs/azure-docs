@@ -3,7 +3,6 @@ title: Enable Federal Information Process Standard (FIPS) for Azure Kubernetes S
 description: Learn how to enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools.
 author: rayoef
 ms.author: rayoflores
-ms.service: azure-kubernetes-service
 ms.topic: how-to 
 ms.date: 07/19/2022
 ms.custom: template-how-to

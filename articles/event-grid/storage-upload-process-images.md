@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/09/2023
 ms.author: spelluru
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Step 1: Upload image data in the cloud with Azure Storage

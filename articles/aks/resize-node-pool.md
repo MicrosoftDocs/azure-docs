@@ -1,7 +1,6 @@
 ---
 title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
-services: container-service
 ms.topic: how-to
 ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
@@ -160,7 +159,7 @@ Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-
 kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
 ```
 
-```bash
+```output
 node/aks-nodepool1-31721111-vmss000000 cordoned
 node/aks-nodepool1-31721111-vmss000001 cordoned
 node/aks-nodepool1-31721111-vmss000002 cordoned

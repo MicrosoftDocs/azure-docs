@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.date: 01/06/2023
 ms.author: halkazwini
 ms.reviewer: vinigam
-ms.custom: template-concept, references_regions, engagement-fy23, devx-track-azurepowershell, kr2b-contr-experiment
+ms.custom: template-concept, references_regions, engagement-fy23, kr2b-contr-experiment
 ---
 
 # Azure Network Watcher Traffic analytics

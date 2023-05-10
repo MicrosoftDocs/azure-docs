@@ -8,8 +8,9 @@ metadata:
   ms.subservice: classic-to-arm-migration
   ms.workload: infrastructure-services
   ms.topic: faq
-  ms.date: 10/10/2022
+  ms.date: 03/08/2023
   ms.author: tagore
+  ms.custom: compute-evergreen, devx-track-arm-template
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]

@@ -105,7 +105,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint VM.
 2. [Create a virtual machine](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network that you created. Ensure that this VM has the following specifications:
-   - The operating system is Linux (Ubuntu 18.04 or later).
+   - The operating system is Linux (Ubuntu 20.04 or later).
    - The size is at least 32 GiB of RAM.
    - The VM has internet access for downloading tools by having one standard public IP address.
 
@@ -165,6 +165,9 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 9. Select **Create**.
 
 ## Schedule a contact with Aqua and save the downlinked data
+
+   > [!NOTE]
+   > Check [public satellite schedules](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=14) to understand if there may be public broadcast outages. Azure Orbital Ground Station does not control the public satellites and cannot guarantee availability of data during the pass.
 
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. On the **Spacecraft** page, select **AQUA**.

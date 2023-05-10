@@ -1,7 +1,6 @@
 ---
 title: Automatically repairing Azure Kubernetes Service (AKS) nodes 
 description: Learn about node auto-repair functionality, and how AKS fixes broken worker nodes.
-services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
 ---

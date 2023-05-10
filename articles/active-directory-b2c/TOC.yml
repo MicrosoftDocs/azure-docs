@@ -362,7 +362,7 @@
         href: identity-provider-microsoft-account.md
       - name: Mobile ID
         href: identity-provider-mobile-id.md
-      - name: PingOne (PingIdentity)
+      - name: PingOne (Ping Identity)
         href: identity-provider-ping-one.md
         displayName: Ping identity
       - name: QQ
@@ -500,6 +500,9 @@
     # Secure
   - name: Secure
     items:
+      - name: Security overview
+        href: security-architecture.md
+        displayName: azure ad b2c security best practices
       - name: Enable MFA
         items:
         - name: Multi-factor authentication

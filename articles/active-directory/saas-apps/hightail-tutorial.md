@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hightail | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hightail'
 description: Learn how to configure single sign-on between Azure Active Directory and Hightail.
 services: active-directory
 author: jeevansd

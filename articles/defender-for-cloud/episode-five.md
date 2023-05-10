@@ -2,12 +2,12 @@
 title: Microsoft Defender for Servers
 description: Learn all about Microsoft Defender for Servers.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Microsoft Defender for Servers
 
-**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with Microsoft Defender Vulnerability Management (formerly TVM). Aviv explains how this new integration with Defender Vulnerability Management works, the advantages of this integration, which includes software inventory and easy experience to onboard. Aviv also covers the integration with MDE for Linux and the Defender for Servers support for the new multicloud connector for AWS.
+**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with Microsoft Defender Vulnerability Management (formerly TVM). Aviv explains how this new integration with Defender Vulnerability Management works and the advantages of this integration. Aviv covers the easy experience to onboard, software inventory, the integration with MDE for Linux, and the Defender for Servers support for the new multicloud connector for AWS.
 
 <br>
 <br>
@@ -15,7 +15,7 @@ ms.date: 01/24/2023
 
 - [1:22](/shows/mdc-in-the-field/defender-for-containers#time=01m22s) - Overview of the announcements for Microsoft Defender for Servers
 
-- [5:50](/shows/mdc-in-the-field/defender-for-containers#time=05m50s) - Migration path from Qualys VA to Defender Vulnerability Management
+- [5:50](/shows/mdc-in-the-field/defender-for-containers#time=05m50s) - Migration path from Qualys VA to Microsoft Defender Vulnerability Management
 
 - [7:12](/shows/mdc-in-the-field/defender-for-containers#time=07m12s) - Defender Vulnerability Management capabilities in Defender for Servers
 
@@ -29,7 +29,7 @@ ms.date: 01/24/2023
 
 ## Recommended resources
   
-Learn how to [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
+Learn how to [Investigate weaknesses with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
 -  Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
 

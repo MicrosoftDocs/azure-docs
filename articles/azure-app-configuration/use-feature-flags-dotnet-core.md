@@ -3,7 +3,7 @@ title: Tutorial for using feature flags in a .NET Core app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: maud-lv
+author: mcleanbyron
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: malev
+ms.author: mcleans
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
@@ -72,7 +72,7 @@ public class Startup
 ```
 
 
-If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. For more information on using feature filters to dynamically enable and disable functionality, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
+If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. For more information on using feature filters to dynamically enable and disable functionality, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
 
 The following example shows how to use a built-in feature filter called `PercentageFilter`:
 
@@ -217,7 +217,7 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 
 ## Use dependency injection to access IFeatureManager 
 
-For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IFeatureManager` as an additional argument:
+For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IFeatureManager` as an additional argument:
 
 ### [.NET 5.x](#tab/core5x)
     
@@ -321,7 +321,7 @@ public IActionResult Index()
 }
 ```
 
-When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
+When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler) interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
 
 ## MVC views
 

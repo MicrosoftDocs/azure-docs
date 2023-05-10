@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 09/22/2022
+ms.date: 04/10/2022
 ms.author: radeltch
 
 ---
@@ -33,10 +33,12 @@ ms.author: radeltch
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[3108316]:https://launchpad.support.sap.com/#/notes/3108316
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 
 [virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover both RHEL 7 and RHEL 8.   
+The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover RHEL 7, RHEL 8 and RHEL 9.   
 
 ## Prerequisites
 Read the following SAP Notes and papers first:
@@ -47,8 +49,10 @@ Read the following SAP Notes and papers first:
   * The supported SAP software, and operating system (OS) and database combinations.
   * The required SAP kernel version for Windows and Linux on Microsoft Azure.
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux
+* SAP Note [2002167] recommends OS settings for Red Hat Enterprise Linux
+* SAP Note [3108316] recommends OS settings for Red Hat Enterprise Linux 9.x
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
+* SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x
 * SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692] has information about SAP licensing on Linux in Azure.
@@ -78,11 +82,11 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For details see [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 > The only supported fencing mechanism for Pacemaker Red Hat Enterprise Linux clusters on Azure, is Azure fence agent.  
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8 are marked in the document.
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 9 are marked in the document.
 
-1. **[A]** Register - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Register - optional step. This step isn't required, if using RHEL SAP HA-enabled images.  
 
-   Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
+   For example, if deploying on RHEL 7, register your virtual machine and attach it to a pool that contains repositories for RHEL 7.
 
    <pre><code>sudo subscription-manager register
    # List the available pools
@@ -92,7 +96,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this situation, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../../virtual-machines/workloads/redhat/byos.md).
 
-1. **[A]** Enable RHEL for SAP repos - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Enable RHEL for SAP repos - optional step. This step isn't required, if using RHEL SAP HA-enabled images.  
 
    In order to install the required packages on RHEL 7, enable the following repositories.
 
@@ -105,9 +109,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install RHEL HA Add-On
 
-   <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
-   </code></pre>
-
+   ```bash
+    sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   ```
+ 
    > [!IMPORTANT]
    > We recommend the following versions of Azure Fence agent (or later) for customers to benefit from a faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:  
    > RHEL 7.7 or higher use the latest available version of fence-agents package  
@@ -123,7 +128,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
    > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4.
 
-   Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
+   > [!IMPORTANT]
+   > On RHEL 9, we recommend the following package versions (or later) to avoid issues with Azure Fence agent: 
+   > fence-agents-4.10.0-20.el9_0.7  
+   > fence-agents-common-4.10.0-20.el9_0.6   
+   > ha-cloud-support-4.10.0-20.el9_0.6.x86_64.rpm  
+
+   Check the version of the Azure fence agent. If necessary, update it to the minimum required version or later.  
 
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
@@ -132,13 +143,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > [!IMPORTANT]
    > If you need to update the Azure Fence agent, and if using custom role, make sure to update the custom role to include action **powerOff**. For details see [Create a custom role for the fence agent](#1-create-a-custom-role-for-the-fence-agent).  
 
+1. If deploying on RHEL 9, install also the resource agents for cloud deployment: 
+   
+    ```bash
+    sudo yum install -y resource-agents-cloud
+    ```
+
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands.  
 
    >[!IMPORTANT]
-   > If using host names in the cluster configuration, it is vital to have reliable host name resolution. The cluster communication will fail, if the names are not available and that can lead to cluster failover delays.
+   > If using host names in the cluster configuration, it's vital to have reliable host name resolution. The cluster communication will fail, if the names are not available and that can lead to cluster failover delays.
    > The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.  
 
    <pre><code>sudo vi /etc/hosts
@@ -183,7 +200,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs cluster start --all
    </code></pre>
 
-   If building a cluster on **RHEL 8.x**, use the following commands:  
+   If building a cluster on **RHEL 8.x/RHEL 9.x**, use the following commands:  
    <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
    sudo pcs cluster start --all
@@ -233,7 +250,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 The fencing device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
 
 ### Using Managed Identity
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x. 
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x. 
 
 ### Using Service Principal
 Follow these steps to create a service principal, if not using managed identity.
@@ -245,15 +262,15 @@ Follow these steps to create a service principal, if not using managed identity.
 1. Click New Registration
 1. Enter a Name, select "Accounts in this organization directory only" 
 2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add  
-   The sign-on URL is not used and can be any valid URL
+   The sign-on URL isn't used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
 1. Make a node the Value. It is used as the **password** for the service principal
-1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the service principal
+1. Select Overview. Make a note the Application ID. It's used as the username (**login ID** in the steps below) of the service principal
 
 ### **[1]** Create a custom role for the fence agent
 
-Neither managed identity nor service principal has permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../role-based-access-control/custom-roles-cli.md)
+Neither managed identity nor service principal has permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you didn't already create the custom role, you can create it using [PowerShell](../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -287,7 +304,7 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 
 #### Using Service Principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).   
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Don't use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
 
 ### **[1]** Create the fencing devices
@@ -305,14 +322,14 @@ sudo pcs property set stonith-timeout=900
 
 #### [Managed Identity](#tab/msi)
 
-For RHEL **7.X**, use the following command to configure the fence device:    
+For RHEL **7.x**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \ 
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.X**, use the following command to configure the fence device:  
+For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
@@ -329,7 +346,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.x**, use the following command to configure the fence device:  
+For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" \
 resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
@@ -339,14 +356,14 @@ op monitor interval=3600
 
 ---
 
-If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
+If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
 > [!TIP]
 > Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
  
 
 > [!IMPORTANT]
-> The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
+> The monitoring and fencing operations are deserialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
 
 ### **[1]** Enable the use of a fencing device
 
@@ -362,7 +379,7 @@ If you are using fencing device, based on service principal configuration, read 
 > [!TIP]
 > This section is only applicable, if it is desired to configure special fencing device `fence_kdump`.  
 
-If there is a need to collect diagnostic information within the VM, it may be useful to configure additional fencing device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
+If there is a need to collect diagnostic information within the VM, it may be useful to configure additional fencing device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` isn't a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
 
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first level fencing device, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
@@ -376,8 +393,8 @@ The following Red Hat KBs contain important information about configuring `fence
 
 * [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971)
 * [How to configure/manage fencing levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
-* [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
-* For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
+* [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
+* For information how to change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
 * For information on how to reduce failover delay, when using `fence_kdump` see [Can I reduce the expected delay of failover when adding fence_kdump configuration](https://access.redhat.com/solutions/5512331)
    
 Execute the following optional steps to add `fence_kdump` as a first level fencing configuration, in addition to the Azure Fence Agent configuration. 

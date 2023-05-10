@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 08/12/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data.
 ---
 

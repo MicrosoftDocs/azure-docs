@@ -4,6 +4,7 @@ description: Describes Bicep comparison operators that compare values.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/07/2021
 ---
 

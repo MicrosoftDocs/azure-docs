@@ -1,10 +1,10 @@
 ---
 title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/15/2023
+ms.date: 04/24/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -40,7 +40,7 @@ The protections include:
 
 - **Advanced post-breach detection sensors**. Defenders for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
-- **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint installed, Defender for Cloud can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
+- **Vulnerability assessment from Microsoft Defender Vulnerability Management**. With Microsoft Defender for Endpoint installed, Defender for Cloud can show vulnerabilities discovered by Defender Vulnerability Management and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
     This module also brings the software inventory features described in [Access a software inventory](asset-inventory.md#access-a-software-inventory) and can be automatically enabled for supported machines with [the auto deploy settings](auto-deploy-vulnerability-assessment.md).
 
@@ -162,6 +162,9 @@ You'll deploy Defender for Endpoint to your Linux machines in one of these ways,
 - [Enable for multiple subscriptions in the Azure portal dashboard](#enable-for-multiple-subscriptions-in-the-azure-portal-dashboard)
 - Enable for multiple subscriptions with a PowerShell script
 
+> [!NOTE]
+> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing running services using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) and other services that can also cause MDE to malfunction or may be affected by MDE, such as security services.
+> After you validate potential compatibility issues, we recommend that you manually install Defender for Endpoint on these servers.
 
 ##### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
 
@@ -190,7 +193,6 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     Microsoft Defender for Cloud will:
 
     - Automatically onboard your Linux machines to Defender for Endpoint
-    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
@@ -226,7 +228,6 @@ If you've never enabled the integration for Windows, endpoint protection enables
     Microsoft Defender for Cloud will:
 
     - Automatically onboard your Windows and Linux machines to Defender for Endpoint
-    - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Onboarding might take up to 1 hour.
@@ -343,7 +344,7 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Disable the integration:
     1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the relevant machines.
-    1. In the Monitoring coverage column of the Defender for Servers plan, select **Settings**.
+    1. In the Defender plans page, select **Settings & Monitoring**.
     1. In the status of the Endpoint protection component, select **Off** to disable the integration with Microsoft Defender for Endpoint.
     1. Select **Continue** and **Save** to save your settings.
 

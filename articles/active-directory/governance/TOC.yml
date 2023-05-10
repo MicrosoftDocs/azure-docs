@@ -20,6 +20,8 @@
   items:
     - name: Govern access to applications
       items:
+      - name: Connected applications
+        href: apps.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
@@ -148,6 +150,8 @@
         href: entitlement-management-access-package-resources.md
       - name: Change request settings
         href: entitlement-management-access-package-request-policy.md
+      - name: Configure verified ID settings (Preview)
+        href: entitlement-management-verified-id-settings.md  
       - name: Change approval settings
         href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings
@@ -232,8 +236,12 @@
           href: manage-workflow-tasks.md
         - name: Run a workflow on-demand
           href: on-demand-workflow.md
+        - name: Customize emails
+          href: customize-workflow-email.md
         - name: Check the status of a workflow
           href: check-status-workflow.md
+        - name: Check execution user scope
+          href: check-workflow-execution-scope.md  
         - name: Customize the schedule of workflows
           href: customize-workflow-schedule.md         
       - name: Delete

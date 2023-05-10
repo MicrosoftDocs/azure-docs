@@ -215,6 +215,7 @@ Don't use auth context where the app itself is going to be a target of Condition
 
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a web app](https://github.com/Azure-Samples/ms-identity-dotnetcore-ca-auth-context-app/blob/main/README.md)
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a web API](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
+- [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a React single-page application and an Express web API](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/6-AdvancedScenarios/3-call-api-acrs)
 
 ## Authentication context [ACRs] in Conditional Access expected behavior
 

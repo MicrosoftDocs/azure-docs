@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/09/2021
+ms.date: 01/03/2023
 ms.author: cwerner
 ms.reviewer: jricketts
 # Customer intent: As an application developer, I want to learn how to use Continuous Access Evaluation for building resiliency through long-lived, refreshable tokens that can be revoked based on critical events and policy evaluation.
 ---
 # How to use Continuous Access Evaluation enabled APIs in your applications
 
-[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an Azure AD feature that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens will be proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
+[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an Azure AD feature that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens are proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
 
 This article shows you how to use CAE-enabled APIs in your applications. Applications not using MSAL can add support for [claims challenges, claims requests, and client capabilities](claims-challenge.md) to use CAE.
 
 ## Implementation considerations
 
-To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource will not prevent you from using APIs that are not CAE enabled.
+To use CAE, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource won't prevent you from using APIs that aren't CAE enabled.
 
-If a resource API implements CAE and your application declares it can handle CAE, your app will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE.
+If a resource API implements CAE and your application declares it can handle CAE, your app receives CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you don't handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE.
 
 ## The code
 

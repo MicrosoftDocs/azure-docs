@@ -4,10 +4,10 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 03/31/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -87,7 +87,7 @@ New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 ```
 
 > [!IMPORTANT]
-> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of a Premium SSD v2 or an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
@@ -114,7 +114,7 @@ $incrementalSnapshots
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-portal](../../includes/virtual-machines-disks-incremental-snapshots-portal.md)]
 
 > [!IMPORTANT]
-> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of a Premium SSD v2 or an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -152,13 +152,13 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 }
 ```
 > [!IMPORTANT]
-> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of a Premium SSD v2 or an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 ---
 
 ## Check status of snapshots or disks
 
-Incremental snapshots of Ultra Disks (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
+Incremental snapshots of Premium SSD v2 or Ultra Disks (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Premium SSD v2 or Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
 
 You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot and you can use the [Check disk creation status](#check-disk-creation-status) section to check the status of a background copy from a snapshot to a disk.
 
@@ -240,7 +240,7 @@ $targetSnapshot.CompletionPercent
 
 ### Check disk creation status
 
-When creating a disk from an Ultra Disk snapshot, you must wait for the background copy process to complete before you can attach it. Currently, you must use the Azure CLI to check the progress of the copy process.
+When creating a disk from either a Premium SSD v2 or an Ultra Disk snapshot, you must wait for the background copy process to complete before you can attach it. Currently, you must use the Azure CLI to check the progress of the copy process.
 
 The following script gives you the status of an individual disk's copy process. The value of `completionPercent` must be 100 before the disk can be attached.
 
@@ -256,9 +256,9 @@ az disk show -n $diskName -g $resourceGroupName --query [completionPercent] -o t
 
 ## Check sector size
 
-Snapshots with a 4096 logical sector size can only be used to create Ultra Disks. They can't be used to create other disk types. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
+Snapshots with a 4096 logical sector size can only be used to create Premium SSD v2 or Ultra Disks. They can't be used to create other disk types. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
 
-To determine whether or your Ultra Disk snapshot is a VHDX or a VHD, get the `LogicalSectorSize` property of the snapshot. 
+To determine whether or your Premium SSD v2 or Ultra Disk snapshot is a VHDX or a VHD, get the `LogicalSectorSize` property of the snapshot. 
 
 The following command displays the logical sector size of a snapshot:
 
@@ -269,5 +269,7 @@ az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logi
 ## Next steps
 
 See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
+
+If you have additional questions on snapshots, see the [snapshots](faq-for-disks.yml#snapshots) section of the FAQ.
 
 If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

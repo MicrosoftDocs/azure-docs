@@ -3,6 +3,7 @@ title: View and manage alerts on the Azure portal - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts triggered by cloud-connected Microsoft Defender for IoT network sensors on the Azure portal.
 ms.date: 12/12/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # View and manage alerts from the Azure portal
@@ -32,7 +33,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
 ## View alerts on the Azure portal
 
-1. In Defender for IoT on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
 
     | Column | Description
     |--|--|
@@ -93,7 +94,7 @@ Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *
 
 ## Manage alert severity and status
 
-We recommend that you update alert severity as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
+We recommend that you update alert severity In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
 
 You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
@@ -136,7 +137,7 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
 
-1. In Defender for IoT on the Azure portal, select the **Alerts** page on the left.
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
 
 1. Use the search box and filter options to show only the alerts you want to export.
 
@@ -147,13 +148,4 @@ The file is generated, and you're prompted to save it locally.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-> [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
-
-> [!div class="nextstepaction"]
-> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

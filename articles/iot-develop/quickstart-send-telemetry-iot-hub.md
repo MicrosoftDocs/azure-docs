@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 10/13/2022
+ms.date: 04/27/2023
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other, devx-track-azurecli, engagement-fy23
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 # Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub
 
-**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
+**Applies to**: [General device developers](about-iot-develop.md#general-device-development)
 
 :::zone pivot="programming-language-ansi-c"
 
@@ -74,6 +74,4 @@ As a next step, explore the following articles to learn more about building devi
 > [!div class="nextstepaction"]
 > [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device.md)
 > [!div class="nextstepaction"]
-> [Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
-> [!div class="nextstepaction"]
-> [Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)
+> [Build a device solution with IoT Hub](set-up-environment.md)

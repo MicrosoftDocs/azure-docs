@@ -19,8 +19,8 @@ ms.custom: include file
 > [!IMPORTANT]
 > Put the client instance in a coroutine function named `manage_cosmos`. Within the coroutine function, define the new client with the `async with` keywords. Outside of the coroutine function, use the `asyncio.run` function to execute the coroutine asynchronously.
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="24-26":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="define_async_function":::
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="70":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="run_async_function":::
 
 ---

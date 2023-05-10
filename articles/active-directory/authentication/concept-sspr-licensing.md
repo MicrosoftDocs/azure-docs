@@ -1,5 +1,5 @@
 ---
-title: License self-service password reset - Azure Active Directory
+title: License self-service password reset
 description: Learn about the difference Azure Active Directory self-service password reset licensing requirements
 
 services: active-directory

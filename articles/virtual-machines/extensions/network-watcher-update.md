@@ -6,7 +6,7 @@ author: halkazwini
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 03/27/2023
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-concept, engagement-fy23
 ---
@@ -23,26 +23,25 @@ This article assumes you have the Network Watcher extension installed in your VM
 
 ## Latest version
 
-The latest version of the Network Watcher extension is `1.4.2423.1`.
+The latest version of the Network Watcher extension is `1.4.2573.1`.
 
 ### Identify latest version
 
 # [Linux](#tab/linux)
 
-```powershell 
+```azurecli 
 az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentLinux -o table 
 
 ```
 
 # [Windows](#tab/windows)
 
-```powershell
+```azurecli
 az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentWindows -o table 
 
 ```
 
 ---
-
 ## Update your extension using a PowerShell script
 Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, see the next section. 
 
@@ -151,6 +150,7 @@ Information about the extension appears multiple times in the JSON output. The f
 You should see something like the below:
 ![Azure CLI Screenshot](./media/network-watcher/azure-cli-screenshot.png)
 
+
 #### Use PowerShell
 
 Run the following commands from a PowerShell prompt:
@@ -162,6 +162,7 @@ Locate the Azure Network Watcher extension in the output and identify the ve
 
 You should see something like the below:
 ![PowerShell Screenshot](./media/network-watcher/powershell-screenshot.png)
+
 
 ### Update your extension
 
@@ -187,7 +188,7 @@ Removing the extension
 ```powershell
 #Same command for Linux and Windows
 Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
-``` 
+```
 
 Installing the extension again
 
@@ -239,3 +240,4 @@ If you have auto-upgrade set to true for the Network Watcher extension, reboot y
 ## Support
 
 If you need more help at any point in this article, see the Network Watcher extension documentation for [Linux](./network-watcher-linux.md) or [Windows](./network-watcher-windows.md). You can also contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+

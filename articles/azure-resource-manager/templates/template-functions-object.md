@@ -2,6 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 09/16/2022
 ---
 
@@ -168,7 +169,7 @@ The output from the preceding example with the default values is:
 
 `items(object)`
 
-Converts a dictionary object to an array.
+Converts a dictionary object to an array. See [toObject](template-functions-lambda.md#toobject) about converting an array to an object.
 
 In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Litmus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Litmus'
 description: Learn how to configure single sign-on between Azure Active Directory and Litmus.
 services: active-directory
 author: jeevansd

@@ -30,44 +30,57 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Set up your project
 
-Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
+This section walks you through preparing a project to work with the Azure Data Lake Storage client library for Python.
 
-```
-pip install azure-storage-file-datalake
+From your project directory, install packages for the Azure Data Lake Storage and Azure Identity client libraries using the `pip install` command. The **azure-identity** package is needed for passwordless connections to Azure services.
+
+```console
+pip install azure-storage-file-datalake azure-identity
 ```
 
-Add these import statements to the top of your code file.
+Then open your code file and add the necessary import statements. In this example, we add the following to our *.py* file:
 
 ```python
 import os, uuid, sys
+from azure.identity import DefaultAzureCredential
 from azure.storage.filedatalake import DataLakeServiceClient
 from azure.core._match_conditions import MatchConditions
 from azure.storage.filedatalake._models import ContentSettings
 ```
 
-## Connect to the account
+## Authorize access and connect to data resources
 
-To use the snippets in this article, you'll need to create a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account.
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
 
-### Connect by using Azure Active Directory (Azure AD)
+### [Azure AD](#tab/azure-ad)
 
 You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-Create an [azure.storage.filedatalake.DataLakeServiceClient class](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class.
+Create an instance of the [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) class and pass in a [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) object.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithAAD":::
 
-To use this code, make sure you have an import statement for the **ClientSecretCredential**: `from azure.identity import ClientSecretCredential`.
+To learn more about using `DefaultAzureCredential` to authorize access to data, see [Overview: Authenticate Python apps to Azure using the Azure SDK](/azure/developer/python/sdk/authentication-overview).
 
-To learn more about using **DefaultAzureCredential** to authorize access to data, see [Overview: Authenticate Python apps to Azure using the Azure SDK](/azure/developer/python/sdk/authentication-overview).
+### [SAS token](#tab/sas-token)
 
-### Connect by using an account key
+To use a shared access signature (SAS) token, provide the token as a string and initialize a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) object. If your account URL includes the SAS token, omit the credential parameter.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithSAS":::
+
+To learn more about generating and managing SAS tokens, see the following article:
+
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+
+### [Account key](#tab/account-key)
 
 You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that is authorized with the account key.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithKey":::
 
 [!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
+
+---
 
 ## Create a container
 

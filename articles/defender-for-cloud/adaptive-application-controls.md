@@ -1,14 +1,13 @@
 ---
 title: Adaptive application controls in Microsoft Defender for Cloud
 description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/08/2023
+ms.date: 02/06/2023
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
-
 
 Learn about the benefits of Microsoft Defender for Cloud's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 
@@ -97,7 +96,7 @@ Select the recommendation, or open the adaptive application controls page to vie
       > [!TIP]
       > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
       > 
-      > Applications are defined by their publishers; if an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
+      > Applications are defined by their publishers. If an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
 
    1. To apply the rule, select **Audit**. 
 
@@ -176,13 +175,13 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-    :::image type="content" source="./media/adaptive-application/recent-alerts.png" alt-text="Screenshot showing selecting a group the group settings page for adaptive application controls." lightbox="./media/adaptive-application/recent-alerts.png"::: 
+    :::image type="content" source="media/adaptive-application/recent-alerts.png" alt-text="Screenshot showing recent alerts.":::
 
 1. For further details, and the list of affected machines, select an alert.
 
     The security alerts page shows more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
 
-    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="Screenshot showing the start time of adaptive application controls alerts is the time that adaptive application controls created the alert.":::
+    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="Screenshot of the start time of adaptive application controls alerts showing that the time is when adaptive application controls created the alert.":::
 
     > [!NOTE]
     > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the security alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
@@ -190,7 +189,7 @@ To remediate the issues:
 
 ## Move a machine from one group to another
 
-When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group; doing so removes any application control rules that were applied to the machine.
+When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, which removes any application control rules that were applied to the machine.
 
 1. Open the **Workload protections dashboard** and from the advanced protection area, select **Adaptive application controls**.
 
@@ -212,13 +211,13 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programmatically, use our REST API. 
 
-The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](https://learn.microsoft.com/rest/api/defenderforcloud/adaptive-application-controls).
+The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](/rest/api/defenderforcloud/adaptive-application-controls).
 
 Some of the functions available from the REST API include:
 
 * **List** retrieves all your group recommendations and provides a JSON with an object for each group.
 
-* **Get** retrieves the JSON with the full recommendation data (list of machines, publisher/path rules, etc.).
+* **Get** retrieves the JSON with the full recommendation data (that is, list of machines, publisher/path rules, and so on).
 
 * **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
  

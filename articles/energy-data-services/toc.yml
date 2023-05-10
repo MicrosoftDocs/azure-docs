@@ -1,8 +1,8 @@
-- name: Microsoft Energy Data Services Preview Documentation
+- name: Microsoft Azure Data Manager for Energy Preview Documentation
   href: index.yml
 - name: Overview
   items:
-    - name: About Microsoft Energy Data Services Preview
+    - name: About Microsoft Azure Data Manager for Energy Preview
       displayName: Overview
       href: overview-microsoft-energy-data-services.md
     - name: About Domain Data Management Services (DDMS)
@@ -15,7 +15,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a Microsoft Energy Data Services Preview instance
+    - name: Create a Microsoft Azure Data Manager for Energy Preview instance
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
@@ -31,6 +31,8 @@
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
       href: tutorial-well-delivery-ddms.md
+    - name: Use Petrel DDMS APIs
+      href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
     - name: CSV parser ingestion
@@ -64,6 +66,8 @@
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
+        - name: Integrate OSDU Service Logs with Azure Monitor
+          href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
     - name: Security
       items:
         - name: Set up Private Links
@@ -74,6 +78,10 @@
           href: how-to-create-lockbox.md
         - name: Set up Managed Identity
           href: how-to-use-managed-identity.md  
+        - name: Set up Resource sharing (CORS)
+          href: how-to-enable-cors.md
+        - name: Set up audit logs
+          href: how-to-manage-audit-logs.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
@@ -87,7 +95,7 @@
   - name: REST API
     items:
     - name: Data plane
-      href: https://microsoft.github.io/meds-samples/
+      href: https://microsoft.github.io/adme-samples/
 - name: Resources
   items:
   - name: FAQ
@@ -96,7 +104,5 @@
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
-  - name: Troubleshooting
-    items:
-    - name: Troubleshoot manifest ingestion
-      href: troubleshoot-manifest-ingestion.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/energy-data-services/

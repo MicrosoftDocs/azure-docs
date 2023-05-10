@@ -3,7 +3,7 @@ title: Azure Monitor Logs cost calculations and options
 description: Cost details for data stored in a Log Analytics workspace in Azure Monitor, including commitment tiers and data size calculation.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/24/2022
+ms.date: 04/06/2023
 ms.reviwer: dalek git 
 ---
  
@@ -83,6 +83,8 @@ When you link workspaces to a cluster, the pricing tier is changed to cluster, a
 
 If your linked workspace is using the legacy Per Node pricing tier, it will be billed based on data ingested against the cluster's commitment tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
 
+If a cluster is deleted, billing for the cluster will stop even if the cluster is within it's 31-day commitment period. 
+
 For more information on how to create a dedicated cluster and specify its billing type, see [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster).
 
 ## Basic Logs
@@ -115,11 +117,14 @@ For situations in which older or archived logs must be intensively queried with 
 
 Because [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. For this reason, you can use all options of the Log Analytics pricing model, including [commitment tiers](#commitment-tiers), along with pay-as-you-go.
 
-Data ingestion and data retention for a [classic Application Insights resource](../app/create-new-resource.md) follow the same pay-as-you-go pricing as workspace-based resources, but they can't use commitment tiers.
+> [!TIP]
+> Looking to adjust retention settings on your Application Insights tables? The table names have changed for workspace based components, see [Application Insights Table Structure](https://learn.microsoft.com/azure/azure-monitor/app/convert-classic-resource#table-structure)
+
+Data ingestion and data retention for a [classic Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) follow the same pay-as-you-go pricing as workspace-based resources, but they can't use commitment tiers.
 
 Telemetry from ping tests and multi-step tests is charged the same as data usage for other telemetry from your app. Use of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. There's no data volume charge for using [Live Metrics Stream](../app/live-stream.md).
 
-For more information about legacy tiers that are available to early adopters of Application Insights, see [Application Insights legacy enterprise (per node) pricing tier](../app/legacy-pricing.md).
+For more information about legacy tiers that are available to early adopters of Application Insights, see [Application Insights legacy enterprise (per node) pricing tier](/previous-versions/azure/azure-monitor/app/legacy-pricing).
 
 ## Workspaces with Microsoft Sentinel
 
@@ -141,7 +146,7 @@ In some scenarios, combining this data can result in cost savings. Typically, th
 - [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
-- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/enhanced-security-features-overview.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance).
+- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq).
 
 The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
@@ -150,9 +155,9 @@ The count of monitored servers is calculated on an hourly granularity. The daily
 Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019, and is still active, will continue to have access to use the following legacy pricing tiers:
 
 - Standalone (Per GB)
-- Per Node (Operations Management Suite [OMS])
+- Per Node (Operations Management Suite [OMS]) 
 
-Access to the legacy Free Trial pricing tier was limited on July 1, 2022.
+Access to the legacy Free Trial pricing tier was limited on July 1, 2022. Pricing information for the Standalone and Per Node pricing tiers is available [here](https://aka.ms/OMSpricing). 
 
 ### Free Trial pricing tier
 
@@ -167,7 +172,7 @@ Usage on the Standalone pricing tier is billed by the ingested data volume. It's
 
 ### Per Node pricing tier
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage.
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. The Per Node pricing tier should only be used by customers with active Operations Management Suite (OMS) licenses. 
 
 On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic Logs](basic-logs-configure.md). Usage is reported on three meters:
 

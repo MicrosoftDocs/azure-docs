@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 03/03/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-recommendations: false
 ---
 <!-- markdownlint-disable MD051 -->
 
@@ -21,7 +20,7 @@ recommendations: false
 ::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
- In this guide, you'll learn how to add Form Recognizer models to your applications and workflows using a programming language SDK of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+ In this guide, you learn how to add Form Recognizer models to your applications and workflows using a programming language SDK of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 Choose from the following Form Recognizer models to analyze and extract data and values from forms and documents:
 
@@ -32,6 +31,8 @@ Choose from the following Form Recognizer models to analyze and extract data and
 > * The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 >
 > * The [prebuilt-document](../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
+>
+> * The [prebuilt-healthInsuranceCard.us](../concept-insurance-card.md) model extracts key information from US health insurance cards.
 >
 > * The [prebuilt-tax.us.w2](../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 >
@@ -102,9 +103,9 @@ Congratulations! You've learned to use Form Recognizer models to analyze various
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
-In this how-to guide, you'll learn how to add Form Recognizer to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+In this how-to guide, you learn how to add Form Recognizer to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-You'll use the following APIs to extract structured data from forms and documents:
+You use the following APIs to extract structured data from forms and documents:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze Layout](#analyze-layout)

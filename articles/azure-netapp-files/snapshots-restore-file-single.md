@@ -12,15 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 05/04/2023
 ms.author: anfdocs
 ---
 
 # Restore individual files using single-file snapshot restore 
 
-If you don't want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you have the option to use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.  
+If you do not want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you can use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot. This option does not require an external client data copy.  
 
-The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot. You can specify a specific destination location or folder where the files will be restored to.    
+The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot. You can specify a specific destination location or folder for the files to be restored to.    
 
 ## Considerations  
 
@@ -34,6 +34,8 @@ The restore operation doesn't create directories in the process. If the specifie
     * You can't create new snapshots on the volume.  
     * You can't delete the snapshot from which the files are being restored. 
     * The snapshot restore will override any snapshots scheduled by a policy. The policy snapshot won't be created during the restore. 
+* If a snapshot policy is scheduled to take place at the same time, the snapshot schedule will be skipped, and a snapshot isn't created.
+
 
 ## Register the feature  
 

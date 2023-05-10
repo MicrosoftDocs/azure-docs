@@ -6,6 +6,29 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.28.0: May 2023 release
+
+Updated to use Speech SDK 1.28.0
+
+### Speech CLI 1.27.0: April 2023 release
+
+#### Updates
+
+* Updated to use Speech SDK 1.27.0 
+* Update default endpoint to use v3.1 REST APIs for Custom Speech Recognition and Batch Speech Recognition.
+
+#### Bug fixes
+
+* Fixes related to how query parameters are parsed/configured.
+
+### Speech CLI 1.26.0: March 2023 release
+
+Updated to use Speech SDK 1.26.0.
+
+### Speech CLI 1.25.0: January 2023 release
+
+Updated to use Speech SDK 1.25.0.
+
 ### Speech CLI 1.24.0: October 2022 release
 
 Uses Speech SDK 1.24.0.
@@ -27,15 +50,15 @@ Uses Speech SDK 1.23.0.
 
 - Better caption (`--output vtt` and `--output srt`) large result splitting (37 char max, 3 lines)
 - Documented `spx synthesize` `--format` options (see `spx help synthesize format`)
-- Documented majority of `spx csr` commands/options (see `spx help csr`)
+- Documented most of `spx csr` commands/options (see `spx help csr`)
 - Added `spx csr model copy` command (see `spx help csr model copy`)
 - Added `--check result` option using JMES queries (see `spx help check result`)
 - Improved error messages when specifying invalid command options
-- Moved from .NET Core 3.1 to .NET 6.0. In order to run Speech CLI, you will need to install the [.NET 6.0 Runtime](https://dotnet.microsoft.com/download/dotnet/6.0/runtime) (or above).
+- Moved from .NET Core 3.1 to .NET 6.0. In order to run Speech CLI, you'll need to install the [.NET 6.0 Runtime](https://dotnet.microsoft.com/download/dotnet/6.0/runtime) (or above).
 
 #### Bug fixes
 
-- Updated all URLs to remove language (e.g. en-US)
+- Updated all URLs to remove language (for example, "en-US")
 - Fixed version info to report properly in all cases (previously it sometimes showed a blank)
 
 ### Speech CLI 1.22.0: June 2022 release
@@ -45,7 +68,7 @@ Uses Speech SDK 1.22.0.
 #### New features
 
 - Added `spx init` command to guide users through the Speech resource key creation without going to Azure Web Portal.
-- Speech docker containers now have Azure CLI included, so the `spx init` command will work out of the box.
+- Speech docker containers now have Azure CLI included, so the `spx init` command works out of the box.
 - Added timestamp as an event output option, to make SPX more useful when calculating latencies.
 
 
@@ -58,12 +81,12 @@ Uses Speech SDK 1.21.0.
     - Added `--output vtt` support to `spx translate`
     - Supports `--output vtt file FILENAME` to override default VTT FILENAME
     - Supports `--output vtt file -` to write to standard output
-    - Individual VTT files are created for each target language (e.g. `--target en;de;fr`)
+    - Individual VTT files are created for each target language (for example `--target en;de;fr`)
 - SRT Caption generation
     - Added `--output srt` support to `spx recognize`, `spx intent`, and `spx translate`
     - Supports `--output srt file FILENAME` to override default SRT FILENAME
     - Supports `--output srt file -` to write to standard output
-    - For `spx translate` individual SRT files are created for each target language (e.g. `--target en;de;fr`)
+    - For `spx translate`, individual SRT files are created for each target language (for example `--target en;de;fr`)
 
 #### Bug fixes
 - Corrected WEBVTT timespan output to properly use `hh:mm:ss.fff` format
