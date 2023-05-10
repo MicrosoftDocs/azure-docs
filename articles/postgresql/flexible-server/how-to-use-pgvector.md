@@ -1,6 +1,6 @@
 ---
-title: How to install and use pgvector - Azure Database for PostgreSQL
-description: How to install and use pgvector on Azure Database for PostgreSQL
+title: How to enable and use pgvector - Azure Database for PostgreSQL
+description: How to enable and use pgvector on Azure Database for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
 ms.service: postgresql
@@ -16,8 +16,22 @@ ms.date: 05/09/2023
 
 [!INCLUDE [Introduction to Pgvector](../../cosmos-db/postgresql/includes/introduction-pgvector.md)]
 
+## Enable extension
+
+To install the extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command from the psql tool to load the packaged objects into your database.
+
 ```postgresql
 CREATE EXTENSION vector;
 ```
 
+> [!Note]
+> To disable an extension use `drop_extension()`
+
 [!INCLUDE [Pgvector](../../cosmos-db/postgresql/includes/pgvector.md)]
+
+## Next Steps
+
+Learn more around performance, indexing and limitations around using pgvector.
+
+> [!div class="nextstepaction"]
+> [How to optimize performance using pgvector](how-to-use-pgvector.md)

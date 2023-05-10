@@ -1,7 +1,4 @@
 The `pgvector` extension adds an open-source vector similarity search to PostgreSQL.
 
-This article introduces us to additional capabilities onboarded with pgvector. It covers the concepts of vector similarity and embeddings, explains how to enable the pgvector extension, and demonstrates how to create, store and query vectors. We will look at the new datatype of storing, indexing and querying the embeddings at scale.
-
-## Enable extension
-
-To install the extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command from the psql tool to load the packaged objects into your database.
+This article introduces us to additional capabilities enabled by `pgvector`. It covers the concepts of vector similarity and embeddings, and provides guidance on how to enable the pgvector extension. We will learn about, how to create, store and query the vectors. 
+You may also want to refer to the official [README](https://github.com/pgvector/pgvector/blob/master/README.md) of the project.

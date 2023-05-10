@@ -130,6 +130,11 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath querying and XSLT. | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 
+### Pgvector extension
+> [!div class="mx-tableFixed"]
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
+> |---|---|---|---|---|
+> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.4.0 | 0.4.0 | 0.4.0 | 0.4.0 | 0.4.0 |
 
 ### PostGIS extensions
 
