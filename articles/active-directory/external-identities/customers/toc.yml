@@ -80,9 +80,9 @@ items:
                   displayName: client credentials grant
             - name: Desktop app
               items:
-                - name: Electron
+                - name: Electron - sign in users
                   href: how-to-desktop-app-electron-sample-sign-in.md
-                - name: .NET MAUI
+                - name: .NET MAUI - sign in users
                   href: how-to-desktop-app-maui-sample-sign-in.md
             - name: Mobile app
               items:
