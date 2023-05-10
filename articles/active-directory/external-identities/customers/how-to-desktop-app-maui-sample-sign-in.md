@@ -17,7 +17,7 @@ ms.custom: developer
 
 # Sign in users in a sample .NET MAUI desktop application
 
-This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to a desktop application by using Azure Active Directory (Azure AD) for customer tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI desktop application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
+This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to a desktop application by using Azure Active Directory (Azure AD) for customers tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI desktop application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
 
 In this article, you do the following tasks:
 
