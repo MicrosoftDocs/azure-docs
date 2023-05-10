@@ -33,8 +33,8 @@ In this tutorial:
 >
 > * [Create a blob storage account with containers for your source and target files](#azure-storage).
 > * [Set-up a managed identity with role-based access control (RBAC)](#create-a-managed-identity).
-> * [Translate documents from your Azure blob storage account](#use-azure-blob-storage).
-> * [Translate documents from your SharePoint site](#use-microsoft-sharepoint).
+> * [Translate documents from your Azure blob storage account](#translate-documents).
+> * [Translate documents from your SharePoint site](#translate-documents).
 
 ## Prerequisites
 
@@ -151,9 +151,9 @@ Now that you've completed the prerequisites and initial setup, let's get started
 
    :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
 
-## Start Document Translation
+## Translate documents
 
-Next,  we're ready to select an action. You can translate documents located in your [**Azure blob storage**](#use-azure-blob-storage) or [**Microsoft SharePoint**](#use-microsoft-sharepoint) account.
+Next,  we're ready to select an action. You can translate documents located in your **Azure blob storage** or **Microsoft SharePoint** account.
 
 ### [Use Azure blob storage](#tab/blob-storage)
 
