@@ -53,8 +53,8 @@ A Namespace exposes two endpoints:
   
 A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering and private links. It is also the container of managed identities used for all contained resources that use them.
 
-### Throughput units
-The throughput units are pre-purchased units of capacity billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 5 throughput units can be purchased per Azure Event Grid namespace and shared across all the resources in that namespace.
+## Throughput units
+Throughput unit allows you to control capacity of namespace resources for message ingress and egress. Each throughput units allows for 1MB/s ingress rate and 2MB/s egress rated. Up to 5 throughput units can be configured on a namespace. 
 
 ## Topics
 
