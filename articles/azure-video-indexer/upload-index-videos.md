@@ -40,6 +40,15 @@ Follow these steps to upload and index a media file using the quick upload optio
 1. Review the summary page that shows the indexing settings and the upload progress.
 1. After the indexing is done, you can view the insights by selecting the video.
 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/upload-index-videos/file-system-basic.png" alt-text="Screenshot that shows file system basic.":::
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/upload-index-videos/upload-file-system-url.png" alt-text="Screenshot that shows upload file system url.":::
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/upload-index-videos/url-basic.png" alt-text="Screenshot that shows url basic settings.":::
+
 ## Advanced upload
 
 Follow these steps to upload and index a media file using the advanced upload option:
@@ -61,6 +70,9 @@ Follow these steps to upload and index a media file using the advanced upload op
 1. Select **Upload+index**.
 1. Review the summary page that shows the indexing settings and the upload progress.
 1. After the indexing is done, you can view the insights by selecting the video.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/upload-index-videos/advanced-settings.png" alt-text="Screenshot that shows advanced settings.":::
 
 ## Troubleshoot upload issues
 
