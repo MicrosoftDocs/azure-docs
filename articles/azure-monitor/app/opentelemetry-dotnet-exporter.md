@@ -44,11 +44,6 @@ This section provides guidance that shows how to enable OpenTelemetry.
 The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it's done typically in the `ConfigureServices` method of the application `Startup` class. For ASP.NET applications, it's done typically in `Global.asax.cs`.
 
 ```csharp
-using System.Diagnostics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
 public class Program
 {
     private static readonly ActivitySource MyActivitySource = new ActivitySource(
@@ -196,9 +191,6 @@ Dependencies
 ### Logs
 
 ```csharp
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry.Logs;
-
 public class Program
 {
     public static void Main()
@@ -278,11 +270,6 @@ describes the instruments and provides examples of when you might use each one.
 #### Histogram Example
 
 ```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
 public class Program
 {
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
@@ -316,11 +303,6 @@ public class Program
 #### Counter Example
 
 ```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
 public class Program
 {
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
@@ -352,11 +334,6 @@ public class Program
 #### Gauge Example
 
 ```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
 public class Program
 {
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
@@ -482,10 +459,6 @@ using var tracerProvider = Sdk.CreateTracerProviderBuilder()
 Add `ActivityEnrichingProcessor.cs` to your project with the following code:
 
 ```csharp
-using System.Diagnostics;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
     public override void OnEnd(Activity activity)
@@ -552,10 +525,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     Add `ActivityFilteringProcessor.cs` to your project with the following code:
     
     ```csharp
-    using System.Diagnostics;
-    using OpenTelemetry;
-    using OpenTelemetry.Trace;
-    
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
         public override void OnStart(Activity activity)

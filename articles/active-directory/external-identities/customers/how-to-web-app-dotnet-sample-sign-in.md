@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample ASP.NET web application by using Microsoft Entra
-description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample ASP.NET web application by using an Azure AD for customers tenant
+description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using an Azure AD for customers tenant.
 services: active-directory
 author: cilwerner
 manager: celestedg
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample ASP.NET web application by using Microsoft Entra
+# Sign in users in a sample ASP.NET web application by using an Azure Active Directory (AD) for customers tenant
 
 This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for ASP.NET to handle authentication.
 
@@ -86,7 +86,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 1. Open your web browser and navigate to `https://localhost:7274`.
 
-1. Sign-in with an account registered to the CIAM tenant.
+1. Sign-in with an account registered to the customer tenant.
 
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
@@ -99,4 +99,4 @@ To get the web app sample code, you can do either of the following tasks:
 - [Enable password reset](how-to-enable-password-reset-customers.md)
 - [Customize the default branding](how-to-customize-branding-customers.md)
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
-- [Sign in users in your own ASP.NET web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-prepare-app.md)
+- [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-app.md)
