@@ -2219,6 +2219,14 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
+- id: appconfig-file-types
+  title: Config File pivots
+  prompt: Choose a File Type
+  pivots:
+  - id: yaml
+    title: .yaml
+  - id: properties
+    title: .properties
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience
