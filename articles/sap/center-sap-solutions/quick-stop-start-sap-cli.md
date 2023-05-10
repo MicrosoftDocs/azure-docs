@@ -74,5 +74,3 @@ Use the InputObject parameter and pass the resource ID of the Virtual Instance f
      ```azurecli-interactive
      az workloads sap-virtual-instance stop --id <ResourceID>
      ```
-    
-## Start SAP Application Server instance
