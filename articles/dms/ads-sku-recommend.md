@@ -234,7 +234,7 @@ GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [assessment];
 ```
 
 ## Unsupported scenarios and limitations
-- Azure Recommendations don't include price estimates, as this situation may vary depending on region, currency, and discounts such as the [Azure Hybrid Benefit](/azure/azure-sql/azure-hybrid-benefit). To get price estimates, use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator), or create a [SQL assessment](/azure/migrate/concepts-azure-sql-assessment-calculation) in Azure Migrate.
+- Azure Recommendations don't include price estimates, as this situation may vary depending on region, currency, and discounts such as the [Azure Hybrid Benefit](/azure/azure-sql/azure-hybrid-benefit). To get price estimates, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator), or create a [SQL assessment](/azure/migrate/concepts-azure-sql-assessment-calculation) in Azure Migrate.
 - Recommendations for Azure SQL Database with the [DTU-based purchasing model](/azure/azure-sql/database/migrate-dtu-to-vcore) aren't supported.
 - Currently, Azure recommendations for Azure SQL Database serverless compute tier and Elastic Pools aren't supported.
 - Currently, Azure recommendations for SQL Server on Azure Virtual Machine using Premium SSD v2 aren't supported.
