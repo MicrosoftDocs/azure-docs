@@ -22,7 +22,7 @@ This feature is available for Azure Cache for Redis Basic, Standard, and Premium
 
 ### Support for up to 30 shards for clustered Azure Cache for Redis instances
 
-Azure Cache for Redis now supports clustered caches with up to 30 shards.  Now, your applications can store more data and scale better with your workloads.
+Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, your applications can store more data and scale better with your workloads.
 
 For more information, see [Configure clustering for Azure Cache for Redis instance](cache-how-to-premium-clustering.md#azure-cache-for-redis-now-supports-upto-30-shards-preview.md).
 

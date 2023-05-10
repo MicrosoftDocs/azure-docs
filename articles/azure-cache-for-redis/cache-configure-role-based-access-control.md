@@ -6,7 +6,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 05/10/2023
 ms.author: franlanglois
 
 ---
@@ -38,7 +38,7 @@ As documented on [Redis Access Control List](https://redis.io/docs/management/se
 
 ### Command categories
 
-Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. 
+Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier.
 
 - Use `+@commandcategory` to allow a command category
 - Use `-@commandcategory` to disallow a command category
@@ -68,7 +68,10 @@ These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-
 
 ### Commands
 
-_Commands_ allows you to control which specific commands can be executed by a particular Redis user. Use `+command` to allow and `-command` to disallow a command
+_Commands_ allows you to control which specific commands can be executed by a particular Redis user.
+
+- Use `+command` to allow a command.
+- Use `-command` to disallow a command.
 
 ### Keys
 
@@ -100,7 +103,7 @@ The following list contains some examples of permission strings for various scen
 
 1. In the Azure portal, select the Azure Cache for Redis instance that you want to configure Azure AD token based authentication for.
 
-1. From the Resource menu, select **(PREVIEW) Data Access Policy**.
+1. From the Resource menu, select **(PREVIEW) Data Access configuration**.
 
    :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-configuration.png" alt-text="Screenshot showing Data Access Configuration highlighted in the Resource menu.":::
 
@@ -111,8 +114,6 @@ The following list contains some examples of permission strings for various scen
 1. Provide a name for your access policy.
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
-
-1. 
 
 ## Next steps
 

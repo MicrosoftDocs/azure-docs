@@ -1,7 +1,7 @@
 ---
 title: Use Azure Active Directory for Cache Authentication
 titleSuffix: Azure Cache for Redis
-description: Learn how to use Azure Active Direcory with Azure Cache for Redis.
+description: Learn how to use Azure Active Directory with Azure Cache for Redis.
 author: flang-msft
 
 ms.service: cache
@@ -47,7 +47,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to configure Azure AD token-based authentication.
 
-1. Select **(PREVIEW) Data Access Policy** from the Resource menu.
+1. Select **(PREVIEW) Data Access Configuration** from the Resource menu.
 
 1. Select "**Add**" and choose **New Redis User**.
 
@@ -68,10 +68,8 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
 
-1. Once the enable operation is complete, the nodes in your cache instance must reboot to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. When completed, you get a notification on your portal. The operation can take 30 minutes.
-
    > [!IMPORTANT]
-   > Propagation of a change to the cache configuration for Azure AD authentication might take as many as 30 minutes because your nodes are rebooted.
+   > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
 ## Configure your Redis client to use Azure Active Directory
 
@@ -101,14 +99,6 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
    <!-- (ADD code snippet) -->
 
-### Best practices for Azure AD authentication
-
-- Configure private links or firewall rules to protect your cache from a Denial of Service attack.
-
-- Ensure that your client application sends a new Azure AD token at least 3 minutes before token expiry to avoid connection disruption.
-
-- When calling the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered, and your Redis server doesn't receive lot of `AUTH` commands at the same time.
-
 ### Client library support
 
 The library `Microsoft.Azure.StackExchangeRedis` is an extension of `StackExchange.Redis` that enables you to use Azure Active Directory to authenticate connections from a Redis client application to an Azure Cache for Redis. The extension manages the authentication token, including proactively refreshing tokens before they expire to maintain persistent Redis connections over multiple days.
@@ -130,6 +120,13 @@ The following table includes links to code samples, which demonstrate how to con
 
 -->
 
+### Best practices for Azure AD authentication
+
+- Configure private links or firewall rules to protect your cache from a Denial of Service attack.
+
+- Ensure that your client application sends a new Azure AD token at least 3 minutes before token expiry to avoid connection disruption.
+
+- When calling the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered, and your Redis server doesn't receive lot of `AUTH` commands at the same time.
 
 ## Next steps
 

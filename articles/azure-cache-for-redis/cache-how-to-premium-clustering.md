@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 05/10/2023
 
 ---
 
@@ -23,14 +23,15 @@ Clustering doesn't increase the number of connections available for a clustered 
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication, where the replication is managed by Azure Cache for Redis service.
 
-## Azure Cache for Redis now supports upto 30 shards (preview)
+## Azure Cache for Redis now supports up to 30 shards (preview)
 
-Azure Cache for Redis now supports upto 30 shards for clustered caches. Clustered caches configured with two replicas can support upto 20 shards and clustered caches configured with three replicas can support upto 15 shards.
+Azure Cache for Redis now supports up to 30 shards for clustered caches. Clustered caches configured with two replicas can support up to 20 shards and clustered caches configured with three replicas can support up to 15 shards.
 
-**Limitations**
-* Shard limit for caches with Redis verion 4 is 10.
-* Shard limit for [caches affected by cloud service retirement](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic) is 10.
-* Maintenance will take longer as each node take roughly 20 minutes to update. Other maintenance operations will be blocked while your cache is under maintenance.
+### Limitations
+
+- Shard limit for caches with Redis verion 4 is 10.
+- Shard limit for [caches affected by cloud service retirement](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic) is 10.
+- Maintenance will take longer as each node take roughly 20 minutes to update. Other maintenance operations will be blocked while your cache is under maintenance.
 
 ## Set up clustering
 
@@ -136,8 +137,9 @@ The following list contains answers to commonly asked questions about Azure Cach
 
 Per the Redis [Keys distribution model](https://redis.io/topics/cluster-spec#keys-distribution-model) documentation: The key space is split into 16,384 slots. Each key is hashed and assigned to one of these slots, which are distributed across the nodes of the cluster. You can configure which part of the key is hashed to ensure that multiple keys are located in the same shard using hash tags.
 
-* Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following three keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](https://redis.io/topics/cluster-spec#keys-hash-tags).
-* Keys without a hash tag - the entire key name is used for hashing, resulting in a statistically even distribution across the shards of the cache.
+- Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following three keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](https://redis.io/topics/cluster-spec#keys-hash-tags).
+
+- Keys without a hash tag - the entire key name is used for hashing, resulting in a statistically even distribution across the shards of the cache.
 
 For best performance and throughput, we recommend distributing the keys evenly. If you're using keys with a hash tag, it's the application's responsibility to ensure the keys are distributed evenly.
 
@@ -184,7 +186,7 @@ For TLS, replace `1300N` with `1500N`.
 Yes. First, ensure that your cache is premium by scaling it up. Next, you can see the cluster configuration options, including an option to enable cluster. Change the cluster size after the cache is created, or after you have enabled clustering for the first time.
 
    >[!IMPORTANT]
-   >You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves *differently* than a cache of the same size with *no* clustering.
+   >You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves _differently_ than a cache of the same size with _no_ clustering.
 
 ### Can I configure clustering for a basic or standard cache?
 

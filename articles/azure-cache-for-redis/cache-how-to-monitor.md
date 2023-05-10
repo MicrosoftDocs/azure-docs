@@ -141,7 +141,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
 - Cache Write
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
-- ConnectedClientsUsingAADToken
+- ConnectedClientsUsingAADToken (preview)
   - The number of client connected to the cache using Azure AD token-based access during the specified reporting interval. Once the connection limit is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there can be a few instances of connected clients because of internal processes and connections.
 - Connected Clients
   - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
@@ -216,7 +216,6 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 > [!CAUTION]
 > The Server Load metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes Server Load is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
 
-
 - Sets
   - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
 - Total Keys  
@@ -252,11 +251,12 @@ Once you've defined a metric, you can send it to a workbook. Workbooks provide a
 
 For information on creating a metric, see [Create your own metrics](#create-your-own-metrics).
 
-The two workbooks provided are: 
+The two workbooks provided are:
+
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
 
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary. 
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ## Next steps
