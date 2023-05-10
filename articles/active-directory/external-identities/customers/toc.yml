@@ -63,21 +63,17 @@ items:
                   items:
                     - name: Sign in users
                       href: how-to-web-app-dotnet-sample-sign-in.md
-            - name: Headless app
-<<<<<<< HEAD
+            - name: Browserless app
               items:
                 - name: ASP.NET - sign in users
                   href: how-to-browserless-app-dotnet-sample-sign-in.md
                 - name: Node.js - sign in users
                   href: how-to-browserless-app-dotnet-sample-sign-in.md
-=======
-              href: ../../develop/console-app-quickstart.md
             - name: Daemon, service
               items:
                 - name: Node.js - Call an API
                   href: how-to-daemon-node-sample-call-api.md
                   displayName: client credentials grant
->>>>>>> 66aef5e6f030f00cbb05e2cf80d2aec5564e6f28
             - name: Desktop app
               items:
                 - name: Electron
@@ -161,7 +157,7 @@ items:
                     - name: Test the API
                       href: how-to-protect-web-api-dotnet-core-test-api.md
 
-            - name: Headless app
+            - name: Browserless app
               items: 
                 - name: Node​ - Sign in users
                   href: ../../develop/tutorial-v2-nodejs-console.md
