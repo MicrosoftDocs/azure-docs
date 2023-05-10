@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use API portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
-[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
+[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.1/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
 
 ## Prerequisites
 

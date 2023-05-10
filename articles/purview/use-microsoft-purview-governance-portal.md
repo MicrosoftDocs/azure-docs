@@ -14,15 +14,19 @@ This article gives an overview of some of the main features of Microsoft Purview
 
 ## Prerequisites
 
-* An Active Microsoft Purview account is already created in Azure portal and the user has permissions to access [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+* An Active Microsoft Purview account is already created in Azure portal
+* The user has permissions to access [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 ## Launch Microsoft Purview account
 
-* To launch your Microsoft Purview account, go to Microsoft Purview accounts in Azure portal, select the account you want to launch and launch the account.
+* You can launch the Microsoft Purview account directly by going to `https://web.purview.azure.com`, selecting **Azure Active Directory** and the account name. Or by going to `https://web.purview.azure.com/resource/yourpurviewaccountname`
+
+* To launch your Microsoft Purview account from the [Azure portal](https://portal.azure.com), go to Microsoft Purview accounts in Azure portal, select the account you want to launch and launch the account.
 
   :::image type="content" source="./media/use-purview-studio/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
-* Another way to launch Microsoft Purview account is to go to `https://web.purview.azure.com`, select **Azure Active Directory** and an account name to launch the account.
+>[!TIP]
+>If you can't access the portal, [confirm you have the necessary permissions](catalog-permissions.md#permissions-to-access-the-microsoft-purview-governance-portal).
 
 ## Home page
 

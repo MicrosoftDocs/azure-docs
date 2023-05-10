@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 03/22/2023
 ---
 # Index JSON blobs and files in Azure Cognitive Search
 

@@ -2,7 +2,7 @@
 title: Create a host pool - Azure Virtual Desktop
 description: Learn how to create a host pool in Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: how-to
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 02/28/2023
@@ -97,7 +97,7 @@ Here's how to create a host pool using the Azure portal.
    |--|--|
    | Add Azure virtual machines | Select **Yes**. This shows several new options. |
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**. This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. |
+   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
    | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**. |

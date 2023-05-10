@@ -3,8 +3,7 @@ title: Log Analytics workspace data export in Azure Monitor
 description: Log Analytics workspace data export in Azure Monitor lets you continuously export data per selected tables in your workspace. You can export to an Azure Storage account or Azure Event Hubs as it's collected. 
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-author: yossi-y
-ms.author: yossiy
+ms.reviewer: yossiy
 ms.date: 02/09/2022
 
 ---
@@ -83,6 +82,14 @@ The [number of supported event hubs in Basic and Standard namespace tiers is 10]
 > [!NOTE]
 > - The Basic Event Hubs namespace tier is limited. It supports [lower event size](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option to automatically scale up and increase the number of throughput units. Because data volume to your workspace increases over time and as a consequence event hub scaling is required, use Standard, Premium, or Dedicated Event Hubs tiers with the **Auto-inflate** feature enabled. For more information, see [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
 > - Data export can't reach Event Hubs resources when virtual networks are enabled. You have to select the **Allow Azure services on the trusted services list to access this storage account** checkbox to bypass this firewall setting in an event hub to grant access to your event hubs.
+
+## Query exported data
+
+Exporting data from workspaces to Storage Accounts help satisfy various scenarios mentioned in [overview](#overview), and can be consumed by tools that can read blobs from Storage Accounts. The following methods let you query data using Log Analytics query language, which is the same for Azure Data Explorer.
+1. Use Azure Data Explorer to [query data in Azure Data Lake](/azure/data-explorer/data-lake-query-data).
+2. Use Azure Data Explorer to [ingest data from a Storage Account](/azure/data-explorer/ingest-from-container).
+3. Use Log Analytics workspace to query [ingested data using Logs Ingestion API ](./logs-ingestion-api-overview.md). Ingested data is to a custom log table and not to the original table.
+   
 
 ## Enable data export
 The following steps must be performed to enable Log Analytics data export. For more information on each, see the following sections:
@@ -672,11 +679,26 @@ If the data export rule includes an unsupported table, the configuration will su
 | ACSRoomsIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
+| AddonAzureBackupAlerts |  |
+| AddonAzureBackupJobs |  |
+| AddonAzureBackupPolicy |  |
+| AddonAzureBackupProtectedInstance |  |
+| AddonAzureBackupStorage |  |
 | ADFActivityRun |  |
+| ADFAirflowSchedulerLogs |  |
 | ADFAirflowTaskLogs |  |
+| ADFAirflowWebLogs |  |
 | ADFAirflowWorkerLogs |  |
 | ADFPipelineRun |  |
+| ADFSandboxActivityRun |  |
+| ADFSandboxPipelineRun |  |
 | ADFSSignInLogs |  |
+| ADFSSISIntegrationRuntimeLogs |  |
+| ADFSSISPackageEventMessageContext |  |
+| ADFSSISPackageEventMessages |  |
+| ADFSSISPackageExecutableStatistics |  |
+| ADFSSISPackageExecutionComponentPhases |  |
+| ADFSSISPackageExecutionDataStatistics |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
 | ADPDiagnostics |  |
@@ -689,7 +711,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | ADTModelsOperation |  |
 | ADTQueryOperation |  |
 | ADXCommand |  |
+| ADXJournal |  |
 | ADXQuery |  |
+| ADXTableDetails |  |
+| ADXTableUsageStatistics |  |
 | AegDataPlaneRequests |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
@@ -707,6 +732,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | AgriFoodWeatherLogs |  |
 | AGSGrafanaLoginEvents |  |
 | AHDSMedTechDiagnosticLogs |  |
+| AirflowDagProcessingLogs |  |
+| AKSAudit |  |
+| AKSAuditAdmin |  |
+| AKSControlPlane |  |
 | Alert | Partial support. Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
@@ -731,6 +760,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AMSMediaAccountHealth |  |
 | AMSStreamingEndpointRequests |  |
 | ANFFileAccess |  |
+| Anomalies |  |
 | ApiManagementGatewayLogs |  |
 | AppAvailabilityResults |  |
 | AppBrowserTimings |  |
@@ -803,6 +833,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
 | CDBQueryRuntimeStatistics |  |
+| ChaosStudioExperimentEventLogs |  |
 | CIEventsAudit |  |
 | CIEventsOperational |  |
 | CloudAppEvents |  |
@@ -865,7 +896,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | EmailEvents |  |
 | EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
-| Event | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| Event | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ExchangeAssessmentRecommendation |  |
 | ExchangeOnlineAssessmentRecommendation |  |
 | FailedIngestion |  |
@@ -906,6 +937,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | Heartbeat |  |
 | HuntingBookmark |  |
 | IdentityDirectoryEvents |  |
+| IdentityInfo |  |
 | IdentityLogonEvents |  |
 | IdentityQueryEvents |  |
 | InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
@@ -917,6 +949,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | KubeMonAgentEvents |  |
 | KubeNodeInventory |  |
 | KubePodInventory |  |
+| KubePVInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
 | LogicAppWorkflowRuntime |  |
@@ -931,6 +964,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | MicrosoftHealthcareApisAuditLogs |  |
 | MicrosoftPurviewInformationProtection |  |
 | NetworkAccessTraffic |  |
+| NetworkMonitoring |  |
 | NSPAccessLogs |  |
 | NTAIpDetails |  |
 | NTANetAnalytics |  |
@@ -945,7 +979,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | OLPSupplyChainEntityOperations |  |
 | OLPSupplyChainEvents |  |
 | Operation | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
-| Perf | Partial support. Only Windows perf data is currently supported. Currently, the Linux perf data is missing in export. |
+| Perf |  |
 | PFTitleAuditLogs |  |
 | PowerBIActivity |  |
 | PowerBIAuditTenant |  |
@@ -984,13 +1018,17 @@ If the data export rule includes an unsupported table, the configuration will su
 | SQLSecurityAuditEvents |  |
 | SqlVulnerabilityAssessmentScanStatus |  |
 | StorageAntimalwareScanResults |  |
+| StorageBlobLogs |  |
 | StorageCacheOperationEvents |  |
 | StorageCacheUpgradeEvents |  |
 | StorageCacheWarningEvents |  |
+| StorageFileLogs |  |
 | StorageMalwareScanningResults |  |
 | StorageMoverCopyLogsFailed |  |
 | StorageMoverCopyLogsTransferred |  |
 | StorageMoverJobRunLogs |  |
+| StorageQueueLogs |  |
+| StorageTableLogs |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -1014,7 +1052,11 @@ If the data export rule includes an unsupported table, the configuration will su
 | TSIIngress |  |
 | UCClient |  |
 | UCDOAggregatedStatus |  |
+| UCClientReadinessStatus |  |
+| UCClientUpdateStatus |  |
+| UCDeviceAlert |  |
 | UCDOStatus |  |
+| UCServiceUpdateStatus |  |
 | Update | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
@@ -1024,10 +1066,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
+| W3CIISLog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | WaaSDeploymentStatus |  |
 | WaaSInsiderStatus |  |
 | WaaSUpdateStatus |  |
-| W3CIISLog | Partial support. Data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | Watchlist |  |
 | WebPubSubConnectivity |  |
 | WebPubSubHttpRequest |  |

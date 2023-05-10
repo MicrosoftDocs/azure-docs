@@ -55,7 +55,7 @@ In this section, you create two virtual machines with the Linux operating system
 
 4. Create virtual machine 1, called **(azusbosl1)**.
 
-   - You can either use a custom image or choose an image from Azure Marketplace. For more information, see [Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap).
+   - You can either use a custom image or choose an image from Azure Marketplace. For more information, see [Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap).
 
 5. Create virtual machine 2, called **(azusbosl2)**.
 6. Add one premium SSD disk. You'll use it as your SAP BOBI Installation directory.

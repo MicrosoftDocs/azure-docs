@@ -4,8 +4,8 @@ description: Learn how to troubleshoot a VM in Azure Lab Services by redeploying
 services: lab-services
 ms.service: lab-services
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+author: ntrogh
+ms.author: nicktrog
 ms.date: 12/06/2022
 ---
 <!-- As a student, I want to be able to troubleshoot connectivity problems with my VM so that I can get back up and running quickly, without having to escalate an issue -->

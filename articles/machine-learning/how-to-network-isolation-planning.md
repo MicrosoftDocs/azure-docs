@@ -88,7 +88,7 @@ Azure Machine Learning requires private IPs; one IP per compute instance, comput
 In this diagram, your main VNet requires the IPs for private endpoints. You can have hub-spoke VNets for multiple Azure Machine Learning workspaces with large address spaces. A downside of this architecture is to double the number of private endpoints.
 
 ### Network policy enforcement
-You can use [built-in policies](/how-to-integrate-azure-policy.md) if you want to control network isolation parameters with self-service workspace and computing resources creation.
+You can use [built-in policies](how-to-integrate-azure-policy.md) if you want to control network isolation parameters with self-service workspace and computing resources creation.
 
 ### Other considerations
 

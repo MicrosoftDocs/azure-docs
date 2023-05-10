@@ -1,6 +1,7 @@
 ---
 author: rwike77
 ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: ryanwi

@@ -20,7 +20,7 @@ ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](reference-pipeline-yaml.md)
-> * [v2 (current version)](../reference-yaml-job-pipeline.md)
+> * [v2 (current version)](../reference-yaml-job-pipeline.md?view=azureml-api-2&preserve-view=true)
 
 > [!NOTE]
 > The YAML syntax detailed in this document is based on the JSON schema for the v1 version of the ML CLI extension. This syntax is guaranteed only to work with the ML CLI v1 extension.

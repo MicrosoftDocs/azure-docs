@@ -26,4 +26,4 @@ The following resources are available within ASE after deploying AP5GC. You can 
 |--|--|
 | vCPUs | 16 |
 | Memory | 56 GB |
-| Storage | ~3.75 GB |
+| Storage | ~3.75 TB |

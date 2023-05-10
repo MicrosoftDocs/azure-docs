@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 2/24/2023
+ms.date: 3/28/2023
 ms.author: jomondi
-ms.reviewer: arvindh, luleon, phsignor, jawoods
+ms.reviewer: phsignor, jawoods
 ms.custom: contperf-fy21q2
 zone_pivot_groups: enterprise-apps-all
 
@@ -21,7 +21,7 @@ zone_pivot_groups: enterprise-apps-all
 
 In this article, you learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
-Currently, only the "Low impact" permission classification is supported. Only delegated permissions that don't require admin consent can be classified as "Low impact".
+Three permission classifications are supported: "Low", "Medium" (preview), and "High" (preview). Currently, only delegated permissions that don't require admin consent can be classified.
 
 The minimum permissions needed to do basic sign-in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
 
@@ -30,7 +30,7 @@ The minimum permissions needed to do basic sign-in are `openid`, `profile`, `ema
 To configure permission classifications, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: A global administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, Application Administrator, or Cloud Application Administrator
 
 ## Manage permission classifications
 
@@ -40,7 +40,8 @@ Follow these steps to classify permissions using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator), [Application Administrator](../roles/permissions-reference.md#application-administrator), or [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)
 1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **Permission classifications**.
-1. Choose **Add permissions** to classify another permission as "Low impact".
+1. Choose the tab for the permission classification you'd like to update.
+1. Choose **Add permissions** to classify another permission.
 1. Select the API and then select the delegated permission(s).
 
 In this example, we've classified the minimum set of permission required for single sign-on:
@@ -57,7 +58,7 @@ You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?preserv
 Run the following command to connect to Azure AD PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
 ```powershell
-Connect-AzureAD -Scopes "Policy.ReadWrite.PermissionGrant".
+Connect-AzureAD
 ```
 
 ### List the current permission classifications
@@ -169,13 +170,9 @@ Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant".
 
    ```powershell
    $params = @{ 
-
-   PermissionId = $delegatedPermission.Id 
-
-   PermissionName = $delegatedPermission.Value 
-
-   Classification = "Low" 
-
+      PermissionId = $delegatedPermission.Id 
+      PermissionName = $delegatedPermission.Value 
+      Classification = "Low"
    } 
 
    New-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id -BodyParameter $params 
@@ -192,7 +189,7 @@ Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant".
 1. Find the delegated permission classification you wish to remove:
 
    ```powershell
-   $classifications= Get-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id 
+   $classifications = Get-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id 
 
    $classificationToRemove = $classifications | Where-Object {$_.PermissionName -eq "openid"}
    ```

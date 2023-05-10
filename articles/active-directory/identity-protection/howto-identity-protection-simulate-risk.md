@@ -63,8 +63,8 @@ Completing the following procedure requires you to use a user account that has:
 
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 
-1. When signing in with your test account, fail the multifactor authentication (MFA) challenge by not passing the MFA challenge.
-2. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
+1. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
+2. When signing in with your test account, fail the multifactor authentication (MFA) challenge by not passing the MFA challenge.
 
 The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes.
 

@@ -7,7 +7,7 @@ author: ahartoon
 ms.author: anboisve
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 05/28/2020
 ---
 

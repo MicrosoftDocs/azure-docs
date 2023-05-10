@@ -26,18 +26,18 @@ To verify domain ownership to your DID, you need to have completed the following
 
 ## Verify domain ownership and distribute did-configuration.json file
 
-The domain you will verify ownership of to your DID is defined in the organizational settings.
+The domain you verify ownership of to your DID is defined in the [overview section](verifiable-credentials-configure-tenant.md#set-up-verified-id). The domain needs to be a domain under your control and it should be in the format `https://www.example.com/`. 
 
 1. From the Azure portal, navigate to the VerifiedID page.
 
 1. Select **Setup**, then **Verify domain ownership** and choose **Verify** for the domain
 
-1. Copy or download the `did-configuration.json` file shown in the image below.
+1. Copy or download the `did-configuration.json` file.
 
    ![Screenshot of download well-known config.](media/how-to-dnsbind/verify-download.png) 
 
-1. Host the `did-configuration.json` file at the location specified. Example: `https://www.example.com/.well-known/did-configuration.json`
-There can be no additional path in the URL other than the .well-known path name.
+1. Host the `did-configuration.json` file at the location specified. Example: If you specified domain `https://www.example.com` the file need to be hosted at this URL `https://www.example.com/.well-known/did-configuration.json`.
+There can be no additional path in the URL other than the `.well-known path` name.
 
 1. When the `did-configuration.json` is publicly available at the .well-known/did-configuration.json URL, verify it by pressing the **Refresh verification status** button.
 
@@ -50,7 +50,7 @@ There can be no additional path in the URL other than the .well-known path name.
 
 ## How can I verify that the verification is working?
 
-The portal verifies that the `did-configuration.json` is reachable over public internet and valid when you click the **Refresh verification status** button. Microsoft Authenticator do not honor http redirects. You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did-configuration.json` file cannot be requested anonymously in a browser or via tools such as `curl`, without warnings or errors, the portal will not be able to complete the **Refresh verification status** step either.
+The portal verifies that the `did-configuration.json` is reachable over public internet and valid when you click the **Refresh verification status** button. Microsoft Authenticator does not honor http redirects. You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did-configuration.json` file can't be requested anonymously in a browser or via tools such as `curl`, without warnings or errors, the portal can't complete the **Refresh verification status** step either.
 
 >[!NOTE]
 > If you are experiencing problems refreshing your verification status, you can troubleshoot it via running `curl -Iv https://yourdomain.com/.well-known/did-configuration.json` on an machine with Ubuntu OS. Windows Subsystem for Linux with Ubuntu will work too. If curl fails, refreshing the verification status will not work.
@@ -124,20 +124,20 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ## How do you update the linked domain on your DID?
 
-If your trust system is Web, then updating your linked domain is not supported. You have to opt-out and re-onboard. If your trust system is ION, you can update the linked domain via redoing the **Verify domain ownership** step. It might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published. 
+If your trust system is Web, then updating your linked domain isn't supported. You have to opt-out and re-onboard. If your trust system is ION, you can update the linked domain via redoing the **Verify domain ownership** step. It might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published. 
 
 ### How do I know when the linked domain update has successfully completed?
 
-If the trust system is ION, once the domain changes are published to ION, the domain section inside the Microsoft Entra Verified ID service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
+If the trust system is ION, once the domain changes are published to ION, the domain section inside the Microsoft Entra Verified ID service displays Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!IMPORTANT]
 > No changes to your domain are possible while publishing is in progress.
 
 ## Linked Domain domain made easy for developers
 
-The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can't control what the domain name will be, other than it will contain your storage account name as part of it's hostname.
+The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can't control what the domain name is, other than it contains your storage account name as part of it's hostname.
 
-Follow these steps to quickly set up a domain to use for Linked Domain:
+Follow these steps to quickly setup a domain to use for Linked Domain:
 
 1. Create an **Azure Storage account**. During storage account creation, choose StorageV2 (general-purpose v2 account) and Locally redundant storage (LRS).
 1. Go to that Storage Account and select **Static website** in the left hand menu and enable static website. If you can't see the **Static website** menu item, you didn't create a **V2** storage account.

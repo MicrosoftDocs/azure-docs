@@ -14,6 +14,8 @@ ms.custom: kr2b-contr-experiment
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article describes how you can use PowerShell to configure Azure Database for PostgreSQL server storage to scale up automatically without impacting the workload.
 
 Storage auto grow prevents your server from [reaching the storage limit](./concepts-pricing-tiers.md#reaching-the-storage-limit) and

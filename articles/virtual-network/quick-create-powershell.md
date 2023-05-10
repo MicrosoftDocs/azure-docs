@@ -154,13 +154,11 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 ## Connect to a VM
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**.
+1. In the portal, search for and select **Virtual machines**.
 
 1. On the **Virtual machines** page, select **VM1**.
 
-1. At the top of the **VM1** page, select **Connect**.
-
-1. On the **Connect** page, select **More ways to connect**, and then select **Go to Bastion**.
+1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
 
    :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
 

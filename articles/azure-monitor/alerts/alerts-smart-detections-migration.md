@@ -96,7 +96,7 @@ To migrate a single Application Insights resource, *body.txt* should include:
 ```json
 {
       "scope": [
-"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} /providers/microsoft.insights/components/{resourceName} "
+"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}"
       ],
       "actionGroupCreationPolicy" : "{Auto/Custom}",
       "customActionGroupName" : "{actionGroupName}"           

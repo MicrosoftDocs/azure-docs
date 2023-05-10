@@ -128,11 +128,10 @@ Now that you have downloaded the server you can install and configure it. Be sur
 
 1. Double-click the executable.
 2. On the Select Installation Folder screen, make sure that the folder is correct and click **Next**.
-3. Once the installation is complete, click **Finish**. The configuration wizard launches.
-4. On the configuration wizard welcome screen, check **Skip using the Authentication Configuration Wizard** and click **Next**. The wizard closes and the server starts.
-
-   ![Skip using the Authentication Configuration Wizard](./media/howto-mfaserver-deploy/skip2.png)
-
+   The following libraries are installed:
+    * [Visual C++ Redistributable for Visual Studio 2017 (x64)](https://go.microsoft.com/fwlink/?LinkId=746572)
+    * [Visual C++ Redistributable for Visual Studio 2017 (x86)](https://go.microsoft.com/fwlink/?LinkId=746571)
+3. When the installation finishes, select **Finish**. The configuration wizard starts.
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
 > [!NOTE]

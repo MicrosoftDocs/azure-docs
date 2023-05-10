@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 

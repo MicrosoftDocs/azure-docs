@@ -39,7 +39,7 @@ Historically, containers have offered application dependency isolation and resou
 
 ### Customer data
 
-The ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Please get in touch with Azure Support to learn more.
+The Azure Container Instances service doesn't store customer data. It does, however, store the subscription IDs of the Azure subscription used to create resources. Storing subscription IDs is required to ensure your container groups continue running as expected.
 
 ## Custom sizes
 

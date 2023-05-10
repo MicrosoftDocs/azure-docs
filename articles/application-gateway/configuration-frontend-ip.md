@@ -15,15 +15,16 @@ You can configure the application gateway to have a public IP address, a private
 
 ## Public and private IP address support
 
-Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations:
+Application Gateway V2 currently supports the following combinations:
 
 * Private IP address and public IP address
 * Public IP address only
+* [Private IP address only (preview)](application-gateway-private-deployment.md)
 
 For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
 
 
-A public IP address isn't required for an internal endpoint that's not exposed to the Internet. That's known as an *internal load-balancer* (ILB) endpoint or private frontend IP. An application gateway ILB is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the Internet but that require round-robin load distribution, session stickiness, or TLS termination.
+A public IP address isn't required for an internal endpoint that's not exposed to the Internet. A private frontend configuration is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the Internet but that require round-robin load distribution, session stickiness, or TLS termination.
 
 Only one public IP address and one private IP address is supported. You choose the frontend IP when you create the application gateway.
 

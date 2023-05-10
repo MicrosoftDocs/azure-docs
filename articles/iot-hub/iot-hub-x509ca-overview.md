@@ -28,13 +28,14 @@ The X.509 CA feature enables device authentication to IoT Hub using a certificat
 
 The X.509 CA certificate is at the top of the chain of certificates for each of your devices.  You may purchase or create one depending on how you intend to use it.
 
-For production environments, we recommend that you purchase an X.509 CA certificate from a public root certificate authority. Purchasing a CA certificate has the benefit of the root CA acting as a trusted third party to vouch for the legitimacy of your devices. Consider this option if your devices are part of an open IoT network where they interact with third-party products or services.
+For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services provider. Purchasing a CA certificate has the benefit of the root CA acting as a trusted third party to vouch for the legitimacy of your devices. Consider this option if your devices are part of an open IoT network where they interact with third-party products or services.
 
-You may also create a self-signed X.509 CA for experimentation or for use in closed IoT networks.
+You may also create a self-signed X.509 CA certificate for testing purposes. For more information about creating certificates for testing, see [Create and upload certificates for testing](tutorial-x509-test-certs.md).
+
+>[!NOTE]
+>We do not recommend the use of self-signed certificates for production environments.
 
 Regardless of how you obtain your X.509 CA certificate, make sure to keep its corresponding private key secret and protected always. This precaution is necessary for building trust in the X.509 CA authentication.
-
-Learn how to [create a self-signed CA certificate](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), which you can use for testing.
 
 ## Sign devices into the certificate chain of trust
 
@@ -52,9 +53,9 @@ Register your X.509 CA certificate to IoT Hub, which uses it to authenticate you
 
 The upload process entails uploading a file that contains your certificate.  This file should never contain any private keys.
 
-The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub has to verify that you really own the CA certificate.  It does so by generating a random challenge that you sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as recommended, then only you possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, you complete this step by uploading a file containing the results.
+The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub has to verify that you really own the CA certificate.  You can choose to either automatically or manually verify ownership. For manual verification, Azure IoT Hub generates a random challenge that you sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as recommended, then only you possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, you complete this step and manually verify your certificate by uploading a file containing the results.
 
-Learn how to [register your CA certificate](./tutorial-x509-prove-possession.md)
+Learn how to [register your CA certificate](tutorial-x509-test-certs.md#register-your-subordinate-ca-certificate-to-your-iot-hub).
 
 ## Create a device on IoT Hub
 
@@ -67,8 +68,6 @@ Learn how to [manually create a device in IoT Hub](./iot-hub-create-through-port
 With your X.509 CA certificate registered and devices signed into a certificate chain of trust, the final step is device authentication when the device connects.  When an X.509 CA-signed device connects, it uploads its certificate chain for validation. The chain includes all intermediate CA and device certificates.  With this information, IoT Hub authenticates the device in a two-step process.  IoT Hub cryptographically validates the certificate chain for internal consistency, and then issues a proof-of-possession challenge to the device.  IoT Hub declares the device authentic on a successful proof-of-possession response from the device.  This declaration assumes that the device's private key is protected and that only the device can successfully respond to this challenge.  We recommend using secure chips like Hardware Secure Modules (HSM) in devices to protect private keys.
 
 A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup. Every time a device connects, IoT Hub renegotiates the TLS session and verifies the device’s X.509 certificate.
-
-Learn how to [complete this device connection step](./tutorial-x509-prove-possession.md).
 
 ## Revoke a device certificate
 
