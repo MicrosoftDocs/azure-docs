@@ -4,7 +4,7 @@ description: Learn how to install and configure Azure Container Storage Preview 
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -65,23 +65,29 @@ An Azure resource group is a logical group that holds your Azure resources that 
    }
    ```
 
-## Choose a data storage option
+## Choose a data storage option and virtual machine type
 
-Before you create your cluster, it's best if you understand which back-end storage option you'll ultimately choose to create your storage pool. This is because different storage services work best with different virtual machine (VM) types as cluster nodes.
+Before you create your cluster, you should understand which back-end storage option you'll ultimately choose to create your storage pool. This is because different storage services work best with different virtual machine (VM) types as cluster nodes, and you'll deploy your cluster before you create the storage pool.
+
+### Data storage options
 
 - **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)**: Azure Elastic SAN preview is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
 - **[Azure Disks](../../virtual-machines/managed-disks-overview.md)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
 
-- **[Ephemeral OS Disk](../../virtual-machines/ephemeral-os-disks.md)**: This option uses local storage resources (NVMe) on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
+- **[Ephemeral OS Disk](../../virtual-machines/ephemeral-os-disks.md)**: This option uses local NVMe drives on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
-If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a general purpose VM such as **standard_ds4_v2** for your cluster nodes. If you intend to use Ephemeral OS Disk, choose an [L series](../../virtual-machines/sizes-storage.md) storage optimized VM such as **standard_l8s_v3**.
+### VM types
+
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs).
+
+If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. The VMs must have standard hard disk drives (HDD), not SSD.
+
+If you intend to use Ephemeral OS Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives.
 
 ## Create AKS cluster
 
-You'll need a node pool of at least three VMs. We recommend that each VM have a minimum of four virtual CPUs (vCPUs).
-
-Run the following command to create a Linux-based AKS cluster and enable a system-assigned managed identity. Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. For this Quickstart, we'll create a cluster with three nodes.
+Run the following command to create a Linux-based AKS cluster and enable a system-assigned managed identity. Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. For this Quickstart, we'll create a cluster with three nodes. Increase the `--node-count` if you want a larger cluster.
 
 ```azurecli-interactive
 az aks create -g <resource-group> -n <cluster-name> --node-count 3 -s <vm-type> --generate-ssh-keys
