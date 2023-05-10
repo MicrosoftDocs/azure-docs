@@ -140,12 +140,12 @@ conceptualContent:
               text: Cloud Adoption Framework
 
 
-# Video Playlists
+# Video Playlists and other links
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Additional HPC Content # < 60 chars (Optional; Remove if not applicable.)
-      summary: Learn more about Azure HPC with a variety of conferences and video content # < 160 chars (Optional; Remove if not applicable.)
+    - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with a variety of video content and events # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Business Strategy
@@ -157,7 +157,7 @@ additionalContent:
               url: https://www.youtube.com/watch?v=0biElmaDfFs
             - text: "The benefits of HPC, AI, and the Cloud with Steve Scott"
               url: https://www.youtube.com/watch?v=GmimOVxFSRY  
-            - text: "Want to learn more? Here's the full 'HPC Business Strategy' playlist!"
+            - text: "Want to learn more? Check out the 'HPC Business Strategy' playlist!"
               url: https://aka.ms/HPCBusinessStrategy
         # Card
         - title: HPC Deep Dives
@@ -169,10 +169,34 @@ additionalContent:
               url: https://www.youtube.com/watch?v=LGkQi7BDf6w
             - text: "Day 1 - (3) UCX on Azure HPC and AI Clusters"
               url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
-            - text: "Want to learn more? Here's the full 'HPC Deep Dives' playlist!"
+            - text: "Want to learn more? Check out the 'HPC Deep Dives' playlist!"
               url: https://aka.ms/HPCDeepDives
+          # Card
+        - title: HPC Partners
+          summary: Azure Infrastructure
+          links:
+            - text: "Deploying, Benchmarking & Visualising Workflows in a AMD HPC cluster in Azure"
+              url: https://www.youtube.com/watch?v=qUQFWbVnbsU
+            - text: "HPC Technical Capabilities and Solutions for the Energy Industry Powered by Microsoft Azure Cloud"
+              url: https://www.youtube.com/watch?v=NXOFG4aoD4g
+            - text: "How to Migrate HPC environments to Microsoft Azure Part One"
+              url: https://www.youtube.com/watch?v=1GjWhGrPI_A
+            - text: "Want to learn more? Check out the 'HPC Partners' playlist!"
+              url: https://aka.ms/HPCDeepDives
+          # Card
+        - title: HPC Events
+          summary: Azure Infrastructure
+          links:
+            - text: "Azure HPC+Al Day Keynote"
+              url: https://www.youtube.com/watch?v=YeCHFabuBMo
+            - text: "Leading performance for cloud HPC+AI workloads with Microsoft Azure"
+              url: https://www.youtube.com/watch?v=x8foF0fuxgo
+            - text: "The Cloud HPC+AI Journey to Microsoft Azure"
+              url: https://www.youtube.com/watch?v=tXLnV6MDsVc
+            - text: "Want to learn more? Check out the 'HPC Events' playlist!"
+              url: https://aka.ms/HPCEvents
     - title: HPC Conferences # < 60 chars (optional)
-      #summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
+      summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
       items:
         # Card
         - title: SC22 (Supercomputing) 
