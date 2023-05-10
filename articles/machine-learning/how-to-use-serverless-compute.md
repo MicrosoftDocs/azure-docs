@@ -333,7 +333,7 @@ resources:
 
 If you want to specify the type or instance count, use the `ResourceConfiguration` class.
 
-[!notebook-python[] (~/azureml-examples-vj/sdk/python/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
+[!notebook-python[] (~/azureml-examples-vj/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
 
 # [Azure CLI](#tab/cli)
 
@@ -349,7 +349,7 @@ If you want to specify the type or instance count, add a  `resources` section.
 
 For a pipeline job, specify `"serverless"` as your default compute type to use serverless compute.
 
-[!notebook-python[] (~/azureml-examples-vj/sdk/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-vj/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
 
 # [Azure CLI](#tab/cli)
 
