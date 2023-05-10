@@ -320,6 +320,14 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
+  - name: Optimize jobs
+    items:
+    - name: Job simulation
+      href: optimize-query-using-job-diagram-simulator.md
+    - name: Physical job diagram
+      href: stream-analytics-job-physical-diagram-with-metrics.md
+    - name: Logical job diagram
+      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Automate
     items:
     - name: Using PowerShell for auto-pausing
@@ -422,14 +430,6 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug and optimize using job diagram
-    items:
-    - name: Optimize query using job diagram simulator
-      href: optimize-query-using-job-diagram-simulator.md
-    - name: Physical job diagram
-      href: stream-analytics-job-physical-diagram-with-metrics.md
-    - name: Logical job diagram
-      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language

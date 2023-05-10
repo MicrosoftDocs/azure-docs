@@ -1,15 +1,15 @@
 ---
-title: Optimize query performance using job diagram simulator (preview)
+title: Optimize query performance using the Job Simulation feature
 description: This article provides guidance for evaluating query parallelism and optimizing query execution using a job diagram simulator in Visual Studio Code. 
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 05/09/2023
 ---
 
-# Optimize query using job diagram simulator
+# Optimize query using job simulation
 
 One way to improve the performance of an Azure Stream Analytics job is to apply parallelism in query. This article demonstrates how to use the Job Diagram Simulator in Visual Studio Code (VS Code) and evaluate the query parallelism for a Stream Analytics job. You learn to visualize a query execution with different number of streaming units and improve query parallelism based on the edit suggestions. 
 
@@ -21,7 +21,9 @@ For a job to be parallel, all inputs, outputs and query steps must be aligned an
 
 If you want to learn more about query parallelization, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).
 
-## How to use job diagram simulator?
+
+
+## Use job simulation in VSCode
 
 The **Job diagram simulator** feature simulates the job running topology in Azure and provides suggestions for adjusting Streaming Units. Therefore, you must configure live inputs and outputs for your Stream Analytics job and use them in the query. 
 
@@ -63,6 +65,10 @@ In this tutorial, you learn to improve query performance based on edit suggestio
     
     :::image type="content" source="./media/job-diagram-simulator/job-diagram-simulator-adjust-su.png" alt-text="Screenshot of the VS Code using SU adjuster." lightbox= "./media/job-diagram-simulator/job-diagram-simulator-adjust-su.png" :::
 
+## Use job simulation in the Azure portal
+
+
+
 ## Processor-level diagram
 
 Once you've adjusted the streaming units to simulate the topology of your job, you can expand any of the streaming nodes to observe how your data is being processed at the processor level.
@@ -73,6 +79,9 @@ The processor-level diagram allows you to:
 * observe how the input partitions are allocated and being processed at each streaming node.
 * find out what the **Time shift** is for each computing processor.
 * provide information on whether the Input and Output processors are aligned in parallel.
+
+
+### Mapping query steps to diagram
 
 ## Enhancement suggestions
 
@@ -89,7 +98,6 @@ Here are the explanations for Enhancements:
 | Output partition key not found | You need to use specified partition key for the output. |
 | Customized partition not supported | You can only use predefined partition keys.  |
 | Query step not using partition | Your query isn't using any PARTITION BY clause. |
-
 
 ## Next steps
 If you want to learn more about query parallelization and job diagram, check out these tutorials: 
