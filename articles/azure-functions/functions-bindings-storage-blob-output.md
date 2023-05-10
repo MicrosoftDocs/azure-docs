@@ -2,7 +2,7 @@
 title: Azure Blob storage output binding for Azure Functions
 description: Learn how to provide Azure Blob storage output binding data to an Azure Function.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -13,6 +13,23 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The output binding allows you to modify and delete blob storage data in an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -292,7 +309,35 @@ Push-OutputBinding -Name myOutputBlob -Value $myInputBlob
 
 <!--Same example for input and output. -->
 
-The following example shows blob input and output bindings in a *function.json* file and [Python code](functions-reference-python.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+The code creates a copy of a blob.
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="BlobOutput1")
+@app.route(route="file")
+@app.blob_input(arg_name="inputblob",
+                path="sample-workitems/test.txt",
+                connection="<BLOB_CONNECTION_SETTING>")
+@app.blob_output(arg_name="outputblob",
+                path="newblob/test.txt",
+                connection="<BLOB_CONNECTION_SETTING>")
+def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
+    outputblob.set(inputblob)
+    return "ok"
+```
+
+# [v1](#tab/python-v1)
+
+The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
@@ -402,6 +447,24 @@ The following table explains the binding configuration properties for C# script 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using decorators, the following properties on the `blob_input` and `blob_output` decorators define the Blob Storage triggers:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The name of the variable that represents the blob in function code. |
+|`path`  | The path to the blob  For the `blob_input` decorator, it's the blob read. For the `blob_output` decorator, it's the output or copy of the input blob. |
+|`connection` | The storage account connection string. |
+|`dataType` | For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -409,6 +472,13 @@ The `@BlobOutput` attribute gives you access to the blob that triggered the func
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file. 
 

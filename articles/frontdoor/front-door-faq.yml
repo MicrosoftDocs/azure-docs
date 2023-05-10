@@ -25,17 +25,17 @@ sections:
       - question: |
           What is Azure Front Door?
         answer:  |
-          Azure Front Door is an Application Delivery Network (ADN) as a service, offering various layer 7 load-balancing capabilities for your applications. It provides dynamic site acceleration (DSA) along with global load balancing with near real-time failover. It is a highly available and scalable service, which is fully managed by Azure.
+          Azure Front Door is an Application Delivery Network (ADN) as a service, offering various layer 7 load-balancing capabilities for your applications. It provides dynamic site acceleration (DSA) along with global load balancing with near real-time failover. It's a highly available and scalable service, which is completed managed by Azure.
 
       - question: |
           What features does Azure Front Door support?
         answer: |
-          Azure Front Door supports dynamic site acceleration (DSA), TLS/SSL offloading and end to end TLS, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others. For a full list of supported features, see [Overview of Azure Front Door](front-door-overview.md).
+          Azure Front Door supports dynamic site acceleration (DSA), TLS/SSL offloading and end to end TLS, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain managements, and many other features. For a full list of supported features, see [Overview of Azure Front Door](front-door-overview.md).
           
       - question: |
           What is the difference between Azure Front Door and Azure Application Gateway?
         answer:  |
-          While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load balancers, the primary difference is that Front Door is a non-regional service whereas Application Gateway is a regional service. While Front Door can load balance between your different scale units/clusters/stamp units across regions, Application Gateway allows you to load balance between your VMs/containers etc. that is within the scale unit.
+          While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load balancers, the primary difference is that Front Door is a nonregional service whereas Application Gateway is a regional service. While Front Door can load balance between your different scale units/clusters/stamp units across regions, Application Gateway allows you to load balance between your VMs/containers etc. that is within the scale unit.
 
       - question: |
           When should we deploy an Application Gateway behind Front Door?
@@ -43,7 +43,7 @@ sections:
           The key scenarios why one should use Application Gateway behind Front Door are:
           
           - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
-          - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
+          - Since Front Door doesn't work at a VM/container level, so it can't do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
           - With an Application Gateway behind Front Door, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
           - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
           
@@ -70,7 +70,7 @@ sections:
       - question: |
           What regions is the service available in?
         answer:  |
-          Azure Front Door is a global service and is not tied to any specific Azure region. The only location you need to specify while creating a Front Door is the resource group location, which is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
+          Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is the resource group location, which is specifying where the metadata for the resource group gets stored. The Front Door profile itself is created as a global resource and the configuration is deployed globally to all edge locations. 
 
       - question: |
           Where are the edge locations for Azure Front Door?
@@ -80,17 +80,17 @@ sections:
       - question: |
           Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
         answer:  |
-          Azure Front Door is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door profile, you define the specific configuration required for your application and no changes made to your Front Door impact other Front Door configurations.
+          Azure Front Door is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door profile, you define the specific configuration required for your application and no changes made to your Front Door can affect other Front Door configurations.
 
       - question: |
           Is HTTP->HTTPS redirection supported?
         answer: |
-          Yes. In fact, Azure Front Door supports host, path, and query string redirection as well as part of URL redirection. Learn more about [URL redirection](front-door-url-redirect.md). 
+          Yes. In fact, Azure Front Door supports host, path, and query string redirection and part of URL redirection. Learn more about [URL redirection](front-door-url-redirect.md). 
           
       - question: |
           In what order are routing rules processed?
         answer: |
-          Routes for your Front Door are not ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](front-door-route-matching.md).
+          Routes for your Front Door aren't ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](front-door-route-matching.md).
           
       - question: |
           How do I lock down the access to my backend to only Azure Front Door?
@@ -100,7 +100,7 @@ sections:
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?
         answer:  |
-          The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.
+          The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly don't take any direct dependencies on the IP.
 
       - question: |
           Does Azure Front Door support static or dedicated IPs?
@@ -122,7 +122,7 @@ sections:
           > [!Note]  
           > Most custom TLS/SSL certificate updates take from several minutes to an hour to be deployed globally.
           
-          Any updates to routes or origin groups/backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage.
+          Any updates to routes or origin groups/backend pools etc. are seamless and has zero downtime (if the new configuration is correct). Certificate updates are atomic, so there shouldn't be an outage.
           
   - name: Configuration
     questions:
@@ -136,7 +136,7 @@ sections:
         answer:  |
           An origin group represents a set of origins that are functionally able to serve the same kinds of requests. You should use a separate origin group for each distinct application or workload.
 
-          Within an origin group, create an origin for each distinct server or service instance that can serve requests. If your origin is itself a load balancer, such as Azure Application Gateway, or if it's hosted on a platform as a service (PaaS) offering that includes a load balancer, then the origin group might only contain a single origin. Internally, your origin handles failover and load distribution between origins, but this is invisible to Front Door.
+          Within an origin group, create an origin for each distinct server or service instance that can serve requests. If your origin is itself a load balancer, such as an Azure Application Gateway, or gets hosted on a platform as a service (PaaS) offering that includes a load balancer, then the origin group may only contain a single origin. Internally, your origin handles failover and load distribution between origins that is invisible to Front Door.
           
           For example, suppose you host an application on Azure App Service. The way that you configure Front Door depends on how many application instances you deploy:
           
@@ -169,14 +169,19 @@ sections:
           - The *AzureFrontDoor.Frontend* service tag provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door.
           - The *AzureFrontDoor.FirstParty* service tag is used internally within Azure.
           
-          See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
+          For more information on Azure Front Door service tags use cases, see [available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
+
+      - question: |
+          What is the HTTP keep-alive timeout for Azure Front Door?
+        answer:  |   
+          The HTTP keep-alive timeout for Azure Front Door is 90 seconds. Which means that if a client doesn't send any data for 90 seconds, the connection is closed. This timeout value can't be configured.
 
   - name: Performance
     questions:
       - question: |
           How does Azure Front Door support high availability and scalability?
         answer:  |
-          Azure Front Door is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Delivered from the edge of Microsoft's global network, Front Door provides global load-balancing capability that allows you to fail over your entire application or even individual microservices across regions or different clouds.
+          Azure Front Door is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Traffic is delivered from the edge of Microsoft's global network, Front Door provides global load-balancing capability that allows you to fail over your entire application or even individual microservices across regions or different clouds.
 
       - question: |
           Why aren't ranged responses from my origin getting cached?
@@ -191,30 +196,30 @@ sections:
       - question: | 
           How does Front Door handle ‘domain fronting’ behavior? 
         answer: |
-          Beginning November 8, 2022, all newly created Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibits domain fronting behavior. Requests where the host header in HTTP/HTTPS requests that doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
+          Beginning November 8, 2022, all newly created Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibits domain fronting behavior. Requests where the host header in HTTP/HTTPS requests that doesn't match the original TLS SNI extension used during the TLS negotiation gets blocked.
           
           If you wish to block domain fronting for an existing Azure Front Door or Azure CDN Standard from Microsoft (classic) resources, create a support request and provide your subscription and 
-          resource information. Upon enabling the blocking of domain fronting, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources will block any HTTP/HTTPS requests that exhibit this behavior.
+          resource information. Once domain fronting gets blocked, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources block any HTTP/HTTPS requests that exhibit this behavior.
          
           When Front Door blocks a request due to a mismatch: 
-          - The client will receive an HTTP "421 Misdirected Request" error code response. 
-          - Azure Front Door will log the block in the diagnostic logs under the "Error Info" property with the value **SSLMismatchedSNI**.
+          - The client receives an HTTP "421 Misdirected Request" error code response. 
+          - Azure Front Door logs the block in the diagnostic logs under the "Error Info" property with the value **SSLMismatchedSNI**.
           
           For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
  
       - question: |
-          What TLS versions are supported by Azure Front Door?
+          What TLS versions are supported with Azure Front Door?
         answer: |
           All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
           
-          Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported. Refer to [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) for more details.
+          Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 isn't yet supported. For more information, see [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md).
                   
   - name: Billing
     questions:
       - question: |
-          Will I be billed for the Azure Front Door resources that are disabled?
+          Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door resources, like Front Door profiles, routing rules are not billed in disabled. WAF policies and rules are billed even if disabled.
+          Azure Front Door resources, like Front Door profiles, routing rules aren't billed in disabled. WAF policies and rules are billed even if disabled.
           
   - name: Diagnostics and logging
     questions:
@@ -231,14 +236,14 @@ sections:
       - question: |
           How do I get audit logs for Azure Front Door?
         answer:  |
-          Audit logs are available for Azure Front Door. In the portal, click **Activity Log** in the menu blade of your Front Door to access the audit log. 
+          Audit logs are available for Azure Front Door. In the portal, select **Activity Log** in the menu page of your Front Door to access the audit log. 
 
       - question: |
           Can I set alerts with Azure Front Door?
         answer:  |
           Yes, Azure Front Door does support alerts. Alerts are configured based on [metrics or logs](front-door-diagnostics.md).
           
-          For information about how to create alerts for Azure Front Door Standard and Premium, please see [Configure alerts](./standard-premium/how-to-monitor-metrics.md#configure-alerts-in-the-azure-portal).
+          For information about how to create alerts for Azure Front Door Standard and Premium, see [Configure alerts](./standard-premium/how-to-monitor-metrics.md#configure-alerts-in-the-azure-portal).
       
 additionalContent: |
 

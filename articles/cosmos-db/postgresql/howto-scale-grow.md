@@ -33,7 +33,7 @@ queries.
 1. Select **Save** to apply the changed values.
 
 > [!NOTE]
-> Once you increase nodes and save, you can't decrease the number of worker nodes by using this form.
+> Once you increase nodes and save, you can't decrease the number of worker nodes by using this **Scale** page.
 
 > [!NOTE]
 > To take advantage of newly added nodes you must [rebalance distributed table

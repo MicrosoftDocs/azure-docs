@@ -57,6 +57,8 @@
     href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
+  - name: Manage device reconnections in IoT Hub and DPS
+    href: concepts-manage-device-reconnections.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
   - name: IoT device selection list
@@ -97,9 +99,6 @@
     href: ../iot/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
-  - name: Manage connectivity and reliable messaging
-    displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
-    href: how-to-use-reliability-features-in-sdks.md
   - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
   - name: Azure RTOS samples

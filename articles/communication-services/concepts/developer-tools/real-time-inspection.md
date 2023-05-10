@@ -104,4 +104,4 @@ The tool includes the ability to download the logs captured using the `Download 
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
 - [Leverage Network Diagnostic Tool](./network-diagnostic.md)
-- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)

@@ -1,12 +1,12 @@
 ---
-title: Domain data management services concepts #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use Domain Data Management Services #Required; article description that is displayed in search results. 
-author: marielgherz #Required; your GitHub user alias, with correct capitalization.
-ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Domain data management services concepts
+description: Learn how to use Domain Data Management Services
+author: marielgherz
+ms.author: marielherzog
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Domain data management service concepts

@@ -238,7 +238,7 @@ Running this code in a browser displays a map that looks like the following imag
 
 ![Azure Maps map](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)
 
-Detailed documentation on how to set up and use the Azure Maps map control in a web app can be found [here](how-to-use-map-control.md).
+For more information on how to set up and use the Azure Maps map control in a web app, see [Use the Azure Maps map control].
 
 > [!TIP]
 > Azure Maps publishes both minified and unminified versions of the SDK. Remove `.min` from the file names. The unminified version is useful when debugging issues but be sure to use the minified version in production to take advantage of the smaller file size.
@@ -326,7 +326,7 @@ map.setCamera({
 });
 
 map.setStyle({
-    style: 'satellite_with_roads'
+    style: 'satellite_road_labels'
 });
 ```
 
@@ -1113,7 +1113,7 @@ In Azure Maps, load the GeoJSON data into a data source and connect the data sou
             map = new atlas.Map('myMap', {
                 center: [-160, 20],
                 zoom: 1,
-                style: 'satellite_with_roads',
+                style: 'satellite_road_labels',
 
                 //Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
                 authOptions: {
@@ -1690,26 +1690,26 @@ Learn more about migrating from Bing Maps to Azure Maps.
 <!------------End Links-------------------------------------------------------------------------------------------------->
 [road tiles]: /rest/api/maps/render/getmaptile
 [satellite tiles]: /rest/api/maps/render/getmapimagerytile
-[Cesium]: https://www.cesium.com/?azure-portal=true
-<!--[Cesium code samples]: https://samples.azuremaps.com/?search=Cesium&azure-portal=true-->
+[Cesium]: https://www.cesium.com/
+<!--[Cesium code samples]: https://samples.azuremaps.com/?search=Cesium-->
 [Cesium plugin]: /samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
-[Leaflet]: https://leafletjs.com/?azure-portal=true
-[Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet&azure-portal=true
+[Leaflet]: https://leafletjs.com/
+[Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet
 [Leaflet plugin]: /samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
-[OpenLayers]: https://openlayers.org/?azure-portal=true
-<!--[OpenLayers code samples]: https://samples.azuremaps.com/?search=openlayers&azure-portal=true-->
-[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin?azure-portal=true
+[OpenLayers]: https://openlayers.org/
+<!--[OpenLayers code samples]: https://samples.azuremaps.com/?search=openlayers-->
+[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
 
 <!--- If developing using a JavaScript framework, one of the following open-source projects may be useful ---->
-[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps?azure-portal=true
-[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components?azure-portal=true
-[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps?azure-portal=true
-[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps?azure-portal=true
+[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
+[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
+[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
+[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
 
 <!-----------         Key features support       ---------------------------->
-[Contour layer code samples]: https://samples.azuremaps.com/?search=contour&azure-portal=true
-[Gridded Data Source module]: https://github.com/Azure-Samples/azure-maps-gridded-data-source?azure-portal=true
-[Animation module]: https://github.com/Azure-Samples/azure-maps-animations?azure-portal=true
+[Contour layer code samples]: https://samples.azuremaps.com/?search=contour
+[Gridded Data Source module]: https://github.com/Azure-Samples/azure-maps-gridded-data-source
+[Animation module]: https://github.com/Azure-Samples/azure-maps-animations
 [Spatial IO module]: how-to-use-spatial-io-module.md
 [open-source modules for the web SDK]: open-source-projects.md#open-web-sdk-modules
 
@@ -1756,9 +1756,9 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
 
 [Add a popup]: map-add-popup.md
-[Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content&azure-portal=true
-[Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes&azure-portal=true
-[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins&azure-portal=true
+[Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
+[Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
+[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [Popup class]: /javascript/api/azure-maps-control/atlas.popup
 [Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
 
@@ -1767,8 +1767,8 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Tile layer options]: /javascript/api/azure-maps-control/atlas.tilelayeroptions
 
 [Show traffic on the map]: map-show-traffic.md
-[Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options&azure-portal=true
-[Traffic control]: https://samples.azuremaps.com/?sample=traffic-controls&azure-portal=true
+[Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options
+[Traffic control]: https://samples.azuremaps.com/?sample=traffic-controls
 
 [Overlay an image]: map-add-image-layer.md
 [Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
@@ -1778,11 +1778,11 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [SimpleDataLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions
 
 [Use the drawing tools module]: set-drawing-options.md
-[Drawing tools module code samples]: https://samples.azuremaps.com?azure-portal=true#drawing-tools-module
+[Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
 
 <!--------------------------------------->
 
-[free account]: https://azure.microsoft.com/free/?azure-portal=true
+[free account]: https://azure.microsoft.com/free/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
@@ -1791,7 +1791,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [atlas.data namespace]: /javascript/api/azure-maps-control/atlas.data
 [atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
 [atlas.data.Position.fromLatLng]: /javascript/api/azure-maps-control/atlas.data.position
-[turf js]: https://turfjs.org?azure-portal=true
+[turf js]: https://turfjs.org
 [Azure Maps Glossary]: glossary.md
 [Add controls to a map]: map-add-controls.md
 [Localization support in Azure Maps]: supported-languages.md

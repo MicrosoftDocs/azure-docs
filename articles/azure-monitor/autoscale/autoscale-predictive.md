@@ -1,17 +1,17 @@
 ---
-title: Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)
+title: Use predictive autoscale to scale out before load demands in virtual machine scale sets
 description: This article provides information on the new predictive autoscale feature in Azure Monitor.
 ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
 ms.date: 10/12/2022
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-arm-template
 ms.reviewer: akkumari
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets
 
-*Predictive autoscale* uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
+Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
 
 Predictive autoscale needs a minimum of 7 days of history to provide predictions. The most accurate results come from 15 days of historical data.
 
@@ -62,9 +62,9 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
     :::image type="content" source="media/autoscale-predictive/predictive-charts-6.png" alt-text="Screenshot that shows three charts for predictive autoscale." lightbox="media/autoscale-predictive/predictive-charts-6.png":::
 
-   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 24 hours to the next 24 hours.
-   - The middle chart shows the number of instances running at specific times over the last 24 hours.
-   - The bottom chart shows the current Average CPU utilization over the last 24 hours.
+   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 7 days to the next 24 hours.
+   - The middle chart shows the maximum number of instances running over the last 7 days.
+   - The bottom chart shows the current Average CPU utilization over the last 7 days.
 
 ## Enable using an Azure Resource Manager template
 

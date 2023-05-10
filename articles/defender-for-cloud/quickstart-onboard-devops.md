@@ -110,6 +110,19 @@ If your organization list is empty in the UI after you onboarded an Azure DevOps
 
 For information on how to correct this issue, check out the [DevOps trouble shooting guide](troubleshooting-guide.md#troubleshoot-azure-devops-organization-connector-issues).
 
+### I have a large Azure DevOps organization with many repositories.  Can I still onboard?
+
+Yes, there is no limit to how many Azure DevOps repositories you can onboard to Defender for DevOps.  
+
+However, there are two main implications when onboarding large organizations – speed and throttling. The speed of discovery for your DevOps repositories is determined by the number of projects for each connector (approximately 100 projects per hour). Throttling can happen because Azure DevOps API calls have a [global rate limit](https://learn.microsoft.com/azure/devops/integrate/concepts/rate-limits?view=azure-devops) and we limit the calls for project discovery to use a small portion of overall quota limits.
+
+Consider using an alternative Azure DevOps identity (i.e., an Organization Administrator account used as a service account) to avoid individual accounts from being throttled when onboarding large organizations. Below are some scenarios of when to use an alternate identity to onboard a Defender for DevOps connector:
+- Large number of Azure DevOps Organizations and Projects (~500 Projects or more).
+- Large number of concurrent builds which peak during work hours.
+- Authorized user is a [Power Platform](https://learn.microsoft.com/power-platform/) user making additional Azure DevOps API calls, using up the global rate limit quotas.
+
+Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](https://learn.microsoft.com/azure/defender-for-cloud/azure-devops-extension) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
+
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 

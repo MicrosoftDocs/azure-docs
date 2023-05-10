@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 08/26/2022
+ms.date: 05/10/2023
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
@@ -87,7 +87,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
     The Add role assignment page opens.
 
-1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
+1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
    ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
 
@@ -133,7 +133,7 @@ If the guest user is not yet in your directory, you can invite the user directly
 
     The Add role assignment page opens.
 
-1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
+1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
 1. On the **Members** tab, select **User, group, or service principal**.
 

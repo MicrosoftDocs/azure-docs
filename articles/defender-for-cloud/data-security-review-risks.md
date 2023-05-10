@@ -1,8 +1,8 @@
 ---
 title: Explore risks to sensitive data in Microsoft Defender for Cloud
 description: Learn how to use attack paths and security explorer to find and remediate sensitive data risks.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 03/14/2023
@@ -45,9 +45,20 @@ Other examples of attack paths for sensitive data include:
 Explore data risks and exposure in cloud security graph insights using a query template, or by defining a manual query.
 
 1. In Defender for Cloud, open **Cloud Security Explorer**.
-1. Select a query template, or build your own query. Here's an example:
+1. You can build your own query, or select  one of the sensitive data query templates > **Open query**, and modify it as needed. Here's an example:
 
     :::image type="content" source="./media/data-security-review-risks/query.png" alt-text="Screenshot that shows an Insights data query.":::
+
+### Use query templates
+
+As an alternative to creating your own query, you can use predefined query templates. A number of sensitive data query templates are available. For example:
+
+- Internet exposed storage containers with sensitive data that allow public access.
+- Internet exposed S3 buckets with sensitive data that allow public access
+
+When you open a predefined query it's populated automatically and can be tweaked as needed. For example, here are the prepopulated fields for "Internet exposed storage containers with sensitive data that allow public access".
+
+:::image type="content" source="./media/data-security-review-risks/query-template.png" alt-text="Screenshot that shows an Insights data query template.":::
 
 ## Explore sensitive data security alerts
 

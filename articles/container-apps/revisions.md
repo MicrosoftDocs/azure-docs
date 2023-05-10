@@ -1,6 +1,6 @@
 ---
 title: Revisions in Azure Container Apps
-description: Learn how revisions are created in Azure Container Apps
+description: Learn how revisions are created in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -39,12 +39,12 @@ The following diagram shows a container app with two revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
 
-The scenario shown above presumes the container app is in the following state:
+This scenario presumes the container app is in the following state:
 
-- [Ingress](ingress.md) is enabled, making the container app available via HTTP.
+- [Ingress](ingress-how-to.md) is enabled, making the container app available via HTTP or TCP.
 - The first revision was deployed as _Revision 1_.
 - After the container was updated, a new revision was activated as _Revision 2_.
-- [Traffic splitting](revisions-manage.md#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
+- [Traffic splitting](traffic-splitting.md) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
 
 ## Revision name suffix
 
@@ -92,8 +92,8 @@ These parameters include:
 - [Secret values](manage-secrets.md) (revisions must be restarted before a container recognizes new secret values)
 - [Revision mode](#revision-modes)
 - Ingress configuration including:
-  - Turning [ingress](ingress.md) on or off
-  - [Traffic splitting rules](revisions-manage.md#traffic-splitting)
+  - Turning [ingress](ingress-how-to.md) on or off
+  - [Traffic splitting rules](traffic-splitting.md)
   - Labels
 - Credentials for private container registries
 - Dapr settings
@@ -111,7 +111,7 @@ By default, a container app is in *single revision mode*. In this mode, when a n
 
 Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in this mode, new revisions are activated alongside current active revisions.
 
-For an app implementing external HTTP ingress, you can control the percentage of traffic going to each active revision from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. For more information, see [Traffic splitting](revisions-manage.md#traffic-splitting).
+For an app implementing external HTTP ingress, you can control the percentage of traffic going to each active revision from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. For more information, see [Traffic splitting](traffic-splitting.md).
 
 ## Revision Labels
 
@@ -145,7 +145,7 @@ You can find the label URL in the revision details pane.
 
 ## Activation state
 
-In *multiple revision mode*, revisions remain active until you deactivate them. You can activate and deactivate revisions from your container app's **Revision management** page in the Azure portal or from the Azure CLI.
+In *multiple revision modes*, revisions remain active until you deactivate them. You can activate and deactivate revisions from your container app's **Revision management** page in the Azure portal or from the Azure CLI.
 
 You aren't charged for the inactive revisions. You can have a maximum of 100 revisions, after which the oldest revision is purged.
 

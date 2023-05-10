@@ -2,8 +2,6 @@
 title: Monitor AKS hybrid clusters
 ms.date: 01/10/2023
 ms.topic: article
-author: austonli
-ms.author: aul
 description: Collect metrics and logs of AKS hybrid clusters using Azure Monitor.
 ms.reviewer: aul
 ---

@@ -66,11 +66,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/app-development-best-practices.md",
-        "redirect_url": "/azure/mysql/single-server/app-development-best-practices",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/concept-monitoring-best-practices.md",
         "redirect_url": "/azure/mysql/single-server/concept-monitoring-best-practices",
         "redirect_document_id": false
@@ -426,9 +421,9 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/howto-create-users.md",
-        "redirect_url": "/azure/mysql/single-server/how-to-create-users",
-        "redirect_document_id": false
+    "source_path_from_root": "/articles/mysql/howto-create-users.md",
+    "redirect_url": "/azure/mysql/single-server/how-to-create-users",
+    "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/howto-data-encryption-cli.md",
@@ -706,11 +701,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/select-right-deployment-type.md",
-        "redirect_url": "/azure/mysql/single-server/select-right-deployment-type",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/single-server-overview.md",
         "redirect_url": "/azure/mysql/single-server/single-server-overview",
         "redirect_document_id": false
@@ -779,6 +769,21 @@
         "source_path_from_root": "/articles/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal.md",
         "redirect_url": "/azure/mysql/flexible-server/quickstart-create-server-portal",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-create-users.md",
+        "redirect_url": "/azure/mysql/how-to-create-users",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/app-development-best-practices.md",
+        "redirect_url": "/azure/mysql/app-development-best-practices",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/select-right-deployment-type.md",
+        "redirect_url": "/azure/mysql/select-right-deployment-type",
+        "redirect_document_id": true
     }
   ]
 }

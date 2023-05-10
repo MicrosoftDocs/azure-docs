@@ -65,16 +65,16 @@ If a workload requires mounting multiple shares with one or more storage account
 
 - StorageAccount.file.core.windows.net = 10.10.10.10
 - StorageAccount2.file.core.windows.net = 10.10.10.11
-  - `Mount StorageAccount.file.core.windows.net:/FileShare1 nconnect=4`
-  - `Mount StorageAccount2.file.core.windows.net:/FileShare1`
+  - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare1 nconnect=4`
+  - `Mount StorageAccount2.file.core.windows.net:/StorageAccount2/FileShare1`
 
 #### Scenario 2: (not supported) `nconnect` per-mount configuration over public endpoint
 
 - StorageAccount.file.core.windows.net = 52.239.238.8
 - StorageAccount2.file.core.windows.net = 52.239.238.7
-  - `Mount StorageAccount.file.core.windows.net:/FileShare1 nconnect=4`
-  - `Mount StorageAccount.file.core.windows.net:/FileShare2`
-  - `Mount StorageAccount2.file.core.windows.net:/FileShare1`
+  - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare1 nconnect=4`
+  - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare2`
+  - `Mount StorageAccount2.file.core.windows.net:/StorageAccount2/FileShare1`
 
 > [!NOTE]
 > Even if the storage account resolves to a different IP address, we can't guarantee that address will persist because public endpoints aren't static addresses.
@@ -82,9 +82,9 @@ If a workload requires mounting multiple shares with one or more storage account
 #### Scenario 3: (not supported) `nconnect` per-mount configuration over private endpoint with multiple shares on single storage account
 
 - StorageAccount.file.core.windows.net = 10.10.10.10
-  - `Mount StorageAccount.file.core.windows.net:/FileShare1 nconnect=4`
-  - `Mount StorageAccount.file.core.windows.net:/FileShare2`
-  - `Mount StorageAccount.file.core.windows.net:/FileShare3`
+  - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare1 nconnect=4`
+  - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare2`
+  - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare3`
 
 ## Performance test configuration
 

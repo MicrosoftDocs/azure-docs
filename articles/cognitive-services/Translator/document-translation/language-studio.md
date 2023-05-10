@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 03/17/2023
 ms.author: lajanuar
+ms.custom: references_regions
 recommendations: false
 ---
 
@@ -18,6 +19,24 @@ recommendations: false
 > Document Translation in Language Studio is currently in Public Preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
  Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a no-code user interface that lets you interactively translate documents from local or Azure blob storage.
+
+## Supported regions
+
+The Document Translation feature in the Language Studio is currently available in the following regions;
+
+|DisplayName|Name|
+|-----------|------|
+|East US |`eastus`|
+|East US 2 |`eastus2`|
+|West US 2 | `westus2`|
+|West US 3| `westus3`|
+|UK South| `uksouth`|
+|South Central US| `southcentralus` |
+|Australia East|`australiaeast` |
+|Central India| `centralindia` |
+|North Europe| `northeurope` |
+|West Europe|`westeurope`|
+|Switzerland North| `switzerlandnorth` |
 
 ## Prerequisites
 
@@ -34,7 +53,7 @@ Document Translation in Language Studio requires the following resources:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource) with [**system-assigned managed identity**](how-to-guides/create-use-managed-identities.md#enable-a-system-assigned-managed-identity) enabled and a [**Storage Blob Data Contributor**](how-to-guides/create-use-managed-identities.md#grant-access-to-your-storage-account) role assigned. For more information, *see* [**Managed identities for Document Translation**](how-to-guides/create-use-managed-identities.md). Also, make sure the region and pricing sections are completed as follows:
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource) with [**system-assigned managed identity**](how-to-guides/create-use-managed-identities.md#enable-a-system-assigned-managed-identity) enabled and a [**Storage Blob Data Contributor**](how-to-guides/create-use-managed-identities.md#grant-storage-account-access-for-your-translator-resource) role assigned. For more information, *see* [**Managed identities for Document Translation**](how-to-guides/create-use-managed-identities.md). Also, make sure the region and pricing sections are completed as follows:
 
   * **Resource Region**. For this project, choose a geographic region such as **East US**. For Document Translation, [system-assigned managed identity](how-to-guides/create-use-managed-identities.md) isn't supported for the **Global** region.
 

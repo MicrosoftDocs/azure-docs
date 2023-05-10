@@ -58,7 +58,7 @@ Choose the "AzureDiskEncryption" extension for Windows or "AzureDiskEncryptionFo
 
 Migration from Azure Disk Encryption (with Azure AD) to Azure Disk Encryption (without Azure AD) is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell and at least the [Azure PowerShell Az module version 5.9.0](/powershell/azure/new-azureps-module-az) installed .
 
-To upgrade from Azure Disk Encryption (with Azure AD) to Azure Disk Encryption (without Azure AD), use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet. 
+To upgrade from Azure Disk Encryption (with Azure AD) to Azure Disk Encryption (without Azure AD), use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet.
 
 > [!WARNING]
 > The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with Azure Disk Encryption (with Azure AD). Attempting to migrate an unencrypted VM, or a VM encrypted with Azure Disk Encryption (without Azure AD), will result in a terminal error.
@@ -69,9 +69,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroupName> -VMName <
 
 When the cmdlet prompts you for confirmation, enter "Y".  The ADE version will be updated and the VM rebooted. The output will look similar to the following:
 
-```bash
-> Set-AzVMDiskEncryptionExtension -ResourceGroupName myResourceGroup -VMName myVM -Migrate
-
+```output
 Update AzureDiskEncryption version?
 This cmdlet updates Azure Disk Encryption version to single pass (Azure Disk Encryption without Azure AD). This may reboot
 the machine and takes 10-15 minutes to finish. Are you sure you want to continue?
@@ -98,7 +96,6 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK
 ```
-
 
 > [!IMPORTANT]
 > The upgrade will take at least 10 - 15 minutes to complete. Do not cancel the cmdlet while the upgrade is in progress. Doing so puts the health of the VM at risk.

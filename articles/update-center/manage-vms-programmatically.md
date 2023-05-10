@@ -4,7 +4,7 @@ description: This article tells how to use update management center (preview) in
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ---
 
@@ -26,26 +26,19 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers
 
 # [Azure CLI](#tab/cli)
 
-To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az vm assess-patches](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-assess-patches) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
+az vm assess-patches -g MyResourceGroup -n MyVm
 ```
+
 
 # [Azure PowerShell](#tab/powershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzVMPatchAssessment](https://learn.microsoft.com/powershell/module/az.compute/invoke-azvmpatchassessment?view=azps-9.5.0) cmdlet.
 
 ```azurepowershell
-Invoke-AzRestMethod
-  -ResourceGroupName resourceGroupName 
-  -Name "virtualMachineName" 
-  -ResourceProviderName "Microsoft.Compute" 
-  -ResourceType "virtualMachines" 
-  -ApiVersion xx
-  -Payload '{      
-      }' 
-  -Method POST
+Invoke-AzVMPatchAssessment -ResourceGroupName "myRG" -VMName "myVM"
 ```
 
 ---
@@ -107,32 +100,24 @@ POST on 'subscriptions/{subscriptionId}/resourceGroups/acmedemo/providers/Micros
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az vm install-patches](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-install-patches) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/installPatches?api-version=2020-12-01 @body.json
+az vm install-patches -g MyResourceGroup -n MyVm --maximum-duration PT4H --reboot-setting IfRequired --classifications-to-include-linux Critical
 ```
 
 The format of the request body for version 2020-12-01 is as follows:
 
 ```json
 {
-    "maximumDuration": "PT120M",
-    "rebootSetting": "IfRequired",
+    "maximumDuration"
+    "rebootSetting"
     "windowsParameters": {
       "classificationsToInclude": [
-        "Security",
-        "UpdateRollup",
-        "FeaturePack",
-        "ServicePack"
       ],
       "kbNumbersToInclude": [
-        "11111111111",
-        "22222222222222"
       ],
       "kbNumbersToExclude": [
-        "333333333333",
-        "55555555555"
       ]
     }
   }
@@ -140,36 +125,10 @@ The format of the request body for version 2020-12-01 is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzVMInstallPatch](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
-Invoke-AzRestMethod
-  -ResourceGroupName resourceGroupName 
-  -Name "machineName" 
-  -ResourceProviderName "Microsoft.Compute" 
-  -ResourceType "virtualMachines" 
-  -ApiVersion 2020-12-01-preview
-  -Payload '{      
-        "maximumDuration": "PT120M",
-        "rebootSetting": "IfRequired",
-        "windowsParameters": {
-          "classificationsToInclude": [
-            "Security",
-            "UpdateRollup",
-            "FeaturePack",
-            "ServicePack"
-          ],
-          "kbNumbersToInclude": [
-            "11111111111",
-            "22222222222222"
-          ],
-          "kbNumbersToExclude": [
-            "333333333333",
-            "55555555555"
-          ]
-        }
-      }' 
-  -Method POST
+Invoke-AzVmInstallPatch -ResourceGroupName 'MyRG' -VmName 'MyVM' -Windows -RebootSetting 'never' -MaximumDuration PT2H -ClassificationToIncludeForWindows Critical
 ```
 ---
 

@@ -2,8 +2,8 @@
 title: Matrices of Defender for Servers features in foundational CSPM, Azure Arc, multicloud, and endpoint protection solutions
 description: Learn about the environments where you can protect servers and virtual machines with Defender for Servers.
 ms.topic: limits-and-quotas
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.date: 01/01/2023
 ---
 
@@ -120,5 +120,5 @@ For information about when recommendations are generated for each of these solut
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
+- Learn how [Defender for Cloud collects data using the Log Analytics agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
