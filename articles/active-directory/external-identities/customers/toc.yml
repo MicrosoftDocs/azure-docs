@@ -240,18 +240,18 @@ items:
     - name: MSAL references 
       items:
         - name: MSAL.NET
-          href: how-to-web-app-node-sign-in-overview.md
+          href: /dotnet/api/microsoft.identity.client.advanced
         - name: Microsoft Identity Web
-          href: how-to-web-app-node-sign-in-overview.md
+          href: /dotnet/api/microsoft.identity.web
         - name: Microsoft identity model
-          href: how-to-web-app-node-sign-in-overview.md
+          href: /dotnet/api/microsoft.identitymodel.abstractions
         - name: MSAL.js
           items:
           - name: msal-angular
-            href: how-to-web-app-node-sign-in-overview.md
+            href: /javascript/api/@azure/msal-angular/
           - name: msal-browser
-            href: how-to-web-app-node-sign-in-overview.md
+            href: /javascript/api/@azure/msal-browser/
           - name: msal-react
-            href: how-to-web-app-node-sign-in-overview.md
+            href: /javascript/api/@azure/msal-react/
           - name: msal-node
-            href: how-to-web-app-node-sign-in-overview.md
+            href: /javascript/api/@azure/msal-node/
