@@ -1,5 +1,5 @@
 ---
-title: Sign in users to a Vanilla JS Single-page application using Microsoft Entra - Prepare your Single-page application
+title: Sign in users to a Vanilla JS Single-page application - Prepare your Single-page application
 description: Learn how to configure vanilla JavaScript single-page app (SPA) to prepare for authentication with your CIAM tenant.
 services: active-directory
 author: OwenRichards1
@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Prepare a Single-page application for authentication
 
-After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host the application.
+After registering an application and creating a user flow in a Azure Active Directory (AD) for customers tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host the application.
 
 ## Prerequisites
 
