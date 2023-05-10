@@ -56,7 +56,7 @@ The following considerations apply for this authentication contact info:
 
 ## Security questions and answers
 
-The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
+The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via My Security-Info's [Combined registration experience](https://aka.ms/mfasetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
 
 ## What happens when a user registers
 
