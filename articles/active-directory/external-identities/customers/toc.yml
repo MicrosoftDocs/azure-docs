@@ -47,6 +47,10 @@ items:
                   items:
                     - name: Sign in users
                       href: how-to-single-page-app-vanillajs-sample-sign-in.md
+                - name: Angular
+                  items:
+                    - name: Sign in users
+                      href: how-to-single-page-application-angular-sample.md
                 - name: React
                   items:
                     - name: Sign in users
