@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-ms.date: 02/01/2023
+ms.date: 05/11/2023
 ms.topic: overview
 ---
 
@@ -86,6 +86,12 @@ To learn more about resource type limits, see the [Resource instance limit](../.
 ## Data residency
 
 Azure Arc-enabled servers stores customer data. By default, customer data stays within the region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
+
+## Disaster Recovery
+
+There are no customer-enabled disaster recovery options for Arc-enabled servers. In the event of an outage in an Azure region, the system will failover to another region in the same geological area (if one exists). While this failover procedure is automatic, it does take some time. The Connected Machine agent will be disconnected during this period and will show a status of *disconnected* until Traffic Manager settings are reset. The system will failback to its original region once the outage has been restored.
+
+An outage of Azure Arc won't affect the customer workload itself; only management of the applicable servers via Arc will be impaired.
 
 ## Next steps
 
