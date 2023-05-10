@@ -68,7 +68,7 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 
 ## Run and test sample .NET MAUI desktop application
 
-Choose the Windows platform to work on by setting the startup project in the Solution Explorer. Make sure that your platform of choice is marked for build and deploy in the Configuration Manager.
+Select the Windows platform to work on by setting the startup project in the **Solution Explorer**. Make sure that your platform of choice is marked for build and deploy in the configuration manager.
 
 Clean the solution, rebuild the solution, and run it.
 
