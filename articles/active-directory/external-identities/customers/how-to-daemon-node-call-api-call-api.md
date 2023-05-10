@@ -71,7 +71,7 @@ In your `authConfig.js` file, replace:
 
 - `Enter_the_Web_Api_Application_Id_Here` with the Application (client) ID of the web API app that you copied earlier.
 
-Notice that the `scopes` property in the `protectedResources` variable is the resource identifier (application ID URI) of the [web API](how-to-daemon-node-call-api-prepare-tenant.md#register-a-web-api-application) that you registered earlier. However, as you'll see later, the complete scopes looks similar to `api://Enter_the_Web_Api_Application_Id_Here/.default`.
+Notice that the `scopes` property in the `protectedResources` variable is the resource identifier (application ID URI) of the [web API](how-to-daemon-node-call-api-prepare-tenant.md#register-a-web-api-application) that you registered earlier. However, as you see later, the complete scope URI looks similar to `api://Enter_the_Web_Api_Application_Id_Here/.default`.
 
 ## Acquire an access token
 
@@ -114,7 +114,7 @@ module.exports = {
 ```
 In the code: 
 
-- Prepare the `tokenRequest` and `apiConfig` object. The `tokenRequest` contains the scope for which you request an access token. The scope looks something like `api://Enter_the_Web_Api_Application_Id_Here/.default`. The `apiConfig`object contains the endpoint tp your web API.
+- Prepare the `tokenRequest` and `apiConfig` object. The `tokenRequest` contains the scope for which you request an access token. The scope looks something like `api://Enter_the_Web_Api_Application_Id_Here/.default`. The `apiConfig`object contains the endpoint to your web API. Learn more about [OAuth 2.0 client credentials flow](../../develop/v2-oauth2-client-creds-grant-flow.md).
 
 - You create a confidential client instance by passing the `msalConfig` object to the [ConfidentialClientApplication](/javascript/api/@azure/msal-node/confidentialclientapplication#constructors) class' constructor.
 
@@ -122,7 +122,7 @@ In the code:
     const cca = new msal.ConfidentialClientApplication(msalConfig);
     ```
 
-- You then use the the [acquireTokenByClientCredential](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
+- You then use the [acquireTokenByClientCredential](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
 
     ```javascript
     cca.acquireTokenByClientCredential(tokenRequest);
@@ -172,7 +172,7 @@ In this code, you make a call to the web API, by passing the access token as a b
 
 You use the access token you acquire earlier in [Acquire an access token](#acquire-an-access-token). 
 
-Once the web API receives the request, it will evaluate it then determines that it's an application request. If the access token is valid, the web API returns requested data. Otherwise, the API returns a `401 Unauthorized` HTTP error.
+Once the web API receives the request, it evaluates it then determines that it's an application request. If the access token is valid, the web API returns requested data. Otherwise, the API returns a `401 Unauthorized` HTTP error.
 
 ## Finalize your daemon app
 
@@ -219,7 +219,7 @@ async function main() {
 main();
 ```
 
-This code is the entry point to your app. You use [Yargs](https://www.npmjs.com/package/yargs) command-line argument parsing library for Node.js apps to interactively fetch an access token, then call API. You use the `getToken` and `callApi` functions you defined earlier:
+This code is the entry point to your app. You use the [yargs](https://www.npmjs.com/package/yargs) command-line argument parsing library for Node.js apps to interactively fetch an access token, then call API. You use the `getToken` and `callApi` functions you defined earlier:
 
 ```javascript            
 const authResponse = await auth.getToken(auth.tokenRequest);
@@ -230,7 +230,7 @@ console.log(todos);
 
 At this point, you're ready to test your client daemon app and web API:
 
-1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the `authConfig.js` file, make sure you update the file to use the your wen API port number. 
+1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the `authConfig.js` file, make sure you update the file to use your web API's port number. 
 
 1. In your terminal, make sure you're in the project folder that contains your daemon Node app such as `ciam-call-api-node-daemon`, then run the following command: 
 

@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Call an API in your Node.js daemon application
 
-In this article, you learn how to acquire an access token, then call an a web API your own Node.js daemon application that you build. You add authorization to your web application against your Azure Active Directory (Azure AD) for customers tenant. 
+In this article, you learn how to acquire an access token, then call a web API in your own Node.js daemon application. You add authorization to your daemon application against your Azure Active Directory (Azure AD) for customers tenant. 
 
 We've organized the content into three separate articles so it's easy for you to follow: 
 
@@ -34,7 +34,7 @@ The [OAuth 2.0 client credentials grant flow](../../develop/v2-oauth2-client-cre
 
 The client credentials grant flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
 
-The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authorization to your node web application.
+The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authorization to your node daemon application.
 
 
 ## Prerequisites
