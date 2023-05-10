@@ -94,7 +94,7 @@ az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Mi
 Delete any exisiting locks using the following command.
 
 ```azurecli
-az lock delete --resource-group jordan-rg --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+az lock delete --resource-group $VNET_RG --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
 ```
 
 For related commands to check if your subscription or resource group has locks, see [Azure CLI reference for locks](../../azure-resource-manager/management/lock-resources.md#azure-cli).
