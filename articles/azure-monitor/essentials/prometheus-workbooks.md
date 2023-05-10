@@ -1,5 +1,5 @@
 ---
-title: Query Prometheus metrics using Azure workbooks (preview)
+title: Query Prometheus metrics using Azure workbooks
 description: Query Prometheus metrics in the portal using Azure Workbooks.
 author: EdB-MSFT
 ms.topic: conceptual
@@ -7,7 +7,7 @@ ms.date: 01/18/2023
 ms.author: edbaynash
 ---
 
-# Query Prometheus metrics using Azure workbooks (preview)
+# Query Prometheus metrics using Azure workbooks
 
 Create dashboards powered by Azure Monitor managed service for Prometheus using [Azure Workbooks](../visualize/workbooks-overview.md).
 This article introduces workbooks for Azure Monitor workspaces and shows you how to query Prometheus metrics using Azure workbooks and the Prometheus query language (PromQL).
@@ -48,7 +48,7 @@ Workbooks supports many visualizations and Azure integrations. For more informat
 1.  Select **New**.
 1.	In the new workbook, select **Add**, and select **Add query** from the dropdown.
 :::image type="content" source="./media/prometheus-workbooks/prometheus-workspace-add-query.png" alt-text="A screenshot showing the add content dropdown in a blank workspace.":::    
-1. Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to set the source scope the data they present. To query Prometheus metrics, select the  **Data source** dropdown, and choose **Prometheus (preview)** .
+1. Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to set the source scope the data they present. To query Prometheus metrics, select the  **Data source** dropdown, and choose **Prometheus** .
 1.	From the **Azure Monitor workspace** dropdown, select your workspace.
 1.	Select your query type from **Prometheus query type** dropdown.
 1.	Write your PromQL query in the **Prometheus Query** field. 
@@ -66,6 +66,6 @@ If your workbook query does not return data:
 
 
 ## Next steps
-* [Collect Prometheus metrics from AKS cluster (preview)](./prometheus-metrics-enable.md)
-* [Azure Monitor workspace (preview)](./azure-monitor-workspace-overview.md)
-* [Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana using managed system identity](./prometheus-grafana.md)
+* [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
+* [Azure Monitor workspace](./azure-monitor-workspace-overview.md)
+* [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](./prometheus-grafana.md)
