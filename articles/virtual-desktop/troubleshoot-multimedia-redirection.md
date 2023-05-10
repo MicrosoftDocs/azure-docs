@@ -3,7 +3,7 @@ title: Troubleshoot Multimedia redirection on Azure Virtual Desktop - Azure
 description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/11/2023
+ms.date: 05/10/2023
 ms.author: helohr
 manager: femila
 ---
@@ -13,7 +13,7 @@ manager: femila
 > Multimedia Redirection Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
+This article describes known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
 
 ## Known issues and limitations
 
@@ -56,7 +56,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - When disconnecting from a remote session, call redirection might stop working. You can make redirection start working again by refreshing the webpage.
 
-- If you enabled the **Enable video playback for all sites** setting in the MMR extension pop-up and see issues on a supported WebRTC audio calling site, disable the setting and try again.
+- If you enabled the **Enable video playback for all sites** setting in the multimedia redirection extension pop-up and see issues on a supported WebRTC audio calling site, disable the setting and try again.
 
 ## Log collection
 

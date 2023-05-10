@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/10/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -13,7 +13,7 @@ manager: femila
 > Multimedia Redirection Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
+This article will show you how to use multimedia redirection for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 - Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 - Windows Desktop client, version 1.2.3916 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. This includes the multimedia redirection plugin (`C:\Program Files\Remote Desktop\MsMmrDVCPlugin.dll`), which is required on the client device. Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
-To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
+To use multimedia redirection video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-To use MMR WebRTC call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
+To use multimedia redirection WebRTC call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
 
 ## Install the multimedia redirection extension
 
@@ -38,7 +38,7 @@ To install the host component on your session hosts, you can install the MSI man
 
 1. Sign in to a session host as a local administrator.
 
-1. Download the [MMR host MSI installer](https://aka.ms/avdmmr/msi).
+1. Download the [multimedia redirection host MSI installer](https://aka.ms/avdmmr/msi).
 
 1. Open the file that you downloaded to run the setup wizard.
 
@@ -156,7 +156,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 ## Configure call redirection (preview) for the Remote Desktop client only
 
-If you want to test the MMR call redirection (preview) feature, you first need to configure the Remote Desktop client to use Insider features, then enable the feature. You won't be able to use the feature unless you have Insider features enabled.
+If you want to test the multimedia redirection call redirection (preview) feature, you first need to configure the Remote Desktop client to use Insider features, then enable the feature. You won't be able to use the feature unless you have Insider features enabled.
 
 To enable Insider features, follow the instructions in [Enable Windows Insider releases](./users/client-features-windows.md#enable-windows-insider-releases).
 
@@ -164,13 +164,13 @@ To enable Insider features, follow the instructions in [Enable Windows Insider r
 
 Once you've installed the extension, you can check its status by visiting a website with media content, such as one from the list at [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the multimedia redirection extension icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
 
-:::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the MMR extension in the Microsoft Edge extension bar.":::
+:::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the multimedia redirection extension in the Microsoft Edge extension bar.":::
 
 ### Features supported on current page
 
 To find out what kinds of redirections are enabled on the webpage you're visiting, you can open up the extension menu and look for the section named **Features supported on current page**. If a feature is currently enabled, you'll see a green check mark next to it, as shown in the following screenshot.
 
-:::image type="content" source="./media/extension-menu-enabled.png" alt-text="A screenshot of the MMR extension menu. Both video playback redirection and call redirection are enabled, shown by a green circle with a white check mark inside next to each of them.":::
+:::image type="content" source="./media/extension-menu-enabled.png" alt-text="A screenshot of the multimedia redirection extension menu. Both video playback redirection and call redirection are enabled, shown by a green circle with a white check mark inside next to each of them.":::
 
 ## Teams live events
 
@@ -180,15 +180,15 @@ To use multimedia redirection with Teams live events:
 
 1. Open the link to the Teams live event in either the Edge or Chrome browser.
 
-1. Make sure you can see a green play icon as part of the [multimedia redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green play icon is there, MMR is enabled for Teams live events.
+1. Make sure you can see a green play icon as part of the [multimedia redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green play icon is there, multimedia redirection is enabled for Teams live events.
 
-1. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the native Teams app, MMR won't work.
+1. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the native Teams app, multimedia redirection won't work.
 
    :::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
 ## Advanced settings
 
-The following sections describe additional settings you can configure in MMR.
+The following sections describe additional settings you can configure in multimedia redirection.
 
 ## Video playback redirection
 
