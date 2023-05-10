@@ -49,6 +49,7 @@ Now you're ready to select the storage account in the FHIR service as a default 
 ## Step 3: Set import configuration of the FHIR service
 
 FHIR service supports two modes of import, Initial import mode and Incremental import mode. Incremental import mode is in public preview, see disclaimer below. 
+
 [!INCLUDE Public Preview Disclaimer]
 
 Initial import mode is optimized to load large volume of resources, it's primarily intended to load data into an empty FHIR server. During initial mode, the API writes to FHIR server are blocked. Incremental import is optimized to load data to FHIR server in parallel with API CRUD operations being executed on same server.
