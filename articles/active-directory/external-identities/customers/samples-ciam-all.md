@@ -33,7 +33,7 @@ These samples and how-to guides demonstrate how to integrate a single-page appli
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
 > | JavaScript, Vanilla | &#8226; [Sign in users](how-to-single-page-app-vanillajs-sample-sign-in.md) | &#8226; [Sign in users](how-to-single-page-app-vanillajs-prepare-tenant.md) |
-> | JavaScript, Angular | &#8226; [Sign in users](how-to-single-page-application-angular-sample.md) |  ---  |
+> | JavaScript, Angular | <!--&#8226; [Sign in users](how-to-single-page-application-angular-sample.md)--> |  ---  |
 > | JavaScript, React | &#8226; [Sign in users](how-to-single-page-application-react-sample.md) | &#8226; [Sign in users](how-to-single-page-application-react-prepare-tenant.md)   |
 
 ### Web app
@@ -74,7 +74,7 @@ These samples and how-to guides demonstrate how to write a desktop application t
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Electron | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md) | ---   |
-> | ASP.NET (MAUI) | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | ---   |
+> | ASP.NET (MAUI) | <!--&#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md)--> | ---   |
 
 ### Mobile
 
@@ -83,7 +83,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
-> | ASP.NET Core MAUI | &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) |  ---  |
+> | ASP.NET Core MAUI | <!--&#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md)--> |  ---  |
 
 ### Daemon
 
@@ -92,7 +92,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
-> | Node.js | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  &#8226; [Call an API](how-to-daemon-node-call-api-overview.md)  |
+> | Node.js | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  <!--&#8226; [Call an API](how-to-daemon-node-call-api-overview.md)-->  |
 
 # [**By language/platform**](#tab/language)
 
@@ -117,8 +117,8 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | Desktop | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | ---   |
-> | Mobile |  &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) |  ---  |
+> | Desktop | <!--&#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md)--> | ---   |
+> | Mobile |  <!--&#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md)--> |  ---  |
 
 
 ### JavaScript, Vanilla
@@ -133,7 +133,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | Single-page application | &#8226; [Sign in users](how-to-single-page-application-angular-sample.md) |  ---  |
+> | Single-page application | <!--&#8226; [Sign in users](how-to-single-page-application-angular-sample.md)--> |  ---  |
 
 ### JavaScript, React
 
@@ -148,7 +148,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
 > | Browserless | &#8226; [Sign in users](how-to-browserless-app-node-sample-sign-in.md)   | &#8226; [Sign in users](how-to-browserless-app-node-sign-in-overview.md )   |
-> | Daemon | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  &#8226; [Call an API](how-to-daemon-node-call-api-overview.md)  |
+> | Daemon | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  <!--&#8226; [Call an API](how-to-daemon-node-call-api-overview.md)-->  |
 
 
 ### JavaScript, Node.js (Express)
