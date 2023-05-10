@@ -45,6 +45,8 @@ items:
         href: /python/api/overview/azure/event-grid
       - name: Node.js
         href: /javascript/api/overview/azure/event-grid
+      - name: Quotas and limits
+        href: quotas-limits.md        
       - name: Monitoring data reference (pull delivery)
         href: monitor-pull-reference.md
     - name: Resources
@@ -437,10 +439,10 @@ items:
         href: /python/api/overview/azure/event-grid
       - name: Node.js
         href: /javascript/api/overview/azure/event-grid
-      - name: Monitoring data reference (push delivery)
-        href: monitor-push-reference.md
       - name: Quotas and limits
         href: quotas-limits.md
+      - name: Monitoring data reference (push delivery)
+        href: monitor-push-reference.md
       - name: Subscription schema
         href: subscription-creation-schema.md
       - name: Template resources
