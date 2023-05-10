@@ -61,7 +61,7 @@ Partner topics are a kind of topic used to subscribe to events published by a [p
 
 ## Event subscriptions
 
-A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event Subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md).Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
+A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
 
 For examples of creating subscriptions for custom, system, and partner topics as well as Domains, see:
 
@@ -98,11 +98,11 @@ When you use a custom topic, events must always be published in an array. This c
 
 ## Inline event type definitions
 
-If you are a [partner](partner-events-overview-for-partners.md), you can define the event types that you are making available to customers when you create a Channel. With inline event type definitions, subscribers can easily filter events given their event type when configuring an event subscription.
+If you're a [partner](partner-events-overview-for-partners.md), you can define the event types that you're making available to customers when you create a Channel. With inline event type definitions, subscribers can easily filter events given their event type when configuring an event subscription.
 
 ## Availability zones
 
-Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. See [Regions and availability zones](../availability-zones/az-overview.md) for more information about availability zones.
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
 
 ## Next steps
 
