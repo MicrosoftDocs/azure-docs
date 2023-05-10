@@ -18,25 +18,21 @@ Use this quickstart to create a sentiment analysis application with the client l
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Node.js](https://nodejs.org/) v14 LTS or later
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Setting up
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
 
 [!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ### Create a new Node.js application
 
@@ -62,8 +58,7 @@ Install the npm packages:
 npm install @azure/ai-language-text
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 ## Code example
 
@@ -129,8 +124,7 @@ main().catch((err) => {
 });
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ## Output
 
@@ -171,8 +165,7 @@ main().catch((err) => {
 
 [!INCLUDE [clean up environment variables](../../../includes/clean-up-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 
