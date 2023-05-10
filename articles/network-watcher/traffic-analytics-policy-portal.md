@@ -21,7 +21,7 @@ In this article, you learn how to use three built-in policies available for [Azu
 
 **Network Watcher flow logs should have traffic analytics enabled** policy audits all existing Azure Resource Manager objects of type `Microsoft.Network/networkWatchers/flowLogs` and checks if traffic analytics is enabled via the `networkWatcherFlowAnalyticsConfiguration.enabled` property of the flow logs resource. It flags the flow logs resource that has the property set to false.
 
-To assign policy and audit your flow logs, use the following steps:
+To assign policy and audit your flow logs, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -71,7 +71,7 @@ There are two *deployIfNotExists* policies available to configure NSG flow logs:
 > [!NOTE]
 > Network Watcher is a regional service so the two *deployIfNotExists* policies will apply to network security groups that exist in a particular region. For network security groups in a different region, create another policy assignment in that region.
 
-To assign any of the *deployIfNotExists* two policies, repeat steps 1-4 from the [previous section](#audit) and then continue with the following steps: 
+To assign any of the *deployIfNotExists* two policies, follow these steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -126,8 +126,8 @@ To assign any of the *deployIfNotExists* two policies, repeat steps 1-4 from the
     | Scope | Select the scope of your user assigned identity. |
     | Existing user assigned identities | Select your user assigned identity. |
 
-> [!NOTE]
-> You need *Contributor* or *Owner* permission to use this policy.
+    > [!NOTE]
+    > You need *Contributor* or *Owner* permission to use this policy.
 
     :::image type="content" source="./media/traffic-analytics-policy-portal/assign-deploy-policy-remediation.png" alt-text="Screenshot of the Remediation tab of assigning a deploy policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/assign-deploy-policy-remediation.png":::
 
