@@ -163,9 +163,9 @@ In this example, the vectorIndex is returned along with all the cosmosSearch par
 
 ## Features and limitations
 
-* Can index vectors up to 2,000 dimensions in size.
 * Supported distance metrics: L2 (Euclidean), inner product, and cosine.
 * Supported indexing methods: IVFFLAT.
+* Indexing vectors up to 2,000 dimensions in size.
 * Indexing applies to only one vector per document.
 
 ## Next steps
