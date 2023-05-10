@@ -67,13 +67,13 @@ After you create your ExpressRoute, configure direct connectivity between Expres
 1. Create a Dynamic Routing Gateway (DRG). You need this gateway when you create your FastConnect circuit. For more information, see [Dynamic Routing Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
 1. Create a FastConnect circuit under your Oracle tenant. For more information, see [Access to Microsoft Azure](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-   - Under FastConnect configuration, select **Microsoft Azure: ExpressRoute** as the provider.
-   - Select the Dynamic Routing Gateway that you provisioned in the previous step.
-   - Select the bandwidth to be provisioned. For optimal performance, the bandwidth must match the bandwidth selected when creating the ExpressRoute circuit.
-   - In **Provider Service Key**, paste the ExpressRoute service key.
-   - Use the first `/30` private IP address space carved out in a previous step for the **Primary BGP IP Address** and the second `/30` private IP address space for the **Secondary BGP IP Address**.
-   - Assign the first useable address of the two ranges for the Oracle BGP IP Address (primary and secondary) and the second address to the customer BGP IP Address from a FastConnect perspective. The first useable IP address is the second IP address in the `/30` address space. Microsoft reserves the first IP address.
-   - Select **Create**.
+   1. Under FastConnect configuration, select **Microsoft Azure: ExpressRoute** as the provider.
+   1. Select the Dynamic Routing Gateway that you provisioned in the previous step.
+   1. Select the bandwidth to be provisioned. For optimal performance, the bandwidth must match the bandwidth selected when creating the ExpressRoute circuit.
+   1. In **Provider Service Key**, paste the ExpressRoute service key.
+   1. Use the first `/30` private IP address space carved out in a previous step for the **Primary BGP IP Address** and the second `/30` private IP address space for the **Secondary BGP IP Address**.
+   1. Assign the first useable address of the two ranges for the Oracle BGP IP Address (primary and secondary) and the second address to the customer BGP IP Address from a FastConnect perspective. The first useable IP address is the second IP address in the `/30` address space. Microsoft reserves the first IP address.
+   1. Select **Create**.
 
 1. Complete linking the FastConnect to virtual cloud network under your Oracle tenant with Dynamic Routing Gateway, using Route Table.
 1. Navigate to Azure and ensure that the **Provider Status** for your ExpressRoute circuit has changed to **Provisioned** and that a peering of type **Azure private** has been provisioned. This status is a prerequisite for the following step.
