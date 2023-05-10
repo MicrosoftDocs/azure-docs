@@ -18,6 +18,8 @@ Namespace is a tracked resource with 'tags' and a 'location' properties, and onc
 
 Using the namespace, you can organize the subresources into logical groups and manage them as a single unit in your Azure subscription.  Deleting a namespace deletes all the subresources encompassed within the namespace.
 
+The name of the namespace can be 3-50 characters long.  It can include alphanumeric, and hyphen(-), and no spaces.  The name needs to be unique per region.
+
 ## Client
 
 Client is a device or an application that can publish and/or subscribe MQTT messages.

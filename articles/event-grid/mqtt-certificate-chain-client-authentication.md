@@ -19,6 +19,21 @@ In this guide, you perform the following tasks:
   -	You need an Event Grid Namespace already created.
   -	You need a CA certificate chain:  Client certificates and the parent certificate (typically an intermediate certificate) that was used to sign the client certificates.
 
+## Generate sample client certificate and thumbprint
+If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/).  Consider installing manually for Windows.
+
+Once you installed Step, in Windows PowerShell, run the command to create root and intermediate certificates.
+
+```powershell
+.\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
+```
+
+Using the CA files generated to create certificate for the client.
+
+```powershell
+.\step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+```
+
 ## Upload the CA certificate to the namespace
 1. In Azure portal, navigate to your Event Grid namespace.
 2. Under the MQTT section in left rail, navigate to CA certificates menu.
@@ -26,6 +41,12 @@ In this guide, you perform the following tasks:
 :::image type="content" source="./media/mqtt-certificate-chain-client-authentication/event-grid-namespace-upload-certificate-authority-certificate.png" alt-text="Screenshot showing the CA certificate page under MQTT section in Event Grid namespace.":::
 
 3. Select **+ Certificate** to launch the Upload certificate page.
+
+> [!NOTE]
+> - CA certificate name can be 3-50 characters long.
+> - CA certificate name can include alphanumeric, hyphen(-) and, no spaces.
+> - The name needs to be unique per namespace.
+
 4. On the Upload certificate page, give a Certificate name and browse for the certificate file.
 5. Select **Upload** button to add the parent certificate.
 
