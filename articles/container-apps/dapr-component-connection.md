@@ -12,13 +12,13 @@ ms.custom: template-tutorial, service-connector
 
 # Connect to Azure services via Dapr components in the Azure portal
 
-Using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/), you can use the Azure Container App portal for an improved experience for authoring Dapr components. 
+Using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/), you can author Dapr components via an improved component creation feature in the Azure Container App portal. 
 
 With this new component creation feature, you no longer need to know or remember the Dapr open source metadata concepts. Instead, you simply enter the component information while Service Connector automatically maps your entries to the required component metadata. By managing component creation for you, this feature:
 - Reduces the likelihood for misconfiguration 
 - Simplifies the process for developers 
 
-This guide demonstrates selecting:
+This guide demonstrates creating a Dapr component by selecting:
 - Pub/sub as component type 
 - Azure Service Bus as the component
 
@@ -74,18 +74,23 @@ Now that you've filled out these required fields, Service Connector and Dapr can
 
 While Service Connector automatically populates all required metadata for the component, you can also customize the component by adding optional metadata. 
 
-1. To further customize the component with optional metadata or to limit which container apps can use this component, select **Next : Metadata + Scopes**. 
-   1. Under **Metadata**, select **Add** to select extra, optional metadata for your Dapr component from a drop-down of supported fields. 
-   1. Under **Scopes**, select **Add** or type in the app IDs for the container apps that you want to load this component.
-      - By default, when the scope is unspecified, Dapr will apply the component to all app IDs.
+1. Select **Next : Metadata + Scopes**. 
+   
+1. Under **Metadata**, select **Add** to select extra, optional metadata for your Dapr component from a drop-down of supported fields. 
+   
+1. Under **Scopes**, select **Add** or type in the app IDs for the container apps that you want to load this component.
+   - By default, when the scope is unspecified, Dapr applies the component to all app IDs.
 
-1. Select **Review + Create**, review the component values, and select **Create**. 
+1. Select **Review + Create** to review the component values.
+
+1. Select **Create**. 
 
 ### Save the component YAML
 
 Once the component has been added to the Container Apps environment, the portal displays the YAML (or Bicep) for the component. 
 
 1. Copy and save the YAML file for future use.
+
 1. Select **Done** to exit the configuration pane. 
 
 You can then check the YAML/Bicep artifact into a repo and recreate it outside of the portal experience.
