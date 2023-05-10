@@ -35,7 +35,7 @@ There are multiple possible end states to your migration, depending on your goal
 |User authentication  |Continue to use federation for Azure AD authentication. | Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** Seamless single sign-on (SSO).| Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** SSO. |
 |Application authentication | Continue to use AD FS authentication for your applications. | Continue to use AD FS authentication for your applications. | Move apps to Azure AD before migrating to Azure AD Multi-Factor Authentication. |
 
-If you can, move both your multifactor authentication and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md). 
+If you can, move both your multifactor authentication and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-mfa-user-authentication.md). 
 
 If you can’t move your user authentication, see the step-by-step guidance for [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md).
 
@@ -158,6 +158,6 @@ Others might include:
 ## Next steps
 
 - [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md)
-- [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md)
+- [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-mfa-user-authentication.md)
 - [How to use the MFA Server Migration Utility](how-to-mfa-server-migration-utility.md)
 
