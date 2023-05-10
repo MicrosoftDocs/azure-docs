@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 05/09/2023
 ms.author: cwerner
 ms.reviewer: oldalton
 ms.custom: aaddev
@@ -177,13 +177,17 @@ When the authority URL is set to `"login.microsoftonline.com/common"`, the user 
 
 To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority. For example:
 
-`https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
+`https://login.microsoftonline.com/dddd5555-eeee-6666-ffff-00001111aaaa`
 
-The following shows how to sign a user into a specific tenant:
+If you want to sign into the Contoso tenant, use;
+
+`https://login.microsoftonline.com/contoso.onmicrosoft.com`
+
+The following shows how to sign a user into the Contoso tenant:
 
 Objective-C
 ```objc
-    NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4"];
+    NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/contoso.onmicrosoft.com"];
     MSALAADAuthority *tenantedAuthority = [[MSALAADAuthority alloc] initWithURL:authorityURL error:&authorityError];
     
     if (!tenantedAuthority)
@@ -209,7 +213,7 @@ Objective-C
 Swift
 ```swift
 do{
-    guard let authorityURL = URL(string: "https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4") else {
+    guard let authorityURL = URL(string: "https://login.microsoftonline.com/contoso.onmicrosoft.com") else {
         //Handle error
         return
     }    
