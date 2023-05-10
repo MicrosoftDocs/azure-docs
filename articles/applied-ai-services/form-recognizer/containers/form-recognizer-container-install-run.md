@@ -37,7 +37,7 @@ In this article you learn how to download, install, and run Form Recognizer cont
 
 > [!IMPORTANT]
 >
-> Form Recognizer v3.0 containers are now generally available. If you are getting started with containers, consider using the v3 containers. [applies to v3.0](../includes/applies-to-v3-0.md)
+> Form Recognizer v3.0 containers are now generally available. If you are getting started with containers, consider using the v3 containers.
 
 In this article you learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements.
 
