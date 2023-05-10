@@ -12,6 +12,12 @@ Client groups allow you to group a set of client together based on commonalities
 
 In a namespace, we provide a default client group named "$all".  The client group includes all the clients in the namespace.  For ease of testing, you can use $all to configure permissions.
 
+> [!NOTE]
+> - Client group name can be 3-50 characters long
+> - Client group name can include alphanumeric, hyphen(-) and, no spaces
+> - Client group name needs to be unique per namespace
+> - `$all` is the default client group that includes all the clients in the namespace. This group cannot be edited or deleted
+
 ## Client group considerations
 
 You should keep the quantity of client groups small to make permissions manageable.
