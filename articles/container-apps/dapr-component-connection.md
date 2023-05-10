@@ -14,7 +14,9 @@ ms.custom: template-tutorial, service-connector
 
 Using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/), you can author Dapr components via an improved component creation feature in the Azure Container App portal. 
 
-With this new component creation feature, you no longer need to know or remember the Dapr open source metadata concepts. Instead, you simply enter the component information while Service Connector automatically maps your entries to the required component metadata. By managing component creation for you, this feature:
+With this new component creation feature, you no longer need to know or remember the Dapr open source metadata concepts. Instead, you enter the component information in the easy component creation pane while Service Connector automatically maps your entries to the required component metadata. 
+
+By managing component creation for you, this feature:
 - Reduces the likelihood for misconfiguration 
 - Simplifies the process for developers 
 
@@ -43,16 +45,14 @@ Start by navigating to the Dapr component creation feature.
 
 ### Provide required metadata
 
-To enable Service Connector to map to the required component metadata, start by selecting the following from pre-defined dropdowns:
-- The type of component (pub/sub, binding, etc.) that match the [Dapr building block](https://docs.dapr.io/developing-applications/building-blocks/) you wish to use 
-- An existing Azure service in your subscription that matches the component type 
+For Service Connector to map to the required component metadata, you need to provide the required metadata from predefined dropdowns in the **Basics** tab.
 
-In the **Basics** tab, enter the Dapr component details. For example, for a pub/sub Azure Service Bus component:
+For example, for a pub/sub Azure Service Bus component, you'll start with the following fields:
 
 | Field | Example | Description |
 | ----- | ------- | ----------- |
 | Component name | mycomponent | Enter a name for your Dapr component. The name must match the component referenced in your application code. |
-| Building block | Pub/sub | Select the building block/API for your component from the drop-down. |
+| Building block | Pub/sub | Select the [building block/API](https://docs.dapr.io/developing-applications/building-blocks/) for your component from the drop-down. |
 | Component type | Service Bus | Select a component type from the drop-down. |
 
 The component creation pane populates with different fields depending on the building block and component type you select. For example, the following table and image demonstrate the fields associated with an Azure Service Bus pub/sub component type, but the fields you see may vary.  
