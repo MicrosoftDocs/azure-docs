@@ -16,7 +16,7 @@ Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that e
 
 Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
 
-In this quickstart, you create a manual or scheduled job. To learn how to create an event-driven job, see [Tutorial: Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
+In this quickstart, you create a manual or scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
 
 [!INCLUDE [container-apps-create-cli-steps-jobs.md](../../includes/container-apps-create-cli-steps-jobs.md)]
 

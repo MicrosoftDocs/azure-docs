@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/05/2023
 ms.author: cshoe
-ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, references_regions
+ms.custom: references_regions
 ---
 
 # Tutorial: Deploy an event-driven job with Azure Container Apps
@@ -159,7 +159,7 @@ To verify the job was configured correctly, you can send some messages to the qu
         --output json
     ```
 
-    Because the job is configured to evaluate the scale rule every 60 seconds, it may take up to 60 seconds for the job execution to start. Repeat the command until you see the job execution and its status is `Succeeded`.
+    Since the job is configured to evaluate the scale rule every 60 seconds, it may take up to a full minute for the job execution to start. Repeat the command until you see the job execution and its status is `Succeeded`.
 
 1. Run the following commands to see logged messages. These commands require the Log analytics extension, so accept the prompt to install extension when requested.
 
