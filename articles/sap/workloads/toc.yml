@@ -13,11 +13,11 @@ items:
         href: planning-supported-configurations.md
       - name: Supported SAP software for Azure deployments
         href: supported-product-on-azure.md
-      - name: Checklist for deploying SAP workloads on Azure
+      - name: Checklist to deploy an SAP workload on Azure
         href: deployment-checklist.md
-      - name: Plan and implement SAP NetWeaver on Azure
+      - name: Plan and implement an SAP deployment on Azure
         href: planning-guide.md
-      - name: Deploy SAP NetWeaver applications
+      - name: Deploy an SAP workload on Azure
         href: deployment-guide.md
       - name: SAP Business One on Azure VMs
         href: business-one-azure.md
