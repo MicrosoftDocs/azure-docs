@@ -25,14 +25,14 @@ The Responsible AI image dashboards are linked to your registered computer visio
 
 Some features of the Responsible AI image dashboard require dynamic, on-the-fly, and real-time computation. When you [connect to a compute resource](how-to-responsible-ai-dashboard.md#enable-full-functionality-of-the-responsible-ai-dashboard) you enable full functionality of unique components to the image scenario:
 
-- For object detection, setting an Intersection of Union threshold is disabled by default, and only enabled if a compute resource is attached. 
+- For object detection, setting an Intersection of Union threshold is disabled by default, and only enabled if a compute resource is attached.
 - Enable pre-computing of all model explanations when submitting a DPv2 job, instead of loading explanations on-demand.
 
 You can also find this information on the Responsible AI dashboard page by selecting the Information icon, as shown in the following image:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-view-full-functionality.png" alt-text="Screenshot of the 'Information' icon on the Responsible AI dashboard.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-view-full-functionality.png" alt-text="Screenshot of the Information icon on the Responsible AI dashboard.":::
 
-## Overview of features in the Responsible AI Image dashboard
+## Overview of features in the Responsible AI image dashboard
 
 The Responsible AI dashboard includes a robust, rich set of visualizations and functionality to help you analyze your machine learning model or make data-driven business decisions:
 
@@ -41,7 +41,7 @@ The Responsible AI dashboard includes a robust, rich set of visualizations and f
 - Data explorer
 - Model interpretability
 
-## Error Analysis
+## Error analysis
 
 Error analysis tools are available for image classification and multi-classification to accelerate detection of fairness errors and identify under/overrepresentation in your dataset. Instead of passing in tabular data, you can run error analysis on specified image metadata features by including metadata as additional columns in your mltable dataset. To learn more about error analysis, see [Assess errors in machine learning models](concept-error-analysis.md).
 
@@ -95,7 +95,7 @@ Feature cohorts for multiclass classification:
 
 Feature cohorts for object detection:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png" alt-text=" Screenshot of feature cohorts for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png" alt-text="Screenshot of feature cohorts for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png":::
 
 ## Data explorer
 
@@ -119,11 +119,11 @@ Since correctness in the Data Explorer depends on classification label, if objec
 
 Image explorer for multilabel classification:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-multilabel.png" alt-text=" Screenshot of image explorer for multilabel classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-multilabel.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-multilabel.png" alt-text="Screenshot of image explorer for multilabel classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-multilabel.png":::
 
 Image explorer for object detection:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-object.png" alt-text=" Screenshot of image explorer for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-object.png" alt-text="Screenshot of image explorer for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer-object.png":::
 
 - **Select a dataset cohort to explore**: View images across all data or for specific user-defined cohorts.
 - **Set thumbnail size**: Adjust the size of image cards displayed in this page.
@@ -137,15 +137,15 @@ By selecting an image card, you can access a flyout to view the following compon
 
 Explanations for multiclass classification:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-multiclass.png" alt-text=" Screenshot of selected instance with an image of a can and the explanation for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-multiclass.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-multiclass.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-multiclass.png":::
 
 Explanations for object detection:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text=" Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
 
 - **View predicted and ground truth outcomes**: In comma-separated format, view the predicted & corresponding ground truth class label for the image or objects in the image.
 - **Metadata**: View image metadata values for the selected instance.
-- **Explanation**: View a visualization (SHAP feature attributions – image classification & multiclassification, D-Rise saliency map – object detection) to gain insight on model behavior leading to the execution of a computer vision task.
+- **Explanation**: View a visualization (SHAP feature attributions – image classification & multi-classification, D-Rise saliency map – object detection) to gain insight on model behavior leading to the execution of a computer vision task.
 
 ### Table view
 

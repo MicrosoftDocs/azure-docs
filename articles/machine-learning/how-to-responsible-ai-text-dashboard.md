@@ -36,7 +36,7 @@ Each component has a variety of tabs and buttons. The article will help to famil
 
 Selecting the **Cohort settings** button reveals a side panel with details on all existing cohorts.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-setting.png" alt-text="Screenshot the cohort setting side panel.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-setting.png" alt-text="Screenshot of the cohort setting side panel.":::
 
 1. **Switch cohort:** allows you to select a different cohort and view its statistics in a popup.
 2. **New cohort:** allows you to add a new cohort.
@@ -44,7 +44,7 @@ Selecting the **Cohort settings** button reveals a side panel with details on al
 
 Selecting the **Dashboard settings** button reveals a side panel with details on the dashboard layout.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/dashboard-configuration.png" alt-text="Screenshot the dashboard configuration.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/dashboard-configuration.png" alt-text="Screenshot of the dashboard configuration.":::
 
 1. **Dashboard components:** lists the name of the component.
 2. **Delete:** removes the component from the dashboard.
@@ -58,14 +58,14 @@ Selecting the **Switch cohort** button on the dashboard or in the *Cohort settin
 
 Selecting the **Create new cohort** button on the top of the Toolbox or in the *Cohort settings* sidebar creates a sidebar that allows you to do that.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png" alt-text="Screenshot of the cohort sidebars." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png" alt-text="Screenshot of cohort sidebars highlighting the location of the following settings." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png":::
 
 1. **Index:** filters by the position of the datapoint in the full dataset.
 2. **Dataset:** filters by the value of a particular feature in the dataset.
 3. **Predicted Y:** filters by the prediction made by the model.
 4. **True Y:** filters by the actual value of the target feature.
 5. **Classification Outcome:** for classification problems, filters by type and accuracy of classification.
-6. **Numerical Values:** filter by a Boolean operation over the values (i.e. select datapoints where age < 64).
+6. **Numerical Values:** filter by a Boolean operation over the values (select datapoints where age < 64).
 7. **Categorical Values:** filter by a list of values that should be included.
 
 ## Tree view
@@ -73,7 +73,7 @@ Selecting the **Create new cohort** button on the top of the Toolbox or in the *
 The first tab of the Error Analysis component is the tree view, which illustrates how model failure is distributed across different cohorts.
 For text data, the tree view is trained on tabular features extracted from text data and any additional metadata features brought in by users.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png" alt-text="Screenshot of the error analysis component in the tree view.." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png" alt-text="Screenshot of the error analysis component in the tree view." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png":::
 
 - **Heatmap view:** switches to heatmap visualization of error distribution.
 - **Feature list:** allows you to modify the features used in the heatmap using a side panel.
@@ -136,7 +136,7 @@ The chart view allows customized aggregate and local data exploration:
 - **Chart type:** specifies whether the plot is aggregating values across all datapoints.
 - **Aggregate plot:** displays data in bins or categories along the x-axis.
 
-Selecting the **Individual datapoints** option under *Chart type* shifts to a disaggregated view of the data. 
+Selecting the **Individual datapoints** option under *Chart type* shifts to a disaggregated view of the data.
 data-analysis-chart-individual-datapoints
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png" alt-text="Screenshot of data analysis on the chart view tab with individual datapoints option highlighted." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png":::
@@ -146,7 +146,7 @@ data-analysis-chart-individual-datapoints
 
 Selecting the labels of the axis displays a popup.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/axis-value.png" alt-text="Screenshot the select your axis value with predicted y selected.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/axis-value.png" alt-text="Screenshot the select your axis value with predicted Y selected.":::
 
 - **Select your axis value:** allows you to select the value displayed on the axis, with the same options and variety as cohort creation
 - **Should dither:** adds optional noise to the data to avoid overlapping points in the scatterplot.

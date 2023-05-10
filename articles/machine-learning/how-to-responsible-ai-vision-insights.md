@@ -1,7 +1,7 @@
 ---
 title: Generate Responsible AI vision insights with YAML and Python in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how to generate a Responsible AI vision insights with Python and YAML in Azure Machine Learning.
+description: Learn how to generate Responsible AI vision insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -36,7 +36,7 @@ Supported scenarios:
 
 The core component for constructing the Responsible AI image dashboard in Azure Machine Learning is the **RAI Vision Insights component**, which differs from how to construct the Responsible AI dashboard for tabular data.
 
-The following sections contain specifications of the RAI vision insights component and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
+The following sections contain specifications of the Responsible AI  vision insights component and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
 
 ## Limitations
 
@@ -199,7 +199,7 @@ Once the pipeline is complete and the Responsible AI dashboard is generated, you
 > For image classification models, methods like XRAI and Integrated gradients usually provide better visual explanations when compared to guided backprop and guided gradCAM, but are much more compute intensive.
 
 ## Understand the Responsible AI image dashboard
- 
+
 To learn more about how to use the Responsible AI image dashboard, see [Responsible AI image dashboard in Azure Machine Learning studio](how-to-responsible-ai-image-dashboard.md).
 
 ## Next steps

@@ -1,7 +1,7 @@
 ---
 title: Generate Responsible AI text insights with YAML and Python in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how to generate a Responsible AI text insights with Python and YAML in Azure Machine Learning.
+description: Learn how to generate Responsible AI text insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -30,7 +30,6 @@ Supported scenarios:
 > Responsible AI Text Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
 ## Responsible AI component
 
 The core component for constructing the Responsible AI text dashboard in Azure Machine Learning is only the Responsible AI text insights component, which is different from how you construct the Responsible AI pipeline for tabular data.
@@ -53,7 +52,7 @@ This component has three major input ports:
 - The training dataset
 - The test dataset
 
-The easiest way to supply the model is to register the input model and reference the same model in the model input port of Responsible AI Text Insights component.  
+The easiest way to supply the model is to register the input model and reference the same model in the model input port of Responsible AI text insights component.  
 
 The two datasets should be in mltable format. The training and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. 
 
@@ -67,7 +66,7 @@ The Responsible AI text insights component also accepts the following parameters
 | `classes` | The full list of class labels in the training dataset. | Optional list of strings |
 | `enable_explanation` | Enable to generate an explanation for the model.  | Boolean |
 | `enable_error_analysis` | Enable to generate an error analysis for the model.  | Boolean|
-| `use_model_dependency` | The  Responsible AI environment does not include the model dependency, install the model dependency packages when set to True.  | Boolean |
+| `use_model_dependency` | The  Responsible AI environment doesn't include the model dependency, install the model dependency packages when set to True.  | Boolean |
 | `use_conda` | Install the model dependency packages using conda if True, otherwise using pip.  | Boolean |
 
 This component assembles the generated insights into a single Responsible AI text dashboard. There are two output ports:
