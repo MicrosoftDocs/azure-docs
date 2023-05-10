@@ -8,7 +8,7 @@ author: eric-urban
 ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 03/16/2023
 ms.custom: ignite-fall-2021, references_regions
 ---

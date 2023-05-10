@@ -75,7 +75,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. If not installed, add [Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#publish-your-web-app).
+1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app).
 
 1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 
@@ -133,8 +133,6 @@ The default token validation code is configured to use an Azure AD token and req
 ```
 
 ## Next steps
-
-To develop a SCIM-compliant user and group endpoint with interoperability for a client, see [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
 
 - [Tutorial: Validate a SCIM endpoint](scim-validator-tutorial.md)
 - [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)

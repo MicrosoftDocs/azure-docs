@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Node.js web application by using Microsoft Entra
-description: Learn how to configure a sample web app to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in a sample Node.js web application 
+description: Learn how to configure a sample web app to sign in and sign out users.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,15 +16,15 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample Node.js web application by using Microsoft Entra
+# Sign in users in a sample Node.js web application 
 
-This how-to guide uses a sample Node.js web application to show how to add authentication to a web application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js web application to show you how to add authentication to a web application . The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you do the following tasks:
 
 - Register a web application in the Microsoft Entra admin center. 
 
-- Create a sign in and sign out user flow in Microsoft Entra admin center.
+- Create a sign-in and sign-out user flow in Microsoft Entra admin center.
 
 - Associate your web application with the user flow. 
 
@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
 
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
@@ -98,7 +98,7 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
     
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
      
-    1. `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+    1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
      
     1. `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
 
@@ -132,7 +132,7 @@ When users select the **Sign in** link, the app initiates an authentication requ
 
 When the users select the **Sign out** link, the app clears its session, the redirect the user to Azure AD for customers sign-out endpoint to notify it that the user has signed out.   
 
-If you want to build an app similar to the sample you've run, complete the steps in [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md) article. 
+If you want to build an app similar to the sample you've run, complete the steps in [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md) article. 
 
 ## Next steps
 
@@ -144,4 +144,4 @@ You may want to:
  
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
 
-- [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md)
+- [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md)
