@@ -102,15 +102,15 @@ You can now test the sample Node.js browserless app.
 
      :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-sign-in-enter-code.png" alt-text="Screenshot of the enter code prompt in a node browserless application using the device code flow.":::
 
-1. To authenticate, copy the device code from the message in the terminal then paste it in the **Enter Code** prompt. After entering the code, you're be redirected to the sign-in page as follows:
+1. To authenticate, copy the device code from the message in the terminal then paste it in the **Enter Code** prompt. After entering the code, you'll be redirected to the sign-in page as follows:
 
-     :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node browserless application":::
+     :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node browserless application.":::
 
 1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. After completing the sign up flow and signing in, you see a page similar to the following screenshot:
 
-     :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node browserless application":::
+     :::image type="content" source="media/how-to-browserless-app-node-sample-sign-in/browserless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node browserless application.":::
 
 1. Move back to the terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
 
