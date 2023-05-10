@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with InstaVR Viewer | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with InstaVR Viewer'
 description: Learn how to configure single sign-on between Azure Active Directory and InstaVR Viewer.
 services: active-directory
 author: jeevansd

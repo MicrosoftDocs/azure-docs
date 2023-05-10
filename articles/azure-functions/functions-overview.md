@@ -43,6 +43,7 @@ The following are a common, _but by no means exhaustive_, set of scenarios for A
 | **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |
 | **Process data in real time** | Use [Functions and SignalR](./functions-bindings-signalr-service.md) to respond to data in the moment |
+| **Connect to a SQL database** | Use [SQL bindings](./functions-bindings-azure-sql.md) to read or write data from Azure SQL |
 
 These scenarios allow you to build event-driven systems using modern architectural patterns.
 

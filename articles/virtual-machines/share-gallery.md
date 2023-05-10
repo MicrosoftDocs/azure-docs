@@ -42,6 +42,14 @@ When you share a gallery using RBAC, you need to provide the `imageID` to anyone
 
 If you share gallery resources to someone outside of your Azure tenant, they will need your `tenantID` to log in and have Azure verify they have access to the resource before they can use it within their own tenant. You will need to provide them with your `tenantID`, there is no way for someone outside your organization to query for your `tenantID`.
 
+> [!IMPORTANT]
+> RBAC sharing can be used to share resources with users within the organization (or) users outside the organization (cross-tenant). Here are the instructions to consume an image shared with RBAC and create VM/VMSS:
+> 
+> [RBAC - Shared within your organization](vm-generalized-image-version.md#rbac---shared-within-your-organization)
+> 
+> [RBAC - Shared from another tenant](vm-generalized-image-version.md#rbac---shared-from-another-tenant)
+> 
+
 ### [Portal](#tab/portal)
 
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 

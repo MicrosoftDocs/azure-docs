@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to G Suite.
 services: active-directory
 author: twimmers
@@ -23,7 +23,7 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
-> * Remove users in G Suite when they do not require access anymore
+> * Remove users in G Suite when they do not require access anymore (note: removing a user from the sync scope will not result in deletion of the object in GSuite)
 > * Keep user attributes synchronized between Azure AD and G Suite
 > * Provision groups and group memberships in G Suite
 > * [Single sign-on](./google-apps-tutorial.md) to G Suite (recommended)
@@ -261,6 +261,9 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Troubleshooting Tips
+* Removing a user from the sync scope will disable them in GSuite but will not result in deletion of the user in G Suite
 
 ## Change log
 

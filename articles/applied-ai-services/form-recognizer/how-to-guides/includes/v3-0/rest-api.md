@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 ---
 
@@ -74,6 +74,14 @@ Open a command prompt and run the following cURL command. We've added the endpoi
 ```bash
 curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
 ```
+
+   **Enable add-on capabilities
+
+   To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available for the 2023-02-28-preview: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, visit the [Add-On Capabilities concept page](../../../concept-accuracy-confidence.md). You can only call the highResolution, formula and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula and font capabilities for the Layout model.
+
+   ```bash
+   curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-02-28-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
+   ```
 
 ### POST response
 

@@ -27,19 +27,23 @@ Use this quickstart to send text summarization requests using the REST API. In t
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+
+## Setting up
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+
 
 ## Example request
 
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code below with your key and endpoint.
 To call the API, you need the following information:
 
 Choose the type of summarization you would like to perform, and select one of the tabs below to see an example API call:
@@ -60,7 +64,7 @@ Choose the type of summarization you would like to perform, and select one of th
 |`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+The following cURL commands are executed from a BASH shell. Edit these commands with your own JSON values.
 
 ## Document summarization
 
@@ -71,9 +75,9 @@ The following example will get you started with document extractive summarizatio
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2022-10-01-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d \
 ' 
 {
@@ -99,30 +103,26 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 }
 '
 ```
-2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
-3. Open a command prompt window (for example: BASH).
+2. Open a command prompt window (for example: BASH).
 
-4. Paste the command from the text editor into the command prompt window, then run the command.
+3. Paste the command from the text editor into the command prompt window, then run the command.
 
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+4. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
-6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
+5. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
+
 
 ### Document extractive summarization example JSON response
 
@@ -209,9 +209,9 @@ The following example will get you started with conversation issue and resolutio
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d \
 ' 
 {
@@ -291,30 +291,25 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 ```
 Only the `resolution` aspect supports sentenceCount. If you do not specify the `sentenceCount` parameter, the model will determine the summary's length. Note that `sentenceCount` is just the approximation of sentence count of output summary, range 1 to 7.
 
-2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+2. Open a command prompt window (for example: BASH).
 
-3. Open a command prompt window (for example: BASH).
+3. Paste the command from the text editor into the command prompt window, then run the command.
 
-4. Paste the command from the text editor into the command prompt window, then run the command.
-
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+4. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
-6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
+5. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
+
 
 ### Conversation issue and resolution summarization example JSON response
 

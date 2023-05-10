@@ -2,8 +2,8 @@
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 02/22/2023
-ms.custom: devx-track-azurepowershell
 ---
 
 # Syntax and expressions in ARM templates

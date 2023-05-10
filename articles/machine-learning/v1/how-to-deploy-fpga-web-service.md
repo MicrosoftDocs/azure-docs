@@ -10,7 +10,7 @@ author: bozhong68
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-python, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q2, devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 

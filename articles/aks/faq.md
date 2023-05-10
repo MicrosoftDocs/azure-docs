@@ -60,7 +60,7 @@ Microsoft provides guidance for other actions you can take to secure your worklo
 
 ## How does the managed Control Plane communicate with my Nodes?
 
-AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
+AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through mTLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
 ## Why are two resource groups created with AKS?
 
@@ -116,7 +116,7 @@ Currently, you can't modify the list of admission controllers in AKS.
 
 Yes, you may use admission controller webhooks on AKS. It's recommended you exclude internal AKS namespaces, which are marked with the **control-plane label.** For example:
 
-```
+```output
 namespaceSelector:
     matchExpressions:
     - key: control-plane
@@ -172,6 +172,22 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 ## Why is my cluster delete taking so long?
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take more time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+
+## Can I restore my cluster after deleting it?
+
+No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources will also be deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
+
+## What is platform support, and what does it include?
+
+Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support does not include anything related to Kubernetes functionality and components, cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
+
+AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+
+## Will AKS automatically upgrade my unsupported clusters?
+
+AKS will initiate auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS will automatically upgrade the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
+
+For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
 
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
@@ -239,7 +255,7 @@ As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will c
 
 The following example shows what the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be two routes. The first one saying, all traffic excluding local on azure0 will go to the default gateway of the subnet through the interface with ip "src 10.240.0.4" (which is Node primary IP) and the second one saying "10.20.x.x" Pod space to kernel for kernel to decide.
 
-```bash
+```output
 default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
 10.240.0.0/12 dev azure0 proto kernel scope link src 10.240.0.4
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
@@ -254,7 +270,7 @@ Transparent mode takes a straight forward approach to setting up Linux networkin
 
 The following example shows a ip route setup of transparent mode. Each Pod's interface will get a static route attached so that traffic with dest IP as the Pod will be sent directly to the Pod's host side `veth` pair interface.
 
-```bash
+```output
 10.240.0.216 dev azv79d05038592 proto static
 10.240.0.218 dev azv8184320e2bf proto static
 10.240.0.219 dev azvc0339d223b9 proto static
@@ -307,11 +323,30 @@ AKS nodes run the "chrony" service, which pulls time from the localhost.  Contai
 
 ## How are AKS addons updated?
 
-Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
+Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases).
+
+## What is the purpose of the AKS Linux Extension I see installed on my Linux VMSS instances?
+
+The AKS Linux Extension is an Azure VM extension whose purpose is to install and configure monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
+
+- [Node-exporter](https://github.com/prometheus/node_exporter): collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. These metrics are then able to be scraped by a monitoring tool such as Prometheus.
+- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): aims to make various node problems visible to upstream layers in the cluster management stack. It is a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
+- [Local-gadget](https://www.inspektor-gadget.io/docs/latest/local-gadget/): uses in-kernel eBPF helper programs to monitor events mainly related to syscalls from userspace programs in a pod.
+
+These tools assist in providing observability around many node health related problems such as: 
+
+- Infrastructure daemon issues: NTP service down
+- Hardware issues: Bad CPU, memory or disk
+- Kernel issues: Kernel deadlock, corrupted file system
+- Container runtime issues: Unresponsive runtime daemon 
+
+The extension **does not** require any additional outbound access to any URLs, IP addresses, or ports beyond the [documented AKS egress requirements](./limit-egress-traffic.md). It does not require any special permissions granted in Azure. It uses kubeconfig to connect to the API server to send the monitoring data collected.
 
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
+[auto-upgrade-cluster]: ./auto-upgrade-cluster.md
+[planned-maintenance]: ./planned-maintenance.md
 [aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
@@ -328,6 +363,7 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
 [private-clusters]: ./private-clusters.md
+[supported-kubernetes-versions]: ./supported-kubernetes-versions.md
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
@@ -342,3 +378,4 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
+[lock-azure-resources]: ../azure-resource-manager/management/lock-resources.md

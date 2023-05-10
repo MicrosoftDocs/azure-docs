@@ -7,7 +7,7 @@ ms.service: machine-learning
 author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.date: 03/27/2020
 ---

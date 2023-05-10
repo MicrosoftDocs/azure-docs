@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -19,7 +19,7 @@ ms.date: 05/02/2022
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
 > * [v1](how-to-create-attach-compute-cluster.md)
-> * [v2 (current version)](../how-to-create-attach-compute-cluster.md)
+> * [v2 (current version)](../how-to-create-attach-compute-cluster.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 

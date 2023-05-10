@@ -113,7 +113,7 @@ Task detailed history information allows you to filter for specific information 
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 - **Tasks**: You can filter based on specific task names.
 
-Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters (preview)](lifecycle-workflow-tasks.md#common-task-parameters-preview).
+Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters (preview)](lifecycle-workflow-tasks.md#common-task-parameters).
 
 ## Next steps
 

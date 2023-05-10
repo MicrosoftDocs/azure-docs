@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, engagement-fy23
 # Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
@@ -17,9 +17,9 @@ ms.custom: template-tutorial, engagement-fy23
 
 Azure VPN gateway is a type of virtual network gateway that you can use to send encrypted traffic between an Azure virtual network and your on-premises locations over the public internet. You can also use VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway allows you to create multiple connections to on-premises VPN devices and Azure VPN gateways. For more information about the number of connections that you can create with each VPN gateway SKU, see [Gateway SKUs](../../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). Whenever you need to troubleshoot an issue with a VPN gateway or one of its connections, you can use Azure Network Watcher VPN troubleshoot to help you checking the VPN gateway or its connections to find and resolve the problem in easy and simple steps.
 
-This tutorial helps you connect two virtual networks via VPN gateways using VNet-to-VNet connections and use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot a connectivity issue that's preventing the two virtual networks from communicating with each other. Once you find the issue and resolve it, you check the connectivity between the two virtual networks to verify the problem was resolved. 
+This tutorial helps you use Azure Network Watcher [VPN troubleshoot](network-watcher-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue that's preventing two virtual networks from communicating with each other. These two virtual networks are connected via VPN gateways using VNet-to-VNet connections.
 
-In this tutorial, you learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Create virtual networks
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
@@ -43,7 +43,7 @@ In this section, you create two virtual networks that you connect later using vi
 
 ### Create first virtual network
 
-1. In the search box at the top of the portal, enter *virtual network*. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
 
     :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -89,7 +89,7 @@ In this section, you create a storage account, then you create a container in it
 
 If you have a storage account that you want to use, you can skip the following steps and go to [Create VPN gateways](#create-vpn-gateways).
 
-1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
 
 1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
@@ -104,15 +104,11 @@ If you have a storage account that you want to use, you can skip the following s
     | Performance | Select **Standard**. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
 
-1. Select the **Networking** tab, or select **Next: Advanced** and then **Next: Networking** button at the bottom of the page.
-
-1. Under **Network connectivity**, select **Enable public access from all networks**.
-
 1. Select the **Review** tab or select the **Review** button.
 
 1. Review the settings, and then select **Create**.
 
-1. Select **Go to resource** to go to the **Overview** page of **mynwstorageaccount**.
+1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **mynwstorageaccount**.
 
 1. Under **Data storage**, select **Containers**.
 
@@ -131,7 +127,7 @@ In this section, you create two VPN gateways that will be used to connect the tw
 
 ### Create first VPN gateway
 
-1. In the search box at the top of the portal, enter *virtual network gateway*. Select **Virtual network gateways** in the search results.
+1. In the search box at the top of the portal, enter *virtual network gateways*. Select **Virtual network gateways** in the search results.
 
 1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
 
@@ -280,9 +276,9 @@ Fix the problem by correcting the key on **to-VNet1** connection to match the ke
 
 ## Clean up resources
 
-If you're no longer need the gateways and other resources created in this tutorial, delete the resource group and all of the resources it contains:
+When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 

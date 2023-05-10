@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/27/2023
+ms.date: 04/25/2023
 ms.author: radeltch
 
 ---
@@ -98,9 +98,6 @@ In the preceding diagram, three subnets are represented within one Azure virtual
 As `/hana/data` and `/hana/log` are deployed on local disks, it is not necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
 
 If you are using Azure NetApp Files, the NFS volumes for `/hana/shared`, are deployed in a separate subnet, [delegated to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.   
-
-> [!IMPORTANT]
-> System replication to a 3rd site is not supported. For details see section "Important prerequisites" in [SLES-SAP HANA System Replication Scale-out Performance Optimized scenario](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-scaleOut-PerfOpt-12/index.html#_important_prerequisites).     
 
 ## Set up the infrastructure
 
@@ -394,7 +391,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entry
-    10.23.1.7:/HN1-shared-s1 /hana/shared nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.7:/HN1-shared-s1 /hana/shared nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
     ```
@@ -404,7 +401,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entry
-    10.23.1.7:/HN1-shared-s2 /hana/shared nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.7:/HN1-shared-s2 /hana/shared nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -437,7 +434,7 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entry
-    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1 /hana/shared  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1 /hana/shared  nfs nfsvers=4.1,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
     ```
@@ -447,7 +444,7 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entries
-    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 /hana/shared  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 /hana/shared  nfs nfsvers=4.1,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -802,7 +799,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
     crm configure primitive fs_HN1_HDB03_fscheck Filesystem \
       params device="/hana/shared/HN1/check" \
       directory="/hana/check" fstype=nfs4 \
-      options="bind,defaults,rw,hard,proto=tcp,intr,noatime,vers=4.1,lock" \
+      options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
       op monitor interval=120 timeout=120 on-fail=fence \
       op_params OCF_CHECK_LEVEL=20 \
       op start interval=0 timeout=120 op stop interval=0 timeout=120
@@ -865,7 +862,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
     ha_dr_saphanasrmultitarget = info
     ```
 
-   Default location of the HA hooks as deliveredy SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+   Default location of the HA hooks as dalivered by SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1 with correct lowercase SID.  
 

@@ -3,11 +3,11 @@ title: Configure role-based access control with Azure AD
 titleSuffix: Azure Cosmos Db
 description: Learn how to configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 author: seesharprun
+ms.service: cosmos-db
+ms.topic: how-to
+ms.date: 04/14/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 02/27/2023
 ms.custom: ignite-2022
 ---
 
@@ -39,11 +39,10 @@ The Azure Cosmos DB data plane role-based access control is built on concepts th
 ## <a id="permission-model"></a> Permission model
 
 > [!IMPORTANT]
-> This permission model covers only database operations that involve reading and writing data. It does *not* cover any kind of management operations on management resources, for example:
->
+> This permission model covers only database operations that involve reading and writing data. It **does not** cover any kind of management operations on management resources, including:
 > - Create/Replace/Delete Database
 > - Create/Replace/Delete Container
-> - Replace Container Throughput
+> - Read/Replace Container Throughput
 > - Create/Replace/Delete/Read Stored Procedures
 > - Create/Replace/Delete/Read Triggers
 > - Create/Replace/Delete/Read User Defined Functions
@@ -71,9 +70,12 @@ This table lists all the actions exposed by the permission model.
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" an item. This operation creates an item if it doesn't already exist, or to replace the item if it does exist. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Delete an item. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Execute a [SQL query](nosql/query/getting-started.md). |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Read from the container's [change feed](read-change-feed.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Read from the container's [change feed](read-change-feed.md). Execute [SQL queries](nosql/query/getting-started.md) using the SDKs. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Execute a [stored procedure](stored-procedures-triggers-udfs.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Manage [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, list and delete items from the conflict feed). |
+
+> [!NOTE]
+> When executing queries through the SDKs, both `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` and `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` permissions are required.
 
 Wildcards are supported at both *containers* and *items* levels:
 
@@ -88,7 +90,7 @@ The Azure Cosmos DB SDKs issue read-only metadata requests during initialization
 - The partition key of your containers or their indexing policy.
 - The list of physical partitions that make a container and their addresses.
 
-They don't* fetch any of the data that you've stored in your account.
+They **do not** fetch any of the data that you've stored in your account.
 
 To ensure the best transparency of our permission model, these metadata requests are explicitly covered by the `Microsoft.DocumentDB/databaseAccounts/readMetadata` action. This action should be allowed in every situation where your Azure Cosmos DB account is accessed through one of the Azure Cosmos DB SDKs. It can be assigned (through a role assignment) at any level in the Azure Cosmos DB hierarchy (that is, account, database, or container).
 
@@ -99,6 +101,9 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 | Account | &bull; Listing the databases under the account <br /> &bull; For each database under the account, the allowed actions at the database scope |
 | Database | &bull; Reading database metadata <br /> &bull; Listing the containers under the database <br /> &bull; For each container under the database, the allowed actions at the container scope |
 | Container | &bull; Reading container metadata <br /> &bull; Listing physical partitions under the container <br /> &bull; Resolving the address of each physical partition |
+
+> [!IMPORTANT] 
+> Throughput is not included in the metadata for this action.
 
 ## Built-in role definitions
 

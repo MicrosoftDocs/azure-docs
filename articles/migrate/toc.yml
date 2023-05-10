@@ -38,6 +38,10 @@
       href: tutorial-discover-aws.md
     - name: Discover GCP instances
       href: tutorial-discover-gcp.md
+  - name: Decide
+    items:
+    - name: Build a business case
+      href: how-to-build-a-business-case.md
   - name: Assess
     items:
     - name: Assess servers in VMware environment
@@ -56,17 +60,21 @@
         href: tutorial-assess-hyper-v.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
+      - name: Assess ASP.NET web apps for migration to App Service
+        href: tutorial-assess-webapps-hyper-v.md
     - name: Assess physical servers
       items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md 
+      - name: Assess ASP.NET web apps for migration to App Service
+        href: tutorial-assess-webapps-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
-    - name: Assess imported servers for migration to Azure
+    - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
   - name: Migrate
     items:
@@ -99,7 +107,9 @@
     - name: Containerize Java web apps and migrate to App Service containers
       href: tutorial-app-containerization-java-app-service.md
     - name: Modernize ASP.NET web apps to App Service code
-      href: tutorial-migrate-webapps.md
+      href: tutorial-modernize-asp-net-appservice-code.md
+    - name: Modernize ASP.NET web apps to AKS
+      href: tutorial-modernize-asp-net-aks.md
     - name: CI/CD for Day 2 operations
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
@@ -126,7 +136,7 @@
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
-  - name: Plan
+  - name: Decide
     items:
     - name: Business case overview
       href: concepts-business-case-calculation.md
@@ -207,11 +217,11 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Plan
+  - name: Decide
     items:
-    - name: Build business case
+    - name: Build a business case
       href: how-to-build-a-business-case.md
-    - name: Review business case
+    - name: Review a business case
       href: how-to-view-a-business-case.md
   - name: Assess
     items:

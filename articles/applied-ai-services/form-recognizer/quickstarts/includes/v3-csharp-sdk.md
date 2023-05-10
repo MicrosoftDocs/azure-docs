@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/14/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 <!-- markdownlint-disable MD025 -->
@@ -20,7 +19,7 @@ recommendations: false
 
 In this quickstart, you use the following features to analyze and extract data and values from forms and documents:
 
-* [**General document model**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [**General document model**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs.
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -121,7 +120,7 @@ dotnet run formrecognizer-quickstart.dll
 
 ## General document model
 
-Analyze and extract text, tables, structure, key-value pairs, and named entities.
+Analyze and extract text, tables, structure, key-value pairs.
 
 > [!div class="checklist"]
 >

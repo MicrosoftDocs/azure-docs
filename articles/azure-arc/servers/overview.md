@@ -79,15 +79,17 @@ If a machine remains disconnected for 45 days, its status may change to **Expire
 
 ## Service limits
 
-Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level.
+There is no limit to how many Arc-enabled servers and VM extensions you can deploy in a resource group or subscription. The standard 800 resource limit per resource group applies to the Azure Arc Private Link Scope resource type.
 
 To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
 ## Data residency
 
-Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
+Azure Arc-enabled servers stores customer data. By default, customer data stays within the region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
 
 ## Next steps
 
 * Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/).
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
+* Explore the [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).

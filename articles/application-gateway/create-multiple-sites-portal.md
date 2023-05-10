@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/14/2022
 ms.author: greglin
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
 

@@ -21,6 +21,8 @@
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Terraform
+    href: container-instances-quickstart-terraform.md
   - name: Deploy a container instance - Docker CLI
     href: quickstart-docker-cli.md
 - name: Tutorials
@@ -45,6 +47,12 @@
     items:
     - name: Trigger with Azure Functions
       href: container-instances-tutorial-azure-function-trigger.md
+  - name: Deploy a confidential container group
+    items: 
+    - name: Deploy a confidential container group - Resource Manager
+      href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+    - name: Deploy a confidential container group - Portal
+      href: container-instances-tutorial-deploy-confidential-container-default-portal.md 
 - name: Samples
   items:
   - name: Code samples
@@ -67,6 +75,10 @@
        href: container-instances-image-security.md
   - name: Virtual networking
     href: container-instances-virtual-network-concepts.md
+  - name: Confidential container groups
+    href: container-instances-confidential-overview.md
+  - name: Attestation in Confidential containers
+    href: confidential-containers-attestation-concepts.md 
 - name: How-to guides
   items:
   - name: Deploy
@@ -91,6 +103,10 @@
       href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector
       href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
+    - name: Deploy confidential containers using the Azure portal (preview)
+      href: container-instances-tutorial-deploy-confidential-container-default-portal.md
+    - name: Deploy confidential containers using ARM (preview)
+      href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
@@ -157,6 +173,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/container
+  - name: Azure CLI confcom extension
+    href: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
   - name: REST
     href: /rest/api/container-instances
   - name: PowerShell

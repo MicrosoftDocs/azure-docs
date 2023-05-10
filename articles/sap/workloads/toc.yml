@@ -15,10 +15,10 @@ items:
         href: supported-product-on-azure.md
       - name: Checklist for deploying SAP workloads on Azure
         href: deployment-checklist.md
-      - name: Deploy SAP NetWeaver applications
-        href: deployment-guide.md
       - name: Plan and implement SAP NetWeaver on Azure
         href: planning-guide.md
+      - name: Deploy SAP NetWeaver applications
+        href: deployment-guide.md
       - name: SAP Business One on Azure VMs
         href: business-one-azure.md
       - name: Connect to SAP LaMa
@@ -61,6 +61,8 @@ items:
         href: hana-vm-ultra-disk.md
       - name: SAP HANA with Azure NetApp Files
         href: hana-vm-operations-netapp.md
+      - name: Azure Files NFS/SMB for SAP
+        href: planning-guide-storage-azure-files.md
     - name: High availability (HA)
       items:
       - name: About HA for Azure VMs
@@ -139,8 +141,6 @@ items:
             href: sap-hana-scale-out-standby-netapp-files-suse.md
           - name: Scale-out  with HSR and Pacemaker
             href: sap-hana-high-availability-scale-out-hsr-suse.md
-          - name: Troubleshoot scale-out with HSR and Pacemaker
-            href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
       - name: IBM Db2
         items:
         - name: RHEL - IBM Db2 HA
@@ -211,6 +211,10 @@ items:
           href: high-availability-guide-rhel-with-dialog-instance.md
         - name: Install SAP NetWeaver with HANA HA cluster - RHEL
           href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md
+    - name: Disaster recovery
+      items: 
+      - name: Add HSR third site to HANA Pacemaker cluster on SUSE
+        href: disaster-recovery-sap-hana-suse.md
     - name: Integration with Microsoft services
       items:
       - name: Outbound E-Mail from SAP to Exchange Online

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler Three | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler Three"
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Three.
 services: active-directory
 author: jeevansd

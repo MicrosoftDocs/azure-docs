@@ -1,8 +1,8 @@
 ---
 title: Set a map style in iOS maps | Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps iOS SDK in either the layout file or the activity class to adjust the style.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 10/22/2021
 ms.topic: how-to
 ms.service: azure-maps

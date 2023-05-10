@@ -10,6 +10,7 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Integrate F5 BIG-IP with Azure Active Directory
@@ -35,7 +36,7 @@ When Azure AD pre-authenticates access to BIG-IP published services, there are m
 Other benefits include:
 
 - One control plane to govern identity and access
-  - The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/)
+  - The [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 - Preemptive [Conditional Access](../conditional-access/overview.md)
 - [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 - Adaptive protection through user and session risk profiling

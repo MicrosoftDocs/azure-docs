@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: ankitadutta
 ms.service: site-recovery
 author: ankitaduttaMSFT
-ms.date: 01/23/2023
+ms.date: 05/02/2023
 ms.custom: engagement-fy23
 
 ---
@@ -22,7 +22,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server/Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9260.0
+[Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (Modernized VMware), 5.1.8095.0 (Hyper-V) & 5.23.0210.5 (Classic VMware) | 2.0.9260.0
 [Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
 [Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
 [Rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 9.50.6419.1 | 5.1.7626.0 | 9.50.6419.1 | 5.1.7626.0 | 2.0.9249.0
@@ -42,8 +42,8 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Added support for Ubuntu 22.04, RHEL 8.7 and Cent OS 8.7 Linux distro.
-**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 22.04, RHEL 8.7 and Cent OS 8.7 Linux distro.
+**Azure VM disaster recovery** | Added support for Ubuntu 22.04, RHEL 8.7 and CentOS 8.7 Linux distro.
+**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 22.04, RHEL 8.7 and CentOS 8.7 Linux distro.
 
 ## Updates (November 2022)
 

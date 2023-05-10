@@ -98,6 +98,10 @@ items:
       displayName: Best practices
     - name: Label data
       href: custom-text-classification/how-to/tag-data.md
+    - name: Auto label your data (preview)
+      href: custom-text-classification/how-to/use-autolabeling.md
+    - name: Label data with Azure Machine Learning 
+      href: custom/azure-machine-learning-labeling.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
     - name: Model performance (preview)
@@ -193,7 +197,9 @@ items:
     - name: Label data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Auto label your data (preview)
-      href: custom-named-entity-recognition/how-to/use-autotagging.md
+      href: custom-named-entity-recognition/how-to/use-autolabeling.md
+    - name: Label data with Azure Machine Learning 
+      href: custom/azure-machine-learning-labeling.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
     - name: Model performance (preview)
@@ -204,6 +210,18 @@ items:
       href: custom-named-entity-recognition/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-named-entity-recognition/fail-over.md
+    - name: Use Custom NER containers
+      items:
+      - name: Use Custom NER Docker containers
+        href: custom-named-entity-recognition/how-to/use-containers.md
+      - name: Configure containers
+        href: concepts/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities
@@ -814,7 +832,7 @@ items:
     items:
     - name: Migrate from QnA Maker to Question Answering
       href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
-    - name: Migrate knowledgebases from QnA Maker
+    - name: Migrate projects from QnA Maker
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
@@ -824,7 +842,7 @@ items:
       href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
-    - name: Move knowledge base
+    - name: Move projects
       href: question-answering/how-to/migrate-knowledge-base.md
     - name: Add chit-chat
       href: question-answering/how-to/chit-chat.md
@@ -834,7 +852,7 @@ items:
       href: question-answering/how-to/configure-resources.md
     - name: Analytics
       href: question-answering/how-to/analytics.md
-    - name: Manage knowledge base
+    - name: Manage projects
       href: question-answering/how-to/manage-knowledge-base.md
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
@@ -986,91 +1004,93 @@ items:
 
 - name: Text Analytics for health
   items:
-  - name: Text Analytics for health overview
-    href: text-analytics-for-health/overview.md
-  - name: Text Analytics for health quickstart
-    href: text-analytics-for-health/quickstart.md 
-  - name: Text Analytics for health language support
-    href: text-analytics-for-health/language-support.md
-  - name: Samples
+  - name: prebuilt
     items:
-    - name: C#
-      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
-    - name: Java
-      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
-    - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
-    - name: Python
-      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for Text Analytics for health
-      href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics health, Text Analytics for health transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
-    items:
-    - name: How to call the API
-      href: text-analytics-for-health/how-to/call-api.md
-    - name: Use containers
+    - name: Text Analytics for health overview
+      href: text-analytics-for-health/overview.md
+    - name: Text Analytics for health quickstart
+      href: text-analytics-for-health/quickstart.md 
+    - name: Text Analytics for health language support
+      href: text-analytics-for-health/language-support.md
+    - name: Samples
       items:
-      - name: Use Docker containers
-        href: text-analytics-for-health/how-to/use-containers.md
-      - name: Configure Docker containers
-        href: text-analytics-for-health/how-to/configure-containers.md
-      - name: Use container instances
-        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Cognitive Services containers documentation
-        href: ../containers/index.yml
-  - name: Concepts
-    items:
-    - name: Recognized entity categories 
-      href: text-analytics-for-health/concepts/health-entity-categories.md
-    - name: Relation extraction
-      href: text-analytics-for-health/concepts/relation-extraction.md
-    - name: Assertion detection
-      href: text-analytics-for-health/concepts/assertion-detection.md
-  - name: Reference
-    items:
-    - name: REST API
+      - name: C#
+        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+      - name: Java
+        href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+      - name: JavaScript
+        href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
+      - name: Python
+        href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
+    - name: Responsible use of AI
+      items: 
+      - name: Transparency note for Text Analytics for health
+        href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
+        displayName: Transparency note for Text Analytics health, Text Analytics for health transparency, Responsible AI, Responsible use of AI
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+        displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+      - name: Data, privacy, and security  
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        displayName: Data privacy, logging, data retention
+    - name: How-to guides
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-10-01-preview)
-          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
-        - name: Previous versions
+      - name: How to call the API
+        href: text-analytics-for-health/how-to/call-api.md
+      - name: Use containers
+        items:
+        - name: Use Docker containers
+          href: text-analytics-for-health/how-to/use-containers.md
+        - name: Configure Docker containers
+          href: text-analytics-for-health/how-to/configure-containers.md
+        - name: Use container instances
+          href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+        - name: Cognitive Services containers documentation
+          href: ../containers/index.yml
+    - name: Concepts
+      items:
+      - name: Recognized entity categories 
+        href: text-analytics-for-health/concepts/health-entity-categories.md
+      - name: Relation extraction
+        href: text-analytics-for-health/concepts/relation-extraction.md
+      - name: Assertion detection
+        href: text-analytics-for-health/concepts/assertion-detection.md
+    - name: Reference
+      items:
+      - name: REST API
+        items:
+          - name: Text analysis runtime API (v2022-05-01)
+            href: /rest/api/language/2022-05-01/text-analysis-runtime
+          - name: Text analysis runtime API (v2022-10-01-preview)
+            href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
+          - name: Previous versions
+            items:
+            - name: v3.2-preview.2
+              href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health
+            - name: v3.1
+              href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
+      - name: SDKs
+        items:
+        - name: Latest
           items:
-          - name: v3.2-preview.2
-            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health
-          - name: v3.1
-            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
-    - name: SDKs
-      items:
-      - name: Latest
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
-      - name: Preview
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
+            - name: .NET
+              href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+            - name: Python
+              href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
+            - name: Java
+              href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+            - name: Node.js
+              href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
+        - name: Preview
+          items:
+            - name: .NET
+              href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true&preserve-view=true
+            - name: Python
+              href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+            - name: Java
+              href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+            - name: Node.js
+              href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 - name: Summarization (preview)
   items:
   - name: Summarization overview
@@ -1164,8 +1184,6 @@ items:
         href: ../speech-service/ingestion-client.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
 - name: Tutorials
   items:
-  - name: Use Cognitive Services in canvas apps
-    href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
   - name: Use Azure Kubernetes Service
     href: tutorials/use-kubernetes-service.md
   - name: Use language in power automate flows

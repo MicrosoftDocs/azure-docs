@@ -2,7 +2,7 @@
 title: Back up VMware VMs with Azure Backup Server
 description: In this article, learn how to use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 03/03/2023
 author: jyothisuri
 ms.author: jsuri
 ms.service: backup
@@ -11,9 +11,6 @@ ms.custom: engagement-fy23
 # Back up VMware VMs with Azure Backup Server
 
 This article describes how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
-
->[!Note]
->With MABS v3 Update Rollup 2 release, you can now back up VMware 7.0 VMs as well.
 
 ## VMware VM protection workflow
 
@@ -45,6 +42,7 @@ MABS provides the following features when backing up VMware virtual machines:
 
 | MABS versions | Supported VMware VM versions for backup |
 | --- | --- |
+| MABS v4     | VMware server 8.0, 7.0, 6.7, or 6.5 (Licensed version) |
 | MABS v3 UR2 | VMware server 7.0, 6.7, 6.5, or 6.0 (Licensed Version) |
 | MABS v3 UR1 | VMware server 6.7, 6.5, 6.0, or 5.5 (Licensed Version) |
 
@@ -60,6 +58,7 @@ Before you start backing up a VMware virtual machine, review the following list 
 - MABS can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDM).
 - MABS can't detect or protect VMware vApps.
 - MABS can't protect VMware VMs with existing snapshots.
+- MABS v4 doesn't support the *DataSets* feature for VMware 8.0.
 
 ## Before you start
 
@@ -435,9 +434,9 @@ You can modify the number of jobs by using the registry key as shown below (not 
 > [!NOTE]
 > You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
-## VMware vSphere 6.7 and 7.0
+## VMware vSphere 6.7, 7.0, and 8.0
 
-To back up vSphere 6.7 and 7.0, follow these steps:
+To back up vSphere 6.7, 7.0, and 8.0, follow these steps:
 
 - Enable TLS 1.2 on the MABS Server
 
@@ -469,9 +468,6 @@ Windows Registry Editor Version 5.00
 ## Exclude disk from VMware VM backup
 
 With MABS V3 UR1 (and later), you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
-
-> [!NOTE]
-> This feature is applicable for MABS V3 UR1 (and later).
 
 To configure the disk exclusion, follow these steps:
 

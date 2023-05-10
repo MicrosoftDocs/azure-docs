@@ -16,18 +16,18 @@ Durable Functions supports several [storage providers](durable-functions-storage
 
 ## Note on data migration
 
-Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers is not currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL backend. Similarly, the task hub contents created with MSSQL cannot be preserved when switching to a different storage provider.
+Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL backend. Similarly, the task hub contents created with MSSQL can't be preserved when switching to a different storage provider.
 
 ## Prerequisites
 
-The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it.
+The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
 
 In particular, this quickstart assumes that you have already:
 1. Created an Azure Functions project on your local machine.
 2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 3. Configured the project for local debugging.
 
-If this is not the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
+If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -40,12 +40,16 @@ If this is not the case, we suggest you start with one of the following articles
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on NuGet](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means to include a reference to it in your `.csproj` file and building the project.
+You'll need to install the latest version of the MSSQL storage provider Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
+
+The Extension package to install depends on the .NET worker you're using:
+- For the _in-process_ .NET worker, install [`Microsoft.DurableTask.SqlServer.AzureFunctions`](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
+- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer).
 
 You can install the Extension using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command
 
 ```cmd
-func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
+func extensions install --package <package name depending on your worker model> --version <latest version>
 ```
 
 For more information on installing Azure Functions Extensions via the Core Tools CLI, see [this guide](../functions-run-local.md#install-extensions).
@@ -144,7 +148,7 @@ Below is an example `local.settings.json` assigning the default Docker-based SQL
 
 ### Update host.json
 
-Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one does not already exists, with collation `Latin1_General_100_BIN2_UTF8`.
+Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one doesn't already exist, with collation `Latin1_General_100_BIN2_UTF8`.
 
 ```json
 {

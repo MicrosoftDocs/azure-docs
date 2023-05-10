@@ -3,10 +3,9 @@ title: Standard rules engine reference for Azure CDN | Microsoft Docs
 description: Reference documentation for match conditions and actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: duongau
-
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 07/31/2021
+ms.date: 02/23/2023
 ms.author: duau
 
 ---
@@ -15,7 +14,7 @@ ms.author: duau
 
 In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions and features that are available in the Standard rules engine for Azure CDN.
 
-The rules engine is designed to be the final authority on how specific types of requests are processed by Standard Azure CDN.
+The rules engine is designed to be the final authority on how specific types of requests get processed by Standard Azure CDN.
 
 **Common uses for the rules**:
 
@@ -29,7 +28,7 @@ To define a rule in the rules engine, set [match conditions](cdn-standard-rules-
 
  ![Azure CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Each rule can have up to ten match conditions and five actions. Each Azure CDN endpoint can have up to 25 rules. 
+Each rule can have up to 10 match conditions and 5 actions. Each Azure CDN endpoint can have up to 25 rules. 
 
 Included in this limit is a default *global rule*. The global rule doesn't have match conditions; actions that are defined in a global rule always triggered.
 

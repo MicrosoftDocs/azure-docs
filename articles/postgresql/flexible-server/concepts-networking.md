@@ -103,7 +103,14 @@ The custom DNS server should be inside the virtual network or reachable via the 
 Private DNS zone settings and virtual network peering are independent of each other. If you want to connect to the flexible server from a client that's provisioned in another virtual network from the same region or a different region, you have to link the private DNS zone with the virtual network. For more information, see [Link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
-> Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
+> Only private DNS zone names that end with **'postgres.database.azure.com'**  can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
+
+To map a Server name to the DNS record you can run *nslookup* command in [Azure Cloud Shell](../../cloud-shell/overview.md) using Azure PowerShell or Bash, substituting name of your server for <server_name> parameter in example below:
+
+```bash
+nslookup -debug <server_name>.postgres.database.azure.com | grep 'canonical name'
+
+```
 
 
 ### Using Hub and Spoke private networking design 
@@ -213,9 +220,15 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 [Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
 **Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
 
-To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f.
+To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL - Flexible Server instance's SSL usage by process, client, and application by using the following query:
 
-
+```sql
+SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
+   FROM pg_stat_ssl
+   JOIN pg_stat_activity
+   ON pg_stat_ssl.pid = pg_stat_activity.pid
+   ORDER BY ssl;
+```
 ## Next steps
 
 * Learn how to create a flexible server by using the **Private access (VNet integration)** option in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).

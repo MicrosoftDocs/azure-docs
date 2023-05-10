@@ -5,6 +5,7 @@ author: madsd
 ms.topic: overview
 ms.date: 09/01/2022
 ms.author: madsd
+ms.custom: UpdateFrequency3
 ---
 
 # Azure App Service access restrictions
@@ -115,6 +116,8 @@ In this scenario, you're accessing your site through a private endpoint and are 
 Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you need to further filter the incoming requests based on the unique http header that Azure Front Door sends called X-Azure-FDID. You can find the Front Door ID in the portal.
 
 ## Next steps
+> [!NOTE]
+> Access restriction rules that block public access to your site can also block services such as log streaming. If you require these, you will need to allow your App Service's IP address in your restrictions.
 
 > [!div class="nextstepaction"]
 > [How to restrict access](app-service-ip-restrictions.md)

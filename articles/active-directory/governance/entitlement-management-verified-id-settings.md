@@ -1,5 +1,5 @@
 ---
-title: Configure verified ID settings for an access package in entitlement management (Preview) - Azure AD
+title: Configure verified ID settings for an access package in entitlement management (Preview)
 description: Learn how to configure verified ID settings for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''

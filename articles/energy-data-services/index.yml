@@ -4,12 +4,12 @@ title: Microsoft Azure Data Manager for Energy Preview documentation # < 60 char
 summary: Microsoft Azure Data Manager for Energy Preview is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and SLB's extensive domain expertise.
 
 metadata:
-  title: Microsoft Azure Data Manager for Energy Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: description # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: energy-data-services #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: bharathim #Required; your GitHub user alias, with correct capitalization.
-  ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
+  title: Microsoft Azure Data Manager for Energy Preview
+  description: description
+  ms.service: energy-data-services
+  ms.topic: landing-page
+  author: bharathim
+  ms.author: bselvaraj
   ms.date: 09/05/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-wellbore-ddms.md
           - text: Well delivery DDMS tutorial
             url: tutorial-well-delivery-ddms.md
+          - text: Petrel DDMS Tutorial
+            url: tutorial-petrel-ddms.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
@@ -96,6 +98,8 @@ landingContent:
             url: how-to-integrate-airflow-logs-with-azure-monitor.md
           - text: How to integrate elastic logs with Azure Monitor
             url: how-to-integrate-elastic-logs-with-azure-monitor.md
+          - text: How to integrate OSDU service logs with Azure Monitor
+            url: how-to-integrate-osdu-service-logs-with-azure-monitor.md
   - title: Security
     linkLists:
       - linkListType: how-to-guide
@@ -108,3 +112,7 @@ landingContent:
             url: how-to-create-lockbox.md
           - text: Set up use Managed Identity
             url: how-to-use-managed-identity.md
+          - text: Enable resource sharing (CORS)
+            url: how-to-enable-cors.md
+          - text: Set up audit logs
+            url: how-to-manage-audit-logs.md

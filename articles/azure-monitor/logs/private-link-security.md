@@ -1,8 +1,7 @@
 ---
 title: Use Azure Private Link to connect networks to Azure Monitor
 description: Set up an Azure Monitor Private Link Scope to securely connect networks to Azure Monitor.
-author: noakup
-ms.author: noakuper
+ms.reviewer: noakuper
 ms.topic: conceptual
 ms.date: 1/5/2022
 ---
@@ -55,7 +54,9 @@ When you configure Private Link even for a single resource, traffic to the follo
 > [!IMPORTANT]
 > Creating a private link affects traffic to *all* monitoring resources, not only resources in your AMPLS. Effectively, it will cause all query requests and ingestion to Application Insights components to go through private IPs. It doesn't mean the private link validation applies to all these requests.</br>
 >
->Resources not added to the AMPLS can only be reached if the AMPLS access mode is Open and the target resource accepts traffic from public networks. When you use the private IP, *private link validations don't apply to resources not in the AMPLS*. To learn more, see [Private Link access modes](#private-link-access-modes-private-only-vs-open).
+> Resources not added to the AMPLS can only be reached if the AMPLS access mode is Open and the target resource accepts traffic from public networks. When you use the private IP, *private link validations don't apply to resources not in the AMPLS*. To learn more, see [Private Link access modes](#private-link-access-modes-private-only-vs-open).
+>
+> Private Link settings for Managed Prometheus and ingesting data into your Azure Monitor workspace are configured on the Data Collection Endpoints for the referenced resource. Settings for querying your Azure Monitor workspace over Private Link are made directly on the Azure Monitor workspace and are not handled via AMPLS.
 
 ### Resource-specific endpoints
 Log Analytics endpoints are workspace specific, except for the query endpoint discussed earlier. As a result, adding a specific Log Analytics workspace to the AMPLS will send ingestion requests to this workspace over the private link. Ingestion to other workspaces will continue to use the public endpoints.

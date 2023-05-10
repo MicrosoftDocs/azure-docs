@@ -1,12 +1,13 @@
 ---
-title: Set up Azure Active Directory authentication for Azure Database for MySQL flexible server
-description: Learn how to set up Azure Active Directory authentication for Azure Database for MySQL flexible Server
+title: Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
+description: Learn how to set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ---
 
@@ -14,12 +15,12 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to set up Azure Active Directory authentication for Azure Database for MySQL flexible server.
+This tutorial shows you how to set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server.
 
 In this tutorial, you learn how to:
 
 - Configure the Azure AD Admin
-- Connect to Azure Database for MySQL flexible server using Azure AD
+- Connect to Azure Database for MySQL - Flexible Server using Azure AD
 
 ## Prerequisites
 
@@ -36,7 +37,7 @@ In this tutorial, you learn how to:
 
 To create an Azure AD Admin user, follow the following steps.
 
-- In the Azure portal, select the instance of Azure Database for MySQL flexible server that you want to enable for Azure AD.
+- In the Azure portal, select the instance of Azure Database for MySQL - Flexible Server that you want to enable for Azure AD.
 
 - Under the Security pane, select **Authentication**:
 :::image type="content" source="media//how-to-Azure-ad/Azure-ad-configuration.jpg" alt-text="Diagram of how to configure Azure ad authentication.":::
@@ -130,7 +131,7 @@ Select the UMI, and go to the **Permissions** settings under **Security**.
 
 After you grant the permissions to the UMI, they're enabled for all servers created with the UMI assigned as a server identity.
 
-## Connect to Azure Database for MySQL flexible server using Azure AD
+## Connect to Azure Database for MySQL - Flexible Server using Azure AD
 
 ### 1 - Authenticate with Azure AD
 
@@ -153,7 +154,7 @@ The command launches a browser window to the Azure AD authentication page. It re
 
 ### 2 - Retrieve Azure AD access token
 
-Invoke the Azure CLI tool to acquire an access token for the Azure AD authenticated user from step 1 to access Azure Database for MySQL flexible server.
+Invoke the Azure CLI tool to acquire an access token for the Azure AD authenticated user from step 1 to access Azure Database for MySQL - Flexible Server.
 
 - Example (for Public Cloud):
 
@@ -194,7 +195,7 @@ After authentication is successful, Azure AD returns an access token:
 
 The token is a Base 64 string that encodes all the information about the authenticated user and is targeted to the Azure Database for MySQL service.
 
-The access token validity is anywhere between 5 minutes to 60 minutes. We recommend you get the access token before initiating the sign-in to Azure Database for MySQL Flexible server.
+The access token validity is anywhere between 5 minutes to 60 minutes. We recommend you get the access token before initiating the sign-in to Azure Database for MySQL - Flexible Server.
 
 - You can use the following PowerShell command to see the token validity.
 
@@ -206,7 +207,7 @@ The access token validity is anywhere between 5 minutes to 60 minutes. We recomm
 
 You need to use the access token as the MySQL user password when connecting. You can use the method described above to retrieve the token using GUI clients such as MySQL workbench.
 
-## Connect to Azure Database for MySQL flexible server using MySQL CLI
+## Connect to Azure Database for MySQL - Flexible Server using MySQL CLI
 
 When using the CLI, you can use this shorthand to connect:
 
@@ -219,7 +220,7 @@ mysql -h mydb.mysql.database.azure.com \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
 
-## Connect to Azure Database for MySQL flexible server using MySQL Workbench
+## Connect to Azure Database for MySQL - Flexible Server using MySQL Workbench
 
 - Launch MySQL Workbench and Select the Database option, then select **Connect to database**.
 - In the hostname field, enter the MySQL FQDN for example, mysql.database.azure.com.
@@ -383,4 +384,4 @@ Most drivers are supported; however, make sure to use the settings for sending t
 
 ## Next steps
 
-- Review the concepts for [Azure Active Directory authentication with Azure Database for MySQL flexible server](concepts-azure-ad-authentication.md)
+- Review the concepts for [Azure Active Directory authentication with Azure Database for MySQL - Flexible Server](concepts-azure-ad-authentication.md)

@@ -5,7 +5,7 @@ description: Migrate data from an on-premises HDFS store into Azure Storage (blo
 author: normesta
 
 ms.service: storage
-ms.date: 06/16/2022
+ms.date: 03/09/2023
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
@@ -19,9 +19,9 @@ You can migrate data from an on-premises HDFS store of your Hadoop cluster into 
 This article helps you complete these tasks:
 
 > [!div class="checklist"]
-> - Prepare to migrate your data.
-> - Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
-> - Ship the device back to Microsoft.
+> - Prepare to migrate your data
+> - Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device
+> - Ship the device back to Microsoft
 > - Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
 ## Prerequisites
@@ -42,21 +42,21 @@ If you're ready, let's start.
 
 ## Copy your data to a Data Box device
 
-If your data fits into a single Data Box device, then you'll copy the data to the Data Box device.
+If your data fits into a single Data Box device, then you copy the data to the Data Box device.
 
 If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices) and then perform this step.
 
-To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
+To copy the data from your on-premises HDFS store to a Data Box device, you set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box device. The REST API interface will make the device appear as an HDFS store to your cluster.
+Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box device. The REST API interface makes the device appear as an HDFS store to your cluster.
 
-1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box or Data Box Heavy. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your device, under **Access settings**, locate, and select **REST**.
+1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box or Data Box Heavy. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage accounts for your device, under Access settings, locate, and select **REST**.
 
     !["Connect and copy" page](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
 2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the `https://` and the trailing slash.
 
-    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](../../databox/data-box-deploy-copy-data-via-rest.md).
+    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](../../databox/data-box-deploy-copy-data-via-rest.md).
 
      !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -180,7 +180,7 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 1. First,  [Prepare to ship on your Data Box or Data Box Heavy](../../databox/data-box-deploy-copy-data-via-rest.md).
 
-2. After the device preparation is complete, download the BOM files. You'll use these BOM or manifest files later to verify the data uploaded to Azure.
+2. After the device preparation is complete, download the BOM files. You use these BOM or manifest files later to verify the data uploaded to Azure.
 
 3. Shut down the device and remove the cables.
 
@@ -194,18 +194,18 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 ## Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
-You already have the data into your Azure Storage account. Now you'll apply access permissions to files and directories.
+You already have the data into your Azure Storage account. Now you apply access permissions to files and directories.
 
 > [!NOTE]
 > This step is needed only if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
 
-### Create a service principal for your Azure Data Lake Storage Gen2 account
+### Create a service principal for your Azure Data Lake Storage Gen2 enabled account
 
 To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 - When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
-- When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
+- When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) section of the article, save application ID, and client secret values into a text file. You need those soon.
 
 ### Generate a list of copied files with their permissions
 
@@ -240,7 +240,7 @@ This command generates a list of copied files with their permissions.
 
 ### Apply permissions to copied files and apply identity mappings
 
-Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 account:
+Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 enabled account:
 
 ```bash
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
@@ -254,7 +254,7 @@ Run this command to apply permissions to the data that you copied into the Data 
 
 ## Appendix: Split data across multiple Data Box devices
 
-Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
+Before you move your data onto a Data Box device, you need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
 
 <a id="download-helper-scripts"></a>
 
@@ -336,7 +336,7 @@ If your data doesn't exceed the size of a singe Data Box device, you can proceed
 
 ### Exclude unnecessary files
 
-You'll need to exclude some directories from the DisCp job. For example, exclude directories that contain state information that keep the cluster running.
+You need to exclude some directories from the DisCp job. For example, exclude directories that contain state information that keep the cluster running.
 
 On the on-premises Hadoop cluster where you plan to initiate the DistCp job, create a file that specifies the list of directories that you want to exclude.
 

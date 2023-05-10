@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, sdkv1
+ms.custom: UpdateFrequency5, devx-track-python, mlflow, sdkv1
 ---
 
 # Track ML models with MLflow and Azure Machine Learning 
@@ -17,7 +17,7 @@ ms.custom: devx-track-python, mlflow, sdkv1
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-use-mlflow.md)
-> * [v2 (current version)](../how-to-use-mlflow-cli-runs.md)
+> * [v2 (current version)](../how-to-use-mlflow-cli-runs.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to enable [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) to connect Azure Machine Learning as the backend of your MLflow experiments.
 
@@ -161,7 +161,7 @@ with mlflow.start_run() as mlflow_run:
     mlflow.log_artifact("helloworld.txt")
 ```
 
-For details about how to log metrics, parameters and artifacts in a run using MLflow view [How to log and view metrics](../how-to-log-view-metrics.md).
+For details about how to log metrics, parameters and artifacts in a run using MLflow view [How to log and view metrics](how-to-log-view-metrics.md).
 
 ## Track runs running on Azure Machine Learning
 
@@ -311,7 +311,7 @@ mlflow.autolog()
 
 Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere), which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow-related metadata, such as run ID, is also tracked with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs.
 
-If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](../how-to-deploy-mlflow-models.md).
+If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](how-to-deploy-mlflow-models.md).
 
 To register and view a model from a run, use the following steps:
 

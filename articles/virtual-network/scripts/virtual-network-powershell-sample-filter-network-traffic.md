@@ -1,24 +1,19 @@
 ---
 title: Filter VM network traffic - Azure PowerShell script sample
 description: Filter inbound and outbound VM network traffic - Azure PowerShell script sample.
-services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
-manager: twooley
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: sample
-ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 03/23/2023
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Filter inbound and outbound VM network traffic script sample
 
-This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the internet from the back-end subnet is not permitted. After running the script, you have one virtual machine with two NICs. Each NIC is connected to a different subnet.
+This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the internet from the back-end subnet isn't permitted. After running the script, you have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-InstalledModule -Name Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-InstalledModule -Name Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,4 +53,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).
+More virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

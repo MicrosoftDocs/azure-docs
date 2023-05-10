@@ -2,8 +2,8 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 02/23/2023
-
+ms.custom: devx-track-azurecli
+ms.date: 03/07/2023
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -30,13 +30,13 @@ This article helps you understand this new feature, and how to implement it.
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
@@ -104,12 +104,12 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
@@ -139,19 +139,19 @@ Use the following command to enable Pod Sandboxing (preview) by creating a node 
 
    The following example adds a node pool to *myAKSCluster* with one node in *nodepool2* in the *myResourceGroup*:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
 2. Run the [az aks update][az-aks-update] command to enable pod sandboxing (preview) on the cluster.
 
-    ```bash
+    ```azurecli-interactive
     az aks update --name myAKSCluster --resource-group myResourceGroup
     ```
 
 ## Deploy a trusted application
 
-To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
+To demonstrate deployment of a trusted application on the shared kernel in the AKS cluster, perform the following steps.
 
 1. Create a file named *trusted-app.yaml* to describe a trusted pod, and then paste the following manifest.
 
@@ -181,7 +181,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
 
 ## Deploy an untrusted application
 
-To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
+To demonstrate the deployment of an untrusted application into the pod sandbox on the AKS cluster, perform the following steps.
 
 1. Create a file named *untrusted-app.yaml* to describe an untrusted pod, and then paste the following manifest.
 
@@ -253,12 +253,13 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
     ```output
     5.15.80.mshv2-hvl1.m2
+    ```
 
 ## Cleanup
 
 When you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
 
-```azurecli
+```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster
 ```
 
@@ -274,7 +275,7 @@ kubectl delete pod pod-name
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
@@ -286,7 +287,7 @@ kubectl delete pod pod-name
 [kata-container]: https://katacontainers.io 
 
 <!-- INTERNAL LINKS -->
-[install-azure-cli]: /cli/azu
+[install-azure-cli]: /cli/azure
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-show]: /cli/azure/feature#az-feature-show

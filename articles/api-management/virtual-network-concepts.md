@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 03/09/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -17,7 +17,7 @@ API Management provides several options to secure access to your API Management 
 
     You can choose one of two integration modes: *external* or *internal*. They differ in whether inbound connectivity to the gateway and other API Management endpoints is allowed from the internet or only from within the virtual network.
 
-* **Enabling secure and private connectivity** to the API Management gateway using a *private endpoint* (preview).
+* **Enabling secure and private inbound connectivity** to the API Management gateway using a *private endpoint*.
 
 The following table compares virtual networking options. For more information, see later sections of this article and links to detailed guidance.
 
@@ -25,7 +25,7 @@ The following table compares virtual networking options. For more information, s
 |---------|---------|---------|---------|----|
 |**[Virtual network - external](#virtual-network-integration)**     | Developer, Premium       | Azure portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | External access to private and on-premises backends
 |**[Virtual network - internal](#virtual-network-integration)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository.       |  Inbound and outbound traffic can be allowed to peered virtual networks, Express Route, and S2S VPN connections.       | Internal access to private and on-premises backends
-|**[Private endpoint (preview)](#private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported).      |    Only inbound traffic can be allowed from internet, peered virtual networks, Express Route, and S2S VPN connections.     | Secure client connection to API Management gateway |    
+|**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported).      |    Only inbound traffic can be allowed from internet, peered virtual networks, Express Route, and S2S VPN connections.     | Secure client connection to API Management gateway |    
 
 ## Virtual network integration
 With Azure virtual networks (VNets), you can place ("inject") your API Management instance in a non-internet-routable network to which you control access. In a virtual network, your API Management instance can securely access other networked Azure resources and also connect to on-premises networks using various VPN technologies. To learn more about Azure VNets, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -66,6 +66,7 @@ The following are virtual network resource requirements for API Management. Some
 * An Azure Resource Manager virtual network is required.
 * You must provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) in addition to specifying a virtual network and subnet.
 * The subnet used to connect to the API Management instance may contain other Azure resource types.
+* The subnet used to connect to the API Management instance should not have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
 * A [network security group](../virtual-network/network-security-groups-overview.md) attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. 
 * The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
@@ -74,6 +75,7 @@ The following are virtual network resource requirements for API Management. Some
 
 * An Azure Resource Manager virtual network is required.
 * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types.
+* The subnet used to connect to the API Management instance should not have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
 * The API Management service, virtual network, and subnet resources must be in the same region and subscription.
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
 
@@ -141,26 +143,19 @@ Some virtual network limitations differ depending on the version (`stv2` or `stv
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNet mode, users own the routing and are responsible for managing the load balancing across multiple regions.
 * To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
-* Due to platform limitations, connectivity between a resource in a globally peered VNet in another region and an API Management service in internal mode won't work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+* Due to platform limitations, connectivity between a resource in a globally peered VNet in another region and an API Management service in internal mode doesn't work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 ---
 
-## Private endpoint
+## Inbound private endpoint
 
-API Management supports [private endpoints](../private-link/private-endpoint-overview.md). A private endpoint enables secure client connectivity to your API Management instance using a private IP address from your virtual network and Azure Private Link. 
+API Management supports [private endpoints](../private-link/private-endpoint-overview.md) for secure inbound client connections to your API Management instance. Each secure connection uses a private IP address from your virtual network and Azure Private Link. 
 
 :::image type="content" source="media/virtual-network-concepts/api-management-private-endpoint.png" alt-text="Diagram showing a secure connection to API Management using private endpoint." lightbox="media/virtual-network-concepts/api-management-private-endpoint.png":::
 
-With a private endpoint and Private Link, you can:
-
-* Create multiple Private Link connections to an API Management instance.
-* Use the private endpoint to send inbound traffic on a secure connection.
-* Use policy to distinguish traffic that comes from the private endpoint.
-* Limit incoming traffic only to private endpoints, preventing data exfiltration.
-
 [!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
 
-For more information, see [Connect privately to API Management using a private endpoint](private-endpoint.md).
+For more information, see [Connect privately to API Management using an inbound private endpoint](private-endpoint.md).
 
 ## Advanced networking configurations
 

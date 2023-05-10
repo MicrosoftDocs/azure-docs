@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Cloud transformation posture
 
-Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Endpoint Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
+Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
 
 As part of most modernization, migration, or Zero Trust initiatives, organizations shift IAM activities from using on-premises or infrastructure-as-a-service (IaaS) solutions to using built-for-the-cloud solutions. For an IT environment that uses Microsoft products and services, Active Directory and Azure AD play a role.
 

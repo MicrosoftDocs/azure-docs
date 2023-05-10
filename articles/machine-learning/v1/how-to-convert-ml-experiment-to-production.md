@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
 ms.date: 10/21/2021
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # Convert ML experiments to production Python code
@@ -436,7 +436,7 @@ The `train_aml.py` file found in the `diabetes_regression/training` directory in
 
 ### Create Python file for the Diabetes Ridge Regression Scoring notebook
 
-Covert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
+Convert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
 jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score

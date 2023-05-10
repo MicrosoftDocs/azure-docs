@@ -1,8 +1,8 @@
 ---
 title: 'Troubleshoot Azure Managed Grafana'
 description: Troubleshoot Azure Managed Grafana issues related to fetching data, managing Managed Grafana dashboards, speed and more.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.topic: troubleshooting
 ms.service: managed-grafana
 ms.date: 09/13/2022
