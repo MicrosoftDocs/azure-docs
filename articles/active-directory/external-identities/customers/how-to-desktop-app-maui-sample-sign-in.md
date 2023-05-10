@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI desktop app to sign in and sign out users with Azure AD for customers tenant
 ---
@@ -86,6 +86,5 @@ Clean the solution, rebuild the solution, and run it.
 
 ## Next Steps
 
-- [Enable password reset](how-to-enable-password-reset-customers.md).
 - [Customize the default branding](how-to-customize-branding-customers.md).
 - [Configure sign-in with Google](how-to-google-federation-customers.md).
