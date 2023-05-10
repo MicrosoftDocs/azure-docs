@@ -81,11 +81,11 @@ Define an **ImageAnalysisOptions** object, which specifies visual features you'd
 var analysisOptions = new ImageAnalysisOptions()
 {
     // Mandatory. You must set one or more features to analyze. Here we use the full set of features.
-    // Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
-    // North Europe, Southeast Asia, West Europe, West US)
+    // Note that 'Caption' is only supported in Azure GPU regions (East US, France Central, Korea Central,
+    // North Europe, Southeast Asia, West Europe, West US and East Asia)
     Features =
             ImageAnalysisFeature.CropSuggestions
-        | ImageAnalysisFeature.Captions
+        | ImageAnalysisFeature.Caption
         | ImageAnalysisFeature.Objects
         | ImageAnalysisFeature.People
         | ImageAnalysisFeature.Text
@@ -102,11 +102,11 @@ Specify which visual features you'd like to extract in your analysis.
 image_analysis_options = visionsdk.ImageAnalysisOptions()
 
 # Mandatory. You must set one or more features to analyze. Here we use the full set of features.
-# Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
+# Note that 'Caption' is only supported in Azure GPU regions (East US, France Central, Korea Central,
 # North Europe, Southeast Asia, West Europe, West US)
 image_analysis_options.features = (
     visionsdk.ImageAnalysisFeature.CROP_SUGGESTIONS |
-    visionsdk.ImageAnalysisFeature.CAPTIONS |
+    visionsdk.ImageAnalysisFeature.CAPTION |
     visionsdk.ImageAnalysisFeature.OBJECTS |
     visionsdk.ImageAnalysisFeature.PEOPLE |
     visionsdk.ImageAnalysisFeature.TEXT |
@@ -139,7 +139,7 @@ You can specify which features you want to use by setting the URL query paramete
 |---|---|--|
 |`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
 |`features`|`Caption` | describes the image content with a complete sentence in supported languages.|
-|`features`|`DenseCaption` | generates detailed captions for individual regions in the image. |
+|`features`|`DenseCaption` | generates detailed captions for up to 10 prominent image regions. |
 |`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
 |`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 |`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
