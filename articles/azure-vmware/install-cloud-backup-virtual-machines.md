@@ -60,17 +60,27 @@ Before you initiate the upgrade, you must:
 
 ### Back up the MySQL database 
 
-You can use the maintenance console to restore a specific backup of the MySQL database (also called an NSM database) for the SnapCenter Plug-in for VMware vSphere virtual appliance.
+The SnapCenter VMware plug-in includes a MySQL database (also called an NSM database) that contains the metadata for all jobs performed by the plug-in.
 
-1. Open a maintenance console window.
-1. Access the maintenance console.
+>[!NOTE]
+>Do not start a job to back up the MySQL database when an on-demand backup job is already running.
+
+1. From the VMware vSphere web client, select the VM where the SnapCenter VMware plug-in is located.
+1. Right-click the VM. On the **Summary** tab of the virtual appliance, select **Launch Remote Console or Launch Web Console** to open a maintenance console window.
+    
+    The logon defaults for the SnapCenter VMware plug-in maintenance console are:
+
+    Username: `maint`
+    Password: `admin123`
+
 1. From the main menu, enter option **1) Application Configuration**.
-1. From the Application Configuration Menu, enter option **6) MySQL backup and restore**.
-1. From the MySQL Backup and Restore Configuration Menu, enter option **2) List MySQL backups**. Make note of the backup you want to restore.
-1. From the MySQL Backup and Restore Configuration Menu, enter option **3) Restore MySQL backup.**
-1. At the prompt for "Restore using the most recent backup,” enter **n**.
-1. At the prompt “Backup to restore from,” enter the backup name, and then press Enter.
-1. The selected backup MySQL database is restored to its original location.
+1. From the Application Configuration menu, enter option **6) MySQL backup and restore**.
+1. From the MySQL Backup and Restore Configuration menu, enter option **1) Configure MySQL backup**.
+1. At the prompt, enter the backup location for the repository, the number of backups to keep, and the time the backup should start.
+    All inputs are saved when you enter them. When the backup retention number is reached, older backups are deleted when new backups are performed.
+
+    >[!NOTE]
+    >Repository backups are named `"backup-<date>"`. Because the repository restore function looks for the "backup" prefix, you should not change it.
 
 ### Upgrade
 
