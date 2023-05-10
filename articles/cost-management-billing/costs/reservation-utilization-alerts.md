@@ -31,7 +31,7 @@ For more information, see [scopes and roles](understand-work-scopes.md).
 ## Manage an alert rule
 
 >[!NOTE]
-> During the preview, enable the feature in [cost management labs](https://azure.microsoft.com/blog/azure-cost-management-updates-july-2019#labs). Select **Reservation utilization** alert. For more information, see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features.md).
+> During the preview, enable the feature in [cost management labs](https://azure.microsoft.com/blog/azure-cost-management-updates-july-2019#labs). Select **Reservation utilization** alert. For more information, see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features).
 
 To create a reservation utilization alert rule:
 
