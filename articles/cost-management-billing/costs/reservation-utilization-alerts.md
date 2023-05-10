@@ -31,7 +31,7 @@ For more information, see [scopes and roles](understand-work-scopes.md).
 ## Manage an alert rule
 
 >[!NOTE]
-> During the preview, enable the feature in [cost management labs](https://azure.microsoft.com/blog/azure-cost-management-updates-july-2019#labs). Select **Reservation utilization** alert. For more information, see [Explore preview features](enable-preview-features-cost-management-labs#explore-preview-features.md).
+> During the preview, enable the feature in [cost management labs](https://azure.microsoft.com/blog/azure-cost-management-updates-july-2019#labs). Select **Reservation utilization** alert. For more information, see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features.md).
 
 To create a reservation utilization alert rule:
 
@@ -77,12 +77,11 @@ The notification email for the reservation utilization alert provides essential 
 
 For reference, here’s an example alert email.
 
-
 :::image type="content" source="./media/reservation-utilization-alerts/sample-email.png" alt-text="Screenshot showing example email alert." lightbox="./media/reservation-utilization-alerts/sample-email.png" :::
 
 ## Partner experience
 
-Microsoft partners that have a Microsoft Partner Agreement can create reservation utilization alerts to monitor their customers’ reservations in the [Azure portal](https://portal.azure.com>). Alert rules are created centrally from the partner’s tenant, while reservation management is performed in each customer’s tenant. Partners can include respective customers as alert recipients when creating alert rules.
+Microsoft partners that have a Microsoft Partner Agreement can create reservation utilization alerts to monitor their customers’ reservations in the [Azure portal](https://portal.azure.com). Alert rules are created centrally from the partner’s tenant, while reservation management is performed in each customer’s tenant. Partners can include respective customers as alert recipients when creating alert rules.
 
 The following information provides more detail.
 
