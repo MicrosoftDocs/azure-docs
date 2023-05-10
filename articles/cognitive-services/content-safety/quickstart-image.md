@@ -44,8 +44,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 - [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 ## Next steps
+* You can try to configure filters for each category and test on datasets in [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+* Become more familiar with the harm categories that Content Safety uses to evaluate content.
 
-Become more familiar with the harm categories that Content Safety uses to evaluate content.
-
-> [!div class="nextstepaction"]
-> [Harm categories](./concepts/harm-categories.md)
+  > [!div class="nextstepaction"]
+  > [Harm categories](./concepts/harm-categories.md)
