@@ -800,7 +800,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
 ### Layout
 
-If you would like to model your UI off this tutorial, the following is a sample **activity_main.xml**.
+The following xml samples are provided if you would like to model your UI off this tutorial:
 
 1. In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet to display buttons and text boxes:
 
@@ -890,6 +890,399 @@ If you would like to model your UI off this tutorial, the following is a sample 
            android:text="Output goes here..." />
    </LinearLayout>
    ```
+1. In **app** > **src** > **main**> **res** > **layout** > **app_bar_main.xml**. If you don't have **app_bar_main.xml** in your folder, create and add the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+    
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+    
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+    
+        </com.google.android.material.appbar.AppBarLayout>
+    
+        <include layout="@layout/content_main" />
+    
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **layout** > **content_main.xml**. If you don't have **content_main.xml** in your folder, create and add the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/content_main"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/app_bar_main">
+    
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **layout** > **fragment_m_s_graph_request_wrapper.xml**. If you don't have **fragment_m_s_graph_request_wrapper.xml** in your folder, create and add the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MSGraphRequestWrapper">
+    
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment" />
+    
+    </FrameLayout>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **layout** > **fragment_on_interaction_listener.xml**. If you don't have **fragment_on_interaction_listener.xml** in your folder, create and add the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".OnFragmentInteractionListener">
+    
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment" />
+    
+    </FrameLayout>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **layout** > **fragment_single_account_mode.xml**. If you don't have **fragment_single_account_mode.xml** in your folder, create and add the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SingleAccountModeFragment">
+    
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".SingleAccountModeFragment">
+    
+            <LinearLayout
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin">
+    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="10">
+    
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:text="Scope" />
+    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="7">
+    
+                        <EditText
+                            android:id="@+id/scope"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="user.read"
+                            android:textSize="12sp" />
+    
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:paddingLeft="5dp"
+                            android:text="Type in scopes delimited by space"
+                            android:textSize="10sp"  />
+    
+                    </LinearLayout>
+                </LinearLayout>
+    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="10">
+    
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:text="MSGraph Resource URL" />
+    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="7">
+    
+                        <EditText
+                            android:id="@+id/msgraph_url"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="10">
+    
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:textStyle="bold"
+                        android:text="Signed-in user" />
+    
+                    <TextView
+                        android:id="@+id/current_user"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:layout_weight="7"
+                        android:text="None" />
+                </LinearLayout>
+    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="10">
+    
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:textStyle="bold"
+                        android:text="Device mode" />
+    
+                    <TextView
+                        android:id="@+id/device_mode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:layout_weight="7"
+                        android:text="None" />
+                </LinearLayout>
+    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="10">
+    
+                    <Button
+                        android:id="@+id/btn_signIn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:text="Sign In"/>
+    
+                    <Button
+                        android:id="@+id/btn_removeAccount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:text="Sign Out"
+                        android:enabled="false"/>
+                </LinearLayout>
+    
+    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+    
+                    <Button
+                        android:id="@+id/btn_callGraphInteractively"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="Get Graph Data Interactively"
+                        android:enabled="false"/>
+    
+                    <Button
+                        android:id="@+id/btn_callGraphSilently"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="Get Graph Data Silently"
+                        android:enabled="false"/>
+                </LinearLayout>
+    
+    
+                <TextView
+                    android:id="@+id/txt_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0.8"
+                    android:text="Output goes here..." />
+    
+            </LinearLayout>
+        </LinearLayout>
+    
+    </FrameLayout>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **layout** > **nav_header_main.xml**. If you don't have **nav_header_main.xml** in your folder, create and add the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_header_height"
+        android:background="@drawable/side_nav_bar"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="66dp"
+            android:layout_height="72dp"
+            android:contentDescription="@string/nav_header_desc"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            app:srcCompat="@drawable/microsoft_logo" />
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:text="Azure Samples"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MSAL Android" />
+    
+    </LinearLayout>
+
+    ```
+ 
+1. In **app** > **src** > **main**> **res** > **values** > **dimens.xml**. Replace the content of **dimens.xml** with the following code snippet:
+
+    ```xml
+    <resources>
+        <dimen name="fab_margin">16dp</dimen>
+        <dimen name="activity_horizontal_margin">16dp</dimen>
+        <dimen name="activity_vertical_margin">16dp</dimen>
+        <dimen name="nav_header_height">176</dimen>
+        <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    </resources>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **values** > **colors.xml**. Replace the content of **colors.xml** with the following code snippet:
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <color name="purple_200">#FFBB86FC</color>
+        <color name="purple_500">#FF6200EE</color>
+        <color name="purple_700">#FF3700B3</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="colorPrimary">#008577</color>
+        <color name="colorPrimaryDark">#00574B</color>
+        <color name="colorAccent">#D81B60</color>
+    </resources>
+    ```
+
+1. In **app** > **src** > **main**> **res** > **values** > **themes.xml**. Replace the content of **themes.xml** with the following code snippet:
+
+    ```xml
+    <resources xmlns:tools="http://schemas.android.com/tools">
+        <!-- Base application theme. -->
+        <style name="Theme.MSALDemo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+            <!-- Primary brand color. -->
+            <item name="colorPrimary">@color/purple_500</item>
+            <item name="colorPrimaryVariant">@color/purple_700</item>
+            <item name="colorOnPrimary">@color/white</item>
+            <!-- Secondary brand color. -->
+            <item name="colorSecondary">@color/teal_200</item>
+            <item name="colorSecondaryVariant">@color/teal_700</item>
+            <item name="colorOnSecondary">@color/black</item>
+            <!-- Status bar color. -->
+            <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimaryVariant</item>
+            <!-- Customize your theme here. -->
+        </style>
+    
+        <style name="Theme.MSALDemo.NoActionBar">
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
+        </style>
+    
+        <style name="Theme.MSALDemo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    
+        <style name="Theme.MSALDemo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    </resources>
+    ```
 
 ## Test your app
 
