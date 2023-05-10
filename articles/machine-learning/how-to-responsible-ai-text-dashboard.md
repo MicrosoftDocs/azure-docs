@@ -1,7 +1,7 @@
 ---
-title: Responsible AI dashboard for Text Insights in Azure Machine Learning studio
+title: Responsible AI text dashboard in Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
-description: Learn how to use the various tools and visualization charts in the Responsible AI dashboard for text insights in Azure Machine Learning.
+description: Learn how to use the various tools and visualization charts in the Responsible AI text dashboard in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,14 +13,14 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Responsible AI dashboard for Text Insights in Azure Machine Learning studio (preview)
+# Responsible AI test dashboard in Azure Machine Learning studio (preview)
 
-The Responsible AI Toolbox for Text Data is a customizable, interoperable tool where you can select components to perform analytical functions for Model Assessment and Debugging, which involves determining how and why AI systems behave the way they do, identifying and diagnosing issues, then using that knowledge to take targeted steps to improve their performance.
+The Responsible AI Toolbox for text data is a customizable, interoperable tool where you can select components to perform analytical functions for Model Assessment and Debugging, which involves determining how and why AI systems behave the way they do, identifying and diagnosing issues, then using that knowledge to take targeted steps to improve their performance.
 
 Each component has a variety of tabs and buttons. The article will help to familiarize you with the different components of the dashboard and the options and functionalities available in each.
 
 > [!IMPORTANT]
-> Responsible AI Text Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Responsible AI text dashboard is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Error analysis
@@ -153,7 +153,7 @@ Selecting the labels of the axis displays a popup.
 
 ## Interpretability
 
-## Global Explanations
+## Global explanations
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/feature-importances-aggregate.png" alt-text="Screenshot of feature importances on the aggregate feature importance tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/feature-importances-aggregate.png":::
 
@@ -162,7 +162,7 @@ Selecting the labels of the axis displays a popup.
 
 Selecting the **Individual feature importances** tab shifts views to explain how specific words influence the predictions made on specific datapoints.
 
-### Local Explanations
+### Local explanations
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/feature-importances-individual.png" alt-text="Screenshot of feature importances on the individual feature importance tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/feature-importances-individual.png":::
 

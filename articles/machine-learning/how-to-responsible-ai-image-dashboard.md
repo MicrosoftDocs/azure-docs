@@ -1,7 +1,7 @@
 ---
-title: Responsible AI dashboard for Vision Insights in Azure Machine Learning studio
+title: Responsible AI image dashboard in Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
-description: Learn how to use the various tools and visualization charts in the Responsible AI dashboard for vision insights in Azure Machine Learning.
+description: Learn how to use the various tools and visualization charts in the Responsible AI image dashboard in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,12 +13,12 @@ ms.date: 5/10/2023
 ms.custom: responsible-ml
 ---
 
-# Responsible AI dashboard for Vision Insights in Azure Machine Learning studio (preview)
+# Responsible AI image dashboard in Azure Machine Learning studio (preview)
 
-The Responsible AI Image dashboards are linked to your registered computer vision models in Azure Machine Learning. While [steps to view and configure the  Responsible AI dashboard](how-to-responsible-ai-dashboard.md) is similar across scenarios, some features are unique to image scenarios.
+The Responsible AI image dashboards are linked to your registered computer vision models in Azure Machine Learning. While [steps to view and configure the Responsible AI dashboard](how-to-responsible-ai-dashboard.md) is similar across scenarios, some features are unique to image scenarios.
 
 > [!IMPORTANT]
-> Responsible AI Vision Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Responsible AI image dashboard is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Full functionality with integrated compute resource
@@ -105,7 +105,7 @@ The data explorer component contains multiple panes to provide various perspecti
 
 The image explorer pane displays images instances of model predictions, automatically categorized by correct and incorrectly labeled predictions. This view helps you quickly identify high-level patterns of error in your data and select which instances to investigate more deeply.
 
-For image classification and multiclassification, incorrect predictions refer to images where the predicted class label differs from ground truth. 
+For image classification and multiclassification, incorrect predictions refer to images where the predicted class label differs from ground truth.
 For object detection, incorrect predictions refer to images where:
 
 - At least one object was incorrectly labeled
@@ -113,6 +113,9 @@ For object detection, incorrect predictions refer to images where:
 - Failing to detect an object class when a ground truth object exists
 
 Since correctness in the Data Explorer depends on classification label, if object(s) in an image were correctly labeled but with an IOU (Intersection of Union) score below the default threshold of 50%, the image instance is still a success instance.
+
+> [!NOTE]
+> If object(s) in an image was correctly labeled but with an IOU (Intersection of Union) score below the default threshold of 50%, the image instance is excluded from the data explorer and will not be appear in the error instances category. Currently, it is not possible to change the default IOU threshold in the data explorer component.
 
 Image explorer for multilabel classification:
 
@@ -180,7 +183,7 @@ For AutoML image classification models, four kinds of explainability methods are
 
 > [!NOTE]
 > -	**These four methods are specific to AutoML image classification only** and will not work with other task types such as object detection, instance segmentation etc. Non-AutoML image classification models can leverage SHAP vision for model interpretability. 
->-	**The explanations are only generated for the predicted class**. For multilabel classification, a threshold on confidence score is required, to select the classes for which the explanations are generated. Please see the parameter list below for the parameter name.
+>-	**The explanations are only generated for the predicted class**. For multilabel classification, a threshold on confidence score is required, to select the classes for which the explanations are generated. See the [parameter list](#responsible-ai-vision-insights-component-parameter-automl-specific) for the parameter name.
 
 Both AutoML and non-AutoML object detection models can leverage [D-RISE](https://github.com/microsoft/vision-explanation-methods) to generate visual explanations for model predictions.
 
@@ -190,5 +193,5 @@ For information about vision model interpretability techniques and how to interp
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate a Responsible AI dashboard with YAML or Python.
-- Learn more about how you can use the Responsible AI Vision dashboard to debug image data and models and inform better decision-making in this [tech community blog post]().
+- Learn more about how you can use the Responsible AI Vision dashboard to debug image data and models and inform better decision-making in this [tech community blog post](https://aka.ms/rai-object-detection-blog).
 - Learn about how the Responsible AI dashboard was used by Clearsight in a [real-life customer story](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).

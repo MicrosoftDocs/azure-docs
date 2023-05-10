@@ -10,14 +10,14 @@ ms.reviewer: lagayhar
 ms.author: ilmat
 author: imatiach-msft
 ms.date: 5/10/2023
-ms.custom: responsible-ml
+ms.custom: responsible-ml 
 ---
 
 # Generate Responsible AI Vision Insights with YAML and Python (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Understanding and assessing computer vision models requires a different set of Responsible AI tools, compared to tabular and text scenarios. The Responsible AI dashboard now supports image data by expanding debugging capabilities to be able to digest and visualize image data. The Responsible AI dashboard for Image provide several mature Responsible AI tools in the areas of model performance, data exploration, and model interpretability for a holistic assessment and debugging of computer vision models – leading to informed mitigations to resolve fairness issues, and transparency across stakeholders to build trust. You can generate a Responsible AI vision dashboard via an Azure Machine Learning pipeline job by using Responsible AI components.
+Understanding and assessing computer vision models requires a different set of Responsible AI tools, compared to tabular and text scenarios. The Responsible AI dashboard now supports image data by expanding debugging capabilities to be able to digest and visualize image data. The Responsible AI dashboard for Image provides several mature Responsible AI tools in the areas of model performance, data exploration, and model interpretability for a holistic assessment and debugging of computer vision models – leading to informed mitigations to resolve fairness issues, and transparency across stakeholders to build trust. You can generate a Responsible AI vision dashboard via an Azure Machine Learning pipeline job by using Responsible AI components.
 
 Supported scenarios:
 
@@ -25,8 +25,7 @@ Supported scenarios:
 |-----------------------------------------------|---------------------------------------------|------------------------------------------------------------|
 | Image Classification (Binary and Multi-class) | Predict a single class for the given image  | `task_type="image_classification"`                         |
 | Image Multi-label Classification              | Predict multiple labels for the given image | `task_type="multilabel_image_classification"`              |
-| Object Detection                              | Locate and identify the class of multiple objects for a given image. An object is defined with a bounding box. | 
-`task_type="object_detection"` |
+| Object Detection                              | Locate and identify the class of multiple objects for a given image. An object is defined with a bounding box. |`task_type="object_detection"` |
 
 > [!IMPORTANT]
 > Responsible AI Vision Insights is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -58,7 +57,7 @@ The Responsible AI Vision Insights component has three major input ports:
 - The training dataset
 - The test dataset
 
-The start, register your input model in Azure Machine Learning and reference the same model in the model input port of the Responsible AI Vision Insights component. To generate model-debugging insights (model performance, data explorer, and model interpretability tools) and populate visualizations in your Responsible AI dashboard, use the training and test image dataset that you used when training your model. The two datasets should be in mltable format. The training and test dataset can be the same.
+To start, register your input model in Azure Machine Learning and reference the same model in the model input port of the Responsible AI Vision Insights component. To generate model-debugging insights (model performance, data explorer, and model interpretability tools) and populate visualizations in your Responsible AI dashboard, use the training and test image dataset that you used when training your model. The two datasets should be in mltable format. The training and test dataset can be the same.
 
  Dataset schema for the different vision task types:
 
@@ -176,7 +175,7 @@ The Responsible AI Vision Insights pipeline could be submitted through one of th
 - UI (via Azure Machine Learning studio): From the Designer in Azure Machine Learning studio, the RAI-vision insights component can be used to create and submit a pipeline.
 
 
-## Responsible AI Vision Insights component parameter (AutoML specific)
+### Responsible AI Vision Insights component parameter (AutoML specific)
 
 In addition to the list of Responsible AI Vision Insights parameters provided in the previous section, the following are parameters to set specifically for AutoML models.
 
@@ -193,7 +192,7 @@ In addition to the list of Responsible AI Vision Insights parameters provided in
 | `n_steps` | This parameter is specific to Integrated gradients and XRAI method. <br> The number of steps used by the approximation method. Larger number of steps lead to better approximations of attributions (explanations). Range of n_steps is [2, inf), but the performance of attributions starts to converge after 50 steps.| Integer|
 | `confidence_score_threshold_multilabel` | This parameter is specific to multilabel classification only. Specify the threshold on confidence score, above which the labels are selected for generating explanations. | Float |
 
-## Generating model explanations for AutoML models
+### Generating model explanations for AutoML models
 
 Once the pipeline is complete and the Responsible AI dashboard is generated, you need to connect it to a compute instance for generating the explanations.  Once the compute instance is connected, you can select the input image, and it shows the explanations using the selected XAI algorithm in the sidebar from the right.
 > [!NOTE]
@@ -203,13 +202,13 @@ A sample screen with explanations is shown below (on the right). The explanation
 
 [ screenshot]
 
-## Understand the Responsible AI Vision Dashboard
+## Understand the Responsible AI image dashboard
  
-To learn more about how to Responsible AI Vision dashboard, see [Responsible AI dashboard for Vision Insights in Azure Machine Learning studio](how-to-responsible-ai-dashboard-vision-insights.md).
+To learn more about how to use the Responsible AI image dashboard, see [Responsible AI image dashboard in Azure Machine Learning studio](how-to-responsible-ai-image-dashboard.md).
 
 ## Next steps
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate a Responsible AI dashboard with YAML or Python.
-- Learn more about how you can use the Responsible AI Vision dashboard to debug image data and models and inform better decision-making in this [tech community blog post]().
+- Learn more about how you can use the Responsible AI Vision dashboard to debug image data and models and inform better decision-making in this [tech community blog post](https://aka.ms/rai-object-detection-blog).
 - Learn about how the Responsible AI dashboard was used by Clearsight in a [real-life customer story](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).
