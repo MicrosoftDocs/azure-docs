@@ -1,7 +1,7 @@
 ---
-title: "Content Safety response codes"
+title: "Content Safety error codes"
 titleSuffix: Azure Cognitive Services
-description: See the possible response codes for the Content Safety APIs.
+description: See the possible error codes for the Content Safety APIs.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
