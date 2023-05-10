@@ -18,13 +18,10 @@ The `pgvector` extension adds an open-source vector similarity search to Postgre
 
 This article explores the limitations and tradeoffs of [`pgvector`](https://github.com/pgvector/pgvector) and shows how to use partitioning, indexing and search settings to improve performance.
 
-For more on the extension itself, see [basics of `pgvector`](#). You may also want to refer to the official [README](https://github.com/pgvector/pgvector/blob/master/README.md) of the project.
+For more on the extension itself, see [basics of `pgvector`](howto-use-pgvector.md). You may also want to refer to the official [README](https://github.com/pgvector/pgvector/blob/master/README.md) of the project.
 
 [!INCLUDE [Performance](includes/pgvector-performance.md)]
 
-## Next steps
+## Conclusion
 
 Congratulations, you just learned the tradeoffs, limitations and best practices to achieve the best performance with `pgvector`.
-
-Learn how to [build a recommendation system](#) with pgvector.
-
