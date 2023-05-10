@@ -493,7 +493,7 @@ Encryption on SAP level can be broken down in two layers:
 - DBMS encryption
 - Transport encryption
 
-For DBMS encryption, each database that's supported for SAP NetWeaver or S/4HANA deployment supports native encryption. Transparent database encryption is entirely independent of any infrastructure encryption that's in place in Azure. Both database encryption and [storage-side encryption](/azure/virtual-machines/disk-encryption) (SSE) can be used at the same time. Of utmost importance when using encryption is the location, storage, and safekeeping of encryption keys. Any loss of encryption keys leads to data loss because you won't be able to start or recover your database.
+For DBMS encryption, each database that's supported for SAP NetWeaver or S/4HANA deployment supports native encryption. Transparent database encryption is entirely independent of any infrastructure encryption that's in place in Azure. Both database encryption and [storage-side encryption](../../virtual-machines/disk-encryption.md) (SSE) can be used at the same time. Of utmost importance when using encryption is the location, storage, and safekeeping of encryption keys. Any loss of encryption keys leads to data loss because you won't be able to start or recover your database.
 
 Some databases might not have a database encryption method or might not require a dedicated setting to enable. For other databases, DBMS backups might be encrypted implicitly when database encryption is activated. See SAP notes of the respective database on how to enable and use transparent database encryption.
 
@@ -504,7 +504,7 @@ Some databases might not have a database encryption method or might not require 
 - SAP ASE - SAP Note [1972360]
 
 > [!NOTE]
-> Contact SAP or the DBMS vendor for support on how to enable, use, or troubleshoot software encryption.
+> Contact SAP or your DBMS vendor for support on how to enable, use, or troubleshoot software encryption.
 
 > [!IMPORTANT]
 > Importance of a careful plan to store and protect the encryption keys can't be overstated. Without encryption keys the database or SAP software might be inaccessible and lead to data loss. Carefully consider protection of the keys and the access to them only by privileged users or services only.
@@ -515,11 +515,11 @@ Transport, or communication encryption can be applied for SQL connections betwee
 
 Follow corporate architecture to deploy and use threat monitoring and alerting solutions. Available Azure services provide threat protection and security view, should be considered for the overall SAP deployment plan. [Microsoft Defender for Cloud](/azure/security-center/security-center-introduction) addresses this requirement and is typically part of an overall governance model for entire Azure deployments, not just for SAP components.
 
-For more information about security information event management (SIEM) and security orchestration automated response (SOAR) solutions, read [Microsoft Sentinel provides SAP integration](/azure/sentinel/sap/deployment-overview).
+For more information about security information event management (SIEM) and security orchestration automated response (SOAR) solutions, see [Microsoft Sentinel provides SAP integration](/azure/sentinel/sap/deployment-overview).
 
 ### Security software inside SAP VMs
 
-SAP Note [2808515] for Linux and SAP Note [106267] for Windows describe requirements and best practices when using virus scanners or security software on SAP servers. The SAP recommendations should be followed when deploying SAP components in Azure.
+SAP Note [2808515] for Linux and SAP Note [106267] for Windows describe requirements and best practices when you use virus scanners or security software on SAP servers. We recommend that you follow the SAP recommendations when you deploy SAP components in Azure.
 
 ## High availability
 
@@ -547,9 +547,9 @@ Pacemaker on Linux and Windows Server Failover Cluster are the only high availab
 
 ## Disaster recovery
 
-Often, SAP applications are some of the most business-critical processes in an enterprise. Based on their importance and the time required to be operational again after an unforeseen interruption, business continuity and disaster recovery (BCDR) scenarios should be planned.
+Often, SAP applications are among the most business-critical processes in an enterprise. Based on their importance and the time required to be operational again after an unforeseen interruption, business continuity and disaster recovery (BCDR) scenarios should be carefully planned.
 
-[Disaster recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md) contains all the details that you need to address this requirement.
+To learn how to address this requirement, see [Disaster recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md).
 
 ## Backup
 
@@ -557,20 +557,20 @@ As part of your BCDR strategy, backup for your SAP workload must be an integral 
 
 Azure Backup offers a PaaS solution to back up:
 
-- VM configuration, operating system, and SAP application layer (data resizing on managed disks) through Azure Backup for VM. Review the [support matrix](/azure/backup/backup-support-matrix-iaas) to verify your design can use this solution.
-- [SQL Server](/azure/backup/sql-support-matrix) and [SAP HANA](/azure/backup/sap-hana-backup-support-matrix) database data and log backup. Including support for database replication technologies, such HANA system replication or SQL Always On, and cross-region support for paired regions
-- File share backup through Azure Files. [Verify support](/azure/backup/azure-file-share-support-matrix) for NFS/SMB and other configuration details
+- VM configuration, operating system, and SAP application layer (data resizing on managed disks) through Azure Backup for VM. Review the [support matrix](/azure/backup/backup-support-matrix-iaas) to verify that your architecture can use this solution.
+- [SQL Server](/azure/backup/sql-support-matrix) and [SAP HANA](/azure/backup/sap-hana-backup-support-matrix) database data and log backup. It includes support for database replication technologies, such as HANA system replication or SQL Always On, and cross-region support for paired regions.
+- File share backup through Azure Files. [Verify support](/azure/backup/azure-file-share-support-matrix) for NFS or SMB and other configuration details.
 
 Alternatively, if you deploy Azure NetApp Files, [backup options are available](/azure/azure-netapp-files/backup-introduction) on the volume level, including [SAP HANA and Oracle DBMS](/azure/azure-netapp-files/azacsnap-introduction) integration with a scheduled backup.
 
 Backup solutions with Azure backup are offering a [soft-delete option](/azure/backup/backup-azure-security-feature-cloud) to prevent malicious or accidental deletion and thus preventing data loss. Soft-delete is also available for file shares with Azure Files.
 
-Further backup options are possible with self created and managed solution, or using third party software. These are using Azure storage in its different versions, including options to use [immutable storage for blob data](/azure/storage/blobs/immutable-storage-overview). This self-managed option would be currently required for DBMS backup option for some SAP databases like SAP ASE or DB2.
+More backup options are possible for a solution that you create and manage yourself or if you use third-party software. These alternatives are to the services with Azure Storage, including options to use [immutable storage for blob data](/azure/storage/blobs/immutable-storage-overview). This self-managed option would be currently required for DBMS backup option for some SAP databases like SAP ASE or DB2.
 
-Follow recommendations to [protect and validate against ransomware](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware) attacks with Azure best practices.
+Follow recommendations to [protect and validate against ransomware](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware) attacks by using Azure best practices.
 
 > [!TIP]
-> Ensure that your backup strategy covers protecting your deployment automation, encryption keys for both Azure resources, and transparent database encryption, if used.
+> Ensure that your backup strategy includes protecting your deployment automation, encryption keys for both Azure resources, and transparent database encryption if used.
 
 > [!WARNING]
 > For any cross-region backup requirement, determine the RTO and RPO that's offered by the solution and whether it matches your BCDR design and needs.
