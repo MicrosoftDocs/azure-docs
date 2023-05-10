@@ -35,7 +35,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### March 2023
 
-* General availability: Cluster compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
+* General availability: Clusters compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
 	
 ### February 2023
 

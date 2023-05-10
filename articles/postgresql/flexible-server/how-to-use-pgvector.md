@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/09/2023
 ---
 
-# How to install and use pgvector on Azure Database for PostgreSQL
+# How to enable and use pgvector on Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

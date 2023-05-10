@@ -5,7 +5,7 @@ Vector similarity is a method used to measure how similar two items are by repre
 
 Vector similarity is commonly calculated using distance metrics, such as `Euclidean distance` or `cosine` similarity. Euclidean distance measures the straight-line distance between two vectors in the n-dimensional space, while cosine similarity measures the cosine of the angle between two vectors. The values of similarity metrics typically range between `0` and `1`, with `higher` values indicating greater similarity between the vectors.
 
-Vector similarity is widely used in a variety of applications, such as recommendation systems, text classification, image recognition, and clustering. For example, in recommendation systems, vector similarity can be used to identify similar items based on the user's preferences. In text classification, vector similarity can be used to determine the similarity between two documents or sentences based on their vector representations.
+Vector similarity is widely used in various applications, such as recommendation systems, text classification, image recognition, and clustering. For example, in recommendation systems, vector similarity can be used to identify similar items based on the user's preferences. In text classification, vector similarity can be used to determine the similarity between two documents or sentences based on their vector representations.
 
 ### Embeddings
 
@@ -13,7 +13,7 @@ An embedding is a technique of evaluating "relatedness" of text, images, videos,
 
 ## Getting started
 
-Create a table `tblvector` with an `embedding` column of type `vector(3)`. Defined this way, it is represented as `three coordinates` in 3-dimension plane, which helps in evaluating the positioning of the vector.
+Create a table `tblvector` with an `embedding` column of type `vector(3)`. Defined this way, it's represented as `three coordinates` in three-dimension plane, which helps in evaluating the positioning of the vector.
 
 ```postgresql
 CREATE TABLE tblvector 
@@ -23,26 +23,26 @@ CREATE TABLE tblvector
     );
 ```
 
-Once you have generated an embedding using a service like the OpenAI API, you can store the resulting vector in your database. Defining a vector as `vector(3)` designates `[x,y,z] coordinates` in 3-dimension plane. The command inserts two new rows into the tblvector table with the provided embeddings.
+Once you have generated an embedding using a service like the OpenAI API, you can store the resulting vector in your database. Defining a vector as `vector(3)` designates `[x,y,z] coordinates` in three-dimension plane. The command inserts two new rows into the tblvector table with the provided embeddings.
 
 ```postgresql
 INSERT INTO tblvector (embedding) VALUES ('[1,2,3]'), ('[4,5,6]');
 ```
 
-By using the `Insert into ... ON CONFLICT` statement, you have the option to specify an alternative action, such as updating records that match the criteria. This allows you to handle potential conflicts in a more efficient and effective manner.
+By using the `Insert into ... ON CONFLICT` statement, you can specify an alternative action, such as updating records that match the criteria. It allows you to handle potential conflicts in a more efficient and effective manner.
 
 ```postgresql
 INSERT INTO tblvector (id, embedding) VALUES (1, '[1,2,3]'), (2, '[4,5,6]')
 ON CONFLICT (id) DO UPDATE SET embedding = EXCLUDED.embedding;
 ```
 
-The `DELETE` command removes rows from a specified table based on the conditions specified in the WHERE clause. When the WHERE clause is not present, all the rows in the table are deleted.
+The `DELETE` command removes rows from a specified table based on the conditions specified in the WHERE clause. When the WHERE clause isn't present, all the rows in the table are deleted.
 
 ```postgresql
 DELETE FROM tblvector WHERE id = 1;
 ```
 
-To retrieve vectors and calculate similarity, use `SELECT` statements and the built-in vector operators. For instance, the query computes the Euclidean distance (L2 distance) between the given vector and the vectors stored in the tblvector table, sorts the results by the calculated distance, and returns the closest 5 most similar items.
+To retrieve vectors and calculate similarity, use `SELECT` statements and the built-in vector operators. For instance, the query computes the Euclidean distance (L2 distance) between the given vector and the vectors stored in the tblvector table, sorts the results by the calculated distance, and returns the closest five most similar items.
 
 ```postgresql
 SELECT * FROM tblvector 
