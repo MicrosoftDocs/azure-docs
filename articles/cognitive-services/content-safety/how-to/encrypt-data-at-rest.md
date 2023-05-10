@@ -1,3 +1,14 @@
+---
+title: Azure Content Safety Service encryption of data at rest
+description: Learn how Azure Content Safety encrypts your data when it's persisted to the cloud.
+titleSuffix: Azure Cognitive Services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: conceptual
+ms.date: 05/10/2023
+ms.author: pafarley
+---
 
 
 # Azure Content Safety encryption of data at rest
