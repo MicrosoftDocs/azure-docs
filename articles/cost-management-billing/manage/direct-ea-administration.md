@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/18/2023
+ms.date: 04/25/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -20,6 +20,8 @@ This article explains the common tasks that an Enterprise Agreement (EA) adminis
 > As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
 > This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
+> 
+> As of April 24, 2023 EA customers won't be able to manage their Azure Government EA enrollments from [Azure portal](https://portal.azure.com) instead they can manage it from [Azure Government portal](https://portal.azure.us).
 
 ## Manage your enrollment
 

@@ -2,8 +2,8 @@
 title: Plan Defender for Servers data residency and workspaces 
 description: Review data residency and workspace design for Microsoft Defender for Servers.
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 11/06/2022
 ms.custom: references_regions
 ---
@@ -84,7 +84,7 @@ When you enable the Servers plan on the subscription level, Defender for Cloud w
 
 However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces that don't have it enabled. 
 
-If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation will appear on the Recommendations page. This recommendation will give you the option to enable the servers plan on the workspace level with the Fix button. You're charged for all VMs in the subscription even if the Servers plan isn't enabled for the workspace. The VMs won't benefit from features that depend on the Log Analytics workspace, such as Microsoft Defender for Endpoint, VA solution (TVM/Qualys), and Just-in-Time VM access.
+If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation will appear on the Recommendations page. This recommendation will give you the option to enable the servers plan on the workspace level with the Fix button. You're charged for all VMs in the subscription even if the Servers plan isn't enabled for the workspace. The VMs won't benefit from features that depend on the Log Analytics workspace, such as Microsoft Defender for Endpoint, VA solution (MDVM/Qualys), and Just-in-Time VM access.
 
 Enabling the Servers plan on both the subscription and its connected workspaces, won't incur a double charge. The system will identify each unique VM.
 

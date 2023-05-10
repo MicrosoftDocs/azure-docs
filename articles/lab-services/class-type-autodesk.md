@@ -82,7 +82,7 @@ Follow these steps to [enable these Azure Marketplace images available to lab cr
 
 This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units. This estimate doesn’t include the cost of running a license server.
 
-- 25 students &times; (20 scheduled hours + 10 quota hours) &times; 160 lab units
+- 25 lab users &times; (20 scheduled hours + 10 quota hours) &times; 160 lab units
 
 > [!IMPORTANT]
 > The cost estimate is for example purposes only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).

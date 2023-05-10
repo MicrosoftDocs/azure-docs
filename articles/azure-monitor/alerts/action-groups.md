@@ -111,7 +111,7 @@ An action group is a *global* service, so there's no dependency on a specific Az
 >
 > When you configure an action to notify a person by email or SMS, they receive a confirmation that indicates they were added to the action group.
 
-### Test an action group in the Azure portal (preview)
+### Test an action group in the Azure portal
 
 When you create or update an action group in the Azure portal, you can test the action group.
 
@@ -646,7 +646,7 @@ For information about pricing for supported countries/regions, see [Azure Monito
 
 > [!NOTE]
 >
-> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
+> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
 Webhook action groups use the following rules:
 
