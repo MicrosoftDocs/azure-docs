@@ -42,7 +42,8 @@ For dynamic scope and configuration assignment, ensure that you have the followi
 1. Associate the VM with a Schedule. 
 
 > [!NOTE]
-> For Arc VMs, there are no patch orchestration pre-requisites. However, user must associate a schedule with the VM for Schedule patching.  For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
+> For Arc VMs, there are no patch orchestration pre-requisites. However, user must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
+
 
 ## Next steps
 

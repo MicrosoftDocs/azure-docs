@@ -30,19 +30,6 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 
 ## Create groups
 
-<<<<<<< HEAD
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
-1. Select **Overview** > **Schedule updates** > **Create new schedule**.
-1. In the **Create a maintenance configuration** page, go to **Basics** tab and select **Add a schedule**. For more information, see from Step 4 in [Schedule recurring updates for machines using Azure portal and Azure Policy](scheduled-patching.md#schedule-recurring-updates-on-single-vm).
-1. Go to **Dynamic scopes** tab to either assign machines to a dynamic scope or assign them after the maintenance configuration has been deployed. Select **Subscription**, **Resource group**, **Resource type**, **Location**, **OS Type**, and **Tags**.
-1. To preview the machines included in the maintenance configuration, select the icon under **Actions**.
-   [!NOTE]
-   > If the new machines that you add later match the selected criteria, the scheduled updates are automatically applied to them.
-1. Select **Updates**
-    > [!NOTE]
-    > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
-
-=======
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center.
 1. Select **Overview** > **Schedule updates**.
 1. In the **Create a maintenance configuration** page, go to **Machines** and under **Group to update**, select **Add a group**.
@@ -55,7 +42,7 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 1. In the **Preview of machines based on above criteria**, you can view the list of machines for the selected criteria at that current time and select **Add**.
    > [!NOTE]
    > If the new machines that you add later match the selected criteria, the scheduled updates are automatically applied to them.
->>>>>>> bbf9d5e3f30e86fc41d09fe1e8a00e5d136dbeeb
+
 
 ## Provide consent
 Obtaining consent to apply updates is an important step in the workflow of scheduled patching and listed are the various ways to provide consent.
