@@ -27,7 +27,7 @@ To work with the code examples in this article, make sure you have:
 - Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
     - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
-- Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and TypeScript](storage-blob-typescript-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
+- The package **@azure/storage-blob** installed to your project directory. If you're using `DefaultAzureCredential` for authorization, you also need **@azure/identity**. To learn more about setting up your project, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
 
 [!INCLUDE [storage-dev-guide-blob-copy-from-url](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-copy-from-url.md)]
 
