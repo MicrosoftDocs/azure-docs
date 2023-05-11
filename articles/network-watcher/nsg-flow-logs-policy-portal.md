@@ -43,7 +43,7 @@ To audit your flow logs by using the built-in policy:
 
 1. Enter a name in **Assignment name**, and enter your name in **Assigned by**.
 
-    This policy doesn't require any parameters. It also doesn't contain any role definitions, so you don't need create role assignments for the managed identity on the **Remediation** tab.
+    This policy doesn't require any parameters. It also doesn't contain any role definitions, so you don't need to create role assignments for the managed identity on the **Remediation** tab.
 
 1. Select **Review + create** > **Create**.
 
@@ -81,7 +81,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy.png" alt-text="Screenshot of selecting the deployment policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy.png":::
 
-1. Enter a name in **Assignment name**, and enter your name in **Assigned by**. This policy doesn't require any parameters.
+1. Enter a name in **Assignment name**, and enter your name in **Assigned by**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-deploy-policy-basics.png" alt-text="Screenshot of Basics tab to assign a deployment policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/assign-deploy-policy-basics.png":::
 
