@@ -6,7 +6,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ms.author: franlanglois
 
 ---
@@ -53,7 +53,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. On the **Access Policy** tab, select one the available policies in the table: **Owner**, **Contributor**, or **Reader**. Then, select the **Next:Redis Users**.
 
-   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies .":::
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies.":::
 
 1. Choose either the **User or service principal** or **Managed Identity** to determine how you want to use for authenticate to your Azure Cache for Redis instance.
 
