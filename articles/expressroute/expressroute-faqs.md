@@ -304,6 +304,12 @@ You should experience minimal to no impact during maintenance if you operate you
 
 You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is composed of multiple instances and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself won't experience any downtime.
 
+### Why are certain ports opened on my ExpressRoute gateway?
+
+They're required for Azure infrastructure to communicate. They're protected by Azure certificates. Without proper certificates, you can't establish a connection to the ports. 
+
+An ExpressRoute gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+
 ## ExpressRoute SKU scope access
 
 ### What is the connectivity scope for different ExpressRoute circuit SKUs?

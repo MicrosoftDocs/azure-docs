@@ -85,7 +85,7 @@ However, there could be scenarios where you don't know the exact time of acciden
 
 ## Permissions
 
-Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. To learn more, see the [Permissions](continuous-backup-restore-permissions.md) article.
+Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. To learn more, see the [Permissions](continuous-backup-restore-permissions.md) article.
 
 ## <a id="continuous-backup-pricing"></a>Pricing
 
@@ -127,7 +127,7 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 
 Currently the point in time restore functionality has the following limitations:
 
-* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. API for Cassandra isn't supported now.
+* Azure Cosmos DB APIs for SQL, MongoDB, Gremlin and Table supported for continuous backup. API for Cassandra isn't supported now.
 
 * Multi-regions write accounts aren't supported.
 
@@ -161,3 +161,5 @@ Currently the point in time restore functionality has the following limitations:
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+
+

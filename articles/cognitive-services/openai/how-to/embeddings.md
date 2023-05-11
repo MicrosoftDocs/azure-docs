@@ -44,6 +44,7 @@ response = openai.Embedding.create(
     engine="YOUR_DEPLOYMENT_NAME"
 )
 embeddings = response['data'][0]['embedding']
+print(embeddings)
 ```
 ---
 

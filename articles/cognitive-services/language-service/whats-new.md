@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: whats-new
-ms.date: 03/09/2023
+ms.date: 04/14/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,6 +16,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## May 2023
+
+* [Custom Named Entity Recognition (NER) Docker containers](./custom-named-entity-recognition/how-to/use-containers.md) are now available for on-premises deployment. 
 
 ## April 2023
 

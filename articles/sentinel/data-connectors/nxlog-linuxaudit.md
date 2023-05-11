@@ -18,7 +18,7 @@ The NXLog [LinuxAudit](https://nxlog.co/documentation/nxlog-user-guide/im_linuxa
 | --- | --- |
 | **Log Analytics table(s)** | LinuxAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
 
 ## Query samples
 

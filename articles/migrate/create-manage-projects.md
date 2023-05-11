@@ -53,7 +53,7 @@ Set up a new project in an Azure subscription.
      :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Image of Azure Migrate page to input project settings.":::
 
 
-Wait a few minutes for the project to deploy.
+Wait for a few minutes for the project to deploy.
 
 ## Create a project in a specific region
 

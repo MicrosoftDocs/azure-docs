@@ -7,7 +7,7 @@ ms.service: deployment-environments
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2023
+ms.date: 04/25/2023
 Customer intent: As a dev infra admin, I want to install the Deployment Environments CLI extension so that I can create Deployment Environments resources from the command line.
 ---
 

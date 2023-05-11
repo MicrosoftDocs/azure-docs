@@ -3,16 +3,14 @@ title: Back up an app
 description: Learn how to restore backups of your apps in Azure App Service or configure custom backups. Customize backups by including the linked database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 10/24/2022 
-ms.custom: seodec18
-
+ms.date: 04/25/2023
 ---
 
 # Back up and restore your app in Azure App Service
 
 In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
 
-Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
+Back up and restore are supported in **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
 > [!NOTE]
 > For App Service environments:
@@ -21,7 +19,9 @@ Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **
 > - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
 > - Backups can be restored to target app of the same OS platform as the source app.
 
-## Automatic vs custom backups
+[!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
+
+## Automatic vs. custom backups
 
 There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups require initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
 
@@ -124,7 +124,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 1. In **Storage account**, select an existing storage account (in the same subscription) or select **Create new**. Do the same with **Container**.
 
-    To back up the linked database(s), select **Next: Advanced** > **Include database**, and select the database(s) to back up.
+    To back up the linked databases, select **Next: Advanced** > **Include database**, and select the databases to backup.
 
     > [!NOTE]
     > For a supported database to appear in this list, its connection string must exist in the **Connection strings** section of the **Configuration** page for your app. 
@@ -338,7 +338,7 @@ Automatic backups are simple and stored in the same datacenter as the App Servic
 
 #### How do I stop the automatic backup?
 
-You cannot stop automatic backup. The automatic backup is stored on the platform and has no effect on the underlying app instance or it’s storage.
+You cannot stop automatic backup. The automatic backup is stored on the platform and has no effect on the underlying app instance or its storage.
 
 
 <a name="nextsteps"></a>

@@ -339,6 +339,7 @@ The solution is to add the privateLink FQDN to the storage account's Azure AD ap
 1. Select **Manifest** in the left pane.
 1. Copy and paste the existing content so you have a duplicate copy. Replace all instances of `<storageaccount>.file.core.windows.net` with `<storageaccount>.privatelink.file.core.windows.net`.
 1. Review the content and select **Save** to update the application object with the new identifierUris.
+1. Update any internal DNS references to point to the private link.
 1. Retry mounting the share.
 
 ## Need help?

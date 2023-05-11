@@ -1,2 +1,0 @@
-- [Quickstart: Speech-to-text](../../get-started-speech-to-text.md)
-- [Quickstart: Text-to-speech](../../get-started-text-to-speech.md)

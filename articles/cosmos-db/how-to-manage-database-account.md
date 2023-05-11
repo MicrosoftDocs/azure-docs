@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022, devx-track-arm-template
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 04/14/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
@@ -15,10 +15,10 @@ ms.reviewer: mjbrown
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-This article describes how to manage various tasks on an Azure Cosmos DB account by using the Azure portal.
+This article describes how to manage various tasks on an Azure Cosmos DB account by using the Azure portal. Azure Cosmos DB can also be managed with other Azure management clients including [Azure PowerShell](manage-with-powershell.md), [Azure CLI](nosql/manage-with-cli.md), [Azure Resource Manager templates](./manage-with-templates.md), [Bicep](nosql/manage-with-bicep.md), and [Terraform](nosql/samples-terraform.md).
 
 > [!TIP]
-> Azure Cosmos DB can also be managed with other Azure management clients including [Azure PowerShell](manage-with-powershell.md), [Azure CLI](sql/manage-with-cli.md), [Azure Resource Manager templates](./manage-with-templates.md), and [Bicep](sql/manage-with-bicep.md).
+> The management API for Azure Cosmos DB or *control plane* is not designed for high request volumes like the rest of the service. To learn more see [Control Plane Service Limits](concepts-limits.md#control-plane)
 
 ## Create an account
 
@@ -107,6 +107,7 @@ After an Azure Cosmos DB account is configured for service-managed failover, the
 1. To trigger the failover, select **OK**.
 
    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Screenshot of the manual failover portal menu.":::
+
 
 ## Next steps
 
