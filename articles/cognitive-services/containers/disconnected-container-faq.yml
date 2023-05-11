@@ -151,7 +151,7 @@ sections:
           Cognitive Services containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
 
           * Speech Service for:
-            *	[Speech-to-Text](../speech-service/speech-container-stt.md) 
+            *	[Speech to text](../speech-service/speech-container-stt.md) 
             *	[Custom Speech to text](../speech-service/speech-container-cstt.md) 
             * [Neural Text to speech](../speech-service/speech-container-ntts.md) 
           * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)

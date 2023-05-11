@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # Speech to text REST API
 
-Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
+Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
 > Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
@@ -32,7 +32,7 @@ Use Speech to text REST API to:
 - [Custom Speech](custom-speech-overview.md): With Custom Speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
 - [Batch transcription](batch-transcription.md): Transcribe audio files as a batch from multiple URLs or an Azure container. 
 
-Speech-to-text REST API includes such features as:
+Speech to text REST API includes such features as:
 
 - Get logs for each endpoint if logs have been requested for that endpoint.
 - Request the manifest of the models that you create, to set up on-premises containers.

@@ -21,7 +21,7 @@ Custom Neural Voice (CNV) is a text to speech feature that lets you create a one
 > 
 > Access to [Custom Neural Voice (CNV) Lite](custom-neural-voice-lite.md) is available for anyone to demo and evaluate CNV before investing in professional recordings to create a higher-quality voice. 
 
-Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=tts). The prebuilt neural voices work very well in most text to speech scenarios if a unique voice isn't required.
+Out of the box, [text to speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=tts). The prebuilt neural voices work very well in most text to speech scenarios if a unique voice isn't required.
 
 Custom Neural Voice is based on the neural text to speech technology and the multilingual, multi-speaker, universal model. You can create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md?tabs=tts) for Custom Neural Voice.
 

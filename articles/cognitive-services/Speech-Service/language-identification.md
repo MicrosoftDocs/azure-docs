@@ -19,7 +19,7 @@ Language identification is used to identify languages spoken in audio when compa
 
 Language identification (LID) use cases include:
 
-* [Speech-to-text recognition](#speech-to-text) when you need to identify the language in an audio source and then transcribe it to text.
+* [Speech to text recognition](#speech-to-text) when you need to identify the language in an audio source and then transcribe it to text.
 * [Speech translation](#speech-translation) when you need to identify the language in an audio source and then translate it to another language.
 
 For speech recognition, the initial latency is higher with language identification. You should only include this optional feature as needed.
@@ -31,7 +31,7 @@ For speech recognition, the initial latency is higher with language identificati
 `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
 been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
-Whether you use language identification with [speech-to-text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
+Whether you use language identification with [speech to text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
 - Define a list of [candidate languages](#candidate-languages) that you expect in the audio.
 - Decide whether to use [at-start or continuous](#at-start-and-continuous-language-identification) language identification.
@@ -194,7 +194,7 @@ recognizer.stop_continuous_recognition()
 
 ## Speech to text
 
-You use Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
+You use Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech to text overview](speech-to-text.md).
 
 > [!NOTE]
 > Speech to text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech to text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, JavaScript, and Python.

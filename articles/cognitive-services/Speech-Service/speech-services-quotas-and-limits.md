@@ -44,7 +44,7 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
-| [Speech-to-text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
+| [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |

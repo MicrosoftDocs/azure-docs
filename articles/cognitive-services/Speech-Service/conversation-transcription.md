@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 
 # What is conversation transcription?
 
-Conversation transcription is a [speech-to-text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. This feature, which is currently in preview, combines speech recognition, speaker identification, and sentence attribution to determine who said what, and when, in a conversation. 
+Conversation transcription is a [speech to text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. This feature, which is currently in preview, combines speech recognition, speaker identification, and sentence attribution to determine who said what, and when, in a conversation. 
 
 > [!NOTE]
 > Multi-device conversation access is a preview feature.

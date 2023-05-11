@@ -15,9 +15,9 @@ ms.custom: references_regions
 
 # Language and voice support for the Speech service
 
-The following tables summarize language support for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), [pronunciation assessment](how-to-pronunciation-assessment.md), [speech translation](speech-translation.md), [speaker recognition](speaker-recognition-overview.md), and additional service features.
+The following tables summarize language support for [speech to text](speech-to-text.md), [text to speech](text-to-speech.md), [pronunciation assessment](how-to-pronunciation-assessment.md), [speech translation](speech-translation.md), [speaker recognition](speaker-recognition-overview.md), and additional service features.
 
-You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
+You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), [Speech to text REST API for short audio](rest-speech-to-text-short.md) and [Text to speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
 
 ## Supported languages
 
@@ -28,7 +28,7 @@ Language support varies by Speech service functionality.
 
 **Choose a Speech feature**
 
-# [Speech-to-text](#tab/stt)
+# [Speech to text](#tab/stt)
 
 The table in this section summarizes the locales and voices supported for Speech to text. Please see the table footnotes for more details. 
 
@@ -43,7 +43,7 @@ Additional remarks for Speech to text locales are included in the [Custom Speech
 
 To improve Speech to text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
-# [Text-to-speech](#tab/tts)
+# [Text to speech](#tab/tts)
 
 The tables in this section summarizes the locales and voices supported for Text to speech. Please see the table footnotes for more details.
 
@@ -90,7 +90,7 @@ With the cross-lingual feature (preview), you can transfer your custom neural vo
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech-to-text regions](regions.md#speech-service).
+The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service).
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 

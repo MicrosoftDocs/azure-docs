@@ -186,8 +186,8 @@ The name of each `operationId` in version 3.1 is prefixed with the object name. 
 
 ## Next steps
 
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Speech-to-text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
-* [Speech-to-text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+* [Speech to text REST API](rest-speech-to-text.md)
+* [Speech to text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
+* [Speech to text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 

@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 
 # Display text formatting with speech to text
 
-Speech-to-text offers an array of formatting features to ensure that the transcribed text is clear and legible. Below is an overview of these features and how each one is used to improve the overall clarity of the final text output.
+Speech to text offers an array of formatting features to ensure that the transcribed text is clear and legible. Below is an overview of these features and how each one is used to improve the overall clarity of the final text output.
 
 ## ITN
 
@@ -32,7 +32,7 @@ Inverse Text Normalization (ITN) is a process that converts spoken words into th
 
 ## Capitalization
 
-Speech-to-text models recognize words that should be capitalized to improve readability, accuracy, and grammar. For example, the Speech service will automatically capitalize proper nouns and words at the beginning of a sentence. Some examples are shown in this table.
+Speech to text models recognize words that should be capitalized to improve readability, accuracy, and grammar. For example, the Speech service will automatically capitalize proper nouns and words at the beginning of a sentence. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -52,7 +52,7 @@ When speaking, it's common for someone to stutter, duplicate words, and say fill
 
 ## Punctuation 
 
-Speech-to-text automatically punctuates your text to improve clarity. Punctuation is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
+Speech to text automatically punctuates your text to improve clarity. Punctuation is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -176,5 +176,5 @@ Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` prop
 
 ## Next steps
 
-* [Speech-to-text quickstart](get-started-speech-to-text.md)
+* [Speech to text quickstart](get-started-speech-to-text.md)
 * [Get speech recognition results](get-speech-recognition-results.md)

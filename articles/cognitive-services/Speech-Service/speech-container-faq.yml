@@ -158,7 +158,7 @@ sections:
           
           At real-time, 8 with our latest `en-US`, so we recommend using more docker containers beyond six concurrent requests. Beyond 16 cores it becomes nonuniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
 
-          # [Speech-to-text](#tab/stt)
+          # [Speech to text](#tab/stt)
          
           | Container      | Minimum             | Recommended         |
           |----------------|---------------------|---------------------|
@@ -170,7 +170,7 @@ sections:
           |-----------------------|---------------------|---------------------|
           | Custom Speech to text | 2-core, 2-GB memory | 4-core, 4-GB memory |
          
-          # [Text-to-speech](#tab/tts)
+          # [Text to speech](#tab/tts)
          
           | Container      | Minimum             | Recommended         |
           |----------------|---------------------|---------------------|

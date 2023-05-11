@@ -432,9 +432,9 @@ In this section, you'll learn how to change the language that your bot will list
 
 ### Change the language
 
-You can choose from any of the languages mentioned in the [speech-to-text](language-support.md?tabs=stt) table. The following example changes the language to German.
+You can choose from any of the languages mentioned in the [speech to text](language-support.md?tabs=stt) table. The following example changes the language to German.
 
-1. Open the Windows Voice Assistant Client app, select the **Settings** button (upper-right gear icon), and enter **de-de** in the **Language** field. This is the locale value mentioned in the [speech-to-text](language-support.md?tabs=stt) table. 
+1. Open the Windows Voice Assistant Client app, select the **Settings** button (upper-right gear icon), and enter **de-de** in the **Language** field. This is the locale value mentioned in the [speech to text](language-support.md?tabs=stt) table. 
 
    This step sets the spoken language to be recognized, overriding the default **en-us**. It also instructs the Direct Line Speech channel to use a default German voice for the bot reply.
 1. Close the **Settings** page, and then select the **Reconnect** button to establish a new connection to your echo bot.

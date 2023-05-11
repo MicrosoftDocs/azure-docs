@@ -41,11 +41,11 @@ When enabling this functionality in your game, keep in mind the following benefi
 - Fine-tuning Text to speech output with Speech Synthesis Markup Language (SSML) - With SSML, you can customize Text to speech outputs, with richer voice tuning supports. For more information, see [Speech Synthesis Markup Language (SSML) overview](speech-synthesis-markup.md).
 - Audio outputs - Each prebuilt neural voice model is available at 24 kHz and high-fidelity 48 kHz. If you select 48-kHz output format, the high-fidelity voice model with 48 kHz will be invoked accordingly. The sample rates other than 24 kHz and 48 kHz can be obtained through upsampling or downsampling when synthesizing. For example, 44.1 kHz is downsampled from 48 kHz. Each audio format incorporates a bitrate and encoding type. For more information, see the [supported audio formats](rest-text-to-speech.md?tabs=streaming#audio-outputs). For more information on 48-kHz high-quality voices, see [this introduction blog](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/azure-neural-tts-voices-upgraded-to-48khz-with-hifinet2-vocoder/ba-p/3665252).  
 
-For an example, see the [Text-to-speech quickstart](get-started-text-to-speech.md).
+For an example, see the [Text to speech quickstart](get-started-text-to-speech.md).
 
 ## Speech to text
 
-You can use [speech-to-text](speech-to-text.md) to display text from the spoken audio in your game. For an example, see the [Speech-to-text quickstart](get-started-speech-to-text.md).
+You can use [speech to text](speech-to-text.md) to display text from the spoken audio in your game. For an example, see the [Speech to text quickstart](get-started-speech-to-text.md).
 
 ## Language identification
 
@@ -63,6 +63,6 @@ For an example, see the [Speech translation quickstart](get-started-speech-trans
 ## Next steps
 
 * [Azure gaming documentation](/gaming/azure/)
-* [Text-to-speech quickstart](get-started-text-to-speech.md)
-* [Speech-to-text quickstart](get-started-speech-to-text.md)
+* [Text to speech quickstart](get-started-text-to-speech.md)
+* [Speech to text quickstart](get-started-speech-to-text.md)
 * [Speech translation quickstart](get-started-speech-translation.md)

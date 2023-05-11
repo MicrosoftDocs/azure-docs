@@ -85,7 +85,7 @@ When you get results from PII detection, you can stream the results to an applic
 
 ## Submit transcripts using speech to text
 
-Use the following example if you have conversations transcribed using the Speech service's [speech-to-text](../../Speech-Service/speech-to-text.md) feature:
+Use the following example if you have conversations transcribed using the Speech service's [speech to text](../../Speech-Service/speech-to-text.md) feature:
 
 ```bash
 curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \

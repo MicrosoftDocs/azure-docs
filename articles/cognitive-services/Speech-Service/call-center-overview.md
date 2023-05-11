@@ -39,7 +39,7 @@ The Speech service offers the following features that can be used for call cente
 
 - [Real-time speech to text](./how-to-recognize-speech.md): Recognize and transcribe audio in real-time from multiple inputs. For example, with virtual agents or agent-assist, you can continuously recognize audio input and control how to process results based on multiple events.
 - [Batch speech to text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
-- [Text-to-speech](./text-to-speech.md): Text to speech enables your applications, tools, or devices to convert text into humanlike synthesized speech.
+- [Text to speech](./text-to-speech.md): Text to speech enables your applications, tools, or devices to convert text into humanlike synthesized speech.
 - [Speaker identification](./speaker-recognition-overview.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
 - [Language Identification](./language-identification.md): Identify languages spoken in audio and can be used in real-time and post-call analysis for insights or to control the environment (such as output language of a virtual agent).
 

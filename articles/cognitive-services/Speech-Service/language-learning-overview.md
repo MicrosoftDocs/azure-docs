@@ -28,7 +28,7 @@ The Pronunciation Assessment feature offers several benefits for educators, serv
 
 ## Speech to text 
 
-Azure [Speech-to-Text](speech-to-text.md) supports real-time language identification for multilingual language learning scenarios, help human-human interaction with better understanding and readable context.
+Azure [Speech to text](speech-to-text.md) supports real-time language identification for multilingual language learning scenarios, help human-human interaction with better understanding and readable context.
 
 ##  Text to speech
 

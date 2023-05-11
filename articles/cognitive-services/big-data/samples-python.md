@@ -118,7 +118,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 
 ## Speech to text sample
-The [Speech-to-text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+The [Speech to text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```python
 

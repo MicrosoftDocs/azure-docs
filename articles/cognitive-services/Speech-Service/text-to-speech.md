@@ -18,11 +18,11 @@ keywords: text to speech
 
 In this overview, you learn about the benefits and capabilities of the text to speech feature of the Speech service, which is part of Azure Cognitive Services.
 
-Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech. The text to speech capability is also known as speech synthesis. Use humanlike prebuilt neural voices out of the box, or create a custom neural voice that's unique to your product or brand. For a full list of supported voices, languages, and locales, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
+Text to speech enables your applications, tools, or devices to convert text into humanlike synthesized speech. The text to speech capability is also known as speech synthesis. Use humanlike prebuilt neural voices out of the box, or create a custom neural voice that's unique to your product or brand. For a full list of supported voices, languages, and locales, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 ## Core features
 
-Text-to-speech includes the following features:
+Text to speech includes the following features:
 
 | Feature | Summary | Demo |
 | --- | --- | --- |
@@ -73,8 +73,8 @@ To get started with text to speech, see the [quickstart](get-started-text-to-spe
 
 Sample code for text to speech is available on GitHub. These samples cover text to speech conversion in most popular programming languages:
 
-* [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Text to speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Text to speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## Custom Neural Voice
 

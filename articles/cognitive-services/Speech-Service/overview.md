@@ -41,7 +41,7 @@ Speech feature summaries are provided below with links for more information.
 
 ### Speech to text
 
-Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
+Use [speech to text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
 
 > [!TIP]
 > You can try real-time speech to text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
@@ -116,17 +116,17 @@ In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In th
 
 We offer quickstarts in many popular programming languages. Each quickstart is designed to teach you basic design patterns and have you running code in less than 10 minutes. See the following list for the quickstart for each feature:
 
-* [Speech-to-text quickstart](get-started-speech-to-text.md)
-* [Text-to-speech quickstart](get-started-text-to-speech.md)
+* [Speech to text quickstart](get-started-speech-to-text.md)
+* [Text to speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](./get-started-speech-translation.md)
 
 ## Code samples
 
 Sample code for the Speech service is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-- [Speech-to-text, text to speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Speech to text, text to speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
-- [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+- [Text to speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 - [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
 
 ## Next steps

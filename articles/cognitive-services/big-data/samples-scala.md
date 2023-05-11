@@ -113,7 +113,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## Speech to text
 
-The [Speech-to-text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+The [Speech to text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```scala
 import org.apache.spark.sql.functions.col
