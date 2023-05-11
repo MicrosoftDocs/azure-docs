@@ -86,7 +86,7 @@ You're done with setting up your Bicep environment. The rest of this article des
 
 ## Azure PowerShell
 
-You must have Azure PowerShell version **5.6.0 or later** installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+You must have Azure PowerShell version **5.6.0 or later** installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [manually install the Bicep CLI](#install-manually).
 
