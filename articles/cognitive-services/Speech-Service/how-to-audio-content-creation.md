@@ -1,7 +1,7 @@
 ---
 title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
-description: Audio Content Creation is an online tool that allows you to run text-to-speech synthesis without writing any code.
+description: Audio Content Creation is an online tool that allows you to run Text to speech synthesis without writing any code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,13 +14,13 @@ ms.author: eur
 
 # Speech synthesis with the Audio Content Creation tool
 
-You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
+You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for Text to speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
 
-Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune text-to-speech voices and design customized audio experiences. 
+Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune Text to speech voices and design customized audio experiences. 
 
-The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust text-to-speech output attributes in real-time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
+The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust Text to speech output attributes in real-time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
-- No-code approach: You can use the Audio Content Creation tool for text-to-speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
+- No-code approach: You can use the Audio Content Creation tool for Text to speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
 - Developer-friendly: You can listen to the output audio and adjust the SSML to improve speech synthesis. Then you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-basics.md) to integrate the SSML into your applications. For example, you can use the SSML for building a chat bot.
 
 You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
@@ -66,7 +66,7 @@ It takes a few moments to deploy your new Speech resource. After the deployment 
 
 ## Use the tool
 
-The following diagram displays the process for fine-tuning the text-to-speech outputs. 
+The following diagram displays the process for fine-tuning the Text to speech outputs. 
 
 :::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Diagram of the sequence of steps for fine-tuning text-to-speech outputs.":::
 
