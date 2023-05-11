@@ -6,7 +6,8 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 03/22/2023
-ms.custom: template-concept
+ms.custom: template-concept, engagement-fy23
+ROBOTS: NOINDEX
 ---
 
 # Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy
