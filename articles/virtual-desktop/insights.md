@@ -3,7 +3,7 @@ title: Use Azure Virtual Desktop Insights to monitor your deployment - Azure
 description: How to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 05/11/2023
 ms.author: helohr
 manager: femila
 ---
@@ -111,13 +111,13 @@ To set up workspace diagnostics using the resource diagnostic settings section i
 
 To collect information on your Azure Virtual Desktop session hosts, you must configure a [Data Collection Rule (DCR)](../azure-monitor/essentials/data-collection-rule-overview.md) to collect performance data and Windows Event Logs, associate the session hosts with the DCR, install the Azure Monitor Agent on all session hosts in host pools you're collecting data from, and ensure the session hosts are sending data to a Log Analytics workspace. 
 
-The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to. If you have Azure session hosts outside of your Azure Virtual Desktop environment, we recommend having a designated Log Analytics workspace for the Azure Virtual Desktop session hosts. 
+The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to.
 
 To configure a DCR and select a Log Analytics workspace destination using the configuration workbook:
 
 1. Select the **Session host data settings** tab in the configuration workbook.
-1. Select the **Log Analytics workspace** you want to send session host data to.
-1. If you haven't already configured a DCR, select **Create data collection rule** to automatically configure the DCR using the configuration workbook.
+2. Select the **Log Analytics workspace** you want to send session host data to.
+3. If you haven't already configured a DCR, select **Create data collection rule** to automatically configure the DCR using the configuration workbook.
 
 #### Session hosts
 
