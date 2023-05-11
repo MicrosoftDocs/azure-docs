@@ -31,7 +31,7 @@ Azure Lab Services advanced networking uses virtual network (VNET) injection to 
 - An Azure virtual network and subnet. If you don't have this resource, learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 
     > [!IMPORTANT]
-    > The virtual network and the lab plan must be in the same Azure region. You can't use a VNET Gateway subnet with Azure Lab Services.
+    > The virtual network and the lab plan must be in the same Azure region.
 
 ## Delegate the virtual network subnet to lab plans
 
