@@ -5,18 +5,19 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 09/10/2021
+ms.date: 05/09/2023
 ---
 
 # Bicep operators
 
-This article describes the Bicep operators. Operators are used to calculate values, compare values, or evaluate conditions. There are five types of Bicep operators:
+This article describes the Bicep operators. Operators are used to calculate values, compare values, or evaluate conditions. There are six types of Bicep operators:
 
 - [accessor](#accessor)
 - [comparison](#comparison)
 - [logical](#logical)
 - [null-forgiving](#null-forgiving)
 - [numeric](#numeric)
+- [safe-dereference](#safe-dereference)
 
 ## Operator precedence and associativity
 
@@ -102,6 +103,13 @@ The numeric operators use integers to do calculations and return integer values.
 > Subtract and minus use the same operator. The functionality is different because subtract uses two
 > operands and minus uses one operand.
 
+## Safe-dereference
+
+The safe-dereference operator helps to prevent errors that can occur when attempting to access properties or elements without proper knowledge of their existence or value.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `<base>.?<property>`, `<base>[?<index>]` | [Safe-dereference](./operator-safe-dereference.md#safe-dereference) | Applies an object member access or an array element access operation to its operand only if that operand evaluates to non-null, otherwise, it returns `null`. |
 
 ## Next steps
 

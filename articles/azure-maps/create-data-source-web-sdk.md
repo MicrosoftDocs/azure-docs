@@ -1,8 +1,8 @@
 ---
 title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
-author: eriklindeman
-ms.author: eriklind
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -178,7 +178,8 @@ var source = new atlas.source.DataSource();
 map.sources.add(source);
 
 //Create a polygon and add it to the data source.
-source.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
+source.add(new atlas.data.Feature(
+	new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
 
 //Create a polygon layer to render the filled in area of the polygon.
 var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
@@ -187,8 +188,8 @@ var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
 
 //Create a line layer for greater control of rendering the outline of the polygon.
 var lineLayer = new atlas.layer.LineLayer(source, 'myLineLayer', {
-     color: 'orange',
-     width: 2
+     strokeColor: 'orange',
+     strokeWidth: 2
 });
 
 //Create a bubble layer to render the vertices of the polygon as scaled circles.
