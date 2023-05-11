@@ -404,7 +404,7 @@ In this example, two secrets are declared at the application level. These secret
                         "name": "mysecrets",
                         "storageType": "Secret"
                     }
-                ],
+                ]
             }
         }
     }]
