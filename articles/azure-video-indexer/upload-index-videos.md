@@ -1,13 +1,13 @@
 ---
-title: Upload and index videos with Azure Video Indexer using the Video Indexer portal
+title: Upload and index videos with Azure Video Indexer using the Video Indexer website
 description: Learn how to upload videos by using Azure Video Indexer.
 ms.topic: article
 ms.date: 05/10/2023
 ---
 
-# Upload media files using the Video Indexer portal
+# Upload media files using the Video Indexer website
 
-This article shows how to upload and index media files (audio or video) using the [Azure Video Indexer portal](https://aka.ms/vi-portal-link).
+This article shows how to upload and index media files (audio or video) using the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
 
 You can upload media files from your file system or from a URL. You can also configure basic or advanced settings for indexing, such as privacy, streaming quality, language, presets, people and brands models, custom logos and metadata.
 
@@ -19,9 +19,12 @@ You can upload media files from your file system or from a URL. You can also con
 
 ## Quick upload
 
-Follow these steps to upload and index a media file using the quick upload option:
+Follow these steps to upload and index a media file using the quick upload option.
 
-1. Sign in to the [Video Indexer portal](https://aka.ms/vi-portal-link).
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/upload-index-videos/file-system-basic.png" alt-text="Screenshot that shows file system basic.":::
+
+1. Sign in to the [Video Indexer website](https://aka.ms/vi-portal-link).
 1. Select **Upload**.
 1. Select the file source. You can upload up to 10 files at a time.
 
@@ -40,20 +43,11 @@ Follow these steps to upload and index a media file using the quick upload optio
 1. Review the summary page that shows the indexing settings and the upload progress.
 1. After the indexing is done, you can view the insights by selecting the video.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/upload-index-videos/file-system-basic.png" alt-text="Screenshot that shows file system basic.":::
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/upload-index-videos/upload-file-system-url.png" alt-text="Screenshot that shows upload file system url.":::
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/upload-index-videos/url-basic.png" alt-text="Screenshot that shows url basic settings.":::
-
 ## Advanced upload
 
 Follow these steps to upload and index a media file using the advanced upload option:
 
-1. Sign in to the [Video Indexer portal](https://aka.ms/vi-portal-link).
+1. Sign in to the [Video Indexer website](https://aka.ms/vi-portal-link).
 1. Select **Upload**.
 1. Select the file source. You can upload up to 10 files at a time.
 
