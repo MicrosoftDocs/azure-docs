@@ -155,7 +155,7 @@ Property value details:
   - **Az version less than 6** uses Ubuntu 18.04.
 
   > [!IMPORTANT]
-  > As Ubuntu 18.04 is approaching its end of life and will no longer receive security updates, it's recommended to use the latest version of Ubuntu, if possible.
+  > As Ubuntu 18.04 is approaching its end of life and will no longer receive security updates after [May 31st, 2023](https://ubuntu.com/18-04), it's recommended to use the latest version of Ubuntu, if possible.
 
   See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
