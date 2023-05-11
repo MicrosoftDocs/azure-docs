@@ -6,7 +6,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/11/2023
 ms.author: jgao
 ---
 
@@ -107,7 +107,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
-    azPowerShellVersion: '8.3' // or azCliVersion: '2.40.0'
+    azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
     arguments: '-name \\"John Dole\\"'
     environmentVariables: [
       {
@@ -387,10 +387,10 @@ SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 8.3
-StartTime           : 6/18/2022 7:46:45 PM
-EndTime             : 6/18/2022 7:49:45 PM
-ExpirationDate      : 6/19/2022 7:49:45 PM
+AzPowerShellVersion : 9.7
+StartTime           : 5/11/2023 7:46:45 PM
+EndTime             : 5/11/2023 7:49:45 PM
+ExpirationDate      : 5/12/2023 7:49:45 PM
 CleanupPreference   : OnSuccess
 StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
 ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
@@ -418,7 +418,7 @@ The list command output is similar to:
 [
   {
     "arguments": "-name \\\"John Dole\\\"",
-    "azPowerShellVersion": "8.3",
+    "azPowerShellVersion": "9.7",
     "cleanupPreference": "OnSuccess",
     "containerSettings": {
       "containerGroupName": null
@@ -449,19 +449,19 @@ The list command output is similar to:
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "endTime": "2022-06-25T03:00:16.796923+00:00",
+      "endTime": "2023-05-11T03:00:16.796923+00:00",
       "error": null,
-      "expirationTime": "2022-06-26T03:00:16.796923+00:00",
-      "startTime": "2022-06-25T02:59:07.595140+00:00",
+      "expirationTime": "2023-05-12T03:00:16.796923+00:00",
+      "startTime": "2023-05-11T02:59:07.595140+00:00",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
     },
     "storageAccountSettings": null,
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2022-06-25T02:59:04.750195+00:00",
+      "createdAt": "2023-05-11T02:59:04.750195+00:00",
       "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2022-06-25T02:59:04.750195+00:00",
+      "lastModifiedAt": "2023-05-11T02:59:04.750195+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
@@ -510,15 +510,15 @@ The output is similar to:
   "systemData": {
     "createdBy": "someone@contoso.com",
     "createdByType": "User",
-    "createdAt": "2022-06-25T02:59:04.7501955Z",
+    "createdAt": "2023-05-11T02:59:04.7501955Z",
     "lastModifiedBy": "someone@contoso.com",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2022-06-25T02:59:04.7501955Z"
+    "lastModifiedAt": "2023-05-11T02:59:04.7501955Z"
   },
   "properties": {
     "provisioningState": "Succeeded",
     "forceUpdateTag": "20220625T025902Z",
-    "azPowerShellVersion": "8.3",
+    "azPowerShellVersion": "9.7",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
@@ -527,9 +527,9 @@ The output is similar to:
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
-      "startTime": "2022-06-25T02:59:07.5951401Z",
-      "endTime": "2022-06-25T03:00:16.7969234Z",
-      "expirationTime": "2022-06-26T03:00:16.7969234Z"
+      "startTime": "2023-05-11T02:59:07.5951401Z",
+      "endTime": "2023-05-11T03:00:16.7969234Z",
+      "expirationTime": "2023-05-12T03:00:16.7969234Z"
     },
     "outputs": {
       "text": "Hello John Dole"
