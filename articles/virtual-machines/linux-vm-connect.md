@@ -50,6 +50,12 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 - Verify your VM is running. On the Overview tab, in the **Essentials** section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
 
     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="Screenshot showing how to check to make sure your virtual machine is in the running state.":::
+    
+If you are having trouble connecting, you can also use portal:
+1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
+2. Select the virtual machine from the list.
+3. Select **Connect** from the left menu.
+4. Select the option that fits with your preferred way of connecting. The portal will help walk you through the prerequesites for connecting.
    
 ## Connect to the VM
 
