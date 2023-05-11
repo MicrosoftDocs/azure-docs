@@ -11,7 +11,7 @@ ms.date: 06/24/2022
 
 # Azure Database for PostgreSQL migration partners
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
@@ -23,8 +23,8 @@ To broadly support your Azure Database for PostgreSQL solution, you can choose f
 | Partner | Description | Links | Videos |
 | --- | --- | --- | --- |
 | ![Data Bene][9] |**Data Bene**<br>Databases done right! Data Bene is an open source software service company, expert in PostgreSQL and its ecosystem. Their customer portfolio includes several Fortune 100 companies as well as several famous «Unicorn». They have built over the years a serious reputation in PostgreSQL and Citus Data solutions and they provide support and technical assistance to ensure the smooth operation of your data infrastructure, including demanding projects in health-care and banking industries.|[Website][databene_website]<br>[LinkedIn][databene_linkedin]<br>[Contact][databene_contact] | |
-| ![Datavail][8] |**Datavail**<br>Datavail is one of the largest providers of database, data management, analytics and application modernization services in North America. Offering database & application design, architecture, migration and modernization consulting services for all leading legacy and modern data platforms, along with tech-enabled 24x7 managed services, leveraging 1,000 consultants onshore, near-shore and off-shore.|[Website][datavail_website]<br>[Twitter][datavail_twitter]<br>[Contact][datavail_contact] | |
-| ![Newt Global][7] |**Newt Global**<br> Newt Global is a leading Cloud migration and DevOps implementation company with over a decade of focus on app & DB modernization. Newt Global leverages proprietary platform, DMAP for accelerating Oracle to PostgreSQL migration and can deliver migrations with 50% less time and effort. They have executed large and complex migrations of databases with 5 -50 TB of data and their associated applications. They help accelerate the end-to-end migration right from Discovery/Assessment, migration planning, migration execution and post migration validations. |[Website][newt_website]<br>[Twitter][newt_twitter]<br>[Contact][newt_contact] | |
+| ![DatAvail][8] |**DatAvail**<br>DatAvail is one of the largest providers of database, data management, analytics and application modernization services in North America. Offering database & application design, architecture, migration and modernization consulting services for all leading legacy and modern data platforms, along with tech-enabled 24x7 managed services, leveraging 1,000 consultants onshore, near-shore and off-shore.|[Website][datavail_website]<br>[Twitter][datavail_twitter]<br>[Contact][datavail_contact] | |
+| ![Newt Global][7] |**Newt Global**<br> Newt Global is a leading Cloud migration and DevOps implementation company with over a decade of focus on app & DB modernization. Newt Global leverages proprietary platform, DMAP for accelerating Oracle to PostgreSQL migration and can deliver migrations with 50% less time and effort. They have executed large and complex migrations of databases with 5 -50 TB of data and their associated applications. They help accelerate the end-to-end migration right from Discovery/Assessment, migration planning, migration execution and post migration validations. |[Website][newt_website]<br>[Marketplace][newt_marketplace]<br>[Twitter][newt_twitter]<br>[Contact][newt_contact] | |
 | ![SNP Technologies][1] |**SNP Technologies**<br>SNP Technologies is a cloud-only service provider, building secure and reliable solutions for businesses of the future. The company believes in generating real value for your business. From thought to execution, SNP Technologies shares a common purpose with clients, to turn their investment into an advantage.|[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![Pragmatic Works][3] |**Pragmatic Works**<br>Pragmatic Works is a training and consulting company with deep expertise in data management and performance, Business Intelligence, Big Data, Power BI, and Azure. They focus on data optimization and improving the efficiency of SQL Server and cloud management.|[Website][pragmatic-works_website]<br>[Twitter][pragmatic-works_twitter]<br>[YouTube][pragmatic-works_youtube]<br>[Contact][pragmatic-works_contact] | |
 | ![Infosys][4] |**Infosys**<br>Infosys is a global leader in the latest digital services and consulting. With over three decades of experience managing the systems of global enterprises, Infosys expertly steers clients through their digital journey by enabling organizations with an AI-powered core. Doing so helps prioritize the execution of change. Infosys also provides businesses with agile digital at scale to deliver unprecedented levels of performance and customer delight.|[Website][infosys_website]<br>[Twitter][infosys_twitter]<br>[YouTube][infosys_youtube]<br>[Contact][infosys_contact] | |
@@ -53,13 +53,14 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
 [pactera_website]:https://en.pactera.com/
 [newt_website]:https://newtglobal.com/database-migration-acceleration-platform-dmap-from-newt-global-db-schema-migration-schema-migration-oracle-to-postgresql-migration/
-[datavail_website]:https://www.datavail.com/technologies/microsoft-azure/
+[datavail_website]:https://www.datavail.com/technologies/postgresql/?/
 [databene_website]:https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdata-bene.io%2F&data=05%7C01%7Carianap%40microsoft.com%7C9619e9fb8f20426c479d08db4bcedd2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638187124891347095%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=fEg07O8aMx4zXUFwgzMjuXM8ZvgYq6BuvD3soDpkEoQ%3D&reserved=0
 
 <!--Get Started Links-->
 <!--Datasheet Links-->
 <!--Marketplace Links -->
 [credativ_marketplace]:https://azuremarketplace.microsoft.com/de-de/marketplace/apps?search=credativ&page=1
+[newt_marketplace]:https://azuremarketplace.microsoft.com/en-in/marketplace/apps/newtglobalconsultingllc1581492268566.dmap_db_container_offer?tab=Overview
 
 <!--Press links-->
 
@@ -87,5 +88,5 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [credativ_contact]:mailto:info@credativ.com
 [pactera_contact]:mailto:shushi.gaur@pactera.com
 [newt_contact]:mailto:dmap@newtglobalcorp.com
-[datavail_contact]:https://twitter.com/datavail
+[datavail_contact]:https://www.datavail.com/about/contact-us/
 [databene_contact]:https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.data-bene.io%2Fen%23contact&data=05%7C01%7Carianap%40microsoft.com%7C9619e9fb8f20426c479d08db4bcedd2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638187124891347095%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=LAv2lRHmJH0kk2tft7LpRwtefQEdTkzwbB2ptoQpt3w%3D&reserved=0
