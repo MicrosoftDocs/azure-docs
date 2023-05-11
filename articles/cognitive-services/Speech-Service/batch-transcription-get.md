@@ -348,12 +348,12 @@ Depending in part on the request parameters set when you created the transcripti
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
 |`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
-|`displayPhraseElements`|A list of results with display text for each word of the phrase. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with speech to text REST API version 3.1.|
+|`displayPhraseElements`|A list of results with display text for each word of the phrase. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`duration`|The audio duration. The value is an ISO 8601 encoded duration.|
 |`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
 |`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|
 |`lexical`|The actual words recognized.|
-|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property is not present.<br/><br/>**Note**: This property is only available with speech to text REST API version 3.1.|
+|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`maskedITN`|The ITN form with profanity masking applied.|
 |`nBest`|A list of possible transcriptions for the current phrase with confidences.|
 |`offset`|The offset in audio of this phrase. The value is an ISO 8601 encoded duration.|

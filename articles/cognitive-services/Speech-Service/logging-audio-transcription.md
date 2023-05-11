@@ -257,7 +257,7 @@ Each [TranslationRecognizer](/objectivec/cognitive-services/speech/spxtranslatio
 
 ::: zone-end
 
-#### Enable logging for speech to text REST API for short audio
+#### Enable logging for Speech to text REST API for short audio
 
 If you use [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and want to enable audio and transcription logging, you need to use the query parameter and value `storeAudio=true` as a part of your REST request. A sample request looks like this:
 

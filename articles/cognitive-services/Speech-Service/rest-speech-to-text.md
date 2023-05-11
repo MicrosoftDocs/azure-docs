@@ -19,13 +19,13 @@ ms.custom: devx-track-csharp
 Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
-> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
+> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
 
 > [!div class="nextstepaction"]
-> [See the Speech to text API v3.1 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
+> [See the Speech to text REST API v3.1 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
 
 > [!div class="nextstepaction"]
-> [See the Speech to text API v3.0 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/)
+> [See the Speech to text REST API v3.0 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/)
 
 Use Speech to text REST API to:
 
@@ -174,7 +174,7 @@ See [Create a transcription](batch-transcription-create.md?pivots=rest-api) for 
 
 Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). In particular, web hooks apply to [datasets](#datasets), [endpoints](#endpoints), [evaluations](#evaluations), [models](#models), and [transcriptions](#transcriptions). Web hooks can be used to receive notifications about creation, processing, completion, and deletion events.
 
-This table includes all the web hook operations that are available with the speech to text REST API.
+This table includes all the web hook operations that are available with the Speech to text REST API.
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|

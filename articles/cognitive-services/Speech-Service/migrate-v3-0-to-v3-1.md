@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
-> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired.
+> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to text REST API](rest-speech-to-text.md) will be retired.
 
 ## Base path
 
