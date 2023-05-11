@@ -47,7 +47,7 @@ The following types of images aren't supported:
 
 * Images with size greater than 2 TB 
 * ARM64 mages 
-* Specialized mages
+* Specialized images
 * Windows images
 
  
