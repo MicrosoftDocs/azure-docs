@@ -1,5 +1,5 @@
 ---
-title: Use Translator V3 connector to configure a Text Translator flow.
+title: Use Translator V3 connector to configure a Text Translator flow
 titleSuffix: Azure Cognitive Services
 description: Use Microsoft Translator V3 connector and Power Automate to configure a Text Translator flow.
 author: laujan
@@ -35,7 +35,7 @@ To get started, you need  an active Azure subscription. If you don't have an Azu
 
 * You need the key and name from your resource to connect your application to Power Automate. Your Translator resource keys are found under the Resource Management section in the Azure portal and your resource name is located at the top of the page. Copy and paste your key and resource name in a convenient location, such as *Microsoft Notepad*.
 
-   :::image type="content" source="../media/connectors/keys-resource-details.png" alt-text="Get key and endpoint.":::
+   :::image type="content" source="../media/connectors/keys-resource-details.png" alt-text= "Screenshot showing key and endpoint location in the Azure portal.":::
 
 ## Configure the Translator V3 connector
 
@@ -130,13 +130,13 @@ Let's test the cloud flow and view the translated text.
 
 #### [Translate text](#tab/translate)
 
-3. Select the **Translate text** step to view the translated text (output):
+Select the **Translate text** step to view the translated text (output):
 
    :::image type="content" source="../media/connectors/translated-text-output.png" alt-text="Screenshot of translated text output.":::
 
 #### [Transliterate text](#tab/transliterate)
 
-3. Select the **Transliterate** step to view the translated text (output):
+Select the **Transliterate** step to view the translated text (output):
 
    :::image type="content" source="../media/connectors/transliterated-text-output.png" alt-text="Screenshot of transliterated text output.":::
 

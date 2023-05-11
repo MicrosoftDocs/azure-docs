@@ -1,5 +1,5 @@
 ---
-title: "Use Translator V3 connector to build a Document Translation flow."
+title: "Use Translator V3 connector to build a Document Translation flow"
 titleSuffix: Azure Cognitive Services
 description: Use Microsoft Translator V3 connector and Power Automate to build a Document Translation flow.
 author: laujan
@@ -21,7 +21,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * The Translator connector is currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+> The Translator connector is currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
 This tutorial guides you through configuring a Microsoft Translator V3 connector cloud flow that supports document translation. The Translator V3 connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
 
@@ -33,7 +33,7 @@ In this tutorial:
 >
 > * [Create a blob storage account with containers for your source and target files](#azure-storage).
 > * [Set-up a managed identity with role-based access control (RBAC)](#create-a-managed-identity).
-> * [Translate documents from your Azure blob storage account](#translate-documents).
+> * [Translate documents from your Azure Blob Storage account](#translate-documents).
 > * [Translate documents from your SharePoint site](#translate-documents).
 
 ## Prerequisites
@@ -58,7 +58,7 @@ Here's what you need to get started: [**Translator resource**](#translator-resou
 
 ### Azure storage
 
-* Next, you need an [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) and at least two [containers](/azure/storage/blobs/storage-quickstart-blobs-portal?branch=main#create-a-container) for your source and target files:
+* Next, you need an [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) and at least two [containers](/azure/storage/blobs/storage-quickstart-blobs-portal?branch=main#create-a-container) for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
@@ -153,18 +153,18 @@ Now that you've completed the prerequisites and initial setup, let's get started
 
 ## Translate documents
 
-Next,  we're ready to select an action. You can translate documents located in your **Azure blob storage** or **Microsoft SharePoint** account.
+Next,  we're ready to select an action. You can translate documents located in your **Azure Blob Storage** or **Microsoft SharePoint** account.
 
-### [Use Azure blob storage](#tab/blob-storage)
+### [Use Azure Blob Storage](#tab/blob-storage)
 
-### Azure blob storage
+### Azure Blob Storage
 
-Here are the steps to translate a file in Azure blob storage using the Translator V3 connector:
+Here are the steps to translate a file in Azure Blob Storage using the Translator V3 connector:
 > [!div class="checklist"]
 >
 > * Choose the Translator V3 connector.
 > * Select document translation.
-> * Enter your Azure blob storage credentials and container locations.
+> * Enter your Azure Blob Storage credentials and container locations.
 > * Translate your document(s) choosing source and target languages.
 > * Get the status of the translation operation.
 
@@ -258,13 +258,13 @@ Time to check our flow and document translation results.
 
    :::image type="content" source="../media/connectors/get-documents-status.png" alt-text="Screenshot showing the 'Get documents status' JSON response.":::
 
-1. As a final check, navigate to your Azure blob storage target source container. There, you should see the translated document in the **Overview** section. The document may be in a folder labeled with the translation language code.
+1. As a final check, navigate to your Azure Blob Storage target source container. There, you should see the translated document in the **Overview** section. The document may be in a folder labeled with the translation language code.
 
 #### [Use Microsoft SharePoint](#tab/sharepoint)
 
 ### Microsoft SharePoint
 
-Here are the steps to upload a file from your SharePoint site to Azure blob storage, translate the file, and return the translated file to SharePoint:
+Here are the steps to upload a file from your SharePoint site to Azure Blob Storage, translate the file, and return the translated file to SharePoint:
 
 > [!div class="checklist"]
 >
@@ -280,7 +280,7 @@ Here are the steps to upload a file from your SharePoint site to Azure blob stor
 
  1. In the **Choose an operation** pop-up window enter **SharePoint**, then select the **Get file content** content. Power Automate automatically signs you into your SharePoint account.
 
-   :::image type="content" source="../media/connectors/get-file-content.png" alt-text="Screenshot of the SharePoint Get file content action.":::
+      :::image type="content" source="../media/connectors/get-file-content.png" alt-text="Screenshot of the SharePoint Get file content action.":::
 
 1. On the **Get file content** step window, complete the following fields:
     * **Site Address**. Select the SharePoint site URL where your file is located from the dropdown list.
@@ -296,9 +296,9 @@ Here are the steps to upload a file from your SharePoint site to Azure blob stor
 
 1. In the **Authentication type** field, choose **Azure AD Integrated** and then select the **Sign in** button.
 
-   :::image type="content" source="../media/connectors/storage-aad-auth.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
+   :::image type="content" source="../media/connectors/storage-authentication.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
 
-1. Choose the Azure Active Directory (Azure AD) account associated with your Azure blob storage and Translator resource accounts.
+1. Choose the Azure Active Directory (Azure AD) account associated with your Azure Blob Storage and Translator resource accounts.
 
 1. After you have completed the **Azure Blob Storage** authentication, the **Create blob** step appears. Complete the fields as follows:
 
@@ -365,7 +365,7 @@ Prior to retrieving the documents status, let's schedule a 30-second delay to en
 
    :::image type="content" source="../media/connectors/get-documents-status-step.png" alt-text="Screenshot of the get documents status step.":::
 
-1. Next, you're going to enter an expression to retrieve the `**operation ID**` value.
+1. Next, you're going to enter an expression to retrieve the **`operation ID`** value.
 
 1. Select the **operation ID** field. A **Dynamic content** / **Expression** dropdown window appears.
 
@@ -385,7 +385,7 @@ Prior to retrieving the documents status, let's schedule a 30-second delay to en
 
 ##### Get blob content and metadata
 
-In this step, you retrieve the translated document from Azure blob storage and upload it to SharePoint.
+In this step, you retrieve the translated document from Azure Blob Storage and upload it to SharePoint.
 
 1. Select **New Step**, enter **Control** in the search box, and select **Apply to each** from the **Actions** list.
 1. Select the input field to show the **Dynamic content** window and select **value**.
@@ -394,15 +394,15 @@ In this step, you retrieve the translated document from Azure blob storage and u
 
 1. Select **Add an action**.
 
-   :::image type="content" source="../media/connectors/add-action.png" alt-text="Screenshot showing the 'Add an action' control step":::
+   :::image type="content" source="../media/connectors/add-action.png" alt-text="Screenshot showing the 'Add an action' control step.":::
 
 1. Enter **Control** in the search box and select **Do until** from the **Actions** list.
 1. Select the **Choose a value** field to show the **Dynamic content** window and select **progress**.
 1. Complete the three fields as follows: **progress** → **is equal to** → **1**:
 
-   :::image type="content" source="../media/connectors/do-until-progress.png" alt-text="Screenshot showing the **Do until** control.":::
+   :::image type="content" source="../media/connectors/do-until-progress.png" alt-text="Screenshot showing the Do until control action.":::
 
-1. Select **Add an action**, enter **Azure blob Storage** in the search box, and select the **Get blob content using path (V2)** action.
+1. Select **Add an action**, enter **Azure Blob Storage** in the search box, and select the **Get blob content using path (V2)** action.
 1. In the **Storage account name or blob endpoint** field, select **Enter custom value** and enter your storage account name.
 1. Select the **Blob path** field to show the **Dynamic content** window, select **Expression** and enter the following logic in the formula field:
 
@@ -412,7 +412,7 @@ In this step, you retrieve the translated document from Azure blob storage and u
 
    ```
 
-1. Select **Add an action**, enter **Azure blob Storage** in the search box, and select the **Get Blob Metadata using path (V2)** action.
+1. Select **Add an action**, enter **Azure Blob Storage** in the search box, and select the **Get Blob Metadata using path (V2)** action.
 1. In the **Storage account name or blob endpoint** field, select **Enter custom value** and enter your storage account name.
 
    :::image type="content" source="../media/connectors/enter-custom-value.png" alt-text="Screenshot showing 'enter custom value' from the Create blob (V2) window.":::
@@ -441,7 +441,7 @@ In this step, you retrieve the translated document from Azure blob storage and u
 1. In the **File Content** field, from the **Dynamic content** list, under *Get Blob Metadata using path (V2)* select **File Content** .
 1. Select **Save**.
 
-   :::image type="content" source="../media/connectors/apply-to-each-complete.png" alt-text="{alt-text}":::
+   :::image type="content" source="../media/connectors/apply-to-each-complete.png" alt-text="Screenshot showing the apply-to-each step sequence.":::
 
 ## Test your connector flow
 
@@ -457,7 +457,7 @@ Let's check your document translation flow and results.
 1. Finally, select  the **Done** button.
 1. You should receive a "Your flow ran successfully" message and green check marks align with each successful step.
 
-   :::image type="content" source="../media/connectors/successful-sharepoint-flow.png" alt-text="Screenshot showing a successful flow using SharePoint and Azure blob storage.":::
+   :::image type="content" source="../media/connectors/successful-sharepoint-flow.png" alt-text="Screenshot showing a successful flow using SharePoint and Azure Blob Storage.":::
 
 ---
 
