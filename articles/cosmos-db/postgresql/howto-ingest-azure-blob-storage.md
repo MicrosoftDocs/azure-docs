@@ -6,7 +6,7 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 05/12/2023
 ---
 
 # How to ingest data using pg_azure_storage in Azure Cosmos DB for PostgreSQL
@@ -345,5 +345,5 @@ INSERT 0 264308
 
 Congratulations, you just learned how to load data into Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
 
-Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
-Learn more about [pg_azure_storage](reference-pg-azure-storage.md).
+- Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn more about [pg_azure_storage](reference-pg-azure-storage.md).

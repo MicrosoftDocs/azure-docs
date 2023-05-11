@@ -6,7 +6,7 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 04/28/2023
+ms.date: 05/12/2023
 ---
 
 # pg_azure_storage extension
@@ -40,12 +40,7 @@ FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
 
 ### Arguments
 #### Azure_blob_url
-Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTP or HTTPS. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby. User or client applications can access blobs via following methods
-1. URLs
-1. The Azure Storage REST API
-1. Azure PowerShell
-1. Azure CLI
-1. An Azure storage client library
+Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTPS. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby.
 
 ### Option
 #### format
@@ -64,14 +59,14 @@ Function allows adding access to a storage account.
 ```postgresql
 azure_storage.account_add
         (account_name_p text
-        , account_key_p text);
+        ,account_key_p text);
 ```
 ### Arguments
 #### account_name_p
-An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTPS.
 
 #### account_key_p
-Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is only accessible by the postgres superuser. To see which storage accounts exist, use the account_list
+Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible by the postgres superuser, azure_storage_admin and all roles granted those admin permissions. To see which storage accounts exist, use the function account_list.
 
 ## azure_storage.account_remove
 Function allows revoking account access to storage account.
@@ -83,7 +78,7 @@ azure_storage.account_remove
 
 ### Arguments
 #### account_name_p
-Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTPS.
 
 ## azure_storage.account_user_add
 The function allows adding access for a role to a storage account.
@@ -96,7 +91,7 @@ azure_storage.account_add
 
 ### Arguments
 #### account_name_p
-An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTPS.
 
 #### user_p
 Role created by user visible on the cluster.
@@ -109,13 +104,13 @@ The function allows removing access for a role to a storage account.
 
 ```postgresql
 azure_storage.account_remove
-        ( account_name_p text
-        , user_p regrole);
+        (account_name_p text
+        ,user_p regrole);
 ```
 
 ### Arguments
 #### account_name_p
-An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+An Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTPS.
 
 #### user_p
 Role created by user visible on the cluster.
@@ -125,15 +120,15 @@ The function lists the account & role having access to Azure blob storage.
 
 ```postgresql
 azure_storage.account_list
-    ( OUT account_name text
-    , OUT allowed_users regrole[]
-    )
+        (OUT account_name text
+        ,OUT allowed_users regrole[]
+        )
 Returns TABLE;
 ```
 
 ### Arguments
 #### account_name
-Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTP or HTTPS.
+Azure blob storage (ABS) account contains all of your ABS objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your ABS that is accessible from anywhere in the world over HTTPS.
 
 #### allowed_users
 Lists the users having access to the Azure blob storage.
@@ -146,23 +141,24 @@ The function lists the available blob files within a user container with their p
 
 ```postgresql
 azure_storage.blob_list
-    (account_name text
-    , container_name text
-    , prefix text DEFAULT ''::text
-    , OUT path text
-    , OUT bytes bigint
-    , OUT last_modified timestamp with time zone
-    , OUT etag text
-    , OUT content_type text
-    , OUT content_encoding text
-    , OUT content_hash text
-    )
+        (account_name text
+        ,container_name text
+        ,prefix text DEFAULT ''::text
+        ,OUT path text
+        ,OUT bytes bigint
+        ,OUT last_modified timestamp with time zone
+        ,OUT etag text
+        ,OUT content_type text
+        ,OUT content_encoding text
+        ,OUT content_hash text
+        )
 Returns SETOF record;
 ```
 
 ### Arguments
 #### account_name
-The `storage account name` provides a unique namespace for your Azure storage data that's accessible from anywhere in the world over HTTP or HTTPS.
+The `storage account name` provides a unique namespace for your Azure storage data that's accessible from anywhere in the world over HTTPS.
+
 #### container_name
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
@@ -172,8 +168,9 @@ A container name must be a valid DNS name, as it forms part of the unique URI us
 * Two or more consecutive dash characters aren't permitted in container names.
 
 The URI for a container is similar to:
-https://<span></span>myaccount.blob.core.windows.net/mycontainer
-
+```
+`https://<span></span>myaccount.blob.core.windows.net/mycontainer`
+```
 #### prefix
 returns file from blob container with matching string initials.
 #### path
@@ -204,11 +201,11 @@ The function allows loading the content of file \ files from within the containe
 ```postgresql
 azure_storage.blob_get
         (account_name text
-        , container_name text
-        , path text
-        , decoder text DEFAULT 'auto'::text
-        , compression text DEFAULT 'auto'::text
-        , options jsonb DEFAULT NULL::jsonb
+        ,container_name text
+        ,path text
+        ,decoder text DEFAULT 'auto'::text
+        ,compression text DEFAULT 'auto'::text
+        ,options jsonb DEFAULT NULL::jsonb
         )
 RETURNS SETOF record;
 ```
@@ -216,19 +213,19 @@ There's an overloaded version of function, containing rec parameter that allows 
 ```postgresql
 azure_storage.blob_get
         (account_name text
-        , container_name text
-        , path text
-        , rec anyelement
-        , decoder text DEFAULT 'auto'::text
-        , compression text DEFAULT 'auto'::text
-        , options jsonb DEFAULT NULL::jsonb
+        ,container_name text
+        ,path text
+        ,rec anyelement
+        ,decoder text DEFAULT 'auto'::text
+        ,compression text DEFAULT 'auto'::text
+        ,options jsonb DEFAULT NULL::jsonb
         )
 RETURNS SETOF anyelement;
 ```
 
 ### Arguments
 #### account
-The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS.
+The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTPS.
 #### container
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs.
@@ -263,15 +260,15 @@ The function acts as a utility function called as a parameter within blob_get, w
 
 ```postgresql
 azure_storage.options_csv_get
-    (delimiter text DEFAULT NULL::text
-    , null_string text DEFAULT NULL::text
-    , header boolean DEFAULT NULL::boolean
-    , quote text DEFAULT NULL::text
-    , escape text DEFAULT NULL::text
-    , force_not_null text[] DEFAULT NULL::text[]
-    , force_null text[] DEFAULT NULL::text[]
-    , content_encoding text DEFAULT NULL::text
-    )
+        (delimiter text DEFAULT NULL::text
+        ,null_string text DEFAULT NULL::text
+        ,header boolean DEFAULT NULL::boolean
+        ,quote text DEFAULT NULL::text
+        ,escape text DEFAULT NULL::text
+        ,force_not_null text[] DEFAULT NULL::text[]
+        ,force_null text[] DEFAULT NULL::text[]
+        ,content_encoding text DEFAULT NULL::text
+        )
 Returns jsonb;
 ```
 
@@ -308,16 +305,16 @@ The function acts as a utility function called as a parameter within blob_get.
 
 ```postgresql
 azure_storage.options_copy
-    (delimiter text DEFAULT NULL::text
-    , null_string text DEFAULT NULL::text
-    , header boolean DEFAULT NULL::boolean
-    , quote text DEFAULT NULL::text
-    , escape text DEFAULT NULL::text
-    , force_quote text[] DEFAULT NULL::text[]
-    , force_not_null text[] DEFAULT NULL::text[]
-    , force_null text[] DEFAULT NULL::text[]
-    , content_encoding text DEFAULT NULL::text
-    )
+        (delimiter text DEFAULT NULL::text
+        ,null_string text DEFAULT NULL::text
+        ,header boolean DEFAULT NULL::boolean
+        ,quote text DEFAULT NULL::text
+        ,escape text DEFAULT NULL::text
+        ,force_quote text[] DEFAULT NULL::text[]
+        ,force_not_null text[] DEFAULT NULL::text[]
+        ,force_null text[] DEFAULT NULL::text[]
+        ,content_encoding text DEFAULT NULL::text
+        )
 Returns jsonb;
 ```
 
@@ -357,10 +354,10 @@ The function acts as a utility function called as a parameter within blob_get. I
 
 ```postgresql
 azure_storage.options_tsv
-    (delimiter text DEFAULT NULL::text
-    , null_string text DEFAULT NULL::text
-    , content_encoding text DEFAULT NULL::text
-    )
+        (delimiter text DEFAULT NULL::text
+        ,null_string text DEFAULT NULL::text
+        ,content_encoding text DEFAULT NULL::text
+        )
 Returns jsonb;
 ```
 
@@ -382,8 +379,7 @@ The function acts as a utility function called as a parameter within blob_get. I
 
 ```postgresql
 azure_storage.options_binary
-    (content_encoding text DEFAULT NULL::text
-    )
+        (content_encoding text DEFAULT NULL::text)
 Returns jsonb;
 ```
 
@@ -403,17 +399,17 @@ Now you can list containers set to Private and Blob access levels for that stora
 The examples used make use of sample Azure storage account `(pgquickstart)` with custom files uploaded for adding to coverage of different use cases. We can start by creating table used across the set of example used.
 ```sql
 CREATE TABLE IF NOT EXISTS public.events
-(
-    event_id bigint,
-    event_type text,
-    event_public boolean,
-    repo_id bigint,
-    payload jsonb,
-    repo jsonb,
-    user_id bigint,
-    org jsonb,
-    created_at timestamp without time zone
-)
+        (
+         event_id bigint
+        ,event_type text
+        ,event_public boolean
+        ,repo_id bigint
+        ,payload jsonb
+        ,repo jsonb
+        ,user_id bigint
+        ,org jsonb
+        ,created_at timestamp without time zone
+        );
 ```
 
 ### Adding access key of storage account (mandatory for access level = private)
@@ -423,7 +419,7 @@ The example illustrates adding of access key for the storage account to get acce
 SELECT azure_storage.account_add('pgquickstart', 'SECRET_ACCESS_KEY');
 ```
 > [!TIP]
-In your storage account, open **Access keys**. Copy the **Storage account name** and copy the **Key** from **key1** section (you have to select **Show** next to the key first).
+> In your storage account, open **Access keys**. Copy the **Storage account name** and copy the **Key** from **key1** section (you have to select **Show** next to the key first).
 
 :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Screenshot of Security + networking > Access keys section of an Azure Blob Storage page in the Azure portal." border="true":::
 
@@ -455,7 +451,7 @@ SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer','e');
 Alternatively
 
 ```sql
-SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer','e') WHERE path LIKE 'e%';
+SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer') WHERE path LIKE 'e%';
 ```
 
 ### Read content from an object in a container
@@ -475,16 +471,16 @@ Alternatively, we can explicitly define the columns in the `FROM` clause.
 ```sql
 SELECT * FROM azure_storage.blob_get('pgquickstart','publiccontainer','events.csv')
 AS res (
-      event_id TEXT,
-      event_type DATE,
-      event_public INTEGER,
-      repo_id INTEGER,
-      payload JSONB,
-      repo JSONB,
-      user_id BIGINT,
-      org JSONB,
-      created_at TIMESTAMP WITHOUT TIME ZONE)
- LIMIT 5;
+         event_id TEXT
+        ,event_type DATE
+        ,event_public INTEGER
+        ,repo_id INTEGER
+        ,payload JSONB
+        ,repo JSONB
+        ,user_id BIGINT
+        ,org JSONB
+        ,created_at TIMESTAMP WITHOUT TIME ZONE)
+LIMIT 5;
 ```
 
 ### Use decoder option
@@ -510,7 +506,7 @@ SELECT * FROM azure_storage.blob_get
         ,'events-compressed'
         , NULL::events
         , decoder := 'csv'
-	, compression := 'gzip')
+        , compression := 'gzip')
 LIMIT 5;
 ```
 
@@ -531,18 +527,19 @@ LIMIT 5;
 The example illustrates the use of `options` argument for processing files with headers, custom separators, escape characters, etc., you can either use the COPY command or pass COPY options to the blob_get function using the `azure_storage.options_copy` function.
 ```sql
 SELECT * FROM azure_storage.blob_get
-		( 'pgquickstart'
-		 ,'publiccontainer'
-		 ,'events_pipe.csv'
-		 , NULL::events
-		 , options := azure_storage.options_csv_get(delimiter := '|' , header := 'true'));
+        ('pgquickstart'
+        ,'publiccontainer'
+        ,'events_pipe.csv'
+        ,NULL::events
+        ,options := azure_storage.options_csv_get(delimiter := '|' , header := 'true')
+        );
 ```
 
 ### Aggregation query on content of an object in the container
 The example illustrates the ability to directly perform analysis on the data without importing the set into the database.
 ```sql
 SELECT event_type,COUNT(1) FROM azure_storage.blob_get
-		('pgquickstart'
+        ('pgquickstart'
         ,'publiccontainer'
         ,'events.csv'
         , NULL::events)
