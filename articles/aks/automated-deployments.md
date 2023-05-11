@@ -45,6 +45,8 @@ Fill out the fields, providing details about your application that will be used 
 
 :::image type="content" source="./media/automated-deployments/details-inline.png" alt-text="{alt-text}" lightbox="./media/automated-deployments/details.png":::
 
+Proceed to review and verify the automated deployment.
+
 ### Deploy an already containerized application to your AKS cluster
 
 Pick your dockerfile and your ACR and image.
@@ -55,7 +57,7 @@ Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once 
 
 :::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen." lightbox="media/automated-deployments/ad-deployment-details-expanded.png":::
 
-When finished, select **Next: Deployment details** to finalize the artifacts, select **Next: Review** to review them, and finally select **Next: Deploy** to finalize the automated deployment.
+Proceed to review and verify the automated deployment.
 
 ## Review and verify the automated deployment
 
