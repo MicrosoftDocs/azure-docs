@@ -36,19 +36,19 @@ Before you proceed with this article, make sure you cover these prerequisites:
 1. Complete the part 1 tutorial, to create the required feature store, account entity and transaction feature set
 1. An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` role and `Contributor` role.
 
-* To perform the steps in this article, your user account must be assigned the owner or contributor role to the resource group which holds the created feature store
+* To perform the steps in this article, your user account must be assigned the owner or contributor role to the resource group, which holds the created feature store
 
-## The summary of the setup steps you'll execute:
+## The summary of the setup steps to execute:
 
 * In your project workspace, create Azure Machine Learning compute to run training pipeline
 * In your feature store workspace, create an offline materialization store: create an Azure gen2 storage account and a container in it and attach to feature store. Optionally you can use existing storage container.
-* Create and assign a user-assigned managed identity to the feature store. Optionally, you can use an existing managed identity. The system managed materialization jobs, in other words, recurrent jobs, will use the managed identity. Part 3 of the tutorial relies on it
-* Grant required RBAC permissions to the user-assigned managed identity
-* Grant required RBAC to your AAD identity. Users (like you) need to have read access to (a) sources (b) materialization store
+* Create and assign a user-assigned managed identity to the feature store. Optionally, you can use an existing managed identity. The system managed materialization jobs, in other words, recurrent jobs, uses the managed identity. Part 3 of the tutorial relies on it
+* Grant required role-based authentication control (RBAC) permissions to the user-assigned managed identity
+* Grant required role-based authentication control (RBAC) to your Azure AD identity. Users (like you) need read access to (a) sources (b) materialization store
 
 #### Configure the Azure Machine Learning spark notebook
 
-1. Select AzureML Spark compute in the "Compute" dropdown, located in the top nav. Wait for a status bar in the top to display "configure session".
+1. Select Azure Machine Learning Spark compute in the "Compute" dropdown, located in the top nav. Wait for a status bar in the top to display "configure session".
 
 1. Configure session:
 
@@ -88,7 +88,7 @@ You can create a new gen2 storage account and container, or reuse an existing on
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=setup-utility-fns)]
 
-##### Set the values for the adls gen 2 storage that becomes a materialization store
+##### Set the values for the Azure data lake storage (ADLS) gen 2 storage that becomes a materialization store
 
 You can optionally override the default settings
 
@@ -118,7 +118,7 @@ In part 3 of the tutorial, system managed materialization jobs - for example, re
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-uai)]
 
-##### Grant RBAC permission to the user assigned managed identity (UAI)
+##### Grant role-based authentication control (RBAC) permission to the user assigned managed identity (UAI)
 
 This UAI is assigned to the feature store shortly. It requires the following permissions:
 
@@ -136,7 +136,7 @@ This utility function code assigns the first two roles to the UAI. In this examp
 
 If the feature data is materialized, then you need this role to read feature data from offline materialization store.
 
-Learn how to get your AAD object ID from the Azure portal at [this](/partner-center/find-ids-and-domain-names#find-the-user-object-id) page.
+Learn how to get your Azure AD object ID from the Azure portal at [this](/partner-center/find-ids-and-domain-names#find-the-user-object-id) page.
 
 To learn more about access control, see access control document.
 

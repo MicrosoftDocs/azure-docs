@@ -21,14 +21,14 @@ ms.custom: sdkv2
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this tutorial series you'll learn how features seamlessly integrate all phases of the ML lifecycle: prototyping, training and operationalization.
+This tutorial series shows how features seamlessly integrate all phases of the ML lifecycle: prototyping, training and operationalization.
 
 Part 1 of this tutorial showed how to create a feature set spec with custom transformations. Part 2 of the tutorial showed how to enable materialization and perform a backfill. This tutorial shows how to experiment with features, to improve model performance. At the end of the tutorial, you'll see how a feature store increases agility in the experimentation and training flows.
 
-Here in Tutorial part 3, you'll learn how to:
+Tutorial part 3 here shows how to:
 
-* Prototype a new `accounts` feature set spec, using existing precomputed values as features. You'll then Register the local feature set spec as a feature set in the feature store. This differs from part 1 of the tutorial, where we created a feature set that had custom transformations.
-* Select features for the model. You'll select features from the `transactions` and `accounts` feature sets, and save them as a feature-retrieval spec.
+* Prototype a new `accounts` feature set spec, using existing precomputed values as features. You'll then register the local feature set spec as a feature set in the feature store. This differs from part 1 of the tutorial, where we created a feature set that had custom transformations.
+* Select features for the model from the `transactions` and `accounts` feature sets, and save them as a feature-retrieval spec.
 * Run a training pipeline that uses the feature retrieval spec to train a new model. This pipeline uses the built-in feature-retrieval component, to generate the training data.
 
 ## Prerequisites
@@ -39,7 +39,7 @@ Here in Tutorial part 3, you'll learn how to:
 
 ### Configure the Azure Machine Learning spark notebook
 
-1. Select AzureML Spark compute in the "Compute" dropdown, located in the top nav. Wait for a status bar in the top to display "configure session".
+1. Select Azure Machine Learning Spark compute in the "Compute" dropdown, located in the top nav. Wait for a status bar in the top to display "configure session".
 
 1. Configure session:
 
@@ -72,15 +72,15 @@ Ensure you update the `featurestore_name` to reflect what you created in part 1 
 
 #### In the project workspace, create a compute cluster named cpu-cluster
 
-We'll run training/batch inference jobs that rely on this compute cluster
+Here, we run training/batch inference jobs that rely on this compute cluster
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=create-compute-cluster)]
 
 ## Step 1: Locally create an accounts feature set from precomputed data
 
-In tutorial part 1, we created a transactions feature set that had custom transformations. Now, we'll create an accounts feature set that uses precomputed values.
+In tutorial part 1, we created a transactions feature set that had custom transformations. Here, we create an accounts feature set that uses precomputed values.
 
-To onboard precomputed features, you can create a feature set spec without writing any transformation code. A feature set spec, or specification, is a specification to develop and test a feature set, in a fully local development environment, without a connection to a feature store. In this step, you'll create the feature set spec locally, and sample the values from it. If you want to get managed feature store capabilities, you must use a feature asset definition to register the feature set spec with a feature store. A future step of this tutorial covers this topic.
+To onboard precomputed features, you can create a feature set spec without writing any transformation code. A feature set spec, or specification, is a specification to develop and test a feature set, in a fully local development environment, without a connection to a feature store. This step creates the feature set spec locally, and sample the values from it. To get managed feature store capabilities, you must use a feature asset definition to register the feature set spec with a feature store. A later part of this tutorial provides more information.
 
 ### Step 1a: Explore the source data for accounts
 
@@ -91,7 +91,7 @@ To onboard precomputed features, you can create a feature set spec without writi
 
 ### Step 1b: Create an `accounts` feature set spec in local from these precomputed features
 
-This won't require transformation code because we reference precomputed features.
+Creation of a feature set spec does not require transformation, code because we reference precomputed features.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=create-accts-fset-spec)]
 
@@ -114,7 +114,7 @@ Persisting the spec in this way means that it can be source controlled.
 
 ## Step 2: Experiment with unregistered features locally and register with feature store when ready
 
-In feature development, you might want to locally test and validate before proceeding with feature store registration, or execution of cloud training pipelines. Here, you'll generate training data for the ML model, from a combination of features. These features include a local unregistered feature set (accounts) and a feature set registered in the feature store (transactions).
+In feature development, you might want to locally test and validate before proceeding with feature store registration, or execution of cloud training pipelines. In this step, you generate training data for the ML model, from a combination of features. These features include a local unregistered feature set (accounts) and a feature set registered in the feature store (transactions).
 
 ### Step 2a: Select model features
 
@@ -122,13 +122,13 @@ In feature development, you might want to locally test and validate before proce
 
 ### Step 2b: Locally generate training data
 
-In this step, we'll generate training data for illustrative purposes. You can optionally train models locally with this data. Later in this tutorial, you'll train a model in the cloud.
+This step generates training data for illustrative purposes. You can optionally train models locally with this data. A later part of this tutorial shows how to train a model in the cloud.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=gen-training-data-locally)]
 
 ### Step 2c: Register the `accounts` feature set with the feature store
 
-After you locally experiment with different feature definitions and sanity tested them, you can register them with the feature store. For this, you'll register a feature set asset definition with the feature store.
+After you locally experiment with different feature definitions, and sanity test them, you can register them with the feature store. You register a feature set asset definition with the feature store for this step.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=reg-accts-fset)]
 
@@ -138,15 +138,15 @@ After you locally experiment with different feature definitions and sanity teste
 
 ## Step 3: Run a training experiment
 
-In this step, you'll select a list of features, run a training pipeline, and register the model. You can repeat this step until you are happy with the model performance.
+Here, you select a list of features, run a training pipeline, and register the model. You can repeat this step until you're happy with the model performance.
 
 ### (Optional) Step 3a: Discover features from the feature store UI
 
-You already did this in part 1 of the tutorial, after you registered the transactions feature set. Since you also have the accounts feature set, you can browse the available features:
+Part 1 of the tutorial covered the transactions feature set, after you registered the transactions feature set. Since you also have the accounts feature set, you can browse the available features:
 
 * Go to the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStoresPrPr,FeatureStoresPuPr)
 * In the left nav, select `Feature stores`
-* You'll see a list of feature stores that you can access. Select the feature store that you created in the steps earlier in this tutorial.
+* It shows a list of feature stores that you can access. Select the feature store that you created in the steps earlier in this tutorial.
 
 You can see the feature sets and entity that you created. Select feature sets to browse the feature definitions. You can also use the global search box to search for feature sets across feature stores.
 
@@ -156,7 +156,7 @@ You can see the feature sets and entity that you created. Select feature sets to
 
 ### Step 3c: Select features for the model, and export it as a feature-retrieval spec
 
-In the previous steps, you selected features from a combination of registered and unregistered feature sets, for local experimentation and testing. Now you can experiment in the cloud. Saving the selected features as a feature-retrieval spec and using that spec in the mlops / cicd flow, for training and inference, increases your agility as you ship models.
+In the previous steps, you selected features from a combination of registered and unregistered feature sets, for local experimentation and testing. Now you can experiment in the cloud. Save the selected features as a feature-retrieval spec and using that spec in the mlops / cicd flow, for training and inference, increases your agility as you ship models.
 
 Select features for the model
 
@@ -169,19 +169,19 @@ Export selected features as a feature-retrieval spec
 
 Use of the feature retrieval spec and the built-in feature retrieval component is optional. You can directly use the `get_offline_features()` api as shown earlier in this tutorial.
 
-For the system to recognize the name of the spec when it's packaged with the model, the spec should have the name `feature_retrieval_spec.yaml`.
+The spec should have the name `feature_retrieval_spec.yaml`, so that the system can recognize the name of the spec when it's packaged with the model.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=export-as-frspec)]
 
 ## Step 4: Train in the cloud using pipelines, and register the model if satisfactory
 
-In this step, you'll manually trigger the training pipeline. A ci/cd pipeline could trigger the training pipeline in a production scenario based on changes to the feature-retrieval spec in the source repository.
+In this step, you manually trigger the training pipeline. A ci/cd pipeline could trigger the training pipeline in a production scenario based on changes to the feature-retrieval spec in the source repository.
 
 ### Step 4a: Run the training pipeline
 
 The training pipeline has these steps:
 
-1. Feature retrieval step: this a built-in component takes the feature retrieval spec, the observation data, and the timestamp column name, all as input. Then, it generates the training data as output. It runs this as a managed spark job.
+1. Feature retrieval step: here, a built-in component takes the feature retrieval spec, the observation data, and the timestamp column name, all as input. Then, it generates the training data as output. It runs the feature retrieval step as a managed spark job.
 1. Training step: This step trains the model based on the training data, and generates a model (not yet registered)
 1. Evaluation step: This step validates whether or not the model performance / quality falls within the threshold (here, it works as a placeholder / dummy step for illustration purposes)
 1. Register model step: This step registers the model
@@ -198,13 +198,13 @@ Open the pipeline run "web view" in a new window to inspect the steps in the tra
 1. Select `fraud_model`
 1. In the top nav, select `Artifacts`
 
-Notice that the feature retrieval spec is packaged along with the model. The model registration step in the training pipeline has done this. You created a feature retrieval spec during experimentation, which has become part of the model definition. The next tutorial will show how inferencing uses this.
+Notice that the earlier model registration step of the training pipeline packaged the feature retrieval spec with the model. You created a feature retrieval spec during experimentation, which has become part of the model definition. The next tutorial will show how inferencing uses the feature retrieva spec.
 
 ## Step 5: View the feature set and model dependencies
 
 ### Step 5a: View the list of feature sets associated with the model
 
-In the same models page, select the `feature sets` tab. This shows both the `transactions` and `accounts` feature sets on which this model depends.
+In the same models page, select the `feature sets` tab. This tab shows both the `transactions` and `accounts` feature sets on which this model depends.
 
 ### Step 5b: View the list of models using the feature sets
 

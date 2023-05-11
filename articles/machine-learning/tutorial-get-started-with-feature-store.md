@@ -20,7 +20,7 @@ ms.custom: sdkv2
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure ML managed feature store lets you discover, create and operationalize features. Features are the connective tissue in ML lifecycle, starting from prototyping where you experiment with various features to operationalization where models are deployed and feature data is looked up during inference. For information about the basic feature store concepts, see [what is managed feature store](./concept-what-is-managed-feature-store.md) and [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
+Azure Machine Learning managed feature store lets you discover, create and operationalize features. The machine learning lifecycle involves the prototyping phase, where you experiment with various features. It also involves the operationalization phase, where models are deployed and inference looks up feature data. Features serve as the connective tissue in the machine learning lifecycle. For information about the basic feature store concepts, see [what is managed feature store](./concept-what-is-managed-feature-store.md) and [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
 
 This tutorial is the first part of a four part series. In this tutorial, you'll learn how to:
 
@@ -36,7 +36,7 @@ Before you proceed with this article, make sure you cover these prerequisites:
 
 * An Azure Machine Learning workspace. If you don't have one, see the [Quickstart: Create workspace resources](./quickstart-create-resources.md) article to create one
 
-* To perform the steps in this article, your user account must be assigned the owner or contributor role to a resource group where the feature store will be created
+* To perform the steps in this article, your user account must be assigned the owner or contributor role to a resource group where the feature store is created
 
 (Optional): If you use a new resource group for this tutorial, you can easily delete all the resource by deleting the resource group
 
@@ -129,7 +129,7 @@ As explained earlier in this tutorial, the feature store core SDK client is used
 
 A feature set specification is a self-contained feature set definition that you can locally develop and test.
 
-We'll create these rolling window aggregate features:
+In this step, we create these rolling window aggregate features:
 
 - transactions three-day count
 - transactions amount three-day sum
@@ -152,17 +152,17 @@ To register the feature set spec with the feature store, that spec must be saved
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=dump-transactions-fs-spec)]
 
-**Action:** Please inspect the generated `transactions` FeaturesetSpec: Open this file from the file tree to see the spec: `featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml`
+**Action:** Inspect the generated `transactions` Featureset spec: Open this file from the file tree to see the spec: `featurestore/featuresets/accounts/spec/FeaturesetSpec.yaml`
 
 The spec contains these important elements:
 
-1. `source`: a reference to a storage. In this case, it is a parquet file in a blob storage resource.
+1. `source`: a reference to a storage resource. In this case, it's a parquet file in a blob storage resource.
 1. `features`: a list of features and their datatypes. If you provide transformation code (see the Day 2 section), the code must return a dataframe that maps to the features and datatypes.
 1. `index_columns`: the join keys required to access values from the feature set
 
-Learn more about this in the [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) and the [feature set spec yaml reference](./reference-yaml-feature-set.md).
+Learn more about the spec in the [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) and the [feature set spec yaml reference](./reference-yaml-feature-set.md).
 
-Persisting the feature set spec offers an additional benefit: the feature set spec can be source controlled.
+Persisting the feature set spec offers another benefit: the feature set spec can be source controlled.
 
 ## Step 3: Register a feature-store entity
 
@@ -170,7 +170,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 ### Step 3a: Initialize the Feature Store CRUD client
 
-As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. The following code searches for the feature store we created in an earlier step. Here, we can't reuse the same ml_client used earlier in this tutorial, because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. The one following is scoped at feature store level.
+As explained earlier in this tutorial, MLClient is used for CRUD of feature store assets. The following code searches for the feature store we created in an earlier step. Here, we can't reuse the same ml_client we used earlier in this tutorial, because the earlier ml_client is scoped at the resource group level. This is a prerequisite for feature store creation. In the next code sample, the client is scoped at feature store level.
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=init-fset-crud-client)]
 
@@ -182,7 +182,7 @@ Create an account entity that has the join key `accountID`, of type string.
 
 ## Step 4: Register the transaction feature set with the feature store
 
-You can register a feature set asset with the feature store. In this way, you can share and reuse that asset with others. Feature set asset registration offers managed capabilities, such as versioning and materialization (we will learn about these topics in this tutorial series).
+You can register a feature set asset with the feature store. In this way, you can share and reuse that asset with others. Feature set asset registration offers managed capabilities, such as versioning and materialization (we'll learn more about managed capabilities in this tutorial series).
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=register-txn-fset)]
 
@@ -192,7 +192,7 @@ You can register a feature set asset with the feature store. In this way, you ca
 * Select `Feature stores` in the left nav
 * Note the list of accessible feature stores. Select on the feature store that you created earlier in this tutorial.
 
-This shows the feature set and entity that you created.
+The list shows the feature set and entity that you created.
 
 > [!Note]
 > Creating and updating feature store assets are possible only through SDK and CLI. You can use the UI to search/browse the feature store.
@@ -201,7 +201,7 @@ This shows the feature set and entity that you created.
 
 ### Step 5a: Load observation data
 
-First, we'll explore the observation data. Observation data typically involves the core data used in training and inferencing. Then, this data joins with the feature data to create the full training data. Observation data is the data captured during the time of the event. Here, it has core transaction data including transaction ID, account ID, and transaction amount. Since we use it for training, it also has the target variable appended (**is_fraud**).
+First, we explore the observation data. Observation data typically involves the core data used in training and inferencing. Then, this data joins with the feature data to create the full training data. Observation data is the data captured during the time of the event. Here, it has core transaction data including transaction ID, account ID, and transaction amount. Since we use it for training, it also has the target variable appended (**is_fraud**).
 
 [!notebook-python[] (~/azureml-examples-featurestore/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=load-obs-data)]
 
