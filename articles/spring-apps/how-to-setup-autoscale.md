@@ -58,9 +58,9 @@ You can also set Autoscale modes using the Azure CLI. The following commands cre
 
    ```azurecli
    az monitor autoscale create \
-       --resource-group demo-rg \
-       --name demo-setting \
-       --resource /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/demo-rg/providers/Microsoft.AppPlatform/Spring/autoscale/apps/demo/deployments/default \
+       --resource-group <resource-group-name> \
+       --name <autoscale-setting-name> \
+       --resource /subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-instance-name>/apps/<app-name>/deployments/<deployment-name> \
        --min-count 1 \
        --max-count 5 \
        --count 1
@@ -70,11 +70,11 @@ You can also set Autoscale modes using the Azure CLI. The following commands cre
 
    ```azurecli
    az monitor autoscale rule create \
-       --resource-group demo-rg \
-       --autoscale-name demo-setting \
+       --resource-group <resource-group-name> \
+       --autoscale-name <autoscale-setting-name> \
        --scale out 1 \
        --cooldown 1 \
-       --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
+       --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == <app-name> and Deployment == <deployment-name>"
    ```
 
 For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
