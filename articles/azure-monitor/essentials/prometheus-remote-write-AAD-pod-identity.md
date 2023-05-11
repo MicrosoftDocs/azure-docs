@@ -4,7 +4,7 @@ description: Configure remote write for Azure Monitor managed service for Promet
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 05/11/2023
 ms.reviewer: rapadman
 ---
 
