@@ -80,8 +80,8 @@ An audit record is created each time a query is run. If you send the data to a L
 |Sentinel-Investigation-Queries|Sentinel.|
 |Sentinel-DataCollectionAggregator|Sentinel.|
 |Sentinel-analyticsManagement-customerQuery|Sentinel.|
-|Unknown|[Log Analytics Query API.](../logs/api/overview)|
-|UpdateManagement|[Update Management.](../../automation/update-management/overview)|
+|Unknown|[Log Analytics Query API.](../logs/api/overview.md)|
+|UpdateManagement|[Update Management.](../../automation/update-management/overview.md)|
 
 
 ## Considerations
