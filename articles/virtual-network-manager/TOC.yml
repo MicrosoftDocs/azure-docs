@@ -94,7 +94,7 @@
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy
-    href: how-to-exclude-elements.md
+    href: how-to-define-network-group-membership-azure-policy.md
   - name: Common issues
     href: common-issues.md
 - name: Reference
