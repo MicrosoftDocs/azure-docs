@@ -54,7 +54,7 @@ The following types of images aren't supported:
 
 ## Optimization in Azure VM Image Builder 
 
-Optimization can be enabled while creating a VM image via CLI. Go through the following workflow to avail the optimization benefits 
+Optimization can be enabled while creating a VM image using the CLI. 
 
   
 
