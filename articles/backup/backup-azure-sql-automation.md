@@ -43,7 +43,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 Set up PowerShell as follows:
 
-1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.5.0.
+1. [Download the latest version of Az PowerShell](/powershell/azure/install-azure-powershell). The minimum version required is 1.5.0.
 
 2. Find the Azure Backup PowerShell cmdlets with this command:
 

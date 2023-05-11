@@ -74,7 +74,7 @@ You must set the default rule to **deny**, or network rules have no effect. Howe
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. Choose which type of public network access you want to allow:
 
@@ -182,7 +182,7 @@ If you want to enable access to your storage account from a virtual network or s
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. List virtual network rules:
 
@@ -302,7 +302,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. List IP network rules:
 
@@ -593,7 +593,7 @@ To learn more about working with storage analytics, see [Use Azure Storage analy
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. Display the exceptions for the storage account's network rules:
 
