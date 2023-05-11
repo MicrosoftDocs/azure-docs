@@ -15,11 +15,11 @@ ms.custom: template-how-to
 
 Lifecycle workflows provide several tasks that send email notifications. You can customize email notifications to suit the needs of a specific workflow. For a list of these tasks, see [Lifecycle workflow built-in tasks (preview)](lifecycle-workflow-tasks.md).
 
-Email tasks allow for the customization of the following aspects:
+Email tasks allow for the customization of:
 
 - Additional recipients
 - Sender domain
-- Organizational branding of the email
+- Organizational branding
 - Subject
 - Message body
 - Email language
@@ -30,21 +30,19 @@ For more information on these customizable parameters, see [Common email task pa
 
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) Premium P2
-
-For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+- Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ## Customize email by using the Azure portal
 
-When customizing an email sent via lifecycle workflows, you can choose to customize either a new or existing task. These customizations are done the same way no matter if the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent out from tasks within workflows using the Azure portal, you'd follow these steps:
+When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent out from tasks within workflows by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar near the top of the page, enter **Identity Governance** and select the result.
+1. On the search bar near the top of the page, enter **Identity Governance** and select the result.
 
 1. On the left menu, select **Lifecycle workflows (Preview)**.
 
-1. On the left menu, select **workflows (Preview)**.
+1. On the left menu, select **Workflows (Preview)**.
 
 1. Select **Tasks (Preview)**.
 
@@ -58,21 +56,21 @@ When customizing an email sent via lifecycle workflows, you can choose to custom
 
    :::image type="content" source="media/customize-workflow-email/customize-workflow-email-example.png" alt-text="Screenshot of an example of a customized email from a workflow.":::
 
-1. Select **save** to capture your changes in the customized email.
+1. Select **Save** to capture your changes in the customized email.
 
 ## Format attributes within customized emails
 
-To further personalize customized emails, you can take advantage of dynamic attributes. With dynamic attributes by placing in specific attributes, you're able to specifically call out values such as a user's name, their generated Temporary Access Pass, or even their manager's email.
+To further personalize customized emails, you can take advantage of dynamic attributes. By placing dynamic attributes in specific attributes, you can specifically call out values such as a user's name, their generated Temporary Access Pass, or even their manager's email.
 
-To use dynamic attributes within your customized emails, you must follow the formatting rules within the customized email. The proper format is:
+To use dynamic attributes within your customized emails, you must follow formatting rules. The proper format is:
 
-{{**dynamic attribute**}}
+`{{dynamic attribute}}`
 
 The following screenshot is an example of the proper format for dynamic attributes within a customized email:
 
 :::image type="content" source="media/customize-workflow-email/workflow-dynamic-attribute-example.png" alt-text="Screenshot of an example of dynamic attributes within a customized email.":::
 
-When typing this it's written the following way:
+When you're typing a dynamic attribute, the email is written the following way:
 
 ```html
 Welcome to the team, {{userGivenName}}
@@ -85,38 +83,40 @@ For more information and next steps, please contact your manager, {{managerDispl
 
 ```
 
-For a full list of dynamic attributes that can be used with customized emails, see:[Dynamic attributes within email](lifecycle-workflow-tasks.md#dynamic-attributes-within-email).
+For a full list of dynamic attributes that you can use with customized emails, see [Dynamic attributes within email](lifecycle-workflow-tasks.md#dynamic-attributes-within-email).
 
-## Use custom branding and domain in emails sent out using workflows
+## Use custom branding and domain in emails sent via workflows
 
-Emails sent out using lifecycle workflows can be customized to have your own company branding, and be sent out using your company domain. When you opt in to using custom branding and domain, every email sent out using lifecycle workflows reflect these settings. To enable these features the following prerequisites are required:
+You can customize emails that you send by using lifecycle workflows to have your own company branding and to use your company domain. When you opt in to using custom branding and a custom domain, every email that you send by using lifecycle workflows reflects these settings.
 
-- A verified domain. To add a custom domain, see: [Managing custom domain names in your Azure Active Directory](../enterprise-users/domains-manage.md)
-- Custom Branding set within Azure AD if you want to have your custom branding used in emails. To set organizational branding within your Azure tenant, see: [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
+To enable these features, you need the following prerequisites:
+
+- A verified domain. To add a custom domain, see [Managing custom domain names in Azure Active Directory](../enterprise-users/domains-manage.md).
+- Custom branding set within Azure AD if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
 
 > [!NOTE]
-> The recommendation is to use a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX as this then complies with the [RFC compliance](https://www.ietf.org/rfc/rfc2142.txt) for sending and receiving email. Please see [Learn more about Exchange Online Email Routing](/exchange/mail-flow-best-practices/mail-flow-best-practices) for more information.
+> For compliance with the [RFC for sending and receiving email](https://www.ietf.org/rfc/rfc2142.txt), we recommend using a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX. [Learn more about Exchange Online email routing](/exchange/mail-flow-best-practices/mail-flow-best-practices).
 
-After these prerequisites are satisfied, you'd follow these steps:
+After you meet the prerequisites, follow these steps:
 
-1. On the lifecycle workflows page, select **Workflow settings (Preview)**.
+1. On the page for lifecycle workflows, select **Workflow settings (Preview)**.
 
-1. On the settings page, with **email domain** you're able to select your domain from a drop-down list of your verified domains.
+1. On the **Workflow settings (Preview)** pane, for **Email domain**, select your domain from the drop-down list of verified domains.
   
    :::image type="content" source="media/customize-workflow-email/workflow-email-settings.png" alt-text="Screenshot of workflow domain settings.":::
-1. With the Use company branding banner logo setting, you're able to turn on whether or not company branding is used in emails.
+1. Turn on the **Use company branding banner logo** toggle if you want to use company branding in emails.
 
-   :::image type="content" source="media/customize-workflow-email/customize-email-logo-setting.png" alt-text="Screenshot of email logo setting.":::
+   :::image type="content" source="media/customize-workflow-email/customize-email-logo-setting.png" alt-text="Screenshot of the email logo setting.":::
 
-## Customize email using Microsoft Graph
+## Customize email by using Microsoft Graph
 
-To customize email using Microsoft Graph API see: [workflow: createNewVersion](/graph/api/identitygovernance-workflow-createnewversion).
+To customize email by using the Microsoft Graph API, see [workflow: createNewVersion](/graph/api/identitygovernance-workflow-createnewversion).
 
-## Set custom branding and domain workflow settings in lifecycle workflows using Microsoft Graph
+## Set custom branding and domain workflow settings by using Microsoft Graph
 
-To turn on custom branding and domain feature settings in Lifecycle Workflows using Microsoft Graph API, see: [lifecycleManagementSettings resource type](/graph/api/resources/identitygovernance-lifecyclemanagementsettings)
+To turn on custom branding and domain feature settings in lifecycle workflows by using the Microsoft Graph API, see [lifecycleManagementSettings resource type](/graph/api/resources/identitygovernance-lifecyclemanagementsettings).
 
 ## Next steps
 
-- [Lifecycle Workflow tasks](lifecycle-workflow-tasks.md)
+- [Lifecycle workflow tasks](lifecycle-workflow-tasks.md)
 - [Manage workflow versions](manage-workflow-tasks.md)
