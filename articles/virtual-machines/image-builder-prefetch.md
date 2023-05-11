@@ -46,7 +46,7 @@ Optimization for the following images is supported:
 The following types of images aren't supported: 
 
 * Images with size greater than 2 TB 
-* ARM64 mages 
+* ARM64 images 
 * Specialized images
 * Windows images
 
