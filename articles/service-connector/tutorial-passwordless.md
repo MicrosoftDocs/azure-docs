@@ -9,7 +9,7 @@ ms.date: 05/20/2023
 ms.devlang: azurecli
 ms.custom: passwordless
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: passwordless-postgresql
+zone_pivot_groups: passwordless
 ---
 
 # Tutorial: Create a passwordless connection with Service Connector
@@ -26,7 +26,7 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.48.1 or higher.
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
-* An app deployed to [Azure Web App](/articles/app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
+* An app deployed to [Azure Web App](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 
 ### Check the environment
 
@@ -162,7 +162,7 @@ As for `--client-type`, you can use `az webapp connection create postgres-flexib
 
 ::: zone pivot="mysql"
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/articles/mysql/flexible-server/how-to-azure-ad). You can use the following command to create a user-assigned managed identity.
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad). You can use the following command to create a user-assigned managed identity.
 
 ```azurecli
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -174,7 +174,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 ```
 
 > [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/articles/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/articles/mysql/flexible-server/concepts-azure-ad-authentication).
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
@@ -282,7 +282,7 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="postgresql"
 
-1. Update properties file. For more information, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](/articles/postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
+1. Update properties file. For more information, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
     ```bash
     cat << EOF > src/main/resources/application.properties
     url=${AZURE_POSTGRESQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
@@ -332,15 +332,15 @@ using (var conn = new NpgsqlConnection(connString))
 ```
 
 For more information, see 
-* [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/articles/spring-apps/how-to-bind-postgres)
-* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](/articles/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database)
-* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](/articles/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database)
+* [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres)
+* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database)
+* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database)
 * 
 :::zone-end
 
 :::zone pivot="mysql"
 
-1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](/articles/mysql/flexible-server/connect-java?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
+1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](../mysql/flexible-server/connect-java?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
     ```bash
     cat << EOF > src/main/resources/application.properties
     url=${AZURE_POSTGRESQL_CONNECTIONSTRING}&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
@@ -418,7 +418,7 @@ using (var conn = new MySqlConnection(builder.ConnectionString))
 ```
 
 For more information, see 
-* [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](/articles/spring-apps/how-to-bind-mysql)
+* [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql)
 
 
 :::zone-end
@@ -475,11 +475,11 @@ For more information, see this site [Homepage for client programming to Microsof
 
 ## Deploy the application code to Azure hosting services
 
-For Azure App Service, you can deploy the application code by `az webapp deploy` command, see more [Quickstart: Deploy an ASP.NET web app](/articles/app-service/quickstart-dotnetcore.md)
+For Azure App Service, you can deploy the application code by `az webapp deploy` command, see more [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md)
 
-For Azure Spring Apps, you can deploy the application code by `az spring-cloud app deploy` command, see more [Quickstart: Deploy your first application to Azure Spring Apps](/articles/spring-apps/quickstart.md)
+For Azure Spring Apps, you can deploy the application code by `az spring-cloud app deploy` command, see more [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md)
 
-For Azure Container Apps, you can deploy the application code by `az containerapp create` command, see more [Quickstart: Deploy your first container app with containerapp up](/articles/container-apps/get-started.md)
+For Azure Container Apps, you can deploy the application code by `az containerapp create` command, see more [Quickstart: Deploy your first container app with containerapp up](../container-apps/get-started.md)
 
 Then you can check the log or call the application to see if it can connect to database on Azure successfully.
 
