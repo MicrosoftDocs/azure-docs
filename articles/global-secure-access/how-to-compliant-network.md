@@ -20,7 +20,7 @@ This compliant network is specific to each tenant. For example: Contoso can put 
 
 This compliant network removes the need to hairpin traffic through a VPN providing your users with better performance and security.
 
-This compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD in that it is made up of all of the branch offices and Global Secure Access clients. No manual addition is required by administrators.
+This compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No upkeep is required by administrators.
 
 ## Prerequisites
 
