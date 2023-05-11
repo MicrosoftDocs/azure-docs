@@ -75,8 +75,8 @@ An audit record is created each time a query is run. If you send the data to a L
 |infraInsights/vm|[VM insights.](../vm/vminsights-overview.md)|
 |LogAnalyticsExtension|[Azure Dasboard](../../azure-portal/azure-portal-dashboards.md).|
 |LogAnalyticsPSClient|[Log Analytics Query API.](../logs/api/overview.md)|
-|OmsAnalyticsPBI|Log Analytics integration with [Power BI.](../logs/log-powerbi)|
-|PowerBIConnector|Log Analytics integration with [Power BI.](../logs/log-powerbi)|
+|OmsAnalyticsPBI|Log Analytics integration with [Power BI.](../logs/log-powerbi.md)|
+|PowerBIConnector|Log Analytics integration with [Power BI.](../logs/log-powerbi.md)|
 |Sentinel-Investigation-Queries|Sentinel.|
 |Sentinel-DataCollectionAggregator|Sentinel.|
 |Sentinel-analyticsManagement-customerQuery|Sentinel.|
