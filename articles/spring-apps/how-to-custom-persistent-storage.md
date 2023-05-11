@@ -180,19 +180,19 @@ Use the following best practices when you add your own persistent storage to Azu
 
 - If you delete an Azure Storage account or Azure file share, avoid possible errors by removing the corresponding storage resource or persistent storage in the applications.
 
-- If you'd like to write files to the same path for every individual application instance but keep them in separate subdirectories from the file share perspective, you could use the *SubPath* option. Note that the *SubPath* option is incompatible with *Read only* because *SubPath* is used for writing new files and *Read only* is used for reading existing files.
+- If you'd like to write files to the same path for every individual application instance, but keep them in separate subdirectories from the perspective of the file share, you could use the *SubPath* option. Note that the *SubPath* option is incompatible with *Read only* because *SubPath* is used for writing new files and *Read only* is used for reading existing files.
 
 ## FAQ
 
 This section addresses frequently asked questions about using your own persistent storage with Azure Spring Apps.
 
-- If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, will my data be migrated into my Azure Storage account?
+- If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, is my data migrated into my Azure Storage account?
 
    *No. But we're going to provide a document to help you do the migration yourself soon.*
 
 - What are the reserved mount paths?
 
-  *The following mount paths are reserved by the Azure Spring Apps service:*
+  *Azure Spring Apps reserves the following mount paths:*
 
   - */tmp*
   - */persistent*
