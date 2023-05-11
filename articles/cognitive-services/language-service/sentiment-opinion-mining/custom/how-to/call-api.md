@@ -1,5 +1,5 @@
 ---
-title: Send a Custom Sentiment Analysis Named Entity Recognition (NER) request to your custom model
+title: Send a Custom Sentiment Analysis request to your custom model
 description: Learn how to send requests for custom NER.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -14,12 +14,12 @@ ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 
-# Query your custom model
+# Send a Custom sentiment analysis request to your custom model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
 You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
 
-## Test deployed model
+## Test a deployed Custom sentiment analysis model
 
 You can use Language Studio to submit the custom entity recognition task and visualize the results. 
 
@@ -28,7 +28,7 @@ You can use Language Studio to submit the custom entity recognition task and vis
 <!--:::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::--->
 
 
-## Send an entity recognition request to your model
+## Send an sentiment analysis request to your model
 
 # [Language Studio](#tab/language-studio)
 
@@ -40,7 +40,7 @@ First you will need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/get-key-endpoint.md)]
 
-### Submit a custom NER task
+### Submit a custom sentiment analysis task
 
 [!INCLUDE [submit a custom NER task using the REST API](../../includes/custom/rest-api/submit-task.md)]
 
