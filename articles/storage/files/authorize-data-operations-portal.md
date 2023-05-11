@@ -4,7 +4,7 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/11/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -18,6 +18,19 @@ You can also specify how to authorize an individual file share operation in the 
 ## Permissions needed to access file data
 
 Depending on how you want to authorize access to file data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+
+### Use your Azure AD account
+
+To access file data from the Azure portal using your Azure AD account, both of the following statements must be true:
+
+- You're assigned either a built-in or custom role that provides access to file data.
+- You're assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
+
+The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to file shares in the Azure portal.
+
+For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST Preview](authorize-oauth-rest.md).
+
+Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
 ### Use the storage account access key
 
@@ -36,19 +49,6 @@ When you attempt to access file data in the Azure portal, the portal first check
 > [!NOTE]
 > The classic subscription administrator roles **Service Administrator** and **Co-Administrator** include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access file data with the storage account key. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-### Use your Azure AD account
-
-To access file data from the Azure portal using your Azure AD account, both of the following statements must be true:
-
-- You're assigned either a built-in or custom role that provides access to file data.
-- You're assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
-
-The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to file shares in the Azure portal.
-
-For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST Preview](authorize-oauth-rest.md).
-
-Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
-
 ## Specify how to authorize operations on a specific file share
 
 You can change the authentication method for individual file shares. By default, the portal uses the current authentication method. To determine the current authentication method, follow these steps.
@@ -60,17 +60,17 @@ You can change the authentication method for individual file shares. By default,
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing the authentication method set to access key.":::
 
-### Authenticate with the storage account access key
+### Authenticate with your Azure AD account
 
 To switch to using your Azure AD account, select the link highlighted in the image that says **Switch to Azure AD User Account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Azure AD.
 
-No file shares will appear in the list if your Azure AD account lacks permissions to view them. Select **Switch to access key** to use the access key for authentication again.
+No file shares will appear in the list if your Azure AD account lacks permissions to view them.
 
-### Authenticate with your Azure AD account
+### Authenticate with the storage account access key
 
 To switch to using the account access key, select the link that says **Switch to access key.** If you have access to the storage account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message that you don't have permissions to use the access key to list data.
 
-No file shares appear in the list if you don't have access to the storage account access key. Select **Switch to Azure AD User Account** to use your Azure AD account for authentication again.
+No file shares appear in the list if you don't have access to the storage account access key.
 
 ## Default to Azure AD authorization in the Azure portal
 
