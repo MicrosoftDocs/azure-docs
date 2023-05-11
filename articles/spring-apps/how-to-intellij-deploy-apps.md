@@ -60,7 +60,7 @@ The following procedures deploy a Hello World application using IntelliJ IDEA.
 
 ## Deploy to Azure Spring Apps
 
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription. For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription. For sign-in details, see [Install and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Apps**.
 
