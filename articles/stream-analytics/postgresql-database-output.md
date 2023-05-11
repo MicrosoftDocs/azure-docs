@@ -39,7 +39,8 @@ The following table lists the property names and their description for creating 
 
 Partitioning needs to enabled and is based on the PARTITION BY clause in the query. When the Inherit Partitioning option is enabled, it follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). 
 
-# Limitations
+
+## Limitations
 * The table schema must exactly match the fields and their types in your job's output. 
 * Managed identities for Azure Database for PostgreSQL output in Azure Stream Analytics is currently not supported.
 
