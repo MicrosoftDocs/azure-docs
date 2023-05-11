@@ -54,7 +54,7 @@ Use the following steps to deploy the Spring Petclinic microservices project:
 
    The build process can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders.
 
-For more information about deploying this sample application, see [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
+For more information about deploying applications, see [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Assign a public endpoint
 
@@ -331,7 +331,7 @@ grpcurl -d "{\"ownerId\":7}" <SERVICE-NAME>-customers-service.azuremicroservices
    curl -v --insecure --raw -X POST -H "Content-Type: application/grpc" -H "TE: trailers" --data-binary @frame.bin <TEST-ENDPOINT>/org.springframework.samples.petclinic.customers.grpc.CustomersService/findAll
    ```
 
-  For more information, see the [View apps and deployments](how-to-staging-environment.md#view-apps-and-deployments) of [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
+  For more information, see the [View apps and deployments](how-to-staging-environment.md#view-apps-and-deployments) section of [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
 
 ## Next steps
 
