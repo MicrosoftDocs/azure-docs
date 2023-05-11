@@ -154,6 +154,16 @@ This example, prints the names of each file that is located in a directory named
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
 
+## Get a user delegation SAS for a directory
+
+The following code example shows how to generate a user delegation SAS for a directory when a hierarchical namespace is enabled for the storage account:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+
+The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to list file paths for this directory. If the SAS is invalid, for example if it has expired, Blob Storage returns error code 403 (Forbidden).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
+
 ## See also
 
 - [API reference documentation](/dotnet/api/azure.storage.files.datalake)
