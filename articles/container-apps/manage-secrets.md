@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 05/10/2023
 ms.author: cshoe
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -299,6 +299,125 @@ New-AzContainerApp @ContainerAppArgs
 ```
 
 Here, the environment variable named `ConnectionString` gets its value from the application-level `$QueueConnectionString` secret.
+
+---
+
+## <a name="secrets-volume-mounts"></a>Mounting secrets in a volume
+
+After declaring secrets at the application level as described in the [defining secrets](#defining-secrets) section, you can reference them in volume mounts when you create a new revision in your container app. When you mount secrets in a volume, each secret is mounted as a file in the volume. The file name is the name of the secret, and the file contents are the value of the secret. You can load all secrets in a volume mount, or you can load specific secrets.
+
+### Example
+
+# [Azure portal](#tab/azure-portal)
+
+After you've [defined a secret](#defining-secrets) in your container app, you can reference it in a volume mount when you create a new revision.
+
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. Open the *Revision management* page.
+
+1. Select **Create new revision**.
+
+1. In the *Create and deploy new revision* page.
+
+1. Select a container and select **Edit**.
+
+1. In the *Volume mounts* section, expand the **Secrets** section.
+
+1. Select **Create new volume**.
+
+1. Enter the following information:
+
+    - **Name**: mysecrets
+    - **Mount all secrets**: enabled
+
+1. Select **Add**.
+
+1. Under *Volume name*, select **mysecrets**.
+
+1. Under *Mount path*, enter **/mnt/secrets**.
+
+1. Select **Save**.
+
+1. Select **Create** to create the new revision with the volume mount.
+
+# [ARM template](#tab/arm-template)
+
+In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets` of type `Secret`. The volume is mounted at the path `/mnt/secrets`. The application can then reference the secrets in the volume mount.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String"
+        },
+        "environment_id": {
+            "type": "String"
+        },
+        "queue-connection-string": {
+            "type": "Securestring"
+        },
+        "api-key": {
+            "type": "Securestring"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.App/containerApps",
+        "apiVersion": "2022-11-01-preview",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "managedEnvironmentId": "[parameters('environment_id')]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                    {
+                        "name": "queue-connection-string",
+                        "value": "[parameters('queue-connection-string')]"
+                    },
+                    {
+                        "name": "api-key",
+                        "value": "[parameters('api-key')]"
+                    }
+                ]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "myregistry/myQueueApp:v1",
+                        "name": "myQueueApp",
+                        "volumeMounts": [
+                            {
+                                "name": "mysecrets",
+                                "mountPath": "/mnt/secrets"
+                            }
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "mysecrets",
+                        "storageType": "Secret"
+                    }
+                ]
+            }
+        }
+    }]
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Mounting secrets as a volume is not supported in the Azure CLI.
+
+# [PowerShell](#tab/powershell)
+
+Mounting secrets as a volume is not supported in PowerShell.
 
 ---
 
