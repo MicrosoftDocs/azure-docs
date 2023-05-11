@@ -18,7 +18,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 ### Create an NFS volume
 
-1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *premium*, *myfilepath*, *myvolsize*, *myvolname*, *vnetid*, and *andSubnetID* with an appropriate value for your environment. The *filepath* must be unique within all ANF accounts.
+1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *premium*, *myfilepath*, *myvolsize*, *myvolname*, *vnetid*, and *andSubnetID* with an appropriate value from your account and environment. The *filepath* must be unique within all ANF accounts.
 
     ```azurecli-interactive
     RESOURCE_GROUP="myresourcegroup"
@@ -52,7 +52,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 ### Create the persistent volume
 
-1. List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]. Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
+1. List the details of your volume using [`az netappfiles volume show`][az-netappfiles-volume-show command]. Replace the variables with appropriate values from your Azure NetApp Files account and environment if not defined in a previous step.
 
     ```azurecli-interactive
     az netappfiles volume show \
@@ -99,13 +99,13 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
         path: /myfilepath2
     ```
 
-3. Create the persistent volume using the [kubectl apply][kubectl-apply] command:
+3. Create the persistent volume using the [`kubectl apply`][kubectl-apply] command:
 
     ```bash
     kubectl apply -f pv-nfs.yaml
     ```
 
-4. Verify the status of the persistent volume is *Available* by using the [kubectl describe][kubectl-describe] command:
+4. Verify the status of the persistent volume is *Available* by using the [`kubectl describe`][kubectl-describe] command:
 
     ```bash
     kubectl describe pv pv-nfs
@@ -129,13 +129,13 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
           storage: 100Gi
     ```
 
-2. Create the persistent volume claim using the [kubectl apply][kubectl-apply] command:
+2. Create the persistent volume claim using the [`kubectl apply`][kubectl-apply] command:
 
     ```bash
     kubectl apply -f pvc-nfs.yaml
     ```
 
-3. Verify the *Status* of the persistent volume claim is *Bound* by using the [kubectl describe][kubectl-describe] command:
+3. Verify the *Status* of the persistent volume claim is *Bound* by using the [`kubectl describe`][kubectl-describe] command:
 
     ```bash
     kubectl describe pvc pvc-nfs
@@ -167,19 +167,19 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
           claimName: pvc-nfs
     ```
 
-2. Create the pod using the [kubectl apply][kubectl-apply] command:
+2. Create the pod using the [`kubectl apply`][kubectl-apply] command:
 
     ```bash
     kubectl apply -f nginx-nfs.yaml
     ```
 
-3. Verify the pod is *Running* by using the [kubectl describe][kubectl-describe] command:
+3. Verify the pod is *Running* by using the [`kubectl describe`][kubectl-describe] command:
 
     ```bash
     kubectl describe pod nginx-nfs
     ```
 
-4. Verify your volume has been mounted on the pod by using [kubectl exec][kubectl-exec] to connect to the pod, and then use `df -h` to check if the volume is mounted.
+4. Verify your volume has been mounted on the pod by using [`kubectl exec`][kubectl-exec] to connect to the pod, and then use `df -h` to check if the volume is mounted.
 
     ```bash
     kubectl exec -it nginx-nfs -- sh
