@@ -58,27 +58,7 @@ Before using this authentication code, make sure you set up your environment.
 
 #### [Developer authentication](#tab/developer-auth)
 
-##### [Bash](#dev-auth/terminal-bash) 
-
-A developer should install [Azure CLI](/cli/azure/install-azure-cli) and sign in interactively with the [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively) command to log in to Azure before use the DefaultAzureCredential in code. 
-
-```bash
-az login
-```
-
-##### [PowerShell](#dev-auth/terminal-ps)
-
-    To authenticate with Azure PowerShell users can run the Connect-AzAccount cmdlet. By default, ike the Azure CLI, Connect-AzAccount will launch the default web browser to authenticate a user account.
-    
-    ```powershell
-    Connect-AzAccount
-    ```
-
-##### [Visual Studio Code](#dev-auth/vscode)
-
-If you are using Visual Studio Code, you can also sign in to Azure with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
-
----
+[!INCLUDE [Azure CLI Login with bash, powershell, and vscode](../../../includes/azure-cli-login.md)]
 
 #### [Production authentication](#tab/production-auth)
 
