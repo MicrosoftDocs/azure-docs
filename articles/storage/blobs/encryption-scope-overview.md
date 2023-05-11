@@ -87,7 +87,7 @@ If you disable the encryption scope within the first month, then you are billed 
 
 Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
-To learn about pricing for encryption scopes, see [Blob Storage pricing](/pricing/details/storage/blobs).
+To learn about pricing for encryption scopes, see [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
 
 ## Feature support
 
