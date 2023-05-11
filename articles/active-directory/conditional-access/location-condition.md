@@ -113,16 +113,13 @@ Some IP addresses don't map to a specific country or region. To capture these IP
       * If you choose Countries/Regions, you can optionally choose to include unknown areas.
 1. Choose **Save**
 
-## All Network Access locations of my tenant
-
-Organizations with access to Global Secure Access feauters will have an additional location listed that is made up of the branch offices and Global Secure Access clients installed in your organization. 
-
 ## Location condition in policy
 
 When you configure the location condition, you can distinguish between:
 
 - Any location
 - All trusted locations
+- All Network Access locations
 - Selected locations
 
 ### Any location
@@ -141,6 +138,10 @@ This option applies to:
 Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multifactor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
 
 If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
+
+### All Network Access locations of my tenant
+
+Organizations with access to Global Secure Access feauters will have an additional location listed that is made up of users and devices that comply with your organization's security policies.
 
 ### Selected locations
 
