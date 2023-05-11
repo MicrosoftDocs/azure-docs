@@ -1047,10 +1047,12 @@ The default version numbering schema is `latest`. The latest schema has an addit
 
 
 ```json
-"versioning": {
-    "scheme": "Latest",
-    "major": 1
-}
+    "distribute": [
+        "versioning": {
+            "scheme": "Latest",
+            "major": 1
+        }
+    ]
 ```
 ---
 
