@@ -115,3 +115,4 @@ The table also provides search volume, which is the number of times that keyword
 
 Learn more about Microsoft Purview Data Estate Insights through:
 * [Data Estate Insights Concepts](concept-insights.md)
+* [Data stewardship insights](data-stewardship.md)

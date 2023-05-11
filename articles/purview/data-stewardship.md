@@ -132,3 +132,4 @@ This graph shows how the assets and key metrics have been trending over:
 
 Learn more about Microsoft Purview Data Estate Insights through:
 * [Data Estate Insights Concepts](concept-insights.md)
+* [Catalog adoption insights](catalog-adoption-insights.md)
