@@ -17430,6 +17430,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network-manager/how-to-exclude-elements.md",
+            "redirect_url": "/azure/virtual-network-manager/how-to-define-network-group-membership-azure-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/virtual-network-test-latency.md",
             "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
             "redirect_document_id": false
