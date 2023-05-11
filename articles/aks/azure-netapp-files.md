@@ -33,7 +33,7 @@ The following considerations apply when you use Azure NetApp Files:
 
 This section describes how to set up Azure NetApp Files for AKS workloads. It's applicable for all scenarios within this article. 
 
-1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *poolsize*, *premium*, *myvnett*, *myANFSubnet*, and *myprefix* with appropriate values for your environment.
+1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *poolsize*, *premium*, *myvnet*, *myANFSubnet*, and *myprefix* with appropriate values for your environment.
 
     ```azurecli-interactive
     RESOURCE_GROUP="myresourcegroup"
