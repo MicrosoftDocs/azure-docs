@@ -54,12 +54,18 @@ A bubble layer is a great way to render clustered points. Use expressions to sca
 
 To display the size of the cluster on top of the bubble, use a symbol layer with text, and don't use an icon.
 
+For a complete working sample of how to implement displaying clusters using a bubble layer, see [Point Clusters in Bubble Layer] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/cluster-point-data-web-sdk/display-clusters-using-bubble-layer.png" alt-text="Screenshot showing a map displaying clusters using a bubble layer.":::
+
+<!----------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Basic bubble layer clustering" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Basic bubble layer clustering</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+---------------------------------------------------------------------->
 
 ## Display clusters using a symbol layer
 
@@ -152,3 +158,5 @@ See code examples to add functionality to your app:
 > [Add a heat map layer](map-add-heat-map-layer.md)
 
 [aggregate expression]: data-driven-style-expressions-web-sdk.md#aggregate-expression
+[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/?search=bubble%20layer&sample=point-clusters-in-bubble-layer
+[Azure Maps Samples]: https://samples.azuremaps.com
