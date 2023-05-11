@@ -234,3 +234,4 @@ In this example, a conditional statement is created that finds virtual networks 
 
 - Learn about [Network groups](concept-network-groups.md).
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
