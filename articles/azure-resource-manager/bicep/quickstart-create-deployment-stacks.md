@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 05/02/2023
+ms.date: 05/11/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -19,9 +19,9 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 
 ## Create Bicep files
 
-Create two Bicep files. By deploying these Bicep files, you'll create two resource groups (ds-rg1 and ds-rg2) with one public IP address resource (publicIP1 and publicIP2, respectively) in each respective group.
+Create two Bicep files. By deploying these Bicep files, you'll create two resource groups with one public IP address resource in each respective group.
 
-The main.bicep file looks like:
+The main.bicep file:
 
 ```bicep
 targetScope = 'subscription'
@@ -30,19 +30,19 @@ param resourceGroupName1 string = 'ds-rg1'
 param resourceGroupName2 string = 'ds-rg2'
 param resourceGroupLocation string = deployment().location
 
-resource testrg1 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource demorg1 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   name: resourceGroupName1
   location: resourceGroupLocation
 }
 
-resource testrg2 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource demorg2 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   name: resourceGroupName2
   location: resourceGroupLocation
 }
 
 module firstPIP './pip.bicep' = if (resourceGroupName1 == 'ds-rg1') {
   name: 'publicIP1'
-  scope: testrg1
+  scope: demorg1
   params: {
     location: resourceGroupLocation
     allocationMethod: 'Dynamic'
@@ -52,7 +52,7 @@ module firstPIP './pip.bicep' = if (resourceGroupName1 == 'ds-rg1') {
 
 module secondPIP './pip.bicep' = if (resourceGroupName2 == 'ds-rg2') {
   name: 'publicIP2'
-  scope: testrg2
+  scope: demorg2
   params: {
     location: resourceGroupLocation
     allocationMethod: 'Static'
@@ -61,7 +61,7 @@ module secondPIP './pip.bicep' = if (resourceGroupName2 == 'ds-rg2') {
 }
 ```
 
-The pip.bicep file looks like:
+The pip.bicep file:
 
 ```bicep
 param location string = resourceGroup().location
@@ -235,14 +235,94 @@ You can also verify the deployment by list the managed resources in the deployme
 (Get-AzSubscriptionDeploymentStack -Name mySubStack).Resources
 ```
 
+The output is similar to:
+
+```output
+Status  DenyStatus Id
+------  ---------- --
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1
+```
+
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack sub show --name mySubStack --output json
 ```
----
 
-jgao: show the output for both CLI and PS.
+The output is similar to:
+
+```output
+{
+  "actionOnUnmanage": {
+    "managementGroups": "detach",
+    "resourceGroups": "detach",
+    "resources": "detach"
+  },
+  "debugSetting": null,
+  "deletedResources": [],
+  "denySettings": {
+    "applyToChildScopes": false,
+    "excludedActions": null,
+    "excludedPrincipals": null,
+    "mode": "none"
+  },
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/mySubStack-2023-04-20-19-53-02-fdd96",
+  "deploymentScope": null,
+  "description": null,
+  "detachedResources": [],
+  "duration": "PT21.2281952S",
+  "error": null,
+  "failedResources": [],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/mySubStack",
+  "location": "eastus",
+  "name": "mySubStack",
+  "outputs": null,
+  "parameters": {},
+  "parametersLink": null,
+  "provisioningState": "succeeded",
+  "resources": [
+    {
+      "denyStatus": "none",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1",
+      "status": "managed"
+    },
+    {
+      "denyStatus": "none",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1",
+      "resourceGroup": "ds-rg1",
+      "status": "managed"
+    },
+    {
+      "denyStatus": "none",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2",
+      "status": "managed"
+    },
+    {
+      "denyStatus": "none",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1",
+      "resourceGroup": "ds-rg2",
+      "status": "managed"
+    }
+  ],
+  "systemData": {
+    "createdAt": "2023-04-20T19:53:02.279809+00:00",
+    "createdBy": "jgao@microsoft.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-04-20T19:53:02.279809+00:00",
+    "lastModifiedBy": "jgao@microsoft.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": null,
+  "template": null,
+  "templateLink": null,
+  "type": "Microsoft.Resources/deploymentStacks"
+}
+```
+
+---
 
 ## Update the deployment stack
 
