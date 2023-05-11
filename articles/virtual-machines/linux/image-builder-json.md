@@ -1290,7 +1290,7 @@ source: {
 ---
 - imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place. The `imageVersionId` should be the `ResourceId` of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
-The following JSON sets the source image as the latest image version in a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
+The following JSON sets the source image as an image stored in a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
 
 > [!NOTE]
 > The Direct Shared Gallery is currently in preview availability.
