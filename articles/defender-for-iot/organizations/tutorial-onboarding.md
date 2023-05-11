@@ -131,7 +131,7 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of the **Add outbound allow rules** box.":::
 
-    Save the downloaded file to use later in order to [verify your sensor can connect Azure](#verify-your-cloud-connection).
+    Save the downloaded file to [configure endpoint details for cloud connection](#configure-endpoint-details-for-cloud-connection) later in this procedure, in order to verify your sensor can connect Azure.
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
@@ -181,6 +181,28 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 1. Connect to the sensor, and verify that mirroring works.
 
 [!INCLUDE [validate-traffic-mirroring](includes/validate-traffic-mirroring.md)]
+
+## Configure endpoint details for cloud connection
+
+This section describes how to download a list of required endpoints to define in firewall rules, ensuring that your OT sensors can connect to Azure.
+
+This procedure is also used to configure [direct connections](architecture-connections.md#direct-connections) to Azure. If you're planning to use a proxy configuration instead, you'll [configure sensor proxy settings](connect-sensors.md#configure-sensor-proxy-settings) after installing and activating your sensor.
+
+For more information, see [Methods for connecting sensors to Azure](architecture-connections.md).
+
+**To download required endpoint details**:
+
+1. On the Azure portal, go to Defender for IoT > **Sites and sensors**.
+
+1. Select **More actions** > **Download endpoint details**.
+
+Configure your firewall rules so that your sensor can access the cloud on port 443, to each of the listed endpoints in the downloaded list.
+
+To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription.
+
+> [!IMPORTANT]
+> Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new [JSON file](https://www.microsoft.com/download/details.aspx?id=56519) each week and make the required changes on your site to correctly identify services running in Azure.
+>
 
 ## Download software for your virtual sensor
 
@@ -296,28 +318,6 @@ This procedure describes how to validate your installation using the sensor's ow
     - **ifconfig** to verify that all input interfaces configured during installation are running.
 
 For more post-installation validation tests, such as gateway, DNS or firewall checks, see [Validate an OT sensor software installation](ot-deploy/post-install-validation-ot-software.md).
-
-## Verify your cloud connection
-
-This section describes how to download a list of required endpoints to define in firewall rules, ensuring that your OT sensors can connect to Azure.
-
-This procedure is also used to configure [direct connections](architecture-connections.md#direct-connections) to Azure. If you're planning to use a proxy configuration instead, you'll [configure sensor proxy settings](connect-sensors.md#configure-sensor-proxy-settings) after installing and activating your sensor.
-
-For more information, see [Methods for connecting sensors to Azure](architecture-connections.md).
-
-**To download required endpoint details**:
-
-1. On the Azure portal, go to Defender for IoT > **Sites and sensors**.
-
-1. Select **More actions** > **Download endpoint details**.
-
-Configure your firewall rules so that your sensor can access the cloud on port 443, to each of the listed endpoints in the downloaded list.
-
-To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription.
-
-> [!IMPORTANT]
-> Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new [JSON file](https://www.microsoft.com/download/details.aspx?id=56519) each week and make the required changes on your site to correctly identify services running in Azure.
->
 
 ## Activate your sensor
 
