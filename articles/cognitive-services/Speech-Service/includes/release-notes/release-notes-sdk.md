@@ -24,7 +24,7 @@ ms.author: eur
 #### Samples
 
 * Added an embedded speech sample for MAUI.
-* Updated the embedded speech sample for Android Java to include Text-To-Speech.
+* Updated the embedded speech sample for Android Java to include Text to speech.
 
 ### Speech SDK 1.27.0: April 2023 release
 
@@ -600,7 +600,7 @@ Stay healthy!
 
 #### Bug fixes
 -   **C\#, C++**: Fixed microphone recording wasn't working in 1.12 in Speaker Recognition.
--   **JavaScript**: Fixes for Text-To-Speech in Firefox, and Safari on macOS and iOS.
+-   **JavaScript**: Fixes for Text to speech in Firefox, and Safari on macOS and iOS.
 -   Fix for Windows application verifier access violation crash on conversation transcription when using eight-channel stream.
 -   Fix for Windows application verifier access violation crash on multi-device conversation translation.
 
@@ -618,7 +618,7 @@ Stay healthy!
 
 #### New features
 - **Go**: New Go language support for [Speech Recognition](../../get-started-speech-to-text.md?pivots=programming-language-go) and [custom voice assistant](../../quickstarts/voice-assistants.md?pivots=programming-language-go). Set up your dev environment [here](../../quickstarts/setup-platform.md?pivots=programming-language-go). For sample code, see the Samples section below.
-- **JavaScript**: Added Browser support for Text-To-Speech. See documentation [here](../../get-started-text-to-speech.md?pivots=programming-language-JavaScript).
+- **JavaScript**: Added Browser support for Text to speech. See documentation [here](../../get-started-text-to-speech.md?pivots=programming-language-JavaScript).
 - **C++, C#, Java**: New `KeywordRecognizer` object and APIs supported on Windows, Android, Linux & iOS platforms. Read the documentation [here](../../keyword-recognition-overview.md). For sample code, see the Samples section below.
 - **Java**: Added multi-device conversation with translation support. See the reference doc [here](/java/api/com.microsoft.cognitiveservices.speech.transcription).
 

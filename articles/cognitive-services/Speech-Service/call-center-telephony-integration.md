@@ -26,9 +26,9 @@ To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
 
 
 > [!TIP]
-> For guidance on reducing Text to Speech latency check out the **[How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp)** guide.
+> For guidance on reducing Text to speech latency check out the **[How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp)** guide.
 > 
-> In addition, consider implementing a Text to Speech cache to store all synthesized audio and playback from the cache in case a string has previously been synthesized.
+> In addition, consider implementing a Text to speech cache to store all synthesized audio and playback from the cache in case a string has previously been synthesized.
 
 ## Next steps
 

@@ -22,7 +22,7 @@ sections:
       - question: |
           How does the billing work for text to speech?
         answer: |
-          Text to Speech usage is billed per character. Check the definition of billable characters in the [pricing note](text-to-speech.md#pricing-note).
+          Text to speech usage is billed per character. Check the definition of billable characters in the [pricing note](text-to-speech.md#pricing-note).
       - question: |
           What is the rate limit for the text to speech synthesis requests?
         answer: |

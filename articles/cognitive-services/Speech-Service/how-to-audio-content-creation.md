@@ -86,7 +86,7 @@ Each step in the preceding diagram is described here:
 
    Improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). 
 
-   For more information about fine-tuning speech output, view the [How to convert Text to Speech using Microsoft Azure AI voices](https://youtu.be/ygApYuOOG6w) video.
+   For more information about fine-tuning speech output, view the [How to convert Text to speech using Microsoft Azure AI voices](https://youtu.be/ygApYuOOG6w) video.
 
 1. Save and [export your tuned audio](#export-tuned-audio). 
 
