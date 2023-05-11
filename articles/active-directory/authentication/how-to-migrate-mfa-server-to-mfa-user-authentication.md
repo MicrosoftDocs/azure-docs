@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Migrate to Azure AD MFA and Azure AD user authentication
 
 Multi-factor authentication (MFA) helps secure your infrastructure and assets from bad actors. 
-Microsoft’s Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. 
+Microsoft's Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. 
 Customers who are using MFA Server should move to Azure AD Multi-Factor Authentication (Azure AD MFA). 
 
 There are several options for migrating from MFA Server to Azure Active Directory (Azure AD):
@@ -39,7 +39,7 @@ Each step is explained in the subsequent sections of this article.
 
 ## Process to migrate to Azure AD and user authentication
 
-![Process to migrate to Azure AD and user authentication.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/mfa-cloud-authentication-flow.png)
+![Process to migrate to Azure AD and user authentication.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/mfa-cloud-authentication-flow.png)
 
 ## Prepare groups and Conditional Access
 
@@ -65,9 +65,9 @@ Groups are used in three capacities for MFA migration.
 
 ### Configure Conditional Access policies
 
-If you're already using Conditional Access to determine when users are prompted for MFA, you won’t need any changes to your policies. 
+If you're already using Conditional Access to determine when users are prompted for MFA, you won't need any changes to your policies. 
 As users are migrated to cloud authentication, they'll start using Azure AD MFA as defined by your existing Conditional Access policies. 
-They won’t be redirected to AD FS and MFA Server anymore.
+They won't be redirected to AD FS and MFA Server anymore.
 
 If your federated domains have the **federatedIdpMfaBehavior** set to `enforceMfaByFederatedIdp` or **SupportsMfa** flag set to `$True` (the **federatedIdpMfaBehavior** overrides **SupportsMfa** when both are set), you're likely enforcing MFA on AD FS by using claims rules. 
 In this case, you'll need to analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
@@ -114,13 +114,13 @@ Get-AdfsAdditionalAuthenticationRule
 To view existing relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
 ```
 
 #### Access control policies
 
 >[!NOTE]
->Access control policies can’t be configured so that a specific authentication provider is invoked based on group membership. 
+>Access control policies can't be configured so that a specific authentication provider is invoked based on group membership. 
 
 To transition from your access control policies to additional authentication rules, run this command for each of your Relying Party Trusts using the MFA Server authentication provider:
 
@@ -139,11 +139,11 @@ To find the group SID, run the following command and replace `GroupName` with yo
 Get-ADGroup GroupName
 ```
 
-![PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
+![PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
 
 #### Setting the claims rules to call Azure AD MFA
 
-The following PowerShell cmdlets invoke Azure AD MFA for users in the group when they aren’t on the corporate network. 
+The following PowerShell cmdlets invoke Azure AD MFA for users in the group when they aren't on the corporate network. 
 You must replace `"YourGroupSid"` with the SID found by running the preceding cmdlet.
 
 Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server#how-to-choose-additional-auth-providers-in-2019). 
@@ -156,7 +156,7 @@ Make sure you review the [How to Choose Additional Auth Providers in 2019](/wind
 Run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
 ```
 
 The command  returns your current additional authentication rules for your relying party trust.  
@@ -169,7 +169,7 @@ Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 The following example assumes your current claim rules are configured to prompt for MFA when users connect from outside your network. 
@@ -181,12 +181,12 @@ Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type ==
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
  c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ##### Set per-application claims rule
@@ -199,12 +199,12 @@ Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[ty
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ### Configure Azure AD MFA as an authentication provider in AD FS
@@ -216,7 +216,7 @@ For step-by-step directions on this process, see [Configure the AD FS servers](/
 
 After you configure the servers, you can add Azure AD MFA as an additional authentication method. 
 
-![Screenshot of how to add Azure AD MFA as an additional authentication method.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
+![Screenshot of how to add Azure AD MFA as an additional authentication method.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
 
 
 ## Prepare Staged Rollout 
@@ -277,13 +277,13 @@ This workbook can be used to monitor the following activities:
 ### Monitoring Azure AD MFA registration
 Azure AD MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
 
-![Screenshot of how to find the Usage and Insights report.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/usage-report.png)
+![Screenshot of how to find the Usage and Insights report.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/usage-report.png)
 
 In Usage & insights, select **Authentication methods**. 
 
 Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users registered for Azure multi-factor authentication** hyperlink.
 
-![Screenshot of the Registration tab.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/registration-tab.png)
+![Screenshot of the Registration tab.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/registration-tab.png)
 
 ### Monitoring app sign-in health
 
@@ -310,12 +310,12 @@ For example, remove the following section from the rule(s):
 
 ```console
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
-“**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
+"**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
 Value=="YourGroupSid"]) => issue(Type =
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ### Disable MFA Server as an authentication provider in AD FS
@@ -345,7 +345,7 @@ If you move all application authentication, you can skip the [Prepare AD FS](#pr
 
 The process for moving all application authentication is shown in the following diagram.
 
-![Process to migrate applications to to Azure AD MFA.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/mfa-app-migration-flow.png)
+![Process to migrate applications to to Azure AD MFA.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/mfa-app-migration-flow.png)
 
 If you can't move all your applications before the migration, move as many as possible before you start.
 For more information about migrating applications to Azure, see [Resources for migrating applications to Azure Active Directory](../manage-apps/migration-resources.md).

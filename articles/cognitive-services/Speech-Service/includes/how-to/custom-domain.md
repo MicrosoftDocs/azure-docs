@@ -46,7 +46,7 @@ To create a custom domain name by using PowerShell, confirm that your computer h
 
     `Get-Module -ListAvailable Az`
 
-    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
+    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell) to upgrade.
 
 Before you proceed, run `Connect-AzAccount` to create a connection with Azure.
 
