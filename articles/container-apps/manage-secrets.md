@@ -343,11 +343,77 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
 
 # [ARM template](#tab/arm-template)
 
-In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets`. The volume is mounted at the path `/mnt/secrets`. The application can then reference the secrets in the volume mount.
+In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets` of type `Secret`. The volume is mounted at the path `/mnt/secrets`. The application can then reference the secrets in the volume mount.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String"
+        },
+        "environment_id": {
+            "type": "String"
+        },
+        "queue-connection-string": {
+            "type": "Securestring"
+        },
+        "api-key": {
+            "type": "Securestring"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.App/containerApps",
+        "apiVersion": "2022-11-01-preview",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "managedEnvironmentId": "[parameters('environment_id')]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                    {
+                        "name": "queue-connection-string",
+                        "value": "[parameters('queue-connection-string')]"
+                    },
+                    {
+                        "name": "api-key",
+                        "value": "[parameters('api-key')]"
+                    }
+                ]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "myregistry/myQueueApp:v1",
+                        "name": "myQueueApp",
+                        "volumeMounts": [
+                            {
+                                "name": "mysecrets",
+                                "mountPath": "/mnt/secrets"
+                            }
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "mysecrets",
+                        "storageType": "Secret"
+                    }
+                ],
+            }
+        }
+    }]
+}
+```
 
 # [Azure CLI](#tab/azure-cli)
 
-In this example, you create a container app using the Azure CLI with two secrets that are mounted in a volume named `mysecrets`. The volume is mounted at the path `/mnt/secrets`. The application can then reference the secrets in the volume mount.
+Mounting secrets as a volume is not supported in the Azure CLI.
 
 # [PowerShell](#tab/powershell)
 
