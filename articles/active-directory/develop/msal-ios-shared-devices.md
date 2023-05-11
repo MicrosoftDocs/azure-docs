@@ -40,7 +40,7 @@ To take advantage of shared device mode feature, app developers and cloud device
     > [!IMPORTANT] 
     > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS dont require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
 
-## Setup device in Shared Device Mode
+## Set up device in Shared Device Mode
 
 Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
