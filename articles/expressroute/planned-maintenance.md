@@ -24,7 +24,7 @@ The resiliency of an ExpressRoute circuit is achieved with two connections to tw
 
 Microsoft requires dual BGP sessions from the connectivity provider or your network edge – one to each MSEE. To be in compliant with the SLA (service-level agreement) associated with the ExpressRoute circuit, dual BGP sessions between the MSEE routers and your edge routers must be simultaneously established. 
 
-:::image type="content" source="./media/planned-maintenance/image.png" alt-text="Alt text here.":::
+:::image type="content" source="./media/planned-maintenance/circuit-connections.png" alt-text="Diagram of a typical ExpressRoute circuit connection to on-premises.":::
 
 ### Turn on maintenance alerts
  
@@ -43,7 +43,7 @@ Check with your service provider to confirm they're set up to allow AS path prep
 
 During the maintenance activity, the BGP session between your on-premises network and MSEE may be in an established state and advertising routes from your Azure Virtual Network. In this case, you can't rely only on presence of established BGP session on your edge router to determine the integrity of the connection. Your routing policy might force traffic to be sent to a specific connection anyway. This setup may cause traffic discard as traffic is routed to the connection that is undergoing maintenance and your return traffic is over the redundant path. To avoid traffic discard from happening, the setup on your edge routers must be configured to forward traffic when the connection receives BGP advertisements from AS 12076 and with traffic forwarding to the connection with the best BGP metric. When the BGP metric in the primary and secondary connection are identical, traffic gets load balanced.
 
-:::image type="content" source="./media/planned-maintenance/image.png" alt-text="Alt text here.":::
+:::image type="content" source="./media/planned-maintenance/msee-maintenance.png" alt-text="Diagram of where connectivity is lost during a planned maintenance on the ExpressRoute circuit.":::
 
 ##	Validation of the ExpressRoute circuit failover
 
@@ -53,13 +53,13 @@ The process of validation of ExpressRoute circuit failover can be executed in tw
 
 1. Shutdown the BGP session between your on-premises edge router and the primary connection on the MSEE router. This forces the traffic only through the secondary connection. You can monitor the traffic statistics on the MSEE connection using the [`Get-AzExpressRouteCircuitStats`](expressroute-troubleshooting-expressroute-overview.md#confirm-the-traffic-flow) command. The **BitsInPerSecond** and **BitsOutPerSecond** traffic metrics should only increment on the path that is currently active.  
 
-:::image type="content" source="./media/planned-maintenance/image.png" alt-text="Alt text here.":::
+:::image type="content" source="./media/planned-maintenance/primary-down.png" alt-text="Diagram of BGP peering down for primary connection of an ExpressRoute circuit.":::
 
 When the test is completed successful, move to the second step.
 
 1. Shutdown the BGP session between your on-premises edge router and the secondary MSEE connection. Repeat the verification actions in Step 1 to validate the traffic is only incrementing on the primary path.
 
-:::image type="content" source="./media/planned-maintenance/image.png" alt-text="Alt text here.":::
+:::image type="content" source="./media/planned-maintenance/secondary-down.png" alt-text="Diagram of BGP peering down for secondary connection of an ExpressRoute circuit.":::
 
 You can run more tests by introducing AS path prepend on each path from your on-premises towards the MSEE to verify the traffic flow failover. A similar testing can be performed working with your service provider to introduce AS path prepend towards your on-premises network from provider edge. The described failover procedure should be verified for the ExpressRoute private peering and ExpressRoute Microsoft peering.
 
