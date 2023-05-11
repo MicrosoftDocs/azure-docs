@@ -105,7 +105,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../v
 
 ### VM images
 
-Update management center (preview) supports a combination of Offer, Publisher and Sku of the Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images).
+Update management center (preview) supports a combination of Offer, Publisher and Sku of the Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. Learn more about the [supported VM images](support-matrix.md#supported-operating-systems).
 
 ## Next steps
 
