@@ -1,6 +1,6 @@
 ---
 title: Send a Custom Sentiment Analysis request to your custom model
-description: Learn how to send requests for custom NER.
+description: Learn how to send requests for custom sentiment analysis.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -28,7 +28,7 @@ You can use Language Studio to submit the custom entity recognition task and vis
 <!--:::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::--->
 
 
-## Send an sentiment analysis request to your model
+## Send a sentiment analysis request to your model
 
 # [Language Studio](#tab/language-studio)
 
@@ -36,7 +36,7 @@ You can use Language Studio to submit the custom entity recognition task and vis
 
 # [REST API](#tab/rest-api)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/get-key-endpoint.md)]
 
@@ -50,7 +50,7 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/client)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/get-key-endpoint.md)]
 

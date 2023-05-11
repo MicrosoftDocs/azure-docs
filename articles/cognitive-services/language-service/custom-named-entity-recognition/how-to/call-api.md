@@ -36,7 +36,7 @@ You can use Language Studio to submit the custom entity recognition task and vis
 
 # [REST API](#tab/rest-api)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md)]
 
@@ -50,7 +50,7 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/client)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md)]
 
