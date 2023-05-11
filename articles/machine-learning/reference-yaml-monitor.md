@@ -18,7 +18,7 @@ reviewer: msakande
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/schedule.schema.json.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/monitorSchedule.schema.json.
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -90,6 +90,8 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 #### Data Drift
 
+As the data used to train the model evolves in production, the distribution of the data can shift, resulting in a mismatch between the training data and the real-world data that the model is being used to predict. Data drift is a phenomenon that occurs in machine learning when the statistical properties of the input data used to train the model change over time.
+
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ------------| ---------------| ------------- |
@@ -99,11 +101,11 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer |Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period. | |
+| `target_dataset.data_window_size` | Integer |**Optonal**. Data window size in days. This is the production data window to be computed for data drift. | By default the data window size is the last monitoring period. | |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `training`, `test`, `validation` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
+| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is **required** if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
 | `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
 | `data_segment` | Object | **Optional**. Description of specific data segment to be monitored for data drift. | | |
 | `data_segment.feature_name` | String | The name of feature used to filter for data segment. | | |
@@ -117,6 +119,8 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 #### Prediction Drift
 
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data
+
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `prediction_drift` | `prediction_drift`|
@@ -125,7 +129,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_outputs` |  |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer |Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
+| `target_dataset.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset come from | `model_inputs`, `model_outputs`, `test`, `validation` |  | |
@@ -140,6 +144,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 #### Data Quality
 
+Data quality signal tracks data quality issues in production by comparing to training data or recent past production data. 
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------ | -------------- | ----------  |
@@ -149,7 +154,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs`, `model_outputs` | |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer | Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
+| `target_dataset.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for data quality issues. | By default the data window size is the last monitoring period.| |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
@@ -162,6 +167,8 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
 
 #### Feature Attribution Drift
+
+The feature attribution of a model may change over time due to changes in the distribution of data, changes in the relationships between features, or changes in the underlying problem being solved. Feature attribution drift is a phenomenon that occurs in machine learning models when the importance or contribution of features to the prediction output changes over time.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
