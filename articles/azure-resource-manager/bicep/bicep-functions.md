@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/21/2023
+ms.date: 05/11/2023
 ---
 
 # Bicep functions
@@ -52,6 +52,14 @@ The following functions are available for working with arrays. All of these func
 * [skip](./bicep-functions-array.md#skip)
 * [take](./bicep-functions-array.md#take)
 * [union](./bicep-functions-array.md#union)
+
+## CIDR functions
+
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+
+* [parseCidr](./bicep-functions-cidr.md#parsecidr)
+* [cidrSubnet](./bicep-functions-cidr.md#cidrsubnet)
+* [cidrHost](./bicep-functions-cidr.md#cidrhost)
 
 ## Date functions
 
