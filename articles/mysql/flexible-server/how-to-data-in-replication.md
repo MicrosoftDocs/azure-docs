@@ -19,7 +19,7 @@ This article describes how to set up [Data-in replication](concepts-data-in-repl
 > [!NOTE]  
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
@@ -33,58 +33,80 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 ## Configure the source MySQL server
 
-The following steps prepare and configure the MySQL server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in replication. This server is the "source" for Data-in replication.
+The following steps prepare and configure the MySQL server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in replication. This server is the "source" for Data-in replication. 
 
 1. Review the [source server requirements](concepts-data-in-replication.md#requirements) before proceeding.
 
 1. Networking Requirements
-    * Ensure that the source server allows both inbound and outbound traffic on port 3306, and that it has a **public IP address**, the DNS is publicly accessible, or that it has a fully qualified domain name (FQDN).
 
-    * If private access is in use, make sure that you have connectivity between Source server and the Vnet in which the replica server is hosted.
-    * Make sure we provide site-to-site connectivity to your on-premises source servers by using either  [ExpressRoute](../../expressroute/expressroute-introduction.md) or [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
-    * If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering is supported. You can also use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-    * Ensure that your virtual network Network Security Group rules don't block the outbound port 3306 (Also inbound if the MySQL is running on Azure VM). For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
-    * Configure your source server's firewall rules to allow the replica server IP address.
+   - Ensure that the source server allows both inbound and outbound traffic on port 3306, and that it has a **public IP address**, the DNS is publicly accessible, or that it has a fully qualified domain name (FQDN).
 
-1. Turn on binary logging.
+   - If private access is in use, make sure that you have connectivity between Source server and the Vnet in which the replica server is hosted.
+   
+   - Make sure we provide site-to-site connectivity to your on-premises source servers by using either  [ExpressRoute](../../expressroute/expressroute-introduction.md) or [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
+   
+   - If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering is supported. You can also use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+   
+   - Ensure that your virtual network Network Security Group rules don't block the outbound port 3306 (Also inbound if the MySQL is running on Azure VM). For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
+   
+   - Configure your source server's firewall rules to allow the replica server IP address.
+
+1. Follow appropriate steps based on if you want to use bin-log position or GTID based data-in replication.
+
+   #### [Bin-log position-based replication](#tab/bash)
 
    Check to see if binary logging has been enabled on the source by running the following command:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
    ```
-
+    
    If the variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) is returned with the value "ON", binary logging is enabled on your server.
-
+    
    If `log_bin` is returned with the value "OFF" and your source server is running on-premises or on virtual machines where you can access the configuration file (my.cnf), you can follow the following steps:
+   
    1. Locate your MySQL configuration file (my.cnf) in the source server. For example: /etc/my.cnf
+   
    1. Open the configuration file to edit it and locate **mysqld** section in the file.
+   
    1. In the mysqld section, add following line:
-
+   
       ```bash
       log-bin=mysql-bin.log
       ```
+    
+    1. Restart the MySQL service on source server (or Restart) for the changes to take effect.
+    
+    1. After the server is restarted, verify that binary logging is enabled by running the same query as before:
+    
+    ```sql
+    SHOW VARIABLES LIKE 'log_bin';
+    ```
 
-   1. Restart the MySQL service on source server (or Restart) for the changes to take effect.
-   1. After the server is restarted, verify that binary logging is enabled by running the same query as before:
+   #### [GTID based replication](#tab/shell)
 
-      ```sql
-      SHOW VARIABLES LIKE 'log_bin';
-      ```
-
+   The Master server needs to be started with GTID mode enabled by setting the gtid_mode variable to ON. It's also essential that the enforce_gtid_consistency variable is enabled to make sure that only the statements, which are safe for MySQL GTIDs Replication are logged.
+      
+   SET @@GLOBAL.ENFORCE_GTID_CONSISTENCY = ON;
+      
+   SET @@GLOBAL.GTID_MODE = ON;
+      
+   If the master server is another Azure Database for MySQL Flexible Server, then these server parameters can also be updated from the portal by navigating to server parameter page.
+   
+      
 1. Configure the source server settings.
-
-   Data-in replication requires the parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL - Flexible Server.
-
-   ```sql
-   SET GLOBAL lower_case_table_names = 1;
-   ```
-
-1. Create a new replication role and set up permission.
-
-   Create a user account on the source server that is configured with replication privileges. This can be done through SQL commands or a tool such as MySQL Workbench. Consider whether you plan on replicating with SSL, as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your source server.
-
-   In the following commands, the new replication role created can access the source from any machine, not just the machine that hosts the source itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+      
+      Data-in replication requires the parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL - Flexible Server.
+      
+      ```sql
+      SET GLOBAL lower_case_table_names = 1;
+      ```
+      
+5. Create a new replication role and set up permission.
+      
+      Create a user account on the source server that is configured with replication privileges. This can be done through SQL commands or a tool such as MySQL Workbench. Consider whether you plan on replicating with SSL, as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your source server.
+      
+      In the following commands, the new replication role created can access the source from any machine, not just the machine that hosts the source itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
 #### [SQL Command](#tab/command-line)
 
@@ -131,11 +153,11 @@ SET GLOBAL read_only = ON;
 
 1. Get binary log file name and offset.
 
-Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
-
-```sql
-   show master status;
-```
+   Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
+    
+   ```sql
+      show master status;
+   ```
 
 The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
 
@@ -165,16 +187,42 @@ The results should appear similar to the following. Make sure to note the binary
 > [!NOTE]  
 > If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
+## Retrieve gtid information from the source server dump
+
+1. Skip the step if using bin-log position-based replication
+
+2. GTID information from the dump file taken from the source is required to reset GTID history of the target (replica) server.
+
+3. GTID information from the source server can be retrieved using the following statement:
+
+    ```sql
+    show global variables like 'gtid_executed’;
+    UNLOCK TABLES;
+    ```
+4.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
+
+    ```azurecli-interactive
+    az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <source server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
+    ```
+
+    For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).
+   
+
+
 ## Link source and replica servers to start Data-in replication
 
 1. Set the source server.
 
    All Data-in replication functions are done by stored procedures. You can find all procedures at [Data-in replication Stored Procedures](../reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
 
-   To link two servers and start replication, login to the target replica server in the Azure Database for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure Database for MySQL server.
+To link two servers and start replication, login to the target replica server in the Azure Database for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure Database for MySQL server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
    - master_host: hostname of the source server
@@ -185,11 +233,11 @@ The results should appear similar to the following. Make sure to note the binary
    - master_log_pos: binary log position from running `show master status`
    - master_ssl_ca: CA certificate's context. If not using SSL, pass in empty string.
 
-     It's recommended to pass this parameter in as a variable. For more information, visit the following examples.
+   It's recommended to pass this parameter in as a variable. For more information, visit the following examples.
 
    > [!NOTE]  
-   > * If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
-   > * If you used mydumper/myloader to dump the database then you can get the master_log_file and master_log_pos from the */backup/metadata* file.
+   > - If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
+   > - If you used mydumper/myloader to dump the database then you can get the master_log_file and master_log_pos from the */backup/metadata* file.
 
    **Examples**
 
@@ -197,25 +245,25 @@ The results should appear similar to the following. Make sure to note the binary
 
    The variable `@cert` is created by running the following MySQL commands:
 
-      ```sql
-      SET @cert = '-----BEGIN CERTIFICATE-----
-      PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
-      -----END CERTIFICATE-----'
-      ```
+   ```sql
+   SET @cert = '-----BEGIN CERTIFICATE-----
+   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
+   -----END CERTIFICATE-----'
+   ```
 
    Replication with SSL is set up between a source server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL - Flexible Server. This stored procedure is run on the replica.
 
-      ```sql
-      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
-      ```
+   ```sql
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   ```
 
    *Replication without SSL*
 
    Replication without SSL is set up between a source server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL - Flexible Server. This stored procedure is run on the replica.
 
-      ```sql
-      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
-      ```
+   ```sql
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   ```
 
 1. Start replication.
 
@@ -243,32 +291,33 @@ The results should appear similar to the following. Make sure to note the binary
 
 To stop replication between the source and replica server, use the following stored procedure:
 
-```sql
-CALL mysql.az_replication_stop;
-```
+   ```sql
+   CALL mysql.az_replication_stop;
+   ```
 
 ### Remove replication relationship
 
 To remove the relationship between source and replica server, use the following stored procedure:
 
-```sql
-CALL mysql.az_replication_remove_master;
-```
+   ```sql
+   CALL mysql.az_replication_remove_master;
+   ```
 
 ### Skip replication error
 
 To skip a replication error and allow replication to continue, use the following stored procedure:
 
-```sql
-CALL mysql.az_replication_skip_counter;
-```
+   ```sql
+   CALL mysql.az_replication_skip_counter;
+   ```
 
-```sql
-SHOW BINLOG EVENTS [IN 'log_name'] [FROM pos][LIMIT [offset,] row_count]
-```
+   ```sql
+   SHOW BINLOG EVENTS [IN 'log_name'] [FROM pos][LIMIT [offset,] row_count]
+   ```
 
   :::image type="content" source="./media/how-to-data-in-replication/show-binary-log.png" alt-text="Show binary log results":::
 
 ## Next steps
 
 - Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL - Flexible Server.
+ 

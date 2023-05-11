@@ -28,7 +28,7 @@ Developing functions on your local computer and publishing them to Azure using C
 
 The specific prerequisites for Core Tools depend on the features you plan to use:
 
-**[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+**[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 **[Install extensions](#install-extensions)**: To manually install extensions by using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed. The .NET SDK is used by Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
@@ -253,8 +253,6 @@ There are no other considerations for PowerShell.
 # [TypeScript](#tab/ts)
 
 + To use a `--worker-runtime` value of `node`, specify the `--language` as `typescript`.
-
-+ See the [TypeScript section in the JavaScript developer reference](functions-reference-node.md#typescript) for `func init` behaviors specific to TypeScript. 
 
 --- 
 
@@ -509,7 +507,7 @@ The Azure Functions Core Tools supports two types of deployment:
 ### Before you publish 
 
 >[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) installed locally to be able to publish to Azure from Core Tools.  
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools.  
 
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.  
 

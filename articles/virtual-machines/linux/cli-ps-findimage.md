@@ -59,7 +59,7 @@ x64             RHEL                          RedHat                  7-LVM     
 x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                   RHELRaw8LVMGen2          latest
 x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
 x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
-x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:UbuntuServer:22_04-lts-gen2:latest                                    Ubuntu2204               latest
+x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest                    Ubuntu2204               latest
 ```
 
 The Windows image alias names and their details outputted by this command are:

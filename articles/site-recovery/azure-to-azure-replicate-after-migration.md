@@ -4,7 +4,7 @@ description: This article describes how to prepare machines to set up disaster r
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 05/02/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---

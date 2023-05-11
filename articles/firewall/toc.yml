@@ -168,6 +168,8 @@ items:
       href: deploy-rules-powershell.md
     - name: Backup Azure Firewall
       href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
+    - name: Connect to Azure Storage via SFTP
+      href: firewall-sftp.md
 - name: Reference
   items:
   - name: Azure CLI

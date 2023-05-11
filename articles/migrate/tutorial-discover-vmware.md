@@ -104,6 +104,9 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Screenshot that shows the v sphere web client and how to create a new account and select user roles and privileges.":::
 
 > [!NOTE]
+> For vCenter Server 7.x and above you must clone the Read Only system role and add the Guest Operations Privilages to the cloned role.  Assign the cloned role to the vCenter Account. Learn how to [create a custom role in VMware vCenter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html). 
+
+> [!NOTE]
 > You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
 
 > [!NOTE]
