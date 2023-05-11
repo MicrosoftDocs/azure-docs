@@ -21,7 +21,8 @@ Before you begin, you must have the following requirements in place:
 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x or a later version.
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"
+<!---add back programming-language-other-->
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x or a later version.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
@@ -40,9 +41,11 @@ Before you begin, you must have the following requirements in place:
 + [Apache Maven](https://maven.apache.org) version 3.0 or above.
 
 ::: zone-end
+<!---removing the other pivot until we camn get ACA tested with custom handlers
 ::: zone pivot="programming-language-other"
 + Development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
+-->
 
 <!---Requirements specific to Docker --->
 To publish the containerized function app image you create, you also need a registry account.
@@ -129,13 +132,13 @@ Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
 ::: zone-end
-
-::: zone pivot="programming-language-other"  
+<!---
+:: zone pivot="programming-language-other"  
 ```console
 func init --worker-runtime custom --docker
 ```
 ::: zone-end
-
+-->
 The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
@@ -165,14 +168,15 @@ Use the following command to add a function to your project, where the `--name` 
 func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 ```
 ::: zone-end
-
-::: zone pivot="programming-language-other,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+<!---add back programming-language-other-->
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
 ```console
 func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 ```
 ::: zone-end  
+<!---
 ::: zone pivot="programming-language-other"
 In a text editor, create a file in the project folder named *handler.R*. Add the following code as its content:
 
@@ -255,7 +259,7 @@ In *host.json*, modify the `customHandler` section to configure the custom handl
 }
 ```
 ::: zone-end
-
+-->
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 ::: zone pivot="programming-language-csharp"  
 ```console
@@ -279,13 +283,14 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
+<!---
 ::: zone pivot="programming-language-other"
 ```console
 R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
 func start
 ```
 ::: zone-end
-
+-->
 After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
 Press **Ctrl**+**C** to stop the host.
@@ -295,7 +300,7 @@ Press **Ctrl**+**C** to stop the host.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 (Optional) Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 ::: zone-end
-
+<!---
 ::: zone pivot="programming-language-other"
 Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
 
@@ -313,7 +318,7 @@ RUN apt update && \
 COPY . /home/site/wwwroot
 ```
 ::: zone-end
-
+-->
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, provide a name as `azurefunctionsimage`, and tag as `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```console
@@ -337,7 +342,8 @@ After the image starts in the local container, browse to `http://localhost:8080/
 
 ---
 ::: zone-end
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"
+<!---add back programming-language-other-->
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
 

@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 05/07/2023
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Create your first containerized Azure Functions on Azure Arc (preview)
