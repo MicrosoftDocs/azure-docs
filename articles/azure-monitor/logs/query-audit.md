@@ -67,21 +67,21 @@ An audit record is created each time a query is run. If you send the data to a L
 |ASI_Portal|Sentinel.|
 |AzureAutomation|[Azure Automation.](https://azure.microsoft.com/products/automation)|
 |AzureMonitorLogsConnector|[Azure Monitor Logs Connector](../../connectors/connectors-azure-monitor-logs.md).|
-|csharpsdk|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
-|Draft-Monitor|[Log alert creation in the Azure Portal.](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
-|Grafana|[Grafana connector.](https://learn.microsoft.com/azure/azure-monitor/visualize/grafana-plugin)|
+|csharpsdk|[Log Analytics Query API.](../logs/api/overview)|
+|Draft-Monitor|[Log alert creation in the Azure Portal.](../alerts/alerts-create-new-alert-rule?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
+|Grafana|[Grafana connector.](../visualize/grafana-plugin)|
 |IbizaExtension|Experiences of Log Analytics in the Azure portal.|
-|infraInsights/container|[Container insights.](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)|
-|infraInsights/vm|[VM insights.](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)|
+|infraInsights/container|[Container insights.](../containers/container-insights-overview)|
+|infraInsights/vm|[VM insights.](../vm/vminsights-overview)|
 |LogAnalyticsExtension|[Azure Dasboard](../../azure-portal/azure-portal-dashboards.md).|
-|LogAnalyticsPSClient|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
-|OmsAnalyticsPBI|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
-|PowerBIConnector|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
+|LogAnalyticsPSClient|[Log Analytics Query API.](../logs/api/overview)|
+|OmsAnalyticsPBI|Log Analytics integration with [Power BI.](../logs/log-powerbi)|
+|PowerBIConnector|Log Analytics integration with [Power BI.](../logs/log-powerbi)|
 |Sentinel-Investigation-Queries|Sentinel.|
 |Sentinel-DataCollectionAggregator|Sentinel.|
 |Sentinel-analyticsManagement-customerQuery|Sentinel.|
-|Unknown|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
-|UpdateManagement|[Update Management.](https://learn.microsoft.com/azure/automation/update-management/overview)|
+|Unknown|[Log Analytics Query API.](../logs/api/overview)|
+|UpdateManagement|[Update Management.](../../automation/update-management/overview)|
 
 
 ## Considerations
