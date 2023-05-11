@@ -7040,6 +7040,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
             "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
             "redirect_document_id": false
@@ -7570,11 +7575,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
-            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
             "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
@@ -7852,6 +7852,11 @@
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
             "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
             "redirect_document_id": false
         },
         {
