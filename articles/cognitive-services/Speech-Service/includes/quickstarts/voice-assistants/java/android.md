@@ -204,7 +204,7 @@ The text and graphical representation of your UI should now look like this:
                 }
 
                 if (activityArgs.hasAudio()) {
-                    // Text-to-speech audio associated with the activity is 16 kHz 16-bit mono PCM data
+                    // Text to speech audio associated with the activity is 16 kHz 16-bit mono PCM data
                     final int sampleRate = 16000;
                     int bufferSize = AudioTrack.getMinBufferSize(sampleRate, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
 

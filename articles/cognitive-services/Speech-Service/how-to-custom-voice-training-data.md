@@ -14,7 +14,7 @@ ms.author: eur
 
 # Training data for Custom Neural Voice
 
-When you're ready to create a custom Text-to-Speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
+When you're ready to create a custom Text to speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
 > [!TIP]
 > To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [record voice samples to create a custom neural voice](record-custom-voice-samples.md).
@@ -25,7 +25,7 @@ A voice training dataset includes audio recordings, and a text file with the ass
 
 In some cases, you may not have the right dataset ready and will want to test the custom neural voice training with available audio files, short or long, with or without transcripts. 
 
-This table lists data types and how each is used to create a custom Text-to-Speech voice model.
+This table lists data types and how each is used to create a custom Text to speech voice model.
 
 | Data type | Description | When to use | Extra processing required |
 | --------- | ----------- | ----------- | ------------------------------ |
@@ -48,7 +48,7 @@ For data format examples, refer to the sample training set on [GitHub](https://g
 
 ### Audio data for Individual utterances + matching transcript
 
-Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, except for the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
+Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text to speech voices aren't supported, except for the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
 
 Follow these guidelines when preparing audio.
 

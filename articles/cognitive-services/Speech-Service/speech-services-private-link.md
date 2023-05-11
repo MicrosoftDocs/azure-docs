@@ -141,7 +141,7 @@ The Speech to text REST APIs are:
 - [Speech-to-text REST API](rest-speech-to-text.md), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 - [Speech-to-text REST API for short audio](rest-speech-to-text-short.md), which is used for real-time speech to text.
 
-Usage of the Speech to text REST API for short audio and the Text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article.
+Usage of the Speech to text REST API for short audio and the Text to speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article.
 
 Speech-to-text REST API uses a different set of endpoints, so it requires a different approach for the private-endpoint-enabled scenario.
 
@@ -177,7 +177,7 @@ After you turn on a custom domain name for a Speech resource, you typically repl
 >
 > A custom domain for a Speech resource contains *no* information about the region where the resource is deployed. So the application logic described earlier will *not* work and needs to be altered.
 
-#### Speech to text REST API for short audio and Text-to-speech REST API
+#### Speech to text REST API for short audio and Text to speech REST API
 
 The [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and the [Text-to-speech REST API](rest-text-to-speech.md) use two types of endpoints:
 - [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Cognitive Services REST API to obtain an authorization token
@@ -186,12 +186,12 @@ The [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and 
 > [!NOTE]
 > See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
-The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#construct-endpoint-url) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech to text REST API for short audio and the Text-to-speech REST API.
+The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#construct-endpoint-url) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech to text REST API for short audio and the Text to speech REST API.
 
-Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. The example describes the Text-to-speech REST API. Usage of the Speech to text REST API for short audio is fully equivalent.
+Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. The example describes the Text to speech REST API. Usage of the Speech to text REST API for short audio is fully equivalent.
 
 > [!NOTE]
-> When you're using the Speech to text REST API for short audio and Text-to-speech REST API in private endpoint scenarios, use a resource key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
+> When you're using the Speech to text REST API for short audio and Text to speech REST API in private endpoint scenarios, use a resource key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
 >
 > Using an authorization token and passing it to the special endpoint via the `Authorization` header will work *only* if you've turned on the **All networks** access option in the **Networking** section of your Speech resource. In other cases you will get either `Forbidden` or `BadRequest` error when trying to obtain an authorization token.
 
@@ -221,7 +221,7 @@ We'll use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speec
 
 #### Construct endpoint URL
 
-Usually in SDK scenarios (as well as in the Speech to text REST API for short audio and Text-to-speech REST API scenarios), Speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is:
+Usually in SDK scenarios (as well as in the Speech to text REST API for short audio and Text to speech REST API scenarios), Speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -380,12 +380,12 @@ Compare it with the output from [this section](#resolve-dns-from-other-networks)
 
 Speech-to-text REST API usage is fully equivalent to the case of [private-endpoint-enabled Speech resources](#speech-to-text-rest-api).
 
-#### Speech to text REST API for short audio and Text-to-speech REST API
+#### Speech to text REST API for short audio and Text to speech REST API
 
-In this case, usage of the Speech to text REST API for short audio and usage of the Text-to-speech REST API have no differences from the general case, with one exception. (See the following note.) You should use both APIs as described in the [speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md) documentation.
+In this case, usage of the Speech to text REST API for short audio and usage of the Text to speech REST API have no differences from the general case, with one exception. (See the following note.) You should use both APIs as described in the [speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md) documentation.
 
 > [!NOTE]
-> When you're using the Speech to text REST API for short audio and Text-to-speech REST API in custom domain scenarios, use a Speech resource key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
+> When you're using the Speech to text REST API for short audio and Text to speech REST API in custom domain scenarios, use a Speech resource key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
 >
 > Using an authorization token and passing it to the special endpoint via the `Authorization` header will work *only* if you've turned on the **All networks** access option in the **Networking** section of your Speech resource. In other cases you will get either `Forbidden` or `BadRequest` error when trying to obtain an authorization token.
 

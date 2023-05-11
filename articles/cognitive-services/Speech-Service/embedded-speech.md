@@ -167,7 +167,7 @@ The following [speech-to-text](speech-to-text.md) models are available: de-DE, e
 
 The following [text-to-speech](text-to-speech.md) locales and voices are available:
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
+| Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
 | `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
@@ -188,7 +188,7 @@ The following [text-to-speech](text-to-speech.md) locales and voices are availab
 
 For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
 
-Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text-to-speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
+Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -204,7 +204,7 @@ embeddedSpeechConfig.SetSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8", 
     Environment.GetEnvironmentVariable("MODEL_KEY"));
 
-// For text-to-speech
+// For text to speech
 embeddedSpeechConfig.SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
     Environment.GetEnvironmentVariable("VOICE_KEY"));
@@ -229,7 +229,7 @@ embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8", 
     GetEnvironmentVariable("MODEL_KEY"));
 
-// For text-to-speech
+// For text to speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
     GetEnvironmentVariable("VOICE_KEY"));
@@ -252,7 +252,7 @@ embeddedSpeechConfig.setSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8", 
     System.getenv("MODEL_KEY"));
 
-// For text-to-speech
+// For text to speech
 embeddedSpeechConfig.setSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
     System.getenv("VOICE_KEY"));

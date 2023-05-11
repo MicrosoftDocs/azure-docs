@@ -85,7 +85,7 @@ The Design view is updated to show the application's user interface.
 - A simple implementation to ensure microphone access, wired to a button handler
 - Basic UI helpers to present messages and errors in the application
 - A landing point for the initialization code path that will be populated later
-- A helper to play back text-to-speech (without streaming support)
+- A helper to play back text to speech (without streaming support)
 - An empty button handler to start listening that will be populated later
 
     ```csharp

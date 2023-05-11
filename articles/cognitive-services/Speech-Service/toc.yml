@@ -112,14 +112,14 @@ items:
     - name: Speech to text FAQ
       displayName: FAQ,STT,frequently asked questions
       href: faq-stt.yml
-- name: Text-to-speech
+- name: Text to speech
   items:
-    - name: Text-to-speech documentation
+    - name: Text to speech documentation
       href: index-text-to-speech.yml
-    - name: Text-to-speech overview
-      href: text-to-speech.md
+    - name: Text to speech overview
+      href: text to speech.md
       displayName: tts
-    - name: Text-to-speech quickstart
+    - name: Text to speech quickstart
       href: get-started-text-to-speech.md
     - name: How to synthesize speech
       href: how-to-speech-synthesis.md
@@ -171,7 +171,7 @@ items:
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
-    - name: Text-to-speech FAQ
+    - name: Text to speech FAQ
       displayName: FAQ,TTS,frequently asked questions
       href: faq-tts.yml
 - name: Speech translation
@@ -402,7 +402,7 @@ items:
             href: speech-container-stt.md
           - name: Custom speech to text containers
             href: speech-container-cstt.md
-          - name: Text-to-speech containers
+          - name: Text to speech containers
             href: speech-container-ntts.md
           - name: Language identification containers
             href: speech-container-lid.md
@@ -484,7 +484,7 @@ items:
         - name: Speech to text REST API for short audio
           href: rest-speech-to-text-short.md    
           displayName: reference       
-        - name: Text-to-speech REST API
+        - name: Text to speech REST API
           href: rest-text-to-speech.md
           displayName: reference, tts output, output format
         - name: Speaker Recognition REST API

@@ -65,11 +65,11 @@ The limits in this table apply per Speech resource when you create a Custom Spee
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
 | Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
 
-### Text-to-speech quotas and limits per resource
+### Text to speech quotas and limits per resource
 
-This section describes text-to-speech quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
+This section describes text to speech quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
 
-#### Common text-to-speech quotas and limits
+#### Common text to speech quotas and limits
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -114,7 +114,7 @@ Some of the Speech service quotas are adjustable. This section provides addition
 The following quotas are adjustable for Standard (S0) resources. The Free (F0) request limits aren't adjustable.
 
 - Speech to text [concurrent request limit](#real-time-speech-to-text-and-speech-translation) for base model endpoint and custom endpoint
-- Text-to-speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-resource) for prebuilt neural voices and custom neural voices
+- Text to speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-resource) for prebuilt neural voices and custom neural voices
 - Speech translation [concurrent request limit](#real-time-speech-to-text-and-speech-translation)
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Speech service uses autoscaling technologies to bring the required computational resources in on-demand mode. At the same time, Speech service tries to keep your costs low by not maintaining an excessive amount of hardware capacity.
@@ -126,7 +126,7 @@ Let's look at an example. Suppose that your application receives response code 4
 To minimize issues related to throttling, it's a good idea to use the following techniques:
 
 - Implement retry logic in your application.
-- Avoid sharp changes in the workload. Increase the workload gradually. For example, let's say your application is using text-to-speech, and your current workload is 5 TPS. The next second, you increase the load to 20 TPS (that is, four times more). Speech service immediately starts scaling up to fulfill the new load, but is unable to scale as needed within one second. Some of the requests will get response code 429 (too many requests).
+- Avoid sharp changes in the workload. Increase the workload gradually. For example, let's say your application is using text to speech, and your current workload is 5 TPS. The next second, you increase the load to 20 TPS (that is, four times more). Speech service immediately starts scaling up to fulfill the new load, but is unable to scale as needed within one second. Some of the requests will get response code 429 (too many requests).
 - Test different load increase patterns. For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).
 - Create additional Speech service resources in *different* regions, and distribute the workload among them. (Creating multiple Speech service resources in the same region will not affect the performance, because all resources will be served by the same backend cluster).
 
@@ -204,7 +204,7 @@ Suppose that a Speech service resource has the concurrent request limit set to 3
 
 Generally, it's a very good idea to test the workload and the workload patterns before going to production.
 
-### Text-to-speech: increase concurrent request limit
+### Text to speech: increase concurrent request limit
 
 For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
@@ -253,14 +253,14 @@ Initiate the increase of the limit for concurrent requests for your resource, or
 1. Go to the [Azure portal](https://portal.azure.com/).
 1. Select the Speech service resource for which you would like to increase (or to check) the concurrency request limit.
 1. In the **Support + troubleshooting** group, select **New support request**. A new window will appear, with auto-populated information about your Azure subscription and Azure resource.
-1. In **Summary**, describe what you want (for example, "Increase text-to-speech concurrency request limit").
+1. In **Summary**, describe what you want (for example, "Increase text to speech concurrency request limit").
 1. In **Problem type**, select **Quota or Subscription issues**.
 1. In **Problem subtype**, select either:
    - **Quota or concurrent requests increase** for an increase request.
    - **Quota or usage validation** to check the existing limit.
 1. On the **Recommended solution** tab, select **Next**. 
 1. On the **Additional details** tab, fill in all the required items. And in the **Details** field, enter the following:
-   - A note that the request is about the text-to-speech quota.
+   - A note that the request is about the text to speech quota.
    - Choose either the prebuilt voice or custom voice.
    - The Azure resource information you [collected previously](#prepare-the-required-information).
    - Any other required information.

@@ -30,7 +30,7 @@ Available to US government entities and their partners only. See more informatio
   - Speech to text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.us/)
-  - Text-to-speech
+  - Text to speech
     - Standard voice
     - Neural voice
   - Speech translation
@@ -101,10 +101,10 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 |--|--|
 | **US Gov Arizona** | |
 | Speech to text | `wss://usgovarizona.stt.speech.azure.us` |
-| Text-to-Speech | `https://usgovarizona.tts.speech.azure.us` |
+| Text to speech | `https://usgovarizona.tts.speech.azure.us` |
 | **US Gov Virginia** | |
 | Speech to text | `wss://usgovvirginia.stt.speech.azure.us` |
-| Text-to-Speech | `https://usgovvirginia.tts.speech.azure.us` |
+| Text to speech | `https://usgovvirginia.tts.speech.azure.us` |
 
 
 ## Azure China
@@ -123,7 +123,7 @@ Available to organizations with a business presence in China. See more informati
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
     - [Pronunciation assessment](how-to-pronunciation-assessment.md)
-  - Text-to-speech
+  - Text to speech
     - Standard voice
     - Neural voice
   - Speech translator
@@ -194,7 +194,7 @@ Replace `subscriptionKey` with your Speech resource key. Replace `azCnHost` with
 |--|--|
 | **China East 2** | |
 | Speech to text | `wss://chinaeast2.stt.speech.azure.cn` |
-| Text-to-Speech | `https://chinaeast2.tts.speech.azure.cn` |
+| Text to speech | `https://chinaeast2.tts.speech.azure.cn` |
 | **China North 2** | |
 | Speech to text | `wss://chinanorth2.stt.speech.azure.cn` |
-| Text-to-Speech | `https://chinanorth2.tts.speech.azure.cn` |
+| Text to speech | `https://chinanorth2.tts.speech.azure.cn` |

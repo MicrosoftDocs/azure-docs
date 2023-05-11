@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: The Speech CLI - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this Azure Speech CLI quickstart, you interact with speech to text, text-to-speech, and speech translation without having to write code.
+description: In this Azure Speech CLI quickstart, you interact with speech to text, text to speech, and speech translation without having to write code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: mode-api
 
 # Quickstart: Get started with the Azure Speech CLI
 
-In this article, you'll learn how to use the Azure Speech CLI (also called SPX) to access Speech services such as speech to text, text-to-speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
+In this article, you'll learn how to use the Azure Speech CLI (also called SPX) to access Speech services such as speech to text, text to speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
 
 This article assumes that you have working knowledge of the Command Prompt window, terminal, or PowerShell.
 
@@ -126,7 +126,7 @@ spx recognize --file /path/to/file.wav
 > [!TIP]
 > If you get stuck or want to learn more about the Speech CLI recognition options, you can run ```spx help recognize```.
 
-## Text-to-speech (speech synthesis)
+## Text to speech (speech synthesis)
 
 The following command takes text as input and then outputs the synthesized speech to the current active output device (for example, your computer speakers).
 

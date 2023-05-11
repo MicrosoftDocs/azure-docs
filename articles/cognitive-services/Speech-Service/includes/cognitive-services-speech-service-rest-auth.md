@@ -8,7 +8,7 @@ ms.author: erhopf
 
 Each request requires an authorization header. This table illustrates which headers are supported for each feature:
 
-| Supported authorization header | Speech to text | Text-to-speech |
+| Supported authorization header | Speech to text | Text to speech |
 |------------------------|----------------|----------------|
 | `Ocp-Apim-Subscription-Key` | Yes | Yes |
 | `Authorization: Bearer` | Yes | Yes |

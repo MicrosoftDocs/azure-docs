@@ -1,7 +1,7 @@
 ---
 title: Install Speech containers
 titleSuffix: Azure Cognitive Services
-description: Details the text-to-speech helm chart configuration options.
+description: Details the text to speech helm chart configuration options.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 04/01/2020
 ms.author: eur
 ---
 
-### Text-to-Speech (sub-chart: charts/textToSpeech)
+### Text to speech (sub-chart: charts/textToSpeech)
 
 To override the "umbrella" chart, add the prefix `textToSpeech.` on any parameter to make it more specific. For example, it will override the corresponding parameter for example, `textToSpeech.numberOfConcurrentRequest` overrides `numberOfConcurrentRequest`.
 

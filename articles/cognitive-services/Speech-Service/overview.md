@@ -1,7 +1,7 @@
 ---
 title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
-description: The Speech service provides speech to text, text-to-speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
+description: The Speech service provides speech to text, text to speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service provides speech to text and text-to-speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
+The Speech service provides speech to text and text to speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
 :::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 
@@ -66,7 +66,7 @@ With [real-time speech to text](get-started-speech-to-text.md), the audio is tra
 - Contact center post-call analytics
 - Diarization
 
-### Text-to-speech
+### Text to speech
 
 With [text to speech](text-to-speech.md), you can convert input text into humanlike synthesized speech. Use neural voices, which are humanlike voices powered by deep neural networks. Use the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to fine-tune the pitch, pronunciation, speaking rate, volume, and more.
 
@@ -124,7 +124,7 @@ We offer quickstarts in many popular programming languages. Each quickstart is d
 
 Sample code for the Speech service is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-- [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Speech-to-text, text to speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 - [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 - [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
@@ -132,4 +132,4 @@ Sample code for the Speech service is available on GitHub. These samples cover c
 ## Next steps
 
 * [Get started with speech to text](get-started-speech-to-text.md)
-* [Get started with text-to-speech](get-started-text-to-speech.md)
+* [Get started with text to speech](get-started-text-to-speech.md)

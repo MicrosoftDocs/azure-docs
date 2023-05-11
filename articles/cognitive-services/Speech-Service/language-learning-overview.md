@@ -30,7 +30,7 @@ The Pronunciation Assessment feature offers several benefits for educators, serv
 
 Azure [Speech-to-Text](speech-to-text.md) supports real-time language identification for multilingual language learning scenarios, help human-human interaction with better understanding and readable context.
 
-##  Text-to-Speech
+##  Text to speech
 
 [Text-to-Speech](text-to-speech.md) prebuilt neural voices can read out learning materials natively and empower self-served learning. A broad portfolio of [languages and voices](language-support.md?tabs=tts) are supported for AI teacher, content read aloud capabilities, and more. Microsoft is continuously working on bringing new languages to the world. 
 
@@ -43,5 +43,5 @@ Azure [Speech-to-Text](speech-to-text.md) supports real-time language identifica
 
 * [How to use pronunciation assessment](how-to-pronunciation-assessment.md)
 * [What is Speech to text](speech-to-text.md)
-* [What is Text-to-Speech](text-to-speech.md)
+* [What is Text to speech](text-to-speech.md)
 * [What is Custom Neural Voice](custom-neural-voice.md)
