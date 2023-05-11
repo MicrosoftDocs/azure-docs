@@ -7,7 +7,7 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: devx-track-js
 ---
 
 # Clustering point data in the Web SDK
