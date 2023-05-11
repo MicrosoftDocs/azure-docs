@@ -51,11 +51,11 @@ The Private link configuration defines the infrastructure used by Application Ga
    - **Frontend IP Configuration**: The frontend IP address that private link should forward traffic to on Application Gateway.
    - **Private IP address settings**: specify at least one IP address
 1. Select **Add**.
-1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, you will require this if setting up a Private Endpoint within a different Azure AD tenant
+1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Azure AD tenant.
 
 **Configure Private Endpoint**
 
-A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your Application Gateway. Each of the clients will use the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
+A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your Application Gateway. Each of the clients uses the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
 
 1. Select the **Private endpoint connections** tab.
 1. Select **Create**.
@@ -131,7 +131,7 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "AppGW-PL-
 ## Create private endpoint
 New-AzPrivateEndpoint -Name "AppGWPrivateEndpoint" -ResourceGroupName $vnet_plendpoint.ResourceGroupName -Location $vnet_plendpoint.Location -Subnet ($vnet_plendpoint | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'MySubnet'}) -PrivateLinkServiceConnection $privateEndpointConnection
 ```
-A list of all Azure PowerShell references for Private Link Configuration on Application Gateway is provided below:
+The following is a list of all Azure PowerShell references for Private Link Configuration on Application Gateway:
 - [Get-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/get-azapplicationgatewayprivatelinkconfiguration)
 - [New-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkconfiguration)
 - [New-AzApplicationGatewayPrivateLinkIpConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkipconfiguration)
