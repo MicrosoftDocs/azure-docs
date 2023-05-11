@@ -20,7 +20,7 @@ You should follow the steps only if the following criteria are true:
 - You're going to preserve the existing data in the table and send new data to the table using the [AMA DCR based custom text log](data-collection-text-log.md) and possibly configure an [ingestion time transformation]( azure-monitor-agent-transformation.md).
 
 1. Configure your data collection rule (DCR) following procedures at [collect test logs with Azure Monitor Agent](data-collection-text-log.md) 
-2. Issue the following API call against your existing custom logs table to enable ingestion from Data Collection Rule and manage your table from the portal UI. This call is idempotent, so it will take effect only the first time it is called. Migration is one-way, so the table can’t be migrated back. 
+2. Issue the following API call against your existing custom logs table to enable ingestion from Data Collection Rule and manage your table from the portal UI. This call is idempotent, so it will take effect only the first time it is called. Migration is one-way, so the table canâ€™t be migrated back. 
     ```rest
  POST https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
     ```
