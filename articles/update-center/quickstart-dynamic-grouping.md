@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Dynamic grouping allows you to include VMs based on scope and schedule updates at scale. You can modify the scope at any time and the patching requirements are applied at scale without any changes to the deployment schedule.
+Dynamic grouping allows you to include VMs based on the scope and schedule updates at scale. You can modify the scope at any time and the patching requirements are applied at scale without any changes to the deployment schedule.
 
 This quickstart details how to configure schedule updates on a group of Azure virtual machine(s) or Arc-enabled server(s)on-premises or in cloud environments that are not supported for schedule.
 
@@ -30,6 +30,7 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 
 ## Create groups
 
+<<<<<<< HEAD
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
 1. Select **Overview** > **Schedule updates** > **Create new schedule**.
 1. In the **Create a maintenance configuration** page, go to **Basics** tab and select **Add a schedule**. For more information, see from Step 4 in [Schedule recurring updates for machines using Azure portal and Azure Policy](scheduled-patching.md#schedule-recurring-updates-on-single-vm).
@@ -41,6 +42,20 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
     > [!NOTE]
     > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
 
+=======
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center.
+1. Select **Overview** > **Schedule updates**.
+1. In the **Create a maintenance configuration** page, go to **Machines** and under **Group to update**, select **Add a group**.
+1. In the **Add a group to update** page, provide a group name, and select subscriptions.
+1. In **Other criteria**, choose **Select** and in the **Select other criteria** page, specify the Resource group, Resource type, Location, Tags, and OS type and then select **Select**.
+
+    > [!NOTE]
+    > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
+
+1. In the **Preview of machines based on above criteria**, you can view the list of machines for the selected criteria at that current time and select **Add**.
+   > [!NOTE]
+   > If the new machines that you add later match the selected criteria, the scheduled updates are automatically applied to them.
+>>>>>>> bbf9d5e3f30e86fc41d09fe1e8a00e5d136dbeeb
 
 ## Provide consent
 Obtaining consent to apply updates is an important step in the workflow of scheduled patching and listed are the various ways to provide consent.
