@@ -97,7 +97,7 @@ Clients can connect to the server based on the firewall configuration when this 
 > [!NOTE]  
 > This setting does not impact the SSL and TLS configurations for your Azure Database for MySQL.
 
-To learn how to set the **Deny Public Network Access** for your Azure Database for MySQL flexible server from the Azure portal, refer to [Deny Public Network Access using the Azure portal](how-to-networking-private-link-deny-public-access-mysql.md).
+To learn how to set the **Deny Public Network Access** for your Azure Database for MySQL flexible server from the Azure portal, refer to [Deny Public Network Access using the Azure portal](how-to-networking-private-link-deny-public-access.md).
 
 ## Next steps
 
