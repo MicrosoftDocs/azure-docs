@@ -37,5 +37,5 @@ If you're using Azure Active Directory Premium P1 or P2, we guide you through a 
 
 ## Next steps
 
-- [Troubleshoot Azure Multi-Factor Authentication issues](/troubleshoot/azure/active-directory/troubleshoot-azure-mfa-issue)
+- [Troubleshoot Azure AD Multi-Factor Authentication issues](/troubleshoot/azure/active-directory/troubleshoot-azure-mfa-issue)
 - [Use the sign-ins report to review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md)
