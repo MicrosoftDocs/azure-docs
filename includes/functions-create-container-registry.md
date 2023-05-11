@@ -19,11 +19,11 @@ Before you begin, you must have the following requirements in place:
 ::: zone pivot="programming-language-csharp"
 + The [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x or a later version.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.17 or a later version.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x or a later version.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.17 or a later version.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (16.16.0 and 14.20.0 recommended).

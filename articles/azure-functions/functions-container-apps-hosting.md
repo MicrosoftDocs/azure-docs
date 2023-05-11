@@ -8,13 +8,13 @@ ms.topic: conceptual
 
 # Azure Container Apps hosting of Azure Functions 
 
-Azure Functions provides integrated suppport for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). 
+Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). 
 
 [!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
-Integration with Container Apps lets you leverage the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings, as well as event-driven scaling. Container Apps leverages the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
+Integration with Container Apps lets you use the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings with event-driven scaling. Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
 
-This integration also means that you can leverage existing Functions client tools and the portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
+This integration also means that you can use existing Functions client tools and the portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
 
 ## Deploying Azure Functions to Container Apps
 
@@ -23,7 +23,7 @@ In the current preview, you must deploy your functions code in a Linux container
 Azure Functions currently supports the following methods of deployment to Azure Container Apps:
 
 + Azure CLI 
-+ Azure Portal
++ Azure portal
 + GitHub Actions
 + Azure Pipeline tasks
 + ARM templates
@@ -33,6 +33,22 @@ Azure Functions currently supports the following methods of deployment to Azure 
 To learn how to create and deploy a function app container to Container Apps using the Azure CLI, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-aca.md). 
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
+
+## Configure scale rules
+
+Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app. The following Azure CLI command sets the minimum and maximum replica count when creating a new function app in a Container Apps environment from an Azure Container Registry: 
+
+```azurecli
+az functionapp create --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1 --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD>
+```  
+
+The following command sets the same minimum and maximum replica count on an existing function app:
+
+```azurecli
+az functionapp config container set --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1
+```  
+
+To invoke DAPR APIs or to run the [Functions DAPR extension](https://github.com/Azure/azure-functions-dapr-extension), make sure the minimum replica count is set to at least `1`. This enables the DAPR sidecar to run in the background to handle DAPR requests. 
 
 ## Considerations for Container Apps hosting
 
@@ -48,7 +64,7 @@ Keep in mind the following considerations when deploying your function app conta
     + UK South 
     + West Europe 
     + West US3 
-+ When running in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions.
++ When running in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
     + HTTP 
     + Azure Queue Storage 
@@ -57,6 +73,7 @@ Keep in mind the following considerations when deploying your function app conta
     + Kafka (without certificates)   
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. However, you can access the AKS instance directly.
++ Use of user-assigned managed identities is currently supported. For more information, see [Add a user-assigned identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity).
 
 ## Next steps
 
