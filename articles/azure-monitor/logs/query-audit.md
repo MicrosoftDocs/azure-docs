@@ -40,7 +40,7 @@ An audit record is created each time a query is run. If you send the data to a L
 | AADTenantId           | ID of the tenant of the user account that started the query.  |
 | AADEmail              | Email of the tenant of the user account that started the query.  |
 | AADClientId           | ID and resolved name of the application used to start the query. |
-| RequestClientApp      | Resolved name of the application used to start the query. For more details, see [request client app.](#request-client-app).|
+| RequestClientApp      | Resolved name of the application used to start the query. For more information, see [request client app.](#request-client-app).|
 | QueryTimeRangeStart   | Start of the time range selected for the query. This may not be populated in certain scenarios such as when the query is started from Log Analytics, and time range is specified inside the query rather than the time picker. |
 | QueryTimeRangeEnd     | End of the time range selected for the query. This may not be populated in certain scenarios such as when the query is started from Log Analytics, and time range is specified inside the query rather than the time picker.  |
 | QueryText             | Text of the query that was run. |
@@ -68,12 +68,12 @@ An audit record is created each time a query is run. If you send the data to a L
 |AzureAutomation|[Azure Automation.](../../automation/overview.md)|
 |AzureMonitorLogsConnector|[Azure Monitor Logs Connector](../../connectors/connectors-azure-monitor-logs.md).|
 |csharpsdk|[Log Analytics Query API.](../logs/api/overview.md)|
-|Draft-Monitor|[Log alert creation in the Azure Portal.](../alerts/alerts-create-new-alert-rule.md?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
+|Draft-Monitor|[Log alert creation in the Azure portal.](../alerts/alerts-create-new-alert-rule.md?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
 |Grafana|[Grafana connector.](../visualize/grafana-plugin.md)|
 |IbizaExtension|Experiences of Log Analytics in the Azure portal.|
 |infraInsights/container|[Container insights.](../containers/container-insights-overview.md)|
 |infraInsights/vm|[VM insights.](../vm/vminsights-overview.md)|
-|LogAnalyticsExtension|[Azure Dasboard](../../azure-portal/azure-portal-dashboards.md).|
+|LogAnalyticsExtension|[Azure Dashboard](../../azure-portal/azure-portal-dashboards.md).|
 |LogAnalyticsPSClient|[Log Analytics Query API.](../logs/api/overview.md)|
 |OmsAnalyticsPBI|Log Analytics integration with [Power BI.](../logs/log-powerbi.md)|
 |PowerBIConnector|Log Analytics integration with [Power BI.](../logs/log-powerbi.md)|
@@ -86,13 +86,13 @@ An audit record is created each time a query is run. If you send the data to a L
 
 ## Considerations
 
-- Queries are only logged when executed in a user context. No Service-to-Service within Azure will be logged. The two primary sets of queries this exclusion encompasses are billing calculations and automated alert executions. In the case of alerts, only the scheduled alert query itself will not be logged; the initial execution of the alert in the alert creation screen is executed in a user context, and will be available for audit purposes. 
-- Performance statistics are not available for queries coming from the Azure Data Explorer proxy. All other data for these queries will still be populated.
-- The *h* hint on strings that [obfuscates string literals](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) will not have an effect on the query audit logs. The queries will be captured exactly as submitted without the string being obfuscated. You should ensure that only users who have compliance rights to see this data are able to do so using the various Kubernetes RBAC or Azure RBAC modes available in Log Analytics workspaces.
+- Queries are only logged when executed in a user context. No Service-to-Service within Azure will be logged. The two primary sets of queries this exclusion encompasses are billing calculations and automated alert executions. In the case of alerts, only the scheduled alert query itself won't be logged; the initial execution of the alert in the alert creation screen is executed in a user context, and will be available for audit purposes. 
+- Performance statistics aren't available for queries coming from the Azure Data Explorer proxy. All other data for these queries will still be populated.
+- The *h* hint on strings that [obfuscates string literals](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) won't have an effect on the query audit logs. The queries will be captured exactly as submitted without the string being obfuscated. You should ensure that only users who have compliance rights to see this data are able to do so using the various Kubernetes RBAC or Azure RBAC modes available in Log Analytics workspaces.
 - For queries that include data from multiple workspaces, the query will only be captured in those workspaces to which the user has access.
 
 ## Costs  
-There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
+There's no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
 
 ## Next steps
 
