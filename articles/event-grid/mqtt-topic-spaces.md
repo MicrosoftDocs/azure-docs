@@ -61,7 +61,7 @@ Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wi
 Use the following steps to create a topic space:
 
 - Go to your namespace in the Azure portal.
-- Under Topic Spaces, select the +Topic Space.
+- Under Topic Spaces, select +Topic Space.
 - Assign a Name to your topic space.
 
 > [!NOTE]
@@ -70,6 +70,8 @@ Use the following steps to create a topic space:
 
 - Add at least one topic template by selecting +Add topic template.
 - Select Create.
+
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space.png" alt-text="Screenshot of topic space configuration.":::
 
 ### Azure CLI configuration:
 

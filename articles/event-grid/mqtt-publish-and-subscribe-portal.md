@@ -12,7 +12,7 @@ ms.author: veyaddan
 In this article, you use the Azure portal to do the following tasks:
 
 1. Create an Event Grid Namespace with MQTT
-2. Create subresources such as Clients, TopicSpaces
+2. Create subresources such as Clients, Client Groups, and Topic Spaces
 3. Grant clients access to publish and subscribe to topic spaces
 4. Publish and receive messages between clients
 
@@ -67,8 +67,9 @@ To view the thumbprint, run the Step command.
 > [!NOTE]
 > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.
 
-5. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.  In the Overview page, you see that the MQTT is in Disabled state.  To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
-6. On Configuration page, select the Enable MQTT option, and Apply the settings.
+5. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.  
+6. In the Overview page, you see that the MQTT is in Disabled state.  To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
+7. On Configuration page, select the Enable MQTT option, and Apply the settings.
 
 :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT.":::
 
@@ -107,7 +108,11 @@ To view the thumbprint, run the Step command.
 
 1. Go to Permission bindings page under MQTT section.
 2. On the Permission bindings page, select **+ Permission binding** on the toolbar.
-3. Provide a name for the permission binding.  Select the client group name as $all.  Topic space name as Topicspace1.  Give Publisher permission to the client group on the topic space.
+3. Configure the permission binding as follows:
+    - Provide a name for the permission binding 
+    - Select the client group name as $all.  
+    - Select the Topic space name as Topicspace1.  
+    - Grant Publisher permission to the client group on the topic space.
 
 :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-1.png" alt-text="Screenshot showing creation of first permission binding.":::
 
@@ -175,3 +180,4 @@ To view the thumbprint, run the Step command.
 
 ## Next steps
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
