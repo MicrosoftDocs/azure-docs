@@ -357,6 +357,8 @@ items:
         href: 9-secure-access-teams-sharepoint.md
       - name: 10 Convert local guest accounts to B2B
         href: 10-secure-local-guest.md
+      - name: 11 Onboard external user
+        href: 11-onboard-external-user.md
     - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts

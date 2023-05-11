@@ -1594,6 +1594,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/front-door-application-security.md",
+            "redirect_url": "/azure/frontdoor/web-application-firewall",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -6489,6 +6495,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/create-run-as-account.md",
+            "redirect_url": "/azure/automation/enable-managed-identity-for-automation",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/automation/automation-scope-configurations-change-tracking.md",
             "redirect_url": "/azure/automation/change-tracking/manage-scope-configurations.md",
             "redirect_document_id": false
@@ -7836,6 +7847,11 @@
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
             "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
             "redirect_document_id": false
         },
         {
@@ -22717,6 +22733,11 @@
             "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
             "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
+            "redirect_document_id": true
         }
 
     ]

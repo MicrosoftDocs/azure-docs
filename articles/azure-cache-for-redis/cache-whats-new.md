@@ -12,6 +12,14 @@ ms.date: 03/28/2023
 
 # What's New in Azure Cache for Redis
 
+## May 2023
+
+### Support for upto 30 shards for clustered Azure Cache for Redis instances
+
+Azure Cache for Redis now supports clustered caches with upto 30 shards which means your applications can store more data and scale better with your workloads.
+
+For more information, see [Configure clustering for Azure Cache for Redis instance](cache-how-to-premium-clustering.md#azure-cache-for-redis-now-supports-upto-30-shards-preview).
+
 ## March 2023
 
 ### In-place scale up and scale out for the Enterprise tiers (preview)
