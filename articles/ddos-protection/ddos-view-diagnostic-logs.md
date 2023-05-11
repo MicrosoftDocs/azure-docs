@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/22/2023
+ms.date: 05/11/2023
 ms.author: abell
 ---
 
@@ -87,7 +87,7 @@ Attack mitigation flow logs allow you to review the dropped traffic, forwarded t
 | **DestPort** | Port number ranging from 0 to 65535. |
 | **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
 
-### DDoS Mitigation FlowLogs
+### DDoS Mitigation Reports
 
 Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
@@ -100,15 +100,23 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the notification was created. |
 | **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **Category** | For notifications, this will be `DDoSMitigationReports`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
 | **Resource** | The name of your public IP address. |
 | **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
+| **OperationName** | For notifications, this will be `DDoSMitigationReports`.  |
 | **Message** | Details of the attack. |
-| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
+| **AttackVectors_s** | Type of attacks during log period. |
+| **TrafficOverview_s** | Total of packets through network. | 
+| **Protocols**  | Distribution of traffic through Protocols.   |  
+| **DropReasons_s** | Distribution of packet drop reasons. |
+| **TopSourceCountries_s** | Distribution of source countries with highest traffic. |
+| **TopSourceCountriesForDroppedPackets_s** | Distribution of source countries with highest traffic dropped |
+| **TopSourceASNs_s** | List of top source ASNs distribution.  | 
+| **SourceContinents_s** | Distribution of source continents with highest traffic. |
 | **PublicIpAddress** | Your public IP address. |
+| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 
 
 ## Next steps
