@@ -1011,13 +1011,10 @@ The following JSON sets the source image as the latest image version for an imag
 # [JSON](#tab/json)
 
 ```json
-    "properties": {
     "source": {
       "type": "SharedImageVersion",      
-      "imageVersionId": "/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest",
-      "exactVersion": "<replace with exact ARM resource id of the image version>"      
+      "imageVersionId": "/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest"
     },
-    }
 ```
 
 # [Bicep](#tab/bicep)
@@ -1034,14 +1031,9 @@ properties: {
 
 ---
 
-SharedImageVersion properties:
 
-- **imageVersionId** - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
-- **exactVersion** - Exact ARM resource id of the image version. This read-only field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest
 
-- **uri**- Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
-
-## Properties: versioning
+## versioning
 
 The **versioning** property is for the `sharedImage` distribute type only. It is an enum with two possible values:
 - **latest** - New strictly increasing schema per design
