@@ -23,7 +23,7 @@ In this article, you learn how to use Azure VM Image Builder to optimize your SI
 
 ## Azure VM Optimization 
 
-Azure VM Optimization improves virtual machine create time by updating SIG OS image thereby optimizing the image for faster VM boot. 
+Azure VM optimization improves virtual machine creation time by updating the gallery image to optimize the image for a faster boot time. 
 
   
 
