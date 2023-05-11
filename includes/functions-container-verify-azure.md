@@ -19,8 +19,7 @@ With the image deployed to your function app in Azure, you can now invoke the fu
     Replace `<APP_NAME>` with the name of your function app. 
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-2. Use the URL you just obtained to call the `HttpExample` function endpoint, appending the query string `?name=Functions`. 
-`https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`  
+2. Use the URL you just obtained to call the `HttpExample` function endpoint, appending the query string `?name=Functions`.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 2. Use the URL you just obtained to call the `HttpExample` function endpoint.
