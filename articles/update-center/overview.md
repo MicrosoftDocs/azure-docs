@@ -4,7 +4,7 @@ description: The article tells what update management center (preview) in Azure 
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/23/2023
+ms.date: 05/11/2023
 ms.topic: overview
 ---
 
@@ -105,7 +105,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../v
 
 ### VM images
 
-Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image.
+Update management center (preview) supports a combination of Offer, Publisher and Sku of the Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images).
 
 ## Next steps
 
