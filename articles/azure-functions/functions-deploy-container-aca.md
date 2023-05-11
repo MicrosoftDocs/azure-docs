@@ -122,7 +122,15 @@ You can also [Enable continuous deployment](./functions-how-to-custom-container.
 
 [!INCLUDE [functions-container-verify-azure](../../includes/functions-container-verify-azure.md)]
 
-[!INCLUDE [functions-cleanup-resources-containers](../../includes/functions-cleanup-resources-containers.md)]
+## Clean up resources
+
+If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. 
+
+When you are done working with this function app deployment, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
+
+```azurecli
+az group delete --name AzureFunctionsContainers-rg
+```
 
 ## Next steps
 

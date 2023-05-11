@@ -8,7 +8,7 @@ ms.author: glenga
 
 ## Verify your functions on Azure
 
-With the image deployed to your function app in Azure, you can now invoke the function as before through HTTP requests.
+With the image deployed to your function app in Azure, you can now invoke the function through HTTP requests.
 
 1. Run the following [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) command to get the URL of your new function:
 

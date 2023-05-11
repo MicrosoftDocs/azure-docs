@@ -80,7 +80,17 @@ This code must be run either in Cloud Shell or in Bash on your local computer. R
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
-[!INCLUDE [functions-cleanup-resources-containers](../../includes/functions-cleanup-resources-containers.md)]
+## Clean up resources
+
+If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. 
+
+When you are done working with this function app deployment, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
+
+```azurecli
+az group delete --name AzureFunctionsContainers-rg
+```
+
+This only removes the resources created in this article. The underlying Azure Arc environment remains in place.
 
 ## Next steps
 
