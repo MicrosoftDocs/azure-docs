@@ -268,7 +268,7 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/routing-policies-vwan-ui.png"alt-text="Screenshot showing how to navigate to routing policies."lightbox="./media/routing-policies/routing-policies-vwan-ui.png":::
 
-3. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network Traffic), select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solutions**  under **Private Traffic** and under **Next Hop Resource** select the relevant next hop resource.
+3. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network Traffic), select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solutions**  under **Private Traffic**. Under **Next Hop Resource**, select the relevant next hop resource.
 
     :::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
 
@@ -278,7 +278,7 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
-5. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution** and under **Next Hop Resource** select the relevant next hop resource.. 
+5. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution**. Under **Next Hop Resource**, select the relevant next hop resource.
 
     :::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
