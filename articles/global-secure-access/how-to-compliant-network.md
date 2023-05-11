@@ -31,16 +31,13 @@ This compliant network is different than [IPv4, IPv6, or country locations](/azu
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](NEED-LINK-TO-DOC).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md)
 
-
-
-
 ### Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration an administrator must take the following steps.
 
 1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
 1. Browse to **NEED THE ACTUAL PATH** > **Security **> **Adaptive Access**.
-1. Select the toggle to **Enable Network Access signaling in Conditional Access**.
+1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
    1. Confirm you have a location **All Network Access locations of my tenant** with location type 	
 **Network Access**.
