@@ -15,7 +15,12 @@ In Microsoft Purview, you can scan various types of data sources and view the sc
 
 ## Monitor scan runs
 
-1. Go to your Microsoft Purview account -> open **Microsoft Purview governance portal** -> **Data map** -> **Monitoring**. You need to have **Data source admin** role on any collection to access this page. And you'll see the scan runs that belong to the collections on which you have data source admin privilege.
+1. Open the the Microsoft Purview governance portal by:
+
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Open your Microsoft Purview account and select **Data map** -> **Monitoring**. You need to have **Data source admin** role on any collection to access this page. And you'll see the scan runs that belong to the collections on which you have data source admin privilege.
 
 1. The high-level KPIs show total scan runs within a period. The time period is defaulted at last 30 days, you can also choose to select last seven days. Based on the time filter selected, you can see the distribution of successful, failed, canceled, and in progress scan runs by week or by the day in the graph.
 

@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 04/11/2023
 ---
 
 # Managed attributes in the Microsoft Purview Data Catalog
@@ -98,7 +98,6 @@ Once you have created managed attributes, you can refine your [data catalog sear
 Below are the known limitations of the managed attribute feature as it currently exists in Microsoft Purview.
 
 - Managed attributes can only be expired, not deleted.
-- Managed attributes get matched to search keywords, but there's no user-facing filter in the search results. Managed attributes can be filtered using the Search APIs.
 - Managed attributes can't be applied via the bulk edit experience.
 - After creating an attribute group, you can't edit the name of the attribute group.
 - After creating a managed attribute, you can't update the attribute name, attribute group or the field type.

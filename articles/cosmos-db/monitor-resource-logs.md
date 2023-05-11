@@ -1,12 +1,13 @@
 ---
-title: Monitor Azure Cosmos DB data by using Azure Diagnostic settings
+title: Monitor data by using Azure Diagnostic settings
+titleSuffix: Azure Cosmos DB
 description: Learn how to use Azure diagnostic settings to monitor the performance and availability of data stored in Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2023
+ms.date: 04/26/2023
 ms.custom: ignite-2022
 ---
 
@@ -26,7 +27,16 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 > [!NOTE]
 > We recommend creating the diagnostic setting in resource-specific mode (for all APIs except API for Table) [following our instructions for creating diagnostics setting via REST API](monitor-resource-logs.md). This option provides additional cost-optimizations with an improved view for handling data.
 
+## Prerequisites
+
+- An existing Azure Cosmos DB account.
+  - If you have an Azure subscription, [create a new account](nosql/how-to-create-account.md?tabs=azure-portal).
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
+
 ## Create diagnostic settings
+
+Here, we walk through the process of creating diagnostic settings for your account.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -42,7 +52,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
     | --- | --- | --- | --- |
     | **DataPlaneRequests** | All APIs | Logs back-end requests as data plane operations, which are requests executed to create, update, delete or retrieve data within the account. | `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode` |
     | **MongoRequests** | Mongo | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for MongoDB. When you enable this category, make sure to disable DataPlaneRequests. | `Requestcharge`, `opCode`, `retryCount`, `piiCommandText` |
-    | **Ca/ssandraRequests** | Cassandra | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Cassandra. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText` |
+    | **CassandraRequests** | Cassandra | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Cassandra. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText` |
     | **GremlinRequests** | Gremlin | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Gremlin. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting` |
     | **QueryRuntimeStatistics** | NoSQL | This table details query operations executed against an API for NoSQL account. By default, the query text and its parameters are obfuscated to avoid logging personal data with full text query logging available by request. | `databasename`, `partitionkeyrangeid`, `querytext` |
     | **PartitionKeyStatistics** | All APIs | Logs the statistics of logical partition keys by representing the estimated storage size (KB) of the partition keys. This table is useful when troubleshooting storage skews. This PartitionKeyStatistics log is only emitted if the following conditions are true: 1. At least 1% of the documents in the physical partition have same logical partition key. 2. Out of all the keys in the physical partition, the PartitionKeyStatistics log captures the top three keys with largest storage size. </li></ul> If the previous conditions aren't met, the partition key statistics data isn't available. It's okay if the above conditions aren't met for your account, which typically indicates you have no logical partition storage skew. **Note**: The estimated size of the partition keys is calculated using a sampling approach that assumes the documents in the physical partition are roughly the same size. If the document sizes aren't uniform in the physical partition, the estimated partition key size may not be accurate. | `subscriptionId`, `regionName`, `partitionKey`, `sizeKB` |
@@ -114,7 +124,6 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
     > [!NOTE]
     > The URI for the Microsoft Insights subresource is in this format: `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}`. For more information about Azure Cosmos DB resource URIs, see [resource URI syntax for Azure Cosmos DB REST API](/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest).
 
-
 1. Set the body of the request to this JSON payload.
 
     ```json
@@ -184,6 +193,210 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
     }
     ```
 
+### [ARM Template](#tab/azure-resource-manager-template)
+
+Here, use an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) to create a diagnostic setting.
+
+> [!NOTE]
+> Set the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
+
+1. Create the following JSON template file to deploy diagnostic settings for your Azure Cosmos DB resource.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "settingName": {
+          "type": "string",
+          "metadata": {
+            "description": "The name of the diagnostic setting."
+          }
+        },
+        "dbName": {
+          "type": "string",
+          "metadata": {
+            "description": "The name of the database."
+          }
+        },
+        "workspaceId": {
+          "type": "string",
+          "metadata": {
+            "description": "The resource Id of the workspace."
+          }
+        },
+        "storageAccountId": {
+          "type": "string",
+          "metadata": {
+            "description": "The resource Id of the storage account."
+          }
+        },
+        "eventHubAuthorizationRuleId": {
+          "type": "string",
+          "metadata": {
+            "description": "The resource Id of the event hub authorization rule."
+          }
+        },
+        "eventHubName": {
+          "type": "string",
+          "metadata": {
+            "description": "The name of the event hub."
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Insights/diagnosticSettings",
+          "apiVersion": "2021-05-01-preview",
+          "scope": "[format('Microsoft.DocumentDB/databaseAccounts/{0}', parameters('dbName'))]",
+          "name": "[parameters('settingName')]",
+          "properties": {
+            "workspaceId": "[parameters('workspaceId')]",
+            "storageAccountId": "[parameters('storageAccountId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
+            "logAnalyticsDestinationType": "[parameters('logAnalyticsDestinationType')]",
+            "logs": [
+              {
+                "category": "DataPlaneRequests",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "MongoRequests",
+                "categoryGroup": null,
+                "enabled": false,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "QueryRuntimeStatistics",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "PartitionKeyStatistics",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "PartitionKeyRUConsumption",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "ControlPlaneRequests",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "CassandraRequests",
+                "categoryGroup": null,
+                "enabled": false,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "GremlinRequests",
+                "categoryGroup": null,
+                "enabled": false,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "TableApiRequests",
+                "categoryGroup": null,
+                "enabled": false,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              }
+            ],
+            "metrics": [
+              {
+                "timeGrain": null,
+                "enabled": false,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                },
+                "category": "Requests"
+              }
+            ]
+          }
+        }
+      ]
+    }
+    ```
+
+1. Create the following JSON parameter file with settings appropriate for your Azure Cosmos DB resource.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "settingName": {
+          "value": "{DIAGNOSTIC_SETTING_NAME}"
+        },
+        "dbName": {
+          "value": "{ACCOUNT_NAME}"
+        },
+        "workspaceId": {
+          "value": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
+        },
+        "storageAccountId": {
+          "value": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Storage/storageAccounts/{STORAGE_ACCOUNT_NAME}"
+        },
+        "eventHubAuthorizationRuleId": {
+          "value": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups{RESOURCE_GROUP}/providers/Microsoft.EventHub/namespaces/{EVENTHUB_NAMESPACE}/authorizationrules/{EVENTHUB_POLICY_NAME}"
+        },
+        "eventHubName": {
+          "value": "{EVENTHUB_NAME}"
+        },
+        "logAnalyticsDestinationType": {
+          "value": "Dedicated"
+        }
+      }
+    }
+    ```
+
+1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
+
+    ```azurecli
+    az deployment group create \
+        --resource-group <resource-group-name> \
+        --template-file <path-to-template>.json \
+        --parameters @<parameters-file-name>.json
+    ```
+
 ---
 
 ## Enable full-text query for logging query text
@@ -197,13 +410,13 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 1. To enable this feature, navigate to the `Features` page in your Azure Cosmos DB account.
 
-    :::image type="content" source="media/monitor/full-text-query-features.png" lightbox="media/monitor/full-text-query-features.png" alt-text="Screenshot of navigation to the Features page.":::
+    :::image type="content" source="media/monitor/full-text-query-features.png" lightbox="media/monitor/full-text-query-features.png" alt-text="Screenshot of the navigation process to the Features page.":::
 
 2. Select `Enable`. This setting is applied within a few minutes. All newly ingested logs have the full-text or PIICommand text for each request.
 
-    :::image type="content" source="media/monitor/select-enable-full-text.png" alt-text="Screenshot of full-text being enabled.":::
+    :::image type="content" source="media/monitor/select-enable-full-text.png" alt-text="Screenshot of the full-text feature being enabled.":::
 
-### [Azure CLI / REST API](#tab/azure-cli+rest-api)
+### [Azure CLI / REST API / ARM template](#tab/azure-cli+rest-api+azure-resource-manager-template)
 
 1. Ensure you're logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli). Optionally, ensure that you've configured the active subscription for your CLI. For more information, see [change the active Azure CLI subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
@@ -303,7 +516,5 @@ To learn how to query using these newly enabled features, see:
 
 ## Next steps
 
-- For a reference of the log and metric data, see [monitoring Azure Cosmos DB data reference](monitor-reference.md#resource-logs).
-- For more information on how to query resource-specific tables, see [troubleshooting using resource-specific tables](monitor-logs-basic-queries.md#resource-specific-queries).
-- For more information on how to query AzureDiagnostics tables, see [troubleshooting using AzureDiagnostics tables](monitor-logs-basic-queries.md#azure-diagnostics-queries).
-- For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
+> [!div class="nextstepaction"]
+> [Monitoring Azure Cosmos DB data reference](monitor-reference.md#resource-logs)

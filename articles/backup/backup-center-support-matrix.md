@@ -2,7 +2,7 @@
 title: Support matrix for Backup center
 description: This article summarizes the scenarios that Backup center supports for each workload type
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 03/31/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -33,7 +33,7 @@ The following table lists all supported scenarios:
 | Actions | Execute on-demand backup for a backup instance |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | See support matrices for [Azure VM backup](./backup-support-matrix-iaas.md) and [Azure Database for PostgreSQL Server backup](backup-azure-database-postgresql-support-matrix.md) |
 | Actions | Stop backup for a backup instance |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | See support matrices for [Azure VM backup](./backup-support-matrix-iaas.md) and [Azure Database for PostgreSQL Server backup](backup-azure-database-postgresql-support-matrix.md) |
 | Actions | Execute cross-region restore job from Backup center |  Azure Virtual Machine <br><br> SQL in Azure VM <br><br>  SAP HANA in Azure VM | See the [cross-region restore](./backup-create-rs-vault.md#set-cross-region-restore) documentation. |
-| Insights | View Backup Reports |  Azure Virtual Machine <br><br>  SQL in Azure Virtual Machine <br><br>  SAP HANA in Azure Virtual Machine <br><br>  Azure Files <br><br>  System Center Data Protection Manager <br><br>  Azure Backup Agent (MARS) <br><br> Azure Backup Server (MABS) | See [supported scenarios for Backup Reports](./configure-reports.md#supported-scenarios). |
+| Insights | View Backup Reports |  Azure Virtual Machine <br><br>  SQL in Azure Virtual Machine <br><br>  SAP HANA in Azure Virtual Machine <br><br>  Azure Files <br><br>  System Center Data Protection Manager <br><br>  Azure Backup Agent (MARS) <br><br> Azure Backup Server (MABS) <br><br> Azure Blobs <br><br> Azure Disks <br><br> Azure Database for PostgreSQL Server | See [supported scenarios for Backup Reports](./configure-reports.md#supported-scenarios). |
 | Governance | View and assign built-in and custom Azure Policies under category _Backup_. | N/A | N/A |
 | Governance | View datasources not configured for backup |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server | N/A |
 

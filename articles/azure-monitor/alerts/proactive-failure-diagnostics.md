@@ -76,13 +76,14 @@ Click the alert to configure it.
 
 ## Delete alerts
 
-You can disable or delete a Failure Anomalies alert rule, but once deleted you can't create another one for the same Application Insights resource.
+You can disable or delete a Failure Anomalies alert rule.
 
-Notice that if you delete an Application Insights resource, the associated Failure Anomalies alert rule doesn't get deleted automatically. You can do so manually on the Alert rules page or with the following Azure CLI command:
+You can do so manually on the Alert rules page or with the following Azure CLI command:
 
 ```azurecli
 az resource delete --ids <Resource ID of Failure Anomalies alert rule>
 ```
+Notice that if you delete an Application Insights resource, the associated Failure Anomalies alert rule doesn't get deleted automatically. 
 
 ## Example of Failure Anomalies alert webhook payload
 

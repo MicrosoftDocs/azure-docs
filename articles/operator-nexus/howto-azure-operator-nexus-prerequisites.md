@@ -3,10 +3,10 @@ title: "Azure Operator Nexus: Before you start Network Fabric Controller and Clu
 description: Prepare for create the Azure Operator Nexus Network Fabric Controller and Cluster Manger.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 03/03/2023
+ms.custom: template-how-to
 ---
 
 # Operator Nexus Azure resources prerequisites

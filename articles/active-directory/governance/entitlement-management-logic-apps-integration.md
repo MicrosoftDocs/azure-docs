@@ -70,7 +70,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 1. The **Extension Configuration** tab allows you to decide if your extension has “launch and continue” or “launch and wait” behavior. With “Launch and continue” the linked policy action on the access package, such as a request, triggers the Logic App attached to the custom extension. After the Logic App is triggered, the entitlement management process associated with the access package will continue. For “Launch and wait”, we'll pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. If no response is sent back in the wait time period defined, this process would be considered a failure. This process is further described below in its own section [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes). 
 
 
-1. In the **Details** tab, choose whether you’d like to use an existing Logic App. Selecting Yes in the field “Create new logic app” (default) creates a new blank Logic App that is already linked to this custom extension. Regardless, you need to provide: 
+1. In the **Details** tab, choose whether you’d like to use an existing consumption plan Logic App. Selecting Yes in the field “Create new logic app” (default) creates a new blank consumption plan Logic App that is already linked to this custom extension. Regardless, you need to provide: 
 
     1. An Azure subscription.
     
@@ -161,7 +161,7 @@ A new update to the custom extensions feature is the ability to pause the access
 
 This pause process allows admins to have control of workflows they’d like to run before continuing with access lifecycle tasks in entitlement management. The only exception to this is if a timeout occurs. Launch and wait processes require a timeout of up to 14 days noted in minutes, hours, or days. If a resume response isn't sent back to entitlement management by the time the “timeout” period elapses, the entitlement management request workflow process pauses. 
 
-The admin is responsible for configuring an automated process that is able to send the API **resume request** payload back to entitlement management, once the Logic App workflow has completed. To send back the resume request payload, follow the instructions here in the graph API documents. See information here on the [resume request](/graph/api/accesspackageassignmentrequest-resume)
+The admin is responsible for configuring an automated process that is able to send the API **resume request** payload back to entitlement management, once the Logic App workflow has completed. To send back the resume request payload, follow the instructions here in the graph API documents. See information here on the [resume request](/graph/api/accesspackageassignmentrequest-resume).
 
 Specifically, when an access package policy has been enabled to call out a custom extension and the request processing is waiting for the callback from the customer, the customer can initiate a resume action. It's performed on an [accessPackageAssignmentRequest](/graph/api/resources/accesspackageassignmentrequest) object whose **requestStatus** is in a **WaitingForCallback** state. 
 
@@ -171,12 +171,25 @@ The resume request can be sent back for the following stages:
 microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestCreated 
 microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestApproved 
 microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestGranted 
-Microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestRemoved
+microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestRemoved
 ``
 
 The following flow diagram shows the entitlement management callout to Logic Apps workflow:
-:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram." lightbox="media/entitlement-management-logic-apps/extensibility-diagram-flow.png":::
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A diagram of the entitlement management call to the logic apps workflow." lightbox="media/entitlement-management-logic-apps/extensibility-diagram-flow.png":::
  
+The diagram flow diagram shows:
+
+1. The user creates a custom endpoint able to receive the call from the Identity Service
+1. The identity service makes a test call to confirm the endpoint can be called by the Identity Service
+1. The User calls Graph API to request to add a user to an access package
+1. The Identity Service is added to the queue triggering the backend workflow
+1. Entitlement Management Service request processing calls the logic app with the request payload
+1. Workflow expects the accepted code
+1. The Entitlement Management Service waits for the blocking custom action to resume
+1. The customer system calls the request resume API to the identity service to resume processing the request
+1. The identity service adds the  resume request message to the Entitlement Management Service queue resuming the backend workflow
+1. The Entitlement Management Service is resumed from the blocked state
+
 An example of a resume request payload is:
 
 ``` http

@@ -50,7 +50,7 @@ Call Recording supports multiple media outputs and content types to address your
 | unmixed | wav | 16 kHz | 256 kbps | 1.92 MB/min* per channel | single file, up to 5 wav channels | unmixed audio, one participant per channel, up to five channels |
 
 > [*NOTE]
-> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the tables above reflect the theoretical maximum. WAV format bitrate is fixed, so the data rate provided above is a high-confidence estimate.
+> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the tables above reflect the theoretical maximum. WAV format is uncompressed and bitrate is fixed, so the data rate calculations are exact. 
 
 
 ## Get full control over your recordings with our Call Recording APIs
