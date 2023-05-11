@@ -166,6 +166,8 @@ When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses 
 
 When a cloud proxy is in place, a policy that requires a [hybrid Azure AD joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
 
+We recommend organizations utilize Global Secure Access to enable [source IP restoration](azure/global-secure-access/how-to-source-ip-restoration) to avoid this change in address and simplify managment.
+
 ### When is a location evaluated?
 
 Conditional Access policies are evaluated when:
