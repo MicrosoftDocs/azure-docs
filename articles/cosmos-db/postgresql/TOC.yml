@@ -222,7 +222,11 @@
     - name: PostgreSQL versions
       href: reference-versions.md
     - name: PostgreSQL extensions
-      href: reference-extensions.md
+      items:
+        - name: Overview
+          href: reference-extensions.md
+        - name: Pg_azure_storage
+          href: reference-pg-azure-storage.md
     - name: Limits and limitations
       href: reference-limits.md
     - name: Distributed SQL API
@@ -241,8 +245,7 @@
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
     - name: Bicep
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
-    - name: Pg_azure_storage
-      href: reference-pg-azure-storage.md
+
 - name: Resources
   items:
     - name: Pricing
