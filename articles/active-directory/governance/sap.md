@@ -19,21 +19,19 @@ ms.collection: M365-identity-device-management
 
 # Automate provisioning to and from SAP apps
 
-SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, M365, etc., and relies on Azure AD to manage access to applications. This document describes how you can get started using Azure AD to manage identities across the SAP landscape. 
+SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, M365, etc., and relies on Azure AD to manage access to applications. This document describes how you can get started using Azure AD to manage identities across SAP applications. 
 When an employee is hired, they have an account created in an HR system such as SAP SuccessFactors. Once that employee starts their job, they’ll need access to both Microsoft applications (ex: Teams and SharePoint) and SAP applications (ex: Analytics cloud, Concur, S/4 Hana). Using Entra Identity Governance and SAP IPS, you can automate lifecycle management and provide access to the applications that users need.  
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/66v2FR2-QrY]
-
-# Bring identities from HR into AD / Azure AD.
-First let’s look at how you can bring identities from SAP HR systems into Azure AD. 
+# Bring identities from HR into Azure AD
 
 #### SuccessFactors
-Customers using SAP SuccessFactors can easily bring identities into Active Directory or Azure AD using native connectors. The integration supports the following scenarios:
+Customers using SAP SuccessFactors can easily bring identities into [Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) or [Azure AD](../../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) using native connectors. The integration supports the following scenarios:
 * Hiring new employees - When a new employee is added to SuccessFactors, a user account is automatically created in Azure Active Directory and optionally Microsoft 365 and other SaaS applications supported by Azure AD, with write-back of the email address to SuccessFactors.
 * Employee attribute and profile updates - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Microsoft 365 and other SaaS applications supported by Azure AD.
 * Employee terminations - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Azure Active Directory and optionally Microsoft 365 and other SaaS applications supported by Azure AD.
 * Employee rehires - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Azure Active Directory and optionally Microsoft 365 and other SaaS applications supported by Azure AD.
 
+> [!VIDEO https://www.youtube-nocookie.com/embed/66v2FR2-QrY]
  
 #### SAP HCM
 Customers that are still using SAP HCM can also get identities into Azure AD. Using the SAP Integration Suite, you can synchronize identities between SAP HCM and SAP SuccessFactors. From there, you can bring identities directly into Azure AD or provisioning them into Active Directory Domain Services, using the native provisioning integrations mentioned above. 
