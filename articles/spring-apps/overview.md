@@ -4,7 +4,7 @@ description: Learn the features and benefits of Azure Spring Apps to deploy and 
 author: karlerickson
 ms.service: spring-apps
 ms.topic: overview
-ms.date: 05/9/2023
+ms.date: 05/10/2023
 ms.author: karler
 ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
@@ -89,9 +89,9 @@ The following image shows the architecture of using a virtual network in Azure S
 
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
-### Get started with the Standard consumption plan
+### Get started with the Standard consumption and dedicated plan
 
-The following articles help you get started using the Standard consumption plan:
+The following articles help you get started using the Standard consumption and dedicated plan:
 
 * [Provision an Azure Spring Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md)
 * [Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
