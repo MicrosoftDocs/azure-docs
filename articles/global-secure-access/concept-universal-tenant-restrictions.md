@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Universal tenant restrictions
 
-The initial implementation of tenant restrictions was important but lacked some funtionality. Tenant restrictions v1 had a heavy reliance on your corporate proxy, tenant restrictions v2 integrates with Global Secure Access through universal tenant restrictions for policy application while users are on your network (clients or branches) or devices. For more information about tenant restrictions v2, the changes, and how to configure, see the article [Set up tenant restrictions V2 (Preview)](https://aka.ms/tenant-restrictions-enforcement).
+Tenant restrictions v1 had a heavy reliance on your corporate proxy, tenant restrictions v2 integrates directly with Global Secure Access through universal tenant restrictions for policy application while users are on your network (clients or branches) or devices. For more information about tenant restrictions v2, the changes, and how to configure, see the article [Set up tenant restrictions V2 (Preview)](https://aka.ms/tenant-restrictions-enforcement).
 
 With the help of Global Secure Access, tenant restrictions v2 provides the following benefits in the form of universal tenant restrictions:
 
@@ -25,7 +25,7 @@ With the help of Global Secure Access, tenant restrictions v2 provides the follo
 
 Universal tenant restrictions helps organizations to prevent data exfiltration across browsers, devices, and networks.
 
-## Enable Global Secure Access tagging for tenant restrictions v2
+## Enable tagging for tenant restrictions v2
 
 To allow tagging for tenant restrictions v2 an administrator must take the following steps.
 

@@ -12,15 +12,16 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Global Secure Access and Conditional Access
+# Global Secure Access
 
-Global Secure Access enlightens Conditional Access in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the polies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements to visibility in traffic coming from Global Secure Access clients or configured branch offices.
+Global Secure Access enlightens services in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the polies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements to visibility in traffic coming from Global Secure Access clients or configured branch offices.
 
-## Source IP restoration
-
-With a cloud based network proxy between users and their resources, the source IP address that the resources see doesn't always match the actual source IP. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP. Customers that use IP-based location information as a control in Conditional Access typically have issues with traditional SASE solutions breaking this capability. Source IP restoration allows Conditional Access and other downstream applications to continue to use the source IP address in decision making. IP location-based checks are used in places like: [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [audit logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
-
-To enable source IP restoration see the article, [Enabling source IP restoration](how-to-source-ip-restoration.md).
+1. Route traffic through Global Secure Access
+    1. Choose between the available profiles Microsoft 365, Internet, and Private traffic profiles
+1. Install the [Global Secure Access client](how-to-install-windows-client.md).
+1. Restrict access to Global Secure Access using Conditional Access policies.
+    1. Some may require MFA or compliant device
+1. Source IP restoration 
 
 ## Conditional Access on network traffic profiles
 
