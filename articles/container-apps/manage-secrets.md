@@ -304,7 +304,7 @@ Here, the environment variable named `ConnectionString` gets its value from the 
 
 ## <a name="secrets-volume-mounts"></a>Mounting secrets in a volume
 
-After declaring secrets at the application level as described in the [defining secrets](#defining-secrets) section, you can reference them in volume mounts when you create a new revision in your container app. When mounting secrets in a volume, each secret is mounted as a file in the volume. The file name is the name of the secret, and the file contents are the value of the secret. You can load all secrets in a volume mount, or you can load specific secrets.
+After declaring secrets at the application level as described in the [defining secrets](#defining-secrets) section, you can reference them in volume mounts when you create a new revision in your container app. When you mount secrets in a volume, each secret is mounted as a file in the volume. The file name is the name of the secret, and the file contents are the value of the secret. You can load all secrets in a volume mount, or you can load specific secrets.
 
 ### Example
 
