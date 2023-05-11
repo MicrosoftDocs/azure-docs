@@ -56,15 +56,15 @@ Be sure to have *one* of the following resources to use when you create an endpo
 
 Routes send messages or event logs to an Azure service for storage or processing. Each route has a data source, where the messages or event logs originate, and an endpoint, where the messages or event logs end up. You can use routing queries to filter messages or events before they go to the endpoint. The endpoint can be an event hub, a Service Bus queue or topic, a storage account, or an Azure Cosmos DB resource.
 
-1. In the Azure portal, go to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
 2. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
    :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new Event Hubs route in your IoT hub.":::
 
-# [Event Hubs](#tab/eventhubs)
-
 3. On the **Endpoint** tab, select an existing Event Hubs endpoint or create a new one by providing the following information:
+
+   # [Event Hubs](#tab/eventhubs)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -75,9 +75,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-event-hub.png" alt-text="Screenshot that shows all options for creating an Event Hubs endpoint.":::
 
-# [Service Bus queue](#tab/servicebusqueue)
-
-3. On the **Endpoint** tab, select an existing Service Bus queue endpoint or create a new one by providing the following information:
+   # [Service Bus queue](#tab/servicebusqueue)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -88,9 +86,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-service-bus-endpoint.png" alt-text="Screenshot that shows the Add a service bus queue endpoint pane with correct options selected.":::
 
-# [Service Bus topic](#tab/servicebustopic)
-
-3. On the **Endpoint** tab, select an existing Service Bus topic endpoint or create a new one by providing the following information:
+   # [Service Bus topic](#tab/servicebustopic)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -101,9 +97,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-service-bus-topic-endpoint.png" alt-text="Screenshot that shows the Add a service bus topic endpoint pane with correct options selected.":::
 
-# [Azure Storage](#tab/azurestorage)
-
-3. On the **Endpoint** tab, select an existing Storage endpoint or create a new one by providing the following information:
+   # [Azure Storage](#tab/azurestorage)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -113,9 +107,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with the correct options selected.":::
 
-# [Azure Cosmos DB](#tab/cosmosdb)
-
-3. On the **Endpoint** tab, select an existing Cosmos DB endpoint or create a new one by providing the following information:
+   # [Azure Cosmos DB](#tab/cosmosdb)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -130,7 +122,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::
 
----
+   ---
 
 4. Select **Create + next** to create the endpoint and continue to create a route.
 
@@ -154,21 +146,20 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 To update a route in the Azure portal:
 
-1. In **Message routing** for your IoT hub, select the route.
+1. In the Azure portal, go to your IoT hub.
 
-1. You can make any of the following changes to an existing route:
+2. In the resource menu under **Hub settings**,  select **Message routing**.
 
-    * For **Endpoint**, select a different endpoint or create a new endpoint.
-  
-       You can't modify an existing endpoint, but you can create a new endpoint for your IoT hub route, and you can change the endpoint that your route uses.
+3. In the **Routes** tab, select the route that you want to modify.
 
-    * For **Data source**, select a new source.
-    * For **Enable route**, enable or disable your route.
-    * In **Routing query**, create or change queries.
+4. You can change the following parameters of an existing route:
 
-1. Select **Save**.
+    * **Endpoint**: You can create a new endpoint or select a different existing endpoint.
+    * **Data source**.
+    * **Enable route**.
+    * **Routing query**.
 
-   :::image type="content" source="media/how-to-routing-portal/update-route.png" alt-text="Screenshot that shows where and how to modify an existing IoT hub route.":::
+5. Select **Save**.
 
 ## Delete a route
 
@@ -179,6 +170,45 @@ To delete a route in the Azure portal:
 1. Select **Delete**.
 
    :::image type="content" source="media/how-to-routing-portal/delete-route-portal.png" alt-text="Screenshot that shows where and how to delete an existing IoT hub route." lightbox="media/how-to-routing-portal/delete-route-portal.png":::
+
+## Update a custom endpoint
+
+To update a custom endpoint in the Azure portal:
+
+1. In the Azure portal, go to your IoT hub.
+
+2. In the resource menu under **Hub settings**,  select **Message routing**.
+
+3. In the **Custom endpoints** tab, select the endpoint that you want to modify.
+
+4. You can change the following parameters of an existing endpoint:
+
+   # [Azure Cosmos DB](#tab/cosmosdb)
+
+    * **Test**
+
+   # [Event Hubs](#tab/eventhubs)
+
+   * **Event Hub status**
+   * **Retention time (hrs)**
+
+   # [Service Bus queue](#tab/servicebusqueue)
+
+   * **Test**
+
+   # [Service Bus topic](#tab/servicebustopic)
+
+   * **Test**
+
+   # [Azure Storage](#tab/storage)
+
+   * **Batch frequency**
+   * **Chunk size window**
+   * **File name format**
+
+   ---
+
+5. Select **Save**.
 
 ## Delete a custom endpoint
 
@@ -193,7 +223,5 @@ To delete a custom endpoint in the Azure portal:
    :::image type="content" source="media/how-to-routing-portal/delete-endpoint-portal.png" alt-text="Screenshot that shows where and how to delete an existing Event Hubs endpoint." lightbox="media/how-to-routing-portal/delete-endpoint-portal.png":::
 
 ## Next steps
-
-In this how-to article, you learned how to create a route and an endpoint for Event Hubs, Service Bus queues and topics, Azure Storage, and Azure Cosmos DB.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
