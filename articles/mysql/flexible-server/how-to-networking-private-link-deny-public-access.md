@@ -22,7 +22,7 @@ This article describes how you can configure an Azure Database for MySQL flexibl
 
 1. To disable public access on the MySQL flexible server you are creating, uncheck Allow public access to this resource through the internet using a public IP address under *Public access*.
 
-:::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png" alt-text="Screenshot of denying public access from the portal." lightbox="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png":::
+   :::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png" alt-text="Screenshot of denying public access from the portal." lightbox="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png":::
 
 1. After entering the remaining information in the other tabs, select on *Review + Create* to deploy the MySQL flexible server without public access.
 
@@ -35,7 +35,7 @@ This article describes how you can configure an Azure Database for MySQL flexibl
 
 1. To disable public access on the MySQL flexible server, uncheck Allow public access to this resource through the internet using a public IP address under **Public access**.
 
-:::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png" alt-text="Screenshot of denying public access from the portal next screen." lightbox="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png":::
+   :::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png" alt-text="Screenshot of denying public access from the portal next screen." lightbox="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png":::
 
 1. Select **Save** to save the changes.
 
