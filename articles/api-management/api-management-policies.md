@@ -4,7 +4,7 @@ description: Reference index for all Azure API Management policies and settings.
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/01/2022
 ms.author: danlep
 ---
@@ -95,7 +95,7 @@ More information about policies:
 - [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
-- [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in
+- [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
 ## Next steps
 
 For more information about working with policies, see:

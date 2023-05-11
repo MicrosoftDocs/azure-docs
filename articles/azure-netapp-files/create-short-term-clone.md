@@ -43,8 +43,9 @@ Short-term clones are current in preview. To take advantage of the feature, you 
 
 	Provide a **Volume name**.
 	Select a **Capacity pool**.
-	Provide a **Quota** value.
 	Choose if you want to **Delete base snapshot** once the short-term clone is created. 
+	Provide a **Quota** value.
+
 1. Select **Review and create**
 1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field as well as view the **Inherited size** and track the **Split clone volume progress.**
 

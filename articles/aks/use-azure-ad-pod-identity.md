@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/23/2023
+ms.date: 04/28/2023
 ---
 
 # Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)
@@ -16,7 +16,8 @@ Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitiv
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022. The AKS Managed add-on is still supported.
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement).
+> The AKS Managed add-on begins deprecation in Sept. 2023.
 
 ## Before you begin
 

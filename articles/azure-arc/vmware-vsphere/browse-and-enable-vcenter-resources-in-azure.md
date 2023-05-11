@@ -44,7 +44,7 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 
 1. (Optional) Select **Install guest agent** and then provide the Administrator username and password of the guest operating system.
 
-   The guest agent is the [Azure Arc connected machine agent](../servers/agent-overview.md). You can install this agent later by selecting the VM in the VM inventory view on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc enabled VMware vSphere](manage-vmware-vms-in-azure.md).
+   The guest agent is the [Azure Arc connected machine agent](../servers/agent-overview.md). You can install this agent later by selecting the VM in the VM inventory view on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc-enabled VMware vSphere](manage-vmware-vms-in-azure.md).
 
 1. Select **Enable** to start the deployment of the VM represented in Azure.
 

@@ -104,7 +104,7 @@ If there are any existing resources that aren't compliant with this new assignme
 under **Non-compliant resources**.
 
 For more information, see
-[How compliance works](./how-to/get-compliance-data.md#how-compliance-works).
+[How compliance works](./concepts/compliance-states.md).
 
 ## Clean up resources
 

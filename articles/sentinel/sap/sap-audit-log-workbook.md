@@ -1,15 +1,15 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - SAP audit log workbook overview
-description: Learn about the SAP audit log workbook, used to monitor and track data across your SAP systems.
+title: Microsoft Sentinel solution for SAP® applications - SAP -Security Audit log and Initial Access workbook overview
+description: Learn about the SAP -Security Audit log and Initial Access workbook, used to monitor and track data across your SAP systems.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
 ms.date: 01/23/2023
 ---
 
-# Microsoft Sentinel solution for SAP® applications - SAP audit log workbook
+# Microsoft Sentinel solution for SAP® applications - SAP -Security Audit log and Initial Access workbook
 
-This article describes the SAP Audit workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
+This article describes the SAP -Security Audit log and Initial Access workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
 
 You can use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity. 
 
@@ -17,15 +17,15 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 
 1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
 
-1. In the **Workbooks** gallery, enter *SAP audit* in the search bar, and select **SAP Audit** from among the results.
+1. In the **Workbooks** gallery, go to **Templates** and enter *SAP* in the search bar, and select **SAP -Security Audit log and Initial Access** from among the results.
 
 1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
 
-    :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
+    :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP -Security Audit log and Initial Access workbook." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
 
      > [!IMPORTANT]
      >
-     > The SAP Audit workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP® applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
+     > The SAP -Security Audit log and Initial Access workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP® applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
      >
      > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**. 
 

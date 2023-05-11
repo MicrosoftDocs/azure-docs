@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/10/2022
+ms.date: 04/21/2023
 ---
 
 # Add, test, or remove protected actions in Azure AD (preview)
@@ -45,13 +45,17 @@ Protected actions use a Conditional Access authentication context, so you must c
 
 1. Create a new policy and select your authentication context.
 
-    For more information, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
+    For more information, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
     :::image type="content" source="media/protected-actions-add/policy-authentication-context.png" alt-text="Screenshot of New policy page to create a new policy with an authentication context." lightbox="media/protected-actions-add/policy-authentication-context.png":::
 
 ## Add protected actions
 
 To add protection actions, assign a Conditional Access policy to one or more permissions using a Conditional Access authentication context.
+
+1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access** > **Policies**.
+
+1. Make sure the state of the Conditional Access policy that you plan to use with your protected action is set to **On** and not **Off** or **Report-only**.
 
 1. Select **Azure Active Directory** > **Roles & admins** > **Protected actions (Preview)**.
 
@@ -172,6 +176,22 @@ The user has previously satisfied policy. For example, the completed multifactor
 **Solution 2**
 
 Check the [Azure AD sign-in events](../conditional-access/troubleshoot-conditional-access.md) to troubleshoot. The sign-in events will include details about the session, including if the user has already completed multifactor authentication. When troubleshooting with the sign-in logs, it's also helpful to check the policy details page, to confirm an authentication context was requested.  
+
+### Symptom - Policy is never satisfied
+
+When you attempt to perform the requirements for the Conditional Access policy, the policy is never satisfied and you keep getting requested to reauthenticate.
+
+**Cause**
+
+The Conditional Access policy wasn't created or the policy state is **Off** or **Report-only**.
+
+**Solution**
+
+Create the Conditional Access policy if it doesn't exist or and set the state to **On**.
+
+If you aren't able to access the Conditional Access page because of the protected action and repeated requests to reauthenticate, use the following link to open the Conditional Access page.
+
+- [https://aka.ms/MSALProtectedActions](https://aka.ms/MSALProtectedActions)
 
 ### Symptom - No access to add protected actions
 

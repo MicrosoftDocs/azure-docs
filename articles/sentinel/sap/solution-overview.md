@@ -95,7 +95,7 @@ See the certification on the [SAP Certified Solutions Directory](https://www.sap
 
 ## Trademark attribution
 
-SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries. 
+SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries/regions. 
   
 ## Next steps
 

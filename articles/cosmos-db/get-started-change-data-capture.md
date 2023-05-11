@@ -120,6 +120,9 @@ When you check any of the `Capture intermediate updates`, `Capture Deltes`, and 
 | 4 | TTL_DELETE |  Capture Transactional store TTLs|
   
 If you have to differentiate the TTL deleted records from documents deleted by users or applications, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. Then you have to adapt your CDC processes or applications or queries to use `__usr_opType` according to what is necessary for your business needs.
+
+>[!TIP]
+> If there is a need for the downstream consumers to restore the order of updates with the “capture intermediate updates” option checked,  the system timestamp `_ts` field can be used as the ordering field.
   
   
 ## Create and configure sink settings for update and delete operations
