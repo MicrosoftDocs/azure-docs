@@ -12,8 +12,8 @@ A persistent volume represents a piece of storage that has been provisioned for 
 
 [Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure and supports both the [NFS](azure-netapp-files-nfs.md) and [SMB](azure-netapp-files-smb.md). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
 
-* Create Azure NetApp Files volumes **dynamically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes aren't recommended for most use cases.
-* Create Azure NetApp Files volumes **on-demand**, orchestrating through Kubernetes. This method is the **preferred** way to create multiple volumes directly through Kubernetes, and is achieved using [Astra Trident][astra-trident]. Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
+* Create Azure NetApp Files volumes **statically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes aren't recommended for most use cases.
+* Create Azure NetApp Files volumes **dynamically**, orchestrating through Kubernetes. This method is the **preferred** way to create multiple volumes directly through Kubernetes, and is achieved using [Astra Trident][astra-trident]. Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
 Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workloads is the recommended configuration for most use cases. This requirement is accomplished using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. Astra Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes, and fully supported by NetApp. It simplifies access to storage from Kubernetes clusters by automating storage provisioning.
 
@@ -40,8 +40,8 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
     LOCATION="mylocation"
     ANF_ACCOUNT_NAME="myaccountname"
     POOL_NAME="mypool1"
-    SIZE="poolsize" # Size in Azure CLI needs to be in TiB unit (minimum of 4TiB)
-    SERVICE_LEVEL="premium" # Valid values are Standard, Premium and Ultra
+    SIZE="poolsize" # size in TiB
+    SERVICE_LEVEL="Premium" # valid values are Standard, Premium and Ultra
     VNET_NAME="myvnet"
     SUBNET_NAME="myANFSubnet"
     ADDRESS_PREFIX="myprefix"
