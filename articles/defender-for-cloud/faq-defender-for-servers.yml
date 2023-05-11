@@ -38,13 +38,13 @@ sections:
 
           1. Enter the following information:
 
-              :::image type="content" source="media/faq-defender-for-servers/support-ticket-description.png" alt-text="Support ticket description with the information filled out":::
+              :::image type="content" source="media/faq-defender-for-servers/support-ticket-description.png" alt-text="Screenshot that shows the support ticket description with the information filled out":::
 
           1. Select **Next**.
 
           1. Select **Next**.
 
-          1. In the *Additional details* tab enter your Customer Org name, Tenant ID, The number of Microsoft Defender for Endpoint for Servers licenses that were purchased, The expiration date of the Microsoft Defender for Endpoint for Servers licenses that were purchased, and all other required fields.
+          1. In the *Additional details* tab, enter your Customer Org name, Tenant ID, the number of Microsoft Defender for Endpoint for Servers licenses that were purchased, the expiration date of the Microsoft Defender for Endpoint for Servers licenses that were purchased, and all other required fields.
 
           1. Select **Next**.
 
@@ -117,7 +117,7 @@ sections:
       - question: |
           Am I charged for machines that don't have Log Analytics installed?
         answer: |
-          Yes. You are charged for all machines that are protected by Defender for Servers in Azure subscriptions, connected AWS accounts, or connected GCP projects. The term *machines* includes Azure virtual machines, instances of Azure Virtual Machine Scale Sets, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
+          Yes. You're charged for all machines that are protected by Defender for Servers in Azure subscriptions, connected AWS accounts, or connected GCP projects. The term *machines* includes Azure virtual machines, instances of Azure Virtual Machine Scale Sets, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
       - question: |
           If an agent reports to multiple workspaces, am I charged twice?
