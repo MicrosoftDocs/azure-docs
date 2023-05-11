@@ -74,8 +74,8 @@ or if no channelId is provided, the SDK will assign an available channelId from 
 
 ### Reliability
 When creating a channel, you have the option to specify the reliability setting.
-Two options are available: `Reliable` and `Lossy`.
-By choosing `Reliable`, SDK will create a reliable channel, while `Lossy` creates an unreliable channel.
+Two options are available: `Durable` and `Lossy`.
+By choosing `Durable`, SDK will create a reliable channel, while `Lossy` creates an unreliable channel.
 In current Web SDK implementation, we utilize a reliable WebRTC DataChannnel connection.
 As a result, messages from both reliable and unreliable channel are transmitted through this reliable WebRTC DataChannel connection.
 
