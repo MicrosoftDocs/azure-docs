@@ -29,6 +29,9 @@ To perform the steps described in this article, you'll need:
 
 This step is performed by your deployment and connectivity teams.
 
+> [!NOTE]
+> Note that SSL inspection is relevant in this process of configuring proxy settings. If you use SSL inspection, you can use the OT sensor console to [deploy a CA-signed certificate](how-to-manage-individual-sensors.md#deploy-a-ca-signed-certificatetabca-signed).
+
 ## Connect via an Azure proxy
 
 This section describes how to connect your sensor to Defender for IoT in Azure using an [Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy). Use this procedure in the following situations:
