@@ -236,7 +236,7 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 
 1. You should now be connected to the SUSE public cloud update infrastructure on Azure. The relevant repositories are installed on your machine.
 
-1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action removes all repositories from your virtual machine and stop the billing.
+1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action removes all repositories from your virtual machine and stops the billing.
 
 After you successfully install the `AHBForRHEL` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
 
