@@ -150,16 +150,13 @@ cd fabrikam-functions
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 
-# [In-process](#tab/in-process)
-No changes are needed to the Dockerfile.
-# [Isolated process](#tab/isolated-process)
 Open the Dockerfile and add the following lines after the first `FROM` statement, if not already present:
 
 ```docker
 # Build requires 3.1 SDK
 COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/dotnet
 ```
----
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
@@ -334,13 +331,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp"
-# [In-process](#tab/in-process)
-After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
-
-# [Isolated process](#tab/isolated-process)
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample`, which must display the same greeting message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
-
----
 ::: zone-end
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
