@@ -207,16 +207,10 @@ If you encounter errors when you run `az role assignment create`, you might not 
        --resource-group $resourceGroupName
     ```
 
-1. Then [connect to your cluster](create-cluster-cli.md#connect-to-your-cluster) using CQLSH, and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
+1. Then [connect to your cluster](create-cluster-cli.md#connect-to-your-cluster) using CQLSH, and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster (system tables will be updated automatically):
 
    ```bash
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc-eastus2': 3, 'dc-eastus': 3};
-   ```
-
-   You also need to update the password tables:
-
-   ```bash
-    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc-eastus2': 3, 'dc-eastus': 3}
    ```
    
 1. Finally, if you are adding a data center to a cluster where there is already data, you will need to run `rebuild` in order to replicate the historical data. In this case, we'll assume that the `dc-eastus2` data center already has data. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new `dc-eastus` data center, replacing `<ip address>` with the IP address of the node:
