@@ -11,7 +11,7 @@ ms.subservice: image-builder
 
   
 
-# VM Optimization for SIG Images with Azure VM Image Builder 
+# VM optimization for gallery images with Azure VM Image Builder 
 
   **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Virtual Machine Scale Sets 
 
