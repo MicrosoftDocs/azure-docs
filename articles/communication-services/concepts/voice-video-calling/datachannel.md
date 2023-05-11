@@ -62,11 +62,11 @@ It employs separate objects for sending and receiving messages, with DataChannel
 The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
 
 ### Channel
-Every DataChannel message is associated with a specific channel identified by *channelId*.
+Every DataChannel message is associated with a specific channel identified by `channelId`.
 It's important to clarify that this channelId is not related to the id property in the WebRTC DataChannel.
 This channelId can be utilized to differentiate various application uses, such as using 10000 for chat messages and 10001 for image transfers.
 
-The channelId is assigned during the creation of a DataChannelSender object, 
+The channelId is assigned during the creation of a DataChannelSender object,
 and can be either user-specified or automatically allocated by SDK if left unspecified.
 
 The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided,
@@ -84,6 +84,13 @@ An unreliable channel will sliently discard the message if the delivery is not p
 the order of messages is not guranteed.
 Furthermore, an unreliable channel may experience instances of message loss.
 On the other hand, a reliable channel will throw an exception when a message cannot be delivered, ensuring a higher degree of reliability in the transmission of data.
+
+### Priority
+When creating a channel, you have the option to specify the priority setting.
+Two options are available: `High` and `Normal`.
+In the case of Native SDK, the `Normal` priority ensures a best effort delivery where video transmission is given precedence over DataChannel. 
+On the other hand, the `High` priority setting prioritizes DataChannel messages over video, to the point where video quality may suffer due to bandwidth allocation for DataChannel.
+For Web SDK, priority settings are compared only among channels on the sender's side. Channels with a `High` priority setting are given higher precedence for transmission compared to those set as `Normal`.
 
 ### Session
 The DataChannel API introduces the concept of a session, which adheres to open-close semantics.
@@ -103,8 +110,10 @@ or if the session hasn't received any messages from the sender for over two minu
 
 In instances where the session of a receiver object is closed and no new session for the same channelId exists on the receiver's side, the SDK will create a new receiver object upon receipt of a message from the same session at a later time. However, if a new session for the same channelId exists on the receiver's side, the SDK will discard any incoming messages from the previous session.
 
+Considering that the receiver object will close if it doesn't receive messages for more than two minutes. We suggest that the application periodically send keep-alive messages from the sender's side to maintain the active status of the receiver object.
+
 ### Sequence number
-The sequence number is a 32 bit unsigned interger included in the sender's message to indicate the order of messages within a channel.
+The sequence number is a 32 bit unsigned integer included in the sender's message to indicate the order of messages within a channel.
 It's important to note this number is generated from the sender's perspective. Consequently, a receiver may notice a gap in the sequence numbers if the sender alters the recipients during sending messages.
 
 For instance, consider a scenario where a sender sends three messages. Initially, the recipients are Participant A and Participant B.
@@ -121,9 +130,14 @@ The maximum number of participants in a list is limited to 64. If you want to sp
 For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
 Please note that when calculating the limit, two endpoints using the same participant identifier will be counted as separate entities.
 
-### Bandwidth
+### Rate limiting
+There is a limit on the overall send bitrate, currently set at 500 Kbps.
+However, when broadcasting messages, the send bitrate limit is dynamic and depends on the receive bitrate.
+In the current implementation, the send bitrate limit is calcualted as the maximum send bitrate(500 Kbps) minus 80% og the receive bitrate.
 
-### Broadcast
+Furthermore, we also enforce a packet rate resitriction when sending broadcast messages.
+The current limit is set at 80 packets per second, where every 1200 bytes is counted as one packet.
+This measure is in place to prevent flooding when a significant number of participants in a group call are broadcasting messages.
 
 ## Next steps
 For more information, see the following articles:
