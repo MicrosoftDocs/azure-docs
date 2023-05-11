@@ -30,7 +30,7 @@ To perform the steps described in this article, you'll need:
 This step is performed by your deployment and connectivity teams.
 
 > [!NOTE]
-> Note that SSL inspection is relevant in this process of configuring proxy settings. If you use SSL inspection, you can use the OT sensor console to [deploy a CA-signed certificate](how-to-manage-individual-sensors.md#deploy-a-ca-signed-certificatetabca-signed).
+> Note that SSL inspection is relevant in this process of configuring proxy settings. If you use SSL inspection, you can use the OT sensor console to [deploy a CA-signed SSL certificate](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 ## Connect via an Azure proxy
 
