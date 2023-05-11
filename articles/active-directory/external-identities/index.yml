@@ -42,7 +42,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Azure Ad for customers (CIAM)
+    - title: Azure AD for customers (CIAM)
       items:
         # Card
         - title: Overview
