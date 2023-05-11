@@ -26,6 +26,7 @@ ms.author: greglin
 | Request timeout maximum to external backend |4 minutes | |
 | Number of sites |100<sup>1</sup> |1 per HTTP listener |
 | URL maps per listener |1 | |
+| Host names per listener |5 | |
 | Maximum path-based rules per URL map|100||
 | Redirect configurations |100<sup>1</sup>| |
 | Number of rewrite rule sets |400| |
