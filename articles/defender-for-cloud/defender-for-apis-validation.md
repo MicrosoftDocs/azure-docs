@@ -21,6 +21,8 @@ This page will walk you through the steps to trigger an alert for one of your AP
 
 - [Onboard Defender for APIs](defender-for-apis-deploy.md)
 
+- An account with [Postman](https://identity.getpostman.com/signup)
+
 ## Simulate an alert
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -39,4 +41,44 @@ This page will walk you through the steps to trigger an alert for one of your AP
 
 1. Navigate to the **Test** tab.
 
-1. Select an API operation.
+1. Select **Get Retrieve resource (cashed)**.
+
+1. In the HTTP request section select the see more button.
+
+    :::image type="content" source="media/defender-for-apis-validation/see-more.png" alt-text="Screenshot that shows you where the see more button is located on the screen.":::
+
+1. Select the **Copy** button.
+
+1. Navigate and sign in to your [Postman account](https://www.postman.com/).
+
+1. Select **My Workspace**.
+
+1. Select **+**.
+
+1. Enter the HTTPS request information you copied.
+
+    :::image type="content" source="media/defender-for-apis-validation/postman-url.png" alt-text="Screenshot that shows you where to enter the URL you copied earlier.":::
+
+1. Select the **Headers** tab
+
+1. In the key field, enter **Ocp-Apim-Subscription-Key**.
+
+1. In the value field enter the key you copied.
+
+1. In the key field enter **User-Agent**.
+
+1. In the value field enter **jvascript:**.
+
+    :::image type="content" source="media/defender-for-apis-validation/postman-keys.png" alt-text="Screenshot that shows where to enter the keys and their values in Postman."::: 
+
+1. Select **Send**
+
+    You will see a 200 OK which will let you know that it succeeded.
+
+    :::image type="content" source="media/defender-for-apis-validation/200-ok.png" alt-text="Screenshot that shows the result 200 OK.":::
+
+After some time, Defenders APIs will trigger an alert with detailed information about the simulated suspicious user agent activity.
+
+## Next steps
+
+Learn how to [Investigate API findings, recommendations, and alerts](defender-for-apis-posture.md).
