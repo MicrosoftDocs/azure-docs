@@ -4,7 +4,7 @@ description: Learn how to install and configure Azure Container Storage Preview 
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -135,7 +135,7 @@ Next, you must update your node pool label to associate the node pool with the c
 Run the following command to update the label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool from the previous step.
 
 ```azurecli-interactive
-az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool-name> --labels openebs.io/engine=io.engine
+az aks nodepool update --resource-group <resource group> --cluster-name <cluster name> --name <nodepool name> --labels acstor.azure.com/io-engine=acstor
 ```
 
 > [!TIP]
@@ -164,7 +164,7 @@ The initial install uses Azure Arc CLI commands to download a new extension. Rep
 During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <name> --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace acstor
+az k8s-extension create --cluster-type managedClusters --cluster-name <cluster name> --resource-group <resource group name> --name <name of extension> --extension-type microsoft.azurecontainerstorage --scope cluster --release-train prod --release-namespace acstor
 ```
 
 Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says **Succeeded**:

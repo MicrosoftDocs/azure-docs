@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure Epheme
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -42,12 +42,11 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    apiVersion: containerstorage.azure.com/v1alpha1
    kind: StoragePool
    metadata:
-     name: azurenvme
+     name: ephemeraldisk
      namespace: acstor
    spec:
      poolType:
-       localDisk:
-         replicas: 1 
+       emphemeralDisk: {}
    ```
 
 1. Apply the YAML manifest file to create the storage pool.
@@ -73,6 +72,9 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
 
 Run `kubectl get sc` to display the available storage classes. You should see a storage class with the same name as the storage pool you just created.
+
+> [!IMPORTANT]
+> Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
 
 ## Create a persistent volume claim
 
@@ -173,6 +175,14 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
    ```
 
 You've now deployed a pod that's using Azure Ephemeral OS Disk as its storage, and you can use it for your Kubernetes workloads.
+
+## Delete the storage pool
+
+If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
+
+```azurecli-interactive
+kubectl delete -n acstor <storage-pool-name>
+```
 
 ## See also
 
