@@ -27,9 +27,9 @@ This content applies to both Azure Monitor for SAP solutions and Azure Monitor f
 
 Before adding providers for HA (Pacemaker) clusters, install the appropriate agent for your environment in each cluster node.
 
-For SUSE-based clusters, install **ha_cluster_provider** in each node. For more information, see [the HA cluster exporter installation guide](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Supported SUSE versions include SLES for SAP 12 SP3 and latter versions.
+For SUSE-based clusters, install **ha_cluster_provider** in each node. For more information, see [the HA cluster exporter installation guide](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Supported SUSE versions include SLES for SAP 12 SP3 and later versions.
 
-For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** sub package in each node.For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4 and latter versions.
+For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** sub package in each node.For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4 and later versions.
 
 For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.com/articles/6139852) in each node.
 
@@ -72,7 +72,7 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 
 1. Data will then be collected in the system by PCP. You can export the data using `pmproxy` at `http://<SERVER-NAME-OR-IP-ADDRESS>:44322/metrics?names=ha_cluster`. Replace `<SERVER-NAME-OR-IP-ADDRESS>` with your server name or IP address.
 
-## Prerequisites to enable secure communication 
+## Prerequisites to enable secure communication
 
 To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://github.com/ClusterLabs/ha_cluster_exporter#tls-and-basic-authentication)
 
@@ -87,17 +87,16 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
     ![Diagram of Azure Monitor for SAP solutions resource in the Azure portal, showing button to add a new provider.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-start.png)
 
 1. For **Type**, select **High-availability cluster (Pacemaker)**.
-1. *Optional* Select **Enable secure communciation**, choose a certificate type
+1. *Optional* Select **Enable secure communication**, choose a certificate type
 1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**.
 
-    1. For SUSE-based clusters, enter `http://<IP-address> :9664/metrics`.
+    1. For SUSE-based clusters, enter `http://<IP-address>:9664/metrics`.
 
     ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-suse.png)
 
     1. For RHEL-based clusters, enter `http://<'IP address'>:44322/metrics?names=ha_cluster`.
 
     ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
-
 
 1. Enter the system identifiers, host names, and cluster names. For the system identifier, enter a unique SAP system identifier for each cluster. For the hostname, the value refers to an actual hostname in the VM. Use `hostname -s` for SUSE- and RHEL-based clusters.
 
@@ -119,14 +118,15 @@ When the provider settings validation operation fails with the code ‘Prometheu
 
 1. Restart the HA cluster exporter agent.
 
-    ```bash
-    sstemctl start pmproxy
-    ```
+```bash
+sstemctl start pmproxy
+```
 
 1. Reenable the HA cluster exporter agent.
-    ```bash
-    systemctl enable pmproxy
-    ```
+
+```bash
+systemctl enable pmproxy
+```
 
 1. Verify that the Prometheus endpoint is reachable from the subnet that provided while creating the Azure Monitor for SAP solutions resource.
 
