@@ -180,6 +180,8 @@
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
+    - name: Configure MFA using the portal guide
+      href: multi-factor-authentication-wizard.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
     - name: Configure users
@@ -251,7 +253,7 @@
       - name: Overview
         href: how-to-migrate-mfa-server-to-azure-mfa.md
       - name: Migrate to Azure MFA and user authentication
-        href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+        href: how-to-migrate-mfa-server-to-mfa-user-authentication.md
       - name: Migrate to Azure MFA with Federation
         href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
       - name: Migration Utility
