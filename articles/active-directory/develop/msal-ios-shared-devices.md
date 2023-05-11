@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-Shared device mode [https://learn.microsoft.com/azure/active-directory/develop/msal-shared-devices] allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single signed-on (SSO) to all apps which support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app which also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previoud user's data.
+Shared device mode [https://learn.microsoft.com/azure/active-directory/develop/msal-shared-devices] allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single signed-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
 
 To take advantage of shared device mode feature, app developers and cloud device admins work together:
 
@@ -40,6 +40,15 @@ To take advantage of shared device mode feature, app developers and cloud device
     > [!IMPORTANT] 
     > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS dont require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
 
+## Setup device in Shared Device Mode
+
+Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
+
+Microsoft Intune supports zero-touch provisioning for devices in Azure AD shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To setup device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
+
+> [!IMPORTANT]
+> We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
+
 ## Microsoft applications that support shared device mode
 
 These Microsoft applications support Azure AD's shared device mode:
@@ -48,15 +57,6 @@ These Microsoft applications support Azure AD's shared device mode:
 
 > [!IMPORTANT]
 > Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Setup device in Shared Device Mode
-
-Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
-
-Microsoft Intune supports zero-touch provisioning for devices in Azure AD shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To setup device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](https://learn.microsoft.com/mem/intune/enrollment/automated-device-enrollment-shared-device-mode).
-
-> [!IMPORTANT]
-> We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
 
 ## Modify your iOS application to support shared device mode
 
@@ -68,7 +68,7 @@ On a user change, you should ensure both the previous user's data is cleared and
 
 ### Detect shared device mode
 
-Detecting shared device mode is important for your application. Many applications will require a change in their user experience (UX) when the application is used on a shared device. For example, your application might have a "Sign-Up" feature, which isn't appropriate for a frontline worker because they likely already have an account. You may also want to add extra security to your application's handling of data if it's in shared device mode.
+Detecting shared device mode is important for your application. Many applications require a change in their user experience (UX) when the application is used on a shared device. For example, your application might have a "Sign-Up" feature, which isn't appropriate for a frontline worker because they likely already have an account. You may also want to add extra security to your application's handling of data if it's in shared device mode.
 
 Use the `getDeviceInformationWithParameters:completionBlock:` API in the `MSALPublicClientApplication` to determine if an app is running on a device in shared device mode.
 
@@ -153,7 +153,7 @@ parameters.loginHint = self.loginHintTextField.text;
 
 ### Globally sign out a user
 
-The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It doesn't, however, clear the _data_ from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
+The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It doesn't, however, clear the _data_ from your application. You must clear the data from your application, and clear any cached data your application may be displaying to the user.
 
 #### Swift
 
@@ -205,11 +205,11 @@ signoutParameters.signoutFromBrowser = YES; // To trigger a browser signout in S
 }];
 ```
 
-The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It doesn't clear state on the Safari browser. You can use the optional signoutFromBrowser property shown in code snippets above to trigger a browser signout in Safari. This will cause the browser to briefly launch on the device.
+The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It doesn't clear state on the Safari browser. You can use the optional `signoutFromBrowser` property shown in code snippets above to trigger a browser sign out in Safari. This causes the browser to briefly launch on the device.
 
 ### Receive broadcast to detect global sign out initiated from other applications
 
-To receive the account change broadcast, you'll need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It's recommended to properly stop any operations and do data cleanup.
+To receive the account change broadcast, you need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It's recommended to properly stop any operations and do data cleanup.
 
 The following code snippet shows how you could register a broadcast receiver.
 
@@ -250,7 +250,7 @@ For more information about the available options for CFNotificationAddObserver o
 - [CFNotificationAddObserver](https://developer.apple.com/documentation/corefoundation/1543316-cfnotificationcenteraddobserver?language=objc)
 - [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
 
-For iOS, your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+For iOS, your app requires a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
 
 ## Next steps
 
