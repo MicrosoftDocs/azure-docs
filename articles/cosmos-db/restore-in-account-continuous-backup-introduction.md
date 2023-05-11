@@ -73,5 +73,6 @@ Here's a list of the current behavior characteristics of the point-in-time in-ac
 
 ## Next steps
 
-- [Trigger a restore operation](how-to-restore-in-account-continuous-backup.md) for a continuous backup account.
-- [Resource model of continuous backup mode](restore-in-account-continuous-backup-resource-model.md)
+- [Trigger an in-account restore operation](how-to-restore-in-account-continuous-backup.md) for a continuous backup account.
+- [Resource model of in-account continuous backup mode](restore-in-account-continuous-backup-resource-model.md)
+- [In-account restore introduction](restore-in-account-continuous-backup-introduction.md)
