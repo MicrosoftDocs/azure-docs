@@ -31,7 +31,7 @@ Azure Lab Services advanced networking uses virtual network (VNET) injection to 
 - An Azure virtual network and subnet. If you don't have this resource, learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 
     > [!IMPORTANT]
-    > The virtual network and the lab plan must be in the same Azure region.
+    > The virtual network and the lab plan must be in the same Azure region. You can't use a VNET Gateway subnet with Azure Lab Services.
 
 ## Delegate the virtual network subnet to lab plans
 
@@ -46,6 +46,9 @@ Follow these steps to delegate your subnet for use with a lab plan:
 1. Go to your virtual network, and select **Subnets**.
 
 1. Select the subnet you wish to delegate to Azure Lab Services.
+
+    > [!IMPORTANT]
+    > You can't use a VNET Gateway subnet with Azure Lab Services.
 
 1. In **Delegate subnet to a service**, select **Microsoft.LabServices/labplans**, and then select **Save**.
 
