@@ -35,11 +35,11 @@ To find and install the extension from within Visual Studio Code, perform the fo
     
     :::image type="content" source="media/reference-iot-hub-extension/iot-hub-vscode-extension-list.png" alt-text="Screenshot showing the search bar and list in the Extensions view of Visual Studio Code.":::
     
-1. Confirm that the unique identifier for the selected extension, displayed in the More Info section of the Extension details page, is set to `vsciot-vscode.azure-iot-toolkit`. 
+1. Confirm that the unique identifier for the selected extension, displayed in the More Info section of the extension details page, is set to `vsciot-vscode.azure-iot-toolkit`. 
     
-    :::image type="content" source="media/reference-iot-hub-extension/iot-hub-vscode-extension-identifier.png" alt-text="Screenshot showing the extension identifier for the Azure IoT Hub extension from the Extension details page.":::
+    :::image type="content" source="media/reference-iot-hub-extension/iot-hub-vscode-extension-identifier.png" alt-text="Screenshot showing the extension identifier for the Azure IoT Hub extension from the extension details page.":::
 
-1. Select the **Install** button for the selected extension, either from the list or the Extension details page, to install the extension.
+1. Select the **Install** button for the selected extension, either from the list or the extension details page, to install the extension.
 
 ### Install from the Visual Studio Code Marketplace
 
@@ -49,9 +49,9 @@ To find and install the extension from the VS Code Marketplace, perform the foll
 
 1. Confirm that the unique identifier for the selected extension, displayed in the More Info section of the Azure IoT Hub extension page, is set to `vsciot-vscode.azure-iot-toolkit`.
 
-1. Select the **Install** button to start Visual Studio Code, if it isn't already running, and display the Extension details page for the extension in VS Code.
+1. Select the **Install** button to start Visual Studio Code, if it isn't already running, and display the extension details page for the extension in VS Code.
 
-1. In VS Code, select the **Install** button from the Extension details page to install the extension.
+1. In VS Code, select the **Install** button from the extension details page to install the extension.
 
 Installing the Azure IoT Hub extension for Visual Studio Code also installs the [Azure Account extension for Visual Studio Code](https://github.com/microsoft/vscode-azure-account#readme), which provides a single Azure sign in and subscription filtering experience for all other Azure extensions. The Azure Account extension also makes the Azure Cloud Shell service available in VS Code's integrated terminal.
 
