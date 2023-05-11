@@ -21,7 +21,7 @@ A Master must be up and running before you can run HBCK2 commands. HBCK1 perform
 
 ## HBCK2 vs. HBCK1
 
-HBCK2 is the successor to HBCK, the repair tool that shipped with hbase-1.x (also known as HBCK1). You can use HBCK2 in place of HBCK1 to make repairs against hbase-2.x clusters. HBCK1 shouldn't be run against an hbase-2.x installation because it might do damage. Its write-facility (-fix) has been removed. It can report on the state of an hbase-2.x cluster, but its assessments are inaccurate because it doesn't understand the internal workings of an hbase-2.x.
+HBCK2 is the successor to HBCK, the repair tool that shipped with hbase-1.x (also known as HBCK1). You can use HBCK2 in place of HBCK1 to make repairs against hbase-2.x clusters. HBCK1 shouldn't be run against an hbase-2.x installation because it might do damage. Its write-facility (`-fix`) has been removed. It can report on the state of an hbase-2.x cluster, but its assessments are inaccurate because it doesn't understand the internal workings of an hbase-2.x.
 
 HBCK2 doesn't work the way HBCK1 used to, even in cases where commands are similarly named across the two versions.
 
@@ -39,13 +39,13 @@ To run the `hbck chore`, execute the command in the hbase shell: `hbck_chore_run
 
 Both commands don't take any inputs.
 
-## Running HBCK2
+## Run HBCK2
 
 You can run the hbck command by launching it via the `$HBASE_HOME/bin/hbase` script. By default, when you run `bin/hbase hbck`, the built-in HBCK1 tooling is run. To run HBCK2, you need to point at a built HBCK2 jar by using the `-j` option, as in this example:
 
 `hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar`
 
-With no options or arguments passed, this command prints the HBCK2 help.
+This command prints the HBCK2 help, without passing options or arguments.
 
 ## HBCK2 commands
 
@@ -54,7 +54,7 @@ With no options or arguments passed, this command prints the HBCK2 help.
 
 ### assigns [OPTIONS] <ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES>... | -i <INPUT_FILE>...
 
-**Options**
+Options
 
 * `-o,--override`: Overrides ownership by another procedure.
 * `-i,--inputFiles`: Takes one or more encoded region names.
@@ -65,7 +65,7 @@ This `raw` assign can be used even during Master initialization (if the `-skip` 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns de00010733901a05f5a2a3a382e27dd4
 ```
 
-Returns the PIDs of the created `AssignProcedures` or -1 if none. If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains encoded region names, one per line. For example:
+It returns the PIDs of the created `AssignProcedures` or -1 if none. If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains encoded region names, one per line. For example:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns -i fileName1 fileName2
@@ -73,7 +73,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### unassigns [OPTIONS] <ENCODED_REGIONNAME>...| -i <INPUT_FILE>...
 
-**Options**
+Options
 
 * `-o,--override`: Overrides ownership by another procedure.
 * `-i,--inputFiles`: Takes ones or more input files of encoded names.
@@ -84,7 +84,7 @@ This `raw` unassign can be used even during Master initialization (if the `-skip
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar unassign de00010733901a05f5a2a3a382e27dd4 
 ```
 
-Returns the PIDs of the created `UnassignProcedures` or -1 if none. If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains encoded region names, one per line. For example:
+It returns the PIDs of the created `UnassignProcedures` or -1 if none. If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains encoded region names, one per line. For example:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar unassigns fileName1 -i fileName2
@@ -92,14 +92,14 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### bypass [OPTIONS] <PID>...
 
-**Options**
+Options
 
 * `-o,--override`: Overrides if the procedure is running or stuck.
 * `-r,--recursive`: Bypasses the parent and its children. *This option is slow and expensive.*
-* `-w,--lockWait`: Milliseconds to wait before giving up. Default=1.
+* `-w,--lockWait`: Waits milliseconds before giving up. Default=1.
 * `-i,--inputFiles`: Takes one or more input files of PIDs.
 
-Passes one or more procedure PIDs to skip to the procedure finish. The parent of the bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual repair. It might need a Master restart to clear locks that are still held. Bypass fails if the procedure has children. Add `recursive` if all you have is a parent PID to finish the parent and children. *This option is slow and dangerous, so use it selectively. It doesn't always work*.
+It passes one or more procedure PIDs to skip to the procedure finish. The parent of the bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual repair. It might need a Master restart to clear locks that are still held. Bypass fails if the procedure has children. Add `recursive` if all you have is a parent PID to finish the parent and children. *This option is slow and dangerous, so use it selectively. It doesn't always work*.
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar bypass <PID>
@@ -113,13 +113,13 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### reportMissingRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...
 
-**Options**
+Option
 
 `i,--inputFiles`: Takes one or more input files of namespace or table names.
 
-This option is to be used when regions are missing from `hbase:meta`, but when directories are still present in HDFS. This command is only a check method. It's designed for reporting purposes and doesn't perform any fixes. It provides a view of which regions (if any) would get re-added to `hbase:meta`, grouped by respective table or namespace.
+Use this option when regions are missing from `hbase:meta` but when directories are still present in HDFS. This command is only a check method. It's designed for reporting purposes and doesn't perform any fixes. It provides a view of which regions (if any) would get re-added to `hbase:meta`, grouped by respective table or namespace.
 
-To effectively re-add regions in meta, run `addFsRegionsMissingInMeta`. This command needs `hbase:meta` to be online. For each namespace/table passed as a parameter, it performs a diff between regions available in a `hbase:meta` against existing regions' dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a "no missing regions" message. If no namespace or table is specified, it verifies all existing regions.
+To effectively re-add regions in meta, run `addFsRegionsMissingInMeta`. This command needs `hbase:meta` to be online. For each namespace/table passed as a parameter, it performs a diff between regions available in `hbase:meta` against existing regions' dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a "no missing regions" message. If no namespace or table is specified, it verifies all existing regions.
 
 It accepts a combination of multiple namespaces and tables. Table names should include the namespace portion, even for tables in the default namespace. Otherwise, it assumes a namespace value. This example triggers missing regions reports for the tables `table_1` and `table_2`, under a default namespace:
 
@@ -142,7 +142,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### addFsRegionsMissingInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...
 
-**Options**
+Option
 
 `-i,--inputFiles`: Takes one or more input files of namespace table names to be used when regions are missing from `hbase:meta` but directories are still present in HDFS. *Needs `hbase:meta` to be online.*
 
@@ -163,23 +163,23 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### extraRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...
 
-**Options**
+Options
 
 * `-f, --fix`: Fixes meta by removing all extra regions found.
 * `-i,--inputFiles`: Takes one or more input files of namespace or table names.
 
-It reports regions present on `hbase:meta`, but with no related directories on the file system. *Needs `hbase:meta` to be online.* For each table name passed as a parameter, it performs diff between regions available in `hbase:meta` and region dirs on the specific file system. Extra regions would get deleted from Meta if it passed the `--fix` option.
+It reports regions present on `hbase:meta` but with no related directories on the file system. *Needs `hbase:meta` to be online.* For each table name passed as a parameter, it performs diff between regions available in `hbase:meta` and region dirs on the specific file system. Extra regions would get deleted from Meta if it passed the `--fix` option.
 
 > [!NOTE]
 > Before you decide to use the `--fix` option, it's worth checking if reported extra regions are overlapping with existing valid regions. If so, then `extraRegionsInMeta --fix` is the optimal solution. Otherwise, the `assigns` command is the simpler solution. It re-creates the regions' dirs in the file system, if they don't exist.
 
-This example triggers extra regions reports for the table `table_1` under the default namespace, and for all tables from the namespace `ns1`:
+This example triggers extra regions reports for `table_1` under the default namespace, and for all tables from the namespace `ns1`:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar extraRegionsInMeta default:table_1 ns1
 ```
 
-This example triggers extra regions reports for the table `table_1` under the default namespace, and for all tables from the namespace `ns1` with the fix option:
+This example triggers extra regions reports for `table_1` under the default namespace, and for all tables from the namespace `ns1` with the fix option:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar extraRegionsInMeta -f default:table_1 ns1
@@ -198,7 +198,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 Do a server-side fix of bad or inconsistent state in `hbase:meta`. The Master UI has a matching new `HBCK Report` tab that dumps reports generated by the most recent run of `catalogjanitor` and a new `HBCK Chore`.
 
-*It's critical that `hbase:meta` should first be made healthy before you make any other repairs*. Fixes `holes`, `overlaps`, creating (empty) region directories in HDFS to match regions added to `hbase:meta`.
+*It's critical that `hbase:meta` should first be made healthy before you make any other repairs*. It fixes `holes` and `overlaps`, creating (empty) region directories in HDFS to match regions added to `hbase:meta`.
 
  *This command isn't the same as the old _hbck1_ command that's similarly named*. It works against the reports generated by the last `catalog_janitor` and `hbck chore` runs. If there's nothing to fix, the run is a loop. Otherwise, if the `HBCK Report` UI reports problems, a run of `fixMeta` clears up `hbase:meta` issues.
 
@@ -208,7 +208,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### generateMissingTableDescriptorFile <NAMESPACE:TABLENAME>
 
-This command tries to fix an orphan table by generating a missing table descriptor file. This command has no effect if the table folder is missing or if the `.tableinfo` is present. (We don't override existing table descriptors.) This command first checks if the `TableDescriptor` is cached in HBase Master, in which case it recovers the `.tableinfo` accordingly. If `TableDescriptor` isn't cached in Master, it creates a default `.tableinfo` file with the following items:
+This command tries to fix an orphan table by generating a missing table descriptor file. This command has no effect if the table folder is missing or if `.tableinfo` is present. (We don't override existing table descriptors.) This command first checks if `TableDescriptor` is cached in HBase Master, in which case it recovers `.tableinfo` accordingly. If `TableDescriptor` isn't cached in Master, it creates a default `.tableinfo` file with the following items:
 
 - The table name.
 - The column family list determined based on the file system.
@@ -221,18 +221,18 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### replication [OPTIONS] [<NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...]
 
-**Options**
+Options
 
 * `-f, --fix`: Fixes any replication issues found.
 * `-i,--inputFiles`: Takes one or more input files of table names.
 
-Looks for undeleted replication queues and deletes them if passed the `--fix` option. Passes a table name to check for a replication barrier and purge if `--fix`.
+It looks for undeleted replication queues and deletes them if it passed the `--fix` option. It passes a table name to check for a replication barrier and purge if `--fix`.
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar replication namespace:table_name
 ```
 
-If `-i or --inputFiles` is specified, passes one or more input file names. Each file contains `<TABLENAME>`, one per line. For example:
+If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains `<TABLENAME>`, one per line. For example:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar replication -i fileName1 fileName2
@@ -240,7 +240,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### setRegionState [<ENCODED_REGIONNAME> <STATE> | -i <INPUT_FILE>...]
 
-**Options**
+Option
 
 `-i,--inputFiles`: Takes one or more input files of encoded region names and states.
   
@@ -272,7 +272,7 @@ Example scenarios include unassigns or assigns that can't move forward because t
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setRegionState de00010733901a05f5a2a3a382e27dd4 CLOSING
 ```
 
-It returns "0" if the region state changed and "1" otherwise. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<ENCODED_REGIONNAME> <STATE>` one pair per line. For example:
+It returns "0" if the region state changed and "1" otherwise. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<ENCODED_REGIONNAME> <STATE>`, one pair per line. For example:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setRegionState -i fileName1 fileName2
@@ -280,7 +280,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### setTableState [<TABLENAME> <STATE> | -i <INPUT_FILE>...]
 
-**Options**
+Option
 
 `-i,--inputFiles`: Takes one or more input files of table names and states.
 
@@ -292,7 +292,7 @@ To read the current table state, in the hbase shell, run:
 hbase> get 'hbase:meta', '<TABLENAME>', 'table:state'
 ```
 
-A value of x08x00 == ENABLED, x08x01 == DISABLED, etc. It can also run a `describe <TABLENAME>` at the shell prompt. This example makes the table name user ENABLED:
+A value of x08x00 == ENABLED, x08x01 == DISABLED, etc. It can also run `describe <TABLENAME>` at the shell prompt. This example makes the table name user ENABLED:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setTableState users ENABLED
@@ -306,33 +306,33 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### scheduleRecoveries <SERVERNAME>... | -i <INPUT_FILE>...
 
-**Options**
+Option
 
 `-i,--inputFiles`: Takes one or more input files of server names.
 
 Schedule `ServerCrashProcedure(SCP)` for a list of `RegionServers`. Format the server name as `<HOSTNAME>,<PORT>,<STARTCODE>`. (See HBase UI/logs.)
 
-This example uses RegionServer `a.example.org, 29100,1540348649479`:
+This example uses `RegionServer` `a.example.org, 29100,1540348649479`:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries a.example.org,29100,1540348649479
 ```
 
-It returns the PIDs of the created `ServerCrashProcedures` or -1 if no procedure is created. (See Master logs for why not.) Command support is added in hbase versions 2.0.3, 2.1.2, 2.2.0, or newer. If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains `<SERVERNAME>`, one per line. For example:
+It returns the PIDs of the created `ServerCrashProcedures` or -1 if no procedure is created. (See Master logs for why it doesn't.) Command support is added in hbase versions 2.0.3, 2.1.2, 2.2.0, or newer. If `-i or --inputFiles` is specified, it passes one or more input file names. Each file contains `<SERVERNAME>`, one per line. For example:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries -i fileName1 fileName2 
 
 ```
 
-## Fixing problems
+## Fix problems
 
 This section helps you troubleshoot common issues.
 
 ### General principles
-When you make a repair, *make sure that `hbase:meta` is consistent first before you fix any other issue type*, such as a file-system deviance. Deviance in the file system or problems with assign should be addressed after the `hbase:meta` is put in order. If `hbase:meta` has issues, the Master can't make proper placements when adopting orphan file-system data or making region assignments.
+When you make a repair, *make sure that `hbase:meta` is consistent first before you fix any other issue type*, such as a file-system deviance. Deviance in the file system or problems with assign should be addressed after the `hbase:meta` is put in order. If `hbase:meta` has issues, the Master can't make proper placements when it adopts orphan file-system data or makes region assignments.
 
-Other general principles to keep in mind include a Region can't be assigned if it's in the CLOSING state (or the inverse, unassigned if in the OPENING state) without first transitioning via CLOSED. Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING and CLOSED.
+A Region can't be assigned if it's in the CLOSING state (or the inverse, unassigned if in the OPENING state) without first transitioning via CLOSED. Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING and CLOSED.
 
 When you make a repair, fix tables one at a time.
 
@@ -354,7 +354,7 @@ The Master is unable to continue startup because there's no procedure to assign 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns -skip 1588230740
 ```
 
-Where **1588230740 is the encoded name of the** `hbase:meta` **Region**. Pass the `-skip` option to stop HBCK2 from doing a version check against the remote Master. If the remote Master isn't up, the version check prompts a `Master is initializing response` or `PleaseHoldException` and drops the assign attempt. The `-skip` command avoids the version check and lands the scheduled assign.
+In this example, *1588230740 is the encoded name of the* `hbase:meta` *Region*. Pass the `-skip` option to stop HBCK2 from doing a version check against the remote Master. If the remote Master isn't up, the version check prompts a `Master is initializing response` or `PleaseHoldException` and drops the assign attempt. The `-skip` command avoids the version check and lands the scheduled assign.
 
 The same might happen to the `hbase:namespace` system table. Look for the encoded Region name of the `hbase:namespace` Region and take similar steps to what we did for `hbase:meta`. In this latter case, the Master actually prints a helpful message that looks like this example:
 
@@ -387,7 +387,7 @@ If `hbase:meta` corruption isn't too critical, hbase can still bring it online. 
 echo "scan 'hbase:meta', {COLUMN=>'info:regioninfo'}" | hbase shell
 ```
 
-HBCK2 **addFsRegionsMissingInMeta** can be used if the message doesn't show any errors. It reads region metadata info available on the FS region directories to re-create regions in `hbase:meta`. Because it can run with hbase partially operational, it attempts to disable online tables that are affected the reported problem and it's going to re-add regions to `hbase:meta`. It can check for specific tables or namespaces, or all tables from all namespaces. This example shows adding missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from the namespace `n2`:
+HBCK2 **addFsRegionsMissingInMeta** can be used if the message doesn't show any errors. It reads region metadata info available on the FS region directories to re-create regions in `hbase:meta`. Because it can run with hbase partially operational, it attempts to disable online tables that are affected by the reported problem and it's going to re-add regions to `hbase:meta`. It can check for specific tables or namespaces, or all tables from all namespaces. This example shows adding missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from the namespace `n2`:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
@@ -398,12 +398,12 @@ Because it operates independently from Master, after it finishes successfully, m
 - **addFsRegionsMissingInMeta** outputs an assigns command with all regions that got re-added. This command must be executed later, so copy and save it for convenience.
 - **For HBase versions prior to 2.3.0,** after `addFsRegionsMissingInMeta` finished successfully and output has been saved, restart all running HBase Masters.
 
-After Master's are restarted and `hbase:meta` is already online (check if the Web UI is accessible), run assigns command from `addFsRegionsMissingInMeta` output saved earlier.
+After Masters are restarted and `hbase:meta` is already online (check if the web UI is accessible), run the assigns command from `addFsRegionsMissingInMeta` output saved earlier.
 
 > [!NOTE]
 > If the namespace region is among the missing regions, you need to add the `--skip` flag at the beginning of the assigns command returned.
 
-If a cluster suffers a catastrophic loss of the `hbase:meta` table, a rough rebuild is possible by using the following recipe. In outline, we stop the cluster. Run the HBCK2 OfflineMetaRepair tool, which reads directories and metadata dropped into the file system makes the best effort at reconstructing a viable `hbase:met` table. Restart your cluster. Inject an assign to bring the system namespace table online. Finally, reassign user space tables you want enabled. (The rebuilt `hbase:meta` creates a table with all tables offline and no regions assigned.)
+If a cluster suffers a catastrophic loss of the `hbase:meta` table, a rough rebuild is possible by using the following recipe. In outline, we stop the cluster. Run the HBCK2 OfflineMetaRepair tool, which reads directories and metadata dropped into the file system and makes the best effort at reconstructing a viable `hbase:met` table. Restart your cluster. Inject an assign to bring the system namespace table online. Finally, reassign user space tables you want enabled. (The rebuilt `hbase:meta` creates a table with all tables offline and no regions assigned.)
 
 ### Detailed rebuild recipe
 
@@ -411,7 +411,7 @@ If a cluster suffers a catastrophic loss of the `hbase:meta` table, a rough rebu
 > Use this option only as a last resort. We don't recommend it.
 
 * Stop the cluster.
-* Run the rebuild `hbase:meta` command from HBCK2. This command moves aside the original `hbase:meta` and puts in place a newly rebuilt one. This example shows how to run the tool. It adds the `-details` flag so that the tool dumps info on the regions it found in hdfs:
+* Run the rebuild `hbase:meta` command from HBCK2. This command moves aside the original `hbase:meta` and puts in place a newly rebuilt one. This example shows how to run the tool. It adds the `-details` flag so that the tool dumps info on the regions it found in HDFS:
 
      ```
      hbase --config /etc/hbase/conf -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar org.apache.hbase.hbck1.OfflineMetaRepair -details
@@ -422,7 +422,7 @@ If a cluster suffers a catastrophic loss of the `hbase:meta` table, a rough rebu
      2019-07-10 18:30:51,090 WARN  [master/localhost:16000:becomeActiveMaster] master.HMaster: hbase:namespace,,1562808216225.725a0fe6c2c869d3d0a9ed82bfa80fa3. isn't online; state={725a0fe6c2c869d3d0a9ed82bfa80fa3 state=CLOSED, ts=1562808619952, server=null}; ServerCrashProcedures=false. Master startup can't progress, in holding-pattern until region onlined.
      ```
      
-     To assign the namespace table region, you can't use the shell. If you use the shell, it fails with a `PleaseHoldException` because the Master isn't yet up. (It's waiting for the namespace table to come online before it declares itself "up.") You have to use the HBCK2 assigns command. To assign, you need the namespace encoded name. It shows in the log quoted. That is, `725a0fe6c2c869d3d0a9ed82bfa80fa3` in this case. You have to pass the `-skip` command to skip the Master version check. (Without it, your HBCK2 invocation elicits the `PleaseHoldException` because the Master isn't up yet.) This example adds an assign of the namespace table:
+     To assign the namespace table region, you can't use the shell. If you use the shell, it fails with `PleaseHoldException` because the Master isn't yet up. (It's waiting for the namespace table to come online before it declares itself "up.") You have to use the HBCK2 assigns command. To assign, you need the namespace encoded name. It shows in the log quoted. That's `725a0fe6c2c869d3d0a9ed82bfa80fa3` in this case. You have to pass the `-skip` command to skip the Master version check. (Without it, your HBCK2 invocation elicits the `PleaseHoldException` because the Master isn't up yet.) This example adds an assign of the namespace table:
 
      ```
      hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar -skip assigns 725a0fe6c2c869d3d0a9ed82bfa80fa3
@@ -430,7 +430,7 @@ If a cluster suffers a catastrophic loss of the `hbase:meta` table, a rough rebu
      
      If the invocation comes back with `Connection refused`, is the Master up? The Master shuts down after a while if it can't initialize itself. Restart the cluster/master and rerun the assigns command.
 
-* When the assigns run successfully, you see it emit the likes of the following. The "48" on the end is the PID of the assign procedure schedule. If the PID returned is "-1", the Master startup hasn't progressed sufficiently, so retry. Or, the encoded region name might be incorrect, so check for this issue.
+* When the assigns run successfully, you see it emit something similar to the following example. The `48` on the end is the PID of the assign procedure schedule. If the PID returned is `-1`, the Master startup hasn't progressed sufficiently, so retry. Or, the encoded region name might be incorrect, so check for this issue.
 
      ```
      hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar -skip assigns 725a0fe6c2c869d3d0a9ed82bfa80fa3
@@ -440,7 +440,7 @@ If a cluster suffers a catastrophic loss of the `hbase:meta` table, a rough rebu
      18:40:44.315 [main] INFO  org.apache.hbase.HBCK2 - hbck sufpport check skipped
      [48]
      ```
-* Check the Master logs. The Master should have come up. You see successful completion of PID=48. Look for a line like this to verify a successful Master launch:
+* Check the Master logs. The Master should have come up. You see successful completion of PID=48. Look for a line like this example to verify a successful Master launch:
 
      ```
      master.HMaster: Master has completed initialization 132.515sec
