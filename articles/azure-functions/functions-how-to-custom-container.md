@@ -62,7 +62,7 @@ Azure Functions lets you work with application settings for containerized functi
 
 ## Enable continuous deployment to Azure
 
-_Supported only for containers deployed to Azure Functions_ 
+_Currently supported only for containers deployed to Azure Functions_ 
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 
