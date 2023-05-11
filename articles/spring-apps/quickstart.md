@@ -187,8 +187,8 @@ az spring app create \
    --name ${APP_NAME} \
    --cpu 1 \
    --memory 2Gi \
-    --min-replicas 2 \
-    --max-replicas 2 \
+   --min-replicas 2 \
+   --max-replicas 2 \
    --assign-endpoint true \
    --workload-profile my-wlp
 ```
