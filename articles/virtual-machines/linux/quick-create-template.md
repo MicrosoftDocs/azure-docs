@@ -31,6 +31,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For more information on this template, see [Deploy a simple Ubuntu Linux VM 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
+
 Several resources are defined in the template:
 
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/Microsoft.Network/virtualNetworks/subnets): create a subnet.
