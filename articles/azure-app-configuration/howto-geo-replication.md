@@ -28,6 +28,9 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 
 To create a replica of your configuration store in the portal, follow the steps below.
 
+> [!NOTE]
+> Creating a replica of stores that have private endpoints configured with Static IP is not supported. If your prefer to use private endpoint with Static IP configuration, replicas need to be created before the private endpoint.
+
 <!-- ### [Portal](#tab/azure-portal) -->
 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
