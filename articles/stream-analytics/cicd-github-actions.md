@@ -67,7 +67,7 @@ You need to create at least 3 GitHub secrets for deploying a Stream Analytics jo
         
     2. Copy the access key to the secret value. 
         
-        :::image type="content" source="./media/cicd-github-actions/input-key.png" alt-text="Screenshot of the event hub opening the access key." lightbox= "./media/cicd-github-actions/input-key.png" :::
+        :::image type="content" source="./media/cicd-github-actions/input-key.png" alt-text="Screenshot shows the event hub opening the access key." lightbox= "./media/cicd-github-actions/input-key.png" :::
 
 Once you’ve done, you should have at least three secrets created for the GitHub repository.
 
