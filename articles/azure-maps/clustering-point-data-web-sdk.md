@@ -166,23 +166,33 @@ function clusterClicked(e) {
 
 The point data that a cluster represents is spread over an area. In this sample when the mouse is hovered over a cluster, two main behaviors occur. First, the individual data points contained in the cluster are used to calculate a convex hull. Then, the convex hull is displayed on the map to show an area.  A convex hull is a polygon that wraps a set of points like an elastic band and can be calculated using the `atlas.math.getConvexHull` method. All points contained in a cluster can be retrieved from the data source using the `getClusterLeaves` method.
 
+For a complete working sample that demonstrates how to do this, see [Display cluster area with Convex Hull] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/cluster-point-data-web-sdk/display-cluster-area.png" alt-text="Screenshot showing a heat map that uses clustering on the data source.":::
+
+<!----------------------------------------------------------------------
 <br/>
 
  <iframe height="500" scrolling="no" title="Cluster area convex hull" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster area convex hull</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+------------------------------------------------------------------------>
 
 ## Aggregating data in clusters
 
 Often clusters are represented using a symbol with the number of points that are within the cluster. But, sometimes it's desirable to customize the style of clusters with more metrics. With cluster aggregates, custom properties can be created and populated using an [aggregate expression] calculation.  Cluster aggregates can be defined in `clusterProperties` option of the `DataSource`.
 
-The following sample uses an aggregate expression. The code calculates a count based on the entity type property of each data point in a cluster. When a user selects a cluster, a popup shows with additional information about the cluster.
+The [Cluster aggregates] sample uses an aggregate expression. The code calculates a count based on the entity type property of each data point in a cluster. When a user selects a cluster, a popup shows with additional information about the cluster.
 
+:::image type="content" source="./media/cluster-point-data-web-sdk/cluster-aggregates.png" alt-text="Screenshot showing a map that uses clustering defined using data-driven style expression calculation. These calculations aggregate values across all points contained within the cluster.":::
+
+<!----------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Cluster aggregates" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Cluster aggregates</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+------------------------------------------------------------------------>
 
 ## Next steps
 
@@ -213,3 +223,5 @@ See code examples to add functionality to your app:
 [Point Clusters in Bubble Layer]: https://samples.azuremaps.com/?search=bubble%20layer&sample=point-clusters-in-bubble-layer
 [Display clusters with a Symbol Layer]: https://samples.azuremaps.com/?search=symbol%20layer&sample=display-clusters-with-a-symbol-layer
 [Cluster weighted Heat Map]: https://samples.azuremaps.com/?search=heat%20maps&sample=cluster-weighted-heat-map
+[Display cluster area with Convex Hull]: https://samples.azuremaps.com/?search=cluster%20area&sample=display-cluster-area-with-convex-hull
+[Cluster aggregates]: https://samples.azuremaps.com/?search=clusters&sample=cluster-aggregates
