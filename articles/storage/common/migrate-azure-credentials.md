@@ -50,6 +50,37 @@ Next, update your code to use passwordless connections.
        credential);
    ```
 
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `Client` instance to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
+    client, err := azblob.NewClient(serviceURL, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
+
 ## [Java](#tab/java)
 
 1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
@@ -115,7 +146,7 @@ Next, update your code to use passwordless connections.
     from azure.identity import DefaultAzureCredential
     ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Blob Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
 
     ```python
     credential = DefaultAzureCredential()
