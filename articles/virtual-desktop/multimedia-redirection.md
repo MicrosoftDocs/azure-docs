@@ -232,7 +232,7 @@ Multimedia redirection is currently limited to the web apps listed in [Websites 
 
 To enable call redirection for all sites:
 
-1.	On your client device, create a registry key with the following values:
+1. On your client device, create a registry key with the following values:
 
    - **Key**: HKCU\Software\Microsoft\MMR
    - **Type**: REG_DWORD 
