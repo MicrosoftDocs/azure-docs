@@ -36,7 +36,7 @@ For more information on these three choices, see [Planning for an Azure Files de
 
 ## Prerequisites
 - This article assumes that you've already created an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Create a storage account
