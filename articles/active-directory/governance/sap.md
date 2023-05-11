@@ -19,7 +19,7 @@ ms.reviewer: amycolannino
 SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, Microsoft 365, etc., and relies on Azure AD to manage access to applications. This document describes how you can get started using Azure AD to manage identities across SAP applications. 
 When an employee is hired, they have an account created in an HR system such as SAP SuccessFactors. Once that employee starts their job, they’ll need access to both Microsoft applications (ex: Teams and SharePoint) and SAP applications (ex: Analytics cloud, Concur, S/4 Hana). Using Entra Identity Governance and SAP IPS, you can automate lifecycle management and provide access to the applications that users need.  
 
-![Diagram of SAP integrations.](./media/entitlement-management-overview/sap.png)
+![Diagram of SAP integrations.](./media/sap/SapIntegrations.png)
 
 # Bring identities from HR into Azure AD
 
