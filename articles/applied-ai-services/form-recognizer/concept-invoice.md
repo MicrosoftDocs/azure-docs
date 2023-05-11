@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -166,13 +165,13 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
+| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), United Kingdom (-uk), India (-in)|
 | &bullet; Spanish (es) |Spain (es)|
 | &bullet; German (de) | Germany (de)|
 | &bullet; French (fr) | France (fr) |
 | &bullet; Italian (it) | Italy (it)|
 | &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
-| &bullet; Dutch (de) | Netherlands (de)|
+| &bullet; Dutch (nl) | Netherlands (nl)|
 
 ## Field extraction
 
@@ -207,7 +206,8 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceStartDate | Date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
-| PaymentOptions | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
+| CurrencyCode | String | The currency code associated with the extracted amount | |
+| PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
 | TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale  |  |
 

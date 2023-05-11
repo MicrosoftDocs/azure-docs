@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for BitBucket | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for BitBucket'
 description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for BitBucket.
 services: active-directory
 author: jeevansd

@@ -1,14 +1,14 @@
 ---
-title: "Azure Operator Nexus: Creation of L2 isolation domain"
-description: Learn how create L2 isolation domain.
-author: jaredr80 #Required; your GitHub user alias, with correct capitalization.
-ms.author: jaredro #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required;
-ms.topic: include #Required; leave this attribute/value as-is.
-ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
+title: "Azure Operator Nexus: Create an L2 isolation domain"
+description: Learn how to create an L2 isolation domain.
+author: jaredr80
+ms.author: jaredro
+ms.service: azure-operator-nexus
+ms.topic: include
+ms.date: 01/26/2023
 ---
 
-- Create a L2 isolation domain
+Create an L2 isolation domain:
 
 ```azurecli
   az nf l2domain create --resource-name "<YourL2IsolationDomainName>" \
@@ -20,7 +20,7 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
     --mtu "<MtuOfThisNetwork>
 ```
 
-- Enable the L2 isolation domain after it's created
+Enable the L2 isolation domain that you created:
 
 ```azurecli
   az managednetworkfabric l2isolationdomain update-administrative-state \
@@ -30,4 +30,4 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
     --state Enable
 ```
 
-- (Optional) Repeat, as needed, to create other L2 isolation domain(s)
+Repeat, as needed, to create other L2 isolation domains.

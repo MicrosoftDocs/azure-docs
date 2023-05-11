@@ -13,7 +13,7 @@ Typically, you send events to an endpoint that processes the event data and take
 
 When you're finished, you see that the event data has been sent to the web app.
 
-:::image type="content" source="./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png" alt-text="Screenshot showing the Event Grid Viewer sample with a sample event.":::
+:::image type="content" source="./media/custom-event-quickstart/viewer-record-inserted-event.png" alt-text="Screenshot showing the Event Grid Viewer sample with a sample event.":::
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
 
 ## Create a custom topic
 
@@ -91,7 +91,7 @@ az eventgrid event-subscription create \
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View the subscription event in Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+![View the subscription event in Azure Event Grid Viewer](./media/custom-event-quickstart/viewer-subscription-validation-event.png)
 
 
 ## Send an event to your custom topic
@@ -148,8 +148,8 @@ Now that you know how to create topics and event subscriptions, learn more about
 
 - [About Event Grid](overview.md)
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
+- [Stream big data into a data warehouse](event-hubs-integration.md)
 
 See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
 

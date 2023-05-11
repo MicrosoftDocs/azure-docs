@@ -7,7 +7,7 @@ ms.author: abell
 ms.service: bastion
 ms.topic: quickstart 
 ms.date: 06/27/2022
-ms.custom: template-quickstart 
+ms.custom: template-quickstart, devx-track-arm-template
 Customer intent: As someone with a networking background, I want to deploy Azure Bastion to a virtual machine using a Bastion ARM Template.
 ---
 

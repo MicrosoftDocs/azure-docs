@@ -4,6 +4,7 @@ description: This article outlines the process to register an Azure Blob Storage
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 02/16/2023
 ms.custom: template-how-to, ignite-fall-2021, references_regions
@@ -15,9 +16,9 @@ This article outlines the process to register and govern Azure Blob Storage acco
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy)  | Limited** |[Yes](#data-sharing)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](create-sensitivity-label.md)| [Yes (preview)](#access-policy)  | Limited** |[Yes](#data-sharing)|
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md)
 
@@ -47,9 +48,12 @@ This section will enable you to register the Azure Blob storage account for scan
 
 It is important to register the data source in Microsoft Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
+1. Go to the Microsoft Purview governance portal by:
 
-1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
+   * Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   * Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Navigate to the **Data Map --> Sources**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::
 
@@ -353,7 +357,7 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
 
 ### Create a policy
-To create an access policy for Azure Blob Storage, follow this guide: [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy).
+To create an access policy for Azure Blob Storage, follow this guide: [Provision read/modify access on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy).
 
 To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 

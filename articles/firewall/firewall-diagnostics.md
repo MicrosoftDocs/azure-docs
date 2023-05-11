@@ -4,6 +4,7 @@ description: In this article, you learn how to enable and manage Azure Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/15/2022
 ms.author: victorh
@@ -13,7 +14,7 @@ ms.author: victorh
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal.
 
-You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -134,4 +135,4 @@ Now that you've configured your firewall to collect logs, you can explore Azure 
 
 - [Monitor logs using Azure Firewall Workbook](firewall-workbook.md)
 
-- [Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)
+- [Networking monitoring solutions in Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics)

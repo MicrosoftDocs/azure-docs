@@ -4,6 +4,7 @@ description: Learn how applications scale in and out in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: cshoe
@@ -109,7 +110,7 @@ Define an HTTP scale rule using the `--scale-rule-http-concurrency` parameter in
 |---|---|---|---|---|
 | `--scale-rule-http-concurrency`| When the number of concurrent HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `max-replicas` amount. | 10 | 1 | n/a |
 
-```bash
+```azurecli-interactive
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -201,7 +202,7 @@ Define a TCP scale rule using the `--scale-rule-tcp-concurrency` parameter in th
 |---|---|---|---|---|
 | `--scale-rule-tcp-concurrency`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `max-replicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
-```bash
+```azurecli-interactive
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \

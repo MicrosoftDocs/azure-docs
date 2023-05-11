@@ -1,5 +1,5 @@
 ---
-title: Use Azure MFA Server with AD FS 2.0 - Azure Active Directory
+title: Use Azure MFA Server with AD FS 2.0
 description: Describes how to get started with Azure MFA and AD FS 2.0.
 
 services: multi-factor-authentication

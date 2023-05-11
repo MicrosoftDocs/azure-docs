@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RetrieverMediaDatabase | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RetrieverMediaDatabase'
 description: Learn how to configure single sign-on between Azure Active Directory and RetrieverMediaDatabase.
 services: active-directory
 author: jeevansd

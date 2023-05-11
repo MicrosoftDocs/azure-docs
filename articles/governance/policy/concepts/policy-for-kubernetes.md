@@ -4,12 +4,12 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 
-Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an _admission
+Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply
 at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure
 Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters
@@ -18,7 +18,7 @@ from one place. The add-on enacts the following functions:
 - Checks with Azure Policy service for policy assignments to the cluster.
 - Deploys policy definitions into the cluster as
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and
-  [constraint](https://github.com/open-policy-agent/gatekeeper#constraints) custom resources.
+  [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources.
 - Reports auditing and compliance details back to Azure Policy service.
 
 Azure Policy for Kubernetes supports the following cluster environments:
@@ -51,8 +51,6 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
 
 - Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Only built-in policy definitions are supported. Custom policy definitions are a _public preview_
-  feature.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**

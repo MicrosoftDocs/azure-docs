@@ -1,5 +1,5 @@
 ---
-title: Private Network Access overview - Azure Database for MySQL Flexible Server
+title: Private Network Access overview - Azure Database for MySQL - Flexible Server
 description: Learn about private access networking option in the Flexible Server deployment option for Azure Database for MySQL
 author: vivgk
 ms.author: vivgk
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article describes the private connectivity option for Azure MySQL Flexible Server. You learn in detail the virtual network concepts for Azure Database for MySQL Flexible server to create a server securely in Azure.
+This article describes the private connectivity option for Azure MySQL Flexible Server. You learn in detail the virtual network concepts for Azure Database for MySQL - Flexible Server to create a server securely in Azure.
 
 ## Private access (VNet Integration)
 
@@ -56,7 +56,7 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
    A virtual network contains subnets (subnetworks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network.
 
-   Your MySQL flexible server must be in a subnet that is **delegated** for MySQL flexible server use only. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforMySQL/flexibleServers.
+   Your MySQL flexible server must be in a subnet that is **delegated** for MySQL flexible server use only. This delegation means that only Azure Database for MySQL - Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforMySQL/flexibleServers.
 
 - **Network security groups (NSG)**
 

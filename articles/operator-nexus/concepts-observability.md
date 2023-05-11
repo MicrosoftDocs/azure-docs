@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: observability using Azure Monitor"
 description: Operator Nexus uses Azure Monitor and collects and aggregates data in Azure Log Analytics Workspace (LAW). The analysis, visualization, and alerting is performed on this collected data.
-author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
-ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/06/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+author: mukesh-dua
+ms.author: mukeshdua
+ms.service: azure-operator-nexus
+ms.topic: conceptual
+ms.date: 03/06/2023
+ms.custom: template-concept
 ---
 
 # Azure Operator Nexus observability
@@ -48,7 +48,7 @@ These logs and metrics are used to observe the state of the platform. You can se
 Operator Nexus observability allows you to collect the same kind of data as other Azure
 resources. The data collected from each of your instances can be viewed in your LAW.
 
- You can learn about monitoring Azure resources [here](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data).
+ You can learn about monitoring Azure resources [here](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 ### Collection and Routing
 
@@ -69,14 +69,14 @@ created for running Containerized and Virtualized Network Functions. The log dat
 * Collection of logs from AKS-Hybrid clusters and the applications deployed on top.
 
 You'll need to enable the collection of the logs from the tenant AKS-Hybrid clusters and Virtual Machines.
-You should follow the steps to deploy the [Azure monitoring agents](/azure/azure-monitor/agents/agents-overview#install-the-agent-and-configure-data-collection). The data would be collected in your Azure LAW.
+You should follow the steps to deploy the [Azure monitoring agents](../azure-monitor/agents/agents-overview.md#install-the-agent-and-configure-data-collection). The data would be collected in your Azure LAW.
 
 ### Operator Nexus Logs storage
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set
 of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields; see the [common schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields; see the [common schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 The logs from Operator Nexus platform are stored in the following tables:
 
@@ -104,7 +104,7 @@ The 'InsightMetrics' table in the Logs section contains the metrics collected fr
 
 Figure: Azure Monitor Metrics Selection
 
-See **[Getting Started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)** for details on using this tool.
+See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)** for details on using this tool.
 
 #### Workbooks
 
@@ -117,7 +117,7 @@ You can use the sample Azure Resource Manager alarm templates for [Operator Nexu
 
 ## Log Analytic Workspace
 
-A [LAW](/azure/azure-monitor/logs/log-analytics-workspace-overview)
+A [LAW](../azure-monitor/logs/log-analytics-workspace-overview.md)
 is a unique environment to log data from Azure Monitor and
 other Azure services. Each workspace has its own data repository and configuration but may
 combine data from multiple services. Each workspace consists of multiple data tables.

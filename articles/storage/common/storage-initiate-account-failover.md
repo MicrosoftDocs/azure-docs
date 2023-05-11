@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 07/22/2022
 ms.author: jammart
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Initiate a storage account failover

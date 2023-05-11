@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 

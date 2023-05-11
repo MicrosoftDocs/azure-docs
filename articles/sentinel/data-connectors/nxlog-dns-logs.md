@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # NXLog DNS Logs connector for Microsoft Sentinel
 
-The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](https://docs.microsoft.com/windows/apps/trace-processing/overview)) for collecting both Audit and Analytical DNS Server events. The [NXLog *im_etw* module](https://nxlog.co/documentation/nxlog-user-guide/im_etw.html) reads event tracing data directly for maximum efficiency, without the need to capture the event trace into an .etl file. This REST API connector can forward DNS Server events to Microsoft Sentinel in real time.
+The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](/windows/apps/trace-processing/overview)) for collecting both Audit and Analytical DNS Server events. The [NXLog *im_etw* module](https://nxlog.co/documentation/nxlog-user-guide/im_etw.html) reads event tracing data directly for maximum efficiency, without the need to capture the event trace into an .etl file. This REST API connector can forward DNS Server events to Microsoft Sentinel in real time.
 
 ## Connector attributes
 
@@ -18,7 +18,7 @@ The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](https://
 | --- | --- |
 | **Log Analytics table(s)** | NXLog_DNS_Server_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
 
 ## Query samples
 

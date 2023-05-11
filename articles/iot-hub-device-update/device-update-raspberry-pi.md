@@ -31,12 +31,11 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub.
-Please note, this example requires an ethernet connection for the Raspberry Pi 3 B+ board.
+If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub. This tutorial needs the device to be connected via ethernet connection.
 
 Download files in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The Tutorial_RaspberryPi.zip has all the required files for the tutorial.
 
-## Create a device or module in IoT Hub and get a connection string
+## Create a device in IoT Hub and get a connection string
 
 Now, add the device to IoT Hub. From within IoT Hub, a connection string is generated for the device.
 
@@ -44,14 +43,13 @@ Now, add the device to IoT Hub. From within IoT Hub, a connection string is gene
 1. On the left pane, select **Devices**. Then select **New**.
 1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
 1. Select **Save**. On the **Devices** page, the device you created should be in the list.
-1. Get the device connection string by using one of two options:
-
-   * Option 1: Use the Device Update agent with a module identity: On the same **Devices** page, select **Add Module Identity** at the top. Create a new Device Update module with the name **IoTHubDeviceUpdate**. Choose other options as they apply to your use case and then select **Save**. Select the newly created module. In the module view, select the **Copy** icon next to **Primary Connection String**.
-   * Option 2: Use the Device Update agent with the device identity: In the device view, select the **Copy** icon next to **Primary Connection String**.
-
+1. Get the device connection string by navigating to the device view, select the **Copy** icon next to **Primary Connection String**.
 1. Paste the copied characters somewhere for later use in the following steps:
 
    **This copied string is your device connection string**.
+   
+> [!NOTE]
+> This tutorial uses a device connection string to authenticate and connect with the IoT Hub for ease of set-up. For production scenarios, we recommend using module identity and leveraging AIS([IoT Identity Service](https://azure.github.io/iot-identity-service/)) to provision devices. [Learn more ](device-update-agent-provisioning.md) 
    
 ## Set up Raspberry Pi
 
@@ -101,9 +99,6 @@ Device Update for Azure IoT Hub software is subject to the following license ter
 
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
 
-## Prepare on-device configurations for Device Update for IoT Hub
-
-Two configuration files must be on the device so that Device Update for IoT Hub configures properly. The first file is the `du-config.json` file, which must exist at `/adu/du-config.json`. The second file is the `du-diagnostics-config.json` file, which must exist at `/adu/du-diagnostics-config.json`.
 ## Configure the Device Update agent on Raspberry Pi
 
 1. Make sure that Raspberry Pi 3 is connected to the network.
@@ -114,6 +109,7 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
     ```
 
 1. The DU configuration files (du-config.json and du-diagnostics-config.json) must be on the device so that Device Update for IoT Hub configures properly. 
+
     1. To create or open the `du-config.json` file for editing by using:
 
       ```bash
@@ -151,6 +147,7 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
       3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
       
 1. Now you need to create the `du-diagnostics-config.json` file by using similar commands. 
+
       1. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
 
       ```bash
@@ -176,6 +173,7 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
         "maxKilobytesToUploadPerLogPath":50
      }
      ```
+     
       3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
      
 1. Use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json files for editing by using:
@@ -246,7 +244,7 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
 
    *This screenshot shows the import step. File names might not match the ones used in the example.*
 
-1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process.
+1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process. For the tutorial, import the sample tutorial manifest and sample update (.swu file) and the sample A/B script downloaded earlier.
 
    :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows Import update." lightbox="media/import-update/import-start-2-ppr.png":::
 

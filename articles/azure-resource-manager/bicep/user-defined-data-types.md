@@ -2,6 +2,7 @@
 title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 01/09/2023
 ---
 
@@ -81,12 +82,25 @@ The valid type expressions include:
 
     Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that would not be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
 
-    Properties are required unless they have an optionality marker `?` between the property name and the colon. For example, the `sku` property in the following example is optional:
+    Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
 
     ```bicep
     type storageAccountConfigType = {
       name: string
-      sku?: string
+      sku: string?
+    }
+    ```
+
+  Decorators may be used on properties. `*` may be used to make all values require a constrant. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+
+    ```bicep
+    type obj = {
+      @description('The object ID')
+      id: int
+
+      @description('Additional properties')
+      @minLength(10)
+      *: string
     }
     ```
 
@@ -97,7 +111,7 @@ The valid type expressions include:
     ```bicep
     type myObjectType = {
       stringProp: string
-      recursiveProp?: myObjectType
+      recursiveProp: myObjectType?
     }
     ```
 
@@ -217,4 +231,4 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Next steps
 
-- For a list of the Bicep date types, see [Data types](./data-types.md).
+- For a list of the Bicep data types, see [Data types](./data-types.md).

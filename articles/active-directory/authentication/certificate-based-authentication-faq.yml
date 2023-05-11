@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AD certificate-based authentication (CBA) FAQ - Azure Active Directory
+  title: Azure AD certificate-based authentication (CBA) FAQ
   description: Frequently asked questions and answers related to Azure AD certificate-based authentication (CBA). 
   
   services: multi-factor-authentication

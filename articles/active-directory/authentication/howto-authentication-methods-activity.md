@@ -1,5 +1,5 @@
 ---
-title: Authentication Methods Activity - Azure Active Directory
+title: Authentication Methods Activity
 description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory
@@ -53,7 +53,7 @@ To access authentication method usage and insights:
 
 ## Registration details
 
-You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
+You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passwordless authentication, and self-service password reset. 
 
 Click any of the following options to pre-filter a list of user registration details:
 

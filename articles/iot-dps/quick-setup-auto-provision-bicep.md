@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 author: mumian
-ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell
+ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, devx-track-bicep
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with Bicep

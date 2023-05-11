@@ -5,6 +5,7 @@ author: joharder
 ms.author: joharder
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
+ms.custom: devx-track-azurecli
 ms.date: 02/23/2022
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -229,7 +230,7 @@ You can select to use a specific version of ARO when creating your cluster. Firs
 
 `az aro get-versions --location <region>`
 
-Once you've chosen the version, specify it using the `--version` parameter in the `aro create` command:
+Once you've chosen the version, specify it using the `--version` parameter in the `az aro create` command:
 
 ```azurecli-interactive
 az aro create \
@@ -237,7 +238,7 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet
+  --worker-subnet worker-subnet \
   --version <x.y.z>
 ```
 

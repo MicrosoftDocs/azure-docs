@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Alibaba Cloud Service (Role-based SSO) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Alibaba Cloud Service (Role-based SSO)'
 description: Learn how to configure single sign-on between Azure Active Directory and Alibaba Cloud Service (Role-based SSO).
 services: active-directory
 author: jeevansd

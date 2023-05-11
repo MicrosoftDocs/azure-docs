@@ -104,7 +104,7 @@ Specify which visual features you'd like to extract in your analysis. See the [V
 
 #### [JavaScript](#tab/javascript)
 
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest&preserve-view=true) enum for a complete list.
+Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/computervisionmodels.visualfeaturetypes) enum for a complete list.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_features_remote)]
 
@@ -160,7 +160,7 @@ ImageAnalysis analysis = compVisClient.computerVision().analyzeImage().withUrl(p
 
 #### [JavaScript](#tab/javascript)
 
-Use the **language** property of the [ComputerVisionClientAnalyzeImageOptionalParams](/javascript/api/@azure/cognitiveservices-computervision/computervisionclientanalyzeimageoptionalparams) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
+Use the **language** property of the [ComputerVisionClientAnalyzeImageOptionalParams](/javascript/api/@azure/cognitiveservices-computervision/computervisionmodels.computervisionclientanalyzeimageoptionalparams) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
 
 ```javascript
 const result = (await computerVisionClient.analyzeImage(imageURL,{visualFeatures: features, language: 'en'}));

@@ -137,7 +137,7 @@ After you load and configure your data, you can set up your experiment. This set
         
             Field | Description | Value for tutorial
             ----|---|---
-            Compute name |	A unique name that identifies your compute context. | automl-compute
+            Compute name |    A unique name that identifies your compute context. | automl-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
             Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
@@ -278,8 +278,6 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
-+ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

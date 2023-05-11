@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Clockwork Recruiting | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Clockwork Recruiting'
 description: Learn how to configure single sign-on between Azure Active Directory and Clockwork Recruiting.
 services: active-directory
 author: jeevansd

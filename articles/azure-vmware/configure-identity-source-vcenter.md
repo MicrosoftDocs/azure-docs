@@ -17,8 +17,8 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Export the certificate for LDAPS authentication
-> * Upload the LDAPS certificate to blob storage and generate a SAS URL
+> * (Optional) Export the certificate for LDAPS authentication
+> * (Optional) Upload the LDAPS certificate to blob storage and generate a SAS URL
 > * Configure NSX-T DNS for resolution to your Active Directory Domain
 > * Add Active Directory over (Secure) LDAPS (LDAP over SSL) or (unsecure) LDAP
 > * Add existing AD group to cloudadmin group
@@ -26,6 +26,9 @@ In this article, you learn how to:
 > * Assign additional vCenter Server Roles to Active Directory Identities
 > * Remove AD group from the cloudadmin role
 > * Remove existing external identity sources
+
+>[!NOTE]
+>[Export the certificate for LDAPS authentication](#optional-export-the-certificate-for-ldaps-authentication) and [Upload the LDAPS certificate to blob storage and generate a SAS URL](#optional-upload-the-ldaps-certificate-to-blob-storage-and-generate-a-sas-url) are optional steps as now the certificate(s) will be downloaded from the domain controller(s) automatically through the parameter(s) **PrimaryUrl** and/or  **SecondaryUrl** if the parameter **SSLCertificatesSasUrl** is not provided. You can still provide **SSLCertificatesSasUrl** and follow the optional steps to manually export and upload the certificate(s).
 
 ## Prerequisites
 
@@ -38,14 +41,14 @@ In this article, you learn how to:
     - You need to have a valid certificate. To create a certificate, follow the steps shown in [create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Make sure the certificate meets the requirements that are listed after the steps you used to create a certificate for secure LDAP.
     >[!NOTE]
     >Self-sign certificates are not recommended for production environments.  
-    - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
+    - Optional: The certificate(s) will be downloaded from the domain controller(s) automatically through the parameter(s) **PrimaryUrl** and/or  **SecondaryUrl** if the parameter **SSLCertificatesSasUrl** is not provided. If you prefer to manually export and upload the certificate(s), please [export the certificate for LDAPS authentication](#optional-export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
 - Ensure Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) for further information.
 
 >[!NOTE]
 >For more information about LDAPS and certificate issuance, see with your security or identity management team.
 
-## Export the certificate for LDAPS authentication
+## (Optional) Export the certificate for LDAPS authentication
 
 First, verify that the certificate used for LDAPS is valid. If you don't already have a certificate, follow the steps to [create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap) before you continue.
 
@@ -81,7 +84,7 @@ Now proceed to export the certificate
 >[!NOTE]
 >If more than one domain controller is LDAPS enabled, repeat the export procedure in the additional domain controller(s) to also export the corresponding certificate(s). Be aware that you can only reference two LDAPS server in the `New-LDAPSIdentitySource` Run Command. If the certificate is a wildcard certificate, for example ***.avsdemo.net** you only need to export the certificate from one of the domain controllers.
 
-## Upload the LDAPS certificate to blob storage and generate a SAS URL
+## (Optional) Upload the LDAPS certificate to blob storage and generate a SAS URL
 
 - Upload the certificate file (.cer format) you just exported to an Azure Storage account as blob storage. Then [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).
 
@@ -113,7 +116,7 @@ In your Azure VMware Solution private cloud, you'll run the `New-LDAPSIdentitySo
    | **Field** | **Value** |
    | --- | --- |
    | **GroupName**  | The group in the external identity source that gives the cloudadmin access. For example, **avs-admins**.  |
-   | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source. If you're using multiple certificates, separate each SAS string with a comma. For example, **pathtocert1,pathtocert2**.  |
+   | **SSLCertificatesSasUrl** | Path to SAS strings with the certificates for authentication to the AD source. If you're using multiple certificates, separate each SAS string with a comma. For example, **pathtocert1,pathtocert2**.  |
    | **Credential**  | The domain username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format. |
    | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=avsldap,DC=local**. Base DN is needed to use LDAP Authentication.  |
    | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=avsldap,DC=local**.  Base DN is needed to use LDAP Authentication.  |
@@ -157,6 +160,8 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 ## Add existing AD group to cloudadmin group
+> [!IMPORTANT]
+> Nested groups are not supported, and their use may cause loss of access.
 
 You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to a cloudadmin group. Users in the cloudadmin group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
 
@@ -255,17 +260,22 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 ## Rotate an existing external identity source account's username and/or password
 
-1. Use the [Get-ExternalIdentitySources](configure-identity-source-vcenter.md#list-external-identity) run command to pull current populated values.
+1. Rotate the password of account used for authentication with the AD source in the domain controller.
 
-1. Run [Remove-ExternalIdentitySource](configure-identity-source-vcenter.md#remove-existing-external-identity-sources) and provide DomainName of External Identity source you'd like to rotate.
+1. Select **Run command** > **Packages** > **Update-IdentitySourceCredential**.
+
+1. Provide the required values and the updated password, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Credential**  | The domain username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format. |
+   | **DomainName**  |  The FQDN of the domain, for example **avslab.local**.  |
+
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
+
 > [!IMPORTANT]
-> If you do not provide a DomainName, all external identity sources will be removed.
+> If you do not provide a DomainName, all external identity sources will be removed. The command **Update-IdentitySourceCredential** should be run only after the password is rotated in the domain controller.
 
-1. Run [New-LDAPSIdentitySource](configure-identity-source-vcenter.md#add-active-directory-over-ldap-with-ssl) or [New-LDAPIdentitySource](configure-identity-source-vcenter.md#add-active-directory-over-ldap) depending on your configuration. 
-
->[!NOTE]
->There is work to make this an easier process than it is today with a new run command.
->[PR with VMware](https://github.com/vmware/PowerCLI-Example-Scripts/pull/604)
 
 ## Next steps
 

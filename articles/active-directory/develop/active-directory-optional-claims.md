@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/28/2022
+ms.date: 03/28/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: ludwignick
@@ -36,7 +36,7 @@ While optional claims are supported in both v1.0 and v2.0 format tokens and SAML
 
 ## v1.0 and v2.0 optional claims set
 
-The set of optional claims available by default for applications to use are listed below. You can use custom data in extension attributes and directory extensions to add optional claims for your application. To use directory extensions, see [Directory Extensions](#configuring-directory-extension-optional-claims), below. When adding claims to the **access token**, the claims apply to access tokens requested *for* the application (a web API), not claims requested *by* the application. No matter how the client accesses your API, the right data is present in the access token that is used to authenticate against your API.
+The set of optional claims available by default for applications to use are listed in the following table. You can use custom data in extension attributes and directory extensions to add optional claims for your application. To use directory extensions, see [Directory Extensions](#configuring-directory-extension-optional-claims). When adding claims to the **access token**, the claims apply to access tokens requested *for* the application (a web API), not claims requested *by* the application. No matter how the client accesses your API, the right data is present in the access token that is used to authenticate against your API.
 
 > [!NOTE]
 >The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Consumer accounts support a subset of these claims, marked in the "User Type" column.  Many of the claims listed do not apply to consumer users (they have no tenant, so `tenant_ctry` has no value).
@@ -48,12 +48,12 @@ The set of optional claims available by default for applications to use are list
 | `acct`                | Users account status in tenant | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they're a guest, the value is `1`. |
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
 | `ctry`                     | User's country/region | JWT |  | Azure AD returns the `ctry` optional claim if it's present and the value of the field is a standard two-letter country/region code, such as FR, JP, SZ, and so on. |
-| `email`                    | The reported email address for this user | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant. For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope. This value isn't guaranteed to be correct, and is mutable over time - never use it for authorization or to save data for a user. For more information, see [Validate the user has permission to access this data](access-tokens.md). If you require an addressable email address in your app, request this data from the user directly, using this claim as a suggestion or pre-fill in your UX. |
+| `email`                    | The reported email address for this user | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant. For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope. This value isn't guaranteed to be correct, and is mutable over time - never use it for authorization or to save data for a user. For more information, see [Validate the user has permission to access this data](access-tokens.md). If you require an addressable email address in your app, request this data from the user directly, using this claim as a suggestion or prefill in your UX. |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `groups`| Optional formatting for group claims |JWT, SAML| |For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md). Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well.
+| `groups`| Optional formatting for group claims |JWT, SAML| |For details see [Group claims](#configuring-groups-optional-claims). For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md). Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well.
 | `idtyp`                    | Token type   | JWT access tokens | Special: only in app-only access tokens |  Value is `app` when the token is an app-only token. This claim is the most accurate way for an API to determine if a token is an app token or an app+user token.|
-| `login_hint`               | Login hint   | JWT | MSA, Azure AD | An opaque, reliable login hint claim that's base64 encoded. Do not modify this value. This claim is the best value to use for the `login_hint` OAuth parameter in all flows to get SSO.  It can be passed between applications to help them silently SSO as well - application A can sign in a user, read the `login_hint` claim, and then send the claim and the current tenant context to application B in the query string or fragment when the user selects on a link that takes them to application B. To avoid race conditions and reliability issues, the `login_hint` claim *doesn't* include the current tenant for the user, and defaults to the user's home tenant when used.  If you're operating in a guest scenario where the user is from another tenant, you must provide a tenant identifier in the sign-in request, and pass the same to apps you partner with. This claim is intended for use with your SDK's existing `login_hint` functionality, however that it exposed. |
-| `sid`                      | Session ID, used for per-session user sign-out. | JWT        |  Personal and Azure AD accounts.   |         |
+| `login_hint`               | Login hint   | JWT | MSA, Azure AD | An opaque, reliable login hint claim that's base64 encoded. Don't modify this value. This claim is the best value to use for the `login_hint` OAuth parameter in all flows to get SSO.  It can be passed between applications to help them silently SSO as well - application A can sign in a user, read the `login_hint` claim, and then send the claim and the current tenant context to application B in the query string or fragment when the user selects on a link that takes them to application B. To avoid race conditions and reliability issues, the `login_hint` claim *doesn't* include the current tenant for the user, and defaults to the user's home tenant when used.  If you're operating in a guest scenario where the user is from another tenant, you must provide a tenant identifier in the sign-in request, and pass the same to apps you partner with. This claim is intended for use with your SDK's existing `login_hint` functionality, however that it exposed. |
+| `sid`                      | Session ID, used for per-session user sign out. | JWT        |  Personal and Azure AD accounts.   |         |
 | `tenant_ctry`              | Resource tenant's country/region | JWT | | Same as `ctry` except set at a tenant level by an admin.  Must also be a standard two-letter value. |
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | An identifier for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and shouldn't be used for authorization or to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. For more information, see [Validate the user has permission to access this data](access-tokens.md). Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) shouldn't be shown their User Principal Name (UPN). Instead, use the following ID token claims for displaying sign-in state to the user: `preferred_username` or `unique_name` for v1 tokens and `preferred_username` for v2 tokens. Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. You should use the `login_hint` claim for `login_hint` use - human-readable identifiers like UPN are unreliable.|
@@ -80,7 +80,7 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD. Requires the `profile` scope.   |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD.  Requires the `profile` scope. |
-| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and shouldn't be used for authorization or to uniquely identity user information (for example, as a database key). For more information, see [Validate the user has permission to access this data](access-tokens.md). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) shouldn't be shown their User Principal Name (UPN). Instead, use the following `preferred_username` claim for displaying sign-in state to the user. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. Requires the `profile` scope.|
+| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and shouldn't be used for authorization or to uniquely identity user information (for example, as a database key). For more information, see [Validate the user has permission to access this data](access-tokens.md). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) shouldn't be shown their User Principal Name (UPN). Instead, use the following `preferred_username` claim for displaying sign-in state to the user. | See [additional properties](#additional-properties-of-optional-claims) for configuration of the claim. Requires the `profile` scope.|
 
 ## v1.0-specific optional claims set
 
@@ -104,7 +104,7 @@ Some optional claims can be configured to change the way the claim is returned. 
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Can be used for both SAML and JWT responses, and for v1.0 and v2.0 tokens. |
 |                | `include_externally_authenticated_upn`  | Includes the guest UPN as stored in the resource tenant. For example, `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`), for example `foo_hometenant.com_EXT_@resourcetenant.com`|
+|                | `include_externally_authenticated_upn_without_hash` | Same as listed previously, except that the hash marks (`#`) are replaced with underscores (`_`), for example `foo_hometenant.com_EXT_@resourcetenant.com`|
 | `aud`          |                          | In v1 access tokens, this claim is used to change the format of the `aud` claim.  This claim has no effect in v2 tokens or either version's ID tokens, where the `aud` claim is always the client ID. Use this configuration to ensure that your API  can more easily perform audience validation. Like all optional claims that affect the access token, the resource in the request must set this optional claim, since resources own the access token.|
 |                | `use_guid`               | Emits the client ID of the resource (API) in GUID format as the `aud` claim always instead of it being runtime dependent. For example, if a resource sets this flag, and its client ID is `bb0a297b-6a42-4a55-ac40-09a501456577`, any app that requests an access token for that resource will receive an access token with `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577`. </br></br> Without this claim set, an API could get tokens with an `aud` claim of `api://MyApi.com`, `api://MyApi.com/`, `api://myapi.com/AdditionalRegisteredField` or any other value set as an app ID URI for that API, and the client ID of the resource. |
 
@@ -136,7 +136,7 @@ You can configure optional claims for your application through the UI or applica
 1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. 
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
-1. Select the application you want to configure optional claims for in the list.
+1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
 
 **Configuring optional claims through the UI:**
 
@@ -187,7 +187,7 @@ You can configure optional claims for your application through the UI or applica
     }
     ```
 
-2. When finished, select **Save**. Now the specified optional claims will be included in the tokens for your application.
+2. When finished, select **Save**. Now the specified optional claims are included in the tokens for your application.
 
 
 ### OptionalClaims type
@@ -228,13 +228,13 @@ Directory extensions are an Azure AD-only feature. If your application manifest 
 
 When configuring directory extension optional claims using the application manifest, use the full name of the extension (in the format: `extension_<appid>_<attributename>`). The `<appid>` is the stripped version of the **appId** (or Client ID) of the application requesting the claim.
 
-Within the JWT, these claims will be emitted with the following name format:  `extn.<attributename>`.
+Within the JWT, these claims are emitted with the following name format:  `extn.<attributename>`.
 
-Within the SAML tokens, these claims will be emitted with the following URI format: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Within the SAML tokens, these claims are emitted with the following URI format: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## Configuring groups optional claims
 
-This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest. Group optional claims are only emitted in the JWT for **user principals**. **Service principals** _will not_ have group optional claims emitted in the JWT.
+This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest. Group optional claims are only emitted in the JWT for **user principals**. **Service principals** _won't_ have group optional claims emitted in the JWT.
 
 > [!IMPORTANT]
 > Azure AD limits the number of groups emitted in a token to 150 for SAML assertions and 200 for JWT, including nested groups.  For more information on group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
@@ -308,7 +308,7 @@ This section covers the configuration options under optional claims for changing
 
    In additionalProperties only one of "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" are required.  If more than one is present, the first is used and any others ignored. Additionally you can add “cloud_displayname” to emit display name of the cloud group. Note, that this option works only when `“groupMembershipClaims”` is set to `“ApplicationGroup”`.
 
-   Some applications require group information about the user in the role claim.  To change the claim type from a group claim to a role claim, add "emit_as_roles" to additional properties.  The group values will be emitted in the role claim.
+   Some applications require group information about the user in the role claim.  To change the claim type from a group claim to a role claim, add "emit_as_roles" to additional properties.  The group values are emitted in the role claim.
 
    If "emit_as_roles" is used, any application roles configured that the user is assigned won't appear in the role claim.
 
@@ -404,7 +404,7 @@ There are multiple options available for updating the properties on an applicati
 
 **Example:**
 
-In the example below, you'll use the **Token configuration** UI and **Manifest** to add optional claims to the access, ID, and SAML tokens intended for your application. Different optional claims will be added to each type of token that the application can receive:
+In the example below, you'll use the **Token configuration** UI and **Manifest** to add optional claims to the access, ID, and SAML tokens intended for your application. Different optional claims are added to each type of token that the application can receive:
 
 - The ID tokens will now contain the UPN for federated users in the full form (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
 - The access tokens that other clients request for this application will now include the auth_time claim.
@@ -440,7 +440,7 @@ In the example below, you'll use the **Token configuration** UI and **Manifest**
 1. Search for and select **Azure Active Directory**.
 1. Find the application you want to configure optional claims for in the list and select it.
 1. Under **Manage**, select **Manifest** to open the inline manifest editor.
-1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](./reference-app-manifest.md), and automatically formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
+1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](./reference-app-manifest.md), and automatically formats the manifest once saved. New elements are added to the `OptionalClaims` property.
 
     ```json
     "optionalClaims": {

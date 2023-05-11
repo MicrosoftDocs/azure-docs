@@ -2,6 +2,7 @@
 title: Define multiple instances of an output value
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when returning a value from a deployment.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/07/2021
 ---
 

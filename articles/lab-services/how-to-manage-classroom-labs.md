@@ -2,7 +2,7 @@
 title: Manage labs in Azure Lab Services when using lab accounts| Microsoft Docs
 description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. 
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 03/28/2023
 ---
 
 # Manage labs in Azure Lab Services when using lab accounts
@@ -21,7 +21,8 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 2. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.
 
-    ![Create a lab](./media/how-to-manage-classroom-labs/new-lab-button.png)
+    ![Screenshot that shows how the Azure Lab Services website, highlighting the New lab button.](./media/how-to-manage-classroom-labs/new-lab-button.png)
+
 4. In the **New Lab** window, do the following actions:
     1. Specify a **name** for your lab.
     1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section.
@@ -42,20 +43,23 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
         > Make a note of user name and password. They won't be shown again.
     3. Disable **Use same password for all virtual machines** option if you want students to set their own passwords. This step is **optional**.
 
-        An educator can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.  
+        An educator can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled and students are prompted to set a password when they sign in for the first time.  
 
-        ![New lab window](./media/how-to-manage-classroom-labs/virtual-machine-credentials.png)
+        :::image type="content" source="./media/how-to-manage-classroom-labs/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials page of the New lab wizard.":::
+
     4. Then, select **Next** on the **Virtual machine credentials** page.
+
 6. On the **Lab policies** page, do the following steps:
     1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab.
     2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shut down when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
     3. Then, select **Finish**.
 
-        ![Quota for each user](./media/how-to-manage-classroom-labs/quota-for-each-user.png)
+        :::image type="content" source="./media/how-to-manage-classroom-labs/quota-for-each-user.png" alt-text="Screenshot that shows the Lab policies page of the New lab wizard.":::
 
 7. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes.
 
-    ![Status of the template VM creation](./media/how-to-manage-classroom-labs/create-template-vm-progress.png)
+    ![Screenshot of the Azure Lab Services lab creation progress page.](./media/how-to-manage-classroom-labs/create-template-vm-progress.png)
+
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
     1. Start the template VM.
@@ -66,19 +70,22 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 
 9. On **Template** page, select **Publish** on the toolbar.
 
-    ![Publish template button](./media/how-to-manage-classroom-labs/template-page-publish-button.png)
+    ![Screenshot that shows the Template window in the Azure Lab Services website, highlighting the Publish template button.](./media/how-to-manage-classroom-labs/template-page-publish-button.png)
 
     > [!WARNING]
     > Once you publish, you can't unpublish.
+
 10. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**.
 
-    ![Publish template - number of VMs](./media/how-to-manage-classroom-labs/publish-template-number-vms.png)
+    ![Screenshot of the Publish template window, requesting the number of VMs for the lab.](./media/how-to-manage-classroom-labs/publish-template-number-vms.png)
+
 11. You see the **status of publishing** the template on page. This process can take up to an hour.
 
-    ![Publish template - progress](./media/how-to-manage-classroom-labs/publish-template-progress.png)
-12. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs.
+    ![Screenshot that shows the Template page, highlighting the publishing progress.](./media/how-to-manage-classroom-labs/publish-template-progress.png)
 
-    ![Virtual machines in stopped state](./media/how-to-manage-classroom-labs/virtual-machines-stopped.png)
+12. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs aren't assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs.
+
+    ![Screenshot that shows the Virtual machine pool window, showing the lab VMs in the stopped state.](./media/how-to-manage-classroom-labs/virtual-machines-stopped.png)
 
     You do the following tasks on this page (don't do these steps for the tutorial. These steps are for your information only.):
 
@@ -99,23 +106,26 @@ For information on VM sizes and their cost, see the [Azure Pricing Calculator](h
 1. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 
     [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
 1. Confirm that you see all the labs in the selected lab account. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user (outside the scheduled time).
 
-    ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
+    ![Screenshot that shows the Azure Lab Services website, showing the My labs page.](./media/how-to-manage-classroom-labs/all-labs.png)
+
 1. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account.
 
 ## Delete a lab
 
 1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
-    ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
+    ![Screenshot that shows the My Labs page in the Azure Lab Services website, highlighting the Delete button.](./media/how-to-manage-classroom-labs/delete-button.png)
+
 1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Switch to another lab
 
 To switch to another lab from the current, select the drop-down list of labs in the lab account at the top.
 
-![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs/switch-lab.png)
+![Screenshot that shows the Azure Lab Services website, highlighting the drop-down to switch to another lab.](./media/how-to-manage-classroom-labs/switch-lab.png)
 
 You can also create a new lab using the **New lab** in this drop-down list.
 
@@ -123,6 +133,10 @@ You can also create a new lab using the **New lab** in this drop-down list.
 > You can also use the Az.LabServices PowerShell module to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
 To switch to a different lab account, select the drop-down next to the lab account and select the other lab account.
+
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot insufficient IP addresses](./includes/lab-services-troubleshoot-insufficient-ip-addresses.md)]
 
 ## Next steps
 

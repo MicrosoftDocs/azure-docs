@@ -11,7 +11,7 @@ ms.date: 01/17/2023
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Rehydrate an archived blob to an online tier

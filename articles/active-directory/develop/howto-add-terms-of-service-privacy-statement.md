@@ -80,7 +80,7 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
 
 ### <a name="msgraph-rest-api"></a>Using the Microsoft Graph API
 
-To programmatically [update your app](/graph/api/application-update?view=graph-rest-1.0&tabs=http), you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
+To programmatically [update your app](/graph/api/application-update), you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}

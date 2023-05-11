@@ -1,6 +1,6 @@
 ---
 
-title: What are Azure Active Directory reports? | Microsoft Docs
+title: What are Azure Active Directory reports?
 description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 author: shlipsey3

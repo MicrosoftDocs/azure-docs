@@ -63,7 +63,7 @@ sections:
           
           - If we connect a vNET in Azure North Europe to an Azure VMware Solution private cloud in West Europe, then there are no ExpressRoute charges other than the ExpressRoute gateway charges.
           
-          - If we connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe, which is connected to the vNET in Azure North Europe, you will not incur any ExpressRoute charges other than the ExpressRoute gateway charges.
+          - If you connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe via Expressroute Global Reach you will NOT incur any ExpressRoute Global Reach data transfer (egress and ingress) charges. Please note that there will be charges when using an ExpressRoute gateway.
 
       - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 

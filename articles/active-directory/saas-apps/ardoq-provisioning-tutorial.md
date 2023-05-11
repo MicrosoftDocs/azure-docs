@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Ardoq for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Ardoq for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Ardoq.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 0339e63a-5262-4019-a85d-18c9617fc4b3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

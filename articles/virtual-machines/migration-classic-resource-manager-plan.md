@@ -10,6 +10,7 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: oriwolman
+ms.custom: compute-evergreen, devx-track-arm-template
 ---
 
 

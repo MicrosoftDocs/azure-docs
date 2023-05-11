@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/23/2022
 ms.author: ramankum
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a virtual machine using an existing managed OS disk with CLI

@@ -51,9 +51,9 @@ For pricing details, see [Azure Route Server pricing](https://azure.microsoft.co
 
 For service level agreement details, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
 
-## FAQs
+## FAQ
 
-For frequently asked questions about Azure Route Server, see [Azure Route Server FAQs](route-server-faq.md).
+For frequently asked questions about Azure Route Server, see [Azure Route Server FAQ](route-server-faq.md).
 
 ## Next steps
 

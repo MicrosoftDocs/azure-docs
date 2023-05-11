@@ -4,6 +4,7 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy resources
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
 ms.date: 08/05/2022
 ---
 

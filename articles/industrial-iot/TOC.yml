@@ -94,9 +94,9 @@
   - name: IIoT Platform GitHub repository
     href: https://github.com/Azure/iot-edge-opc-publisher
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

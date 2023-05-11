@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Smartsheet for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Smartsheet for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Smartsheet.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 9d391bd3-b0d3-4c7d-af8a-70bc0a538706
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

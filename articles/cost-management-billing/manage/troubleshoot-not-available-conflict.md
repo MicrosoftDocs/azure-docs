@@ -6,13 +6,13 @@ ms.reviewer: benshy
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: troubleshooting
-ms.date: 01/06/2023
+ms.date: 03/16/2023
 ms.author: banders
 ---
 
 # Troubleshoot Not available due to conflict error
 
-You might see a `Not available do to conflict` error message when you try select a management group for a savings plan or reservation in to the [Azure portal](https://portal.azure.com/). This article provides solutions for the problem.
+You might see a `Not available due to conflict` error message when you try select a management group for a savings plan or reservation in to the [Azure portal](https://portal.azure.com/). This article provides solutions for the problem.
 
 ## Symptom
 

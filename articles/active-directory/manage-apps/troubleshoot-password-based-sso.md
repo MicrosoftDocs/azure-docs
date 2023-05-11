@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot password-based single sign-on

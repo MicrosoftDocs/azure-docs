@@ -1,10 +1,12 @@
 items:
-- name: Azure Orbital Ground Station - Documentation
+- name: Azure Orbital - Documentation
   href: index.yml
 - name: Overview
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
+  - name: What is the Azure Space Partner Community?
+    href: space-partner-program-overview.md
 
 - name: Quickstart
   items:
@@ -15,12 +17,19 @@ items:
   - name: Schedule a contact
     href: schedule-contact.md
     
+- name: Concepts
+  items:
+  - name: Spacecraft
+    href: spacecraft-object.md
+  - name: Contact
+    href: concepts-contact.md
+  - name: Contact profile
+    href: concepts-contact-profile.md
+    
 - name: How-to guides
   items:
   - name: Prepare network to send and receive data
     href: prepare-network.md
-  - name: License your spacecraft
-    href: license-spacecraft.md
   - name: Integrate partner network ground stations
     href: partner-network-integration.md 
   - name: Configure the RF chain
@@ -34,19 +43,12 @@ items:
     
 - name: Tutorials
   items:
-  - name: Schedule a contact with NASA's AQUA public satellite
+  - name: Downlink data from NASA's Aqua public satellite
     href: downlink-aqua.md 
-  - name: Collect and process AQUA satellite payload
+  - name: Process Aqua satellite data using NASA-provided tools
     href: satellite-imagery-with-orbital-ground-station.md
-    
-- name: Concepts
-  items:
-  - name: Contact
-    href: concepts-contact.md
-  - name: Contact profile
-    href: concepts-contact-profile.md
-  - name: Spacecraft object
-    href: spacecraft-object.md
+  - name: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+    href: virtual-rf-tutorial.md
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC

@@ -1,6 +1,6 @@
 ---
-title: "VMware Carbon Black Cloud (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector VMware Carbon Black Cloud (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "VMware Carbon Black Cloud (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector VMware Carbon Black Cloud (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# VMware Carbon Black Cloud (using Azure Function) connector for Microsoft Sentinel
+# VMware Carbon Black Cloud (using Azure Functions) connector for Microsoft Sentinel
 
 The [VMware Carbon Black Cloud](https://www.vmware.com/products/carbon-black-cloud.html) connector provides the capability to ingest Carbon Black data into Microsoft Sentinel. The connector provides visibility into Audit, Notification and Event logs in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.
 
@@ -17,7 +17,7 @@ The [VMware Carbon Black Cloud](https://www.vmware.com/products/carbon-black-clo
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | apiId<br/>apiKey<br/>workspaceID<br/>workspaceKey<br/>uri<br/>timeInterval<br/>CarbonBlackOrgKey<br/>CarbonBlackLogTypes<br/>s3BucketName<br/>EventPrefixFolderName<br/>AlertPrefixFolderName<br/>AWSAccessKeyId<br/>AWSSecretAccessKey<br/>SIEMapiId (Optional)<br/>SIEMapiKey (Optional)<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
+| **Azure functions app code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **Log Analytics table(s)** | CarbonBlackEvents_CL<br/> CarbonBlackAuditLogs_CL<br/> CarbonBlackNotifications_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft](https://support.microsoft.com/) |
@@ -57,7 +57,7 @@ CarbonBlackNotifications_CL
 
 To integrate with VMware Carbon Black Cloud (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **VMware Carbon Black API Key(s)**: Carbon Black API and/or SIEM Level API Key(s) are required. See the documentation to learn more about the [Carbon Black API](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/).
  - A Carbon Black **API** access level API ID and Key is required for [Audit](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/#audit-log-events) and [Event](https://developer.carbonblack.com/reference/carbon-black-cloud/platform/latest/data-forwarder-config-api/) logs. 
  - A Carbon Black **SIEM** access level  API ID and Key is required for [Notification](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/#notifications) alerts.
@@ -71,7 +71,7 @@ To integrate with VMware Carbon Black Cloud (using Azure Function) make sure you
    >  This connector uses Azure Functions to connect to VMware Carbon Black to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the VMware Carbon Black API**
@@ -97,7 +97,7 @@ This method provides an automated deployment of the VMware Carbon Black connecto
 > - Enter the URI that corresponds to your region. The complete list of API URLs can be [found here](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346)
  - The default **Time Interval** is set to pull the last five (5) minutes of data. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion. 
  - Carbon Black requires a seperate set of API ID/Keys to ingest Notification alerts. Enter the SIEM API ID/Key values or leave blank, if not required. 
-> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
@@ -147,8 +147,8 @@ Use the following step-by-step instructions to deploy the VMware Carbon Black co
 		logAnalyticsUri (optional) 
 > - Enter the URI that corresponds to your region. The complete list of API URLs can be [found here](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346). The `uri` value must follow the following schema: `https://<API URL>.conferdeploy.net` - There is no need to add a time suffix to the URI, the Function App will dynamically append the Time Value to the URI in the proper format.
 > - Set the `timeInterval` (in minutes) to the default value of `5` to correspond to the default Timer Trigger of every `5` minutes. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly to prevent overlapping data ingestion.
-> - Carbon Black requires a seperate set of API ID/Keys to ingest Notification alerts. Enter the `SIEMapiId` and `SIEMapiKey` values, if needed, or omit, if not required. 
-> - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+> - Carbon Black requires a separate set of API ID/Keys to ingest Notification alerts (recommended). As described in the CarbonBlack 'Endpoint Standard' access level documentation, provide the ID/Key with the SIEM access level permissions. 
+> - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 > - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`
 4. Once all application settings have been entered, click **Save**.
 

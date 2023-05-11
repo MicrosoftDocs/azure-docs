@@ -1,6 +1,6 @@
 ---
-title: "Digital Shadows Searchlight (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Digital Shadows Searchlight (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Digital Shadows Searchlight (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Digital Shadows Searchlight (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Digital Shadows Searchlight (using Azure Function) connector for Microsoft Sentinel
+# Digital Shadows Searchlight (using Azure Functions) connector for Microsoft Sentinel
 
 The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
 
@@ -17,7 +17,7 @@ The Digital Shadows data connector provides ingestion of the incidents and alert
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | apiUsername<br/>apipassword<br/>apiToken<br/>workspaceID<br/>workspaceKey<br/>uri<br/>logAnalyticsUri (optional)(add any other settings required by the Function App)Set the <code>uri</code> value to: <code>&lt;add uri value&gt;</code> |
-| **Azure function app code** | Add%20GitHub%20link%20to%20Function%20App%20code |
+| **Azure functions app code** | Add%20GitHub%20link%20to%20Function%20App%20code |
 | **Log Analytics table(s)** | DigitalShadows_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Digital Shadows](https://www.digitalshadows.com/) |
@@ -34,9 +34,9 @@ DigitalShadows_CL
 
 ## Prerequisites
 
-To integrate with Digital Shadows Searchlight (using Azure Function) make sure you have: 
+To integrate with Digital Shadows Searchlight (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **Digital Shadows account ID, secret and key** is required.  See the documentation to learn more about API on the `https://portal-digitalshadows.com/learn/searchlight-api/overview/description`.
 
 
@@ -47,7 +47,7 @@ To integrate with Digital Shadows Searchlight (using Azure Function) make sure y
    >  This connector uses Azure Functions to connect to a 'Digital Shadows Searchlight' to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the 'Digital Shadows Searchlight' API**
@@ -71,7 +71,7 @@ Use this method for automated deployment of the 'Digital Shadows Searchlight' co
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-Digitalshadows-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the **Workspace ID**, **Workspace Key**, **API Username**, **API Password**, 'and/or Other required fields'. 
->Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+>Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
@@ -112,7 +112,7 @@ Use this method for automated deployment of the 'Digital Shadows Searchlight' co
 		logAnalyticsUri (optional)
 (add any other settings required by the Function App)
 Set the `uri` value to: `<add uri value>` 
->Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details.
+>Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
  - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
 4. Once all application settings have been entered, click **Save**.
 

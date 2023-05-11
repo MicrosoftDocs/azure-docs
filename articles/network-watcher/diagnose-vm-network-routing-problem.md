@@ -14,7 +14,7 @@ ms.custom: template-tutorial, mvc, engagement-fy23
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
 
-When you deploy a virtual machine (VM), Azure creates several [system default routes](/articles/virtual-network/virtual-networks-udr-overview.md#system-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) for it. You can create [custom routes](/articles/virtual-network/virtual-networks-udr-overview.md#custom-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) to override some of Azure's system routes. Sometimes, a custom route can result in a VM not being able to communicate with the intended destination. You can use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) capability to troubleshoot and diagnose the VM routing problem that's preventing it from correctly communicating with other resources.
+When you deploy a virtual machine (VM), Azure creates several [system default routes](/azure/virtual-network/virtual-networks-udr-overview#system-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) for it. You can create [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) to override some of Azure's system routes. Sometimes, a custom route can result in a VM not being able to communicate with the intended destination. You can use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) capability to troubleshoot and diagnose the VM routing problem that's preventing it from correctly communicating with other resources.
 
 In this tutorial, you learn how to:
 
@@ -268,7 +268,7 @@ The custom route with prefix 0.0.0.0/0 overrode Azure default route and caused a
 :::image type="content" source="./media/diagnose-vm-network-routing-problem/effective-routes-custom.png" alt-text="Screenshot the effective routes after overriding Azure default system routes using a custom route.":::
  
 > [!NOTE]
-> In this tutorial, traffic to `www.bing.com` was dropped because **myNVA** was not set up to forward traffic. To learn how to set up a virtual machine to forward traffic, see [Turn on IP forwarding](/articles/virtual-network/tutorial-create-route-table-portal.md#turn-on-ip-forwarding).
+> In this tutorial, traffic to `www.bing.com` was dropped because **myNVA** was not set up to forward traffic. To learn how to set up a virtual machine to forward traffic, see [Turn on IP forwarding](/azure/virtual-network/tutorial-create-route-table-portal#turn-on-ip-forwarding).
 
 ## Clean up resources
 

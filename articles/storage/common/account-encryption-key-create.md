@@ -11,7 +11,7 @@ ms.date: 06/09/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an account that supports customer-managed keys for tables and queues

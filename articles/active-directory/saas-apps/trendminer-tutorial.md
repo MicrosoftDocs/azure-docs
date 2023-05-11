@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TrendMiner | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TrendMiner'
 description: Learn how to configure single sign-on between Azure Active Directory and TrendMiner.
 services: active-directory
 author: jeevansd

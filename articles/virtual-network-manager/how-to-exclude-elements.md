@@ -1,22 +1,24 @@
 ---
-title: 'Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy (Preview)'
+title: 'Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy'
 description: Learn how to define dynamic network group membership in Azure Virtual Network Manager with Azure Policy.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 03/22/2023
+ms.custom: template-concept
 ---
 
-# Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy (Preview)
+# Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy
 
 In this article, you'll learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
 
 [Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition will continue to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -78,7 +80,7 @@ You only want to select virtual networks that contain **VNet-A** in the name. To
 > [!IMPORTANT] 
 > The **basic editor** is only available during the creation of an Azure Policy. Once a policy is created, all edits will be done using JSON in the **Policies** section of virtual network manager or via Azure Policy.
 >
-> When using the basic editor, your condition options will be limited through the portal experience. For complex conditions like creating a network group for VNets based on a customer-defined tag, you can used the advanced editor. Learn more about [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
+> When using the basic editor, your condition options are limited through the portal experience. For complex conditions like creating a network group for VNets based on a [customer-defined tag](#example-3-using-custom-tag-values-with-advanced-editor), you must use the advanced editor. Learn more about [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
 
 ## Advanced editor
 

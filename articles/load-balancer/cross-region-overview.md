@@ -140,6 +140,9 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * US Gov Texas
 * US Gov Virginia
 
+> [!NOTE]
+> The backend regional load balancers can be deployed in any publicly available Azure Region and is not limited to just participating regions.
+
 ## Limitations
 
 * Cross-region frontend IP configurations are public only. An internal frontend is currently not supported.
