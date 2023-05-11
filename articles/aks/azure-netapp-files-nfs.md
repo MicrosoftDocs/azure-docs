@@ -357,7 +357,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
     ```output 
     secret/backend-tbc-anf-secret created
     ```
-Apply the backend: 
+   Apply the backend: 
 
     ```bash
     kubectl apply -f backend-anf.yaml -n trident
@@ -372,7 +372,7 @@ Apply the backend:
 4. Confirm the backend was created by using the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command:
 
     ```bash
-     Kubectl get tridentbackends -n trident
+     kubectl get tridentbackends -n trident
     ```
 
     The output of the command resembles the following example:   
