@@ -19,7 +19,6 @@ This article helps you understand this new authentication feature, and reviews t
 ## Dependencies
 
 - AKS supports Azure AD workload identities on version 1.22 and higher.
-
 - The Azure CLI version 2.47.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Azure Identity client libraries
@@ -27,7 +26,7 @@ This article helps you understand this new authentication feature, and reviews t
 In the Azure Identity client libraries, choose one of the following approaches:
 
 - Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`.
-- Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`. 
+- Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`.
 - Use `WorkloadIdentityCredential` directly.
 
 The following table provides the **minimum** package version required for each language's client library.
@@ -84,7 +83,7 @@ Azure AD workload identity supports the following mappings related to a service 
 
 - One-to-one where a service account references an Azure AD object.
 - Many-to-one where multiple service accounts references the same Azure AD object.
-- One-to-many where a service account references multiple Azure AD objects by changing the client ID annotation.
+- One-to-many where a service account references multiple Azure AD objects by changing the client ID annotation. For more information, see [How to federate multiple identities with a Kubernetes service account][multiple-identities].
 
 > [!NOTE]
 > If the service account annotations are updated, you need to restart the pod for the changes to take effect.
@@ -143,6 +142,7 @@ The following table summarizes our migration or deployment recommendations for w
 [custom-resource-definition]: https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/
 [service-account-token-volume-projection]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection
 [oidc-federation]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens
+[multiple-identities]: https://azure.github.io/azure-workload-identity/docs/faq.html#how-to-federate-multiple-identities-with-a-kubernetes-service-account
 <!-- INTERNAL LINKS -->
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
 [azure-ad-workload-identity]: ../active-directory/develop/workload-identities-overview.md

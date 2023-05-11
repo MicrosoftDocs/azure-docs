@@ -21,7 +21,7 @@ Let's start by making sure you have the tools you need to deploy templates.
 
 You  need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
 
-- [Install Azure PowerShell](/powershell/azure/install-az-ps)
+- [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
 - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
