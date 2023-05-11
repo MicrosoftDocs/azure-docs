@@ -1,12 +1,12 @@
 ---
-title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
-ms.date: 04/27/2023
+title: "Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)"
+ms.date: 05/04/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Use Azure RBAC for Azure Arc-enabled Kubernetes clusters
+# Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)
 
 Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. Azure role assignments let you granularly control which users can read, write, and delete Kubernetes objects such as deployment, pod, and service.
 
@@ -35,7 +35,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
+> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
 
 ## Set up Azure AD applications
 
@@ -535,7 +535,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
+5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig

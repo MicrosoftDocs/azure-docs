@@ -55,6 +55,8 @@
         href: azure-ad-joined-session-hosts.md
       - name: Virtual machine sizing guidance
         href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Custom image templates
+        href: custom-image-templates.md
       - name: Windows 10 Enterprise multi-session FAQ
         href: windows-10-multisession-faq.yml
       - name: Fair Share technologies
@@ -220,8 +222,10 @@
           href: teams-on-avd.md
         - name: Set up Windows Sandbox
           href: sandbox.md
-      - name: Customize session host image
+      - name: Customize session host images
         items:
+        - name: Create custom images with Custom image templates
+          href: create-custom-image-templates.md
         - name: Set up golden image in Azure
           href: set-up-golden-image.md
         - name: Set up a master VHD image
@@ -288,7 +292,7 @@
         href: customize-rdp-properties.md
       - name: Configure load-balancing method
         href: configure-host-pool-load-balancing.md
-      - name: Set personal desktop assignment type
+      - name: Configure personal desktop assignment
         href: configure-host-pool-personal-desktop-assignment-type.md
       - name: Configure a validation environment
         href: configure-validation-environment.md
@@ -458,6 +462,8 @@
     href: troubleshoot-multimedia-redirection.md
   - name: Microsoft Teams
     href: troubleshoot-teams.md
+  - name: Custom image templates
+    href: troubleshoot-custom-image-templates.md
 - name: Reference
   items:
   - name: Azure CLI

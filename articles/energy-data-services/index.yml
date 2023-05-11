@@ -98,6 +98,8 @@ landingContent:
             url: how-to-integrate-airflow-logs-with-azure-monitor.md
           - text: How to integrate elastic logs with Azure Monitor
             url: how-to-integrate-elastic-logs-with-azure-monitor.md
+          - text: How to integrate OSDU service logs with Azure Monitor
+            url: how-to-integrate-osdu-service-logs-with-azure-monitor.md
   - title: Security
     linkLists:
       - linkListType: how-to-guide

@@ -11,7 +11,8 @@ ms.topic: conceptual
 ms.date: 06/29/2022 
 ms.author: jomondi
 ms.reviewer: alamaral
-ms.collection: M365-identity-device-management 
+ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 --- 
 
 

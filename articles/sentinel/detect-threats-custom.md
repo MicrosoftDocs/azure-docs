@@ -296,7 +296,7 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - Microsoft Sentinel had been removed from the target workspace.
 - A function used by the rule query is no longer valid; it has been either modified or removed.
 - Permissions to one of the data sources of the rule query were changed.
-- One of the data sources of the rule query was deleted or disconnected.
+- One of the data sources of the rule query was deleted.
 
 **In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Microsoft Sentinel stops trying to execute the rule, and also takes the following steps:
 

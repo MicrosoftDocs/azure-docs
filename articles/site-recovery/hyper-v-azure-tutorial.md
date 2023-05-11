@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/02/2023
+ms.date: 05/04/2023
 ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -95,7 +95,7 @@ If you're running a Hyper-V Core server, download the setup file and complete th
 
 1. Register the server by running this command:
 
-    ```bash
+    ```cmd
     cd "C:\Program Files\Microsoft Azure Site Recovery Provider"
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```

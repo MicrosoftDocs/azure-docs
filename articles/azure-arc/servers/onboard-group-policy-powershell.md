@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using Group Policy with a PowerShell script
 description: In this article, you learn how to create a Group Policy Object to onboard Active Directory-joined Windows machines to Azure Arc-enabled servers.
-ms.date: 12/13/2022
+ms.date: 05/04/2023
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -42,6 +42,10 @@ The Group Policy Object, which is used to onboard Azure Arc-enabled servers, req
 On the Group Policy Management Console (GPMC), right-click on the desired Organizational Unit and link the GPO named **[MSFT] Azure Arc Servers (datetime)**. This is the Group Policy Object which has the Scheduled Task to onboard the machines. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about [creating and managing group policy in Azure AD Domain Services](../../active-directory-domain-services/manage-group-policy.md).
 
 After you have successfully installed the agent and configured it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+
+> [!IMPORTANT]
+> Once you've confirmed that your servers have successfully onboarded to Arc, disable the Group Policy Object. This will prevent the same Powershell commands in the scheduled tasks from executing when the system reboots or when the group policy is updated.
+> 
 
 ## Next steps
 

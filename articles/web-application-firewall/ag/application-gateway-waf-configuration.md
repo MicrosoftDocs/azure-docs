@@ -39,7 +39,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-When processing exclusions, the WAF will perform a case sensitive match for all fields other than request header keys. Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive. Regular expressions aren't allowed as selectors.
+When processing exclusions, any WAF engine running CRS 3.2 and above will perform a case sensitive match for all fields other than request headers. Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive. If your WAF engine is running CRS 3.1 and below, all fields are case insensitive. Regardless of which CRS version you are running regular expressions aren't allowed as selectors and XML request bodies are not supported.
 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
