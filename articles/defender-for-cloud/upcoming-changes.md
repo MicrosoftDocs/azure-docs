@@ -19,8 +19,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 | Planned change | Estimated date for change |
 |--|--|
 | [Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | May 2023 |
-|[Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys) | May 2023 |
-| [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) |May 2023|
+| [Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys) | May 2023 |
+| [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm) | June 2023
 
@@ -55,17 +55,17 @@ Learn more about [Microsoft Defender Vulnerability Management (MDVM)](/microsoft
 
 **Estimated date for change: May 2023**
 
-Defender for DevOps will be adding an additional scope to the already existing Azure DevOps (ADO) application. 
+Defender for DevOps will be adding an additional scope to the already existing Azure DevOps (ADO) application.
 
-The scope that will be added includes:  
+The scopes that will be added include:
 
-- Advance Security management: `vso.advsec_manage`; Needed to enable, disable and manage, GitHub Advance Security for ADO.  
+- Advance Security management: `vso.advsec_manage`; Needed to enable, disable and manage, GitHub Advanced Security for ADO. 
 
 - Container Mapping: `vso.extension_manage`, `vso.gallery_manager`; This is needed to share the decorator extension with the ADO organization.  
 
-This change will only affect new Defender for DevOps customers that are trying to onboard AADO resources to Microsoft Defender for Cloud. 
+This change will only affect new Defender for DevOps customers that are trying to onboard ADO resources to Microsoft Defender for Cloud.
 
-Customers may experience ADO authentications errors when they try to create a new ADO connector. GitHub and existing connector flow will continue to work. This change of scope will result in downtime for any ADO Connector creation experience on May 11th 2023. After this date, all new ADO Connectors will be created with new scopes.
+Customers may experience ADO authentication errors when they try to create a new ADO connector. GitHub and existing connector flow will continue to work. This change of scope will result in downtime for any ADO Connector creation experience in May 2023. After May, all new ADO Connectors will be created with new scopes.
 
 ### DevOps Resource Deduplication for Defender for DevOps
 
