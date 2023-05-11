@@ -1,4 +1,23 @@
-Automate provisioning to and from SAP apps
+---
+title: Automate provisioning to and from SAP apps
+description: Manage the lifecycle of accounts in SAP applications. 
+services: active-directory
+documentationcenter: ''
+author: amsliu
+manager: amycolannino
+editor: markwahl-msft
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.topic: conceptual
+ms.subservice: compliance
+ms.date: 5/11/2023
+ms.author: amsliu
+ms.reviewer: markwahl-msft
+ms.collection: M365-identity-device-management
+---
+
+# Automate provisioning to and from SAP apps
 
 SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, M365, etc., and relies on Azure AD to manage access to applications. This document describes how you can get started using Azure AD to manage identities across the SAP landscape. 
 When an employee is hired, they have an account created in an HR system such as SAP SuccessFactors. Once that employee starts their job, they’ll need access to both Microsoft applications (ex: Teams and SharePoint) and SAP applications (ex: Analytics cloud, Concur, S/4 Hana). Using Entra Identity Governance and SAP IPS, you can automate lifecycle management and provide access to the applications that users need.  
