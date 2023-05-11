@@ -53,11 +53,12 @@ At this point, you need to update the deployment to use the new image. You shoul
 When your function app container is deployed from a registry, Functions maintains information about the source image. Use the following commands to get data about the image or change the deployment image used:
 
  +  [`az functionapp config container show`](/cli/azure/functionapp/config/container#az-functionapp-config-container-show): returns information about the image used for deployment. 
+
  +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or the image used for deployment.
 
 ## Application settings
 
-
+Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 ## Enable continuous deployment to Azure
 
