@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 05/11/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -44,6 +44,10 @@ For the Stream Analytics job to access your Event Hub using managed identity, th
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+> [!NOTE]
+> When giving access to any resource, you should give the least needed access. Depending on whether you are configuring Event Hubs as an input or output, you may not need to assign the Azure Event Hubs Data Owner role which would grant more than needed access to your Eventhub resource. For more information see [Authenticate an application with Azure Active Directory to access Event Hubs resources](https://learn.microsoft.com/en-us/azure/event-hubs/authenticate-application)
+
 
     | Setting | Value |
     | --- | --- |
