@@ -40,7 +40,7 @@ To enable the required setting to allow source IP restoration, an administrator 
 This functionality allows services like Azure AD, SharePoint Online and Exchange Online to see the actual source IP address.
 
 > [!CAUTION]
-> If your organization has active Conditional Access policies based on compliant network, and you disable network access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable network access signaling, first disable or delete the corresponding Conditional Access policies. 
+> If your organization has active Conditional Access policies based on compliant network, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first disable or delete any corresponding Conditional Access policies. 
 
 ## Sign-in log behavior
 
