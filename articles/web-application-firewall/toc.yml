@@ -114,10 +114,14 @@
          href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
+     - name: Upgrade WAF
+       items:
+       - name: Upgrade to WAF policy
+         href: ./ag/upgrade-ag-waf-policy.md
+       - name: Upgrade using PowerShell
+         href: ./ag/migrate-policy.md
      - name: Per-site policies
        href: ./ag/per-site-policies.md
-     - name: Migrate WAF policy
-       href: ./ag/migrate-policy.md
      - name: Customize WAF rules
        items:
        - name: Azure portal

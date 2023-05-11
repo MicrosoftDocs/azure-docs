@@ -43,7 +43,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 To begin:
 
-1. [Download the latest version of PowerShell](/powershell/azure/install-az-ps)
+1. [Download the latest version of PowerShell](/powershell/azure/install-azure-powershell)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 

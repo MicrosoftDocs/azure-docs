@@ -130,10 +130,6 @@ To enable Azure Monitor Application Insights, you will make a minor modification
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
 
 ```csharp
-using Azure.Monitor.OpenTelemetry.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
@@ -160,10 +156,6 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 ```javascript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 const config = new ApplicationInsightsConfig();
-
-//Uncomment the line below when setting the Application Insights Connection String via code
-//config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
-
 const appInsights = new ApplicationInsightsClient(config);
 ```
 
@@ -225,7 +217,7 @@ To paste your Connection String, select from the options below:
 
   C. Set via Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
   
-  Uncomment the code line with `<Your Connection String>`, and replace the placeholder with *your* unique connection string.
+  See [Connection String Configuration](opentelemetry-configuration.md#connection-string) for example setting Connection String via code.
 
   > [!NOTE]
   > If you set the connection string in more than one place, we adhere to the following precendence:
@@ -1295,10 +1287,6 @@ app.Run();
 Add `ActivityEnrichingProcessor.cs` to your project with the following code:
 
 ```csharp
-using System.Diagnostics;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
     public override void OnEnd(Activity activity)
@@ -1357,7 +1345,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
     onEnd(span: ReadableSpan){
         span.attributes["CustomDimension1"] = "value1";
         span.attributes["CustomDimension2"] = "value2";
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
     }
 }
 
@@ -1522,7 +1509,23 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 
 #### [Node.js](#tab/nodejs)
   
-Currently unavailable.
+Attributes could be added only when calling manual track APIs only, log attributes for console, bunyan and winston are currently not supported.
+
+```javascript
+const config = new ApplicationInsightsConfig();
+config.instrumentations.http = httpInstrumentationConfig;
+const appInsights = new ApplicationInsightsClient(config);
+const logHandler = appInsights.getLogHandler();
+const attributes = {
+    "testAttribute1": "testValue1",
+    "testAttribute2": "testValue2",
+    "testAttribute3": "testValue3"
+};
+logHandler.trackEvent({
+    name: "testEvent",
+    properties: attributes
+});
+```
 
 #### [Python](#tab/python)
   
@@ -1567,10 +1570,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     Add `ActivityFilteringProcessor.cs` to your project with the following code:
     
     ```csharp
-    using System.Diagnostics;
-    using OpenTelemetry;
-    using OpenTelemetry.Trace;
-    
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
         public override void OnStart(Activity activity)
@@ -1844,3 +1843,5 @@ To provide feedback:
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---
+
+<!-- PR for Hector-->
