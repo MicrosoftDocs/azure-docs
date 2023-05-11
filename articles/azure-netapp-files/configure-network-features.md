@@ -77,7 +77,7 @@ This section shows you how to set the network features option when you create a 
 
 ## Edit network features option for existing volumes
 
-You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same network sibling set.
+You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same network sibling set. This functionality currently doesn't support SDK.
 
 You can also revert the option from *Standard* back to *Basic* network features, but considerations apply and require careful planning. For example, you might need to change configurations for Network Security Groups (NSGs), user-defined routes (UDRs), and IP limits if you revert. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features.
 
