@@ -382,7 +382,7 @@
       href: defender-for-apis-deploy.md
     - name: Validate APIs alerts
       displayName: validate, api, apis
-      href: defender-for-apis-validate.md
+      href: defender-for-apis-validation.md
     - name: Investigate findings, recommendations, alerts
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
