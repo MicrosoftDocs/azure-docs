@@ -137,22 +137,13 @@ You can specify which features you want to use by setting the URL query paramete
 
 |URL parameter | Value | Description|
 |---|---|--|
-<<<<<<< HEAD
-|`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
-|`features`|`Caption` | describes the image content with a complete sentence in supported languages.|
-|`features`|`DenseCaption` | generates detailed captions for up to 10 prominent image regions. |
-|`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
-|`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
-|`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
-=======
 |`features`|`read` | Reads the visible text in the image and outputs it as structured JSON data.|
 |`features`|`caption` | Describes the image content with a complete sentence in supported languages.|
-|`features`|`denseCaption` | Generates detailed captions for individual regions in the image. |
+|`features`|`denseCaption` | Generates detailed captions for up to 10 prominent image regions. |
 |`features`|`smartCrops` | Finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
 |`features`|`objects` | Detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 |`features`|`tags` | Tags the image with a detailed list of words related to the image content.|
 |`features`|`people` | Detects people appearing in images, including the approximate locations. |
->>>>>>> 3f19b1f50ad3 (More)
 
 A populated URL might look like this:
 
@@ -458,10 +449,5 @@ The code is similar to the standard model case. The only difference is that resu
 ## Next steps
 
 * Explore the [concept articles](../concept-describe-images-40.md) to learn more about each feature.
-<<<<<<< HEAD
-* Explore the [code samples on GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/).
-* See the [API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.
-=======
 * Explore the [SDK code samples on GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).
 * See the [REST API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.
->>>>>>> 73e4e55c8542 (Save results)
