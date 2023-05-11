@@ -4,7 +4,7 @@ description: Learn how to configure Deny Public Network Access using Azure porta
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
-ms.date: 05/23/2023
+ms.date: 05/11/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -20,26 +20,26 @@ This article describes how you can configure an Azure Database for MySQL flexibl
 
 1. When creating an [Azure Database for MySQL flexible server](quickstart-create-server-portal.md) in the Networking tab, choose *Public access (allowed IP addresses) and Private endpoint* as the connectivity method.
 
-2. To disable public access on the MySQL flexible server you are creating, uncheck Allow public access to this resource through the internet using a public IP address under *Public access*.
+1. To disable public access on the MySQL flexible server you are creating, uncheck Allow public access to this resource through the internet using a public IP address under *Public access*.
 
-:::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png" alt-text="Screenshot of denying public access from the portal.":::
+:::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png" alt-text="Screenshot of denying public access from the portal." lightbox="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql.png":::
 
-3. After entering the remaining information in the other tabs, click on *Review + Create* to deploy the MySQL flexible server without public access.
+1. After entering the remaining information in the other tabs, select on *Review + Create* to deploy the MySQL flexible server without public access.
 
 ## Deny public access to an existing MySQL flexible server
 
-> [!NOTE]
+> [!NOTE]  
 > The MySQL flexible server must have been deployed with **Public access (allowed IP addresses) and Private endpoint** as the connectivity method to implement this.
 
-1. On the MySQL flexible server page, under **Settings**, click **Networking**.
+1. On the MySQL flexible server page, under **Settings**, select **Networking**.
 
-2. To disable public access on the MySQL flexible server, uncheck Allow public access to this resource through the internet using a public IP address under **Public access**.
+1. To disable public access on the MySQL flexible server, uncheck Allow public access to this resource through the internet using a public IP address under **Public access**.
 
-:::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png" alt-text="Screenshot of denying public access from the portal next screen.":::
+:::image type="content" source="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png" alt-text="Screenshot of denying public access from the portal next screen." lightbox="media/how-to-networking-private-link-deny-public-access-mysql/deny-public-access-networking-page-mysql-2.png":::
 
-3. Click **Save** to save the changes.
+1. Select **Save** to save the changes.
 
-4. A notification will confirm that the connection security setting was successfully enabled.
+1. A notification will confirm that the connection security setting was successfully enabled.
 
 ## Next steps
 
@@ -47,5 +47,3 @@ This article describes how you can configure an Azure Database for MySQL flexibl
 - Learn how to [manage connectivity](concepts-networking.md) to your Azure Database for MySQL flexible Server.
 - Learn how to [add another layer of encryption to your Azure Database for MySQL flexible server using [Customer Managed Keys](concepts-customer-managed-key.md).
 - Learn how to configure and use [Azure AD authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.
-
-

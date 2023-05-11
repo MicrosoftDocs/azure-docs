@@ -88,7 +88,7 @@ In this section, you create a Virtual Network and the subnet to host the VM used
 
 ### Create an Azure Database for MySQL flexible server with a Private endpoint
 
-- [Create an [Azure Database for MySQL flexible server](quickstart-create-server-portal.md) with **Public access (allowed IP addresses) and Private endpoint** as the connectivity method.
+- Create an [Azure Database for MySQL flexible server](quickstart-create-server-portal.md) with **Public access (allowed IP addresses) and Private endpoint** as the connectivity method.
 
 - Select **Add Private endpoint** to create private endpoint:
 
