@@ -12450,6 +12450,31 @@
       "source_path_from_root": "/articles/active-directory/hybrid/whatis-phs.md",
       "redirect_url": "/azure/active-directory/hybrid/connect/whatis-phs",
       "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-approval-workflow",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-roles-and-resource-roles-review",
+        "redirect_document_id": false
       }
+
   ]
 }

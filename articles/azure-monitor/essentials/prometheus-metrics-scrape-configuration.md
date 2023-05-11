@@ -42,7 +42,7 @@ The following table has a list of all the default targets that the Azure Monitor
 | Key | Type | Enabled | Pod | Description |
 |-----|------|----------|----|-------------|
 | kubelet | bool | `true` | Linux DaemonSet | Scrape kubelet in every node in the K8s cluster without any extra scrape config. |
-| cadvisor | bool | `true` | Linux daemosnet | Scrape cadvisor in every node in the K8s cluster without any extra scrape config.<br>Linux only. |
+| cadvisor | bool | `true` | Linux DaemonSet | Scrape cadvisor in every node in the K8s cluster without any extra scrape config.<br>Linux only. |
 | kubestate | bool | `true` | Linux replica | Scrape kube-state-metrics in the K8s cluster (installed as a part of the add-on) without any extra scrape config. |
 | nodeexporter | bool | `true` | Linux DaemonSet | Scrape node metrics without any extra scrape config.<br>Linux only. |
 | coredns | bool | `false` | Linux replica | Scrape coredns service in the K8s cluster without any extra scrape config. |

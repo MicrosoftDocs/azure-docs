@@ -2,8 +2,8 @@
 title: Filled map in Azure Maps Power BI Visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn about the Filled map feature in Azure Maps Power BI Visual.
-author: eriklindeman
-ms.author: eriklind
+author: deniseatmicrosoft
+ms.author: limingchen 
 ms.date: 04/11/2022
 ms.topic: how-to
 ms.service: azure-maps
