@@ -43,7 +43,7 @@ Next, follow along with the section below that relates to the option you chose.
 
 Fill out the fields, providing details about your application that will be used to automatically generate deployment artifacts.
 
-:::image type="content" source="./media/automated-deployments/details-inline.png" alt-text="{alt-text}" lightbox="./media/automated-deployments/details.png":::
+:::image type="content" source="./media/automated-deployments/details-inline.png" alt-text="Screenshot of the Azure portal form for artifact generation." lightbox="./media/automated-deployments/details.png":::
 
 Proceed to review and verify the automated deployment.
 
@@ -61,17 +61,17 @@ Proceed to review and verify the automated deployment.
 
 ## Review and verify the automated deployment
 
-When finished, select **Next: Deployment details** and **Next: Review**, and review your deployment. Finally, select **Next: Deploy** to finish the creation of the automated deployment.
+1. When finished, select **Next: Deployment details** and **Next: Review**, and review your deployment. Finally, select **Next: Deploy** to finish the creation of the automated deployment.
 
-Click **view pull request** to see your GitHub Action.
+1. Click **view pull request** to see your GitHub Action.
 
 :::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted." lightbox="media/automated-deployments/ad-view-pr-expanded.png" :::
 
-Merge the pull request to kick off the GitHub Action and deploy your application.
+1. Merge the pull request to kick off the GitHub Action and deploy your application.
 
 :::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted." lightbox="media/automated-deployments/ad-accept-pr-expanded.png" :::
 
-Once your application is deployed, go back to automated deployments to see your history.
+1. Once your application is deployed, go back to automated deployments to see your history.
 
 :::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments." lightbox="media/automated-deployments/ad-view-history-expanded.png" :::
 
