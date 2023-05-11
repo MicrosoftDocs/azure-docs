@@ -181,6 +181,10 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 1. In the remove role assignment message that appears, click **Yes**.
 
+1. Click the **Classic administrators** tab.
+
+1. If the guest user has a Co-Administrator assignment, add a check mark next to the guest user and click **Remove**.
+
 1. In the left navigation bar, click **Azure Active Directory** > **Users**.
 
 1. Click the guest user you want to remove.

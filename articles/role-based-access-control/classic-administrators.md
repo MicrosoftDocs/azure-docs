@@ -58,6 +58,8 @@ To add a guest user as a Co-Administrator, follow the same steps as in the previ
 
 For more information, about how to add a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
+Before you remove a guest user from your directory, you should first remove any role assignments for that guest user. For more information, see [Remove a guest user from your directory](./role-assignments-external-users.md#remove-a-guest-user-from-your-directory).
+
 ### Differences for guest users
 
 Guest users that have been assigned the Co-Administrator role might see some differences as compared to member users with the Co-Administrator role. Consider the following scenario:
