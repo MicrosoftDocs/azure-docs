@@ -13,6 +13,9 @@ ms.author: lajanuar
 
 # Install and run Form Recognizer containers
 
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD051 -->
+
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
@@ -229,35 +232,6 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### [Layout](#tab/layout)
-
-The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
-
-```yml
-version: "3.9"
-services:
-  azure-form-recognizer-layout:
-    container_name: azure-form-recognizer-layout
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-    ports:
-      - "5000:5000"
-    networks:
-      - ocrvnet
-networks:
-  ocrvnet:
-    driver: bridge
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
 ### [General Document](#tab/general-document)
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your General Document and Layout container instances.
@@ -292,6 +266,35 @@ docker-compose up
 ```
 
 Given the resources on the machine, the General Document container might take some time to start up.
+
+### [Layout](#tab/layout)
+
+The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
+
+```yml
+version: "3.9"
+services:
+  azure-form-recognizer-layout:
+    container_name: azure-form-recognizer-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+    environment:
+      - EULA=accept
+      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+      - apiKey={FORM_RECOGNIZER_KEY}
+    ports:
+      - "5000:5000"
+    networks:
+      - ocrvnet
+networks:
+  ocrvnet:
+    driver: bridge
+```
+
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+
+```bash
+docker-compose up
+```
 
 ### [Invoice](#tab/invoice)
 
@@ -394,7 +397,11 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### Custom Template
+### [Business Card](#tab/business-card)
+
+The Business Card container is not supported by Form Recognizer v3.0.
+
+### [Custom](#tab/custom)
 
 In addition to the [prerequisites](#prerequisites), you need to do the following to process a custom document:
 
@@ -677,6 +684,7 @@ $bytes = [System.IO.File]::ReadAllBytes("<your_zip_file>.zip")
 $b64String = [System.Convert]::ToBase64String($bytes, [System.Base64FormattingOptions]::None)
 
 ```
+
 Use the build model API to post the request.
 
 ```http
@@ -700,6 +708,14 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
 :::moniker-end
 
 :::moniker range="form-recog-2.1.0"
+
+### [Read](#tab/read)
+
+The Read container is not supported by Form Recognizer v2.1. 
+
+### [General Document](#tab/general-document)
+
+The General Document container is not supported by Form Recognizer v2.1.
 
 ### [Layout](#tab/layout)
 
@@ -731,16 +747,56 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### [Business Card](#tab/business-card)
+### [Invoice](#tab/invoice)
 
-The following code sample is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Business Card container instance. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} for your Computer Vision Read container.
+The following code sample is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.  Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Invoice and Layout containers.
 
 ```yml
 version: "3.9"
 services:
-  azure-cognitive-service-businesscard:
-    container_name: azure-cognitive-service-businesscard
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard
+  azure-cognitive-service-invoice:
+    container_name: azure-cognitive-service-invoice
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice
+    environment:
+      - EULA=accept
+      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+      - apiKey={FORM_RECOGNIZER_KEY}
+      - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
+    ports:
+      - "5000:5050"
+    networks:
+      - ocrvnet
+  azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
+    environment:
+      - EULA=accept
+      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+      - apiKey={FORM_RECOGNIZER_KEY}
+    networks:
+      - ocrvnet
+
+networks:
+  ocrvnet:
+    driver: bridge
+```
+
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+
+```bash
+docker-compose up
+```
+
+### [Receipt](#tab/receipt)
+
+The following code sample is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Computer Vision Read container.
+
+```yml
+version: "3.9"
+services:
+  azure-cognitive-service-receipt:
+    container_name: azure-cognitive-service-receipt
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
@@ -811,55 +867,16 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### [Invoice](#tab/invoice)
+### [Business Card](#tab/business-card)
 
-The following code sample is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.  Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Invoice and Layout containers.
-
-```yml
-version: "3.9"
-services:
-  azure-cognitive-service-invoice:
-    container_name: azure-cognitive-service-invoice
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-      - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
-    ports:
-      - "5000:5050"
-    networks:
-      - ocrvnet
-  azure-cognitive-service-layout:
-    container_name: azure-cognitive-service-layout
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-    networks:
-      - ocrvnet
-
-networks:
-  ocrvnet:
-    driver: bridge
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
-### [Receipt](#tab/receipt)
-The following code sample is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Computer Vision Read container.
+The following code sample is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Business Card container instance. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} for your Computer Vision Read container.
 
 ```yml
 version: "3.9"
 services:
-  azure-cognitive-service-receipt:
-    container_name: azure-cognitive-service-receipt
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
+  azure-cognitive-service-businesscard:
+    container_name: azure-cognitive-service-businesscard
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
@@ -1107,8 +1124,6 @@ services:
       target: /logs
  ```
 
----
-
 ### Ensure the service is running
 
 To ensure that the service is up and running. Run these commands in an Ubuntu shell.
@@ -1131,11 +1146,11 @@ $docker-compose up
 * **Save** this connection and use it to label your requests.
 * You can choose to analyze the file of your choice against the trained model.
 
----
-
 ## The Sample Labeling tool and Azure Container Instances (ACI)
 
 To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*, [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
+
+---
 
 :::moniker-end
 
