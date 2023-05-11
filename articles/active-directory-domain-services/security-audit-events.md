@@ -75,7 +75,7 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 
 ## Enable security and DNS audit events using Azure PowerShell
 
-To enable Azure AD DS security and DNS audit events using Azure PowerShell, complete the following steps. If needed, first [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
+To enable Azure AD DS security and DNS audit events using Azure PowerShell, complete the following steps. If needed, first [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > Azure AD DS audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after audits are enabled.
