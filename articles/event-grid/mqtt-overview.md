@@ -26,11 +26,11 @@ The following are a list of key concepts involved in MQTT messaging on Event Gri
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It has become the go-to communication standard for IoT scenarios due to efficiency, scalability, and reliability. Event Grid enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of Event Grid's MQTT support:
 - MQTT v5 features: 
 	- **User properties** allow you to add custom key-value pairs in the message header to provide more context about the message. For example, include the purpose or origin of the message so the receiver can handle the message efficiently.
-	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation id in the request for the client to respond without prior configuration. 
+	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation ID in the request for the client to respond without prior configuration. 
 	- **Message expiry interval** allows you to declare to Event Grid when to disregard a message that is no longer relevant or valid. For example, disregard stale commands or alerts. 
 	- **Topic aliases** helps your clients reduce the size of the topic field, making the data transfer less expensive.
 	- **Maximum message size** allows your clients to control the maximum message size that they can handle from the server.
-	- **Recieve Maximum** allows your clients to control the message rate depending on their capabilities such as processing speed or storage capabilities.
+	- **Receive Maximum** allows your clients to control the message rate depending on their capabilities such as processing speed or storage capabilities.
 	- **Clean start and session expiry** enable your clients to optimize the reliability and security of the session by preserving the client's subscription information and messages for a configurable time interval.
 	- **Negative acknowledgments** allow your clients to efficiently react to different error codes.
 	- **Server-sent disconnect packets** allow your clients to efficiently handle disconnects.

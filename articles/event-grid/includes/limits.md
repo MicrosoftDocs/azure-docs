@@ -61,7 +61,7 @@ The following limits apply to events in Azure Event Grid namespace resource.
 | Connected clients per namespace (queue subscriptions) | 1,000                                                                              |
 | Maximum event size                                    | 1 MB                                                                               |
 | Batch size                                            | 1 MB                                                                               |
-| Events per request                                    | 5,000                                                                              |
+| Events per request                                    | 1,000                                                                              |
 
 ## Custom topic, system topic and partner topic resource limits
 
