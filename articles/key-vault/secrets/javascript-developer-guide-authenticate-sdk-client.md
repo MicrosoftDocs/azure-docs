@@ -21,12 +21,12 @@ This documentation provides guidance on how to programmatically authenticate to 
 ## Prerequisites  
   
 - An Azure subscription
-- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) instance with appropriat access policies configured
+- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) instance with appropriate access policies configured
 - Node.js version LTS  
 
 ## Set up authentication
 
-Before programmatically authenticating to Azure to use Azure Key Vault secrets, make sure you [set up your environment](). 
+Before programmatically authenticating to Azure to use Azure Key Vault secrets, make sure you set up your environment. 
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-js/main/sdk/identity/identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg" alt-text="Azure SDK for JavaScript credential flow.":::
 
@@ -70,4 +70,6 @@ npm install @azure/keyvault-secrets @azure/identity
     const client = new SecretClient(url, credential);  
     ```
 
+## Next steps
 
+* [Set a secret with JavaScript SDK](javascript-developer-guide-set-update-rotate-secret.md)
