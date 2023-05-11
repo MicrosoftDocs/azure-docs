@@ -82,7 +82,7 @@ In the following code, after a map instance is loaded, the map style is updated 
 map.setStyle({ style: 'satellite' });
 ```
 
-:::image type="content" source="./media/choose-map-style/update-base-map-style.png" alt-text="Screenshot showing the grayscale dark style being set during the map load process.":::
+:::image type="content" source="./media/choose-map-style/update-base-map-style.png" alt-text="Screenshot showing the satellite style, set after the map load process.":::
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
