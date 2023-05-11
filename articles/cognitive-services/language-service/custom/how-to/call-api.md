@@ -14,10 +14,10 @@ ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 
-# Query deployment to extract entities
+# Query your custom model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the Client libraries (Azure SDK). 
+You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
 
 ## Test deployed model
 
@@ -25,7 +25,8 @@ You can use Language Studio to submit the custom entity recognition task and vis
 
 [!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
----
+:::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
+
 
 ## Send an entity recognition request to your model
 
@@ -51,7 +52,7 @@ First you will need to get your resource key and endpoint:
 
 First you will need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md))]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md)]
 
 3. Download and install the client library package for your language of choice:
     
