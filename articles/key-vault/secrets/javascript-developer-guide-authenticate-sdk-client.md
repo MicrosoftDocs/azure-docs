@@ -37,6 +37,7 @@ Before programmatically authenticating to Azure to use Azure Key Vault secrets, 
 #### [Production authentication](#tab/production-auth)
 
 Use the [DefaultAzureCredential](https://www.npmjs.com/package/@azure/identity#DefaultAzureCredential) in production based on the credential mechanisms.
+
 ---
 
 ## Install dependencies 
