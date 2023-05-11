@@ -31,7 +31,7 @@ To find and install the extension from within Visual Studio Code, perform the fo
 
     :::image type="content" source="media/reference-iot-hub-extension/iot-hub-vscode-extensions-view.png" alt-text="Screenshot showing the Extensions view icon and shortcut from Visual Studio Code.":::
 
-1. Enter *Azure IoT Hub* in the search box to filter the Marketplace offerings. You should see the Azure IoT Hub extension in the list. If so, select the extension from the list to display the Extension details page.
+1. Enter *Azure IoT Hub* in the search box to filter the Marketplace offerings. You should see the Azure IoT Hub extension in the list. Select the extension from the list to display the extension details page.
     
     :::image type="content" source="media/reference-iot-hub-extension/iot-hub-vscode-extension-list.png" alt-text="Screenshot showing the search bar and list in the Extensions view of Visual Studio Code.":::
     
