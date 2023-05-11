@@ -65,15 +65,15 @@ Proceed to review and verify the automated deployment.
 
 1. Click **view pull request** to see your GitHub Action.
 
-:::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted." lightbox="media/automated-deployments/ad-view-pr-expanded.png" :::
+    :::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted." lightbox="media/automated-deployments/ad-view-pr-expanded.png" :::
 
 1. Merge the pull request to kick off the GitHub Action and deploy your application.
 
-:::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted." lightbox="media/automated-deployments/ad-accept-pr-expanded.png" :::
+    :::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted." lightbox="media/automated-deployments/ad-accept-pr-expanded.png" :::
 
 1. Once your application is deployed, go back to automated deployments to see your history.
 
-:::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments." lightbox="media/automated-deployments/ad-view-history-expanded.png" :::
+    :::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments." lightbox="media/automated-deployments/ad-view-history-expanded.png" :::
 
 ## Clean up resources
 
