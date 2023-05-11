@@ -1,6 +1,6 @@
 ---
-title: Azure Schema Registry in Azure Event Hubs
-description: This article provides an overview of Schema Registry support by Azure Event Hubs.
+title: Use Azure Schema Registry from Apache Kafka and other apps
+description: This article provides an overview of Schema Registry support by Azure Event Hubs and how it can be used from your Apache Kafka and other apps. 
 ms.topic: overview
 ms.date: 05/04/2022
 ms.custom: references_regions, ignite-fall-2021

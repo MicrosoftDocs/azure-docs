@@ -5,7 +5,7 @@ description: Learn which migration scenarios are currently supported for Azure D
 author: croblesm
 ms.author: roblescarlos
 ms.reviewer: craigg, randolphwest
-ms.date: 06/13/2022
+ms.date: 04/27/2022
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom: mvc

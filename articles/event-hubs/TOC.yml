@@ -10,6 +10,8 @@
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
+    - name: Compare messaging services
+      href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
   expanded: true
   items:
@@ -65,6 +67,8 @@
           href: create-schema-registry.md  
         - name: Validate events using an Avro schema (.NET + AMQP)
           href: schema-registry-dotnet-send-receive-quickstart.md
+        - name: Validate events using an Avro schema (Java + Apache Kafka)
+          href: schema-registry-kafka-java-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
@@ -245,8 +249,6 @@
           items:
           - name: Using Avro schema 
             items: 
-            - name: Avro schema with Apache Kafka applications
-              href: schema-registry-kafka-java-send-receive-quickstart.md
             - name: Avro schema with Event Hubs SDK(AMQP)
               href: schema-registry-dotnet-send-receive-quickstart.md
           - name: Using JSON Schema  

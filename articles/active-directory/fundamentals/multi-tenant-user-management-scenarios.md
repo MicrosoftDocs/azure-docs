@@ -141,7 +141,7 @@ Synchronized sharing across tenants is the most complex of the patterns describe
 
 In automated scenarios, resource tenant admins use an identity provisioning system to automate provisioning and deprovisioning processes. In scenarios within Microsoft's Commercial Cloud instance, we have [cross-tenant synchronization](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/seamless-application-access-and-lifecycle-management-for-multi/ba-p/3728752). In scenarios that span Microsoft Sovereign Cloud instances, you need other approaches because cross-tenant synchronization doesn't yet support cross-cloud.
 
-For example, within a Microsoft Commercial Cloud instance, a multi-national conglomeration has multiple subsidiaries with the following requirements.
+For example, within a Microsoft Commercial Cloud instance, a multi-national/regional conglomeration has multiple subsidiaries with the following requirements.
 
 - Each has their own Azure AD tenant and need to work together.
 - In addition to synchronizing new users among tenants, automatically synchronize attribute updates and automate deprovisioning.

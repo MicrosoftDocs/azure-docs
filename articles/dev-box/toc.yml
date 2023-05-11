@@ -53,6 +53,8 @@ items:
       href: how-to-customize-devbox-azure-image-builder.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
+    - name: Configure Azure Diagnostic Logs
+      href: how-to-configure-dev-box-azure-diagnostic-logs.md
     - name: Get support for Microsoft Dev Box
       href: how-to-get-help.md  
 - name: Reference
@@ -61,6 +63,8 @@ items:
       href: https://aka.ms/CLI-reference
     - name: REST API
       href: https://aka.ms/dev-box/restapidocs
+    - name: Monitoring Microsoft DevCenter data reference
+      href: monitor-reference.md  
 - name: Resources
   items: 
     - name: Azure roadmap

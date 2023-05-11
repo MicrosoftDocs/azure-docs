@@ -39,20 +39,19 @@ Before you create a Defender EASM resource group, we recommend that you are fami
 
 3. Select or enter the following property values:
 
-   - **Subscription**: Select an Azure subscription.
-   - **Resource Group**: Give the resource group a name.
-   - **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resource. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template. The following regions are supported: 
-
-      -  southcentralus
-            - eastus
-            - australiaeast
-      -  westus3 
-      -  swedencentral
-      -  eastasia
-      -  japaneast
-      -  westeurope
-      -  northeurope
-      -  switzerlandnorth
+- **Subscription**: Select an Azure subscription.
+- **Resource Group**: Give the resource group a name.
+- **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resource. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template. The following regions are supported: 
+  -  southcentralus
+  -  eastus
+  -  australiaeast
+  -  westus3 
+  -  swedencentral
+  -  eastasia
+  -  japaneast
+  -  westeurope
+  -  northeurope
+  -  switzerlandnorth
 
     ![Screenshot of create resource group basics tab](media/QuickStart-3.png)
 
@@ -78,18 +77,8 @@ After you create a resource group, you can create EASM resources within the grou
    - **Subscription**: Select an Azure subscription.
    - **Resource Group**: Select the Resource Group created in the earlier step, or you can create a new one as part of the process of creating this resource.
    - **Name**: give the Defender EASM workspace a name.
-   - **Region**: Select an Azure location. The following regions are supported: 
+   - **Region**: Select an Azure location. See the supported regions above. 
 
-      -  southcentralus
-      -  eastus
-      -  australiaeast
-      -  westus3 
-      -  swedencentral
-      -  eastasia
-      -  japaneast
-      -  westeurope
-      -  northeurope
-      -  switzerlandnorth
 
     ![Screenshot of create EASM resource basics tab](media/QuickStart-6.png)
 
@@ -103,5 +92,7 @@ After you create a resource group, you can create EASM resources within the grou
 
 - [Using and managing discovery](using-and-managing-discovery.md)
 - [Understanding dashboards](understanding-dashboards.md)
+
+
 
 

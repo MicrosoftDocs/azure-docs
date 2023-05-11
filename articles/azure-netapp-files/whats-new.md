@@ -12,12 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 04/26/2023
+ms.date: 05/04/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## May 2023 
 
 * [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
@@ -29,6 +31,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files   
 
     This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
+
+* [Single-file snapshot restore](snapshots-restore-file-single.md) is now generally available (GA)
+
+* [Troubleshooting enhancement: break file locks](troubleshoot-file-locks.md)
+
+    In some cases you may encounter (stale) file locks on NFS, SMB, or dual-protocol volumes that need to be cleared. With this new Azure NetApp Files feature you can now break these locks. You can break file locks for all files in a volume or break all file locks initiated by a specified client. 
 
 ## April 2023
 

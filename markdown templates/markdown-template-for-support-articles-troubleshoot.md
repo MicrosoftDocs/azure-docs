@@ -29,8 +29,8 @@ ms.author: Your MSFT alias or your full email address;semicolon separates two or
 [Opening paragraph]
 
 * *Briefly describe the specific issue(s) this article will help troubleshoot and the common root cause(s).*
-* *The opening paragraph is a good place to use different keywords from those in the title, but make sure not to make it very wordy. The sentences should flow well and be easy to understand.*
-* *Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example," Linux/OSS scenarios aren't covered in this article".*
+* *The opening paragraph is an excellent place to use different keywords from those in the title, but make sure not to make it very wordy. The sentences should flow well and be easy to understand.*
+* *Exceptions (optional) - List the relevant scenarios not covered in this article. For example," Linux/OSS scenarios aren't covered in this article."*
 
 These {errors}|{Issues} occur because {a very general reason}.
 
@@ -60,7 +60,7 @@ These {errors}|{Issues} occur because {a very general reason}.
 
 *Here is an example of troubleshooting guidance.*
 
-*In general, if the error does not indicate "the requested VM size is not supported," you can always retry later, as enough resources may have been freed up in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size; otherwise, the only option is to remove the pinning constraint.*
+*Generally, if the error does not indicate "the requested VM size is not supported," you can always retry later, as enough resources may have been freed up in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size; otherwise, the only option is to remove the pinning constraint.*
 
 ## Troubleshooting steps
 *List the solutions in the order of usability and simplicity, meaning the simplest, most effective, and most useful solution should go first.*

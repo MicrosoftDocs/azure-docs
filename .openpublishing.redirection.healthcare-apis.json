@@ -594,15 +594,27 @@
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-config.md",
-          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-config",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-portal",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-deploy.md",
-          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-post",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-portal",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-manual.md",
-          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-prerequisites",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-portal",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-manual-prerequisites.md",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-portal",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-manual-config.md",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-portal",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-manual-post.md",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-manual-portal",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-connector-overview.md",

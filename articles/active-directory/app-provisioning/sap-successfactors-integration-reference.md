@@ -388,25 +388,16 @@ If you want to exclude processing of prehires in the Onboarding module, update y
 1. Under show advanced options, edit the SuccessFactors attribute list to add a new attribute called `userStatus`.
 1. Set the JSONPath API expression for this attribute as: `$.employmentNav.results[0].userNav.status`
 1. Save the schema to return back to the attribute mapping blade. 
-1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS 
-
-
-
-
-`
+1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS`
 1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
 
 ### Enabling OData API Audit logs in SuccessFactors
-
 The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors. To enable audit logs, follow the steps documented in [SAP support note 2680837](https://userapps.support.sap.com/sap/support/knowledge/en/2680837). Retrieve the request payload sent by Azure AD from the audit logs. To troubleshoot, you can copy this request payload in a tool like [Postman](https://www.postman.com/downloads/), set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
 
-
 ## Writeback scenarios
-
 This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is set up in SuccessFactors.
 
 ### Supported scenarios for phone and email write-back 
-
 | \# | Scenario requirement | Email primary <br> flag value | Business phone <br> primary flag value | Cell phone <br> primary flag value | Business phone <br> mapping | Cell phone <br> mapping |
 |--|--|--|--|--|--|--|
 | 1 | * Only set business email as primary. <br> * Don't set phone numbers. | true | true | false | \[Not Set\] | \[Not Set\] | 
@@ -419,7 +410,6 @@ This section covers different write-back scenarios. It recommends configuration 
 * During new hire onboarding in Employee Central, business email and phone number may not be available. If setting business email and business phone as primary is mandatory during onboarding, you can set a dummy value for business phone and email during new hire creation. After some time, the write-back app updates the value.
  
 ### Enabling writeback with UserID
-
 The SuccessFactors Writeback app uses the following logic to update the User object attributes: 
 * As a first step, it looks for *userId* attribute in the changeset. If it's present, then it uses "UserId" for making the SuccessFactors API call. 
 * If *userId* isn't found, then it defaults to using the *personIdExternal* attribute value. 
@@ -449,13 +439,11 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Save the mapping and test the write-back scenario with provisioning-on-demand. 
 
 ### Unsupported scenarios for phone and email write-back
-
 * In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app can't switch this setting and set business email and business phone as primary.
 * In Employee Central, business phone is set as primary. The write-back app can't change this and set cell phone as primary.
 * The write-back app can't read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping are always be used. 
 
 ## Next steps
-
 * [Learn how to configure SuccessFactors to Active Directory provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [Learn how to configure writeback to SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md)
 * [Learn more about supported SuccessFactors Attributes for inbound provisioning](sap-successfactors-attribute-reference.md)

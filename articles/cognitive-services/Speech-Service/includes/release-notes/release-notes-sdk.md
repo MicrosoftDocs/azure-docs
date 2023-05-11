@@ -6,12 +6,32 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.28.0: May 2023 release
+
+#### Breaking change
+
+* **JavaScript SDK**: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will no longer include our custom OCSP module.
+
+#### New Features
+
+* **Embedded Speech Recognition** now returns `NoMatchReason::EndSilenceTimeout` when a silence timeout occurs at the end of an utterance. This matches the behavior when doing recognition using the real-time speech service.
+* **JavaScript SDK**: Set properties on `SpeechTranslationConfig` using `PropertyId` enum values.
+
+#### Bug fixes
+
+* **C# on Windows** - Fix potential race condition/deadlock in Windows audio extension. In scenarios that both dispose of the audio renderer quickly and also use the Synthesizer method to stop speaking, the underlying event was not reset by stop, and could cause the renderer object to never be disposed, all while it could be holding a global lock for disposal, freezing the dotnet GC thread.
+
+#### Samples
+
+* Added an embedded speech sample for MAUI.
+* Updated the embedded speech sample for Android Java to include Text-To-Speech.
+
 ### Speech SDK 1.27.0: April 2023 release
 
 #### Notification about upcoming changes
 
 * We plan to remove Online Certificate Status Protocol (OCSP) in the next JavaScript SDK release. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.27 is the last release that includes our custom OCSP module.
-	
+
 #### New Features
 
 * **JavaScript** – Added support for microphone input from the browser with Speaker Identification and Verification.
@@ -19,8 +39,8 @@ ms.author: eur
 
 #### Bug fixes
 
-* **General** - Reliability updates in service reconnection logic (all programing languages except JavaScript).
-* **General** - Fix string conversions leaking memory on Windows (all relevant programing languages except JavaScript).
+* **General** - Reliability updates in service reconnection logic (all programming languages except JavaScript).
+* **General** - Fix string conversions leaking memory on Windows (all relevant programming languages except JavaScript).
 * **Embedded Speech Recognition** - Fix crash in French Speech Recognition when using certain grammar list entries.
 * **Source code documentation** - Corrections to SDK reference documentation comments related to audio logging on the service.
 * **Intent recognition** - Fix Pattern Matcher priorities related to list entities.
