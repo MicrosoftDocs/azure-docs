@@ -2,25 +2,24 @@
 title: Automate provisioning to and from SAP apps
 description: Manage the lifecycle of accounts in SAP applications. 
 services: active-directory
-documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
-editor: markwahl-msft
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 5/11/2023
-ms.author: amsliu
-ms.reviewer: markwahl-msft
-ms.collection: M365-identity-device-management
+ms.topic: overview
+ms.workload: identity
+ms.date: 04/28/2023
+ms.author: billmath
+ms.custom: contperf-fy21q3-portal
+ms.reviewer: amycolannino
 ---
 
 # Automate provisioning to and from SAP apps
 
-SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, M365, etc., and relies on Azure AD to manage access to applications. This document describes how you can get started using Azure AD to manage identities across SAP applications. 
+SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, Microsoft 365, etc., and relies on Azure AD to manage access to applications. This document describes how you can get started using Azure AD to manage identities across SAP applications. 
 When an employee is hired, they have an account created in an HR system such as SAP SuccessFactors. Once that employee starts their job, they’ll need access to both Microsoft applications (ex: Teams and SharePoint) and SAP applications (ex: Analytics cloud, Concur, S/4 Hana). Using Entra Identity Governance and SAP IPS, you can automate lifecycle management and provide access to the applications that users need.  
+
+![Diagram of SAP integrations.](./media/entitlement-management-overview/sap.png)
 
 # Bring identities from HR into Azure AD
 
@@ -38,23 +37,23 @@ Customers that are still using SAP HCM can also get identities into Azure AD. Us
  
 
 ## Provision identities into modern SAP applications. 
-Once you users are in Azure Active Directory, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You have three ways to accomplish this.
-**Option 1:** Use the enterprise application in Azure AD to configure both SSO and provisioning to SAP applications such as SAP analytics cloud. This option allows you to manage access in one place, while incorporating your governance to request access to applications and review access are in place. Within SAP, you can expose a proxy SCIM API using the SAP Identity Provisioning service that allows Azure AD to provision accounts into SAP analytics cloud. 
-**Option 2:** Use the SAP IAS enterprise application in Azure AD to provision identities into SAP IAS. Once you bring all the identities into SAP IAS, you can either enable federation with the application or use SAP IPS to provision the accounts from SAP IAS into the application.   
-**Option 3:** Use the SAP IPS integration to directly export identities from Azure AD into your application. When choosing this route, all provisioning configuration is managed in SAP directly. You can still use the enterprise application in Azure AD to manage single sign-on and use Azure AD as the corporate identity provider. 
-Provision identities into on-premises SAP systems that are not supported by SAP IPS (e.g. SAP ERP or R/3)
+Once your users are in Azure Active Directory, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You've three ways to accomplish this.
+* **Option 1:** Use the enterprise application in Azure AD to configure both SSO and provisioning to SAP applications such as SAP analytics cloud. This option allows you to manage access in one place, while incorporating your governance to request access to applications and review access are in place. Within SAP, you can expose a proxy SCIM API using the SAP Identity Provisioning service that allows Azure AD to provision accounts into SAP analytics cloud. 
+* **Option 2:** Use the SAP IAS enterprise application in Azure AD to provision identities into SAP IAS. Once you bring all the identities into SAP IAS, you can either enable federation with the application or use SAP IPS to provision the accounts from SAP IAS into the application.   
+* **Option 3:** Use the SAP IPS integration to directly export identities from Azure AD into your application. When choosing this route, all provisioning configuration is managed in SAP directly. You can still use the enterprise application in Azure AD to manage single sign-on and use Azure AD as the corporate identity provider. 
+Provision identities into on-premises SAP systems that aren't supported by SAP IPS (e.g. SAP ERP or R/3)
 
-Customers who have yet to transition from systems such as SAP ERP to SAP S/4 Hana can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ERP, you will expose the necessary BAPIs for creating, updating, and deleting users. Within Azure AD, you have two options:
-**Option 1:** Use the lightweight Azure AD provisioning agent and web services connector to provision users into apps such as SAP ERP.
-**Option 2:** In scenarios where you need to do more complex group and role management, use the Microsoft Identity Manager to manage access to your legacy SAP applications. 
+Customers who have yet to transition from systems such as SAP ERP to SAP S/4 Hana can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ERP, you'll expose the necessary BAPIs for creating, updating, and deleting users. Within Azure AD, you have two options:
+* **Option 1:** Use the lightweight Azure AD provisioning agent and web services connector to provision users into apps such as SAP ERP.
+* **Option 2:** In scenarios where you need to do more complex group and role management, use the Microsoft Identity Manager to manage access to your legacy SAP applications. 
 
 ## Beyond user provisioning
 In addition to the native provisioning integrations that allow you to manage access to your SAP applications, Azure AD supports a rich set of integrations with SAP.   
 * SSO: Once you’ve setup provisioning for your SAP application, you’ll want to enable single sign-on for those applications. Azure AD can serve as the identity provider and server as the authentication authority for your SAP applications. Learn more about how you can configure Azure AD as the corporate identity provider for your SAP applications.   
 Custom workflows: When a new employee is hired in your organization, you may need to trigger a workflow within your SAP server. Using the Entra Identity Governance 
 * Lifecycle Workflow capability in conjunction with the SAP connector in Azure Logic apps, you can trigger custom actions in SAP upon hiring a new employee.
-* Segregation of duties: With separation of duties checks now available in preview in Azure AD entitlement management, customers can now ensure that users do not take on excessive access rights.  Admins and access managers can prevent users from requesting additional access packages if they’re already assigned to other access packages or are a member of other groups that are incompatible with the requested access.
-Enterprises with critical regulatory requirements for SAP apps will be have a single consistent view of access controls and enforce separation of duties checks across their financial and other business critical applications and Azure AD-integrated applications.
+* Segregation of duties: With separation of duties checks now available in preview in Azure AD entitlement management, customers can now ensure that users don't take on excessive access rights.  Admins and access managers can prevent users from requesting additional access packages if they’re already assigned to other access packages or are a member of other groups that are incompatible with the requested access.
+Enterprises with critical regulatory requirements for SAP apps will have a single consistent view of access controls and enforce separation of duties checks across their financial and other business critical applications and Azure AD-integrated applications.
  
 With our Pathlock, integration customers can leverage fine-grained separation of duties checks with access packages in Azure AD, and over time will help customers to address Sarbanes Oxley and other compliance requirements.
 
