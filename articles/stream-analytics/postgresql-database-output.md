@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 05/11/2023
 ---
 
 # Azure Database for PostgreSQL output from Azure Stream Analytics
