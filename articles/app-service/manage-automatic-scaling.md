@@ -1,5 +1,5 @@
 ---
-title: Enable automatic scaling
+title: How to enable automatic scaling
 description: Learn how to scale automatically in Azure App Service with zero configuration.
 ms.topic: article
 ms.date: 05/11/2023
@@ -12,11 +12,7 @@ ms.author: msangapu
 > Automatic scaling is in preview. It's available for Premium Pv2 and Pv3 pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
 >
 
-Automatic scaling is a new scaling option in App Service that automatically handles both App Service Plan and web app scaling decisions for you. Automatic scaling is different than **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)** which is a pre-existing Azure capability for defining schedule-based and resource-based scaling rules for your App Service Plans. Once automatic scaling is configured, existing Azure autoscale rules and schedules are disabled. Applications can use either automatic scaling, or autoscale, but not both. If you have existing Azure Functions apps in the same App Service Plan, or if you create new Azure Functions apps, then automatic scaling is disabled. For Functions, it's recommended to use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
-
-Automatic scaling guarantees that your web apps can manage different levels of traffic. You can adjust scaling settings, like setting the minimum and maximum number of instances per web app, to enhance performance. The platform tackles cold start issues by prewarming instances that act as a buffer when scaling out, resulting in smooth performance transitions. Billing is calculated per second using existing meters, and prewarmed instances are also charged per second.
-
-You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check the current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to check the instance count history.
+Automatic scaling is a new scale out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed ones. If you have Azure Functions apps in the same App Service Plan, it's recommended to use [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history.
 
 A comparison of scale out and scale in options available on App Service:
 
