@@ -57,8 +57,13 @@ Follow steps below to upload and index a media file using the advanced upload op
 1. Select the file source. You can upload up to 10 files at a time.
 
     - To upload from your file system, select **Browse files** and choose the files you want to upload. To add more files, select **Add file**. To remove a file, select **Remove** on the file name.
-    - To upload from a URL, select **Enter URL**, paste the source file URL, and select **Add**. Make sure the URL is valid and the file is accessible. If the file name is marked in red, it means the file has an issue and can't be uploaded. You can add URLs from different storages for each file.
-1. Configure the basic settings, for more information, see the quick upload section.
+    - To upload from a URL, select **Enter URL**, paste the source file URL, and select **Add**. 
+    
+        Make sure the URL is valid and the file is accessible. 
+
+    > [!Note]
+    > If the file name is marked in red, it means the file has an issue and can't be uploaded. You can add URLs from different storages for each file.
+1. Configure the basic settings, for more information, see the [quick upload](#quick-upload) section above.
 1. Configure the general settings for indexing. You can rename the file names by rewriting the file name. The updated name is reflected as the file name in Video Indexer.
 1. Configure the advanced settings for indexing. The selection of the following settings is for all files in the batch:
 
