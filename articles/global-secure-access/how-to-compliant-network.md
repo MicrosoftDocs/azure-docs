@@ -14,19 +14,13 @@ ms.reviewer: mamkumar
 ---
 # Enable compliant network check with Conditional Access
 
-Administrators struggle to track 
+Administrators today struggle to track IP network locations with the concept of remote first users. Using the Global Secure Access client installed on devices or configured branch office locations allows administrators to gate resource behind a compliant network with advanced Conditional Access controls. 
 
+This compliant network is specific to each tenant. For example: Contoso can put services like Exchange Online and SharePoint Online behind their compliant network check to ensure only their users can access these resources. Fabrikam employees would not have access to Contoso's resources. 
 
-Putting resources and applications behind both the network perimeter *and* identity policy engine has advantages over traditional virtual private network (VPN) solutions. Administrators can apply advanced access controls to enforce Zero Trust policies. In the industry, these approaches are sometimes referred to as Secure Access Service Edge (SASE), Security Service Edge (SSE)​, or Zero Trust network access (ZTNA).
+This compliant network removes the need to hairpin traffic through a VPN providing your users with better performance and security.
 
-In Microsoft's implementation, we allow administrators to enforce user, device, and location based checks using Conditional Access. Administrators can define a set of conditions that must be met and continue to apply in order for access to continue. For example if a user moves from a network that is in scope (a headquarters location) to one that isn't (a deli around the corner), continuous access evaluation can sense this change and take action to block access.
-
-:::image type="content" source="media/concept-conditional-access/global-secure-access-overview.png" alt-text="Diagram showing NaaS conceptual traffic flow." lightbox="media/concept-conditional-access/global-secure-access-overview.png":::
-
-This compliant network is specific to each tenant. 
-
-For example: Organizations can put services like Exchange Online and SharePoint Online behind a compliant network check to ensure only their users can access these resources.
-
+This compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD in that it is made up of all of the branch offices and Global Secure Access clients. No manual addition is required by administrators.
 
 ## Prerequisites
 

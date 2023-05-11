@@ -102,7 +102,7 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-### Define locations
+## Define locations
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
@@ -112,6 +112,10 @@ Some IP addresses don't map to a specific country or region. To capture these IP
    1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
       * If you choose Countries/Regions, you can optionally choose to include unknown areas.
 1. Choose **Save**
+
+## All Network Access locations of my tenant
+
+Organizations with access to Global Secure Access feauters will have an additional location listed that is made up of the branch offices and Global Secure Access clients installed in your organization. 
 
 ## Location condition in policy
 

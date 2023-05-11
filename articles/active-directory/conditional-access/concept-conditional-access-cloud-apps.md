@@ -15,12 +15,13 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Cloud apps, actions, and authentication context
+# Conditional Access: Target resources
 
-Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
+Target resources (formerly Cloud apps, actions, and authentication context) are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices**, allowing Conditional Access to enforce controls around those actions.
+- Administrators can target [traffic profiles](#traffic-profiles) from Global Secure Access for enhanced functionality.
 - Administrators can use [authentication context](#authentication-context) to provide an extra layer of security in applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
@@ -183,6 +184,12 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
    - `Require multifactor authentication` is the only access control available with this user action and all others are disabled. This restriction prevents conflicts with access controls that are either dependent on Azure AD device registration or not applicable to Azure AD device registration. 
    - `Client apps`, `Filters for devices` and `Device state` conditions aren't available with this user action since they're dependent on Azure AD device registration to enforce Conditional Access policies.
    - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multifactor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
+
+## Traffic profiles
+
+Traffic management profiles in Global Secure Access enable administrators to define and control how traffic is routed. Traffic management profiles can be assigned to devices and branches. There are three default traffic profiles M365, Private, and Internet. 
+
+For more information about these profiles, see the article [Global Secure Access Traffic management profiles](https://review.learn.microsoft.com/en-us/azure/global-secure-access/how-to-configure-traffic-forwarding?branch=pr-en-us-236996).
 
 ## Authentication context
 

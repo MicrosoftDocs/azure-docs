@@ -14,14 +14,20 @@ ms.reviewer: mamkumar
 ---
 # Global Secure Access
 
-Global Secure Access enlightens services in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the polies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements to visibility in traffic coming from Global Secure Access clients or configured branch offices.
-
 1. Route traffic through Global Secure Access
     1. Choose between the available profiles Microsoft 365, Internet, and Private traffic profiles
 1. Install the [Global Secure Access client](how-to-install-windows-client.md).
+1. Branches
+1. Quick Acces ranges
 1. Restrict access to Global Secure Access using Conditional Access policies.
     1. Some may require MFA or compliant device
 1. Source IP restoration 
+1. Conditional Acces to resources like compliant network to SharePoint
+1. Monitor
+
+Global Secure Access enlightens services in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the policies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements to visibility in traffic coming from Global Secure Access clients or configured branch offices.
+
+
 
 ## Conditional Access on network traffic profiles
 
