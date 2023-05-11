@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 03/28/2023
+ms.date: 05/11/2023
 ms.custom: engagement-fy23
 ---
 
@@ -19,23 +19,23 @@ ms.custom: engagement-fy23
 
 In this quickstart, you use Azure RTOS to connect the NXP MIMXRT1060-EVK evaluation kit (from now on, the NXP EVK) to Azure IoT.
 
-You'll complete the following tasks:
+You complete the following tasks:
 
 * Install a set of embedded development tools for programming the NXP EVK in C
 * Build an image and flash it onto the NXP EVK
-* Use Azure CLI to create and manage an Azure IoT hub that the NXP EVK will securely connect to
+* Use Azure CLI to create and manage an Azure IoT hub that the NXP EVK securely connects to
 * Use Azure IoT Explorer to register a device with your IoT hub, view device properties, view device telemetry, and call direct commands on the device
 
 ## Prerequisites
 
 * A PC running Windows 10 or Windows 11
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
     * The [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) (NXP EVK)
     * USB 2.0 A male to Micro USB male cable
     * Wired Ethernet access
     * Ethernet cable
-* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -74,7 +74,7 @@ To install the tools:
     cmake --version
     ```
 
-## Create the cloud components
+[!INCLUDE [iot-develop-create-cloud-components](../../includes/iot-develop-create-cloud-components.md)]
 
 ### Create an IoT hub
 
@@ -117,7 +117,7 @@ To create an IoT hub:
 
 ### Configure IoT Explorer
 
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you  created, and to read plug and play models from the public model repository. 
+In the rest of this quickstart, you use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you  created, and to read plug and play models from the public model repository. 
 
 To add a connection to your IoT hub:
 
@@ -149,7 +149,7 @@ To add the public model repository:
 
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You use the connection information for the newly registered device to securely connect your physical device in a later section.
 
 To register a device:
 
@@ -170,7 +170,7 @@ Before continuing to the next section, save each of the following values retriev
 
 ## Prepare the device
 
-To connect the NXP EVK to Azure, you'll modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the NXP EVK to Azure, you modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -274,7 +274,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you'll use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the NXP EVK. These capabilities rely on the device model published for the NXP EVK in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the NXP EVK. These capabilities rely on the device model published for the NXP EVK in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -373,7 +373,7 @@ To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
 1. For the **setLedState** command, set the **state** to **true**.
-1. Select **Send command**. You should see a notification in IoT Explorer. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
+1. Select **Send command**. You should see a notification in IoT Explorer. There's no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer.":::
 
@@ -382,7 +382,7 @@ To call a method in Azure IoT Explorer:
 
 To use Azure CLI to call a method:
 
-1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` would turn an LED on. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
+1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` would turn on an LED. There's no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
 
 
     ```azurecli
