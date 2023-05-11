@@ -1,6 +1,6 @@
 ---
-title: Private Link - Azure portal - Azure Database for MySQL - Flexible Server
-description: Learn how to configure private link for Azure Database for MySQL - Flexible Server from Azure portal
+title: Private Link using the Azure portal - Azure Database for MySQL
+description: Learn how to configure private link for Azure Database for MySQL - Flexible Server from the Azure portal
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
@@ -9,6 +9,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
+
 # Create and manage Private Link for Azure Database for MySQL - Flexible Server using the portal.
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
@@ -89,7 +90,7 @@ In this section, you create a Virtual Network and the subnet to host the VM used
 
 - [Create an [Azure Database for MySQL flexible server](quickstart-create-server-portal.md) with **Public access (allowed IP addresses) and Private endpoint** as the connectivity method.
 
-- Select **+ Add Private endpoint** to create private endpoint:
+- Select **Add Private endpoint** to create private endpoint:
 
     | Setting | Value |
     | --- | --- |
@@ -114,7 +115,7 @@ In this section, you create a Virtual Network and the subnet to host the VM used
 >
 > - Make sure that both subscriptions have the **Microsoft.DBforMySQL/flexibleServer** resource provider registered. For more information refer [resource-manager-registration](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-## Manage Private Endpoints on MySQL Flexible Server via Networking Tab
+## Manage private endpoints on MySQL - Flexible Server via the Networking tab
 
 1. Navigate to your Azure Database for MySQL flexible server resources in the Azure portal.
 
@@ -254,7 +255,7 @@ In this section, you learn how to add a private endpoint to the MySQL flexible s
 
 ## Next steps
 
-- Learn how to configure private link for Azure Database for MySQL flexible server from [Azure CLI](how-to-networking-private-link-azure-cli-mysql.md).
+- Learn how to configure private link for Azure Database for MySQL flexible server from [Azure CLI](how-to-networking-private-link-azure-cli.md).
 - Learn how to [manage connectivity](concepts-networking.md) to your Azure Database for MySQL flexible Server.
 - Learn how to [add another layer of encryption to your Azure Database for MySQL flexible server using [Customer Managed Keys](concepts-customer-managed-key.md).
 - Learn how to configure and use [Azure AD authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.

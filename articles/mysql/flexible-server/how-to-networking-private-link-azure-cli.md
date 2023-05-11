@@ -1,5 +1,5 @@
 ---
-title: Private Link - Azure CLI - Azure Database for MySQL - Flexible Server
+title: Private Link using Azure CLI - Azure Database for MySQL
 description: Learn how to configure private link for Azure Database for MySQL - Flexible Server from Azure CLI
 author: vivgk
 ms.author: vivgk
