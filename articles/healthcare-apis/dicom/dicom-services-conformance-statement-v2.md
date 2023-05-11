@@ -101,7 +101,7 @@ In previous versions, a Store request would fail if any of the [required](#store
 Failed validation of attributes not required by the API results in the file being stored with a warning. A warning is given about each failing attribute per instance.
 When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
 
-If an attribute is padded with nulls, the attribute will be indexed when searchable and will be stored as is in dicom+json metadata. No validation warning will be provided.
+If an attribute is padded with nulls, the attribute is indexed when searchable and is stored as is in dicom+json metadata. No validation warning is provided.
 
 #### Store response status codes
 
@@ -364,7 +364,7 @@ Retrieving metadata won't return attributes with the following value representat
 | OW      | Other Word             |
 | UN      | Unknown                |
 
-Retrieved metadata will include the null character when the attribute was padded with nulls and stored as is.
+Retrieved metadata includes the null character when the attribute was padded with nulls and stored as is.
 
 ### Retrieve metadata cache validation for (study, series, or instance)
 
@@ -407,7 +407,7 @@ The following `Accept` header(s) are supported for searching:
 * `application/dicom+json`
 
 ### Search changes from v1
-In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag will return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags won't consider any DICOM SOP instance that produced a warning. This behavior may result in incomplete search results.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag returns `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags won't consider any DICOM SOP instance that produced a warning. This behavior may result in incomplete search results.
 To correct an attribute, delete the stored instance and upload the corrected data.
 
 ### Supported search parameters
