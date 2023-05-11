@@ -10,7 +10,11 @@ ms.subservice:
 ms.topic: conceptual
 ---
 
-# Common errors and special scenarios for PostgreSQL Single Server to Flexible using the FMS migration tool.
+# Common errors and special scenarios for PostgreSQL Single Server to Flexible using the FMS migration tool
+
+[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This articles explains common errors and special scenarios for PostgreSQL Single Server to Flexible using the FMS migration tool. 
 
