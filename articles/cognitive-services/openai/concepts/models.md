@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 04/26/2023
+ms.date: 05/11/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -191,7 +191,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
-| gpt-35-turbo<sup>1</sup> (ChatGPT) (preview) | East US, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo<sup>1</sup> (ChatGPT) (preview) | East US, France Central, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
 
 <br><sup>1</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
@@ -201,8 +201,8 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, South Central US |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, South Central US |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, France Central, South Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, France Central, South Central US |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is in preview and [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
