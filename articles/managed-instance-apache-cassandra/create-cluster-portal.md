@@ -156,8 +156,8 @@ To scale up to a more powerful SKU size for your nodes, select from the `Sku Siz
       --host <new dc ip address> \
       --command-name nodetool --arguments rebuild="" "<olddc>"=""
    
-> [!WARNING]
-> You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to raise a ticket so our support team `repair` on your behalf. 
+   > [!WARNING]
+   > You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to raise a ticket so our support team `repair` on your behalf. 
 
 ## Update Cassandra configuration
 
