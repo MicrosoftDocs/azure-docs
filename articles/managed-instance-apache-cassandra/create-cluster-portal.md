@@ -149,12 +149,13 @@ To scale up to a more powerful SKU size for your nodes, select from the `Sku Siz
 
 1. If you are adding a data center to a cluster where there is already data, you will need to run `rebuild` to replicate the historical data. In Azure CLI, run the below command to execute `nodetool rebuild` on each node of the new data center, replacing `<new dc ip address>` with the IP address of the node, and `<olddc>` with the name of your existing data center:
 
-    ```azurecli-interactive
+   ```azurecli-interactive
     az managed-cassandra cluster invoke-command \
       --resource-group $resourceGroupName \
       --cluster-name $clusterName \
       --host <new dc ip address> \
       --command-name nodetool --arguments rebuild="" "<olddc>"=""
+   ```
    
    > [!WARNING]
    > You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to raise a ticket so our support team `repair` on your behalf. 
