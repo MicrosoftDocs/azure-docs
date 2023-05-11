@@ -14,9 +14,10 @@ ms.custom: mode-other
 zone_pivot_groups: acs-web-ios-android
 ---
 
-::: zone pivot="platform-web"
+
 # Quickstart: Join a room call
 
+::: zone pivot="platform-web"
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -38,8 +39,6 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../identity/
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-
-# Quickstart: Join a room call
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -64,8 +63,6 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../identity/
 ::: zone-end
 
 ::: zone pivot="platform-android"
-
-# Quickstart: Join a room call
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
