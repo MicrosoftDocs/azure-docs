@@ -65,7 +65,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |AppInsightsPortalExtension|[Workbooks](../visualize/workbooks-data-sources.md#logs) or [Application insights](../app/app-insights-overview.md).|
 |ASC_Portal|Microsoft Defender for Cloud.|
 |ASI_Portal|Sentinel.|
-|AzureAutomation|[Azure Automation.](https://azure.microsoft.com/products/automation)|
+|AzureAutomation|[Azure Automation.](../../products/automation)|
 |AzureMonitorLogsConnector|[Azure Monitor Logs Connector](../../connectors/connectors-azure-monitor-logs.md).|
 |csharpsdk|[Log Analytics Query API.](../logs/api/overview)|
 |Draft-Monitor|[Log alert creation in the Azure Portal.](../alerts/alerts-create-new-alert-rule?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
