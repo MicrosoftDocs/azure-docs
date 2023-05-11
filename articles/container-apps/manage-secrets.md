@@ -312,6 +312,35 @@ After declaring secrets at the application level as described in the [defining s
 
 After you've [defined a secret](#defining-secrets) in your container app, you can reference it in a volume mount when you create a new revision.
 
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. Open the *Revision management* page.
+
+1. Select **Create new revision**.
+
+1. In the *Create and deploy new revision* page.
+
+1. Select a container and select **Edit**.
+
+1. In the *Volume mounts* section, expand the **Secrets** section.
+
+1. Select **Create new volume**.
+
+1. Enter the following information:
+
+    - **Name**: mysecrets
+    - **Mount all secrets**: enabled
+
+1. Select **Add**.
+
+1. Under *Volume name*, select **mysecrets**.
+
+1. Under *Mount path*, enter **/mnt/secrets**.
+
+1. Select **Save**.
+
+1. Select **Create** to create the new revision with the volume mount.
+
 # [ARM template](#tab/arm-template)
 
 In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets`. The volume is mounted at the path `/mnt/secrets`. The application can then reference the secrets in the volume mount.
