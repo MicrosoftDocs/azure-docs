@@ -305,13 +305,13 @@ Communication paths with the internet is the focus of a [best practices architec
 
 ## Azure VMs for an SAP workload
 
-For an SAP workload, we narrowed down the selection to different VM families that are suitable for an SAP workload, and to an SAP HANA workload, more specifically. The way how you find the correct VM type and its capability to work through SAP workload is described in the document [What SAP software is supported for Azure deployments](supported-product-on-azure.md). Additionally, SAP Note [1928533] lists all certified Azure VMs, their performance capability as measured by SAPS benchmark and limitation as applicable. The VM types that are certified for SAP workload don't use over-provisioning of CPU and memory resources.
+For an SAP workload, we narrowed down the selection to different VM families that are suitable for an SAP workload, and to an SAP HANA workload, more specifically. The way to find the correct VM type and its capability to support an SAP workload is described in [What SAP software is supported for Azure deployments](supported-product-on-azure.md). Also, SAP Note [1928533] lists all certified Azure VMs and their performance capability as measured by the SAPS benchmark and limitations if they apply. The VM types that are certified for an SAP workload don't use over-provisioning for CPU and memory resources.
 
-Beyond the selection of purely supported VM types, you also need to check whether those VM types are available in a specific region based on the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). But more important, you need to determine the following capabilities fit your scenario:
+Beyond looking only at the selection of supported VM types, you need to check whether those VM types are available in a specific region based on [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). At least as important is to determine whether the following capabilities for a VM fits your scenario:
 
-- CPU and memory resources of different VM types
-- Input/output operations per second (IOPS) bandwidth of different VM types
-- Network capabilities of different VM types
+- CPU and memory resources
+- Input/output operations per second (IOPS) bandwidth
+- Network capabilities
 - Number of disks that can be attached
 - Ability to use certain Azure storage types
 
@@ -454,7 +454,7 @@ The topics in this chapter aren't an exhaustive list of all available services, 
 
 ### Secure virtual networks by using security groups
 
-Planning your SAP landscape in Azure should include some degree of network segmentation, with virtual networks and subnets dedicated only to SAP workloads. Best practices for subnet definition are described in [Networking](#azure-networking) and in other Azure architecture guides. We recommend that you use [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) with [application security groups (ASGs)](/azure/virtual-network/application-security-groups) within NSGs to permit inbound and outbound connectivity. When you design ASGs, each NIC on a VM can be associated with multiple ASGs, so you can create different groups. For example, create an ASG for DBMS VMs, which contains all DB servers across your landscape. Create another ASG for all VMs (application and DBMS) of a single SAP SID. This way, you can define one NSG rule for the overall DB ASG and another, more specific rule only for the SID-specific ASG.
+Planning your SAP landscape in Azure should include some degree of network segmentation, with virtual networks and subnets dedicated only to SAP workloads. Best practices for subnet definition are described in [Networking](#azure-networking) and in other Azure architecture guides. We recommend that you use [network security groups (NSGs)](../../virtual-network/network-security-groups-overview.md) with [application security groups (ASGs)](../../virtual-network/application-security-groups.md) within NSGs to permit inbound and outbound connectivity. When you design ASGs, each NIC on a VM can be associated with multiple ASGs, so you can create different groups. For example, create an ASG for DBMS VMs, which contains all database servers across your landscape. Create another ASG for all VMs (application and DBMS) of a single SAP SID. This way, you can define one NSG rule for the overall database ASG and another, more specific rule only for the SID-specific ASG.
 
 NSGs don't restrict performance with the rules that you define for the NSG. For monitoring traffic flow, you can optionally activate [NSG flow logging](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) with logs evaluated by a SIEM or IDS of your choice to monitor and act on suspicious network activity.
 
@@ -518,11 +518,11 @@ Contact SAP or your DBMS vendor for support on how to enable, use, or troublesho
 > [!IMPORTANT]
 > It can't be overstated how important it is to have a careful plan to store and protect your encryption keys. Without encryption keys, the database or SAP software might be inaccessible and you might lose data. Carefully consider how to protect the keys. Allow access to the keys only by privileged users or services.
 
-Transport or *communication encryption* can be applied for SQL Server connections between SAP engines and the DBMS. Similarly, connections from the SAP presentation layer (SAPGui secure network connections (SNC)) or an HTTPS connection to a web front ends - can be encrypted. See the applications vendor's documentation to enable and manage encryption in transit.
+Transport or *communication encryption* can be applied for SQL Server connections between SAP engines and the DBMS. Similarly, connections from the SAP presentation layer (SAPGui secure network connections (SNC)) or an HTTPS connection to a web front end can be encrypted. See the applications vendor's documentation to enable and manage encryption in transit.
 
 ### Threat monitoring and alerting
 
-Follow corporate architecture to deploy and use threat monitoring and alerting solutions. Available Azure services provide threat protection and security view, should be considered for the overall SAP deployment plan. [Microsoft Defender for Cloud](/azure/security-center/security-center-introduction) addresses this requirement and is typically part of an overall governance model for entire Azure deployments, not just for SAP components.
+Follow corporate architecture to deploy and use threat monitoring and alerting solutions. Available Azure services provide threat protection and security view and should be considered for the overall SAP deployment plan. [Microsoft Defender for Cloud](/azure/security-center/security-center-introduction) addresses this requirement and is typically part of an overall governance model for entire Azure deployments, not just for SAP components.
 
 For more information about security information event management (SIEM) and security orchestration automated response (SOAR) solutions, see [Microsoft Sentinel provides SAP integration](/azure/sentinel/sap/deployment-overview).
 
