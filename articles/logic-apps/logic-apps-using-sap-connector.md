@@ -591,8 +591,8 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
    | **SNC Library** | Enter the name for your SNC library, for example, **sapcrypto.dll**. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
    | **SNC My Name** and **SNC Quality of Protection** | Optional: Enter these values, as necessary. |
-   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the PSE might contain multiple private certificates. However, this **SNC Certificate** parameter identifies the certificates that this connection must use. For more information, review the next parameter. |
-   | **PSE** | Enter your SNC PSE as a base64-encoded binary. <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificates. to use different client certificates, create separate workflow apps instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. <br><br>- If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection used in your ISE. |
+   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format with the following guidance: <br><br>- Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the PSE might contain multiple private certificates. However, this **SNC Certificate** parameter identifies the certificates that this connection must use. For more information, review the next parameter. |
+   | **PSE** | Enter your SNC PSE as a base64-encoded binary with the following guidance: <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificates. to use different client certificates, create separate workflow apps instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. <br><br>- If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection used in your ISE. |
 
 1. To finish creating your connection, select **Create**.
 
@@ -608,13 +608,11 @@ In Consumption workflows, the **SAP Application Server** and **SAP Message Serve
 
 1. In your logic app workflow that uses the deprecated SAP connector, delete the **Send to SAP** action.
 
-1. Add the **Send message to SAP** action from the current SAP connector.
+1. Find the current SAP connector, and add the action named **Send message to SAP**.
 
 1. Reconnect to your SAP system using the new action.
 
-1. Save your logic app workflow. On the designer toolbar, select **Save**.
-
-
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 #### The RequestContext on the IReplyChannel was closed without a reply being sent
 

@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 04/19/2023
+ms.date: 05/10/2023
 ---
 
 # SAP artifact schemas in Azure Logic Apps
