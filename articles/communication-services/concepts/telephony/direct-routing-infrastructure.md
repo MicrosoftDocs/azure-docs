@@ -54,9 +54,6 @@ An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.
  >[!NOTE]
  > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.
 
->[!IMPORTANT]
->During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and our team will add it as a trusted domain.
-
 Communication Services only trusts certificates signed by Certificate Authorities (CAs) that are part of the Microsoft Trusted Root Certificate Program. Ensure that your SBC certificate is signed by a CA that is part of the program, and that Extended Key Usage (EKU) extension of your certificate includes Server Authentication.
 Learn more:
 
