@@ -38,7 +38,7 @@ Four components are required to implement Private Link with Application Gateway:
 
 - Application Gateway Private Link Configuration
 
-   A Private link configuration can be associated with an Application Gateway Frontend IP address, which can then be used to establish a connection using a Private Endpoint. If there's no association to an Application Gateway frontend IP address, then the Private Link feature isn't enabled.
+   A Private link configuration can be associated with an Application Gateway Frontend IP address, which is then used to establish a connection using a Private Endpoint. If there's no association to an Application Gateway frontend IP address, then the Private Link feature isn't enabled.
 
 - Application Gateway Frontend IP address
 
@@ -46,7 +46,7 @@ Four components are required to implement Private Link with Application Gateway:
 
 - Private Endpoint
 
-   An Azure network resource that allocates a private IP address in your VNet address space. It's used to connect to the Application Gateway via the private IP address similar to many other Azure Services, such as Storage and KeyVault, that provide private link access.
+   An Azure network resource that allocates a private IP address in your VNet address space. It's used to connect to the Application Gateway via the private IP address similar to many other Azure Services that provide private link access; for example, Storage and KeyVault. 
 
 - Private Endpoint Connection
 
@@ -59,7 +59,7 @@ Four components are required to implement Private Link with Application Gateway:
 - Private link configuration for Application Gateway doesn't expose the "Alias" property and must be referenced via resource URI.
 - Private Endpoint creation doesn't create a \*.privatelink DNS record or zone. All DNS records should be entered in existing zones used for your Application Gateway.
 - Azure Front Door and Application Gateway don't support chaining via Private Link.
-- Source IP address and x-forwarded-for headers will contain the Private link IP addresses
+- Source IP address and x-forwarded-for headers contain the Private link IP addresses.
 
 ## Next steps
 

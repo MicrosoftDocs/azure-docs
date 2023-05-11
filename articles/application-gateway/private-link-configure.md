@@ -27,12 +27,12 @@ Application Gateway Private Link can be configured via multiple options, such as
 
 **Define a subnet for Private Link Configuration**
 
-To enable Private Link Configuration, a subnet, different from the Application Gateway subnet, is required for the private link IP configuration. Private Link must use a subnet that doesn't contain any Application Gateways. Subnet sizing can be determined by the number of connections required for your deployment. Each IP address allocated to this subnet ensures 64-K concurrent TCP connections that can be established via Private Link at single point in time. Allocate more IP addresses to allow more connections via Private Link.  For example: `n * 64K`; where `n` is the number of IP addresses being provisioned.
+To enable Private Link Configuration, a subnet, different from the Application Gateway subnet, is required for the private link IP configuration. Private Link must use a subnet that doesn't contain any Application Gateways. Subnet sizing is determined by the number of connections required for your deployment. Each IP address allocated to this subnet ensures 64-K concurrent TCP connections that can be established via Private Link at single point in time. Allocate more IP addresses to allow more connections via Private Link.  For example: `n * 64K`; where `n` is the number of IP addresses being provisioned.
 
 > [!Note]
 > The maximum number of IP addresses per private link configuration is eight. Only dynamic allocation is supported.
 
-The following steps can be completed to create a new subnet:
+Complete the following steps to create a new subnet:
 
 [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
 
@@ -73,7 +73,7 @@ A private endpoint is a network interface that uses a private IP address from th
 
 # [Azure PowerShell](#tab/powershell)
 
-To configure Private link on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:
+To configure Private link on an existing Application Gateway via Azure PowerShell, use following commands:
 
 ```azurepowershell
 # Disable Private Link Service Network Policies
@@ -131,7 +131,7 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "AppGW-PL-
 ## Create private endpoint
 New-AzPrivateEndpoint -Name "AppGWPrivateEndpoint" -ResourceGroupName $vnet_plendpoint.ResourceGroupName -Location $vnet_plendpoint.Location -Subnet ($vnet_plendpoint | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'MySubnet'}) -PrivateLinkServiceConnection $privateEndpointConnection
 ```
-A list of all Azure PowerShell references for Private Link Configuration on Application Gateway can be found here:
+A list of all Azure PowerShell references for Private Link Configuration on Application Gateway is provided below:
 - [Get-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/get-azapplicationgatewayprivatelinkconfiguration)
 - [New-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkconfiguration)
 - [New-AzApplicationGatewayPrivateLinkIpConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkipconfiguration)
@@ -141,7 +141,7 @@ A list of all Azure PowerShell references for Private Link Configuration on Appl
 
 # [Azure CLI](#tab/cli)
 
-To configure Private link on an existing Application Gateway via Azure CLI, the following commands can be referenced:
+To configure Private link on an existing Application Gateway via Azure CLI, use following commands:
 
 ```azurecli
 # Disable Private Link Service Network Policies
@@ -191,7 +191,7 @@ az network private-endpoint create \
 	--connection-name AppGW-PL-Connection
 ```
 
-A list of all Azure CLI references for Private Link Configuration on Application Gateway can be found here: [Azure CLI CLI - Private Link](/cli/azure/network/application-gateway/private-link)
+A list of all Azure CLI references for Private Link Configuration on Application Gateway is available here: [Azure CLI CLI - Private Link](/cli/azure/network/application-gateway/private-link)
 
 ---
 
