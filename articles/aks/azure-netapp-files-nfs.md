@@ -346,7 +346,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
 
     For more information about backends, see [Azure NetApp Files backend configuration options and examples](https://docs.netapp.com/us-en/trident/trident-use/anf-examples.html). 
 
-3. Create the secret and backend using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
+3. Apply the secret and backend using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command. First apply the secret:
 
     ```bash
     kubectl apply -f backend-secret.yaml -n trident
@@ -357,6 +357,7 @@ To instruct Astra Trident about the Azure NetApp Files subscription and where it
     ```output 
     secret/backend-tbc-anf-secret created
     ```
+Apply the backend: 
 
     ```bash
     kubectl apply -f backend-anf.yaml -n trident
