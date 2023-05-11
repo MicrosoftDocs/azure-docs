@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure services via Dapr components in the Azure portal
-description: Easily create Dapr components via the Azure portal using Service Connector. 
+description: Easily create Dapr components via the Azure Container Apps portal. 
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ms.custom: template-tutorial, service-connector
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-tutorial, service-connector
 
 Using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/), you can author Dapr components via an improved component creation feature in the Azure Container App portal. 
 
-With this new component creation feature, you no longer need to know or remember the Dapr open source metadata concepts. Instead, you enter the component information in the easy component creation pane while Service Connector automatically maps your entries to the required component metadata. 
+With this new component creation feature, you no longer need to know or remember the Dapr open source metadata concepts. Instead, entering the component information in the easy component creation pane automatically maps your entries to the required component metadata. 
 
 By managing component creation for you, this feature:
 - Reduces the likelihood for misconfiguration 
@@ -24,7 +24,7 @@ This guide demonstrates creating a Dapr component by selecting:
 - Pub/sub as component type 
 - Azure Service Bus as the component
 
-Azure Container Apps + Dapr + Service Connector then authors the pub/sub component resource on your behalf, including configuring managed identity for authentication. 
+The component creation feature then authors the pub/sub component resource on your behalf, including configuring managed identity for authentication. 
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/free).
@@ -45,7 +45,7 @@ Start by navigating to the Dapr component creation feature.
 
 ### Provide required metadata
 
-For Service Connector to map to the required component metadata, you need to provide the required metadata from predefined dropdowns in the **Basics** tab.
+For the component creation tool to map to the required component metadata, you need to provide the required metadata from predefined dropdowns in the **Basics** tab.
 
 For example, for a pub/sub Azure Service Bus component, you'll start with the following fields:
 
@@ -68,11 +68,11 @@ The component creation pane populates with different fields depending on the bui
 
 **What happened?**   
 
-Now that you've filled out these required fields, Service Connector and Dapr can automatically map your entries to the required component metadata. In this Service Bus example, the only required metadata is the connection string. Service Connector takes the information you provided and maps the input to create a connection string in the component YAML file.  
+Now that you've filled out these required fields, they'll automatically map to the required component metadata. In this Service Bus example, the only required metadata is the connection string. The component creation tool takes the information you provided and maps the input to create a connection string in the component YAML file.  
 
 ### Provide optional metadata
 
-While Service Connector automatically populates all required metadata for the component, you can also customize the component by adding optional metadata. 
+While the component creation tool automatically populates all required metadata for the component, you can also customize the component by adding optional metadata. 
 
 1. Select **Next : Metadata + Scopes**. 
    
