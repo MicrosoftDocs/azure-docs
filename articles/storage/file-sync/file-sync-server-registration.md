@@ -27,7 +27,7 @@ To register a server with a Storage Sync Service, you must first prepare your se
     
     ![Server Manager UI with the IE Enhanced Security Configuration highlighted](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Ensure that the Azure PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the Az module. More details on how to install the Az module can be found on the [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* Ensure that the Azure PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the Az module. More details on how to install the Az module can be found on the [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
     > [!NOTE]
     > We recommend using the newest version of the Az PowerShell module to register/unregister a server. If the Az package has been previously installed on this server (and the PowerShell version on this server is 5.* or greater), you can use the `Update-Module` cmdlet to update this package. 
