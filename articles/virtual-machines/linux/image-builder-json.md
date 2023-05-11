@@ -1006,29 +1006,6 @@ Distribute properties for galleries:
 > [!NOTE]
 > If the image template and referenced `image definition` aren't in the same location, you'll see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
-The following JSON sets the source image as the latest image version for an image stored in an Azure Compute Gallery.
-
-# [JSON](#tab/json)
-
-```json
-    "source": {
-      "type": "SharedImageVersion",      
-      "imageVersionId": "<replace with resourceId of the image stored in the Direct Shared Gallery>"
-    },
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-properties: {
-  source: {
-    type: 'SharedImageVersion'
-    imageVersionId: '<replace with resourceId of the image stored in the Direct Shared Gallery>'
-  }
-}
-```
-
----
 
 
 
@@ -1274,7 +1251,7 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 ```json
 "source": {
   "type": "SharedImageVersion",
-  "imageVersionID": "<replace with resourceId of the image stored in the Direct Shared Gallery>"
+  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
 }
 ```
 
@@ -1313,6 +1290,8 @@ source: {
 }
 ```
 ---
+
+paste from: https://github.com/MicrosoftDocs/azure-docs-pr/pull/232209/files#r1173054534
 
 ## Properties: stagingResourceGroup
 
