@@ -72,7 +72,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |Grafana|[Grafana connector.](../visualize/grafana-plugin.md)|
 |IbizaExtension|Experiences of Log Analytics in the Azure portal.|
 |infraInsights/container|[Container insights.](../containers/container-insights-overview)|
-|infraInsights/vm|[VM insights.](../vm/vminsights-overview)|
+|infraInsights/vm|[VM insights.](../vm/vminsights-overview.md)|
 |LogAnalyticsExtension|[Azure Dasboard](../../azure-portal/azure-portal-dashboards.md).|
 |LogAnalyticsPSClient|[Log Analytics Query API.](../logs/api/overview.md)|
 |OmsAnalyticsPBI|Log Analytics integration with [Power BI.](../logs/log-powerbi)|
