@@ -47,19 +47,9 @@ In many use cases, you might choose to restrict or block outbound internet acces
 
 There are multiple methods to address restricted or blocked outbound internet access. Choose the method that works best for your use case:
 
-- [Set up network for Azure Monitor for SAP solutions (preview)](#set-up-network-for-azure-monitor-for-sap-solutions-preview)
-  - [Create new subnet](#create-new-subnet)
-  - [Using Custom DNS for Virtual Network](#using-custom-dns-for-virtual-network)
-  - [Configure outbound internet access](#configure-outbound-internet-access)
-    - [Use Route All](#use-route-all)
-    - [Allow Inbound Traffic](#allow-inbound-traffic)
-    - [Use service tags](#use-service-tags)
-    - [Use private endpoint](#use-private-endpoint)
-      - [Create key vault endpoint](#create-key-vault-endpoint)
-      - [Create storage endpoint](#create-storage-endpoint)
-      - [Create log analytics endpoint](#create-log-analytics-endpoint)
-    - [DNS Configuration for Private Endpoints](#dns-configuration-for-private-endpoints)
-  - [Next steps](#next-steps)
+- [Use the **Route All** feature in Azure functions](#use-route-all)
+- [Use service tags with a network security group (NSG) in your virtual network](#use-service-tags)
+- [Use a private endpoint for your subnet](#use-private-endpoint)
 
 ### Use Route All
 
@@ -121,7 +111,7 @@ You can enable a private endpoint by creating a new subnet in the same virtual n
 
 To create a private endpoint for Azure Monitor for SAP solutions:
 
-1. Create a Azure Private DNS zone which will contain the private endpoint records. You can follow the steps in [Create a private DNS zone](https://learn.microsoft.com/en-us/azure/dns/private-dns-getstarted-portal) to create a private DNS zone. Make sure to link the private DNS zone to the virtual networks that contain you SAP System and Azure Monitor for SAP solutions resources.
+1. Create a Azure Private DNS zone which will contain the private endpoint records. You can follow the steps in [Create a private DNS zone](https://learn.microsoft.com/azure/dns/private-dns-getstarted-portal) to create a private DNS zone. Make sure to link the private DNS zone to the virtual networks that contain you SAP System and Azure Monitor for SAP solutions resources.
 ![Add Virtual Network Link to Private DNS Zone ]([../../media/set-up-network/dns-add-private-link.png)
 1. Create a subnet in the virtual network, that will be used for the private endpoint. Note down the subnet ID and Private IP Address for these subnets.
 1. To find the resources in the Azure portal, go to your Azure Monitor for SAP solutions resource.
@@ -129,7 +119,7 @@ To create a private endpoint for Azure Monitor for SAP solutions:
 
 #### Create key vault endpoint
 
-You can follow the steps in [Create a private endpoint for Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/private-link-service?tabs=portal) to configure the endpoint and test the connectivity to key vault.
+You can follow the steps in [Create a private endpoint for Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/private-link-service?tabs=portal) to configure the endpoint and test the connectivity to key vault.
 
 #### Create storage endpoint
 
