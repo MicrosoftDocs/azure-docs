@@ -4,7 +4,7 @@ description: Use metrics to monitor your cloud tiering policies. You can monitor
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 05/11/2023
 ms.author: kendownie
 ms.subservice: files
 ---
