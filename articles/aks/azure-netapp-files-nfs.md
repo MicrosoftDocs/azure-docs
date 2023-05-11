@@ -8,7 +8,7 @@ ms.date: 05/08/2023
 
 # Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service
 
-After you [configure Azure NetApp Files volumes for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files NFS volumes for Azure Kubernetes Service. 
+After you [configure Azure NetApp Files volumes for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
 
 Azure NetApp Files supports both the NFS and the SMB protocol types. This article describes details about provisioning the volumes for NFS, both statically and dynamically. For information about provisioning SMB volumes statically and dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md).    
 
@@ -18,9 +18,14 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 ### Create an NFS volume
 
-1. Define variables for later usage. Replace *myfilepath*, *myvolsize*, *myvolname*, abd *virtnetid* with an appropriate value for your environment. The *filepath* must be unique within all ANF accounts.
+1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *premium*, *myfilepath*, *myvolsize*, *myvolname*, *vnetid*, and *andSubnetID* with an appropriate value for your environment. The *filepath* must be unique within all ANF accounts.
 
     ```azurecli-interactive
+    RESOURCE_GROUP="myresourcegroup"
+    LOCATION="mylocation"
+    ANF_ACCOUNT_NAME="myaccountname"
+    POOL_NAME="mypool1"
+    SERVICE_LEVEL="premium" # Valid values are Standard, Premium, and Ultra
     UNIQUE_FILE_PATH="myfilepath"
     VOLUME_SIZE_GIB="myvolsize"
     VOLUME_NAME="myvolname"
