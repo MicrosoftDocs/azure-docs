@@ -106,6 +106,9 @@ The following built-in roles are granted these permissions by default:
 |[Global Administrator](../roles/permissions-reference.md#global-administrator)|Yes|Yes|
 |[Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator)|Yes|Yes|
 |[Intune Service Administrator](../roles/permissions-reference.md#intune-administrator)|Yes|Yes|
+|[Global Reader](../roles/permissions-reference.md#global-reader)|No|Yes|
+|[Helpdesk Administrator](../roles/permissions-reference.md#helpdesk-administrator)|No|Yes|
+|[Security Administrator](../roles/permissions-reference.md#security-administrator)|No|Yes|
 |[Security Reader](../roles/permissions-reference.md#security-reader)|No|Yes|
 
 Any roles not listed are granted neither permission.
