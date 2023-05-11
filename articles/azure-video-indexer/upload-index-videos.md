@@ -19,7 +19,7 @@ You can upload media files from your file system or from a URL. You can also con
 
 ## Quick upload
 
-Follow these steps to upload and index a media file using the quick upload option.
+Follow steps below to upload and index a media file using the quick upload option.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/upload-index-videos/file-system-basic.png" alt-text="Screenshot that shows file system basic.":::
@@ -29,7 +29,9 @@ Follow these steps to upload and index a media file using the quick upload optio
 1. Select the file source. You can upload up to 10 files at a time.
 
     - To upload from your file system, select **Browse files** and choose the files you want to upload.
-    - To upload from a URL, select **Enter URL**, paste the source file URL, and select **Add**. Make sure the URL is valid and the file is accessible. 
+    - To upload from a URL, select **Enter URL**, paste the source file URL, and select **Add**. 
+    
+        Make sure the URL is valid and the file is accessible. 
       
     > [!NOTE]
     > If the file name is marked in red, it means the file has an issue and can't be uploaded.
@@ -45,7 +47,10 @@ Follow these steps to upload and index a media file using the quick upload optio
 
 ## Advanced upload
 
-Follow these steps to upload and index a media file using the advanced upload option:
+Follow steps below to upload and index a media file using the advanced upload option.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/upload-index-videos/advanced-settings.png" alt-text="Screenshot that shows advanced settings.":::
 
 1. Sign in to the [Video Indexer website](https://aka.ms/vi-portal-link).
 1. Select **Upload**.
@@ -57,16 +62,13 @@ Follow these steps to upload and index a media file using the advanced upload op
 1. Configure the general settings for indexing. You can rename the file names by rewriting the file name. The updated name is reflected as the file name in Video Indexer.
 1. Configure the advanced settings for indexing. The selection of the following settings is for all files in the batch:
 
-    - **Indexing preset**: Choose the preset(indexing-configuration-guide.md#indexing-options) that fits your scenario. You can also exclude sensitive AI by selecting the checkbox.
+    - **Indexing preset**: [Choose the preset](indexing-configuration-guide.md#indexing-options) that fits your scenario. You can also exclude sensitive AI by selecting the checkbox.
     - **People model**: If you're using a customized people model, choose it from the dropdown list.
     - **Brand categories**: If you're using a customized brand model, choose it from the dropdown list.
     - **File information**: If you want to add metadata, enter the free text in the input box. The metadata is shared between all files in the same upload batch. When uploading a single file, you can also add a description.
 1. Select **Upload+index**.
 1. Review the summary page that shows the indexing settings and the upload progress.
 1. After the indexing is done, you can view the insights by selecting the video.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/upload-index-videos/advanced-settings.png" alt-text="Screenshot that shows advanced settings.":::
 
 ## Troubleshoot upload issues
 
