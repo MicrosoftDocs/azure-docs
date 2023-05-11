@@ -59,7 +59,7 @@ The following are the traffic flows that result from such a configuration.
 | -------------- | -------- | ---------- | ---| ---| ---| ---|
 | Hub 1 VNets     | &#8594;| Hub 1 AzFW  or NVA|   Hub 1 AzFW or NVA    | Hub 1 and 2 AzFW, NVA or SaaS | Hub 1 and 2 AzFW, NVA or SaaS | Hub 1 AzFW, NVA or SaaS |
 | Hub 1 Branches   | &#8594;|  Hub 1 AzFW, NVA or SaaS |   Hub 1 AzFW, NVA or SaaS    | Hub 1 and 2 AzFW, NVA or SaaS | Hub 1 and 2 AzFW, NVA or SaaS | Hub 1 AzFW, NVA or SaaS|
-| Hub 2 VNets     | &#8594;| Hub 1 and 2 AzFW, NVA or SaaS|   Hub 1 and 2 AzFW, NVA or SaaS    | Hub 2 AzFW, NVA or SaaS | Hub 2 AzFW  or NVA| Hub 2 AzFW  or NVA|
+| Hub 2 VNets     | &#8594;| Hub 1 and 2 AzFW, NVA or SaaS|   Hub 1 and 2 AzFW, NVA or SaaS    | Hub 2 AzFW, NVA or SaaS | Hub 2 AzFW, NVA or SaaS| Hub 2 AzFW, NVA or SaaS|
 | Hub 2 Branches   | &#8594;|   Hub 1 and 2 AzFW, NVA or SaaS|    Hub 1 and 2 AzFW, NVA or SaaS   | Hub 2 AzFW, NVA or SaaS |  Hub 2 AzFW, NVA or SaaS | Hub 2AzFW, NVA or SaaS|
 
 
@@ -209,9 +209,9 @@ If you enable Internet routing policies on the Virtual Hub, 0.0.0.0/0 default ro
 
 When a Virtual hub is configured with a Private Routing policy Virtual WAN advertises routes to local on-premises connections in the following manner:
 
-* Routes corresponding to prefixes learnt from local hub's Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub or BGP connections connected to the current hub.
-* Routes corresponding to prefixes learnt from remote hub Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub or BGP connections where Private Routing policies are configured.
-* Routes corresponding to prefixes learnt from remote hub Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub and  BGP connections where Routing Intent isn't configured **and** the remote connections propagate to the defaultRouteTable of the local hub.
+* Routes corresponding to prefixes learned from local hub's Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub or BGP connections connected to the current hub.
+* Routes corresponding to prefixes learned from remote hub Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub or BGP connections where Private Routing policies are configured.
+* Routes corresponding to prefixes learned from remote hub Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub and  BGP connections where Routing Intent isn't configured **and** the remote connections propagate to the defaultRouteTable of the local hub.
 * Prefixes learned from one ExpressRoute circuit aren't advertised to other ExpressRoute circuits unless Global Reach is enabled. If you want to enable ExpressRoute to ExpressRoute transit through a security solution deployed in the hub, open a support case. For more information, see [Enabling connectivity across ExpressRoute circuits](#expressroute).
 
 ###  <a name="expressroute"></a> Transit connectivity between ExpressRoute circuits with routing intent
@@ -241,7 +241,7 @@ Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix t
 The following steps describe how to configure routing intent and routing policies on your Virtual Hub using Azure Firewall Manager. Note that Azure Firewall Manager only supports next hop resources of type Azure Firewall. 
 
 1. Navigate to the Virtual WAN Hub that you want to configure Routing Policies on.
-1. Under Security, select **Secured Virtual hub settings** and then **Manage security provider and route settings for this Secured virtual hub in Azure Firewall Manager**
+1. Under Security, select **Secured Virtual hub settings** and then **Manage security provider and route settings for this Secured virtual hub in Azure Firewall Manager**.
 :::image type="content" source="./media/routing-policies/secured-hub-settings.png"alt-text="Screenshot showing how to modify secured hub settings."lightbox="./media/routing-policies/secured-hub-settings.png":::
 1. Select the Hub you want to configure your Routing Policies on from the menu.
 1. Select **Security configuration** under **Settings**
@@ -284,7 +284,7 @@ The following steps describe how to configure routing intent and routing policie
 
 6. To apply your routing intent and routing policies configuration, click **Save**.
 
-    :::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations"lightbox="./media/routing-policies/save-nva.png":::
+    :::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations."lightbox="./media/routing-policies/save-nva.png":::
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
