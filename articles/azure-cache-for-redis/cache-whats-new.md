@@ -18,6 +18,9 @@ ms.date: 05/10/2023
 
 Azure Active Directory (Azure AD) based authentication and authorization is now available for public preview with Azure Cache for Redis. With this Azure AD integration, users can connect to their cache instance without an access key and use role-based access control to connect to their cache instance.
 
+> [!IMPORTANT]
+> The updates to Azure Cache for Redis that enable Azure Active Directory for authentication are expected to complete by May 20, 2023.
+
 This feature is available for Azure Cache for Redis Basic, Standard, and Premium SKUs. With this update, customers can look forward to increased security and a simplified authentication process when using Azure Cache for Redis.
 
 ### Support for up to 30 shards for clustered Azure Cache for Redis instances
