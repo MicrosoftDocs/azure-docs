@@ -56,7 +56,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
     > [!NOTE]
     > This operation can take several minutes to complete.
 
-3. Create a new account by using command [`az netappfiles account create`](/cli/azure/netappfiles/account#az-netappfiles-account-create). When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
+3. Create a new account by using the command [`az netappfiles account create`](/cli/azure/netappfiles/account#az-netappfiles-account-create). When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -65,7 +65,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
         --account-name $ANF_ACCOUNT_NAME
     ```
 
-4. Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. Replace the variables shown in the command with your Azure NetApp Files information. The `account_name` should be the same as created in Step 3.
+4. Create a new capacity pool by using the command [`az netappfiles pool create`][az-netappfiles-pool-create]. Replace the variables shown in the command with your Azure NetApp Files information. The `account_name` should be the same as created in Step 3.
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -77,7 +77,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
         --service-level $SERVICE_LEVEL
     ```
 
-5. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. Specify the resource group hosting the existing virtual network for your AKS cluster. Replace the variables shown in the command with your Azure NetApp Files information. 
+5. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using the command [`az network vnet subnet create`][az-network-vnet-subnet-create]. Specify the resource group hosting the existing virtual network for your AKS cluster. Replace the variables shown in the command with your Azure NetApp Files information. 
 
     > [!NOTE]
     > This subnet must be in the same virtual network as your AKS cluster.
