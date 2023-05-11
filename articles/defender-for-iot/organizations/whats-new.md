@@ -20,16 +20,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.x and later**: <br>- [Configure Active Directory and NTP settings in the portal](#configure-active-directory-and-ntp-settings-in-the-portal) |
+| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
 
-### Configure Active Directory and NTP settings in the portal
+### Configure Active Directory and NTP settings in the Azure portal
 
-Configure Active Directory and NTP settings for your sensors remotely from the Azure portal.
+Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
 
 For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
-
-> [!NOTE]
-> The NTP and Active Directory setting is supported only for OT sensors, versions 22.3.x and later.
 
 ## April 2023
 

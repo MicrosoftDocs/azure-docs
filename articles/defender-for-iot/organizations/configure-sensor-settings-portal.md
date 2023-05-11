@@ -114,7 +114,7 @@ Use the following sections to learn more about the individual OT sensor settings
 
 ### Active Directory
 
-To modify Active Directory settings in the Azure portal, edit for the following options:
+To configure Active Directory settings from the Azure portal, define values for the following options:
 
 |Name  |Description  |
 |---------|---------|

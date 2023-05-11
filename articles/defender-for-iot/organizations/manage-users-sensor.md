@@ -27,7 +27,7 @@ We recommend configuring on-premises users on your OT sensor with Active Directo
 For example, use Active Directory when you have a large number of users that you want to assign Read Only access to, and you want to manage those permissions at the group level.
 
 > [!TIP]
-> When you're ready to start managing your OT sensor settings at scale, define Active Directory from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
+> When you're ready to start managing your OT sensor settings at scale, define Active Directory settings from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
 
 **To integrate with Active Directory**:
 
