@@ -1013,7 +1013,7 @@ The following JSON sets the source image as the latest image version for an imag
 ```json
     "source": {
       "type": "SharedImageVersion",      
-      "imageVersionId": "/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest"
+      "imageVersionId": "<replace with resourceId of the image stored in the Direct Shared Gallery>"
     },
 ```
 
@@ -1023,8 +1023,7 @@ The following JSON sets the source image as the latest image version for an imag
 properties: {
   source: {
     type: 'SharedImageVersion'
-    imageVersionId: '/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest'
-    exactVersion: '<replace with exact ARM resource id of the image version>'
+    imageVersionId: '<replace with resourceId of the image stored in the Direct Shared Gallery>'
   }
 }
 ```
@@ -1284,13 +1283,12 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 ```bicep
 source: {
   type: 'SharedImageVersion',
-  imageVersionID: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>'
+  imageVersionID: '<replace with resourceId of the image stored in the Direct Shared Gallery>'
 }
 ```
 
 ---
-
-The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
+- imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place. The `imageVersionId` should be the `ResourceId` of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 The following JSON sets the source image as the latest image version in a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
 
@@ -1302,7 +1300,7 @@ The following JSON sets the source image as the latest image version in a [Direc
 ```json
     source: {
       "type": "SharedImageVersion",      
-      "imageVersionId": "/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest"      
+      "imageVersionId": "<replace with resourceId of the image stored in the Direct Shared Gallery>"      
     },
 ```
 
@@ -1311,10 +1309,9 @@ The following JSON sets the source image as the latest image version in a [Direc
 ```bicep
 source: {
   type: 'SharedImageVersion'
-  imageVersionId: '/SharedGalleries/<galleryName>/Images/<imageName>/Versions/latest'
+  imageVersionId: '<replace with resourceId of the image stored in the Direct Shared Gallery>'
 }
 ```
-- imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
 ---
 
 ## Properties: stagingResourceGroup
