@@ -138,14 +138,14 @@ Single vip registry refresh property : null
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
-## Stream an Azure Spring Apps app log in a VNet injection instance
+## Stream an Azure Spring Apps app log in a virtual network injection instance
 
 For an Azure Spring Apps instance deployed in a custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
 
 Azure Spring Apps also enables you to access real-time app logs from a public network using Azure portal or the Azure CLI.
 
 > [!NOTE]
-> Enable log stream endpoint on the public network would add a public inbound IP in your virtual network. Please enable this with caution if you are sensitive about this.
+> Enabling the log streaming endpoint on the public network adds a public inbound IP to your virtual network. Be sure to use caution if this is a concern for you.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -155,9 +155,9 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Select the **Vnet injection** page.
 
-1. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
+1. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process takes a few minutes.
 
-    :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
+   :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
 
 #### [CLI](#tab/azure-CLI)
 
@@ -180,11 +180,14 @@ Log streaming uses the same key as the test endpoint described in [Set up a stag
 
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
-The following is a recommanded basic rule example from us. You could use commands like nslookup with the endpoint <service\-name>.private.azuremicroservices.io to get the target IP address.
+> [!NOTE]
+> If you can't access app logs in the virtual network injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
 
-   ![Recommanded network security group rule.](media/how-to-log-streaming/logstream-nsg.png)
+The following screenshot shows an example of a basic rule that we recommend. You could use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address.
+
+:::image type="content" source="media/how-to-log-streaming/logstream-nsg.png" alt-text="Screenshot of Inbound Security Rules showing example recommended rules." lightbox="media/how-to-log-streaming/logstream-nsg.png":::
 
 ## Next steps
 
-* [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
-* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
+- [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+- [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
