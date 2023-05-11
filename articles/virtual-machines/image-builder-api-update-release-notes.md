@@ -29,7 +29,7 @@ This article contains all major API changes and feature updates for the Azure VM
 - Added `versioning` to support generating version numbers for image distributions. For more information, see [properties: versioning](../virtual-machines/linux/image-builder-json.md#properties-versioning)
 - Added support for per region configuration when distributing to Azure Compute Gallery. For more information, see [Distribute:targetRegions](../virtual-machines/linux/image-builder-json.md#distribute-targetregions)
 - Added new 'File' validation type. For more information, see [validate properties](../virtual-machines/linux/image-builder-json.md#properties-validate)
-- VHDs can now be distributed to a custom blob or container in a custom storage account
+- VHDs can now be distributed to a custom blob or container in a custom storage account. For more information, see [Distribute: VHD](../virtual-machines/linux/image-builder-json.md#distribute-vhd)
 - Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template
 
 
