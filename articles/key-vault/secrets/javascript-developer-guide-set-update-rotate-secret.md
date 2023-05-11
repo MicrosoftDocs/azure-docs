@@ -1,6 +1,6 @@
 ---
-title: Create JavaScript Key Vault secret client
-description: Create an authenticated Key Vault secret client using JavaScript.
+title: Set, update, or rotate secrets with JavaScript
+description: 
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.date: 05/10/2023
 ms.author: mbaldwin
-#Customer intent: As a JavaScript developer who is new to Azure, I want to authenticate to the Key Vault with the SDK.
+#Customer intent: As a JavaScript developer who is new to Azure, I want to set a secret to the Key Vault with the SDK.
 ---
 
 # Set, update, and rotate a secret in Azure Key Vault with JavaScript
@@ -18,7 +18,7 @@ Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) 
 
 ## Set a secret
 
-To set a secret in Azure Key Vault, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method of the SecretClient class. The following example sets a secret named `mySecretName` with a string value.
+To set a secret in Azure Key Vault, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method of the SecretClient class. 
 
 The secret value type is a string. The initial value can be anything that can be serialized to a string such as JSON or BASE64 encoded data. You need to provide the serialization before setting the secret in the Key Vault and deserialization after getting the secret from the Key Vault.
 
@@ -32,7 +32,7 @@ const { name, value, properties } = await client.setSecret(
 ); 
 ```
 
-When you create the secret, the response includes a [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object that includes the secret's metadata such as:
+When you create the secret, the [KeyVaultSecret](/javascript/api/@azure/keyvault-secrets/keyvaultsecret) response includes a [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object that includes the secret's metadata such as:
 
 * `createdOn`: UTC date and time the secret was created. 
 * `id`: Secret's full URL.
@@ -43,7 +43,7 @@ When you create the secret, the response includes a [SecretProperties](/javascri
 
 ## Set a secret with properties
 
-[SetSecretOptions](/javascript/api/@azure/keyvault-secrets/setsecretoptions) includes optional parameters that live with the secret such as: 
+Use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method of the SecretClient class with the [SetSecretOptions](/javascript/api/@azure/keyvault-secrets/setsecretoptions) to include optional parameters that live with the secret such as: 
 
 * `contentType`: Your representation and understanding of the secret's content type. Suggestions for use include a native type, your own custom TypeScript type, or a MIME type. This value is visible in the Azure portal.
 * `enabled`: Defaults to true.
@@ -73,6 +73,8 @@ const { name, value, properties } = await client.setSecret(
     secretOptions
 );
 ```
+
+This method returns the [KeyVaultSecret](/javascript/api/@azure/keyvault-secrets/keyvaultsecret) object. 
 
 ## Update secret value
 
@@ -110,6 +112,8 @@ const properties = await client.updateSecretProperties(
     secretOptions,
 );
 ```
+
+This method returns the [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object. 
 
 ## Rotate a secret
 

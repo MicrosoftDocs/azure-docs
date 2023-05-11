@@ -50,11 +50,11 @@ npm install @azure/keyvault-secrets @azure/identity
 
 ## Add JavaScript code to authenticate to Azure Key Vault programmatically
 
-1. Import the necessary modules in your JavaScript file:  
+1. Import the necessary modules in your JavaScript file using ESM syntax:  
 
     ```javascript
-    const { DefaultAzureCredential } = require("@azure/identity");  
-    const { SecretClient } = require("@azure/keyvault-secrets");  
+    import { DefaultAzureCredential } from "@azure/identity";  
+    import { SecretClient } from "@azure/keyvault-secrets";  
     ```
 
 2. Create an instance of the DefaultAzureCredential class:
