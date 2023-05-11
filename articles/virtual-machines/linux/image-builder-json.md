@@ -1137,6 +1137,9 @@ distribute: [
 
 ---
 
+VHD distribute properties:
+
+**uri** - Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
 
 ## Properties: source
 
