@@ -227,7 +227,7 @@
         - name: Azure CLI
           href: flexible-server/how-to-networking-private-link-azure-cli.md
       - name: Service Maintenance
-      items:
+        items:
       - name: Configure Scheduled Maintenance using Azure portal
         href: flexible-server/how-to-maintenance-portal.md
     - name: High Availability
