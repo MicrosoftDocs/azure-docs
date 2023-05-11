@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: 
@@ -14,23 +14,20 @@ ms.custom:
 
 Azure Elastic storage area network (SAN) preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
-Elastic SAN volume groups can be configured to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant. Depending on the configuration, applications on peered virtual networks or on-premises networks connected by a VPN or ExpressRoute can also access volumes in the group.
+Elastic SAN volume groups can be configured to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant. Depending on the configuration, applications on peered virtual networks or on-premises networks can also access volumes in the group. On-premises networks must be connected to the virtual network by a VPN or ExpressRoute. For more details about virtual network configurations, see [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
 There are two types of virtual network endpoints you can configure to allow access to an Elastic SAN volume group:
 
 - [Azure Storage service endpoints](#azure-storage-service-endpoints)
 - [Private endpoints](#private-endpoints)
 
-To decide which option is best for your use case, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
+To decide which option is best for your use case, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). Microsoft recommends using private endpoints instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data exfiltration protection and mapping a service to a Private IP address in your own network. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md).  
 
 After configuring endpoints, network rules can be configured to further control access to your Elastic SAN volume group. Once the endpoints and network rules have been configured, clients can connect to volumes in the group to process their workloads.
 
 ## Azure Storage service endpoints
 
 [Azure Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) provide secure and direct connectivity to Azure services using an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources to only your specific virtual networks.
-
-> [!IMPORTANT]
-> Microsoft recommends using Azure Private Link instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data exfiltration protection and mapping a service to a Private IP address in your own network. For more information, see [Azure Private Link](../../private-link/private-link-overview.md).  
 
 Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network. The service endpoint routes traffic from the virtual network over an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the volume group that allow requests to be received from specific subnets in a virtual network.
 
