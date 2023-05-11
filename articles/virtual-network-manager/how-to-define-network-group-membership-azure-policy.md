@@ -1,20 +1,19 @@
 ---
 title: 'Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy'
-description: Learn how to define dynamic network group membership in Azure Virtual Network Manager with Azure Policy.
+description: This article explains how to use Azure Policy to create network groups with dynamic membership in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 05/11/2023
 ms.custom: template-concept, engagement-fy23
-ROBOTS: NOINDEX
 ---
 
 # Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy
 
-In this article, you'll learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
+In this article, you learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
 
-[Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition will continue to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
+[Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition continues to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
@@ -29,33 +28,33 @@ Virtual networks with dynamic memberships are selected using conditional stateme
 
 List of supported parameters:
 
-| Parameters | Advanced editor field |
+| **Parameters** | **Advanced editor field** |
 | ---------- | ------------------------- |
-| Name | `Name` |
-| ID | `Id` |
-| Tags| `tag['tagName']` |
-| Subscription Name | `[subscription().Name]` |
-| Subscription ID | `[subscription().Id]` |
-| Subscription Tags | `[subscription().tags['tagName']]` |
-| Resource Group Name | `[resourceGroup().Name]` |
-| Resource Group ID | `[resourceGroup().Id]` |
-| Resource Group Tags | `[resourceGroup().tags['tagName']]` |
+| **Name** | `Name` |
+| **ID** | `Id` |
+| **Tags**| `tag['tagName']` |
+| **Subscription Name** | `[subscription().Name]` |
+| **Subscription ID** | `[subscription().Id]` |
+| **Subscription Tags** | `[subscription().tags['tagName']]` |
+| **Resource Group Name** | `[resourceGroup().Name]` |
+| **Resource Group ID** | `[resourceGroup().Id]` |
+| **Resource Group Tags** | `[resourceGroup().tags['tagName']]` |
 
 List of supported operators:
 
-| Operators | Advanced editor |
-| --------- | --------------- |
-| Contains | `"contains": <>` |
-| Doesn't contain | `"notcontains": <>` |
-| In | `"in": <>` |
-| Not In | `"notin": <>` |
-| Equals | `"equals": <>` |
-| Doesn't equal | `"notequals": <>` |
-| Contains any of | `"contains": <>` |
-| Contains all of | `"contains": <>` |
-| Doesn't contain any of | `"notcontains": <>` |
-| Exists | `"exists": true` |
-| Doesn't exist | `"exists": false` |
+| **Operators** | **Advanced editor** |
+| --------- | ------------------ |
+| **Contains** | `"contains": <>` |
+| **Doesn't contain** | `"notcontains": <>` |
+| **In** | `"in": <>` |
+| **Not In** | `"notin": <>` |
+| **Equals** | `"equals": <>` |
+| **Doesn't equal** | `"notequals": <>` |
+| **Contains any of** | `"contains": <>` |
+| **Contains all of** | `"contains": <>` |
+| **Doesn't contain any of** | `"notcontains": <>` |
+| **Exists** | `"exists": true` |
+| **Doesn't exist** | `"exists": false` |
 
 > [!NOTE]
 > The *Exists* and *Does not exist* operators are only used with the **Tags** parameter.
@@ -108,7 +107,7 @@ The advanced editor can be used to select virtual networks during the creation o
 
 1. Select the network group created in the previous section. Then select the **Policies** tab.
 1. Select the policy created in the previous section.
-1. You'll see the conditional statements for the network group in the advance editor view as follows:
+1. You see the conditional statements for the network group in the advance editor view as follows:
 
     ```json
     [
@@ -235,3 +234,4 @@ In this example, a conditional statement is created that finds virtual networks 
 
 - Learn about [Network groups](concept-network-groups.md).
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
