@@ -53,7 +53,7 @@ items:
     - name: Speech to text documentation
       href: index-speech-to-text.yml
     - name: Speech to text overview
-      href: speech to text.md
+      href: speech-to-text.md
       displayName: stt
     - name: Speech to text quickstart
       href: get-started-speech-to-text.md
@@ -117,7 +117,7 @@ items:
     - name: Text to speech documentation
       href: index-text-to-speech.yml
     - name: Text to speech overview
-      href: text to speech.md
+      href: text-to-speech.md
       displayName: tts
     - name: Text to speech quickstart
       href: get-started-text-to-speech.md

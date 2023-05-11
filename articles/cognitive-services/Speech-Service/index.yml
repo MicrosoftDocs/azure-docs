@@ -38,7 +38,7 @@ conceptualContent:
       links:
         - itemType: overview
           text: About speech to text
-          url: speech to text.md
+          url: speech-to-text.md
         - itemType: quickstart
           text: Get started with speech to text
           url: get-started-speech-to-text.md
@@ -55,7 +55,7 @@ conceptualContent:
       links:
         - itemType: overview
           text: About text to speech
-          url: text to speech.md
+          url: text-to-speech.md
         - itemType: quickstart
           text: Get started with text to speech
           url: get-started-text-to-speech.md
