@@ -228,7 +228,7 @@ To configure your DMS migration project, perform the following steps.
     > [!NOTE]
     > There is now a **Migrate all applicable databases** option when selected, this option will migrate all user created databases and tables. Note that because Azure Database for MySQL - Flexible Server does not support mixed case databases, mixed case databases on the source will not be included for an online migration.
 
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Screenshot of a Select database.":::
+:::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Screenshot of a Select database.":::
 
 4. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
 
