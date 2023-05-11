@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight 5.x
 description: Learn about the open-source  components and versions in Azure HDInsight 5.x
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 05/11/2023
 ---
 
 # HDInsight 5.x component versions
@@ -22,19 +22,19 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 
 | Component        | HDInsight 5.1 | HDInsight 5.0 |
 |------------------|---------------|---------------|
-| Apache Spark     | 3.3.1                | 3.1.3         |
-| Apache Hive      | 3.1.2                | 3.1.2         |
-| Apache Kafka     | 3.2.0                | 2.4.1         |
+| Apache Spark     | 3.3.1  **              | 3.1.3         |
+| Apache Hive      | 3.1.2  **              | 3.1.2         |
+| Apache Kafka     | 3.2.0  **              | 2.4.1         |
 | Apache Hadoop with YARN | 3.3.4, ZK 3.6.3 | 3.1.1         |
-| Apache Tez       | 0.9.1  *             | 0.9.1         |
+| Apache Tez       | 0.9.1  **             | 0.9.1         |
 | Apache Ranger    |  2.3.0 *             | 1.1.0         |
-| Apache HBase     | 2.4.11               | -             |
+| Apache HBase     | 2.4.11 **               | -             |
 | Apache Oozie     | 5.2.1  *             | 4.3.1         |
 | Apache Zookeeper | 3.6.3               | 3.4.6         |
-| Apache Livy      | 0.5.                 | 0.5           |
+| Apache Livy      | 0.5. **               | 0.5           |
 | Apache Ambari    | 2.7.0  **            | 2.7.0         |
-| Apache Zeppelin  | 0.10.1               | 0.8.0         |
-| Apache Phoenix   | 5.1.2                | -       |
+| Apache Zeppelin  | 0.10.1 **              | 0.8.0         |
+| Apache Phoenix   | 5.1.2 **              | -       |
 
 \* Under development/Planned
 
