@@ -5,12 +5,40 @@ items:
     href: faq.yml
   - name: Quickstarts
     items:
+    - name: Deploy S/4HANA infrastructure - Azure PowerShell
+      href: quickstart-create-distributed-non-HA.md
+    - name: Install SAP software - Azure PowerShell
+      href: quickstart-install-distributed-non-HA.md  
+    - name: Deploy S/4HANA infrastructure - Azure CLI
+      href: quickstart_create_HA_namecustom.md
+    - name: Install SAP software - Azure CLI
+      href: quickstart-install-ha-namecustom-cli.md
+    - name: Deploy an SAP system with customised disk layout - Portal
+      href: quickstart-deploy-ha-system.md
     - name: Register an existing SAP system - Azure PowerShell
       href: quickstart-register-system-powershell.md
+    - name: Register an existing SAP system - Azure CLI
+      href: quickstart-register-system-cli.md  
+    - name: Start and Stop SAP System - Azure Powershell 
+      href: quick-stop-start-sap-powershell.md
+    - name: Start and Stop SAP System - Azure CLI
+      href: quick-stop-start-sap-powershell.md
+  - name: Tutorial
+    items:
+    - name: Deploy infrastructure for an SAP system with customized resource names
+      href: tutorial-create-HA-name-custom.md
+    - name: Deploy infrastructure for an SAP system with customized Database Disk Layout
+      href: tutotial-customize-disk.md    
   - name: Concepts
     items:
     - name: Manage resources with Azure RBAC
       href: manage-with-azure-rbac.md
+    - name: Reliability
+      items:
+      - name: Reliability Overview
+        href: compliance-bcdr-reliabilty.md
+      - name: Customer enabled disaster recovery
+        href: compliance-cedr.md
   - name: How-to guides
     items:
     - name: Deployment
@@ -43,4 +71,7 @@ items:
     items:
     - name: Azure CLI
       href: https://learn.microsoft.com/cli/azure/workloads/sap-virtual-instance 
-      
+    - name: Azure PowerShell
+      href: https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadssapvirtualinstance
+    - name: REST - SAP Virtual Instance
+      href: https://learn.microsoft.com/rest/api/workloads/  
