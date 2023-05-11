@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Spring Apps Archived
-description: This page highlights new features and recent improvements for Azure Spring Apps
+description: This page highlights previous features and improvements for Azure Spring Apps
 author: hangwan97
 ms.author: hangwan
 ms.service: data-factory
