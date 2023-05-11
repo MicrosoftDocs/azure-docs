@@ -61,4 +61,5 @@ For more information, see [Access your application in a private network](./acces
 
 ## Other issues
 
-[Troubleshoot common Azure Spring Apps issues](./troubleshoot.md)
+- [Access your application in a private network](access-app-virtual-network.md)
+- [Troubleshoot common Azure Spring Apps issues](./troubleshoot.md)
