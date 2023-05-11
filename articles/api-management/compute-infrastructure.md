@@ -31,6 +31,9 @@ The following table summarizes the compute platforms currently used for instance
 > [!NOTE]
 > Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
 
+> [!NOTE]
+> As Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
+
 ## How do I know which platform hosts my API Management instance?
 
 Starting with API version `2021-04-01-preview`, the API Management instance exposes a read-only `platformVersion` property with this platform information. 
