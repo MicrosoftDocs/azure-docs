@@ -158,7 +158,7 @@ az spring app create \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
     --cpu 1 \
-    --memory 2Gi \    
+    --memory 2Gi \
     --min-replicas 2 \
     --max-replicas 2 \
     --assign-endpoint true
