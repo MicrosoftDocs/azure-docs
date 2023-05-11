@@ -25,7 +25,7 @@ Before running this example, you can try the [basic quickstart](./quickstart.md)
 
 ## Prerequisites
 
-* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.x or higher](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
 
