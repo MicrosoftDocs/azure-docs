@@ -25,7 +25,7 @@ In Azure, Redis cluster is offered as a primary/replica model where each shard h
 
 ## Azure Cache for Redis now supports upto 30 shards (preview)
 
-Azure Cache for Redis now supports upto 30 shards for clustered caches. Clustered caches configured with two replicas can support upto 15 shards and clustered caches configured with three replicas can support upto 15 shards.
+Azure Cache for Redis now supports upto 30 shards for clustered caches. Clustered caches configured with two replicas can support upto 20 shards and clustered caches configured with three replicas can support upto 15 shards.
 
 **Limitations**
 * Shard limit for caches with Redis verion 4 is 10.
