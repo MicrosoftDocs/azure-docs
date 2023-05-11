@@ -47,7 +47,7 @@ Now that you've completed the prerequisites, let's get started.
 
 1. Select **Instant cloud flow** from the main content area.
 
-   :::image type="content" source="../media/connectors/create-a-flow.png" alt-text="Screenshot showing how to create an instant cloud flow.":::
+   :::image type="content" source="../media/connectors/create-flow.png" alt-text="Screenshot showing how to create an instant cloud flow.":::
 
 1. In the popup window, **name your flow**, choose **Manually trigger a flow** then, select **Create**.
 
