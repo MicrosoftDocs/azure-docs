@@ -633,7 +633,11 @@
         - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
           href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Use cluster extensions
-      href: cluster-extensions.md
+      items:
+      - name: About cluster extensions
+        href: cluster-extensions.md
+      - name: Use the Azure CLI
+        href: deploy-extensions-az-cli.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
