@@ -21,5 +21,5 @@ The following table describes the default permissions assigned to a customer.
 
 | **Area** | **Customer user permissions** |
 | ------------ | --------- |
-| Users and contacts | - Read and update their own profile through the app profile management experience  <br>- Change their own password <br>- Delete their own account <br>- Sign in with a local or social account <br>- Link multiple customer accounts that belong to the same user |
+| Users and contacts | - Read and update their own profile through the app profile management experience  <br>- Change their own password <br>- Sign in with a local or social account |
 | Applications | - Access customer-facing applications <br>- Revoke consent to applications |
