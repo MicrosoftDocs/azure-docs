@@ -73,23 +73,35 @@ When visualizing data points, the symbol layer automatically hides symbols that 
 
 Use clustering to show the data points density while keeping a clean user interface. The following sample shows you how to add custom symbols and represent clusters and individual data points using the symbol layer.
 
+For a complete working sample of how to implement displaying clusters using a symbol layer, see [Display clusters with a Symbol Layer] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/cluster-point-data-web-sdk/display-clusters-using-symbol-layer.png" alt-text="Screenshot showing a map displaying clusters with a symbol layer.":::
+
+<!----------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Clustered Symbol layer" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>Clustered Symbol layer</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------->
 
 ## Clustering and the heat maps layer
 
 Heat maps are a great way to display the density of data on the map. This visualization method can handle a large number of data points on its own. If the data points are clustered and the cluster size is used as the weight of the heat map, then the heat map can handle even more data. To achieve this option, set the `weight` option of the heat map layer to `['get', 'point_count']`. When the cluster radius is small, the heat map looks nearly identical to a heat map using the unclustered data points, but it performs better. However, the smaller the cluster radius, the more accurate the heat map is, but with fewer performance benefits.
 
+For a complete working sample that demonstrates how to create a heat map that uses clustering on the data source, see [Cluster weighted Heat Map] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/cluster-point-data-web-sdk/cluster-weighted-heat-map.png" alt-text="Screenshot showing a heat map that uses clustering on the data source.":::
+
+<!----------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Cluster weighted Heat Map" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster weighted Heat Map</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------->
 
 ## Mouse events on clustered data points
 
@@ -102,14 +114,53 @@ When mouse events occur on a layer that contains clustered data points, the clus
 | `point_count`             | number  | The number of points the cluster contains.  |
 | `point_count_abbreviated` | string  | A string that abbreviates the `point_count` value if it's long. (for example, 4,000 becomes 4K)  |
 
-This example takes a bubble layer that renders cluster points and adds a click event. When the click event triggers, the code calculates and zooms the map to the next zoom level, at which the cluster breaks apart. This functionality is implemented using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point.
+The [Point Clusters in Bubble Layer] example takes a bubble layer that renders cluster points and adds a click event. When the click event triggers, the code calculates and zooms the map to the next zoom level, at which the cluster breaks apart. This functionality is implemented using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point.
 
+The following code snippet shows the code in the [Point Clusters in Bubble Layer] example that adds the click event functionality to the clustered data points:
+
+```javascript
+//Add a click event to the layer so we can zoom in when a user clicks a cluster.
+map.events.add('click', clusterBubbleLayer, clusterClicked);
+
+//Add mouse events to change the mouse cursor when hovering over a cluster.
+map.events.add('mouseenter', clusterBubbleLayer, function () {
+    map.getCanvasContainer().style.cursor = 'pointer';
+});
+
+map.events.add('mouseleave', clusterBubbleLayer, function () {
+    map.getCanvasContainer().style.cursor = 'grab';
+});
+
+function clusterClicked(e) {
+    if (e && e.shapes && e.shapes.length > 0 && e.shapes[0].properties.cluster) {
+        //Get the clustered point from the event.
+        var cluster = e.shapes[0];
+
+        //Get the cluster expansion zoom level. This is the zoom level at which the cluster starts to break apart.
+        datasource.getClusterExpansionZoom(cluster.properties.cluster_id).then(function (zoom) {
+
+            //Update the map camera to be centered over the cluster. 
+            map.setCamera({
+                center: cluster.geometry.coordinates,
+                zoom: zoom,
+                type: 'ease',
+                duration: 200
+            });
+        });
+    }
+}
+```
+
+:::image type="content" source="./media/cluster-point-data-web-sdk/display-clusters-using-bubble-layer.png" alt-text="Screenshot showing a map displaying clusters using a bubble layer.":::
+
+<!----------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Cluster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Cluster getClusterExpansionZoom</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+------------------------------------------------------------------------>
 
 ## Display cluster area
 
@@ -158,5 +209,7 @@ See code examples to add functionality to your app:
 > [Add a heat map layer](map-add-heat-map-layer.md)
 
 [aggregate expression]: data-driven-style-expressions-web-sdk.md#aggregate-expression
-[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/?search=bubble%20layer&sample=point-clusters-in-bubble-layer
 [Azure Maps Samples]: https://samples.azuremaps.com
+[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/?search=bubble%20layer&sample=point-clusters-in-bubble-layer
+[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/?search=symbol%20layer&sample=display-clusters-with-a-symbol-layer
+[Cluster weighted Heat Map]: https://samples.azuremaps.com/?search=heat%20maps&sample=cluster-weighted-heat-map
