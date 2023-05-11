@@ -93,7 +93,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 # [Azure PowerShell](#tab/powershell)
 
-1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-azure-powershell) in PowerShell on your local machine.
 
 1. Use PowerShell, run the following command:
 

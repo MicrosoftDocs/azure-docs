@@ -5,12 +5,11 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article 
-ms.tgt_pltfrm: 
+ms.topic: conceptual 
 ms.workload: infrastructure
-ms.date: 03/16/2018
+ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: 
+ms.custom: template-concept
 ---
 
 # Traffic Manager Real User Measurements overview

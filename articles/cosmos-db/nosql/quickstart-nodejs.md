@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 02/21/2023
-ms.custom: devx-track-js, mode-api, ignite-2022, devguide-js, cosmos-db-dev-journey, passwordless-js
+ms.date: 05/08/2023
+ms.custom: devx-track-js, mode-api, ignite-2022, devguide-js, cosmos-db-dev-journey, passwordless-js, devx-track-azurecli
 ---
 
 # Quickstart - Azure Cosmos DB for NoSQL client library for Node.js
@@ -244,7 +244,7 @@ Add the following code to create a container with the [``Database.Containers.cre
 
 ### Create an item
 
-Add the following code to provide your data set. Each _product_ has a unique ID, name, category name (used as partition key) and other fields.
+Add the following code to provide your data set. Each _product_ has a unique ID, name, category id (used as partition key) and other fields.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="37-84":::
 
@@ -256,7 +256,7 @@ Create a few items in the container by calling [``Container.Items.create``](/jav
 
 In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.item().read``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read) passing in both values to return an item.
 
-The partition key is specific to a container. In this Contoso Products container, the category name, `categoryName`, is used as the partition key.
+The partition key is specific to a container. In this Contoso Products container, the category id, `categoryId`, is used as the partition key.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="93-95":::
 

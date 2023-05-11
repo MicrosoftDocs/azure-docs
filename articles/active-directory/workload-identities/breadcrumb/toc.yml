@@ -23,3 +23,9 @@
   - name: Active Directory
     tocHref: /azure/active-directory/manage-apps/
     topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/reports-monitoring/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /graph/api/resources/
+    topicHref: /azure/active-directory/index

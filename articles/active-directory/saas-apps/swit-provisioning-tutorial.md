@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Swit for automatic user provisioning with Azure Acti
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Swit.
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: ce8e918b-3a0c-43af-8cb2-3c810143e484
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

@@ -24,6 +24,8 @@
       href: tutorial-global-distribution.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
+    - name: KQL transformations for workspace data
+      href: ../tutorial-log-transformation.md
 - name: Samples
   items:
     - name: .NET
@@ -161,12 +163,14 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
-        - name: Manage periodic backup
+        - name: Periodic backup
           items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+            - name: Introduction
+              href: ../periodic-backup-restore-introduction.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -303,6 +307,10 @@
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer
           href: ../data-explorer.md
+    - name: Migrate data
+      items:
+        - name: Desktop data migration tool
+          href: ../how-to-migrate-desktop-tool.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
@@ -323,9 +331,9 @@
           href: ../resource-locks.md
         - name: Request quota increase
           href: ../sql/create-support-request-quota-increase.md
-    - name: Manage back up and restore
+    - name: Back up and restore
       items:
-        - name: Manage continuous backup
+        - name: Manage Continuous backup
           items:
             - name: Permissions and roles - Continuous backup
               href: ../continuous-backup-restore-permissions.md
@@ -335,12 +343,12 @@
               href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
-        - name: Manage periodic backup
+        - name: Periodic backup
           items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+            - name: Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
     - name: Security
       items:
         - name: Configure IP firewall

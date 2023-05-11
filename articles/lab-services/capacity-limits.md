@@ -91,4 +91,3 @@ See the following articles:
 
 - As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
 - As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)
-- [Frequently asked questions](classroom-labs-faq.yml).

@@ -2,6 +2,7 @@
 title: Configure Container insights cost optimization data collection rules | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 02/23/2023
 ms.reviewer: aul
 ---
@@ -76,7 +77,7 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
 ## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
-    - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
+    - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster)
 
 - Azure CLI: Minimum version required for Azure CLI is 2.45.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
     - For AKS clusters, aks-preview version 0.5.125 or higher

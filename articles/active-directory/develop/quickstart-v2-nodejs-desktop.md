@@ -6,7 +6,7 @@ author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 01/14/2022
 ROBOTS: NOINDEX
 ms.author: cwerner

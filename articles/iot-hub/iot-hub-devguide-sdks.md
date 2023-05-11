@@ -60,4 +60,4 @@ Azure IoT SDKs are also available for the following services:
 
 ## Next steps
 
-Learn how to [manage connectivity and reliable messaging](../iot-develop/how-to-use-reliability-features-in-sdks.md) using the IoT Hub device SDKs.
+Learn how to [manage connectivity and reliable messaging](../iot-develop/concepts-manage-device-reconnections.md) using the IoT Hub device SDKs.

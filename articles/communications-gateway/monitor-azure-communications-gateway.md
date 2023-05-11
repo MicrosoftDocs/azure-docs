@@ -46,8 +46,6 @@ You can analyze metrics for Azure Communications Gateway, along with metrics fro
 
 For a list of the metrics collected, see [Monitoring Azure Communications Gateway data reference](monitoring-azure-communications-gateway-data-reference.md).
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
-
 ## Filtering and splitting
 
 All Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. 

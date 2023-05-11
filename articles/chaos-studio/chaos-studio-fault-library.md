@@ -308,18 +308,18 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Stop Windows service
+## Stop service
 
 | Property | Value |
 |-|-|
 | Capability Name | StopService-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
-| Description | Uses the Windows Service Controller APIs to stop a Windows service during the fault, restarting it at the end of the duration or if the experiment is canceled. |
+| Supported OS Types | Windows, Linux |
+| Description | Stops a Windows service or a Linux systemd service during the fault, restarting it at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
-| serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names aren't supported. |
+| serviceName | The name of the Windows service or Linux systemd service you want to stop. |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
@@ -347,6 +347,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   ]
 }
 ```
+
+### Limitations
+* Windows: service friendly names aren't supported. Use `sc.exe query` in the command prompt to explore service names.
+* Linux: other service types besides systemd, like sysvinit, aren't supported.
 
 ## Time change
 
@@ -489,9 +493,9 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 |-|-|
 | Capability Name | NetworkLatency-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS Types | Windows, Linux |
 | Description | Increases network latency for a specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | (Windows) Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
@@ -538,9 +542,9 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 |-|-|
 | Capability Name | NetworkDisconnect-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS Types | Windows, Linux |
 | Description | Blocks outbound network traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | (Windows) Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
@@ -763,6 +767,9 @@ Configuring the shutdown fault:
   ]
 }
 ```
+
+### Limitations
+Currently, only Virtual Machine Scale Sets configured with the **Uniform** orchestration mode are supported. If your Virtual Machine Scale Set uses **Flexible** orchestration, you can use the ARM virtual machine shutdown fault to shut down selected instances.
 
 ## Azure Cosmos DB failover
 
@@ -1160,12 +1167,12 @@ Configuring the shutdown fault:
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
 | Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
-| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers aren't supported. |
+| Prerequisites | N/A |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
 | Fault type | Discrete |
 | Parameters (key, value) |  |
 | rebootType | The node types where the reboot action is to be performed which can be specified as PrimaryNode, SecondaryNode or AllNodes.  |
-| shardId | The ID of the shard to be rebooted.  |
+| shardId | The ID of the shard to be rebooted. Only relevant for Premium Tier caches. |
 
 ### Sample JSON
 
@@ -1225,6 +1232,40 @@ Configuring the shutdown fault:
     }
   ]
 }
+```
+
+## Disable Autoscale
+
+| Property | Value |
+| --- | --- |
+| Capability name | DisaleAutoscale |
+| Target type | Microsoft-AutoscaleSettings |
+| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as Virtual Machine Scale Sets, Web apps, Service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application.
+| Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio.
+| Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
+| Fault type | Continuous |
+| Parameters (key, value) |   |
+| enableOnComplete | Boolean. Configures whether autoscaling will be re-enabled once the action is done. Default is `true`. |
+
+
+```json
+{
+  "name": "BranchOne", 
+  "actions": [ 
+    { 
+    "type": "continuous", 
+    "name": "urn:csci:microsoft:autoscaleSetting:disableAutoscale/1.0", 
+    "parameters": [ 
+     { 
+      "key": "enableOnComplete", 
+      "value": "true" 
+      }                 
+  ],                                 
+   "duration": "PT2M", 
+   "selectorId": "Selector1",           
+  } 
+ ] 
+} 
 ```
 
 ## Key Vault Deny Access
