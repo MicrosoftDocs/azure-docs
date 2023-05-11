@@ -77,7 +77,7 @@ Routes send messages or event logs to an Azure service for storage or processing
    | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once it has been set. |
    | **Partition key template** | Provide a template that is used to configure the synthetic partition key value. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record. |
 
-   :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::
+   :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint.png":::
 
    # [Event Hubs](#tab/eventhubs)
 
@@ -112,7 +112,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-service-bus-endpoint.png" alt-text="Screenshot that shows the Add a service bus queue endpoint pane with correct options selected.":::
 
-   # [Storage](#tab/azurestorage)
+   # [Storage](#tab/storage)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -196,11 +196,11 @@ To update a custom endpoint in the Azure portal:
 
    # [Service Bus topic](#tab/servicebustopic)
 
-   * You can't modify a Service Bus topic endpoint.
+   You can't modify a Service Bus topic endpoint.
 
    # [Service Bus queue](#tab/servicebusqueue)
 
-   * You can't modify a Service Bus queue endpoint.
+   You can't modify a Service Bus queue endpoint.
 
    # [Storage](#tab/storage)
 

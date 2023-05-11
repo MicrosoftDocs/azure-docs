@@ -122,7 +122,7 @@ Now that you have a device ID and key, use the sample code to start sending devi
     dotnet run --PrimaryConnectionString <myDevicePrimaryConnectionString>
     ```
 
-1. You should start to see messages printed to output as they are sent to IoT Hub. Leave this program running for the duration of the tutorial.
+1. You should start to see messages printed to output as they are sent to IoT Hub. Leave this program running during the tutorial.
 
 ## Configure IoT Explorer to view messages
 
@@ -165,7 +165,7 @@ Now, use that connection string to configure IoT Explorer for your IoT hub.
 1. Select **Save**.
 1. Once you connect to your IoT hub, you should see a list of devices. Select the device ID that you created for this tutorial.
 1. Select **Telemetry**.
-1. With your device still running, select **Start**. If you're device is not running you won't see telemetry.
+1. With your device still running, select **Start**. If your device isn't running you won't see telemetry.
 
    ![Start monitoring device telemetry in IoT Explorer.](./media/tutorial-routing/iot-explorer-start-monitoring-telemetry.png)
 

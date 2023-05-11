@@ -60,7 +60,7 @@ In [the first part](tutorial-routing.md#create-a-storage-account) of this tutori
 
    :::image type="content" source="./media/tutorial-message-enrichments/create-storage-container.png" alt-text="Screenshot of creating a storage container.":::
 
-1. Name the container *enriched* and select **Create**.
+1. Name the container `enriched`, and select **Create**.
 
 # [Azure CLI](#tab/cli)
 
