@@ -72,8 +72,8 @@ The following permissions may be required to create passwordless connection with
 | Microsoft.DBforPostgreSQL/flexibleServers/write | Required to enable AAD authentication for database server |
 | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local ip address is blocked |
 | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server administrator |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server administrator |
+| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
+| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
 
 ::: zone-end
 
@@ -85,8 +85,8 @@ The following permissions may be required to create passwordless connection with
 | Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided user managed identity to database server |
 | Microsoft.DBforMySQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local ip address is blocked |
 | Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server administrator |
-| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server administrator |
+| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
+| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
 
 ::: zone-end
 
@@ -96,11 +96,10 @@ The following permissions may be required to create passwordless connection with
 | Permission | Operation |
 | --- | --- |
 | Microsoft.Sql/servers/read | Required to get information of database server |
-| Microsoft.Sql/servers/write | Required to add the provided user managed identity to database server |
 | Microsoft.Sql/servers/firewallRules/write | Required to create firewall rule in case the local ip address is blocked |
 | Microsoft.Sql/servers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server administrator |
-| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server administrator |
+| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
+| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
 
 ::: zone-end
 
