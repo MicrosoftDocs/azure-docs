@@ -217,7 +217,7 @@ The following example ARM template deploys a container app.
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-11-01-preview",
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
