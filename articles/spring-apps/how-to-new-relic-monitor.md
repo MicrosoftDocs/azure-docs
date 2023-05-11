@@ -149,6 +149,10 @@ To configure the environment variables in an ARM template, add the following cod
 }
 ```
 
+## Forward application logs to New Relic
+
+New Relic agent can collect application logs directly from your apps, and forward them to New Relic. For more details, see [Forward your logs to New Relic](https://docs.newrelic.com/docs/logs/forward-logs/enable-log-management-new-relic/) and [APM logs in context](https://docs.newrelic.com/docs/logs/logs-context/get-started-logs-context/).
+
 ## View New Relic Java Agent logs
 
 By default, Azure Spring Apps prints the logs of the New Relic Java agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
