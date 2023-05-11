@@ -666,6 +666,10 @@ __Outbound__ rules:
 __Inbound__ rules:
 * `AzureMachineLearning`
 
+## List of recommended outbound rules
+
+Currently we don't have any recommended outbound rules.
+
 ## Limitations
 
 * Once you enable managed virtual network isolation of your workspace, you can't disable it.
