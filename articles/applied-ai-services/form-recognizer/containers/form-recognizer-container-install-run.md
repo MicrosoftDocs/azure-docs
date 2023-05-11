@@ -1107,6 +1107,8 @@ services:
       target: /logs
  ```
 
+---
+
 ### Ensure the service is running
 
 To ensure that the service is up and running. Run these commands in an Ubuntu shell.
