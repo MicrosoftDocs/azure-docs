@@ -20,31 +20,31 @@ ms.reviewer: mmcc
 
 ## Enable Application Insights
 
-Three options are available to enable the Application Insights via the Application Insights JavaScript SDK.
+Three methods are available to enable the Application Insights via the Application Insights JavaScript SDK.
 
-> [!NOTE] Alternatively, if your JavaScript application is hosted on an applicable Azure environment or resource provider, Application Insights is automatically instrumented. For more information, see [auto-instrumentation for Azure Monitor Application Insights]().
+> [!TIP] Alternatively, if your JavaScript application is hosted on an applicable Azure environment or resource provider, Application Insights is automatically instrumented. For more information, see [auto-instrumentation for Azure Monitor Application Insights]().
 
 ### [Auto-Instrumentation](#tab/autoinstrumentation)
 
-Use this method if you want to...
+Use this method if you want to automatically inject the Application Insights JavaScript SDK into every webpage of your web application instead of including the Application Insights code with your application code. The following Application Insights SDKs are supported.
 
-### Enable Application Insights SDK for JavaScript automatically
+| SDK   | More information
+|	:---	|	:---	|
+| ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
+| Node.js | [Automatic web Instrumentation[Preview]](./nodejs.md#automatic-web-instrumentationpreview) |
 
-The automatic Snippet injection feature available in the Application Insights .NET core SDK and the Application Insights Node.js SDK (preview)
-allows you to automatically inject the Application Insights JavaScript SDK into every webpage of your web application. 
-For more information, see [Application Insights .NET core SDK Snippet Injection](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications)
-and [Application Insights Node.js SDK Snippet Injection (preview)](./nodejs.md#automatic-web-instrumentationpreview).
-
-> [!NOTE] if you want more control over which pages to add the Application Insights JavaScript SDK 
-or if you're using a programming language other than .NET and Node.js, see [SDK Loader Script](#ena).
+> [!NOTE] If you want more control over which pages you add the Application Insights JavaScript SDK to or if you're using a programming language other than .NET and Node.js, see [SDK Loader Script](?tabs=sdkloaderscript#enable-application-insights).
 
 ### [SDK Loader Script](#tab/sdkloaderscript)
 
-Use this option if you want to load the SDK from the CDN instead of including the Application Insights code with your application code. This option requires you to manually paste the SDK Loader Script at the top of each of each page.
+Use this method if you want to load the SDK from the CDN instead of including the Application Insights code with your application code and want control over which pages you add the Application Insights JavaScript SDK to. To use this method, you must manually paste the SDK Loader Script at the top of each applicable page.
 
-Use the following steps to enable the Application Insights SDK for JavaScript via the SDK Loader Script:
+Use the following steps to enable Application Insights:
 
-1. Paste the SDK Loader Script at the top of each your pages. Preferably, it should be the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
+1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
+
+> [!NOTE]
+> Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
 
    ```html
    <script type="text/javascript">
@@ -76,15 +76,13 @@ Use the following steps to enable the Application Insights SDK for JavaScript vi
 
 ### [npm Package](#tab/npmpackage)
 
-## npm setup
-
-Use this option if you're creating your own bunldes and you want to include the Application Insights code in your own bundle. 
+Use this method if you're creating your own bundles and you want to include the Application Insights code in your own bundle. 
 
 The npm setup installs the JavaScript SDK as a dependency to your project and enables IntelliSense.
 
 This option is only needed for developers who require more custom events and configuration.
 
-1. Install the Microsoft Application Insights JavaScript SDK - Web package.
+1. Use the following command to install the Microsoft Application Insights JavaScript SDK - Web package.
 
 ```sh
 npm i --save @microsoft/applicationinsights-web
@@ -93,7 +91,10 @@ npm i --save @microsoft/applicationinsights-web
 > [!Note]
 > *Typings are included with this package*, so you do *not* need to install a separate typings package.
 
-1. Add the following JavaScript to your code.
+1. Add the following JavaScript to your application's code.
+
+> [!NOTE]
+> Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -114,7 +115,10 @@ appInsights.trackPageView();
 
    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-  1. Replace the placeholder `'YOUR_CONNECTION_STRING_GOES_HERE'` with your connection string pasted to the clipboard.
+  1. Replace the placeholder `'YOUR_CONNECTION_STRING_GOES_HERE'` in the JavaScript code with your connection string pasted to the clipboard.
+  
+   > [!NOTE]
+   > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
 
 ---
 
