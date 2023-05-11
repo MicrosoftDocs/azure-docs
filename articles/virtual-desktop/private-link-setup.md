@@ -85,54 +85,54 @@ To configure Private Link in the Azure portal:
 
 1. Open the Azure portal and sign in.
 
-2. Search for and select **Azure Virtual Desktop**.
+1. Search for and select **Azure Virtual Desktop**.
 
-3. Go to **Host pools**, then select the name of the host pool you want to use.
+1. Go to **Host pools**, then select the name of the host pool you want to use.
 
    >[!TIP]
    >You can also start setting up by going to **Private Link Center** > **Private Endpoints** > **Add a private endpoint**.
 
-4. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
+1. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
 
-5. Select **New private endpoint**.
+1. Select **New private endpoint**.
 
-6. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
+1. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
 
-7. Next, enter a name for your new private endpoint. The network interface name will fill automatically.
+1. Next, enter a name for your new private endpoint. The network interface name will fill automatically.
 
-8. Select the **region** your private endpoint will be located in. You must choose the same location as your session host and the virtual network (VNet) you plan to use.
+1. Select the **region** your private endpoint will be located in. You must choose the same location as your session host and the virtual network (VNet) you plan to use.
 
-9. When you're done, select **Next: Resource >**.
+1. When you're done, select **Next: Resource >**.
 
-10. In the **Resource** tab, use the following resource:
+1. In the **Resource** tab, use the following resource:
     
     - Resource type: **Microsoft.DesktopVirtualization/hostpools**
     - Resource: *your host pool*
     - Target sub-resource: connection
 
-11. Select **Next: Virtual Network >**.
+1. Select **Next: Virtual Network >**.
 
-12. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
+1. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
 
-13. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. 
+1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. 
     
     - If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member.
 
-14. Next, select an existing application security group or create a new one.
+1. Next, select an existing application security group or create a new one.
     
     - If you're creating a new application security group, select **Create new**, then enter a name for the new security group.
 
-15. When you're finished, select **Next: DNS >**.
+1. When you're finished, select **Next: DNS >**.
 
-16. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. The private DNS zone name is `privatelink.wvd.microsoft.com`. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. The private DNS zone name is `privatelink.wvd.microsoft.com`. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
-17. When you're done, select **Next: Tags >**.
+1. When you're done, select **Next: Tags >**.
 
-18. In the **Tags** tab, you can optionally add tags to help the Azure service categorize your resources. If you don't want to add tags, select **Next: Review + create**.
+1. In the **Tags** tab, you can optionally add tags to help the Azure service categorize your resources. If you don't want to add tags, select **Next: Review + create**.
 
-19. Review the details of your private endpoint. If everything looks good, select **Create** and wait for the deployment to finish.
+1. Review the details of your private endpoint. If everything looks good, select **Create** and wait for the deployment to finish.
 
-20. Now, repeat the process to create private endpoints for your resources. Return to step 3, but select **Workspaces** instead of host pools and use the following resources, then follow the rest of the steps until the end.
+1. Now, repeat the process to create private endpoints for your resources. Return to step 3, but select **Workspaces** instead of host pools and use the following resources, then follow the rest of the steps until the end.
 
     - Resource type: **Microsoft.DesktopVirtualization/workspaces**
     - Resource: *your placeholder workspace*
