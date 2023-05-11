@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 05/15/2023
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
