@@ -53,8 +53,7 @@ When the `Start from timestamp` option is selected, all past operations of the c
 
 The change data capture feature for the analytical store captures deletes, intermediate updates, and TTL operations. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink. 
 
- The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs`, which are found under the [source options](get-started-change-data-capture.md) tab, determine if intermediate updates and deletes are captured in sinks.
-
+Note that TTL operations are considered deletes. Check the [source settings](get-started-change-data-capture.md) section to check mode details and the support for intermediate updates and deletes in sinks.
 
 ### Filter the change feed for a specific type of operation
 
