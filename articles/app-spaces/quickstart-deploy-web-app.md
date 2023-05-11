@@ -5,12 +5,12 @@ ms.author: chcomley
 author: chcomley
 ms.service: app-spaces
 ms.topic: quickstart
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ---
 
 # Quickstart: Deploy a web app with Azure App Spaces
 
-In this quickstart, you learn to connect to GitHub and deploy your web app to the recommended Azure services with Azure App Spaces. For more information, see [Azure App Spaces overview](overview.md).
+In this quickstart, you learn to connect to GitHub and deploy your code to a recommended Azure service with Azure App Spaces. For more information, see [Azure App Spaces overview](overview.md).
 
 ## Prerequisites
 
@@ -34,18 +34,18 @@ Do the following steps to deploy an existing repository from GitHub.
    
    :::image type="content" source="media/connect-to-github.png" alt-text="Screenshot showing required selections to connect to GitHub.":::
    
-   App Spaces analyzes this repository suggests one of three Azure services that's based on the code that's contained within the repository.
+   App Spaces analyzes this repository and suggests an Azure service based on the code that's contained within the repository.
 
 5. Based on the framework or Azure service that App Spaces recommends, choose the appropriate tab for further instructions.
 
 #### [App Services](#tab/app-service/)
 
-6. Confirm the autoselected language, Azure service, and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from  **Choose another language**, **Choose another Azure service**, or **Compare plans**.
+6. Confirm the autoselected language,  and Azure service, as determined by the code in your repository, as well as the default plan. If you want to choose a different service or investigate other options, you can select from  **Choose another language**, **Choose another Azure service**, or **Compare plans**.
    
    :::image type="content" source="media/define-app-space-details-app-services-deployment.png" alt-text="Screenshot showing autoselected language, service, and plan in Define App Space details screen.":::
 
 7. Enter a name for your App Space.
-8. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
+8. Select a **subscription** from the dropdown menu to associate with the deployed Azure resources, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
    
    :::image type="content" source="media/select-subscription-and-region-app-space.png" alt-text="Screenshot showing subscription and region selection menus for deployment to App Spaces.":::
 
@@ -63,7 +63,7 @@ Do the following steps to deploy an existing repository from GitHub.
 
 7. Enter a name for your App Space, and then choose the **Dockerfile location** and **Container app environment** from the dropdown menus.
 
-8. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
+8. Select a **subscription** from the dropdown menu to associate with the deployed Azure resources, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
    
    :::image type="content" source="media/select-subscription-and-region-app-space.png" alt-text="Screenshot showing subscription and region selection menus for deployment to App Spaces.":::
 
@@ -83,7 +83,7 @@ Do the following steps to deploy an existing repository from GitHub.
 
    :::image type="content" source="media/enter-values-for-github-actions-workflow-creation.png" alt-text="Screenshot showing. ":::
 
-9. Select a **subscription** from the dropdown menu to manage deployed resources and costs, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
+9. Select a **subscription** from the dropdown menu to associate with the deployed Azure resources, and then select the **region** that's closest to your users from the dropdown menu for optimal performance.
    
    :::image type="content" source="media/select-subscription-and-region-app-space.png" alt-text="Screenshot showing subscription and region selection menus for deployment to App Spaces.":::
 
@@ -93,7 +93,7 @@ Do the following steps to deploy an existing repository from GitHub.
 
 Your web application code deploys to App Spaces.
 
-GitHub Actions can now deploy directly to your app. Go to your app's **Deployment** tab to see your code deployment logs.
+Azure Apps uses GitHub Actions to deploy your GitHub repo to the Azure resource. Go to your app's **Deployment** tab to see your code deployment logs.
 
 ## Manage components
 

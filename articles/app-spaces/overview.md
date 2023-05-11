@@ -5,17 +5,17 @@ ms.service: app-spaces
 ms.topic: overview
 author: chcomley
 ms.author: chcomley
-ms.date: 05/10/2023
+ms.date: 05/11/2023
 ---
 
 # About Azure App Spaces
 
-Azure App Spaces is an intelligence service for developers that reduces the complexity of creating and managing web apps. It helps you identify the correct services for your applications on Azure and provides a user-friendly management experience that's streamlined for the development process. 
+Azure App Spaces is an intelligent service for developers that reduces the complexity of creating and managing web apps. It helps you identify the correct services for your applications on Azure and provides a user-friendly management experience that's streamlined for the development process. 
 
-You can get all the benefits of deploying an app via existing Azure services, like [Container Apps](../container-apps/overview.md), [Static Web Apps](../static-web-apps/overview.md), and [App Service](../app-service/overview.md), without the IT-focussed technicality that tends to accompany web app development.
+App Spaces offers all the benefits of deploying an app via existing Azure services, like [Container Apps](../container-apps/overview.md), [Static Web Apps](../static-web-apps/overview.md), and [App Service](../app-service/overview.md), with an experience that's focused on making you develop and deploy faster.
 ## Easy to use
 
-App Spaces limits the decisions required for developers to get started with web apps. Based on what App Spaces detects within your repository, it may suggest a service to use, for example, if you have a Dockerfile inside your GitHub repository, it suggests Container Apps as the service for your app.
+App Spaces reduces the decisions required for developers to get started with web apps. Based on what App Spaces detects within your repository, it may suggest a service to use, for example, if you have a Dockerfile inside your GitHub repository, it suggests Container Apps as the service for your app.
 
 The creation process is categorized in the following simplified sections:
 - GitHub Repository: Select your organization, repo, and branch.
@@ -30,7 +30,7 @@ App Spaces only requires information that's needed during the development proces
 
 ## Simplified pricing
 
- Azure App Spaces offers consistent and simplified pricing with selection for flat rates of $20 or $40 per month. This way you don't have to worry about any accidental charges.
+ Azure App Spaces offers simplified and consistent pricing plans for various scenarios, so you don't have to worry about any accidental charges.
 ## Next steps
 
 > [!div class="nextstepaction"]
