@@ -217,11 +217,11 @@ You can see the list of models that are using the feature sets (determined from 
 
 ## Cleanup
 
-[Part 4](./tutorial-enable-recurrent-materialization-and-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
+[Part 4](./tutorial-enable-recurrent-materialization-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* Understand concepts: [feature store concepts](./concept-what-is-managed-feature-store.md), [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md)]
+* Understand concepts: [feature store concepts](./concept-what-is-managed-feature-store.md), [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md)
 * [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
 * [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
 * Reference: [YAML reference](./reference-yaml-overview.md)

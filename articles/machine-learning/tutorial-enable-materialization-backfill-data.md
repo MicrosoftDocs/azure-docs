@@ -171,11 +171,11 @@ Let's print sample data from the feature set. The output information shows that 
 
 ## Cleanup
 
-[Part 4](./tutorial-enable-recurrent-materialization-and-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
+[Part 4](./tutorial-enable-recurrent-materialization-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-experiment-and-train-models-using-features.md)
+* [Part 3: tutorial features and the machine learning lifecycle](./tutorial-experiment-train-models-using-features.md)
 * [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
 * [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
 * Reference: [YAML reference](./reference-yaml-overview.md)

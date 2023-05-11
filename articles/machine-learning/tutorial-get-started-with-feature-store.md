@@ -223,11 +223,11 @@ This tutorial built the training data with features from feature store. Optional
 
 ## Cleanup
 
-[Part 4](./tutorial-enable-recurrent-materialization-and-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
+[Part 4](./tutorial-enable-recurrent-materialization-run-batch-inference.md#cleanup) of this tutorial describes how to delete the resources
 
 ## Next steps
 
-* [Part 2: enable materialization and back fill feature data](./tutorial-enable-materialization-and-backfill-data.md)
+* [Part 2: enable materialization and back fill feature data](./tutorial-enable-materialization-backfill-data.md)
 * Understand concepts: [feature store concepts](./concept-what-is-managed-feature-store.md), [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md)
 * [Understand identity and access control for feature store](./how-to-setup-access-control-feature-store.md)
 * [View feature store troubleshooting guide](./troubleshooting-managed-feature-store.md)
