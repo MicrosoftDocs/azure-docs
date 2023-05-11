@@ -30,7 +30,7 @@ In this tutorial, you learn to:
   - [Install Azure CLI on Windows OS](/cli/azure/install-azure-cli-windows)
   - [Install Azure CLI on Linux OS](/cli/azure/install-azure-cli-linux)
   - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
-  - [Install Azure PowerShell](/powershell/azure/install-az-ps)
+  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create a GitHub personal access token
 
