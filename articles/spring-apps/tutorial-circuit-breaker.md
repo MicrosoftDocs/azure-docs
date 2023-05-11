@@ -37,10 +37,10 @@ git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
 cd Azure-Spring-Cloud-Samples/hystrix-turbine-sample
 ```
 
-Build the 3 applications that will be used in this tutorial:
+Build the three applications that are in this tutorial:
 
 * user-service: A simple REST service that has a single endpoint of /personalized/{id}
-* recommendation-service: A simple REST service that has a single endpoint of /recommendations, which will be called by user-service.
+* recommendation-service: A simple REST service that has a single endpoint of /recommendations, which is called by user-service.
 * hystrix-turbine: A Hystrix dashboard service to display Hystrix streams and a Turbine service aggregating Hystrix metrics stream from other services.
 
 ```bash
@@ -55,7 +55,7 @@ Follow the procedure, [Provision a service instance on the Azure CLI](./quicksta
 
 ## Deploy your applications to Azure Spring Apps
 
-These apps do not use **Config Server**, so there is no need to set up **Config Server** for Azure Spring Apps.  Create and deploy as follows:
+These apps don't use **Config Server**, so there's no need to set up **Config Server** for Azure Spring Apps.  Create and deploy as follows:
 
 ```azurecli
 az configure --defaults group=<resource-group-name> spring=<Azure-Spring-Apps-instance-name>
@@ -87,7 +87,7 @@ Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azu
 
 ![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
-Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This will display the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
+Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This action displays the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
 
 ![Hystrix stream](media/spring-cloud-circuit-breaker/hystrix-stream.png)
 Now you can experiment with the Circuit Breaker Dashboard.
@@ -101,7 +101,7 @@ Hystrix metrics streams are also accessible from `test-endpoint`. As a backend s
 
 ![Hystrix test-endpoint stream](media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png)
 
-As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is not working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/` to `/<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the `<base>` in the front-end files.
+As a web app, Hystrix dashboard should be working on `test-endpoint`. If it isn't working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/` to `/<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the `<base>` in the front-end files.
 
 ## Next steps
 

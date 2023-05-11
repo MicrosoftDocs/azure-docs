@@ -31,7 +31,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Key Vault private link considerations
 
-The IP addresses for Azure Spring Apps management are not yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
+The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
 
 * `20.99.204.111`
 * `20.201.9.97`
@@ -63,13 +63,13 @@ The IP addresses for Azure Spring Apps management are not yet part of the Azure 
 
 ### Prepare your certificate file in PFX (optional)
 
-Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in section below: [Save certificate in Key Vault](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Vault.
+Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in section [Save certificate in Key Vault](#save-certificate-in-key-vault) section, follow the steps here to generate a PFX for Azure Key Vault.
 
 #### Merge intermediate certificates
 
 If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order.
 
-To do this, open each certificate you received in a text editor.
+To do this task, open each certificate you received in a text editor.
 
 Create a file for the merged certificate, called _mergedcertificate.crt_. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
 
@@ -101,7 +101,7 @@ If you generated your certificate request using OpenSSL, then you have created a
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 
-When prompted, define an export password. You'll use this password when uploading your TLS/SSL certificate to Azure Key Vault later.
+When prompted, define an export password. Use this password when uploading your TLS/SSL certificate to Azure Key Vault later.
 
 If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
@@ -110,13 +110,15 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 The procedure to import a certificate requires the PEM or PFX encoded file to be on disk and you must have the private key.
 
 #### [Portal](#tab/Azure-portal)
+
 To upload your certificate to key vault:
+
 1. Go to your key vault instance.
 1. In the left navigation pane, select **Certificates**.
 1. On the upper menu, select **Generate/import**.
 1. In the **Create a certificate** dialog under **Method of certificate creation**, select `Import`.
 1. Under **Upload Certificate File**, navigate to certificate location and select it.
-1. Under **Password**, if you are uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
+1. Under **Password**, if you're uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault removes that password.
 1. Select **Create**.
 
     ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
@@ -134,6 +136,7 @@ az keyvault certificate import --file <path to .pfx file> --name <certificate na
 You need to grant Azure Spring Apps access to your key vault before you import certificate:
 
 #### [Portal](#tab/Azure-portal)
+
 1. Go to your key vault instance.
 1. In the left navigation pane, select **Access Policy**.
 1. On the upper menu, select **Add Access Policy**.
@@ -169,7 +172,7 @@ az keyvault set-policy -g <key vault resource group> -n <key vault name>  --obje
    :::image type="content" source="./media/custom-dns-tutorial/import-certificate.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL settings page for an Azure Spring Apps instance, with the Import key vault certificate button highlighted." lightbox="./media/custom-dns-tutorial/import-certificate.png":::
 
 
-1. When you have successfully imported your certificate, you'll see it in the list of **Private Key Certificates**.
+1. When you have successfully imported your certificate, it displays in the list of **Private Key Certificates**.
 
     ![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
 
@@ -220,11 +223,12 @@ Go to application page.
 
     ![Add custom domain](./media/custom-dns-tutorial/add-custom-domain.png)
 
-One app can have multiple domains, but one domain can only map to one app. When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
+One app can have multiple domains, but one domain can only map to one app. When you successfully mapped your custom domain to the app, it displays on the custom domain table.
 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
 
 #### [CLI](#tab/Azure-CLI)
+
 ```azurecli
 az spring app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
@@ -243,13 +247,16 @@ az spring app custom-domain list --app <app name> --resource-group <resource gro
 ## Add SSL binding
 
 #### [Portal](#tab/Azure-portal)
+
 In the custom domain table, select **Add ssl binding** as shown in the previous figure.
+
 1. Select your **Certificate** or import it.
 1. Select **Save**.
 
     ![Add SSL binding 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
 #### [CLI](#tab/Azure-CLI)
+
 ```azurecli
 az spring app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
@@ -264,18 +271,20 @@ After you successfully add SSL binding, the domain state will be secure: **Healt
 
 By default, anyone can still access your app using HTTP, but you can redirect all HTTP requests to the HTTPS port.
 #### [Portal](#tab/Azure-portal)
-In your app page, in the left navigation, select **Custom Domain**. Then, set **HTTPS Only**, to *True*.
+
+In your app page, in the left navigation, select **Custom Domain**. Then, set **HTTPS Only**, to `True`.
 
 ![Add SSL binding 3](./media/custom-dns-tutorial/enforce-http.png)
 
 #### [CLI](#tab/Azure-CLI)
+
 ```azurecli
 az spring app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
 ```
 
 ---
 
-When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
+When the operation is complete, navigate to any of the HTTPS URLs that point to your app. HTTP URLs don't work.
 
 ## Next steps
 

@@ -22,7 +22,7 @@ Azure Spring Apps alerts support monitoring resources based on conditions such a
 
 There are two steps to set up an alert pipeline:
 
-1. Set up an Action Group with the actions to be taken when an alert is triggered, such as email, SMS, Runbook, or Webhook. Action Groups can be re-used among different alerts.
+1. Set up an Action Group with the actions to be taken when an alert is triggered, such as email, SMS, Runbook, or Webhook. Action Groups can be reused among different alerts.
 2. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, etc.
 
 ## Prerequisites
@@ -49,7 +49,7 @@ On the **Add action group** page:
 
 1. Specify **Action Name**.
 
-1. Select **Action Type**.  This will open another pane on the right to define the action that will be taken on activation.
+1. Select **Action Type**.  This action opens another pane to define the action that is taken on activation.
 
 1. Define the action using the options in the right pane.  This case uses email notification.
 
@@ -111,7 +111,7 @@ A rule can also be created using the **Metrics** page:
 
 ## Next steps
 
-In this article you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
+In this article, you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
 > [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)
