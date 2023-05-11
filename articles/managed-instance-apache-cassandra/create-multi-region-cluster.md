@@ -223,7 +223,7 @@ If you encounter errors when you run `az role assignment create`, you might not 
       --command-name nodetool --arguments rebuild="" "dc-eastus2"=""
     ``` 
    > [!WARNING]
-   > You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to raise a ticket so our support team can `repair` on your behalf. 
+   > You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) so our team can run `repair` on your behalf. 
 
 ## Troubleshooting
 
