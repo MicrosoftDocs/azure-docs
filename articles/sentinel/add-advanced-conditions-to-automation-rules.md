@@ -45,7 +45,7 @@ Let's create a rule that will change the severity of an incoming incident from w
 
 1. Select the trigger **When incident is created**.
 
-1. Under **Conditions**, leave the **Analytics rule name** condition as is. We'll add more conditions below.
+1. Under **Conditions**, leave the **Incident provider** and **Analytics rule name** conditions as they are. We'll add more conditions below.
 
 1. Under **Actions**, select **Change severity** from the drop-down list.
 
