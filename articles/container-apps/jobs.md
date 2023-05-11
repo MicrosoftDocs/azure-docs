@@ -396,7 +396,7 @@ The following table includes the job settings that you can configure:
 
 | Setting | Azure Resource Manager property | CLI parameter| Description |
 |---|---|---|---|
-| Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual` or `Schedule`) |
+| Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual`, `Schedule`, or `Event`) |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. |
 | Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. |
 | Replica timeout | `replicaTimeout` | `--replica-timeout` | The maximum time in seconds to wait for a replica to complete. |
