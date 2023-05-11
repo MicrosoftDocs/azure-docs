@@ -10,7 +10,6 @@ ms.reviewer: rapadman
 
 # Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory pod identity (preview) 
 
- 
 
 > [!NOTE] 
 > The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Azure AD pod enabled. This approach is not recommended as AAD pod identity has been deprecated to be replace by [Azure Workload Identity]  (https://learn.microsoft.com/azure/active-directory/workload-identities/workload-identities-verview)
@@ -64,48 +63,49 @@ To configure remote write for Azure Monitor managed service for Prometheus using
 
 1. Deploy side car and configure remote write on the Prometheus server.
 
-      1. Copy the YAML below and save to a file.
-    ```yml 
+      1. Copy the YAML below and save to a file.  
+
+    ```yml
     prometheus: 
       prometheusSpec: 
         podMetadata: 
-        labels: 
-        aadpodidbinding: <AzureIdentityBindingSelector> 
+          labels: 
+            aadpodidbinding: <AzureIdentityBindingSelector> 
         externalLabels: 
-        cluster: <AKS-CLUSTER-NAME>  
-      remoteWrite: 
+          cluster: <AKS-CLUSTER-NAME> 
+        remoteWrite: 
         - url: 'http://localhost:8081/api/v1/write' 
-      containers: 
+        containers: 
         - name: prom-remotewrite 
-      image: <CONTAINER-IMAGE-VERSION> 
-      imagePullPolicy: Always 
-      ports: 
-        - name: rw-port 
-      containerPort: 8081 
-      livenessProbe: 
-        httpGet: 
-      path: /health 
-      port: rw-port 
-        initialDelaySeconds: 10 
-        timeoutSeconds: 10 
-      readinessProbe: 
-         httpGet: 
-      path: /ready 
-      port: rw-port 
-        initialDelaySeconds: 10 
-        timeoutSeconds: 10 
-      env: 
-        - name: INGESTION_URL 
-      value: <INGESTION_URL> 
-        - name: LISTENING_PORT 
-      value: '8081' 
-        - name: IDENTITY_TYPE 
-      value: userAssigned 
-        - name: AZURE_CLIENT_ID 
-      value: <MANAGED-IDENTITY-CLIENT-ID> 
-        # Optional parameter 
-        - name: CLUSTER 
-      value: <CLUSTER-NAME> 
+          image: <CONTAINER-IMAGE-VERSION> 
+          imagePullPolicy: Always 
+          ports: 
+            - name: rw-port 
+          containerPort: 8081 
+          livenessProbe: 
+            httpGet: 
+              path: /health
+              port: rw-port
+              initialDelaySeconds: 10 
+              timeoutSeconds: 10 
+          readinessProbe: 
+             httpGet: 
+              path: /ready
+              port: rw-port
+              initialDelaySeconds: 10 
+              timeoutSeconds: 10 
+        env: 
+          - name: INGESTION_URL 
+            value: <INGESTION_URL> 
+          - name: LISTENING_PORT 
+            value: '8081' 
+          - name: IDENTITY_TYPE 
+            value: userAssigned 
+          - name: AZURE_CLIENT_ID 
+            value: <MANAGED-IDENTITY-CLIENT-ID> 
+          # Optional parameter 
+          - name: CLUSTER 
+            value: <CLUSTER-NAME>         
     ```
 
       b. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands.  
