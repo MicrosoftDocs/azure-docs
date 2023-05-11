@@ -61,7 +61,7 @@ It employs separate objects for sending and receiving messages, with DataChannel
 
 The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
 
-### Channel id
+### Channel
 Every DataChannel message is associated with a specific channel identified by *channelId*.
 It's important to clarify that this channelId is not related to the id property in the WebRTC DataChannel.
 This channelId can be utilized to differentiate various application uses, such as using 10000 for chat messages and 10001 for image transfers.
@@ -71,6 +71,19 @@ and can be either user-specified or automatically allocated by SDK if left unspe
 
 The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided,
 or if no channelId is provided, the SDK will assign an available channelId from within the valid range.
+
+### Reliability
+When creating a channel, you have the option to specify the reliability setting.
+Two options are available: `Reliable` and `Lossy`.
+By choosing `Reliable`, SDK will create a reliable channel, while `Lossy` creates an unreliable channel.
+In current Web SDK implementation, we utilize a reliable WebRTC DataChannnel connection.
+As a result, messages from both reliable and unreliable channel are transmitted through this reliable WebRTC DataChannel connection.
+
+The key difference lies in how undeliverable messages are handled, the order of messages, and the potential for message loss.
+An unreliable channel will sliently discard the message if the delivery is not possible, and
+the order of messages is not guranteed.
+Furthermore, an unreliable channel may experience instances of message loss.
+On the other hand, a reliable channel will throw an exception when a message cannot be delivered, ensuring a higher degree of reliability in the transmission of data.
 
 ### Session
 The DataChannel API introduces the concept of a session, which adheres to open-close semantics.
@@ -88,7 +101,7 @@ If the SDK identifies a new session associated with an existing channelId on the
 The SDK won't close the older receiver object; such closure will only take place when the receiver object receives a closure notification from the sender,
 or if the session hasn't received any messages from the sender for over two minutes.
 
-If a receiver object...
+In instances where the session of a receiver object is closed and no new session for the same channelId exists on the receiver's side, the SDK will create a new receiver object upon receipt of a message from the same session at a later time. However, if a new session for the same channelId exists on the receiver's side, the SDK will discard any incoming messages from the previous session.
 
 ### Sequence number
 The sequence number is a 32 bit unsigned interger included in the sender's message to indicate the order of messages within a channel.
@@ -97,6 +110,20 @@ It's important to note this number is generated from the sender's perspective. C
 For instance, consider a scenario where a sender sends three messages. Initially, the recipients are Participant A and Participant B.
 After the first message, the sender changes the recipient to Participant B, and before the third message, the recipient is switched to participant A.
 In this case, Participant A will receive two messages with sequence numbers 1 and 3. However, this doesn't signify message loss, it only reflects the change in the recipients by the sender.
+
+## Limitations
+
+### Message size
+The maximum allowable size for a single message is 64KB. If you need to send data larger than this limit, you will need to divide the data into into multiple messages.
+
+### Participant list
+The maximum number of participants in a list is limited to 64. If you want to specify more participants, you will need to manage participant list on your own.
+For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
+Please note that when calculating the limit, two endpoints using the same participant identifier will be counted as separate entities.
+
+### Bandwidth
+
+### Broadcast
 
 ## Next steps
 For more information, see the following articles:
