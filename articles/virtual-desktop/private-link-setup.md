@@ -57,7 +57,7 @@ In order to use Private Link, you'll need to register your Azure subscription to
 
 1. Select the name of your subscription.
 
-1. In the menu on the left side of the screen, go to **Settings** and select **Preview features**.
+1. In the menu on the left side of the screen, look under **Settings** and select **Preview features**.
 
 1. In the search box that opens, enter **Private**.
 
