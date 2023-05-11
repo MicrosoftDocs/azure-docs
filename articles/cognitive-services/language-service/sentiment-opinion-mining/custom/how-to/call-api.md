@@ -41,6 +41,8 @@ First you need to get your resource key and endpoint:
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/key-endpoint-page-azure-portal.md)]
 
 
+
+
 ### Submit a custom sentiment analysis task
 
 [!INCLUDE [submit a custom NER task using the REST API](../../includes/custom/rest-api/submit-task.md)]

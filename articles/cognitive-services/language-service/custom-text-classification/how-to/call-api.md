@@ -26,7 +26,7 @@ You can use Language Studio to submit the custom text classification task and vi
 [!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
 
-:::image type="content" source="../../media/test-model-results.png" alt-text="A screenshot showing model test results for a single label classification project." lightbox="../../media/test-model-results.png":::
+:::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing model test results for a single label classification project." lightbox="../media/test-model-results.png":::
 
 
 ## Send a text classification request to your model
@@ -43,7 +43,9 @@ You can use Language Studio to submit the custom text classification task and vi
 
 First you will need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/key-endpoint-page-azure-portal.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/key-endpoint-page-azure-portal.md)]
+
+
 
 ### Submit a custom text classification task
 
