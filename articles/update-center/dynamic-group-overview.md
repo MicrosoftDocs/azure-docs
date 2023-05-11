@@ -2,7 +2,7 @@
 title: An overview of Dynamic grouping
 description: This article provides information about dynamic grouping, its purpose and advantages.
 ms.service: update-management-center
-ms.date: 02/07/2023
+ms.date: 05/11/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -39,11 +39,11 @@ For dynamic scope and configuration assignment, ensure that you have the followi
 ## Prerequisites for Azure VMs
 
 1. Patch orchestration should be **Customer Managed Schedules (Preview)/ (AutomaticByPlatform and ByPassPlatformSafetyChecksOnUserSchedule = TRUE)**.  
-
 1. Associate the VM with a Schedule. 
 
 > [!NOTE]
-> For Arc VMs, there are no patch orchestration pre-requisites. However, user must associate a schedule with the VM for Schedule patching.  For more information, see 
+> For Arc VMs, there are no patch orchestration pre-requisites. However, user must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
+
 
 ## Next steps
 
