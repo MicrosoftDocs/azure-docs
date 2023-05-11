@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 05/11/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -416,7 +416,7 @@ The [providers operation](/rest/api/resources/providers) is still available thro
 
 Returns an object representing a resource's runtime state.
 
-In Bicep, use the [reference](../bicep/bicep-functions-resource.md#reference) function.
+Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 
 ### Parameters
 
