@@ -34,7 +34,7 @@ For more information on these customizable parameters, see [Common email task pa
 
 ## Customize email by using the Azure portal
 
-When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent out from tasks within workflows by using the Azure portal:
+When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations the same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent from tasks within workflows by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -87,7 +87,7 @@ For a full list of dynamic attributes that you can use with customized emails, s
 
 ## Use custom branding and domain in emails sent via workflows
 
-You can customize emails that you send by using lifecycle workflows to have your own company branding and to use your company domain. When you opt in to using custom branding and a custom domain, every email that you send by using lifecycle workflows reflects these settings.
+You can customize emails that you send via lifecycle workflows to have your own company branding and to use your company domain. When you opt in to using custom branding and a custom domain, every email that you send by using lifecycle workflows reflects these settings.
 
 To enable these features, you need the following prerequisites:
 

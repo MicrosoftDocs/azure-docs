@@ -20,7 +20,7 @@ When you create workflows by using lifecycle workflows, you can fully customize 
 
 ## Customize the schedule of workflows by using the Azure portal
 
-Workflows that you create within lifecycle workflows follow the same schedule that you define on the **Workflow settings** page. To adjust the schedule, follow these steps:
+Workflows that you create within lifecycle workflows follow the same schedule that you define on the **Workflow settings (Preview)** pane. To adjust the schedule, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -30,7 +30,7 @@ Workflows that you create within lifecycle workflows follow the same schedule th
 
 1. On the **Lifecycle workflows** overview page, select **Workflow settings (Preview)**.
 
-1. On the **Workflow settings** pane, set the schedule of workflows from an interval of 1 to 24.
+1. On the **Workflow settings (Preview)** pane, set the schedule of workflows as an interval of 1 to 24.
 
    :::image type="content" source="media/customize-workflow-schedule/workflow-schedule-settings.png" alt-text="Screenshot of the settings for a workflow schedule.":::
 1. Select **Save**.
