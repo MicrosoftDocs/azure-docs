@@ -145,7 +145,7 @@ The following table lists each supported geographic location and its [ISO 3166 
 | United States        | US  |
 
 ## Troubleshooting
-
+Below table provides the mapping from regular error messages you may meet during creating Azure Spring Apps Enterprise to the recommended actions to resolve them.
 | Error Messages | Recommended Actions |
 |----------------|---------------------|
 | Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription | Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) section of [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). |
