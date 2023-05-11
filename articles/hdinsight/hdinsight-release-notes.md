@@ -80,8 +80,6 @@ For workload specific versions, see
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters.
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
-* Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
-  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
 * In-line quota update.
    * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the API call fails, then customers need to create a new support request for quota increase.
 * HDInsight Cluster Creation with Custom VNets.
