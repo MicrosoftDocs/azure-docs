@@ -61,6 +61,8 @@ The following list presents all the recognized relations by the Text Analytics f
 
 **ABBREVIATION**
 
+**AMOUNT_OF_SUBSTANCE_USE**
+
 **BODY_SITE_OF_CONDITION**
 
 **BODY_SITE_OF_TREATMENT**
@@ -94,6 +96,8 @@ The following list presents all the recognized relations by the Text Analytics f
 **FREQUENCY_OF_CONDITION**
 
 **FREQUENCY_OF_MEDICATION**
+
+**FREQUENCY_OF_SUBSTANCE_USE**
 
 **FREQUENCY_OF_TREATMENT**
 

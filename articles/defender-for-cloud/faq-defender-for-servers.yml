@@ -4,7 +4,9 @@ metadata:
   description: Get answers to common questions about Microsoft Defender for Servers.
   ms.topic: faq
   ms.service: defender-for-cloud
-  ms.date: 05/02/2023
+  author: dcurwin
+  ms.author: dacurwin
+  ms.date: 05/11/2023
 title: Frequently asked questions for Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 

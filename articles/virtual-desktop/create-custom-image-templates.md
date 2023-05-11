@@ -19,7 +19,7 @@ This article shows you how to create a custom image template, then create a cust
 
 ## Prerequisites
 
-Before you can create a custom image template, you need to meet the following prerequisites.
+Before you can create a custom image template, you need to meet the following prerequisites:
 
 - The following resource providers registered on your subscription. For information on how you can check their registration status and how to register them if needed, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -34,9 +34,9 @@ Before you can create a custom image template, you need to meet the following pr
 
 - A [user-assigned Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). We recommend you create one specifically to use with custom image templates.
 
-- [Create a custom role-based access control (RBAC) role definition](../role-based-access-control/custom-roles.md) with the following permissions as *actions*. Assign this role definition to the Managed Identity, scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
+- [Create a custom role](../role-based-access-control/custom-roles.md) in Azure role-based access control (RBAC) with the following permissions as *actions*:
 
-   ```json/
+   ```json
    "Microsoft.Compute/galleries/read",
    "Microsoft.Compute/galleries/images/read",
    "Microsoft.Compute/galleries/images/versions/read",
@@ -45,7 +45,9 @@ Before you can create a custom image template, you need to meet the following pr
    "Microsoft.Compute/images/read",
    "Microsoft.Compute/images/delete"
    ```
-   
+
+- [Assign the custom role to the Managed Identity](../role-based-access-control/role-assignments-portal-managed-identity.md#user-assigned-managed-identity). This should be scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
+
 - *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](../virtual-machines/create-gallery.md), then [create a VM image definition](../virtual-machines/image-version.md). When you create a VM image definition in the gallery you need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
 
 - *Optional*: You can use an existing virtual network when building an image. If you do, the managed identity you're using needs access to the virtual network, or the resource group it's contained within. For more information, see [Permission to customize images on your virtual networks](../virtual-machines/linux/image-builder-permissions-powershell.md#permission-to-customize-images-on-your-virtual-networks).

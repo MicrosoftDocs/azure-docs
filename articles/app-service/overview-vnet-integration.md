@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 05/09/2023
 ms.author: madsd
 ms.custom: UpdateFrequency3
 
@@ -68,7 +68,7 @@ The virtual network integration feature supports two virtual interfaces per work
 
 Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start. One address is used from the integration subnet for each App Service plan instance. If you scale your app to four instances, then four addresses are used.
 
-When you scale up or down in size, the required address space is doubled for a short period of time. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrade can happen without interruptions to outbound traffic. Finally, after scale up, down or in operations complete, there might be a short period of time before IP addresses are released. 
+When you scale up/down in size or in/out in number of instances, the required address space is doubled for a short period of time. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrade can happen without interruptions to outbound traffic. Finally, after scale up, down or in operations complete, there might be a short period of time before IP addresses are released. 
 
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal, you can use a /28 subnet.
 

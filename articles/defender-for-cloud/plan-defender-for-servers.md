@@ -2,9 +2,9 @@
 title: Plan a Defender for Servers deployment to protect on-premises and multicloud servers
 description: Design a solution to protect on-premises and multicloud servers with Microsoft Defender for Servers. 
 ms.topic: conceptual
-ms.date: 05/09/2023
-author: bmansheim
-ms.author: benmansheim
+ms.date: 05/11/2023
+author: dcurwin
+ms.author: dacurwin
 ---
 # Plan your Defender for Servers deployment
 

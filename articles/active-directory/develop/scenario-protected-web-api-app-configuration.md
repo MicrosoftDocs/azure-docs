@@ -167,10 +167,10 @@ Microsoft recommends you use the [Microsoft.Identity.Web.OWIN](https://www.nuget
 
 It uses the same configuration file as ASP.NET Core (appsettings.json) and you need to make sure that this file is copied with the output of your project (property copy always in the file properties in Visual Studio or in the .csproj)
 
-Microsoft.Identity.Web.OWIN adds an extension methods to IAppBuilder named `AddMicrosoftIdentityWebApi`. These method takes as a parameter an instance of `OwinTokenAcquirerFactory` that you get calling `OwinTokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>()` and that surfaces an instance of `IServiceCollection` to which you can add many services to call downstream APIs or configure the token cache.
+*Microsoft.Identity.Web.OWIN* adds an extension methods to IAppBuilder named `AddMicrosoftIdentityWebApi`. These method takes as a parameter an instance of `OwinTokenAcquirerFactory` that you get calling `OwinTokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>()` and that surfaces an instance of `IServiceCollection` to which you can add many services to call downstream APIs or configure the token cache.
 
 
-Here is some sample code for [Startup.auth.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/tests/DevApps/aspnet-mvc/OwinWebApp/App_Start/Startup.Auth.cs). The full code is available from [tests/DevApps/aspnet-mvc/OwinWebApp](https://github.com/AzureAD/microsoft-identity-web/tree/master/tests/DevApps/aspnet-mvc/OwinWebApp)
+Here is some sample code for [Startup.Auth.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/tests/DevApps/aspnet-mvc/OwinWebApp/App_Start/Startup.Auth.cs). The full code is available from [tests/DevApps/aspnet-mvc/OwinWebApp](https://github.com/AzureAD/microsoft-identity-web/tree/master/tests/DevApps/aspnet-mvc/OwinWebApp)
 
 ```CSharp
 using Microsoft.Owin.Security;
