@@ -12,7 +12,14 @@ Use [GitHub Actions](https://github.com/features/actions) to define a workflow t
 
 In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your function app project on GitHub. 
 
-A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow. 
+There are four options for deploying a function with GitHub Actions: 
+
+1. Use the Deployment option in the Azure portal 
+1. Manually create your GitHub Actions workflow. 
+1. Use Azure CLI to generate a workflow file and deploy your app.   
+1. Use an Actions template within GitHub.  
+
+All four approaches will involve adding a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow. 
 
 For an Azure Functions workflow, the file has three sections: 
 
@@ -58,7 +65,9 @@ To add a GitHub Actions workflow to an existing function app:
 1. Select **Save** to add the workflow file to your repository. 
 
 
-## Generate deployment credentials
+## Manually create your GitHub Actions workflow
+
+### Generate deployment credentials
 
 The recommended way to authenticate with Azure Functions for GitHub Actions is by using a publish profile. You can also authenticate with a service principal. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action). 
 
@@ -75,7 +84,7 @@ To download the publishing profile of your function app:
 1. Save and copy the contents of the file.
 
 
-### Add the GitHub secret
+#### Add the GitHub secret
 
 1. In [GitHub](https://github.com/), go to your repository.
 
@@ -89,7 +98,7 @@ To download the publishing profile of your function app:
 
 GitHub can now authenticate to your function app in Azure.
 
-## Create the environment 
+### Create the environment 
 
 Setting up the environment is done using a language-specific publish setup action.
 
@@ -149,7 +158,7 @@ This step can be skipped for PowerShell as the GitHub runner already includes Po
 
 ---
 
-## Build the function app
+### Build the function app
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
@@ -221,7 +230,7 @@ This step can be skipped for PowerShell as there is no need to build.
 
 ---
 
-## Deploy the function app
+### Deploy the function app
 
 Use the `Azure/functions-action` action to deploy your code to a function app. This action has three parameters:
 
@@ -558,6 +567,30 @@ jobs:
 
 ---
 
+## Use Azure CLI to create a GitHub Actions workflow file 
+
+In your existing repository with a functions app, run the `az functionapp deployment github-actions add` command to create a workflow file.
+
+```azurecli
+az functionapp deployment github-actions add --repo
+                                             [--branch]
+                                             [--build-path]
+                                             [--force]
+                                             [--ids]
+                                             [--login-with-github]
+                                             [--name]
+                                             [--resource-group]
+                                             [--runtime]
+                                             [--runtime-version]
+                                             [--slot]
+                                             [--subscription]
+                                             [--token]
+```
+
+
+## Use an Actions template
+
+s 
 ## Next steps
 
 > [!div class="nextstepaction"]
