@@ -145,12 +145,10 @@ The following comparison matrix shows basic functionality, and comparison of mig
 - In-product support via chat built-in
 - Hash validation
 
-&nbsp;
 
 > [!NOTE]
 > List was last verified on May 11, 2023
 
-&nbsp;
 
 ## Next steps
 
