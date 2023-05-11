@@ -58,7 +58,7 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
 1. Save the queue's connection string into a variable.
 
-    ```azurecli
+    ```bash
     QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --output tsv`
     ```
 
