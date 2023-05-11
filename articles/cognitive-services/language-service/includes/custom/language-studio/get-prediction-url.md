@@ -13,7 +13,7 @@ ms.author: aahi
 
 1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
 
-    :::image type="content" source="../../media/custom/get-prediction-url-1.png" alt-text="A screenshot showing the button to get a prediction URL." lightbox="../../media/get-prediction-url-1.png":::
+    :::image type="content" source="../../../media/custom/get-prediction-url-1.png" alt-text="A screenshot showing the button to get a prediction URL." lightbox="../../../media/custom/get-prediction-url-1.png":::
 
 2. In the window that appears, under the **Submit** pivot, copy the sample request URL and body. Replace the placeholder values such as `YOUR_DOCUMENT_HERE` and `YOUR_DOCUMENT_LANGUAGE_HERE` with the actual text and language you want to process.
 
