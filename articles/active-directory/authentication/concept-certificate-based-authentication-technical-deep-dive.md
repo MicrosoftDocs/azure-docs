@@ -1,5 +1,5 @@
 ---
-title: Azure AD certificate-based authentication technical deep dive - Azure Active Directory
+title: Azure AD certificate-based authentication technical deep dive
 description: Learn how Azure AD certificate-based authentication works
 
 services: active-directory
@@ -94,16 +94,17 @@ If CBA enabled user cannot use MF cert (such as on mobile device without smart c
 
 ## MFA with Single-factor certificate-based authentication
 
-Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. The supported combintaions are
+Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
+Some of the supported combinations are
 
-CBA (first factor) + passwordless phone sign-in (PSI as second factor)
-CBA (first factor) + FIDO2 security keys
-Password (first factor) + CBA (second factor) 
+1. CBA (first factor) + passwordless phone sign-in (PSI as second factor)
+1. CBA (first factor) + FIDO2 security keys (second factor) 
+1. Password (first factor) + CBA (second factor) 
 
 Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
 
 >[!IMPORTANT]
->A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
+>A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. Make sure users who do not have a valid certificate are not part of CBA auth method scope. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
 
 **Steps to set up passwordless phone signin(PSI) with CBA**
 
@@ -260,7 +261,7 @@ The following steps are a typical flow of the CRL check:
    - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
 >[!NOTE]
->Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 5 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
+>Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 10 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
 If the tenant’s PKI chain has more than 5 CAs and in case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration.
  
 

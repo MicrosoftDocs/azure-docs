@@ -71,6 +71,38 @@ var phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 [PhoneNumberIdentifier](/dotnet/api/azure.communication.phonenumberidentifier)
 
+### Microsoft bot
+
+> [!NOTE]
+> The Microsoft Bot Identifier is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The `MicrosoftBotIdentifier` interface represents a Microsoft bot with its Azure AD bot object ID. In the preview version the interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant, and the application should be configured with a resource account. You can retrieve the Azure AD bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+
+#### Basic usage
+
+```csharp
+// Get the Microsoft bot's ID from Graph APIs
+var users = await graphClient.Users.GetAsync((requestConfiguration) =>
+{
+	requestConfiguration.QueryParameters.Select = new string []{ "displayName","id" };
+	requestConfiguration.QueryParameters.Filter = filterConditions;
+});
+
+// Here we assume that you have a function GetBotFromUsers that gets the bot from the returned response
+var bot = GetBotFromUsers(users);
+
+// Create an identifier
+var botIdentifier = new MicrosoftBotIdentifier(bot.Id);
+
+// If you're not operating in the public cloud, you must also pass the right Cloud type.
+// If you use Azure Bot Framework instead of Teams Voice applications, set property isResourceAccountConfigured to false.
+var gcchBotIdentifier = new MicrosoftBotIdentifier(bot.Id, true, CommunicationCloudEnvironment.Gcch);
+```
+
+#### API reference
+
+[MicrosoftBotIdentifier](/dotnet/api/azure.communication.microsoftbotidentifier?view=azure-dotnet-preview)
+
 ### Unknown
 
 The `UnknownIdentifier` exists for future-proofing and you might encounter it when you are on an old version of the SDK and a new identifier type has been introduced recently. Any unknown identifier from the service will be deserialized to the `UnknownIdentifier` in the SDK.
@@ -101,6 +133,9 @@ switch (communicationIdentifier)
         break;
     case PhoneNumberIdentifier phoneNumber:
         Console.WriteLine($"Phone number: {phoneNumber.PhoneNumber}");
+        break;
+    case MicrosoftBotIdentifier bot:
+        Console.WriteLine($"Microsoft bot: {bot.BotId}");
         break;
     case UnknownIdentifier unknown:
         Console.WriteLine($"Unknown: {unknown.Id}");

@@ -31,6 +31,9 @@ The Image Retrieval APIs enable the _vectorization_ of images and text queries. 
 
 You can try out the Image Retrieval feature quickly and easily in your browser using Vision Studio.
 
+> [!IMPORTANT]
+> The Vision Studio experience is limited to 500 images. To use a larger image set, create your own search application using the APIs in this guide.
+
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
@@ -45,9 +48,11 @@ The `retrieval:vectorizeImage` API lets you convert an image's data to a vector.
 ```bash
 curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2023-02-01-preview&modelVersion=latest" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png'
+'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```
+
+To vectorize a local image, you'd put the binary image data in the HTTP request body.
 
 The API call returns an **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
 

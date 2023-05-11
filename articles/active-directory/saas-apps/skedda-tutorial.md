@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Skedda | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Skedda'
 description: Learn how to configure single sign-on between Azure Active Directory and Skedda.
 services: active-directory
 author: jeevansd

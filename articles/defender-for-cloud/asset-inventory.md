@@ -3,8 +3,8 @@ title: Using the asset inventory to view your security posture with Microsoft De
 description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
 ms.date: 01/03/2023
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 # Use asset inventory to manage your resources' security posture
 

@@ -35,7 +35,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 - An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Basic understanding about how to build a logic app workflow. For more information, see [Create your first Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md).
+- Basic understanding about how to build a logic app workflow. For more information, see [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
 ## Create a Consumption workflow from a template
 

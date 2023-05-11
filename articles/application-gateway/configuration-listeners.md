@@ -7,7 +7,6 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/27/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway listener configuration

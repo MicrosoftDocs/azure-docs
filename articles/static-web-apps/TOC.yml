@@ -51,6 +51,12 @@
         - name: App settings
           href: application-settings.md
           displayName: environment variables
+    - name: Database connections
+      items:
+        - name: Overview
+          href: database-overview.md
+        - name: Configuration
+          href: database-configuration.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -95,10 +101,18 @@
   items:
     - name: APIs
       items:
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
+        - name: Azure Functions
+          items:
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
     - name: Security
       items:
         - name: Set up a private endpoint
@@ -149,6 +163,16 @@
             href: deploy-nextjs-hybrid.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Add a database connection
+      items:
+      - name: Azure Cosmos DB 
+        href: database-azure-cosmos-db.md
+      - name: Azure SQL
+        href: database-azure-sql.md
+      - name: Azure Database for MySQL
+        href: database-mysql.md
+      - name: Azure Database for PostgreSQL
+        href: database-postgresql.md
     - name: Add a database with Mongoose.js and Azure Cosmos DB
       href: add-mongoose.md
     - name: Publish with an ARM template

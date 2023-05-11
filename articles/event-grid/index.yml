@@ -4,16 +4,16 @@ title: Azure Event Grid documentation # < 60 chars
 summary: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.  # < 160 chars
 
 metadata:
-  title: Azure Event Grid documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Event Grid documentation
+  description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
   services: event-grid
-  ms.service: event-grid #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: event-grid
   ms.subservice:
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: spelluru #Required; your GitHub user alias, with correct capitalization.
-  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/27/2023 #Required; mm/dd/yyyy format.
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 02/27/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -64,7 +64,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Email when VM changes
-            url: monitor-virtual-machine-changes-event-grid-logic-app.md
+            url: monitor-virtual-machine-changes-logic-app.md
           - text: Resize uploaded images
             url: resize-images-on-storage-blob-upload-event.md
           - text: Trigger Automation runbook
@@ -74,7 +74,7 @@ landingContent:
           - text: Respond to Service Bus events
             url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=/azure/event-grid/toc.json
           - text: Stream data from Event Hubs
-            url: event-grid-event-hubs-integration.md
+            url: event-hubs-integration.md
           - text: Route Media Services events
             url: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
           - text: Route to Hybrid Connections
@@ -123,7 +123,7 @@ landingContent:
           - text: Create a custom topic
             url: scripts/event-grid-cli-create-custom-topic.md
           - text: Subscribe to a custom topic
-            url: scripts/event-grid-cli-subscribe-custom-topic.md
+            url: scripts/cli-subscribe-custom-topic.md
           - text: Post to a custom topic
             url: post-to-custom-topic.md
           - text: Map custom fields to Event Grid schema

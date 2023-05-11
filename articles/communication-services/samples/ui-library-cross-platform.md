@@ -1,7 +1,7 @@
 ---
 title: Cross Platform development using the UI library
 titleSuffix: An Azure Communication Services sample overview
-description: Cross Platform development solutions using the UI library to enable .NET MAUI, Xamarin and React Native developers build communication applications
+description: Cross Platform development solutions using the UI library to enable .NET MAUI, Xamarin and React Native developers build communication calling mobile applications
 author: jorgegarc
 manager: anujbh
 services: azure-communication-services

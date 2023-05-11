@@ -58,6 +58,6 @@ All log data collected by Azure Monitor is stored in the workspace as records. R
 
 ## Next steps
 
-* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
+* Learn about [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) that add functionality to Azure Monitor and also collect data into the workspace.
 * Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.
 * Configure [alerts](../alerts/alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.

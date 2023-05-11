@@ -30,10 +30,6 @@ zone_pivot_groups: web-app-quickstart
 [!INCLUDE [node.js-msal](./includes/web-app/quickstart-nodejs-msal.md)]
 ::: zone-end
 
-::: zone pivot="devlang-nodejs-passport"
-[!INCLUDE [node.js-passport](./includes/web-app/quickstart-nodejs.md)]
-::: zone-end
-
 ::: zone pivot="devlang-java"
 [!INCLUDE [java](./includes/web-app/quickstart-java.md)]
 ::: zone-end

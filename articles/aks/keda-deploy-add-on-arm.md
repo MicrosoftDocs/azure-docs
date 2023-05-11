@@ -3,6 +3,7 @@ title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using an
 description: Use an ARM template to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 author: jahabibi
 ms.topic: article
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.date: 10/10/2022
 ms.author: jahabibi
 ---
@@ -164,13 +165,13 @@ You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
-[aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
+[aks-firewall-requirements]: outbound-rules-control-egress.md#azure-global-required-network-rules
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [keda]: https://keda.sh/
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue

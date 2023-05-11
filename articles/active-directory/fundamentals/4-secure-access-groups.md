@@ -91,7 +91,7 @@ You can create Azure AD security groups and Microsoft 365 Groups in the Azure po
 | Considerations |Manual and dynamic Azure AD security groups| Microsoft 365 Groups |
 | - | - | - |
 | The group contains| Users<br>Groups<br>Service principals<br>Devices| Users only |
-| Where the group is created| Azure AD portal<br>Microsoft 365 portal, if mail-enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure AD portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
+| Where the group is created| Azure portal<br>Microsoft 365 portal, if mail-enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
 | Who creates, by default| Administrators <br>Users| Administrators<br>Users |
 | Who is added, by default| Internal users (tenant members) and guest users | Tenant members and guests from an organization |
 | Access is granted to| Resources to which it's assigned.| Group-related resources:<br>(Group mailbox, site, team, chats, and other Microsoft 365 resources)<br>Other resources to which group is added |
@@ -133,7 +133,7 @@ Learn more:
 
 ### Mail-enabled security group
 
-To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure AD portal. 
+To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure portal. 
 
 ### Hybrid organizations and Azure AD security groups
 

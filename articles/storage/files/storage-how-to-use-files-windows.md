@@ -4,24 +4,23 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 05/02/2023
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Mount SMB Azure file share on Windows
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
 
-In order to use an Azure file share via the public endpoint outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
+In order to use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
 | Windows 11, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
-| Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-128-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 11, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
-| Windows 10, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 21H2 | SMB 3.1.1 | Yes | AES-128-GCM |
 | Windows 10, version 21H1 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows 10, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |

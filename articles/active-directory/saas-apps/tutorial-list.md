@@ -1,5 +1,5 @@
 ---
-title: SaaS App Integration Tutorials for use with Azure AD | Microsoft Docs
+title: SaaS App Integration Tutorials for use with Azure AD
 description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
 services: active-directory
 author: jeevansd

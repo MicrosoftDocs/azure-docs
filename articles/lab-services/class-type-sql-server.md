@@ -28,7 +28,7 @@ To use a shared resource, such as an Azure SQL Database, in Azure Lab Services, 
     
     Any resources external to Azure Lab Services are billed separately and aren't included in lab cost estimates.
 
-    To use any external resources, you need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) with your [lab plan](./tutorial-setup-lab-plan.md)
+    To use any external resources, you need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) with your lab plan.
 
     > [!IMPORTANT]
     > [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab     plan.  It can't be added later.
@@ -164,11 +164,11 @@ Now that you installed SSMS, you can [connect and query a SQL Server](/sql/ssms/
 
 ## Cost estimate
 
-This section provides a cost estimate for running this class for 25 users. The estimate doesn't include the cost of running the Azure SQL database. See [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database) for current details on database pricing.
+This section provides a cost estimate for running this class for 25 lab users. The estimate doesn't include the cost of running the Azure SQL database. See [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database) for current details on database pricing.
 
 There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Medium**, which is 42 lab units.
 
-- 25 students &times; (20 scheduled hours + 10 quota hours) &times; 42 lab units
+- 25 lab users &times; (20 scheduled hours + 10 quota hours) &times; 42 lab units
 
 > [!IMPORTANT]
 > The cost estimate is for example purposes only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).

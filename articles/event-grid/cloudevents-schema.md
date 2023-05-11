@@ -51,7 +51,7 @@ For a detailed description of the available fields, their types, and definitions
 
 The headers values for events delivered in the CloudEvents schema and the Event Grid schema are the same except for `content-type`. For the CloudEvents schema, that header value is `"content-type":"application/cloudevents+json; charset=utf-8"`. For the Event Grid schema, that header value is `"content-type":"application/json; charset=utf-8"`.
 
-## Configure Event Grid for CloudEvents
+## Configure for CloudEvents
 
 You can use Event Grid for both input and output of events in the CloudEvents schema. The following table describes the possible transformations:
 

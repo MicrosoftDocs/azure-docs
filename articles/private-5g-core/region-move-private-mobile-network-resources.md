@@ -2,8 +2,8 @@
 title: Move Azure Private 5G Core private mobile network resources between regions
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to move your private mobile network resources to a different region.
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 01/04/2023
@@ -19,7 +19,7 @@ You might move your resources to another region for a number of reasons. For exa
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Ensure Azure Private 5G Core supports the region to which you want to move your resources. Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+- Ensure Azure Private 5G Core supports the region to which you want to move your resources. Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core).
 - Verify pricing and charges associated with the target region to which you want to move your resources.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
 - If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
@@ -122,7 +122,7 @@ Configure your deployment in the new region using the information you gathered i
 
 ## Verify
 
-Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
+Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
 
 ## Next steps
 

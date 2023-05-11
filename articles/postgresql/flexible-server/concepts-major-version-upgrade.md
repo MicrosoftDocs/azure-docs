@@ -11,10 +11,12 @@ ms.custom: references_regions
 ms.topic: conceptual
 ---
 
-# Major Version Upgrade with PostgreSQL Flexible Server Preview
+# Major Version Upgrade for PostgreSQL Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
+> [!NOTE]
+> Major Version Upgrade for PostgreSQL Flexible Server is currently in preview.
 
 ## Overview
 Azure Database for PostgreSQL Flexible server supports PostgreSQL versions 11, 12,13, and 14. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL Flexible service periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades as they can include internal changes and new features that may not be backward-compatible with existing applications. 
@@ -56,12 +58,9 @@ During preview, if in-place major version upgrade pre-check operations fail then
 
 -	Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
--	During preview, in-place major version upgrade is currently available in the following regions.  
-  Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ East Asia / East US / France South / India Central / India South /Japan East /Jio India West /Korea Central / Norway East/ North Europe/South Central US /Sweden Central /Switzerland North /Switzerland West /UAE north /West Central US/ West US / West US3/ Qatar  Central
-
 -	Servers configured with logical replication slots aren't supported. 
 
--	MVU is currently not supported for PgBouncer,AAD,CMK enabled servers. We are going to support this during GA.
+
 
 
 

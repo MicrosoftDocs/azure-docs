@@ -1,18 +1,18 @@
 ---
-title: Azure Elastic SAN networking (preview)
-description: An overview of Azure Elastic SAN (preview), a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+title: Azure Elastic SAN networking Preview
+description: An overview of Azure Elastic SAN Preview, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 05/04/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure Elastic SAN networking (preview)
+# Configure Elastic SAN networking Preview
 
-Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access an Elastic SAN (preview). Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
+Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access an Elastic SAN Preview. Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
 
 Volume groups are configured to allow access only from specific subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 
@@ -31,7 +31,6 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
-
 1. Navigate to your virtual network and select **Service Endpoints**.
 1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
 1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
@@ -49,109 +48,32 @@ $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Na
 
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
-$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
 ```
 ---
 
-## Available virtual network regions
+### Available virtual network regions
 
-By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../availability-zones/cross-region-replication-azure.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. This capability is currently in public preview. 
+Service endpoints for Azure Storage work between virtual networks and service instances in any region. They also work between virtual networks and service instances in [paired regions](../../availability-zones/cross-region-replication-azure.md) to allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
 
-Service endpoints allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
+#### Azure Storage cross-region service endpoints
 
-## Enabling access to virtual networks in other regions (preview)
+Cross-region service endpoints for Azure became generally available in April of 2023. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
-> 
-> [!IMPORTANT]
-> This capability is currently in PREVIEW.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-To enable access from a virtual network that is located in another region over service endpoints, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network.
-
-> [!NOTE]
-> For updating the existing service endpoints to access a volume group in another region, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
-
-
-### [Portal](#tab/azure-portal)
-
-During the preview you must use either PowerShell or the Azure CLI to enable this feature.
-
-### [PowerShell](#tab/azure-powershell)
-
-- Open a Windows PowerShell command window.
-
-- Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-- If your identity is associated with more than one subscription, then set your active subscription to the subscription of the virtual network.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-- Register the `AllowGlobalTagsForStorage` feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGlobalTagsForStorage
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Verify that the feature is registered before using it.
-
-- To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-   ```powershell
-   Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGlobalTagsForStorage
-   ```
-
-### [Azure CLI](#tab/azure-cli)
-
-- Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-- If your identity is associated with more than one subscription, then set your active subscription to subscription of the virtual network.
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-- Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
-- To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
-
-   ```azurecli
-   az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage
-   ```
-
----
+To use cross-region service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as cross-region (**Microsoft.Storage.Global**).
 
 ## Managing virtual network rules
 
-You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI. 
+You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your volumes from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the SAN or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants.
 
 ### [Portal](#tab/azure-portal)
 
@@ -161,7 +83,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+- Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 - List virtual network rules.
 
@@ -173,7 +95,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 - Enable service endpoint for Azure Storage on an existing virtual network and subnet.
 
     ```azurepowershell
-    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
     ```
 
 - Add a network rule for a virtual network and subnet.
@@ -212,7 +134,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 - Enable service endpoint for Azure Storage on an existing virtual network and subnet.
 
     ```azurecli
-    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
     ```
 
 - Add a network rule for a virtual network and subnet.
@@ -240,4 +162,4 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)

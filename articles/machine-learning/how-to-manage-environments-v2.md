@@ -2,7 +2,6 @@
 title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning environments using Python SDK and Azure CLI extension for Machine Learning.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
@@ -18,7 +17,7 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-environments.md)
+> * [v1](./v1/how-to-use-environments.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-manage-environments-v2.md)
 
 
@@ -134,7 +133,7 @@ ml_client.environments.create_or_update(env_docker_image)
 
 ### Create an environment from a Docker build context
 
-Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
+Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile (not larger than 1MB) and any other files needed to build the image.
 
 # [Azure CLI](#tab/cli)
 
@@ -177,7 +176,7 @@ You must also specify a base Docker image for this environment. Azure Machine Le
 
 The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure Machine Learning environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yaml":::
 
 To create the environment:
 

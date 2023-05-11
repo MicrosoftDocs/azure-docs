@@ -14,12 +14,9 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for Python to analyze a remote image to read text and generate captions.
+Use the Image Analysis client library for Python to analyze a remote image to read text and generate an image caption.
 
 [Reference documentation](/python/api/azure-ai-vision) | [Package (PiPy)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
-
-> [!TIP]
-> You can also analyze a local image. See the [reference documentation](/python/api/azure-ai-vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/python/image-analysis/samples.py) for scenarios involving local images.
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -37,80 +34,29 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Set up application
-
-First, install the client library. You can install the client library with:
-
-```console
-python -m pip install azure-ai-vision
-```
-
-Next create a new Python file &mdash; *quickstart-file.py*, for example. 
-
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Analyze Image
 
-Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
+1. Open a command prompt where you want the new project, and create a new file named *quickstart.py*.
+1. Run this command to install the Azure AI Vision client library:
 
-<!--[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet-single)]-->
+    ```console
+    python -m pip install azure-ai-vision
+    ```
 
-```python
-import os
-import azure.ai.vision as sdk
+1. Copy the following code into *quickstart.py*:
 
-service_options = sdk.VisionServiceOptions(
-     os.environ["VISION_ENDPOINT"],
-     os.environ["VISION_KEY"])
+> [!TIP]
+> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/python/image-analysis/samples.py) repository for scenarios involving local images.
 
-vision_source = sdk.VisionSource(
-    url="https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png")
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet_single)]
 
-analysis_options = sdk.ImageAnalysisOptions()
+1. Then run the application with the `python` command on your quickstart file.
 
-analysis_options.features = (
-    sdk.ImageAnalysisFeature.CAPTION |
-    sdk.ImageAnalysisFeature.TEXT
-)
-
-analysis_options.language = "en"
-
-analysis_options.gender_neutral_caption = True
-
-image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
-
-result = image_analyzer.analyze()
-
-if result.reason == sdk.ImageAnalysisResultReason.ANALYZED:
-
-    if result.caption is not None:
-        print(" Caption:")
-        print("   '{}', Confidence {:.4f}".format(result.caption.content, result.caption.confidence))
-
-    if result.text is not None:
-        print(" Text:")
-        for line in result.text.lines:
-            points_string = "{" + ", ".join([str(int(point)) for point in line.bounding_polygon]) + "}"
-            print("   Line: '{}', Bounding polygon {}".format(line.content, points_string))
-            for word in line.words:
-                points_string = "{" + ", ".join([str(int(point)) for point in word.bounding_polygon]) + "}"
-                print("     Word: '{}', Bounding polygon {}, Confidence {:.4f}"
-                        .format(word.content, points_string, word.confidence))
-
-elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
-
-    error_details = sdk.ImageAnalysisErrorDetails.from_result(result)
-    print(" Analysis failed.")
-    print("   Error reason: {}".format(error_details.reason))
-    print("   Error code: {}".format(error_details.error_code))
-    print("   Error message: {}".format(error_details.message))
-```
-
-Then run the application with the `python` command on your quickstart file.
-
-```console
-python quickstart-file.py
-```
+    ```console
+    python quickstart.py
+    ```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
@@ -118,9 +64,9 @@ python quickstart-file.py
 ## Output
 
 ```console
- Captions:
-   'a man pointing at a screen', Confidence 0.5099
- Text:
+Caption:
+   'a person pointing at a screen', Confidence 0.4892
+Text:
    Line: '9:35 AM', Bounding polygon {130, 129, 215, 130, 215, 149, 130, 148}
      Word: '9:35', Bounding polygon {131, 130, 171, 130, 171, 149, 130, 149}, Confidence 0.9930
      Word: 'AM', Bounding polygon {179, 130, 204, 130, 203, 149, 178, 149}, Confidence 0.9980

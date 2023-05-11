@@ -67,5 +67,5 @@ Create your first container with Azure Container Instances using the [quickstart
 
 <!-- LINKS -->
 [aci-connector-k8s]: https://github.com/virtual-kubelet/azure-aci
-[kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
+[kubelet-doc]: https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

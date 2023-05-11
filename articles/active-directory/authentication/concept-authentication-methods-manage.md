@@ -1,12 +1,12 @@
 ---
-title: Manage authentication methods - Azure Active Directory
+title: Manage authentication methods
 description: Learn about the authentication methods policy and different ways to manage authentication methods.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 04/10/2023
 
 ms.author: justinha
 author: justinha
@@ -32,14 +32,11 @@ Most methods also have configuration parameters to more precisely control how th
  
 Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like showing the user sign-in location or the name of the app being signed into. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
 
-To manage the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
+To manage the Authentication methods policy in the Azure AD portal, click **Security** > **Authentication methods** > **Policies**.
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
 Only the [converged registration experience](concept-registration-mfa-sspr-combined.md) is aware of the Authentication methods policy. Users in scope of the Authentication methods policy but not the converged registration experience won't see the correct methods to register.
-
->[!NOTE]
->Some pieces of the Authentication methods policy experience are in preview. This includes management of Email OTP, third party software OATH tokens, SMS, and voice call as noted in the portal. Also, use of the authentication methods policy alone with the legacy MFA and SSPR polices disabled is a preview experience.
 
 ## Legacy MFA and SSPR policies
 
@@ -76,7 +73,7 @@ For users who are enabled for **Mobile phone** for SSPR, the independent control
 
 Similarly, let's suppose you enable **Voice calls** for a group. After you enable it, you find that even users who aren't group members can sign-in with a voice call. In this case, it's likely those users are enabled for **Mobile phone** in the legacy SSPR policy or **Call to phone** in the legacy MFA policy.  
 
-## Migration between policies (preview)
+## Migration between policies 
 
 The Authentication methods policy provides a migration path toward unified administration of all authentication methods. All desired methods can be enabled in the Authentication methods policy. Methods in the legacy MFA and SSPR policies can be disabled. Migration has three settings to let you move at your own pace, and avoid problems with sign-in or SSPR during the transition. After migration is complete, you'll centralize control over authentication methods for both sign-in and SSPR in a single place, and the legacy MFA and SSPR policies will be disabled.
 
@@ -107,8 +104,8 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 > In the future, both of these features will be integrated with the Authentication methods policy.
 
 ## Known issues and limitations
-- Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
-- As a part of the public preview we removed the ability to target individual users. Previously targeted users will remain in the policy but we recommend moving them to a targeted group.
+- In recent updates we removed the ability to target individual users. Previously targeted users will remain in the policy but we recommend moving them to a targeted group.
+- Registration of FIDO2 security keys may fail for some users if the FIDO2 Authentication method policy is targeted for a group and the overall Authentication methods policy has more than 20 groups configured. We're working on increasing the policy size limit and in the mean time recommend limiting the number of group targets to no more than 20.
 
 ## Next steps
 

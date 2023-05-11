@@ -21,13 +21,16 @@ To enable nested virtualization on the template VM, you first connect to the VM 
 - [Enable nested virtualization by using a script](#enable-nested-virtualization-by-using-a-script).
 - [Enable nested virtualization by using Windows tools](#enable-nested-virtualization-by-using-windows-tools).
 
+> [!NOTE]
+> Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
+
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab. Nested virtualization will not work otherwise.
 
 ## Prerequisites
 
-- A lab plan and one or more labs. Learn how to [Set up a lab plan](tutorial-setup-lab-plan.md) and [Set up a lab](tutorial-setup-lab.md).
-- Permission to edit the lab. Learn how to [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
+- A lab plan and one or more labs. Learn how to [Set up a lab plan](quick-create-resources.md) and [Set up a lab](tutorial-setup-lab.md).
+- Permission to edit the lab. Learn how to [Add a user to the Lab Creator role](quick-create-resources.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
 
 ## Enable nested virtualization by using a script
 
@@ -233,5 +236,5 @@ Next steps are common to setting up any lab.
 
 - [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+- [Set a schedule](tutorial-setup-lab.md#add-a-lab-schedule)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

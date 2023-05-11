@@ -1,15 +1,18 @@
 ---
-title: How to use CalculatedContent mappings - Azure Health Data Services
-description: Learn how to use CalculatedContent mappings with the MedTech service device mappings. 
+title: How to use CalculatedContent mappings with the MedTech service device mapping - Azure Health Data Services
+description: Learn how to use CalculatedContent mappings with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 05/04/2023
 ms.author: jasteppe
 ---
 
-# How to use CalculatedContent mappings
+# How to use CalculatedContent mappings with the MedTech service device mapping
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article describes how to use CalculatedContent mappings with MedTech service device mappings in Azure Health Data Services.
 
@@ -78,7 +81,7 @@ CalculatedContent mappings allow matching on, and extracting values from, an Azu
 |`PatientIdExpression`|The expression to extract the patient identifier. *Required* when `IdentityResolution` is in `Create` mode, and *optional* when `IdentityResolution` is in `Lookup` mode.|`$.matchedToken.patientId`|
 |`EncounterIdExpression`|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
 |`CorrelationIdExpression`|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
-|`Values[].ValueName`|The name to associate with the value that the next expression extracts. Used to bind the wanted value or component in the FHIR destination-mapping template.|`hr`|
+|`Values[].ValueName`|The name to associate with the value that the next expression extracts. Used to bind the wanted value or component in the FHIR destination mapping.|`hr`|
 |`Values[].ValueExpression`|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
 |`Values[].Required`|Requires the value to be present in the payload. If the MedTech service doesn't find the value, it won't generate a measurement, and it will create an `InvalidOperationException` instance.|`true`|
 
@@ -98,7 +101,7 @@ When you're specifying the language to use for the expression, the following val
 
 ## Custom functions
 
-A set of custom functions for the MedTech service is also available. The MedTech service custom functions are outside the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use custom functions with device mappings](how-to-use-custom-functions.md).
+A set of custom functions for the MedTech service is also available. The MedTech service custom functions are outside the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use custom functions](how-to-use-custom-functions.md).
 
 ## Matched token
 
@@ -547,6 +550,6 @@ In this article, you learned how to configure MedTech service device mappings by
 To learn how to configure FHIR destination mappings, see:
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
+> [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office, and is used with permission.

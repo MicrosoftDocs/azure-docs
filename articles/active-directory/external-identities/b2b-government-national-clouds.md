@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2B in government and national clouds - Azure Active Directory
+title: Azure AD B2B in government and national clouds
 description: Learn what features are available in Azure Active Directory B2B collaboration in US Government and national clouds 
 
 services: active-directory

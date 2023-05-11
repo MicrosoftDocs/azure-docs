@@ -2,6 +2,7 @@
 title: Use instance-level public IPs in Azure Kubernetes Service (AKS)
 description: Learn how to manage instance-level public IPs Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 1/12/2023
 ms.author: pahealy
 author: phealy

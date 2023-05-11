@@ -5,12 +5,12 @@ description: Learn how to enable SFTP support for Azure Blob Storage so that you
 author: normesta
 
 ms.subservice: blobs
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
-
 ---
 
 # Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
@@ -65,6 +65,42 @@ To enable SFTP support, call the [az storage account update](/cli/azure/storage/
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --enable-sftp=true
+```
+
+---
+
+## Disable SFTP support
+
+This section shows you how to disable SFTP support for an existing storage account. Because SFTP support incurs an hourly cost, consider disabling SFTP support when clients are not actively using SFTP to transfer data. 
+
+### [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+
+2. Under **Settings**, select **SFTP**.
+
+3. Select **Disable SFTP**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the disable SFTP button.](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option-disable.png)
+
+### [PowerShell](#tab/powershell)
+
+To disable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+
+```powershell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName -EnableSftp $false 
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To disable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+
+```azurecli
+az storage account update -g <resource-group> -n <storage-account> --enable-sftp=false
 ```
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: What are Azure Active Directory recommendations? | Microsoft Docs
+title: What are Azure Active Directory recommendations?
 description: Provides a general overview of Azure Active Directory recommendations.
 services: active-directory
 author: shlipsey3

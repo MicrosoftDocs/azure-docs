@@ -137,8 +137,6 @@
       href: user-properties.md
     - name: Reset redemption status
       href: reset-redemption-status.md
-    - name: B2B for Azure AD integrated apps
-      href: configure-saas-apps.md
   - name: Manage guest access in a hybrid organization
     items:
     - name: Grant local users access to cloud apps

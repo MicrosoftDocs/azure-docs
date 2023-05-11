@@ -3,7 +3,6 @@ title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
 ms.date: 01/23/2023
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of Azure Connected Machine agent

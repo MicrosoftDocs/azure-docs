@@ -52,9 +52,9 @@ For more information on expressions, see [Reference for writing expressions for 
 
 The expression examples above use endDate for SAP and StatusHireDate for Workday.  However, you may opt to use different attributes.
 
-For example, you might use StatusContinuesFirstDayOfWork instead of StatusHireDate for Workday.  In this instance your expression would be:  
+For example, you might use StatusContinuousFirstDayOfWork instead of StatusHireDate for Workday.  In this instance your expression would be:  
 
-   `FormatDateTime([StatusContinuesFirstDayOfWork], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")`
+   `FormatDateTime([StatusContinuousFirstDayOfWork], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")`
 
 
 The following table has a list of suggested attributes and their scenario recommendations.
@@ -148,7 +148,8 @@ The following example will walk you through setting up a custom synchronization 
    18. Enable the scheduler again by running `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 > [!NOTE]
-> **msDS-cloudExtensionAttribute1** is an example source.
+>- **msDS-cloudExtensionAttribute1** is an example source.
+>- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
 
 For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
 

@@ -18,7 +18,7 @@ ms.date: 10/19/2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI or SDK version you are using:"]
-> * [v1](v1/how-to-create-attach-compute-cluster.md)
+> * [v1](v1/how-to-create-attach-compute-cluster.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
@@ -75,9 +75,8 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
 
-The fastest way to create a compute cluster is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
 
-Or use the following examples to create a compute cluster with more options:
+Use the following examples to create a compute cluster:
     
 # [Python SDK](#tab/python)
 

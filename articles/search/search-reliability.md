@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 04/10/2023
 ms.custom: subject-reliability, references_regions
 ---
 
 # Reliability in Azure Cognitive Search
 
-Across Azure, [reliability](/azure/reliability/overview) means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
+Across Azure, [reliability](../reliability/overview.md) means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
 
 + Configure a service to use multiple replicas, paired with availability zone support.
 
@@ -58,6 +58,7 @@ Your service must be deployed in a region that supports availability zones. Azur
 | Canada Central | January 30, 2021 or later |
 | Central India | January 20, 2022 or later |
 | Central US | December 4, 2020 or later |
+| China North 3 | September 7, 2022 or later |
 | East Asia | January 13, 2022 or later |
 | East US | January 27, 2021 or later |
 | East US 2 | January 30, 2021 or later |
@@ -68,9 +69,11 @@ Your service must be deployed in a region that supports availability zones. Azur
 | North Europe | January 28, 2021 or later |
 | Norway East | January 20, 2022 or later |
 | Qatar Central | August 25, 2022 or later |
+| South Africa North | September 7, 2022 or later |
 | South Central US | April 30, 2021 or later |
 | South East Asia | January 31, 2021 or later |
 | Sweden Central | January 21, 2022 or later |
+| Switzerland North | September 7, 2022 or later |
 | UAE North | September 9, 2022 or later |
 | UK South | January 30, 2021 or later |
 | US Gov Virginia | April 30, 2021 or later |
@@ -96,7 +99,10 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
    ![Cross-tab of services by region][1]
 
-You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests. For more information, see [Create a search service](search-create-service-portal.md).
+You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests. 
+
+> [!TIP]
+> For help in deploying multiple search services across multiple regions, see this [Bicep sample on GitHub](https://github.com/Azure-Samples/azure-search-multiple-regions) that deploys a fully configured, multi-regional search solution. The sample gives you two options for index synchronization, and request redirection using Traffic Manager.
 
 <a name="data-sync"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Contentsquare SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Contentsquare SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Contentsquare SSO.
 services: active-directory
 author: jeevansd

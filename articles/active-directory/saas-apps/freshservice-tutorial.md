@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshservice | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshservice'
 description: Learn how to configure single sign-on between Azure Active Directory and Freshservice.
 services: active-directory
 author: jeevansd

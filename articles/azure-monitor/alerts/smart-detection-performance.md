@@ -68,7 +68,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 
   * Not yet, but you can:
     * [Set up alerts](./alerts-log.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../app/export-telemetry.md) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](../logs/log-powerbi.md), where you can analyze it yourself.
+    * [Export telemetry](/previous-versions/azure/azure-monitor/app/export-telemetry) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](../logs/log-powerbi.md), where you can analyze it yourself.
 * *How often is the analysis done?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
@@ -89,7 +89,7 @@ First, does it matter? If a page is always slow to load, but only 1% of your sit
 
 Use the impact statement, such as affected users or % of traffic, as a general guide. Be aware that it may not be telling the whole story. Gather other evidence to confirm.
 
-Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](../app/monitor-web-app-availability.md) including that region: there might be network issues in that area.
+Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) including that region: there might be network issues in that area.
 
 ### Diagnose slow page loads
 Where is the problem? Is the server slow to respond, is the page too long, or does the browser need too much work to display it?
@@ -98,7 +98,7 @@ Open the Browsers metric pane. The segmented display of browser page load time s
 
 * If **Send Request Time** is high, either the server is responding slowly, or the request is a post with large amount of data. Look at the [performance metrics](../app/performance-counters.md) to investigate response times.
 * Set up [dependency tracking](../app/asp-net-dependencies.md) to see whether the slowness is because of external services or your database.
-* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images, and so on (but not asynchronously loaded data) are long. Set up an [availability test](../app/monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
+* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images, and so on (but not asynchronously loaded data) are long. Set up an [availability test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
 
 ### Improve slow pages
@@ -175,4 +175,4 @@ These diagnostic tools help you inspect the telemetry from your app:
 Smart detection is automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](./alerts-log.md)
-* [Availability web tests](../app/monitor-web-app-availability.md)
+* [Availability web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability)

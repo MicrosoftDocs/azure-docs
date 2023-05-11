@@ -6,7 +6,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/13/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
@@ -63,36 +63,49 @@ The connection strings for the published route-specific endpoints can be copied 
 
 Routing preference for Azure Storage is available in the following regions:
 
-- Central US 
-- Central US EUAP
-- East US 
-- East US 2
-- East US 2 
-- East US 2 EUAP
-- South Central US
-- West Central US
-- West US 
-- West US 2 
-- France Central 
-- France South 
-- Germany North 
-- Germany West Central 
-- North Central US
-- North Europe 
-- Norway East 
-- Switzerland North
-- Switzerland West
-- UK South 
-- UK West 
-- West Europe 
-- UAE Central
-- East Asia 
-- Southeast Asia 
-- Japan East 
-- Japan West 
-- West India
-- Australia East 
-- Australia Southeast 
+| Geography     | Region Display Name  | Region ID          |
+|---------------|----------------------|--------------------|
+| Africa        | South Africa North   | southafricanorth   |
+| Africa        | South Africa West    | southafricawest    |
+| Asia Pacific  | Australia Central    | australiacentral   |
+| Asia Pacific  | Australia Central 2  | australiacentral2  |
+| Asia Pacific  | Australia East       | australiaeast      |
+| Asia Pacific  | Australia Southeast  | australiasoutheast |
+| Asia Pacific  | Central India        | centralindia       |
+| Asia Pacific  | East Asia            | eastasia           |
+| Asia Pacific  | Japan East           | japaneast          |
+| Asia Pacific  | Japan West           | japanwest          |
+| Asia Pacific  | Korea South          | koreasouth         |
+| Asia Pacific  | South India          | southindia         |
+| Asia Pacific  | Southeast Asia       | southeastasia      |
+| Asia Pacific  | West India           | westindia          |
+| Canada        | Canada Central       | canadacentral      |
+| Canada        | Canada East          | canadaeast         |
+| Europe        | France Central       | francecentral      |
+| Europe        | France South         | francesouth        |
+| Europe        | Germany North        | germanynorth       |
+| Europe        | Germany West Central | germanywestcentral |
+| Europe        | North Europe         | northeurope        |
+| Europe        | Norway East          | norwayeast         |
+| Europe        | Norway West          | norwaywest         |
+| Europe        | Switzerland North    | switzerlandnorth   |
+| Europe        | Switzerland West     | switzerlandwest    |
+| Europe        | UK South             | uksouth            |
+| Europe        | UK West              | ukwest             |
+| Europe        | West Europe          | westeurope         |
+| Middle East   | UAE Central          | uaecentral         |
+| Middle East   | UAE North            | uaenorth           |
+| South America | Brazil South         | brazilsouth        |
+| South America | Brazil Southeast     | brazilsoutheast    |
+| US            | Central US           | centralus          |
+| US            | East US              | eastus             |
+| US            | East US 2            | eastus2            |
+| US            | North Central US     | northcentralus     |
+| US            | South Central US     | southcentralus     |
+| US            | West Central US      | westcentralus      |
+| US            | West US              | westus             |
+| US            | West US 2            | westus2            |
+| US            | West US 3            | westus3            |
 
 The following known issues affect the routing preference for Azure Storage:
 

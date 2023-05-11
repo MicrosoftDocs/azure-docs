@@ -31,7 +31,24 @@ Notice that there are several columns available in these tables. In this article
 
 ## <a name="setup"></a>Set up logging
 
-To learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Set up alerts on diagnostic log events from VPN Gateway](./vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Follow this procedure to learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics:
+
+1. Create a Log Analytics Workspace using [this article](../azure-monitor/logs/quick-create-workspace.md).
+
+2. Find your VPN gateway on the Monitor > Diagnostics settings blade.
+
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png " alt-text="Screenshot of the Diagnostic settings blade." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png":::
+
+3. Select the gateway and click on "Add Diagnostic Setting".
+
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png " alt-text="Screenshot of the Add diagnostic setting interface." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png":::
+
+4. Fill in the diagnostic setting name, select all the log categories and choose the Log Analytics Workspace.
+
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png " alt-text="Detailed screenshot of the Add diagnostic setting properties." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png":::
+
+   > [!NOTE]
+   > It may take a few hours for the data to show up initially.
 
 ## <a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 

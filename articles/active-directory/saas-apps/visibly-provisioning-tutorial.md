@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Visibly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Visibly for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Visibly.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 9c658962-8a11-47ca-86ee-34872a39813a
 ms.service: active-directory

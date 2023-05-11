@@ -21,6 +21,8 @@
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Terraform
+    href: container-instances-quickstart-terraform.md
   - name: Deploy a container instance - Docker CLI
     href: quickstart-docker-cli.md
 - name: Tutorials
@@ -75,6 +77,8 @@
     href: container-instances-virtual-network-concepts.md
   - name: Confidential container groups
     href: container-instances-confidential-overview.md
+  - name: Attestation in Confidential containers
+    href: confidential-containers-attestation-concepts.md 
 - name: How-to guides
   items:
   - name: Deploy

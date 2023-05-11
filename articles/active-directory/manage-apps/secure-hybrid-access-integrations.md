@@ -11,6 +11,8 @@ ms.workload: identity
 ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
+
 ---
 
 # Secure hybrid access with Azure Active Directory partner integrations
@@ -35,10 +37,10 @@ The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
   * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure AD portal
+* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure AD portal
+* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 

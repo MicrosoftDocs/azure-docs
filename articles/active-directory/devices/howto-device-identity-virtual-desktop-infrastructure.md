@@ -1,5 +1,5 @@
 ---
-title: Device identity and desktop virtualization - Azure Active Directory
+title: Device identity and desktop virtualization
 description: Learn how VDI and Azure AD device identities can be used together
 
 services: active-directory

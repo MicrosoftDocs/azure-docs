@@ -3,6 +3,7 @@ title: 'Tutorial: Create a secure N-tier web app'
 description: Learn how to securely deploy your N-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 2/25/2023
 ms.author: jordanselig
 ---
@@ -13,8 +14,8 @@ Many applications have more than a single component. For example, you may have a
 
 In this tutorial, you learn how to deploy a secure N-tier application, with a front-end web app that connects to another network-isolated web app. All traffic is isolated within your Azure Virtual Network using [Virtual Network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more comprehensive guidance that includes other scenarios, see: 
 
-- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md)
-- [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md).
+- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+- [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview).
 
 ## Scenario architecture
 
@@ -430,4 +431,4 @@ To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bi
 > [!div class="nextstepaction"]
 > [App Service networking features](networking-features.md)
 > [!div class="nextstepaction"]
-> [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md)
+> [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview)

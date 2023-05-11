@@ -1,5 +1,5 @@
 ---
-title: Configure managed identities on virtual machine scale sets using PowerShell - Azure AD
+title: Configure managed identities on virtual machine scale sets using PowerShell
 description: Step-by-step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
 services: active-directory
 documentationcenter: 
@@ -47,7 +47,7 @@ In this article, using PowerShell, you learn how to perform the managed identiti
 
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
-    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-az-ps), then sign in to Azure using `Connect-AzAccount`. 
+    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell), then sign in to Azure using `Connect-AzAccount`. 
 
 ## System-assigned managed identity
 

@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Block access by location - Azure Active Directory
+title: Conditional Access - Block access by location
 description: Create a custom Conditional Access policy to block access to resources by IP location
 
 services: active-directory
