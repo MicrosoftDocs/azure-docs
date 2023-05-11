@@ -198,7 +198,7 @@ Open the pipeline run "web view" in a new window to inspect the steps in the tra
 1. Select `fraud_model`
 1. In the top nav, select `Artifacts`
 
-Notice that the earlier model registration step of the training pipeline packaged the feature retrieval spec with the model. You created a feature retrieval spec during experimentation, which has become part of the model definition. The next tutorial will show how inferencing uses the feature retrieva spec.
+Notice that the earlier model registration step of the training pipeline packaged the feature retrieval spec with the model. You created a feature retrieval spec during experimentation, which has become part of the model definition. The next tutorial will show how inferencing uses the feature retrieval spec.
 
 ## Step 5: View the feature set and model dependencies
 

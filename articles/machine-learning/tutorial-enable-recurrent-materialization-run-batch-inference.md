@@ -134,9 +134,9 @@ If you created a resource group for the tutorial, you can delete the resource gr
 
 Otherwise, you can delete the resources individually:
 
-1. Delete the feature store: Go to the resource group in the azure portal, select the feature store and delete it
+1. Delete the feature store: Go to the resource group in the Azure portal, select the feature store and delete it
 1. Follow the instructions [here](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to delete the user assigned managed identity
-1. Delete the offline store (storage account): Go to the resource group in the azure portal, select the storage you created and delete it
+1. Delete the offline store (storage account): Go to the resource group in the Azure portal, select the storage you created and delete it
 
 ## Next steps
 
