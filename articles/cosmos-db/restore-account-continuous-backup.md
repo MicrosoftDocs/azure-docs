@@ -106,7 +106,7 @@ Use the following steps to get the restore details from Azure portal:
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
-Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps) or version higher than 9.6.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) or version higher than 9.6.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 

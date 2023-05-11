@@ -37,6 +37,28 @@ steps in [How to create custom machine configuration package artifacts][04]. The
 package in your development environment by following the steps in
 [How to test machine configuration package artifacts][05].
 
+> [!NOTE]
+> The example code in this article references the `$contentUri` variable. If you're using the same
+> PowerShell session as the earlier tutorials for creating and testing your package artifacts, that
+> variable may already have the URI to your package.
+>
+> If you don't have the `$contentUri` variable set to the URI for your package in your PowerShell
+> session, you need to set it. This example uses a storage account's [connection string][06] and
+> the `New-AzStorageContext` cmdlet to create a storage context. Then it gets the storage blob for
+> the published package and uses that object's properties to get the content URI.
+>
+> ```azurepowershell-interactive
+> $connectionString = '<storage-account-connection-string>'
+> $context = New-AzStorageContext -ConnectionString $connectionString
+> $getParams = @{
+>     Context   = $context
+>     Container = '<container-name>'
+>     Blob      = '<published-package-file-name>'
+> }
+> $blob = Get-AzStorageBlob @getParams
+> $contentUri = $blob.ICloudBlob.Uri.AbsoluteUri
+> ```
+
 ## Policy requirements for machine configuration
 
 The policy definition **metadata** section must include two properties for the machine
@@ -101,7 +123,7 @@ Create a policy definition that audits using a custom configuration package, in 
 ```powershell
 $PolicyConfig      = @{
   PolicyId      = '_My GUID_'
-  ContentUri    = $contenturi
+  ContentUri    = $contentUri
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
   Path          = './policies/auditIfNotExists.json'
@@ -118,7 +140,7 @@ specified path:
 ```powershell
 $PolicyConfig2      = @{
   PolicyId      = '_My GUID_'
-  ContentUri    = $contenturi
+  ContentUri    = $contentUri
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
   Path          = './policies/deployIfNotExists.json'
@@ -213,7 +235,7 @@ $PolicyParameterInfo     = @(
 # ...and then passed into the `New-GuestConfigurationPolicy` cmdlet
 $PolicyParam = @{
   PolicyId      = 'My GUID'
-  ContentUri    = $contenturi
+  ContentUri    = $contentUri
   DisplayName   = 'Audit Windows Service.'
   Description   = "Audit if a Windows Service isn't enabled on Windows machine."
   Path          = '.\policies\auditIfNotExists.json'
@@ -230,7 +252,7 @@ Finally, you can publish the policy definitions using the `New-AzPolicyDefinitio
 below commands publish your machine configuration policy to the policy center.
 
 To run the `New-AzPolicyDefinition` command, you need access to create policy definitions in Azure.
-The specific authorization requirements are documented in the [Azure Policy Overview][06] page. The
+The specific authorization requirements are documented in the [Azure Policy Overview][07] page. The
 recommended built-in role is `Resource Policy Contributor`.
 
 ```azurepowershell-interactive
@@ -244,7 +266,7 @@ New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\deployIfNo
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to
-assign the definition with [Portal][07], [Azure CLI][08], and [Azure PowerShell][09].
+assign the definition with [Portal][08], [Azure CLI][09], and [Azure PowerShell][10].
 
 ## Policy lifecycle
 
@@ -280,8 +302,8 @@ updated.
 
 ## Next steps
 
-- [Assign your custom policy definition][07] using Azure portal.
-- Learn how to view [compliance details for machine configuration][10] policy assignments.
+- [Assign your custom policy definition][08] using Azure portal.
+- Learn how to view [compliance details for machine configuration][11] policy assignments.
 
 <!-- Reference link definitions -->
 [01]: ./overview.md
@@ -289,8 +311,9 @@ updated.
 [03]: ./how-to-set-up-authoring-environment.md
 [04]: ./how-to-create-package.md
 [05]: ./how-to-test-package.md
-[06]: ../policy/overview.md
-[07]: ../policy/assign-policy-portal.md
-[08]: ../policy/assign-policy-azurecli.md
-[09]: ../policy/assign-policy-powershell.md
-[10]: ../policy/how-to/determine-non-compliance.md#compliance-details
+[06]: ../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account
+[07]: ../policy/overview.md
+[08]: ../policy/assign-policy-portal.md
+[09]: ../policy/assign-policy-azurecli.md
+[10]: ../policy/assign-policy-powershell.md
+[11]: ../policy/how-to/determine-non-compliance.md#compliance-details

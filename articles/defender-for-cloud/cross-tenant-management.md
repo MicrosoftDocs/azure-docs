@@ -4,8 +4,8 @@ description: Learn how to set up cross-tenant management to manage the security 
 documentationcenter: na
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021

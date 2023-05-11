@@ -75,5 +75,4 @@ By adding alternate questions along with active learning, we further enrich the 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Improve the quality of responses with synonyms](adding-synonyms.md)
+
