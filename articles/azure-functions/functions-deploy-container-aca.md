@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create your first containerized functions on Azure Container Apps 
 
-In this article, you create a function app running in a Linux container and deploy it to an [Azure Container Apps](../container-apps/overview.md) from a container registry.  
+In this article, you create a function app running in a Linux container and deploy it to an [Azure Container Apps](../container-apps/overview.md) environment from a container registry.  
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
@@ -22,7 +22,7 @@ Before you can deploy your container to Azure, you need to create three resource
 
 * A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
 * A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
-* A Container Apps environment with a Log Analytics workspace.
+* An Azure Container Apps environment with a Log Analytics workspace.
 
 Use the following commands to create these items. 
 
