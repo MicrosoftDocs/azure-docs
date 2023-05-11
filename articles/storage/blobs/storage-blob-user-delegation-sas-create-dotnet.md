@@ -1,5 +1,5 @@
 ---
-title: Use .NET to create a user delegation SAS for a container, directory, or blob
+title: Use .NET to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Blob Storage.
 services: storage
@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 05/11/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -18,7 +18,7 @@ ms.devlang: csharp
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container, directory, or blob with the Blob Storage client library for .NET.
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -49,23 +49,6 @@ Install-Package Azure.Storage.Blobs
 ```
 ---
 
-For the [directory](#get-a-user-delegation-sas-for-a-directory) code examples, add the following packages:
-
-### [.NET CLI](#tab/packages-dotnetcli)
-
-```dotnetcli
-dotnet add package Azure.Identity
-dotnet add package Azure.Storage.Files.DataLake
-```
-
-### [PowerShell](#tab/packages-powershell)
-
-```powershell
-Install-Package Azure.Identity
-Install-Package Azure.Storage.Files.DataLake
-```
----
-
 ### Set up the app code
 
 For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following `using` directives:
@@ -79,16 +62,6 @@ using Azure.Storage.Blobs.Specialized;
 using Azure.Storage.Sas;
 ```
 
-For the [directory](#get-a-user-delegation-sas-for-a-directory) code example, add the following `using` directives:
-
-```csharp
-using Azure;
-using Azure.Identity;
-using Azure.Storage.Files.DataLake;
-using Azure.Storage.Files.DataLake.Models;
-using Azure.Storage.Sas;
-```
-
 ## Get an authenticated token credential
 
 To get a token credential that your code can use to authorize requests to Blob Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Blob Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
@@ -97,11 +70,12 @@ The following code snippet shows how to get the authenticated token credential a
 
 ```csharp
 // Construct the blob endpoint from the account name.
-string blobEndpoint = $"https://{accountName}.blob.core.windows.net";
+string endpoint = $"https://{accountName}.blob.core.windows.net";
 
 // Create a blob service client object using DefaultAzureCredential
-BlobServiceClient blobClient = new(new Uri(blobEndpoint),
-                                   new DefaultAzureCredential());
+BlobServiceClient blobServiceClient = new BlobServiceClient(
+    new Uri(endpoint),
+    new DefaultAzureCredential());
 ```
 
 To learn more about authorizing access to Blob Storage from your applications with the .NET SDK, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication).
@@ -117,41 +91,29 @@ Use one of the following methods to request the user delegation key:
 - [GetUserDelegationKey](/dotnet/api/azure.storage.blobs.blobserviceclient.getuserdelegationkey)
 - [GetUserDelegationKeyAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getuserdelegationkeyasync)
 
-The following code snippet gets the user delegation key and writes out its properties:
+The following code example shows how to request the user delegation key:
 
-```csharp
-// Get a user delegation key for the Blob service that's valid for seven days
-// You can use the key to generate any number of shared access signatures over the lifetime of the key
-UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
-                                                                   DateTimeOffset.UtcNow.AddDays(7));
-
-// Read the key's properties
-Console.WriteLine("User delegation key properties:");
-Console.WriteLine($"Key signed start: {key.SignedStartsOn}");
-Console.WriteLine($"Key signed expiry: {key.SignedExpiresOn}");
-Console.WriteLine($"Key signed object ID: {key.SignedObjectId}");
-Console.WriteLine($"Key signed tenant ID: {key.SignedTenantId}");
-Console.WriteLine($"Key signed service: {key.SignedService}");
-Console.WriteLine($"Key signed version: {key.SignedVersion}");
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_RequestUserDelegationKey":::
 
 ## Get a user delegation SAS for a blob
 
-The following code example shows the complete code for authenticating the security principal and creating the user delegation SAS for a blob:
+Once you've obtained the user delegation key, you can create a user delegation SAS. The following code example shows how to create a user delegation SAS for a blob:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasBlob":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASBlob":::
+
+The following code example shows how to use the user delegation SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions and duration granted by the SAS.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASBlob":::
 
 ## Get a user delegation SAS for a container
 
-The following code example shows how to generate a user delegation SAS for a container:
+You can also create a user delegation SAS to delegate limited access to a container resource. The following code example shows how to create a user delegation SAS for a container:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasContainer":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASContainer":::
 
-## Get a user delegation SAS for a directory
+The following code example shows how to use the user delegation SAS to authorize a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object. This client object can be used to perform operations on the container resource based on the permissions and duration granted by the SAS.
 
-The following code example shows how to generate a user delegation SAS for a directory when a hierarchical namespace is enabled for the storage account:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASContainer":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
