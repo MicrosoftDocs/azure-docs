@@ -180,6 +180,8 @@
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
+    - name: Configure MFA using the portal guide
+      href: multi-factor-authentication-wizard.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
     - name: Configure users
