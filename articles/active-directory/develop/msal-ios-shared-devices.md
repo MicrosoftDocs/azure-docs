@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/03/2022
+ms.date: 05/11/2023
 ms.author: henrymbugua
-ms.reviewer: brandwe
+ms.reviewer: brandwe, akgoel23
 ms.custom: aaddev
 ---
 
@@ -22,63 +22,41 @@ ms.custom: aaddev
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-Shared device mode allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device, and it's immediately ready for use by the next employee.
+Shared device mode [https://learn.microsoft.com/azure/active-directory/develop/msal-shared-devices] allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single signed-on (SSO) to all apps which support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app which also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previoud user's data.
 
-Shared device mode also provides Microsoft identity-backed management of the device.
+To take advantage of shared device mode feature, app developers and cloud device admins work together:
 
-This feature uses the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to manage the users on the device and to distribute the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
+1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune. The MDM pushes the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) app to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode. To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
 
-## Create a shared device mode app
+1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) to handle the following:
 
-To create a shared device mode app, developers and cloud device admins work together:
+   - Sign in a user device-wide through any supported application.
+   - Sign out a user device-wide through any supported application.
+   - Query the state of the device to determine if your application is on a device that's in shared device mode.
+   - Query the device state of the user on the device to determine if anything has changed since the last time your application was used.
 
-1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) and write code to handle things like shared device sign-out.
+   Supporting shared device mode should be considered a feature upgrade for your application, and can help increase its adoption in environments where the same device is used among multiple users.
 
-1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune to manage the devices in their organization. The MDM pushes the Microsoft Authenticator app to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode.
+    > [!IMPORTANT] 
+    > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS dont require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
 
-1. [**Required during Public Preview only**] A user with [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role must then launch the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) and join their device to the organization.
+## Microsoft applications that support shared device mode
 
-   To configure the membership of your organizational roles in the Azure portal: **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**
+These Microsoft applications support Azure AD's shared device mode:
 
-The following sections help you update your application to support shared device mode.
+- [Microsoft Teams](/microsoftteams/platform/) (in Public Preview)
 
-## Use Intune to enable shared device mode & SSO extension
+> [!IMPORTANT]
+> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> The following step is required only during public preview.
+## Setup device in Shared Device Mode
 
-Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
+Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
-1. In the Intune Configuration Portal, tell the device to enable the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) with the following configuration:
+Microsoft Intune supports zero-touch provisioning for devices in Azure AD shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To setup device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](https://learn.microsoft.com/mem/intune/enrollment/automated-device-enrollment-shared-device-mode).
 
-   - **Type**: Redirect
-   - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
-   - **Team ID**: (this field isn't needed for iOS)
-   - **URLs**:
-     - `https://login.microsoftonline.com`
-     - `https://login.microsoft.com`
-     - `https://sts.windows.net`
-     - `https://login.partner.microsoftonline.cn`
-     - `https://login.chinacloudapi.cn`
-     - `https://login.microsoftonline.de`
-     - `https://login.microsoftonline.us`
-     - `https://login.usgovcloudapi.net`
-     - `https://login-us.microsoftonline.com`
-   - **Additional Data to configure**:
-     - Key: sharedDeviceMode
-     - Type: Boolean
-     - Value: true
-
-   For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
-
-1. Next, configure your MDM to push the Microsoft Authenticator app to your device through an MDM profile.
-
-   Set the following configuration options to turn on Shared Device mode:
-
-   - Configuration 1:
-     - Key: sharedDeviceMode
-     - Type: Boolean
-     - Value: true
+> [!IMPORTANT]
+> We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
 
 ## Modify your iOS application to support shared device mode
 
