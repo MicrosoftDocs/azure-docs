@@ -222,6 +222,8 @@ If you encounter errors when you run `az role assignment create`, you might not 
       --host <ip address> \
       --command-name nodetool --arguments rebuild="" "dc-eastus2"=""
     ``` 
+> [!WARNING]
+> You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to raise a ticket so our support team `repair` on your behalf. 
 
 ## Troubleshooting
 
