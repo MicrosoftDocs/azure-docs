@@ -14,7 +14,7 @@ ms.date: 05/08/2023
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-The in-account point-in-time restore capability of continuous backup in Azure Cosmos DB allows you to restore the deleted databases or containers within the same account. You can perform this restore operation using the Azure portal, Azure CLI, or Azure PowerShell. This feature helps in recovering the data from accidental deletions of databases or containers.
+The in-account point-in-time restore capability of continuous backup in Azure Cosmos DB allows you to restore the deleted databases or containers within the same account. You can perform this restore operation using the [Azure portal](how-to-restore-in-account-continuous-backup.md?tabs=azure-portal&pivots=api-nosql), [Azure CLI](how-to-restore-in-account-continuous-backup.md?tabs=azure-cli&pivots=api-nosql), or [Azure PowerShell](how-to-restore-in-account-continuous-backup.md?tabs=azure-powershell&pivots=api-nosql). This feature helps in recovering the data from accidental deletions of databases or containers.
 
 ## What is restored?
 
