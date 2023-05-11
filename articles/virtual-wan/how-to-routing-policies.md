@@ -255,7 +255,7 @@ The following steps describe how to configure routing intent and routing policie
     :::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
 
 8. Select **Inter-hub** to be **Enabled**. Enabling this option ensures your Routing Policies are applied to the Routing Intent of this Virtual WAN Hub. 
-9. Select **Save**. This operation takes around 10 minutes to complete. 
+9. Select **Save**. 
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 11. At this point, you're ready to send test traffic. Please make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
 
@@ -278,7 +278,7 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
-5. If you want to configure an Internet Traffic Routing Policy, under **Internet traffic** select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution** and under **Next Hop Resource** select the relevant next hop resource.. 
+5. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution** and under **Next Hop Resource** select the relevant next hop resource.. 
 
     :::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
