@@ -331,6 +331,9 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
     - **Name**: mysecrets
     - **Mount all secrets**: enabled
 
+    > [!NOTE]
+    > If you want to load specific secrets, disable **Mount all secrets** and select the secrets you want to load.
+
 1. Select **Add**.
 
 1. Under *Volume name*, select **mysecrets**.
@@ -411,9 +414,74 @@ In this example, two secrets are declared at the application level. These secret
 }
 ```
 
+To load specific secrets and specify their paths within the mounted volume, you define the secrets in the `secrets` array of the volume object. The following example shows how to load only the `queue-connection-string` secret in the `mysecrets` volume mount with a file name of `connection-string.txt`.
+
+```json
+{
+    "properties": {
+        ...
+        "configuration": {
+            ...
+            "secrets": [
+                {
+                    "name": "queue-connection-string",
+                    "value": "[parameters('queue-connection-string')]"
+                },
+                {
+                    "name": "api-key",
+                    "value": "[parameters('api-key')]"
+                }
+            ]
+        },
+        "template": {
+            "containers": [
+                {
+                    "image": "myregistry/myQueueApp:v1",
+                    "name": "myQueueApp",
+                    "volumeMounts": [
+                        {
+                            "name": "mysecrets",
+                            "mountPath": "/mnt/secrets"
+                        }
+                    ]
+                }
+            ],
+            "volumes": [
+                {
+                    "name": "mysecrets",
+                    "storageType": "Secret",
+                    "secrets": [
+                        {
+                            "secretRef": "queue-connection-string",
+                            "path": "connection-string.txt"
+                        }
+                    ]
+                }
+            ]
+        }
+        ...
+    }
+    ...
+}
+```
+
+In your app, you can read the secret from a file located at `/mnt/secrets/connection-string.txt`.
+
 # [Azure CLI](#tab/azure-cli)
 
-Mounting secrets as a volume is not supported in the Azure CLI.
+In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets` of type `Secret`. The volume is mounted at the path `/mnt/secrets`. The application can then read the secrets as files in the volume mount.
+
+```azurecli-interactive
+az containerapp create \
+  --resource-group "my-resource-group" \
+  --name myQueueApp \
+  --environment "my-environment-name" \
+  --image demos/myQueueApp:v1 \
+  --secrets "queue-connection-string=$CONNECTIONSTRING" "api-key=$API_KEY" \
+  --secret-volume-mount "/mnt/secrets"
+```
+
+To load specific secrets and specify their paths within the mounted volume, define your app using [YAML](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
 
 # [PowerShell](#tab/powershell)
 
