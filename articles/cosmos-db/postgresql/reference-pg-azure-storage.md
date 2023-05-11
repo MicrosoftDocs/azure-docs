@@ -168,9 +168,8 @@ A container name must be a valid DNS name, as it forms part of the unique URI us
 * Two or more consecutive dash characters aren't permitted in container names.
 
 The URI for a container is similar to:
-```
-`https://<span></span>myaccount.blob.core.windows.net/mycontainer`
-```
+`https://myaccount.blob.core.windows.net/mycontainer`
+
 #### prefix
 returns file from blob container with matching string initials.
 #### path
