@@ -37,10 +37,10 @@ items:
       href: dicom-configure-azure-rbac.md#assign-roles-for-the-dicom-service
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-  - name: Diagnostic logging
+  - name: Audit and diagnostic logging
     expanded: false
     items: 
-    - name: Enable diagnostic logging in the DICOM service
+    - name: Enable audit and diagnostic logging in the DICOM service
       href: enable-diagnostic-logging.md
   - name: Operations
     expanded: false

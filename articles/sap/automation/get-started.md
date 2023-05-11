@@ -31,14 +31,12 @@ Clone the repository and prepare the execution environment by using the followin
 - Create a directory called `Azure_SAP_Automated_Deployment` for your automation framework deployment. 
 
 ```bash
-mkdir ~/Azure_SAP_Automated_Deployment/config; cd $_
-git clone https://github.com/Azure/sap-automation-bootstrap.git 
+mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
+git clone https://github.com/Azure/sap-automation-bootstrap.git config
 
-mkdir ~/Azure_SAP_Automated_Deployment/sap-automation; cd $_
-git clone https://github.com/Azure/sap-automation.git 
+git clone https://github.com/Azure/sap-automation.git sap-automation
 
-mkdir ~/Azure_SAP_Automated_Deployment/samples; cd $_
-git clone https://github.com/Azure/sap-automation-samples.git 
+git clone https://github.com/Azure/sap-automation-samples.git samples
 ```
 
 

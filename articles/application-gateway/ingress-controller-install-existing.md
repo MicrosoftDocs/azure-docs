@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 
@@ -307,9 +307,9 @@ Apply the Helm changes:
       ```
 
 As a result your AKS has a new instance of `AzureIngressProhibitedTarget` called `prohibit-all-targets`:
-```bash
-kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
-```
+  ```bash
+  kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
+  ```
 
 The object `prohibit-all-targets`, as the name implies, prohibits AGIC from changing config for *any* host and path.
 Helm install with `appgw.shared=true` deploys AGIC, but doesn't make any changes to Application Gateway.

@@ -2,8 +2,8 @@
 title: REST SDK Developer Guide
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the various SDK Developer how-to articles.
-author: eriklindeman
-ms.author: eriklind
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 10/31/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -66,7 +66,6 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
 | [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
-| [Elevation][java elevation readme] ([deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023)) | [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 For more information, see the [Java SDK Developers Guide].
 
@@ -141,6 +140,3 @@ For more information, see the [Java SDK Developers Guide].
 [java timezone package]: https://repo1.maven.org/maven2/com/azure/azure-maps-timezone
 [java timezone readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-timezone/README.md
 [java timezone sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-timezone/src/samples/java/com/azure/maps/timezone/samples
-[java elevation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-elevation
-[java elevation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-elevation/README.md
-[java elevation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-elevation/src/samples/java/com/azure/maps/elevation/samples

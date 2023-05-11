@@ -8,18 +8,12 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 05/05/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
 # Known issues for provisioning in Azure Active Directory
-
-::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
 
 This article discusses known issues to be aware of when you work with app provisioning or cross-tenant synchronization. To provide feedback about the application provisioning service on UserVoice, see [Azure Active Directory (Azure AD) application provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). We watch UserVoice closely so that we can improve the service.
 
@@ -37,7 +31,13 @@ This article discusses known issues to be aware of when you work with app provis
 - Synchronizing photos across tenants
 - Synchronizing contacts and converting contacts to B2B users
 
-### Provisioning users
+### Microsoft Teams
+
+* Microsoft Teams does not support converting the [userType](../external-identities/user-properties.md) property on a B2B user from `member` to `guest` or `guest` to `member`.
+* External / B2B users of type `member` cannot be added to a shared channel in Microsoft Teams. If your organization uses shared channels, please ensure that you update your synchronization configuration to create users as type `guest`. At that point, you will be able to add the native identity (the original account in the source tenant) to the shared channel. If a user is already created as type `member`, you can convert the user to type `guest` in this scenario and add the native identity to the shared channel.
+* External / B2B users will need to switch tenants in Teams to receive messages. This experience does not change for users created by cross-tenant synchronization.
+
+ ### Provisioning users
 
 An external user from the source (home) tenant can't be provisioned into another tenant. Internal guest users from the source tenant can't be provisioned into another tenant. Only internal member users from the source tenant can be provisioned into the target tenant. For more information, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
 

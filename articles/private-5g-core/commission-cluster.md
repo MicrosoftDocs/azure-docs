@@ -69,7 +69,7 @@ You now have a minishell session set up ready to enable your Azure Kubernetes Se
 
 ## Enable Azure Kubernetes Service on the Azure Stack Edge device
 
-Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). 
 
 ```powershell
 Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
@@ -268,7 +268,7 @@ Collect each of the values in the table below.
 |The ID of the Azure subscription in which the Azure resources are deployed. |**SUBSCRIPTION_ID**|
 |The name of the resource group in which the AKS cluster is deployed. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_GROUP_NAME**|
 |The name of the AKS cluster resource. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_NAME**|
-|The region in which the Azure resources are deployed. This must match the region into which the mobile network will be deployed, which must be one of the regions supported by AP5GC: **EastUS** or **WestEurope**.</br></br>This value must be the [region's code name](region-code-names.md); see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for a list of supported regions. |**LOCATION**|
+|The region in which the Azure resources are deployed. This must match the region into which the mobile network will be deployed, which must be one of the regions supported by AP5GC.</br></br>This value must be the [region's code name](region-code-names.md). |**LOCATION**|
 |The name of the **Custom location** resource to be created for the AKS cluster. </br></br>This value must start and end with alphanumeric characters, and must contain only alphanumeric characters, `-` or `.`. |**CUSTOM_LOCATION**|
 
 ## Install Kubernetes extensions
@@ -335,7 +335,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     --resource-group "$RESOURCE_GROUP_NAME" \
     --cluster-type connectedClusters \
     --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
-    --release-train preview \
+    --release-train stable \
     --auto-upgrade true 
     ```
 
@@ -351,19 +351,35 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
-You should see the new **Custom Location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
+You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
 
 ## Rollback
 
 If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster (see [Deploy Azure Kubernetes service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge)). You can then modify the settings via the local UI.  
 
-Alternatively, you can perform a full reset using the **Device Reset** blade in the local UI (see [Azure Stack Edge device reset and reactivation](/azure/databox-online/azure-stack-edge-reset-reactivate-device)) and then restart this procedure.  In this case, you should also [delete any associated resources](/azure/databox-online/azure-stack-edge-return-device?tabs=azure-portal) left in the Azure Portal after completing the Azure Stack Edge reset. This will include some or all of the following, depending on how far through the process you are:
+Alternatively, you can perform a full reset using the **Device Reset** blade in the local UI (see [Azure Stack Edge device reset and reactivation](/azure/databox-online/azure-stack-edge-reset-reactivate-device)) and then restart this procedure.  In this case, you should also [delete any associated resources](/azure/databox-online/azure-stack-edge-return-device?tabs=azure-portal) left in the Azure portal after completing the Azure Stack Edge reset. This will include some or all of the following, depending on how far through the process you are:
 
 - **Azure Stack Edge** resource
 - Autogenerated **KeyVault** associated with the **Azure Stack Edge** resource
 - Autogenerated **StorageAccount** associated with the **Azure Stack Edge** resource
 - **Azure Kubernetes Cluster** (if successfully created)
 - **Custom location** (if successfully created)
+
+## Changing ASE configuration after deployment
+
+You may need to update the ASE configuration after deploying the packet core, for example to add or remove an attached data network or to change an IP address. To change ASE configuration, destroy the **Custom location** and **Azure Kubernetes Service** resources, make your ASE configuration changes, and then recreate those resources. This allows you to temporarily disconnect the packet core instead of destroying and recreating it, minimizing the reconfiguration needed. You may also need to make equivalent changes to the packet core configuration.
+
+> [!CAUTION]
+> Your packet core will be unavailable during this procedure. If you're making changes to a healthy packet core instance, we recommend running this procedure during a maintenance window to minimize the impact on your service.
+
+1. Navigate to the resource group overview in the Azure portal (for the resource group containing the packet core). Select the **Packet Core Control Plane** resource and select **Modify packet core**. Set **Azure Arc Custom Location** to **None** and select **Modify**.
+1. Navigate to the resource group containing the **Custom location** resource. Select the tick box for the **Custom location** resource and select **Delete**. Confirm the deletion.
+1. Navigate to the **Azure Stack Edge** resource and remove all configuration for the **Azure Kubernetes Service**.
+1. Access the ASE local UI and update the configuration as needed.
+1. Recreate the Kubernetes cluster. See [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
+1. Recreate the custom location resource. Select the **Packet Core Control Plane** resource and select **Configure a custom location**.
+
+Your packet core should now be in service with the updated ASE configuration. To update the packet core configuration, see [Modify a packet core instance](modify-packet-core.md).
 
 ## Next steps
 

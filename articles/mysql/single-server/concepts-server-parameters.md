@@ -349,7 +349,7 @@ To configure the `event_scheduler` server parameter in Azure Database for MySQL,
 
 4. To view the Event Scheduler Details, run the following SQL statement:
 
-    ```slq
+    ```sql
     SHOW EVENTS;
     ```
 

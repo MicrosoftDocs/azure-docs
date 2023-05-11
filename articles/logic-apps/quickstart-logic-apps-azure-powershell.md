@@ -14,7 +14,7 @@ ms.date: 08/20/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-az-ps). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
+This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-azure-powershell). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
 
 > [!NOTE]
 >
@@ -28,7 +28,7 @@ If you're new to Azure Logic Apps, learn how to create your first Consumption lo
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The [Az PowerShell](/powershell/azure/install-az-ps) module installed on your local computer.
+* The [Az PowerShell](/powershell/azure/install-azure-powershell) module installed on your local computer.
 
 * An [Azure resource group](#example---create-resource-group) in which to create your logic app.
 

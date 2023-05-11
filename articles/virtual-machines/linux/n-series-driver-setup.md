@@ -77,6 +77,87 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
+#### Install CUDA driver on Ubuntu with Secure Boot enabled
+
+With Secure Boot enabled, all Linux kernel modules are required to be signed by the key trusted by the system.
+
+1. Find latest nvidia driver version
+
+```
+sudo apt-get update
+NVIDIA_DRIVER_VERSION=$(sudo apt-cache search 'linux-modules-nvidia-[0-9]+-azure$' | awk '{print $1}' | sort | tail -n 1 | head -n 1 | awk -F"-" '{print $4}')
+```
+
+2. Install pre-built azure linux kernel based nvidia modules and driver
+
+```
+sudo apt install -y linux-modules-nvidia-${NVIDIA_DRIVER_VERSION}-azure nvidia-driver-${NVIDIA_DRIVER_VERSION}
+```
+
+3. Change preference of nvidia packages to prefer NVIDIA repos
+
+```
+sudo tee /etc/apt/preferences.d/cuda-repository-pin-600 > /dev/null <<EOL
+Package: nsight-compute
+Pin: origin *ubuntu.com*
+Pin-Priority: -1
+Package: nsight-systems
+Pin: origin *ubuntu.com*
+Pin-Priority: -1
+Package: nvidia-modprobe
+Pin: release l=NVIDIA CUDA
+Pin-Priority: 600
+Package: nvidia-settings
+Pin: release l=NVIDIA CUDA
+Pin-Priority: 600
+Package: *
+Pin: release l=NVIDIA CUDA
+Pin-Priority: 100
+EOL
+```
+
+4. Add CUDA repository
+
+```
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+```
+
+5. Find appropriate CUDA driver version
+
+```
+CUDA_DRIVER_VERSION=$(apt-cache madison cuda-drivers | awk '{print $3}' | sort -r | while read line; do
+   if dpkg --compare-versions $(dpkg-query -f='${Version}\n' -W nvidia-driver-${NVIDIA_DRIVER_VERSION}) ge $line ; then
+       echo "$line"
+       break
+   fi
+done)
+NVIDIA_DRIVER_MAPPING=$(echo $CUDA_DRIVER_VERSION | awk -F"." '{print $1}')
+```
+
+6. Install CUDA driver
+
+```
+sudo apt install -y cuda-drivers-${NVIDIA_DRIVER_MAPPING}=${CUDA_DRIVER_VERSION} cuda-drivers=${CUDA_DRIVER_VERSION}
+```
+
+7. Find CUDA toolkit and runtime version
+
+```
+CUDA_VERSION=$(apt-cache showpkg cuda-drivers | grep -o 'cuda-runtime-[0-9][0-9]-[0-9],cuda-drivers [0-9\.]*' | while read line; do
+   if dpkg --compare-versions ${CUDA_DRIVER_VERSION} ge $(echo $line | grep -Eo '[[:digit:]]+\.[[:digit:]]+') ; then
+       echo $(echo $line | grep -Eo '[[:digit:]]+-[[:digit:]]')
+       break
+   fi
+done)
+```
+
+8. Install CUDA toolkit and runtime
+
+```
+sudo apt install -y cuda-${CUDA_VERSION}
+```
+
 
 ### CentOS or Red Hat Enterprise Linux
 
@@ -200,7 +281,6 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    blacklist lbm-nouveau
    ```
 
-
 4. Reboot the VM and reconnect. Exit X server:
 
    ```bash
@@ -236,6 +316,10 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    FeatureType=0
    ```
 10. Reboot the VM and proceed to verify the installation.
+
+#### Install GRID driver on Ubuntu with Secure Boot enabled
+
+The GRID driver installation process does not offer any options to skip kernel module build and installation, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
 
 
 ### CentOS or Red Hat Enterprise Linux 

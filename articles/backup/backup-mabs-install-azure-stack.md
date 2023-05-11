@@ -208,7 +208,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
    > Azure Backup Server won't work with a remote SQL Server instance. The instance used by Azure Backup Server must be local.
    >
 
-    ![Azure Backup Server - SQL settings](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/sql/install-new-instance-of-sql-server.png" alt-text="Screenshot shows Azure Backup Server SQL check.":::
 
     After checking, if the virtual machine has the necessary prerequisites to install Azure Backup Server, select **Next**.
 
@@ -222,7 +222,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
 
 6. On the **Security Settings** screen, provide a strong password for restricted local user accounts and select **Next**.
 
-    ![Security settings screen](./media/backup-mabs-install-azure-stack/mabs-install-wizard-security-12.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png" alt-text="Screenshot shows the Microsoft Update Opt-In page.":::
 
 7. On the **Microsoft Update Opt-In** screen, select whether you want to use *Microsoft Update* to check for updates and select **Next**.
 

@@ -4,7 +4,7 @@ description: Overview of maintenance and updates for virtual machines running in
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 04/13/2023
 #pmcontact:shants
 ---
 # Maintenance for virtual machines in Azure
@@ -66,7 +66,7 @@ During the *self-service phase*, which typically lasts four weeks, you start the
 > [!NOTE]
 > For VM-series that do not support [Live Migration](#live-migration), local (ephemeral) disks data can be lost during the maintenance events. See each individual VM-series for information on if Live Migration is supported. 
 
-When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM is redeployed, the temporary disk is lost and dynamic IP addresses associated with the virtual network interface are updated.
+When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM is redeployed, the temporary disk is lost and public dynamic IP addresses associated with the virtual network interface are updated.
 
 If an error arises during self-service maintenance, the operation stops, the VM isn't updated, and you get the option to retry the self-service maintenance. 
 
