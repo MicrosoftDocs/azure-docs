@@ -202,7 +202,8 @@ Create an app in the Azure Spring Apps instance by using the following command:
        --name ${APP_NAME} \
        --cpu 1 \
        --memory 2 \
-       --instance-count 2 \
+       --min-replicas 2 \
+       --max-replicas 2 \
        --runtime-version Java_17 \
        --assign-endpoint true
    ```
@@ -224,7 +225,8 @@ az spring app create \
    --name ${APP_NAME} \
    --cpu 1 \
    --memory 2Gi \
-   --instance-count 2 \
+   --min-replicas 2 \
+   --max-replicas 2 \
    --runtime-version Java_17 \
    --assign-endpoint true \
    --workload-profile my-wlp
