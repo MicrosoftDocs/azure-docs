@@ -27,9 +27,9 @@ Automated deployments simplify the process of setting up a GitHub Action and cre
 
 In the Azure portal, navigate to the resource group containing the AKS cluster you want to deploy the application to.
 
-Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Upon selecting **Create**, you will be presented with two options. If you have an application that isn't yet containerized, you can select **Automatically containerize and deploy**  to allow Azure to take care of the process for you. If you already have a containerized application, select **Deploy an application**.
+Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Upon selecting **Create**, you'll be presented with two options. If you have an application that isn't yet containerized, you can select **Automatically containerize and deploy**  to allow Azure to take care of the process for you. If you already have a containerized application, select **Deploy an application**.
 
-:::image type="content" source="media/automated-deployments/create-inline.png" alt-text="The automated deployments screen in the Azure portal. 'Create' has been selected, showing the options for already containerized applications and applications that are not yet containerized."  lightbox="media/automated-deployments/create.png":::
+:::image type="content" source="media/automated-deployments/create-inline.png" alt-text="The automated deployments screen in the Azure portal. 'Create' has been selected, showing the options for already containerized applications and applications that aren't yet containerized."  lightbox="media/automated-deployments/create.png":::
 
 Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
 
