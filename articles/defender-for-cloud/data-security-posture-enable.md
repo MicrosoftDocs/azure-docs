@@ -1,8 +1,8 @@
 ---
 title: Enable data-aware security posture for Azure datastores - Microsoft Defender for Cloud
 description: Learn how to enable data-aware security posture in Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 04/13/2023
