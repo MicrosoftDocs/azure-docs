@@ -52,9 +52,9 @@ Use the following steps to deploy the Spring Petclinic microservices project:
    mvn clean package -DskipTest    
    ```
 
-   The deployment can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders.
+   The build process can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders.
 
-1. Use the steps in [Unit-1 - Deploy and monitor Spring Boot apps](https://github.com/Azure-Samples/spring-petclinic-microservices#unit-1---deploy-and-monitor-spring-boot-apps) to complete the deployment needed for this demonstration.
+For more information about deploying this sample application, see [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Assign a public endpoint
 
@@ -272,7 +272,7 @@ Use the following command to configure the server to use port 1025 so that the i
 grpc.server.port=1025
 ```
 
-The setting `grpc.server.port=1025` is added to the *application.yaml* or *application.properties* in the *spring-petclinic-customers-service/src/main/resources* folder.
+The setting `grpc.server.port=1025` is added to *application.properties* in the *spring-petclinic-customers-service/src/main/resources* folder.
 
 ## Build the service JAR file
 
@@ -314,22 +314,24 @@ You can use grpcurl to test the gRPC server. The only port supported for gRPC ca
 
 Use the following grpc curl commands to check the gRPC server by listing all the pet owners.
 
-   ```bash
-   grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443 list
-   grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443  org.springframework.samples.petclinic.customers.grpc.CustomersService.findAll
-       grpcurl -d "{\"ownerId\":7}" <SERVICE-NAME>-customers-service.azuremicroservices.io:443  org.springframework.samples.petclinic.customers.grpc.CustomersService.findOwner
-   ```
+```bash
+grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443 list
+grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443  org.springframework.samples.petclinic.customers.grpc.CustomersService.findAll
+grpcurl -d "{\"ownerId\":7}" <SERVICE-NAME>-customers-service.azuremicroservices.io:443  org.springframework.samples.petclinic.customers.grpc.CustomersService.findOwner
+```
 
 ## FAQ
 
-- How do I test the endpoint?
+- How do I test endpoint?
 
-   Use the following curl and HTTP commands to test the endpoint of the gRPC server:
+   Use the following curl and HTTP commands to test endpoint of the gRPC server:
 
    ```bash
    echo -n '0000000000' | xxd -r -p - frame.bin
    curl -v --insecure --raw -X POST -H "Content-Type: application/grpc" -H "TE: trailers" --data-binary @frame.bin <TEST-ENDPOINT>/org.springframework.samples.petclinic.customers.grpc.CustomersService/findAll
    ```
+
+  For more information, see the [View apps and deployments](how-to-staging-environment.md#view-apps-and-deployments) of [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
 
 ## Next steps
 
