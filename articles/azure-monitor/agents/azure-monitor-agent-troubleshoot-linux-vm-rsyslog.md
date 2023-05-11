@@ -1,12 +1,24 @@
 ---
-title: Rsyslog data not uploaded due to Full Disk space issue on AMA Linux Agent
+title: Syslog troubleshooting on AMA Linux Agent
 description: Guidance for troubleshooting rsyslog issues on Linux virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
 ms.date: 5/3/2022
 ms.custom: references_region
 ms.reviewer: shseth
 ---
+# Syslog issue troubleshooting guide for Azure Monitor Linux Agent
+Here's how AMA collects syslog events:  
 
+- AMA installs an output configuration for the system syslog daemon during the installation process. The configuration file specifies the way events flow between the syslog daemon and AMA.
+- For `rsyslog` (most Linux distributions), the configuration file is `/etc/rsyslog.d/10-azuremonitoragent.conf`. For `syslog-ng`, the configuration file is `/etc/syslog-ng/conf.d/azuremonitoragent.conf`.
+- AMA listens to a UNIX domain socket to receive events from `rsyslog` / `syslog-ng`. The socket path for this communication is `/run/azuremonitoragent/default_syslog.socket`
+- The syslog daemon will use queues when AMA ingestion is delayed, or when AMA isn't reachable.
+- AMA ingests syslog events via the aforementioned socket and filters them based on facility / severity combination from DCR configuration in `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Any `facility` / `severity` not present in the DCR will be dropped.
+- AMA attempts to parse events in accordance with **RFC3164** and **RFC5424**. Additionally, it knows how to parse the message formats listed [here](./azure-monitor-agent-overview.md#data-sources-and-destinations).
+- AMA identifies the destination endpoint for Syslog events from the DCR configuration and attempts to upload the events. 
+	> [!NOTE]
+	> AMA uses local persistency by default, all events received from `rsyslog` / `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
+	
 # Rsyslog data not uploaded due to Full Disk space issue on AMA Linux Agent
 
 ## Symptom
