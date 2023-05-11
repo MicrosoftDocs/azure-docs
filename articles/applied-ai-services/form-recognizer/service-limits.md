@@ -86,7 +86,7 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No | No |
 | **Max number of pages (Training) * Neural** | 50,000 | 50,000 (default value) |
 | Adjustable | No | No |
-| **Custom neural model train** | 10 per month | 10 per month |
+| **Custom neural model train** | 10 per month | 20 per month |
 | Adjustable | No |Yes <sup>3</sup>|
 | **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
 | Adjustable | No | No |
@@ -119,7 +119,7 @@ This article contains both a quick reference and detailed description of Azure F
 
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 > <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
-> <sup>3</sup> Open a support request to increase the monthly training limit.
+> <sup>3</sup> Neural models training count is reset every calendar month. Open a support request to increase the monthly training limit.
 ::: moniker-end
 ::: moniker range="form-recog-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
