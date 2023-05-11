@@ -22,29 +22,38 @@ ms.reviewer: mmcc
 
 Three methods are available to enable the Application Insights via the Application Insights JavaScript SDK.
 
-> [!TIP] Alternatively, if your JavaScript application is hosted on an applicable Azure environment or resource provider, Application Insights is automatically instrumented. For more information, see [auto-instrumentation for Azure Monitor Application Insights]().
+> [!TIP] 
+> Alternatively, if your JavaScript application is hosted on an applicable Azure environment or resource provider, Application Insights is instrumented automatically. For more information, see [auto-instrumentation for Azure Monitor Application Insights]().
 
 ### [Auto-Instrumentation](#tab/autoinstrumentation)
 
-Use this method if you want to automatically inject the Application Insights JavaScript SDK into every webpage of your web application instead of including the Application Insights code with your application code. The following Application Insights SDKs are supported.
+Use this method if you want to automatically inject the Application Insights JavaScript SDK into every webpage of your web application instead of including the Application Insights code with your application code. 
+
+The following Application Insights SDKs are supported.
 
 | SDK   | More information
 |	:---	|	:---	|
 | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
 | Node.js | [Automatic web Instrumentation[Preview]](./nodejs.md#automatic-web-instrumentationpreview) |
 
-> [!NOTE] If you want more control over which pages you add the Application Insights JavaScript SDK to or if you're using a programming language other than .NET and Node.js, see [SDK Loader Script](?tabs=sdkloaderscript#enable-application-insights).
+> [!NOTE] 
+> If you want more control over which pages you add the Application Insights JavaScript SDK to or if you're using a programming language other than .NET and Node.js, see [SDK Loader Script](?tabs=sdkloaderscript#enable-application-insights).
 
 ### [SDK Loader Script](#tab/sdkloaderscript)
 
-Use this method if you want to load the SDK from the CDN instead of including the Application Insights code with your application code and want control over which pages you add the Application Insights JavaScript SDK to. To use this method, you must manually paste the SDK Loader Script at the top of each applicable page.
+Use this method if you want to:
+
+- Load the SDK from the CDN instead of including the Application Insights code with your application code.
+- Have control over which pages you add the Application Insights JavaScript SDK to. 
+
+To use this method, you must manually paste the SDK Loader Script at the top of each applicable page.
 
 Use the following steps to enable Application Insights:
 
 1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
-> [!NOTE]
-> Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
+   > [!NOTE]
+   > Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
 
    ```html
    <script type="text/javascript">
@@ -93,19 +102,19 @@ npm i --save @microsoft/applicationinsights-web
 
 1. Add the following JavaScript to your application's code.
 
-> [!NOTE]
-> Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
+   > [!NOTE]
+   > Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
     
-```js
-import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+   ```js
+   import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
-const appInsights = new ApplicationInsights({ config: {
-  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
-  /* ...Other Configuration Options... */
-} });
-appInsights.loadAppInsights();
-appInsights.trackPageView();
-```
+   const appInsights = new ApplicationInsights({ config: {
+     connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+     /* ...Other Configuration Options... */
+   } });
+   appInsights.loadAppInsights();
+   appInsights.trackPageView();
+   ```
 
 1. Add your connection string:
 
