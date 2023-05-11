@@ -109,7 +109,7 @@ MIM can't be configured to use Azure AD Multi-Factor Authentication.
 We recommend you evaluate moving your SSPR service to Azure AD SSPR.
 You can use the opportunity of users registering for Azure AD Multi-Factor Authentication to use the combined registration experience to register for Azure AD SSPR.
 
-If you can't move your SSPR service, or you leverage MFA Server to invoke MFA requests for Privileged Access Management (PAM) scenarios, we recommend you update to an [alternate 3rd party MFA option](https://learn.microsoft.com/microsoft-identity-manager/working-with-custommfaserver-for-mim).
+If you can't move your SSPR service, or you leverage MFA Server to invoke MFA requests for Privileged Access Management (PAM) scenarios, we recommend you update to an [alternate 3rd party MFA option](/microsoft-identity-manager/working-with-custommfaserver-for-mim).
 
 ### RADIUS clients and Azure AD Multi-Factor Authentication
 
