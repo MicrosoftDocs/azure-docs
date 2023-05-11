@@ -13,12 +13,11 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 ## May 2023
 
-** Azure VMware Solution in Azure Gov**
+**Azure VMware Solution in Azure Gov**
  
 Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
  
-
 ** New Azure VMware Solution Region: Qatar**
  
 We are excited to announce that the Azure VMware Solution has gone live in Qatar Central and is now available to customers. 
