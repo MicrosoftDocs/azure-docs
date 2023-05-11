@@ -63,11 +63,11 @@ You need to create at least 3 GitHub secrets for deploying a Stream Analytics jo
 3. Create secrets for Input and Output resources. For more than one input/output resources, you need to create secrets for each Azure resource respectively. 
     1. For example to create a secret for an event hub, go to the Event Hubs in Azure portal and copy the **Primary key** from Shared access policy. 
 
-        :::image type="content" source="./media/cicd-github-actions/event-hub-key.png" alt-text="Screenshot of the Event Hubs opening the access key." lightbox= "./media/cicd-github-actions/event-hub-key.png" :::
+        :::image type="content" source="./media/cicd-github-actions/event-hub-key.png" alt-text="Screenshot of the event hub opening the access key." lightbox= "./media/cicd-github-actions/event-hub-key.png" :::
         
     2. Copy the access key to the secret value. 
         
-        :::image type="content" source="./media/cicd-github-actions/input-key.png" alt-text="Screenshot of the Event Hub opening the access key." lightbox= "./media/cicd-github-actions/input-key.png" :::
+        :::image type="content" source="./media/cicd-github-actions/input-key.png" alt-text="Screenshot of the event hub opening the access key." lightbox= "./media/cicd-github-actions/input-key.png" :::
 
 Once you’ve done, you should have at least three secrets created for the GitHub repository.
 
