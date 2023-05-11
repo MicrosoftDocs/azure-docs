@@ -88,7 +88,7 @@ Here are some additional details about these group settings.
 - If you want to enable some, but not all, of your users to create groups, you can assign those users a role that can create groups, such as [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
 - These settings are for users and don't impact service principals. For example, if you have a service principal with permissions to create groups, even if you set these settings to **No**, the service principal will still be able to create groups. 
 
-## Configure group setting through Microsoft Graph
+## Configure group settings through Microsoft Graph
 
 To configure the _Users can create security groups in Azure portals, API or PowerShell_ setting through Microsoft Graph, configure the **EnableGroupCreation** object through the groupSettings APIs. For more information, see [Overview of group settings](/graph/group-directory-settings).
 
