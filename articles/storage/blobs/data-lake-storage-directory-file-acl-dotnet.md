@@ -154,7 +154,13 @@ This example, prints the names of each file that is located in a directory named
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
 
-## Get a user delegation SAS for a directory
+## Create a user delegation SAS for a directory
+
+To work with the code examples in this section, add the following `using` directive:
+
+```csharp
+using Azure.Storage.Sas;
+```
 
 The following code example shows how to generate a user delegation SAS for a directory when a hierarchical namespace is enabled for the storage account:
 
@@ -163,6 +169,18 @@ The following code example shows how to generate a user delegation SAS for a dir
 The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to list file paths for this directory. If the SAS is invalid, for example if it has expired, Blob Storage returns error code 403 (Forbidden).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
+
+To learn more about creating a user delegation SAS, see [Create a user delegation SAS with .NET](storage-blob-user-delegation-sas-create-dotnet.md).
+
+## Create a service SAS for a directory
+
+In a storage account with a hierarchical namespace enabled, you can create a service SAS for a directory. To create the service SAS, make sure you have installed version 12.5.0 or later of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) package.
+
+The following example shows how to create a service SAS for a directory:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForDirectory":::
+
+To learn more about creating a service SAS, see [Create a service SAS with .NET](sas-service-create-dotnet.md).
 
 ## See also
 
