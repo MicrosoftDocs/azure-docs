@@ -282,7 +282,7 @@ az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:loca
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
 3. Select **Connect** from the left menu.
-4. Select the **SSH** tab. If the VM has a just-in-time policy set, you first need to select the **Request access** button to request access before you can download the RDP file. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
+4. Select the option that fits with your preferred way of connecting. The portal will help walk you through the prerequesites for connecting.
 
 
 ## Next steps
