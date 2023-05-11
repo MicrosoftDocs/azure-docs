@@ -3,7 +3,7 @@ title: AKS release tracker
 description: Learn how to determine which Azure regions have the weekly AKS release deployments rolled out in real time. 
 ms.topic: overview
 ms.date: 04/25/2023
-ms.author: yudian
+ms.author: nickoman
 author: nickomang
 
 ms.custom: mvc
@@ -21,17 +21,17 @@ With AKS release tracker, customers can follow specific component updates presen
 
 To view the release tracker, visit the [AKS release status webpage][release-tracker-webpage].
 
-AKS node image and addons releases are decoupled from the main AKS service release. Customer can select the specific area tab to track the release status.
+AKS node image and add-on releases are decoupled from the primary AKS service release. You can select the specific area tab to track the release status.
 
 The top half of the tracker shows the latest and 3 previously available release versions for each region, and links to the corresponding release notes entry. This view is helpful when you want to track the available versions by region.
 
-![Screenshot of the A K S release tracker's regional status table displayed in a web browser.](./media/release-tracker/regional-status.png)
+:::image type="content" source="./media/release-tracker/regional-status.png" alt-text="Screenshot of the A K S release tracker's regional status table displayed in a web browser.":::
 
 The bottom half of the tracker shows the SDP process. The table has two views: one shows the latest version and status update for each grouping of regions and the other shows the status and region availability of each currently supported version.
 
-![Screenshot of the A K S release tracker's S D P process table displayed in a web browser.](./media/release-tracker/sdp-process.png)
+:::image type="content" source="./media/release-tracker/sdp-process.png" alt-text="Screenshot of the A K S release tracker's S D P process table displayed in a web browser.":::
 
-At the AKS addon release page, customer can select specific addon name to track the release notes and SDP process of the addon.
+On the **AKS addon release page**, you can select a specific add-on name to track its release notes and SDP process.
 
 <!-- LINKS - external -->
 [aks-release]: https://github.com/Azure/AKS/releases
