@@ -35,9 +35,15 @@ Data, governance, and quality focused users like chief data officers and data st
 
 The data stewardship dashboard highlights key performing indicators that the governance stakeholders need to focus on, to attain a clean and governance-ready data estate. Information like asset curation rates, data ownership rates, and classification rates are calculated out of the box and trended over time.
 
-Management-focused users, like a Chief Data Officer, can also get a high-level understanding of weekly and monthly active users of their catalog, and information about how the catalog is being used. Is the catalog being adopted across their organization, as better adoption will lead to better overall governance penetration in the organization?
+Management-focused users, like a Chief Data Officer, can also get a high-level understanding of weekly and monthly active users of their catalog, and information about how the catalog is being used. Is the catalog being adopted across their organization, as better adoption leads to better overall governance penetration in the organization?
 
 For more information about these dashboards, see the [data Stewardship documentation.](data-stewardship.md)
+
+### Catalog adoption
+
+The catalog adoption dashboard highlights active users, searches, viewed assets, and top searched keywords. This report helps you understand how and if your data catalog is being used, so you can see the impact it's having on data usage and discoverability.
+
+For more information about these dashboards, see the [catalog adoption documentation.](catalog-adoption-insights.md)
 
 ## Inventory and ownership
 

@@ -1,23 +1,22 @@
 ---
-title: Data Stewardship Insights in Microsoft Purview
-description: This article describes the data stewardship dashboards in Microsoft Purview, and how they can be used to govern and manage your data estate.
+title: Catalog Adoption Insights in Microsoft Purview
+description: This article describes the catalog adoption dashboards in Microsoft Purview, and how they can be used to govern and manage your data estate.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-insights
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 05/10/2023
 ---
 
-# Get insights into data stewardship from Microsoft Purview
+# Get insights into catalog adoption from Microsoft Purview
 
-As described in the [insights concepts](concept-insights.md), the data stewardship report is part of the "Health" section of the Data Estate Insights App. This report offers a one-stop shop experience for data, governance, and quality focused users like chief data officers and data stewards to get actionable insights into key areas of gap in their data estate.
+As described in the [insights concepts](concept-insights.md), the catalog adoption report is part of the "Health" section of the Data Estate Insights App. This report offers a one-stop shop experience for data, governance, and quality focused users like chief data officers and data stewards to get actionable insights into key areas of gap in their data estate.
 
 In this guide, you'll learn how to:
 
 > [!div class="checklist"]
-> * Navigate and view data stewardship report from your Microsoft Purview account.
+> * Navigate and view catalog adoption report from your Microsoft Purview account.
 > * Drill down for more asset count details.
 
 ## Prerequisites
@@ -42,24 +41,24 @@ In Microsoft Purview Data Estate Insights, you can get an overview of all assets
 
    :::image type="content" source="./media/data-stewardship/view-insights.png" alt-text="Screenshot of the Microsoft Purview governance portal with the Data Estate Insights button highlighted in the left menu.":::
 
-1. In the **Data Estate Insights** area, look for **Data Stewardship** in the **Health** section.
+1. In the **Data Estate Insights** area, look for **Catalog Adoption** in the **Health** section.
 
-   :::image type="content" source="./media/data-stewardship/data-stewardship-table-of-contents.png" alt-text="Screenshot of the Microsoft Purview governance portal Data Estate Insights menu with Data Stewardship highlighted under the Health section.":::
+   :::image type="content" source="./media/data-stewardship/data-stewardship-table-of-contents.png" alt-text="Screenshot of the Microsoft Purview governance portal Data Estate Insights menu with Catalog Adoption highlighted under the Health section.":::
 
-## View data stewardship dashboard
+## View catalog adoption dashboard
 
 The dashboard is purpose-built for the governance and quality focused users, like data stewards and chief data officers, to understand the data estate health of their organization. The dashboard shows high level KPIs that need to reduce governance risks:
 
 * **Asset curation**: All data assets are categorized into three buckets - "Fully curated", "Partially curated" and "Not curated", based on certain attributes of assets being present. An asset is "Fully curated" if it has at least one classification tag, an assigned Data Owner and a description. If any of these attributes is missing, but not all, then the asset is categorized as "Partially curated" and if all of them are missing, then it's "Not curated".
 * **Asset data ownership**: Assets that have the owner attribute within "Contacts" tab as blank are categorized as "No owner", else it's categorized as "Owner assigned".
 
-   :::image type="content" source="./media/data-stewardship/kpis-small.png" alt-text="Screenshot of the data stewardship insights summary graphs, showing the three main KPI charts." lightbox="media/data-stewardship/data-stewardship-kpis-large.png":::
+   :::image type="content" source="./media/data-stewardship/kpis-small.png" alt-text="Screenshot of the catalog adoption insights summary graphs, showing the three main KPI charts." lightbox="media/data-stewardship/data-stewardship-kpis-large.png":::
 
 ### Data estate health
 
 Data estate health is a scorecard view that helps management and governance focused users, like chief data officers, understand critical governance metrics that can be looked at by collection hierarchy.
 
-:::image type="content" source="./media/data-stewardship/data-estate-health-small.png" alt-text="Screenshot of the data stewardship data estate health table in the middle of the dashboard." lightbox="media/data-stewardship/data-estate-health-large.png":::
+:::image type="content" source="./media/data-stewardship/data-estate-health-small.png" alt-text="Screenshot of the catalog adoption data estate health table in the middle of the dashboard." lightbox="media/data-stewardship/data-estate-health-large.png":::
 
 You can view the following metrics:
 * **Assets**: Count of assets by collection drill-down
@@ -74,7 +73,7 @@ You can view the following metrics:
 
 You can also drill down by collection paths. As you hover on each column name, it provides description of the column, provides recommended percentage ranges, and takes you to the detailed graph for further drill-down.
 
-:::image type="content" source="./media/data-stewardship/hover-menu.png" alt-text="Screenshot of the data stewardship data estate health table, with the fully curated column hovered over. A summary is show, and the view more in Stewardship insights option is selected.":::
+:::image type="content" source="./media/data-stewardship/hover-menu.png" alt-text="Screenshot of the catalog adoption data estate health table, with the fully curated column hovered over. A summary is show, and the view more in Stewardship insights option is selected.":::
 
 :::image type="content" source="./media/data-stewardship/detailed-view.png" alt-text="Screenshot of the asset curation detailed view, as shown after selecting the view more in stewardship insights option is selected.":::
 
@@ -82,7 +81,7 @@ You can also drill down by collection paths. As you hover on each column name, i
 
 All data assets are categorized into three buckets - ***Fully curated***, ***Partially curated*** and ***Not curated***, based on whether assets have been given certain attributes.
 
-:::image type="content" source="./media/data-stewardship/asset-curation-small.png" alt-text="Screenshot of the data stewardship insights health dashboard, with the asset curation bar chart highlighted." lightbox="media/data-stewardship/asset-curation-large.png":::
+:::image type="content" source="./media/data-stewardship/asset-curation-small.png" alt-text="Screenshot of the catalog adoption insights health dashboard, with the asset curation bar chart highlighted." lightbox="media/data-stewardship/asset-curation-large.png":::
 
 An asset is ***Fully curated*** if it has at least one classification tag, an assigned data owner, and a description.
 
@@ -90,11 +89,11 @@ If any of these attributes is missing, but not all, then the asset is categorize
 
 You can drill down by collection hierarchy.
 
-:::image type="content" source="./media/data-stewardship/asset-curation-collection-filter.png" alt-text="Screenshot of the data stewardship asset curation chart, with the collection filter opened to show all available collections.":::
+:::image type="content" source="./media/data-stewardship/asset-curation-collection-filter.png" alt-text="Screenshot of the catalog adoption asset curation chart, with the collection filter opened to show all available collections.":::
 
 For further information about which assets aren't fully curated, you can select **View details** link that will take you into the deeper view.
 
-:::image type="content" source="./media/data-stewardship/asset-curation-view-details.png" alt-text="Screenshot of the data stewardship asset curation chart, with the view details button highlighted below the chart.":::
+:::image type="content" source="./media/data-stewardship/asset-curation-view-details.png" alt-text="Screenshot of the catalog adoption asset curation chart, with the view details button highlighted below the chart.":::
 
 In the **View details** page, if you select a specific collection, it will list all assets with attribute values or blanks, that make up the ***fully curated*** assets.
 
@@ -126,7 +125,7 @@ This graph shows how the assets and key metrics have been trending over:
 * Last 12 months: The graph takes last run of the month.
 * Last four quarters: The graph takes last run of the calendar quarter.
 
-:::image type="content" source="./media/data-stewardship/trends-and-gap-analysis-small.png" alt-text="Screenshot of the data stewardship insights summary graphs, with data estate selected, showing the trends and gap analysis graph at the bottom of the page." lightbox="media/data-stewardship/trends-and-gap-analysis-large.png":::
+:::image type="content" source="./media/data-stewardship/trends-and-gap-analysis-small.png" alt-text="Screenshot of the catalog adoption insights summary graphs, with data estate selected, showing the trends and gap analysis graph at the bottom of the page." lightbox="media/data-stewardship/trends-and-gap-analysis-large.png":::
 
 ## Next steps
 
