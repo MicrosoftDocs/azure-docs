@@ -19,9 +19,9 @@ In this article, we cover the Click Analytics plug-in that automatically tracks 
 
 ## Get started
 
-Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM.
+Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or NPM.
 
-### Snippet setup
+### SDK Loader Script setup
 
 Ignore this setup if you use the npm setup.
 
@@ -46,8 +46,8 @@ Ignore this setup if you use the npm setup.
       [clickPluginInstance.identifier] : clickPluginConfig
     },
   };
-  // Application Insights Snippet code
-  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+  // Application Insights SDK Loader Script code
+  !function(T,l,y){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
     crossOrigin: "anonymous",
     cfg: configObj
