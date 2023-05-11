@@ -168,9 +168,6 @@
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
-  - name: Azure Databricks
-    tocHref: /azure/azure-databricks/
-    topicHref: /azure/azure-databricks/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
@@ -323,6 +320,9 @@
       - name: New Relic
         tocHref: /azure/partner-solutions/new-relic/
         topicHref: /azure/partner-solutions/new-relic/new-relic-overview
+      - name: Palo Alto Networks
+        tocHref: /azure/partner-solutions/palo-alto/
+        topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -834,6 +834,9 @@
       - name: Load Balancer
         tocHref: /azure/load-balancer/
         topicHref: /azure/load-balancer/
+      - name: NAT Gateway
+        tocHref: /azure/nat-gateway
+        topicHref: /azure/nat-gateway
       - name: Network Watcher
         tocHref: /azure/network-watcher/
         topicHref: /azure/network-watcher/
@@ -853,9 +856,6 @@
         tocHref: /azure/virtual-network/
         topicHref: /azure/virtual-network/
         items:
-          - name: NAT gateway
-            tocHref: /azure/virtual-network/nat-gateway
-            topicHref: /azure/virtual-network/nat-gateway
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services

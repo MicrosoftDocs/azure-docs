@@ -36,6 +36,12 @@
     displayName: definitions, concepts, lab, template, lab plan, what is, schedule, quota, compute gallery, virtual machine, VM
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Azure role-based access control
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab plan
+    href: concept-lab-services-role-based-access-control.md
+  - name: Migrate lab account role assignments
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
+    href: concept-migrate-from-lab-accounts-roles.md
   - name: Migrate from physical labs
     href: concept-migrating-physical-labs.md
   - name: Nested virtualization on a template VM
@@ -134,6 +140,7 @@
     - name: Configure auto-shutdown settings
       href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Connect to a virtual network
+      displayName: VNET, injection, advanced, networking, hybrid, on-premise
       href: how-to-connect-vnet-injection.md
     - name: Create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
