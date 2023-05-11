@@ -44,8 +44,8 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 How you restore a soft-deleted blob depends on whether or not your storage account has blob versioning enabled. For more information on blob versioning, see [Blob versioning](../../storage/blobs/versioning-overview.md). See one of the following sections, depending on your scenario:
 
-- [Blob versioning is not enabled](restore-soft-deleted-objects-when-versioning-is-disabled)
-- [Blob versioning is enabled](restore-soft-deleted-blobs-when-versioning-is-enabled)
+- [Blob versioning is not enabled](#restore-soft-deleted-objects-when-versioning-is-disabled)
+- [Blob versioning is enabled](#restore-soft-deleted-blobs-when-versioning-is-enabled)
 
 #### Restore soft-deleted objects when versioning is disabled
 
