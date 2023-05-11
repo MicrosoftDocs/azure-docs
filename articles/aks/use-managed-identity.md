@@ -3,7 +3,7 @@ title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/26/2023
+ms.date: 05/10/2023
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -23,7 +23,7 @@ Make sure you have Azure CLI version 2.23.0 or later installed. Run `az --versio
 
 * Tenants moving or migrating a managed identity-enabled cluster isn't supported.
 * If the cluster has Azure AD pod-managed identity (`aad-pod-identity`) enabled, Node-Managed Identity (NMI) pods modify the iptables of the nodes to intercept calls to the Azure Instance Metadata (IMDS) endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI, even if the pod doesn't use `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` of any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with `kubernetes.azure.com/managedby: aks` label in *kube-system* namespace should be excluded in  `aad-pod-identity` by configuring the AzurePodIdentityException CRD.
-  * For more information, see [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+  * For more information, see [Disable aad-pod-identity for a specific pod or application](./use-azure-ad-pod-identity.md#clean-up).
   * To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 * AKS doesn't support the use of a system-assigned managed identity if using a custom private DNS zone.
 
@@ -33,7 +33,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS-managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers. | Contributor role for Node resource group | Supported
+| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS-managed public IPs, Cluster Autoscaler, Azure Disk, File, Blob CSI drivers. | Contributor role for Node resource group | Supported
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR). | N/A (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required. | N/A | No
 | Add-on | AzureCNI network monitoring | No identity required. | N/A | No
@@ -45,7 +45,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD). | N/A | Steps to grant permission at [Azure AD Pod Identity Role Assignment configuration](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/).
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD). | N/A | Steps to grant permission at [Azure AD Pod Identity Role Assignment configuration](./use-azure-ad-pod-identity.md).
 
 ## Enable managed identities on a new AKS cluster
 
@@ -82,7 +82,7 @@ After updating your cluster, the control plane and pods use the managed identity
 
 > [!NOTE]
 >
-> * Keep the following information in mind when updating your cluster:
+> Keep the following information in mind when updating your cluster:
 >
 > * An update only works if there's a VHD update to consume. If you're running the latest VHD, you need to wait until the next VHD is available in order to perform the update.
 >

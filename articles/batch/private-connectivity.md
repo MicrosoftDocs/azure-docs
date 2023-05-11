@@ -160,7 +160,7 @@ For details on costs related to private endpoints, see [Azure Private Link prici
 
 When creating a private endpoint with your Batch account, keep in mind the following:
 
-- Private endpoint resources with the sub-resource **batchAccount** must be created in the same subscription as the Batch account.
+- Private endpoint resources can be created in different subscription as the Batch account, but the subscription must be registered with [**Microsoft.Batch** resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Resource movement isn't supported for private endpoints with Batch accounts.
 - If a Batch account resource is moved to a different resource group or subscription, the private endpoints can still work, but the association to the Batch account breaks. If you delete the private endpoint resource, its associated private endpoint connection still exists in your Batch account. You can manually remove connection from your Batch account.
 - To delete the private connection, either delete the private endpoint resource, or delete the private connection in the Batch account (this action disconnects the related private endpoint resource).

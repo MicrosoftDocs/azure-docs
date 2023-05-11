@@ -4,7 +4,7 @@ description: This quickstart provides several Node.js code samples you can use t
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 04/18/2023
+ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -21,7 +21,7 @@ ms.devlang: javascript
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms.
+In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
 
 This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL - Flexible Server.
 
@@ -39,7 +39,7 @@ This quickstart uses the resources created in either of these guides as a starti
 
 Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql](https://www.npmjs.com/package/mysql) package and its dependencies into your project folder.
 
-### Windows
+### [Windows](#tab/windows)
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
 1. Make a local project folder such as `nodejsmysql`.
@@ -54,18 +54,18 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
-### Linux (Ubuntu)
+### [Linux (Ubuntu/Debian)](#tab/ubuntu)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
     # Using Ubuntu
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
     # Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_14.x | bash -
-    apt-get install -y nodejs
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    sudo apt-get install -y nodejs
    ```
 
 1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
@@ -79,7 +79,54 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### macOS
+### [Linux (RHEL/CentOS)](#tab/rhel)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+    **RHEL/CentOS 7.x**
+
+    ```bash
+    sudo yum install -y rh-nodejs8
+    scl enable rh-nodejs8 bash
+   ```
+
+    **RHEL/CentOS 8.x**
+
+   ```bash
+    sudo yum install -y nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [Linux (SUSE)](#tab/sles)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+   ```bash
+    sudo zypper install nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [macOS](#tab/mac)
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
 
@@ -93,6 +140,8 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 
 1. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
+
+---
 
 ## Get connection information
 
@@ -343,7 +392,7 @@ function deleteData(){
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes
@@ -354,4 +403,4 @@ az group delete \
 - [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
 - Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md).
 - [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md). 

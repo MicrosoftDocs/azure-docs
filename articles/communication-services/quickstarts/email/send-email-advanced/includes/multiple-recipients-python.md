@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message to multiple recipients
 
-We can define multiple recipients by adding more email addresses to the `recipients` object. These addresses can be added as `to`, `cc`, or `bcc` recipient lists accordingly.
+We can define multiple recipients by adding more email addresses to the `recipients` object. These addresses can be added as `to`, `cc`, or `bcc` recipient lists accordingly. Optionally, we can also add a `ReplyTo` email address to receive any replies.
 
 ```python
 message = {
@@ -35,6 +35,9 @@ message = {
             {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
         ]
     },
+    "replyTo": [
+        {"address": "<replytoemail@emaildomain.com>", "displayName": "Display Name"}
+    ],
     "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
 }
 

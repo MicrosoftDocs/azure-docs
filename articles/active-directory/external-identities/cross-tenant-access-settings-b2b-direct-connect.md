@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 
 ms.author: mimart
 author: msmimart
@@ -188,7 +188,7 @@ With inbound settings, you select which external users and groups will be able t
 1. Select **Save**.
 
 > [!NOTE]
-> When configuring settings for an organization, you'll notice a **Cross-tenant sync (Preview)** tab. This tab doesn't apply to your B2B direct connect configuration. Instead, this feature is used by multi-tenant organizations to enable B2B collaboration across their tenants. For more information, see the [multi-tenant organization documentation](../multi-tenant-organizations/index.yml).
+> When configuring settings for an organization, you'll notice a **Cross-tenant sync** tab. This tab doesn't apply to your B2B direct connect configuration. Instead, this feature is used by multi-tenant organizations to enable B2B collaboration across their tenants. For more information, see the [multi-tenant organization documentation](../multi-tenant-organizations/index.yml).
 
 ## Modify outbound access settings
 
