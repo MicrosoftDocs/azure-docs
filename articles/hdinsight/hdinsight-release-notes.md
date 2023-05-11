@@ -70,6 +70,10 @@ For workload specific versions, see
     This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow later.
 
     For more information, see [Cluster capacity planning in Azure HDInsight | Microsoft Learn](./hdinsight-capacity-planning.md#view-quota-management-for-hdinsight)
+    
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+
+* Poland Central
 
 ## Coming soon
 
