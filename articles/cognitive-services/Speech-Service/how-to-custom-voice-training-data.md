@@ -90,12 +90,12 @@ It’s important that the transcripts are 100% accurate transcriptions of the co
 > [!NOTE]
 > For **Long audio + transcript (Preview)**, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
-In some cases, you may not have segmented audio available. The Speech Studio can help you segment long audio files and create transcriptions. The long-audio segmentation service will use the [Batch Transcription API](batch-transcription.md) feature of speech-to-text.
+In some cases, you may not have segmented audio available. The Speech Studio can help you segment long audio files and create transcriptions. The long-audio segmentation service will use the [Batch Transcription API](batch-transcription.md) feature of speech to text.
 
 During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
 
 > [!NOTE]
-> This service will be charged toward your speech-to-text subscription usage. The long-audio segmentation service is only supported with standard (S0) Speech resources. 
+> This service will be charged toward your speech to text subscription usage. The long-audio segmentation service is only supported with standard (S0) Speech resources. 
 
 ### Audio data for Long audio + transcript
 
@@ -137,12 +137,12 @@ After your dataset is successfully uploaded, we'll help you segment the audio fi
 > [!NOTE]
 > For **Audio only (Preview)**, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
-If you don't have transcriptions for your audio recordings, use the **Audio only** option to upload your data. Our system can help you segment and transcribe your audio files. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
+If you don't have transcriptions for your audio recordings, use the **Audio only** option to upload your data. Our system can help you segment and transcribe your audio files. Keep in mind, this service will be charged toward your speech to text subscription usage.
 
 Follow these guidelines when preparing audio.
 
 > [!NOTE]
-> The long-audio segmentation service will leverage the batch transcription feature of speech-to-text, which only supports standard subscription (S0) users.
+> The long-audio segmentation service will leverage the batch transcription feature of speech to text, which only supports standard subscription (S0) users.
 
 | Property | Value |
 | -------- | ----- |

@@ -20,4 +20,4 @@ Although you don't indicate whether the dataset is for testing or training, you 
 |Pronunciation     |Training data: Pronunciation         |
 
 > [!NOTE]
-> Structured text in markdown format training datasets are not supported by version 3.0 of the Speech-to-text REST API. You must use the [Speech-to-text REST API v3.1](~/articles/cognitive-services/speech-service/rest-speech-to-text.md). For more information, see [Migrate code from v3.0 to v3.1 of the REST API](~/articles/cognitive-services/speech-service/migrate-v3-0-to-v3-1.md).
+> Structured text in markdown format training datasets are not supported by version 3.0 of the Speech to text REST API. You must use the [Speech-to-text REST API v3.1](~/articles/cognitive-services/speech-service/rest-speech-to-text.md). For more information, see [Migrate code from v3.0 to v3.1 of the REST API](~/articles/cognitive-services/speech-service/migrate-v3-0-to-v3-1.md).

@@ -85,7 +85,7 @@ Audio data is processed live to return the speaker identifier and transcript, an
 
 ## Language support
 
-Currently, conversation transcription supports [all speech-to-text languages](language-support.md?tabs=stt) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
+Currently, conversation transcription supports [all speech to text languages](language-support.md?tabs=stt) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
 
 ## Next steps
 

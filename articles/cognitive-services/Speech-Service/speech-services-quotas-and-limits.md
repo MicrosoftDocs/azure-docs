@@ -24,16 +24,16 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). The quotas and limits for Free (F0) Speech resources aren't adjustable. 
 
-### Speech-to-text quotas and limits per resource
+### Speech to text quotas and limits per resource
 
-This section describes speech-to-text quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
+This section describes speech to text quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
 
 #### Real-time speech to text and speech translation
 
-You can use real-time speech-to-text with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
+You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
 
 > [!IMPORTANT]
-> These limits apply to concurrent real-time speech-to-text requests and speech translation requests combined. For example, if you have 60 concurrent speech-to-text requests and 40 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
+> These limits apply to concurrent real-time speech to text requests and speech translation requests combined. For example, if you have 60 concurrent speech to text requests and 40 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -113,7 +113,7 @@ Some of the Speech service quotas are adjustable. This section provides addition
 
 The following quotas are adjustable for Standard (S0) resources. The Free (F0) request limits aren't adjustable.
 
-- Speech-to-text [concurrent request limit](#real-time-speech-to-text-and-speech-translation) for base model endpoint and custom endpoint
+- Speech to text [concurrent request limit](#real-time-speech-to-text-and-speech-translation) for base model endpoint and custom endpoint
 - Text-to-speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-resource) for prebuilt neural voices and custom neural voices
 - Speech translation [concurrent request limit](#real-time-speech-to-text-and-speech-translation)
 
@@ -132,9 +132,9 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 The next sections describe specific cases of adjusting quotas.
 
-### Speech-to-text: increase real-time speech-to-text concurrent request limit
+### Speech to text: increase real-time speech to text concurrent request limit
 
-By default, the number of concurrent real-time speech-to-text and speech translation [requests combined](#real-time-speech-to-text-and-speech-translation) is limited to 100 per resource in the base model, and 100 per custom endpoint in the custom model. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
+By default, the number of concurrent real-time speech to text and speech translation [requests combined](#real-time-speech-to-text-and-speech-translation) is limited to 100 per resource in the base model, and 100 per custom endpoint in the custom model. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
 >[!NOTE]
 > Concurrent request limits for base and custom models need to be adjusted separately. You can have a Speech service resource that's associated with many custom endpoints hosting many custom model deployments. As needed, the limit adjustments per custom endpoint must be requested separately. 
@@ -182,14 +182,14 @@ Initiate the increase of the limit for concurrent requests for your resource, or
 1. Go to the [Azure portal](https://portal.azure.com/).
 1. Select the Speech service resource for which you would like to increase (or to check) the concurrency request limit.
 1. In the **Support + troubleshooting** group, select **New support request**. A new window will appear, with auto-populated information about your Azure subscription and Azure resource.
-1. In **Summary**, describe what you want (for example, "Increase speech-to-text concurrency request limit").
+1. In **Summary**, describe what you want (for example, "Increase speech to text concurrency request limit").
 1. In **Problem type**, select **Quota or Subscription issues**.
 1. In **Problem subtype**, select either:
    - **Quota or concurrent requests increase** for an increase request.
    - **Quota or usage validation** to check the existing limit.
 1. Select **Next: Solutions**. Proceed further with the request creation.
 1. On the **Details** tab, in the **Description** field, enter the following:
-   - A note that the request is about the speech-to-text quota.
+   - A note that the request is about the speech to text quota.
    - Choose either the base or custom model.
    - The Azure resource information you [collected previously](#have-the-required-information-ready).
    - Any other required information.

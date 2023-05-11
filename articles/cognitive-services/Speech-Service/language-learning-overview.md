@@ -26,7 +26,7 @@ The Pronunciation Assessment feature offers several benefits for educators, serv
 - For service providers, it offers high real-time capabilities, worldwide Speech cognitive service and supports growing global business. 
 - For students and learners, it provides a convenient way to practice and receive feedback, authoritative scoring to compare with native pronunciation and helps to follow the exact text order for long sentences or full documents.
 
-## Speech-to-Text 
+## Speech to text 
 
 Azure [Speech-to-Text](speech-to-text.md) supports real-time language identification for multilingual language learning scenarios, help human-human interaction with better understanding and readable context.
 
@@ -42,6 +42,6 @@ Azure [Speech-to-Text](speech-to-text.md) supports real-time language identifica
 ## Next steps
 
 * [How to use pronunciation assessment](how-to-pronunciation-assessment.md)
-* [What is Speech-to-Text](speech-to-text.md)
+* [What is Speech to text](speech-to-text.md)
 * [What is Text-to-Speech](text-to-speech.md)
 * [What is Custom Neural Voice](custom-neural-voice.md)

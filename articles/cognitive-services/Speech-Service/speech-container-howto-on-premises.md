@@ -1,7 +1,7 @@
 ---
 title: Use Speech service containers with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
-description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
+description: Using Kubernetes and Helm to define the speech to text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # Use Speech service containers with Kubernetes and Helm
 
-One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech service containers](speech-container-howto.md).
+One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech to text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech service containers](speech-container-howto.md).
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ Next, we'll configure our Helm chart values. Copy and paste the following YAML i
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-# speech-to-text configurations
+# speech to text configurations
 speechToText:
   enabled: true
   numberOfConcurrentRequest: 3
@@ -95,7 +95,7 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Speech service, both text-to-speech and the speech-to-text services from the `mcr.microsoft.com` container registry.
+The provided *Helm charts* pull the docker images of the Speech service, both text-to-speech and the speech to text services from the `mcr.microsoft.com` container registry.
 
 ## Install the Helm chart on the Kubernetes cluster
 
@@ -196,8 +196,8 @@ helm test onprem-speech
 These tests will output various status results:
 
 ```console
-RUNNING: speech-to-text-readiness-test
-PASSED: speech-to-text-readiness-test
+RUNNING: speech to text-readiness-test
+PASSED: speech to text-readiness-test
 RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```

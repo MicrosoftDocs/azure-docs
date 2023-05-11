@@ -19,7 +19,7 @@ Speech-to-text offers an array of formatting features to ensure that the transcr
 
 ## ITN
 
-Inverse Text Normalization (ITN) is a process that converts spoken words into their written form. For example, the spoken word "four" is converted to the written form "4". This process is performed by the speech-to-text service and isn't configurable. Some of the supported text formats include dates, times, decimals, currencies, addresses, emails, and phone numbers. You can speak naturally, and the service formats text as expected. The following table shows the ITN rules that are applied to the text output.
+Inverse Text Normalization (ITN) is a process that converts spoken words into their written form. For example, the spoken word "four" is converted to the written form "4". This process is performed by the speech to text service and isn't configurable. Some of the supported text formats include dates, times, decimals, currencies, addresses, emails, and phone numbers. You can speak naturally, and the service formats text as expected. The following table shows the ITN rules that are applied to the text output.
 
 |Recognized speech|Display text|
 |---|---|
@@ -42,7 +42,7 @@ Speech-to-text models recognize words that should be capitalized to improve read
 
 ## Disfluency removal
 
-When speaking, it's common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech-to-text can recognize such disfluencies and remove them from the display text. Disfluency removal is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
+When speaking, it's common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech to text can recognize such disfluencies and remove them from the display text. Disfluency removal is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -59,7 +59,7 @@ Speech-to-text automatically punctuates your text to improve clarity. Punctuatio
 |`how are you`|`How are you?`|
 |`we can go to the mall park or beach`|`We can go to the mall, park, or beach.`|
 
-When you're using speech-to-text with continuous recognition, you can configure the Speech service to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
+When you're using speech to text with continuous recognition, you can configure the Speech service to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -68,7 +68,7 @@ When you're using speech-to-text with continuous recognition, you can configure 
 |`the options are apple forward slash banana forward slash orange period`|`The options are apple/banana/orange.`|
 |`are you sure question mark`|`Are you sure?`|
 
-Use the Speech SDK to enable dictation mode when you're using speech-to-text with continuous recognition. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation.
+Use the Speech SDK to enable dictation mode when you're using speech to text with continuous recognition. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp

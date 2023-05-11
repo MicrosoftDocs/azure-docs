@@ -1,7 +1,7 @@
 ---
-title: How to get Speech-to-text Session ID and Transcription ID
+title: How to get Speech to text Session ID and Transcription ID
 titleSuffix: Azure Cognitive Services
-description: Learn how to get Speech service Speech-to-text Session ID and Transcription ID
+description: Learn how to get Speech service Speech to text Session ID and Transcription ID
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 11/29/2022
 ms.author: alexeyo 
 ---
 
-# How to get Speech-to-text Session ID and Transcription ID
+# How to get Speech to text Session ID and Transcription ID
 
 If you use [Speech-to-text](speech-to-text.md) and need to open a support case, you are often asked to provide a *Session ID* or *Transcription ID* of the problematic transcriptions to debug the issue. This article explains how to get these IDs. 
 

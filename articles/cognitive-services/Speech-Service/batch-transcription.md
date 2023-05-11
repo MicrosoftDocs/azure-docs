@@ -25,7 +25,7 @@ You should provide multiple files per request or point to an Azure Blob Storage 
 With batch transcriptions, you submit the audio data, and then retrieve transcription results asynchronously. The service transcribes the audio data and stores the results in a storage container. You can then retrieve the results from the storage container.
 
 > [!TIP]
-> For a low or no-code solution, you can use the [Batch Speech-to-text Connector](/connectors/cognitiveservicesspe/) in Power Platform applications such as Power Automate, Power Apps, and Logic Apps. See the [Power automate batch transcription](power-automate-batch-transcription.md) guide to get started.
+> For a low or no-code solution, you can use the [Batch Speech to text Connector](/connectors/cognitiveservicesspe/) in Power Platform applications such as Power Automate, Power Apps, and Logic Apps. See the [Power automate batch transcription](power-automate-batch-transcription.md) guide to get started.
 
 To use the batch transcription REST API:
 

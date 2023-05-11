@@ -188,7 +188,7 @@ The following [text-to-speech](text-to-speech.md) locales and voices are availab
 
 For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
 
-Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech-to-text and text-to-speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
+Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text-to-speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -199,7 +199,7 @@ paths.Add("C:\\dev\\embedded-speech\\stt-models");
 paths.Add("C:\\dev\\embedded-speech\\tts-voices");
 var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
-// For speech-to-text
+// For speech to text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8", 
     Environment.GetEnvironmentVariable("MODEL_KEY"));
@@ -224,7 +224,7 @@ paths.push_back("C:\\dev\\embedded-speech\\stt-models");
 paths.push_back("C:\\dev\\embedded-speech\\tts-voices");
 auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 
-// For speech-to-text
+// For speech to text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8", 
     GetEnvironmentVariable("MODEL_KEY"));
@@ -247,7 +247,7 @@ paths.add("C:\\dev\\embedded-speech\\stt-models");
 paths.add("C:\\dev\\embedded-speech\\tts-voices");
 var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 
-// For speech-to-text
+// For speech to text
 embeddedSpeechConfig.setSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8", 
     System.getenv("MODEL_KEY"));

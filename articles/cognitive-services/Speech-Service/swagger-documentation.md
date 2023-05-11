@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/03/2022
 ---
 
-# Generate a REST API client library for the Speech-to-text REST API
+# Generate a REST API client library for the Speech to text REST API
 
 Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the [Custom Speech area of the Speech Studio](https://aka.ms/speechstudio/customspeech) can be completed programmatically using these APIs.
 

@@ -1,7 +1,7 @@
 ---
-title: Speech-to-text overview - Speech service
+title: Speech to text overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Get an overview of the benefits and capabilities of the speech-to-text feature of the Speech Service.
+description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech Service.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,18 +14,18 @@ ms.custom: cog-serv-seo-aug-2020
 keywords: speech to text, speech to text software
 ---
 
-# What is speech-to-text?
+# What is speech to text?
 
-In this overview, you learn about the benefits and capabilities of the speech-to-text feature of the Speech service, which is part of Azure Cognitive Services. Speech-to-text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
+In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure Cognitive Services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
 
 > [!NOTE]
 > To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
-For a full list of available speech-to-text languages, see [Language and voice support](language-support.md?tabs=stt).
+For a full list of available speech to text languages, see [Language and voice support](language-support.md?tabs=stt).
 
-## Real-time speech-to-text
+## Real-time speech to text
 
-With real-time speech-to-text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech-to-text for applications that need to transcribe audio in real-time such as:
+With real-time speech to text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
 - Contact center agent assist
 - Dictation
@@ -50,7 +50,7 @@ Batch transcription is available via:
 
 ## Custom Speech
 
-With [Custom Speech](./custom-speech-overview.md), you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech-to-text](speech-to-text.md), [speech translation](speech-translation.md), and [batch transcription](batch-transcription.md).
+With [Custom Speech](./custom-speech-overview.md), you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech to text](speech-to-text.md), [speech translation](speech-translation.md), and [batch transcription](batch-transcription.md).
 
 > [!TIP]
 > A [hosted deployment endpoint](how-to-custom-speech-deploy-model.md) isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -63,5 +63,5 @@ Customization options vary by language or locale. To verify support, see [Langua
 
 ## Next steps
 
-- [Get started with speech-to-text](get-started-speech-to-text.md)
+- [Get started with speech to text](get-started-speech-to-text.md)
 - [Create a batch transcription](batch-transcription-create.md)

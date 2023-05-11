@@ -27,7 +27,7 @@ Available to US government entities and their partners only. See more informatio
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 - **Supported features:**
-  - Speech-to-text
+  - Speech to text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.us/)
   - Text-to-speech
@@ -100,10 +100,10 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 |  Region / Service offering | Host expression |
 |--|--|
 | **US Gov Arizona** | |
-| Speech-to-text | `wss://usgovarizona.stt.speech.azure.us` |
+| Speech to text | `wss://usgovarizona.stt.speech.azure.us` |
 | Text-to-Speech | `https://usgovarizona.tts.speech.azure.us` |
 | **US Gov Virginia** | |
-| Speech-to-text | `wss://usgovvirginia.stt.speech.azure.us` |
+| Speech to text | `wss://usgovvirginia.stt.speech.azure.us` |
 | Text-to-Speech | `https://usgovvirginia.tts.speech.azure.us` |
 
 
@@ -119,7 +119,7 @@ Available to organizations with a business presence in China. See more informati
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://www.azure.cn/pricing/details/cognitive-services/index.html)
 - **Supported features:**
-  - Speech-to-text
+  - Speech to text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
     - [Pronunciation assessment](how-to-pronunciation-assessment.md)
@@ -193,8 +193,8 @@ Replace `subscriptionKey` with your Speech resource key. Replace `azCnHost` with
 |  Region / Service offering | Host expression |
 |--|--|
 | **China East 2** | |
-| Speech-to-text | `wss://chinaeast2.stt.speech.azure.cn` |
+| Speech to text | `wss://chinaeast2.stt.speech.azure.cn` |
 | Text-to-Speech | `https://chinaeast2.tts.speech.azure.cn` |
 | **China North 2** | |
-| Speech-to-text | `wss://chinanorth2.stt.speech.azure.cn` |
+| Speech to text | `wss://chinanorth2.stt.speech.azure.cn` |
 | Text-to-Speech | `https://chinanorth2.tts.speech.azure.cn` |

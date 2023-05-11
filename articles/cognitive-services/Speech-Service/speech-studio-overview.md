@@ -17,7 +17,7 @@ ms.author: eur
 [Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 > [!TIP]
-> You can try speech-to-text and text-to-speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.
+> You can try speech to text and text-to-speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.
 
 ## Speech Studio scenarios
 
@@ -34,7 +34,7 @@ For a demonstration of these scenarios in Speech Studio, view this [introductory
 
 In Speech Studio, the following Speech service features are available as project types:
 
-* [Real-time speech-to-text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech-to-text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech-to-text works on your audio samples. To explore the full functionality, see [What is speech-to-text?](speech-to-text.md).
+* [Real-time speech to text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech to text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech to text works on your audio samples. To explore the full functionality, see [What is speech to text?](speech-to-text.md).
 
 * [Custom Speech](https://aka.ms/speechstudio/customspeech): Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Upload training and testing datasets](how-to-custom-speech-upload-data.md).
 

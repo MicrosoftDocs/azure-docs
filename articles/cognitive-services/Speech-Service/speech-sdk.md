@@ -41,7 +41,7 @@ The Speech SDK supports the following languages and platforms:
 
 ## Speech SDK demo
 
-The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech-to-text.
+The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech to text.
 
 > [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
 

@@ -15,8 +15,8 @@ Fix vulnerability issues
 ### 2023-March release
 	
 Add support for the latest model versions:
-- Custom speech-to-text 3.12.0
-- Speech-to-text 3.12.0
+- Custom speech to text 3.12.0
+- Speech to text 3.12.0
 - Speech language identification 1.11.0
 - Neural text-to-speech 2.11.0
 
@@ -24,7 +24,7 @@ Fix vulnerability issues
 
 Fix the `tr-TR` capitalization issue
 
-Upgrade the speech-to-text `en-US` display models
+Upgrade the speech to text `en-US` display models
 
 Add support for prebuilt neural Neural text-to-speech locale voice `ar-AE-HamdanNeural`
 
@@ -33,8 +33,8 @@ Add support for prebuilt neural Neural text-to-speech locale voice `ar-AE-Hamdan
 #### New container versions
 
 Add support for latest model versions:
-- Custom speech-to-text 3.11.0
-- Speech-to-text 3.11.0
+- Custom speech to text 3.11.0
+- Speech to text 3.11.0
 - Neural text-to-speech 2.10.0
 
 Fix vulnerability issues
@@ -52,15 +52,15 @@ Upgrade Hebrew and Turkish display models
 #### New container versions
 
 Add support for latest model versions:
-- Custom speech-to-text 3.10.0
-- Speech-to-text 3.10.0
+- Custom speech to text 3.10.0
+- Speech to text 3.10.0
 - Neural text-to-speech 2.9.0
 
 Fix Hypothesis mode issue
 
 Fix HTTP Proxy issue
 
-Custom Speech-to-Text container disconnected mode
+Custom Speech to text container disconnected mode
 
 Add CNV Disconnected container support to TTS Frontend
 
@@ -74,8 +74,8 @@ Add support for these locale-voices:
 #### New container versions
 
 Add support for latest model versions:
-- Custom speech-to-text 3.9.0
-- Speech-to-text 3.9.0
+- Custom speech to text 3.9.0
+- Speech to text 3.9.0
 - Neural text-to-speech 2.8.0
 
 Fix ipv4/ipv6 issue
@@ -87,8 +87,8 @@ Fix vulnerability issue
 #### New container versions
 
 Add support for latest model versions:
-- Custom speech-to-text 3.8.0
-- Speech-to-text 3.8.0
+- Custom speech to text 3.8.0
+- Speech to text 3.8.0
 - Neural text-to-speech 2.7.0
 
 ### 2022-October release
@@ -96,13 +96,13 @@ Add support for latest model versions:
 #### New container versions
 
 Add support for latest model versions:
-- Custom speech-to-text 3.7.0
-- Speech-to-text 3.7.0
+- Custom speech to text 3.7.0
+- Speech to text 3.7.0
 - Neural text-to-speech 2.6.0
 
 ### 2022-September release
 
-#### Speech-to-text 3.6.0-amd64
+#### Speech to text 3.6.0-amd64
 
 Add support for latest model versions.
 
@@ -131,7 +131,7 @@ Add support for these locales:
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 
-#### Custom Speech-to-text 3.6.0-amd64
+#### Custom Speech to text 3.6.0-amd64
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 
@@ -161,15 +161,15 @@ Bug fixes for [speech-language-detection](~/articles/cognitive-services/speech-s
 
 ### 2022-March release
 
-#### Custom speech-to-text Container v3.1.0
+#### Custom speech to text Container v3.1.0
 Add support to [get display models](../../speech-container-cstt.md#display-model-download).
 
 ### 2022-January release
 
-#### Speech-to-text Container v3.0.0
+#### Speech to text Container v3.0.0
 Add support for using containers in [disconnected environments](../../../containers/disconnected-containers.md).
 
-#### Speech-to-text Container v2.18.0
+#### Speech to text Container v2.18.0
 Regular monthly updates including security upgrades and vulnerability fixes.
 
 #### Neural-Neural text-to-speech Container v1.12.0

@@ -359,7 +359,7 @@ Add the code-behind source as follows:
    // once audio capture is completed
    connector.Recognized += (sender, recognitionEventArgs) =>
    {
-       NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
+       NotifyUser($"Final speech to text result: '{recognitionEventArgs.Result.Text}'");
    };
 
    // SessionStarted will notify when audio begins flowing to the service for a turn

@@ -1,7 +1,7 @@
 ---
 title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
-description: The Speech service provides speech-to-text, text-to-speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
+description: The Speech service provides speech to text, text-to-speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service provides speech-to-text and text-to-speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
+The Speech service provides speech to text and text-to-speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
 :::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 
@@ -39,20 +39,20 @@ Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation
 
 Speech feature summaries are provided below with links for more information.
 
-### Speech-to-text
+### Speech to text
 
 Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
 
 > [!TIP]
-> You can try real-time speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
+> You can try real-time speech to text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
 
 Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarization to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
-### Real-time speech-to-text
+### Real-time speech to text
 
-With [real-time speech-to-text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech-to-text for applications that need to transcribe audio in real-time such as:
+With [real-time speech to text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
 - Contact center agent assist
 - Dictation
@@ -75,11 +75,11 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Speech translation
 
-[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation.
+[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech to text translation.
 
 ### Language identification
 
-[Language identification](language-identification.md) is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). Use language identification by itself, with speech-to-text recognition, or with speech translation.
+[Language identification](language-identification.md) is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). Use language identification by itself, with speech to text recognition, or with speech translation.
 
 ### Speaker recognition
 [Speaker recognition](speaker-recognition-overview.md) provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". 
@@ -90,7 +90,7 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Intent recognition
 
-[Intent recognition](./intent-recognition.md): Use speech-to-text with conversational language understanding to derive user intents from transcribed speech and act on voice commands. 
+[Intent recognition](./intent-recognition.md): Use speech to text with conversational language understanding to derive user intents from transcribed speech and act on voice commands. 
 
 ## Delivery and presence
 
@@ -131,5 +131,5 @@ Sample code for the Speech service is available on GitHub. These samples cover c
 
 ## Next steps
 
-* [Get started with speech-to-text](get-started-speech-to-text.md)
+* [Get started with speech to text](get-started-speech-to-text.md)
 * [Get started with text-to-speech](get-started-text-to-speech.md)

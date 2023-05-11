@@ -25,7 +25,7 @@ Here are a few Speech features to consider for flexible and interactive game exp
 - Custom neural voice for creating a voice that stays on-brand with consistent quality and speaking style. You can add emotions, accents, nuances, laughter, and other para linguistic sounds and expressions. 
 - Use game dialogue prototyping to shorten the amount of time and money spent in product to get the game to market sooner. You can rapidly swap lines of dialog and listen to variations in real-time to iterate the game content.
 
-You can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) for real-time low latency speech-to-text, text-to-speech, language identification, and speech translation. You can also use the [Batch transcription API](batch-transcription.md) to transcribe pre-recorded speech to text. To synthesize a large volume of text input (long and short) to speech, use the [Batch synthesis API](batch-synthesis.md).
+You can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) for real-time low latency speech to text, text-to-speech, language identification, and speech translation. You can also use the [Batch transcription API](batch-transcription.md) to transcribe pre-recorded speech to text. To synthesize a large volume of text input (long and short) to speech, use the [Batch synthesis API](batch-synthesis.md).
 
 For information about locale and regional availability, see [Language and voice support](language-support.md) and [Region support](regions.md).
 
@@ -43,7 +43,7 @@ When enabling this functionality in your game, keep in mind the following benefi
 
 For an example, see the [Text-to-speech quickstart](get-started-text-to-speech.md).
 
-## Speech-to-text
+## Speech to text
 
 You can use [speech-to-text](speech-to-text.md) to display text from the spoken audio in your game. For an example, see the [Speech-to-text quickstart](get-started-speech-to-text.md).
 

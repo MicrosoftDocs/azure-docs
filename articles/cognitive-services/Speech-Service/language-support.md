@@ -1,7 +1,7 @@
 ---
 title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
+description: The Speech service supports numerous languages for speech to text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -30,18 +30,18 @@ Language support varies by Speech service functionality.
 
 # [Speech-to-text](#tab/stt)
 
-The table in this section summarizes the locales and voices supported for Speech-to-text. Please see the table footnotes for more details. 
+The table in this section summarizes the locales and voices supported for Speech to text. Please see the table footnotes for more details. 
 
-Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. 
+Additional remarks for Speech to text locales are included in the [Custom Speech](#custom-speech) section below. 
 
 > [!TIP]
-> Try out the [Real-time Speech-to-text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
+> Try out the [Real-time Speech to text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
 ### Custom Speech
 
-To improve Speech-to-text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
+To improve Speech to text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
 # [Text-to-speech](#tab/tts)
 
@@ -96,7 +96,7 @@ The table in this section summarizes the locales supported for Pronunciation ass
 
 # [Speech translation](#tab/speech-translation)
 
-The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
 
 #### Translate from language
 
