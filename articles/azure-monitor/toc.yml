@@ -479,6 +479,9 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: essentials\prometheus-remote-write-azure-ad-pod-identity.md
   - name: Logs
     items:
     - name: Overview
