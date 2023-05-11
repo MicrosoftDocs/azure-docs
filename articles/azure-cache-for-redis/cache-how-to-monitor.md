@@ -76,7 +76,7 @@ Configure a storage account to use with to store your metrics. The storage accou
 
 1. Name the settings.
 
-1. Check **Archive to a storage account**. You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.
+1. Check **Archive to a storage account**. You're charged normal data rates for storage and transactions when you send diagnostics to a storage account.
 
 1. Select **Configure** to choose the storage account in which to store the cache metrics.
 
@@ -125,7 +125,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 > Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. The activity is normal in the operation of cache.
 >
 
-For non-clustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric `Server Load`.
+For nonclustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric `Server Load`.
 
 In contrast, for clustered caches, we recommend using the metrics with the suffix `Instance Based`. Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric "Server Load (Instance Based)", then apply filter `ShardId = 1`.
 
@@ -186,9 +186,9 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
 - Geo Replication Full Sync Event Finished
   - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
-   - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-   - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
-   - This metric is only available in the Premium tier for caches with geo-replication enabled.
+  - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
+  - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
 
 - Geo Replication Full Sync Event Started
   - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
@@ -221,7 +221,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 - Total Keys  
   - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
 - Total Operations
-  - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations.
+  - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there are no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there are `Total Operations` metrics that reflect the cache usage for pub/sub operations.
 - Used Memory
   - The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation.
 - Used Memory Percentage
