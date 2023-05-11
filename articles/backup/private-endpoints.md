@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 04/26/2023
 ms.custom: devx-track-azurepowershell
 ms.service: backup
 author: jyothisuri
@@ -164,67 +164,6 @@ For **each private DNS** zone listed above (for Backup, Blobs and Queues), do th
 1. If you don’t see an entry, add a virtual network link to all those DNS zones that don't have them.
 
     ![Add virtual network link](./media/private-endpoints/add-virtual-network-link.png)
-
-### When using custom DNS server or host files
-
-If you're using your custom DNS servers, you'll need to add the DNS records needed by the private endpoints to your DNS servers. You can also use conditional forwarders and redirect the DNS request for the FQDN to Azure DNS. Azure DNS redirects the DNS requests to private DNS zone and resolve them.
-
-#### For the Backup service
-
-1. In your DNS server, create a DNS zone for Backup according to the following naming convention:
-
-    |Zone |Service |
-    |---------|---------|
-    |`privatelink.<geo>.backup.windowsazure.com`   |  Backup        |
-
-    >[!NOTE]
-    > In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
-    >
-    > - [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
-    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
-    > - [Geo-code list - sample XML](scripts/geo-code-list.md)
-
-1. Next, we need to add the required DNS records. To view the records that need to be added to the Backup DNS zone, navigate to the private endpoint you created above, and go to the **DNS configuration** option under the left navigation bar.
-
-    ![DNS configuration for custom DNS server](./media/private-endpoints/custom-dns-configuration.png)
-
-1. Add one entry for each FQDN and IP displayed as A type records in your DNS zone for Backup. If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the following format:
-
-    `<private ip><space><backup service privatelink FQDN>`
-
->[!NOTE]
->As shown in the screenshot above, the FQDNs depict `xxxxxxxx.<geo>.backup.windowsazure.com` and not `xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`. In such cases, ensure you include (and if required, add) the `.privatelink.` according to the stated format.
-
-#### For Blob and Queue services
-
-For blobs and queues, you can either use conditional forwarders or create DNS zones in your DNS server.
-
-##### If using conditional forwarders
-
-If you're using conditional forwarders, add forwarders for blob and queue FQDNs as follows:
-
-|FQDN  |IP  |
-|---------|---------|
-|`privatelink.blob.core.windows.net`     |  168.63.129.16       |
-|`privatelink.queue.core.windows.net`     | 168.63.129.16       |
-
-##### If using private DNS zones
-
-If you're using DNS zones for blobs and queues, you'll need to first create these DNS zones and later add the required A records.
-
-|Zone |Service  |
-|---------|---------|
-|`privatelink.blob.core.windows.net`     |  Blob     |
-|`privatelink.queue.core.windows.net`     | Queue        |
-
-At this moment, we'll only create the zones for blobs and queues when using custom DNS servers. Adding DNS records will be done later in two steps:
-
-1. When you register the first backup instance, that is, when you configure backup for the first time
-1. When you run the first backup
-
-We'll perform these steps in the following sections.
 
 ## When using custom DNS server or host files
 

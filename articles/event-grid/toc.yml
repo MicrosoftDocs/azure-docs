@@ -7,8 +7,6 @@ items:
     items:
     - name: What is Event Grid?
       href: overview.md
-    - name: Compare messaging services
-      href: compare-messaging-services.md
     - name: Release notes
       href: whats-new.md
   - name: Quickstarts
@@ -30,12 +28,14 @@ items:
         href: blob-event-quickstart-template.md
     - name: Publish and subscribe using custom topics
       items:
-      - name: Portal
-        href: custom-event-quickstart-portal.md
-      - name: Azure CLI
-        href: custom-event-quickstart.md
-      - name: PowerShell
-        href: custom-event-quickstart-powershell.md
+      - name: Custom events to Event Grid Viewer app
+        items:
+        - name: Portal
+          href: custom-event-quickstart-portal.md
+        - name: Azure CLI
+          href: custom-event-quickstart.md
+        - name: PowerShell
+          href: custom-event-quickstart-powershell.md
       - name: Custom events to an Azure function 
         href: custom-event-to-function.md
       - name: Custom events to an Azure Queue storage

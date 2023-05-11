@@ -161,14 +161,29 @@
     - name: Connect to a database
       items:
         - name: C#
-          displayName: Connect to a database, Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp
         - name: JavaScript
-          displayName: Connect to a database, Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript
         - name: Python
-          displayName: Connect to a database, Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -299,6 +314,8 @@
           href: event-messaging-bindings.md
         - name: Event-driven scaling
           href: event-driven-scaling.md
+        - name: Target-based scaling
+          href: functions-target-based-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
         - name: Concurrency
@@ -378,9 +395,9 @@
     - name: Node.js
       items:
         - name: JavaScript
-          href: functions-reference-node.md
+          href: functions-reference-node.md?tabs=javascript
         - name: TypeScript
-          href: functions-reference-node.md#typescript
+          href: functions-reference-node.md?tabs=typescript
         - name: Upgrade to model v4.x
           href: functions-node-upgrade-v4.md
     - name: Java

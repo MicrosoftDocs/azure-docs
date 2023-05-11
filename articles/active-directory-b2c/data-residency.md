@@ -26,7 +26,7 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 
 [Region availability](#region-availability) refers to where a service is available for use. [Data residency](#data-residency) refers to where customer data is stored. For customers in the EU and EFTA, see [EU Data Boundary](#eu-data-boundary).
 
-If you enable [Go-Local add-on](#go-local-add-on), you can store your data exclusively in a specific country.
+If you enable [Go-Local add-on](#go-local-add-on), you can store your data exclusively in a specific country/region.
 
 
 ## Region availability
@@ -61,16 +61,16 @@ The following locations are in the process of being added to the list. For now, 
 
 > Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
 
-To find the exact location where your data is located per region or country, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
+To find the exact location where your data is located per country/country, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
 
 
 ### Go-Local add-on
 
-*Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country. Go-Local is as way fulfilling corporate policies and compliance requirements. You choose the country where you want to store your data when you [create your Azure AD B2C](tutorial-create-tenant.md).  
+*Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country/region. Go-Local is as way fulfilling corporate policies and compliance requirements. You choose the country/region where you want to store your data when you [create your Azure AD B2C](tutorial-create-tenant.md).  
 
 The Go-Local add-on is a paid add-on, but it's optional. If you choose to use it, you'll incur an extra charge in addition to your Azure AD B2C Premium P1 or P2 licenses. See more information in [Billing model](billing.md). 
 
-At the moment, the following countries have the local data residence option:
+At the moment, the following countries/regions have the local data residence option:
 
 - Japan 
 

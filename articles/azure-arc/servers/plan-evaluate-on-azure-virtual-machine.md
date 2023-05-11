@@ -56,11 +56,11 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    For Linux, run the following commands:
 
    ```bash
-   current_hostname=$(hostname)
+   CURRENT_HOSTNAME=$(hostname)
    sudo service walinuxagent stop
    sudo waagent -deprovision -force
    sudo rm -rf /var/lib/waagent
-   sudo hostnamectl set-hostname $current_hostname
+   sudo hostnamectl set-hostname $CURRENT_HOSTNAME
    ```
 
 3. Block access to the Azure IMDS endpoint.

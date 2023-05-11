@@ -30,7 +30,7 @@ response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
     messages=[
         {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-        {"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"},
+        {"role": "user", "content": "Who were the founders of Microsoft?"}
     ]
 )
 
@@ -48,7 +48,7 @@ print(response['choices'][0]['message']['content'])
       "finish_reason": "stop",
       "index": 0,
       "message": {
-        "content": "There is no difference between garbanzo beans and chickpeas \u2014 the terms are used interchangeably to describe the same round, beige-colored legume. Garbanzo beans are the Spanish name for the legume, while chickpeas are the English name for the same legume. They are a common ingredient in many traditional Middle Eastern and Mediterranean dishes, such as hummus, falafel, and stews.",
+        "content": "The founders of Microsoft are Bill Gates and Paul Allen. They co-founded the company in 1975.",
         "role": "assistant"
       }
     }
@@ -64,7 +64,6 @@ print(response['choices'][0]['message']['content'])
   }
 }
 
-There is no difference between garbanzo beans and chickpeas — the terms are used interchangeably to describe the same round, beige-colored legume. Garbanzo beans are the Spanish name for the legume, while chickpeas are the English name for the same legume. They are a common ingredient in many traditional Middle Eastern and Mediterranean dishes, such as hummus, falafel, and stews.
 ```
 
 > [!NOTE]  
@@ -103,8 +102,8 @@ A conversation with one example answer followed by a question would look like:
 
 ```
 {"role": "system", "content": "Provide some context and/or instructions to the model."},
-{"role": "user", "content": "Example question goes here."}
-{"role": "assistant", "content": "Example answer goes here."}
+{"role": "user", "content": "Example question goes here."},
+{"role": "assistant", "content": "Example answer goes here."},
 {"role": "user", "content": "First question/message for the model to actually respond to."}
 ```
 
@@ -139,7 +138,7 @@ If you want the ChatGPT model to behave similarly to [chat.openai.com](https://c
 
 ```
 {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-{"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"}
+{"role": "user", "content": "Who were the founders of Microsoft?"}
 ```
 
 #### Example with instructions
@@ -180,7 +179,7 @@ This is only one example of how you can use few shot learning with ChatGPT and G
 {"role": "user", "content": "When do I need to file my taxes by?"},
 {"role": "assistant", "content": "In 2023, you will need to file your taxes by April 18th. The date falls after the usual April 15th deadline because April 15th falls on a Saturday in 2023. For more details, see https://www.irs.gov/filing/individuals/when-to-file."},
 {"role": "user", "content": "How can I check the status of my tax refund?"},
-{"role": "assistant", "content": "You can check the status of your tax refund by visiting https://www.irs.gov/refunds"},
+{"role": "assistant", "content": "You can check the status of your tax refund by visiting https://www.irs.gov/refunds"}
 ```
 
 #### Using Chat Completion for non-chat scenarios
@@ -300,4 +299,4 @@ The token counting portion of the code demonstrated previously, is a simplified 
 
 * [Learn more about Azure OpenAI](../overview.md).
 * Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

@@ -159,7 +159,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
           - device: ephemeral0.2
             filesystem: swap
         mounts:
-          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.1", "/mnt/ressource"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```

@@ -1,20 +1,19 @@
 ---
-title: Microsoft Dev Box Preview key concepts
-titleSuffix: Microsoft Dev Box Preview
-description: Learn key concepts and terminology for Microsoft Dev Box Preview.
+title: Microsoft Dev Box key concepts
+description: Learn key concepts and terminology for Microsoft Dev Box.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.custom: template-concept
 #Customer intent: As a developer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
-# Microsoft Dev Box Preview key concepts
+# Key concepts for Microsoft Dev Box Preview
 
-This article describes the key concepts and components of Microsoft Dev Box Preview.
+This article describes the key concepts and components of Microsoft Dev Box.
 
 ## Dev box
 

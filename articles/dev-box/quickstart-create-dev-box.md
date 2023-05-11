@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Create a dev box'
-titleSuffix: Microsoft Dev Box Preview
-description: This quickstart shows you how to create a dev box and connect to it through a browser.
+titleSuffix: Microsoft Dev Box
+description: In this quickstart, you learn how to create a dev box and connect to it through a browser.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
@@ -21,7 +21,7 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 
 To complete this quickstart, you need:
 
-- Permissions as a [Dev Box User](./quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#6-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
 

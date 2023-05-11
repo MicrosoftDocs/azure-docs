@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2023
+ms.date: 04/27/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -17,7 +17,7 @@ This article explains how enterprise administrators of direct and indirect Enter
 > [!NOTE]
 > We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> As of February 20, 2023 indirect EA customers can't manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
 > This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
@@ -56,7 +56,7 @@ The following table lists the terms and descriptions shown on the Usage + Charge
 
 In the past, when a reservation refund was required, Microsoft manually reviewed closed bills - sometimes going back multiple years. The manual review sometime led to issues. To resolve the issues, the refund review process is changing to a forward-looking review that doesn't require reviewing closed bills.
 
-The new review process is being deployed in phases. The current phase began on March 1, 2023. In this phase, Microsoft is addressing only refunds that result in an overage. For example, an overage that generates a credit note.
+The new review process is being deployed in phases. The current phase begins on May 1, 2023. In this phase, Microsoft is addressing only refunds that result in an overage. For example, an overage that generates a credit note.
 
 To better understand the change, let's look at a detailed example of the old process. Assume that a reservation was bought in February 2022 with an overage credit (no Azure prepayment or Monetary Commitment was involved). You decided to return the reservation in August 2022. Refunds use the same payment method as the purchase. So, you received a credit note in August 2022 for the February 2022 billing period. However, the credit amount reflects the month of purchase. In this example, that's February 2022. The refund results in the change to the service overage and total charges.
 

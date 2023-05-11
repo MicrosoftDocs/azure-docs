@@ -147,9 +147,15 @@ spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpo
 spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
 ```
 
+**Connect with Connection String**
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]="${FIRST_REPLICA_CONNECTION_STRING}"
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_REPLICA_CONNECTION_STRING}"
+```
 
 > [!NOTE]
-> The failover support is available if you use version of **4.0.0-beta.1** or later of any of the following packages.
+> The failover support is available if you use version of **4.7.0** or later of any of the following packages.
 > - `spring-cloud-azure-appconfiguration-config`
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`

@@ -484,3 +484,10 @@ func main() {
 ```
 
 You can find more text-to-speech samples at [GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/).
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

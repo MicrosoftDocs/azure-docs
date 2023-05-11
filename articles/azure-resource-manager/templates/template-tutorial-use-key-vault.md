@@ -5,7 +5,7 @@ author: mumian
 ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-arm-template
 ---
 
 # Tutorial: Integrate Azure Key Vault in your ARM template deployment

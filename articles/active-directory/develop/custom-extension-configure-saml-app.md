@@ -104,6 +104,6 @@ Test that the token is being enriched for users signing in to the application:
 
 [Troubleshoot your custom claims provider API](custom-extension-troubleshoot.md).
 
-View the [Authentication Events Trigger for Azure Functions sample app](https://github.com/Azure/microsoft-azure-webJobs-extensions-authentication-events).
+View the [Authentication Events Trigger for Azure Functions sample app](https://github.com/Azure/azure-docs-sdk-dotnet/blob/live/api/overview/azure/preview/microsoft.azure.webjobs.extensions.authenticationevents-readme.md).
 
 <!-- For information on the HTTP request and response formats, read the [protocol reference](custom-claims-provider-protocol-reference.md). -->

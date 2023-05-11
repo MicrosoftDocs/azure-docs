@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 12/02/2022
+ms.date: 03/30/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.subservice: blobs
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Azure Storage blob inventory
 
-The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements.
+Azure Storage blob inventory provides a list of the containers, blobs, blob versions, and snapshots in your storage account, along with their associated properties. It generates an output report in either comma-separated values (CSV) or Apache Parquet format on a daily or weekly basis. You can use the report to audit retention, legal hold or encryption status of your storage account contents, or you can use it to understand the total data size, age, tier distribution, or other attributes of your data. You can also use blob inventory to simplify your business workflows or speed up data processing jobs, by using blob inventory as a scheduled automation of the [List Containers](/rest/api/storageservices/list-containers2) and [List Blobs](/rest/api/storageservices/list-blobs) APIs. Blob inventory rules allow you to filter the contents of the report by blob type, prefix, or by selecting the blob properties to include in the report.
 
 ## Inventory features
 
@@ -389,7 +389,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-## Known issues
+## Known issues and limitations
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
@@ -406,6 +406,8 @@ An inventory job can take a longer amount of time in these cases:
 - In inventory run is processing a large amount of data in hierarchical namespace enabled accounts
 
   An inventory job might take more than one day to complete for hierarchical namespace enabled accounts that have hundreds of millions of blobs. Sometimes the inventory job fails and doesn't create an inventory file. If a job doesn't complete successfully, check subsequent jobs to see if they're complete before contacting support.
+
+- There is no option to generate a report retrospectively for a particular date.
 
 #### Inventory jobs can't write reports to containers that have an object replication policy
 

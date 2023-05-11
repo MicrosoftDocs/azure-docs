@@ -82,7 +82,7 @@ Connect-MgGraph -Scopes "User.ReadWrite.All"
 $user = Get-MgUser -Filter "startsWith(mail, 'john.doe@fabrikam.net')"
 New-MgInvitation `
     -InvitedUserEmailAddress $user.Mail `
-    -InviteRedirectUrl "http://myapps.microsoft.com" `
+    -InviteRedirectUrl "https://myapps.microsoft.com" `
     -ResetRedemption `
     -SendInvitationMessage `
     -InvitedUser $user

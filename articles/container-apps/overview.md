@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: overview
-ms.date: 03/13/2023
+ms.date: 03/29/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
@@ -34,21 +34,23 @@ Azure Container Apps enables executing application code packaged in any containe
 
 With Azure Container Apps, you can:
 
+- [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
+
+- [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
+
+- [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
+
+- [**Use specialized hardware**](plans.md) for access to increased compute resources.
+
 - [**Run multiple container revisions**](application-lifecycle-management.md) and manage the container app's application lifecycle.
 
 - [**Autoscale**](scale-app.md) your apps based on any KEDA-supported scale trigger. Most applications can scale to zero<sup>1</sup>.
-
-- [**Enable HTTPS or TCP ingress**](ingress-how-to.md) without having to manage other Azure infrastructure.
 
 - [**Split traffic**](revisions.md) across multiple versions of an application for Blue/Green deployments and A/B testing scenarios.
 
 - [**Use internal ingress and service discovery**](connect-apps.md) for secure internal-only endpoints with built-in DNS-based service discovery.
 
-- [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
-
 - [**Run containers from any registry**](containers.md), public or private, including Docker Hub and Azure Container Registry (ACR).
-
-- [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
 
 - [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 

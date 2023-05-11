@@ -1,6 +1,6 @@
 ---
-title: How to manage Azure Mover projects #Required; page title is displayed in search results. Include the brand.
-description: Learn how to manage Azure Mover projects #Required; article description that is displayed in search results. 
+title: How to manage Azure Mover projects
+description: Learn how to manage Azure Mover projects
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
@@ -75,7 +75,7 @@ The first step in defining a migration job is the creation of a project resource
    Install-Module -Name Az.StorageMover -Scope CurrentUser -Repository PSGallery -Force
    ```
 
-   The [Install Azure PowerShell](/powershell/azure/install-az-ps) article has more details.
+   The [Install Azure PowerShell](/powershell/azure/install-azure-powershell) article has more details.
 
    You'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional.   
 

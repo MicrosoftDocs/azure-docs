@@ -6,7 +6,7 @@ ms.author: aashishr
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/15/2023
+ms.date: 05/08/2023
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Microsoft Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -26,16 +26,17 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| Yes | Yes | Yes | Yes | Yes | No | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| Yes | Yes | Yes | Yes | Yes | [Yes](create-sensitivity-label.md)| No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
+### Known limitations
 
-## Microsoft Purview scope for Amazon S3
+When scanning Amazon S3 of Glacier storage classes, schema extraction, classification and sensitivity labels are not supported.
 
-We currently don't support ingestion private endpoints that work with your AWS sources.
+Microsoft Purview private endpoints are not supported when scanning Amazon S3.
 
 For more information about Microsoft Purview limits, see:
 

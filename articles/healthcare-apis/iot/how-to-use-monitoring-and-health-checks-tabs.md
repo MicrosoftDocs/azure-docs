@@ -1,12 +1,12 @@
 ---
 title: How to use the MedTech service monitoring and health check tabs - Azure Health Data Services
-description: This article describes how to use the MedTech service monitoring and health check tabs.
+description: Learn how to use the MedTech service monitoring and health check tabs.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -51,11 +51,11 @@ Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|The overall health of the MedTech service.|
 |Errors|**Total Error Count**|The total number of errors.|
-|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](understand-service.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
-|Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](understand-service.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of FHIR resources [updated or persisted](understand-service.md#persist) by the MedTech service.|
-|Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](understand-service.md#ingest) (for example, the device events) from the configured source event hub.|
-|Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](understand-service.md#transform) of the MedTech service.|
+|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](overview-of-device-data-processing-stages.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](overview-of-device-data-processing-stages.md#normalize) performs normalization on raw incoming messages.|
+|Traffic|Number of Fhir resources saved|The total number of FHIR resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
+|Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](overview-of-device-data-processing-stages.md#ingest) (for example, the device events) from the configured source event hub.|
+|Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](overview-of-device-data-processing-stages.md#transform) of the MedTech service.|
 |Traffic|**Number of Message Groups**|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|**Number of Normalized Messages**|The number of normalized messages.|
 

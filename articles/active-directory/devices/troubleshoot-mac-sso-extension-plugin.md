@@ -77,7 +77,7 @@ Use the following steps to check the operating system (OS) version on the macOS 
 1. From the macOS device, open Terminal from the **Applications** -> **Utilities** folder.
 1. When the Terminal opens type **sw_vers** at the prompt, look for a result like the following:
 
-   ```bash
+   ```zsh
    % sw_vers
    ProductName: macOS
    ProductVersion: 13.0.1
@@ -194,7 +194,7 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 1. When the **Spotlight Search** appears type **Terminal** and hit **return**.
 1. When the Terminal opens type **`osascript -e 'id of app "<appname>"'`** at the prompt. See some examples follow:
 
-   ```bash
+   ```zsh
    % osascript -e 'id of app "Safari"'
    com.apple.Safari
 
@@ -294,14 +294,14 @@ During troubleshooting it may be useful to reproduce a problem while tailing the
 1. When the **Spotlight Search** appears type: **Terminal** and hit **return**.
 1. When the Terminal opens type: 
 
-   ```bash
+   ```zsh
    tail -F ~/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/*
    ```
 
    > [!NOTE]
    > The trailing /* indicates that multiple logs will be tailed should any exist
 
-   ```
+   ```output
    % tail -F ~/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/*
    ==> /Users/<username>/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/SSOExtension 2022-12-25--13-11-52-855.log <==
    2022-12-29 14:49:59:281 | I | TID=783491 MSAL 1.2.4 Mac 13.0.1 [2022-12-29 19:49:59] Handling SSO request, requested operation: 

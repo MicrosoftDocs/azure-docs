@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/06/2023
+ms.date: 04/17/2023
 ms.author: danlep
 ---
 
@@ -16,7 +16,8 @@ ms.author: danlep
 Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
 
 > [!IMPORTANT]
-> Please note the Developer tier is for non-production use cases and evaluations. It does not offer SLA.
+> * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
+> * The Consumption tier isn't available in the US Government cloud or the Azure China cloud. 
 
 | Feature                                                                                      | Consumption | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
@@ -40,12 +41,11 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Azure Monitor logs and metrics                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | Static IP                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
-| [WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
-| [GraphQL APIs](graphql-api.md)<sup>5</sup>                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
-| [Synthetic GraphQL APIs (preview)](graphql-schema-resolve-api.md)                                            | No           | Yes       | Yes   | Yes      | Yes     |
+| [Pass-through WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
+| [Pass-through GraphQL APIs](graphql-apis-overview.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
+| [Synthetic GraphQL APIs](graphql-apis-overview.md)                                            | Yes           | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier self-hosted gateways are limited to a single gateway node. <br/>
 <sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the dedicated, consumption, and self-hosted gateways. <br/>
-<sup>5</sup> GraphQL subscriptions aren't supported in the Consumption tier.

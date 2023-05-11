@@ -208,3 +208,10 @@ auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourS
 speechConfig->SetEndpointId("YourEndpointId");
 auto speechRecognizer = SpeechRecognizer::FromConfig(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

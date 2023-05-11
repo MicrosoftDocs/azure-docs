@@ -7,7 +7,7 @@ author: goergenj
 ms.author: jagoerge
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/18/2022
 ---
 

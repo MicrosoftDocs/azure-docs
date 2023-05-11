@@ -8,9 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/14/2022
+ms.date: 04/14/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Add an OpenID Connect-based single sign-on application
@@ -24,7 +25,7 @@ It is recommended that you use a non-production environment to test the steps in
 To configure OIDC-based SSO, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, or owner of the service principal.
 
 ## Add the application
 
