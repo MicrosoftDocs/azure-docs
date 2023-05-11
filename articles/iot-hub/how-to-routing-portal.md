@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 05/11/2023
 ms.author: kgremban
 ---
 
@@ -60,9 +60,24 @@ Routes send messages or event logs to an Azure service for storage or processing
 
 2. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
-   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new Event Hubs route in your IoT hub.":::
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
 
-3. On the **Endpoint** tab, select an existing Event Hubs endpoint or create a new one by providing the following information:
+3. On the **Endpoint** tab, select an existing endpoint or create a new one by providing the following information:
+
+   # [Cosmos DB](#tab/cosmosdb)
+
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Endpoint type** | Select **Cosmos DB (preview)**. |
+   | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Storage endpoint. |
+   | **Cosmos DB account** | Use the drop-down menu to select an existing Cosmos DB account in your subscription. |
+   | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |
+   | **Collection** | Use the drop-down menu to select an existing collection (or container). |
+   | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) and [Synthetic partition keys](../cosmos-db/nosql/synthetic-partition-keys.md). |
+   | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once it has been set. |
+   | **Partition key template** | Provide a template that is used to configure the synthetic partition key value. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record. |
+
+   :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::
 
    # [Event Hubs](#tab/eventhubs)
 
@@ -75,6 +90,17 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-event-hub.png" alt-text="Screenshot that shows all options for creating an Event Hubs endpoint.":::
 
+   # [Service Bus topic](#tab/servicebustopic)
+
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Endpoint type** | Select **Service Bus topic**. |
+   | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Service Bus topic endpoint. |
+   | **Service Bus namespace** | Use the drop-down menu to select an existing Service Bus namespace in your subscription. |
+   | **Service Bus topic** | Use the drop-down menu to select an existing topic in your namespace. |
+
+   :::image type="content" source="media/how-to-routing-portal/add-service-bus-topic-endpoint.png" alt-text="Screenshot that shows the Add a Service Bus topic endpoint pane with correct options selected.":::
+
    # [Service Bus queue](#tab/servicebusqueue)
 
    | Parameter | Value |
@@ -86,18 +112,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-service-bus-endpoint.png" alt-text="Screenshot that shows the Add a service bus queue endpoint pane with correct options selected.":::
 
-   # [Service Bus topic](#tab/servicebustopic)
-
-   | Parameter | Value |
-   | --------- | ----- |
-   | **Endpoint type** | Select **Service Bus topic**. |
-   | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Service Bus topic endpoint. |
-   | **Service Bus namespace** | Use the drop-down menu to select an existing Service Bus namespace in your subscription. |
-   | **Service Bus topic** | Use the drop-down menu to select an existing topic in your namespace. |
-
-   :::image type="content" source="media/how-to-routing-portal/add-service-bus-topic-endpoint.png" alt-text="Screenshot that shows the Add a service bus topic endpoint pane with correct options selected.":::
-
-   # [Azure Storage](#tab/azurestorage)
+   # [Storage](#tab/azurestorage)
 
    | Parameter | Value |
    | --------- | ----- |
@@ -107,31 +122,16 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    :::image type="content" source="media/how-to-routing-portal/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with the correct options selected.":::
 
-   # [Azure Cosmos DB](#tab/cosmosdb)
-
-   | Parameter | Value |
-   | --------- | ----- |
-   | **Endpoint type** | Select **Cosmos DB (preview)**. |
-   | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Storage endpoint. |
-   | **Cosmos DB account** | Use the drop-down menu to select an existing Cosmos DB account in your subscription. |
-   | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |
-   | **Collection** | Use the drop-down menu to select an existing collection. |
-   | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) and [Synthetic partition keys](../cosmos-db/nosql/synthetic-partition-keys.md). |
-   | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once it has been set. |
-   | **Partition key template** | Provide a template that will be used to configure the synthetic partition key value. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record. |
-
-   :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::
-
    ---
 
 4. Select **Create + next** to create the endpoint and continue to create a route.
 
-5. On the **Route** tab, create a new route to your Event Hubs endpoint by providing the following information:
+5. On the **Route** tab, create a new route to your endpoint by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
    | **Name** | Provide a unique name for the route. |
-   | **Data source** | Use the drop-down menu to select a data source for the route. You can route telemetry messages or [non-telemetry events](./iot-hub-devguide-messages-d2c.md#non-telemetry-events). |
+   | **Data source** | Use the drop-down menu to select a data source for the route. You can route data from telemetry messages or [non-telemetry events](./iot-hub-devguide-messages-d2c.md#non-telemetry-events) |
    | **Routing query** | Optionally, add a query to filter the data before routing. For more information, see [IoT Hub message routing query syntax](./iot-hub-devguide-routing-query-syntax.md). |
 
    :::image type="content" source="./media/how-to-routing-portal/create-route.png" alt-text="Screenshot that shows all options for adding a route.":::
@@ -183,24 +183,26 @@ To update a custom endpoint in the Azure portal:
 
 4. You can change the following parameters of an existing endpoint:
 
-   # [Azure Cosmos DB](#tab/cosmosdb)
+   # [Cosmos DB](#tab/cosmosdb)
 
-    * **Test**
+   * **Generate a synthetic partition key for messages**
+   * **Partition key name**
+   * **Partition key template**
 
    # [Event Hubs](#tab/eventhubs)
 
    * **Event Hub status**
    * **Retention time (hrs)**
 
-   # [Service Bus queue](#tab/servicebusqueue)
-
-   * **Test**
-
    # [Service Bus topic](#tab/servicebustopic)
 
-   * **Test**
+   * You can't modify a Service Bus topic endpoint.
 
-   # [Azure Storage](#tab/storage)
+   # [Service Bus queue](#tab/servicebusqueue)
+
+   * You can't modify a Service Bus queue endpoint.
+
+   # [Storage](#tab/storage)
 
    * **Batch frequency**
    * **Chunk size window**
@@ -214,11 +216,13 @@ To update a custom endpoint in the Azure portal:
 
 To delete a custom endpoint in the Azure portal:
 
-1. In **Message routing** for your IoT hub, select the **Custom endpoints** tab.
+1. In the Azure portal, go to your IoT hub.
 
-1. Select the endpoint to delete.
+2. In the resource menu under **Hub settings**,  select **Message routing**.
 
-1. Select **Delete**.
+3. In the **Custom endpoints** tab, use the checkbox to select the endpoint that you want to delete.
+
+4. Select **Delete**.
 
    :::image type="content" source="media/how-to-routing-portal/delete-endpoint-portal.png" alt-text="Screenshot that shows where and how to delete an existing Event Hubs endpoint." lightbox="media/how-to-routing-portal/delete-endpoint-portal.png":::
 

@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/24/2022
+ms.date: 05/11/2023
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
@@ -258,31 +258,26 @@ Now set up the routing for the storage account. In this section you define a new
 
 # [Azure portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
-1. Select **Message Routing** from the **Hub settings** section of the menu.
+1. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
-1. In the **Routes** tab, select **+ Add**.
+   :::image type="content" source="media/tutorial-routing/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
 
-   ![Add a new message route.](./media/tutorial-routing/add-route.png)
-
-1. Select **+ Add endpoint** next to the **Endpoint** field, then select **Storage** from the dropdown menu.
-
-   ![Add a new endpoint for a route.](./media/tutorial-routing/add-storage-endpoint.png)
-
-1. Provide the following information for the new storage endpoint:
+1. On the **Endpoint** tab, create a Storage endpoint by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
-   | **Endpoint name** | Create a name for this endpoint. |
-   | **Azure Storage container** | Select **Pick a container**, which takes you to a list of storage accounts. Choose the storage account that you created in the previous section, then choose the container that you created in that account. Select **Select**.|
+   | **Endpoint type** | Select **Storage**. |
+   | **Endpoint name** | Provide a unique name for this endpoint. |
+   | **Azure Storage container** | Select **Pick a container**. Follow the prompts to select the storage account and container that you created in the previous section. |
    | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region doesn't support JSON. In that case, continue with the default **AVRO**. |
 
-   ![Pick a container.](./media/tutorial-routing/create-storage-endpoint.png)
+   :::image type="content" source="media/tutorial-routing/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with the correct options selected.":::
 
-1. Accept the default values for the rest of the parameters and select **Create**.
+1. Accept the default values for the rest of the parameters and select **Create + next**.
 
-1. Continue creating the new route, now that you've added the storage endpoint. Provide the following information for the new route:
+1. On the **Route** tab, provide the following information to create a route that points to the Storage endpoint you created:
 
    | Parameter | Value |
    | -------- | ----- |
@@ -293,7 +288,7 @@ Now set up the routing for the storage account. In this section you define a new
 
    ![Save the routing query information](./media/tutorial-routing/create-storage-route.png)
 
-1. Select **Save**.
+1. Select **Create + skip enrichments**.
 
 # [Azure CLI](#tab/cli)
 
@@ -344,7 +339,7 @@ Once the route is created in IoT Hub and enabled, it will immediately start rout
 
 ### Monitor the built-in endpoint with IoT Explorer
 
-Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoint for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created. 
+Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoint for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created.
 
 Start the sample again by running the code. Watch the incoming messages for a few moments and you should only see messages where `level` is set to `normal` or `critical`.
 
