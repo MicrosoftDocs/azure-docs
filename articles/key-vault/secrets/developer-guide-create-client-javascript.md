@@ -13,13 +13,31 @@ ms.author: mbaldwin
 ---
 # Authenticating to Azure Key Vault SDK for JavaScript with DefaultAzureCredential  
   
-This documentation provides guidance on how to authenticate to Azure Key Vault SDK for JavaScript with DefaultAzureCredential. The `DefaultAzureCredential` class in the Azure SDK for JavaScript provides a way to authenticate to Azure services using various methods of authentication including environment variables, managed identities, and service principals.  
+This documentation provides guidance on how to programmatically authenticate to Azure Key Vault secrets with JavaScript. Because Azure Key Vault requires Active Directory authentication, to authenticate you must: 
+
+* Set up your environment to provide authentication credentials.
+* Use the DefaultAzureCredential class to programmatically use those credentials.
   
 ## Prerequisites  
   
-- An Azure subscription  
-- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) instance  
+- An Azure subscription
+- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) instance with appropriat access policies configured
 - Node.js version LTS  
+
+## Set up authentication
+
+Before programmatically authenticating to Azure to use Azure Key Vault secrets, make sure you [set up your environment](). 
+
+:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-js/main/sdk/identity/identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg" alt-text="Azure SDK for JavaScript credential flow.":::
+
+#### [Developer authentication](#tab/developer-auth)
+
+[!INCLUDE [Azure CLI Login with bash, powershell, and vscode](../../../includes/azure-cli-login.md)]
+
+#### [Production authentication](#tab/production-auth)
+
+Use the [DefaultAzureCredential](https://www.npmjs.com/package/@azure/identity#DefaultAzureCredential) in production based on the credential mechanisms.
+---
 
 ## Install dependencies 
 
@@ -52,17 +70,4 @@ npm install @azure/keyvault-secrets @azure/identity
     const client = new SecretClient(url, credential);  
     ```
 
-## Set up authentication
 
-Before using this authentication code, make sure you set up your environment. 
-
-#### [Developer authentication](#tab/developer-auth)
-
-[!INCLUDE [Azure CLI Login with bash, powershell, and vscode](../../../includes/azure-cli-login.md)]
-
-#### [Production authentication](#tab/production-auth)
-
-To use the DefaultAzureCredential in production, learn more about [environment variable setup](https://www.npmjs.com/package/@azure/identity#environment-variables).
-
----
- 
