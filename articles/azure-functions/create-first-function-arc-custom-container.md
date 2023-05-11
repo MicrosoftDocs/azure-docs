@@ -63,7 +63,9 @@ az functionapp create --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> -
 
 In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, `<APP_NAME>` with a globally unique name, and `<DOCKER_ID>` or `<LOGIN_SERVER>` with your Docker Hub account ID or Container Registry server, respectively. When you're deploying from a custom container registry, the image name indicates the URL of the registry. 
 
-When you first create the function app, it pulls the initial image from your Docker Hub. You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub. 
+When you first create the function app, it pulls the initial image from your Docker Hub. 
+<!--- Need to verify if CI/CD is supported:
+You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub. -->
 
 ### Set required app settings
 

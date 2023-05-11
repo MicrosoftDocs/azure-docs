@@ -55,7 +55,13 @@ When your function app container is deployed from a registry, Functions maintain
  +  [`az functionapp config container show`](/cli/azure/functionapp/config/container#az-functionapp-config-container-show): returns information about the image used for deployment. 
  +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or the image used for deployment.
 
+## Application settings
+
+
+
 ## Enable continuous deployment to Azure
+
+_Supported only for containers deployed to Azure Functions_ 
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 

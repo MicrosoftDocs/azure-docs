@@ -20,7 +20,17 @@ This integration also means that you can leverage existing Functions client tool
 
 In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/en-us/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a .Dockerfile that you can use to create your container from the correct base image. 
 
-To learn how to create and deploy a function app container to Container Apps, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-aca.md). 
+Azure Functions currently supports the following methods of deployment to Azure Container Apps:
+
++ Azure CLI 
++ Azure Portal
++ GitHub Actions
++ Azure Pipeline tasks
++ ARM templates
++ Bicep templates
++ Azure Functions core tools
+
+To learn how to create and deploy a function app container to Container Apps using the Azure CLI, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-aca.md). 
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
@@ -39,13 +49,12 @@ Keep in mind the following considerations when deploying your function app conta
     + West Europe 
     + West US3 
 + When running in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions.
-+ While all triggers can be used, only the following triggers can scale as expected when running on Container Apps:
++ While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
     + HTTP 
     + Azure Queue Storage 
     + Azure Service Bus 
     + Azure Event Hubs 
-    + Kafka (without certificates)  
-    Other 
+    + Kafka (without certificates)   
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. However, you can access the AKS instance directly.
 
