@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 05/11/2023
 ms.author: banders
 ---
 
@@ -40,9 +40,11 @@ To resolve a past due balance, see one of the following articles:
 
 To resolve the issue, [switch to a different credit card](change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](pay-by-invoice.md).
 
-## The subscription was accidentally canceled
+## The subscription was canceled
 
-If you're the Account Administrator and accidentally canceled a pay-as-you-go subscription, you can reactivate it in the Azure portal.
+If you're the Account Administrator or subscription Owner and you canceled a pay-as-you-go subscription, you can reactivate it in the Azure portal.
+
+If you're a billing administrator (partner billing administrator or Enterprise Administrator), you may not have the required permission to reactive the subscription. If this situation applies to you, contact the Account Administrator or subscription Owner and ask them to reactivate the subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Subscriptions and then select the canceled subscription.
