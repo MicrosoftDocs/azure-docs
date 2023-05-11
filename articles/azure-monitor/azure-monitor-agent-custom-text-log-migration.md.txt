@@ -1,0 +1,31 @@
+---
+title: Migrate from custom text log version 1 to DCR agent custom text logs.
+description: Steps that you must perform when migrating from custom text log v1 to DCR based AMA custom text logs.
+ms.topic: conceptual
+ms.date: 05/09/2023
+---
+
+# Migrate from MMA custom text log to AMA DCR based custom text logs
+This article describes steps to migrate your [MMA Custom text log](data-source-custom.md) tables so that they can be used by a new [AMA custom text log](data-collection-text-log.md) while keeping all the existing data. If you are creating a new AMA custom text log then this article does not pertain to you.
+  
+## Background
+AMA custom text logs must be configured to support new features in order  MMA custom text log table it must be configured to support new features. When you complete the process described in this article all of the existing data will remain in the migrated table. The following actions are taken:
+- The table is reconfigured to enable all DCR-based custom logs features. This includes DCR and DCE support and management with the tables control plane.
+- Any previously defined custom fields will stop populating in the table if it comes from through v1. However, v2 will be able to write the data to the column as specified in the DCR 
+- The Custom text log v1 collection will continue to work but it will not be able to create new columns and data will only be filled in for columns that were created prior to migration. The portal table management UI can be used to change the schema after migration.
+
+## Migration procedure
+You should follow the steps only if the following criteria are true:  
+- You created the original table using the Custom Log wizard.
+- You're going to preserve the existing data in the table and send new data to the table using the [AMA DCR based custom text log](data-collection-text-log.md) and possibly configure an [ingestion time transformation]( azure-monitor-agent-transformation.md).
+
+1. Configure your data collection rule (DCR) following procedures at [collect test logs with Azure Monitor Agent](data-collection-text-log.md) 
+2. Issue the following API call against your existing custom logs table to enable ingestion from Data Collection Rule and manage your table from the portal UI. This call is idempotent, so it will take effect only the first time it is called. Migration is one-way, so the table can’t be migrated back. 
+    ```rest
+ POST https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
+    ```
+3. Discontinue MMA custom text log collection and start using the AMA custom text log. Not that the v1 and v2 ingestion will work side-by-side as you migrate from MMA to AMA, with previously noted limitation on custom fields.
+
+## Next steps
+- [Walk through a tutorial sending custom logs using the Azure portal.](data-collection-text-log.md)
+- [Create an ingestion time transform for your custom text data](azure-monitor-agent-transformation.md)
