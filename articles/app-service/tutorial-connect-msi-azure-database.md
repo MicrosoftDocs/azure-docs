@@ -1010,7 +1010,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 # [Azure PowerShell](#tab/ps)
 
-1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
+1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
 1. Sign in to Azure CLI with the following cmdlet using your Azure AD user:
 

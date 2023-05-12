@@ -617,7 +617,7 @@ In Java, many dependency calls can be automatically tracked by using the
 You use this call if you want to track calls that the automated tracking doesn't catch.
 
 To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. For Java, see
-[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-auto-collected-telemetry).
+[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-autocollected-telemetry).
 
 ### Dependencies in Log Analytics
 

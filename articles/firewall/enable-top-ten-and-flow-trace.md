@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 05/12/2023
 ms.author: victorh 
 ---
 
@@ -20,7 +20,8 @@ Azure Firewall has two new diagnostics logs you can use to help monitor your fir
 
 The Top flows log (known in the industry as Fat Flows), shows the top connections that are contributing to the highest throughput through the firewall.
 
-Because of the CPU impact, enable Top flows only when you need to troubleshoot a specific issue. The recommendation is to enable Top flows no longer than one week at a time.
+It's suggested to activate Top flows logs only when troubleshooting a specific issue to avoid excessive CPU usage of Azure Firewall.
+
 
 ### Prerequisites
 
@@ -65,7 +66,7 @@ There are a few ways to verify the update was successful, but you can navigate t
 
 Currently, the firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *syn* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing has occurred.
 
-Because of the disk impact, enable Flow trace only when you need to troubleshoot a specific issue. The recommendation is to enable Flow trace no longer than one week at a time.
+To avoid excessive disk usage caused by Flow trace logs in Azure Firewall with many short-lived connections, it's recommended to activate the logs only when troubleshooting a specific issue for diagnostic purposes.
 
 The following additional properties can be added: 
 - SYN-ACK
@@ -80,7 +81,7 @@ The following additional properties can be added:
 
 - RST
 
-   Reset flag that indicates that original sender won't receive more data.
+   The Reset the flag indicates the original sender doesn't receive more data.
 
 - INVALID (flows)
 

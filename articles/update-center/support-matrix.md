@@ -88,7 +88,7 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 
 **Marketplace/PIR images**
 
-Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md). 
+Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
 
 **Custom images**
 

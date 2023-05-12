@@ -15,7 +15,7 @@ A template spec is a resource type for storing an Azure Resource Manager templat
 To deploy the template spec, you use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. You use the same commands as you would for the template.
 
 > [!NOTE]
-> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your templates along with copy loops to create multiple instances of these resources.
 

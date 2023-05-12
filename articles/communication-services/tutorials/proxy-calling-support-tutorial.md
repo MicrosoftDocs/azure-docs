@@ -152,23 +152,34 @@ You can create a Linux virtual machine in the Azure portal and deploy an NGINX s
 
 Here's an NGINX config that you could make use of for a quick spin up:
 ```
-events {  
+events {
     multi_accept       on;
     worker_connections 65535;
 }
-
 http {
     map $http_upgrade $connection_upgrade {
         default upgrade;
         '' close;
     }
-
+    map $request_method $access_control_header {
+        OPTIONS '*';
+    }
     server {
         listen <port_you_want_listen_on> ssl;
-        ssl_certificate      <path_to_your_ssl_cert>;
-        ssl_certificate_key  <path_to_your_ssl_key>;
-        location ~* ^/(.*\.(com)(?::[\d]+)?)/(.*)$ {
-            resolver 8.8.8.8;
+        ssl_certificate     <path_to_your_ssl_cert>;
+        ssl_certificate_key <path_to_your_ssl_key>;
+        location ~* ^/(.*?\.(com|net)(?::[\d]+)?)/(.*)$ {
+            if ($request_method = 'OPTIONS') {
+                add_header Access-Control-Allow-Origin '*' always;
+                add_header Access-Control-Allow-Credentials 'true' always;
+                add_header Access-Control-Allow-Headers '*' always;
+                add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+                add_header Access-Control-Max-Age 1728000;
+                add_header Content-Type 'text/plain';
+                add_header Content-Length 0;
+                return 204;
+            }
+            resolver 1.1.1.1;
             set $ups_host $1;
             set $r_uri $3;
             rewrite ^/.*$ /$r_uri break;
@@ -179,26 +190,25 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_pass_header Authorization;
+            proxy_pass_request_headers on;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection $connection_upgrade;
             proxy_set_header Proxy "";
+            proxy_set_header Access-Control-Allow-Origin $access_control_header;
             proxy_pass https://$ups_host;
             proxy_redirect https://$ups_host https://$host/$ups_host;
             proxy_intercept_errors on;
             error_page 301 302 307 = @process_redirect;
-            error_page 400 405  = @process_error_response;
-            if ($request_method = 'OPTIONS') {
-                    add_header Access-Control-Allow-Origin * always;
-            }
+            error_page 400 405 = @process_error_response;
         }
-        location @handle_redirect {
+        location @process_redirect {
             set $saved_redirect_location '$upstream_http_location';
-            resolver 8.8.8.8;
+            resolver 1.1.1.1;
             proxy_pass $saved_redirect_location;
             add_header X-DBUG-MSG "301" always;
         }
-        location @handle_error_response {
+        location @process_error_response {
             add_header Access-Control-Allow-Origin * always;
         }
     }
