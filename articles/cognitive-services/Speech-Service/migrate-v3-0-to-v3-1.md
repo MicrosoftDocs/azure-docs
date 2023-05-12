@@ -16,10 +16,10 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v3.0 to v3.1 of the REST API
 
-The Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
+The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
-> Speech-to-text REST API v3.1 is generally available. Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired.
+> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to text REST API](rest-speech-to-text.md) will be retired.
 
 ## Base path
 
@@ -35,7 +35,7 @@ For more details, see [Operation IDs](#operation-ids) later in this guide.
 ## Batch transcription
 
 > [!NOTE]
-> Don't use Speech-to-text REST API v3.0 to retrieve a transcription created via Speech-to-text REST API v3.1. You'll see an error message such as the following: "The API version cannot be used to access this transcription. Please use API version v3.1 or higher."
+> Don't use Speech to text REST API v3.0 to retrieve a transcription created via Speech to text REST API v3.1. You'll see an error message such as the following: "The API version cannot be used to access this transcription. Please use API version v3.1 or higher."
 
 In the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation the following three properties are added:
 - The `displayFormWordLevelTimestampsEnabled` property can be used to enable the reporting of word-level timestamps on the display form of the transcription results. The results are returned in the `displayPhraseElements` property of the transcription file. 
@@ -186,8 +186,8 @@ The name of each `operationId` in version 3.1 is prefixed with the object name. 
 
 ## Next steps
 
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Speech-to-text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
-* [Speech-to-text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+* [Speech to text REST API](rest-speech-to-text.md)
+* [Speech to text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
+* [Speech to text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 
