@@ -221,7 +221,7 @@ If Build Service is disabled, you can only deploy an application with an image. 
 
 You can use multiple instances of Azure Spring Apps Enterprises, where some instances build and deploy images and others only deploy images. Consider the following scenario.
 
-- For one instance, you can enable Build Service with a user container registry and build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to other service instances. For more information, see, the [Build and deploy polyglot apps](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-apps), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](How-to-enterprise-deploy-polyglot-apps.md).
+- For one instance, you can enable Build Service with a user container registry and build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to other service instances. For more information, see, the [Build and deploy polyglot applications](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-applications), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](How-to-enterprise-deploy-polyglot-apps.md).
 
 - In the instance with Build Service disabled, you can deploy an application with the container image in your registry and also make use of APM and CA certificates.
 
