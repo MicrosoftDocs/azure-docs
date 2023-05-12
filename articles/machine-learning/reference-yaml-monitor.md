@@ -101,12 +101,12 @@ As the data used to train the model evolves in production, the distribution of t
 | `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
 | `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer |**Optonal**. Data window size in days. This is the production data window to be computed for data drift. | By default the data window size is the last monitoring period. | |
+| `target_dataset.data_window_size` | Integer |**Optional**. Data window size in days. This is the production data window to be computed for data drift. | By default the data window size is the last monitoring period. | |
 | `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
 | `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `training`, `test`, `validation` |  |
 | `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is **required** if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-for-models-deployed-outside-of-azure-machine-learning). | | |
-| `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context' is `training`, otherwaise default is `all_features` |
+| `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context` is `training`, otherwise, default is `all_features` |
 | `data_segment` | Object | **Optional**. Description of specific data segment to be monitored for data drift. | | |
 | `data_segment.feature_name` | String | The name of feature used to filter for data segment. | | |
 | `data_segment.feature_values` | Array | list of feature values used to filter for data segment | | |
@@ -119,7 +119,7 @@ As the data used to train the model evolves in production, the distribution of t
 
 #### Prediction Drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
@@ -144,7 +144,7 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 
 #### Data Quality
 
-Data quality signal tracks data quality issues in production by comparing to training data or recent past production data. 
+Data quality signal tracks data quality issues in production by comparing to training data or recent past production data.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------ | -------------- | ----------  |
