@@ -186,7 +186,15 @@ An Azure Spring Apps Standard consumption and dedicated plan instance hosts the 
        --sku standardGen2
    ```
 
-1. Create an app in the Azure Spring Apps instance by using the following command:
+## Create an app in your Azure Spring Apps instance
+
+You can create an app in either stanard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+
+**Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
+
+### Create an app with consumption workload profile
+
+Create an app in the Azure Spring Apps instance by using the following command:
 
    ```azurecli
    az spring app create \
@@ -199,16 +207,16 @@ An Azure Spring Apps Standard consumption and dedicated plan instance hosts the 
        --assign-endpoint true
    ```
 
-## Create an app in your Azure Spring Apps instance with dedicated workload profiles
+### Create an app with dedicated workload profile
 
-[Dedicated workload profiles](../container-apps/workload-profiles-overview.md) support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
+Dedicated workload profiles support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
 
 ```azurecli
 az containerapp env workload-profile set -n ${AZURE_CONTAINER_APPS_ENVIRONMENT}
    --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
 ```
 
-And use the following command to specify the workload profile on Azure Spring Apps:
+And use the following command to create an app with the dedicated workload profile:
 
 ```azurecli-interactive
 az spring app create \

@@ -64,9 +64,11 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
    :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps environment page with Consumption and Dedicated workload profiles selected for the plan." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
 
-1. Select **Workload profiles** tab and create some dedicated profiles if needed. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps](../container-apps/workload-profiles-overview.md)
+1. At this point you have created an Azure Container Apps environment with a default standard consumption workload profile. If you wish to add a dedicated workload profile to the same Azure Container Apps environment, you can select the **Workload profiles** tab and click on **Add workload profile**. 
 
-    :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png" alt-text="Screenshot of Azure portal showing Create Workload Profiles tab." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png":::
+   **Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.**  See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png" alt-text="Screenshot of Azure portal showing Create Workload Profiles tab." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png":::
 
 1. Select **Review and create**.
 
@@ -131,12 +133,14 @@ You can create the Azure Container Apps environment in one of two ways:
        --enable-workload-profiles
    ```
 
-1. Create a dedicated workload profile in the Azure Container Apps environment:
+1. At this point you have created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment by the following command:
 
    ```azurecli
    az containerapp env workload-profile set -g $RESOURCE_GROUP -n $AZURE_CONTAINER_APPS_ENVIRONMENT
       --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
    ```
+
+   **Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.**  See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
 
 ## Deploy an Azure Spring Apps instance
 

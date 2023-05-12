@@ -144,6 +144,12 @@ An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one bu
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
+You can create an app in either stanard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+
+**Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
+
+### Create an app with consumption workload profile
+
 Use the following command to specify the app name on Azure Spring Apps and to allocate required resources:
 
 ```azurecli-interactive
@@ -160,17 +166,18 @@ az spring app create \
 Azure Spring Apps creates an empty welcome application and provides its URL in the field named `properties.url`.
 
 :::image type="content" source="media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/app-welcome-page.png":::
+    
 
-## Create an app in your Azure Spring Apps instance with dedicated workload profiles
+### Create an app with dedicated workload profile
 
-[Dedicated workload profiles](../container-apps/workload-profiles-overview.md) support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
+Dedicated workload profiles support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
 
 ```azurecli
 az containerapp env workload-profile set -g ${RESOURCE_GROUP} -n ${MANAGED_ENVIRONMENT}
    --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
 ```
 
-And use the following command to specify the workload profile on Azure Spring Apps:
+And use the following command to create an app with the dedicated workload profile:
 
 ```azurecli-interactive
 az spring app create \
