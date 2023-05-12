@@ -33,7 +33,7 @@ To work with the code examples in this article, follow these steps to set up you
 
 ### Install packages
 
-For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following packages:
+Install the following packages:
 
 ### [.NET CLI](#tab/packages-dotnetcli)
 
@@ -52,7 +52,7 @@ Install-Package Azure.Storage.Blobs
 
 ### Set up the app code
 
-For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following `using` directives:
+Add the following `using` directives:
 
 ```csharp
 using Azure;

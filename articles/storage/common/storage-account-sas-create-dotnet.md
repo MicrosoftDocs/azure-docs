@@ -27,9 +27,9 @@ An account SAS is signed with the account access key. You can use the [StorageSh
 
 The following code example shows how to create a new [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) object and call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) method to get the account SAS token string.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_GetAccountSASToken":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateAccountSAS":::
 
-## Create a client object authorized by an account SAS
+## Use an account SAS from a client
 
 To use the account SAS to access service-level APIs for the Blob service, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object using the account SAS and the Blob Storage endpoint for your storage account.
 
