@@ -278,7 +278,7 @@ Console.WriteLine("\nReceiving messages from the queue...");
 QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
 ```
 
-You can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, in seconds. The default is 30 seconds.
+You can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
 
 ## Get the queue length
 

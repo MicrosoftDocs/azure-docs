@@ -5,7 +5,7 @@ description: Learn how to use the Azure Queue Storage client library for Python 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 12/14/2022
+ms.date: 05/12/2023
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
@@ -273,7 +273,7 @@ Update the contents of a message by calling the [`update_message`](/python/api/a
 
 ### Receive messages from a queue
 
-Download previously added messages by calling the [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-receive-messages) method.
+You can download previously added messages by calling the [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-receive-messages) method.
 
 Add this code to the end of the `try` block:
 
@@ -281,8 +281,24 @@ Add this code to the end of the `try` block:
     print("\nReceiving messages from the queue...")
 
     # Get messages from the queue
-    messages = queue_client.receive_messages(messages_per_page=5)
+    messages = queue_client.receive_messages(max_messages=5)
 ```
+
+When calling the `receive_messages` method, you can optionally specify a value for `max_messages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibility_timeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
+
+## Get the queue length
+
+You can get an estimate of the number of messages in a queue.
+
+The [get_queue_properties](/python/api/azure-storage-queue/azure.storage.queue.QueueClient#azure-storage-queue-queueclient-get-queue-properties) method returns queue properties including the `approximate_message_count`.
+
+```python
+properties = queue_client.get_queue_properties()
+count = properties.approximate_message_count
+print("Message count: " + str(count))
+```
+
+The result is only approximate because messages can be added or removed after the service responds to your request.
 
 ### Delete messages from a queue
 
@@ -374,5 +390,6 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Python developers](/azure/python/)
 
+- For related code samples using deprecated Python version 2 SDKs, see [Code samples using Python version 2](queues-v2-samples-python.md).
 - To learn more, see the [Azure Storage libraries for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
 - For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for Python - samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

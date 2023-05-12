@@ -3,7 +3,7 @@ title: 'Quickstart: Azure Queue Storage client library for JavaScript'
 description: Learn how to use the Azure Queue Storage client library for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 12/15/2022
+ms.date: 05/12/2023
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
@@ -264,7 +264,7 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message. By default, `peekMessages` peeks at a single message.
 
 Add this code to the end of the `main` function:
 
@@ -312,9 +312,11 @@ const receivedMessagesResponse = await queueClient.receiveMessages({ numberOfMes
 console.log("Messages received, requestId:", receivedMessagesResponse.requestId);
 ```
 
+When calling the `receiveMessages` method, you can optionally specify values in [QueueReceiveMessageOptions](/javascript/api/@azure/storage-queue/queuereceivemessageoptions) to customize message retrieval. You can specify a value for `numberOfMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
+
 ### Delete messages from a queue
 
-Delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
+You can delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
 Delete messages by calling the [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) method. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
@@ -335,6 +337,15 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
     );
     console.log("\tMessage deleted, requestId:", deleteMessageResponse.requestId);
 }
+```
+
+### Get the queue length
+
+The [`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) method returns metadata about the queue, including the approximate number of messages waiting in the queue.
+
+```javascript
+const properties = await queueClient.getProperties();
+console.log("Approximate queue length: ", properties.approximateMessagesCount);
 ```
 
 ### Delete a queue

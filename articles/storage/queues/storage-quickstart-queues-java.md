@@ -3,7 +3,7 @@ title: 'Quickstart: Azure Queue Storage client library for Java'
 description: Learn how to use the Azure Queue Storage client library for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 12/13/2022
+ms.date: 05/12/2023
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
@@ -365,6 +365,19 @@ queueClient.updateMessage(result.getMessageId(),
                           Duration.ofSeconds(1));
 ```
 
+### Get the queue length
+
+You can get an estimate of the number of messages in a queue.
+
+The `getProperties` method returns several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `getProperties`, without calling Queue Storage.
+
+```java
+QueueProperties properties = queueClient.getProperties();
+long messageCount = properties.getApproximateMessagesCount();
+
+System.out.println(String.format("Queue length: %d", messageCount));
+```
+
 ### Receive and delete messages from a queue
 
 Download previously added messages by calling the [`receiveMessages`](/java/api/com.azure.storage.queue.queueclient.receivemessages) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
@@ -389,6 +402,8 @@ queueClient.receiveMessages(10).forEach(
     }
 );
 ```
+
+When calling the `receiveMessages` method, you can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
 
 ### Delete a queue
 
@@ -468,4 +483,5 @@ For tutorials, samples, quick starts, and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Java cloud developers](/azure/developer/java/)
 
+- For related code samples using deprecated Java version 8 SDKs, see [Code samples using Java version 8](queues-v8-samples-java.md).
 - For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for Java - samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
