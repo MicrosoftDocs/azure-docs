@@ -38,7 +38,7 @@ Select the relevant tab for your scenario.
 
 # [CIM](#tab/cim)
 
-Here are example commands to create an MSIX image as a CIM disk image. You should create a new folder for the destination because a CIM disk image is made up of multiple files and this will help differentiate between the images.
+Here are example commands to create an MSIX image as a CIM disk image. You should create a new folder for the destination because a CIM disk image is made up of multiple files and this helps differentiate between the images.
 
 1. Open command prompt as an administrator and change to the directory you extracted the MSIXMGR tool. 
 
