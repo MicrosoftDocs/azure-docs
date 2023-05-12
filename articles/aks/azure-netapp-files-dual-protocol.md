@@ -18,7 +18,9 @@ This section describes how to create a dual-protocol volume on Azure NetApp File
 
 For information on creating dual protocol volumes, please see [create a dual-protocol volume for Azure NetApp Files](../azure-netapp-files/create-volumes-dual-protocol).
 
-## Use a dual-protocol volume in Azure Kubernetes Service
+## Provision a dual-protocol volume in Azure Kubernetes Service
+
+This section describes how to expose an Azure NetApp Files dual-protocol volume statically to Kubernetes. Instructions are provided for both SMB and NFS protocols. You can expose the same volume via SMB to Windows worker nodes and via NFS to Linux worker nodes.
 
 ### [NFS](#tab/nfs)
 
