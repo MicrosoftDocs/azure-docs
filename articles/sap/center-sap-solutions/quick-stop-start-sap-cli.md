@@ -13,7 +13,7 @@ author: kalyaninamuduri
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. 
 
-In this how-to guide, you'll learn to start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions* using CLI. 
+In this how-to guide, you'll learn how to start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions* using the Azure CLI. 
 
 Through the Azure CLI, you can start and stop:
 
