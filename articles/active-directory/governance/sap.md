@@ -1,6 +1,6 @@
 ---
-title: Automate provisioning to and from SAP apps
-description: Manage the lifecycle of accounts in SAP applications. 
+title: Manage access to your SAP applications
+description: Manage access to your SAP applications. 
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/28/2023
+ms.date: 05/12/2023
 ms.author: billmath
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: amycolannino
 ---
 
-# Automate provisioning to and from SAP apps
+# Manage access to your SAP applications
 
-SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, Microsoft 365, etc, and relies on Entra Identity Governance to manage access to applications. This document describes how you can use Entra Identity Governance to manage identities across your SAP applications. 
+SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, Microsoft 365, and relies on Entra Identity Governance to manage access to applications. This document describes how you can use Entra Identity Governance to manage identities across your SAP applications. 
 
 
 ![Diagram of SAP integrations.](./media/sap/SapIntegrations.png)
@@ -24,7 +24,7 @@ SAP likely runs critical functions such as HR and ERP for your business. At the 
 # Bring identities from HR into Azure AD
 
 #### SuccessFactors
-Customers using SAP SuccessFactors can easily bring identities into [Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) or [Azure AD](../../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) using native connectors. The integration supports the following scenarios:
+Customers using SAP SuccessFactors can easily bring identities into [Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) or [Azure AD](../../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) using native connectors. The connectors support the following scenarios:
 * **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](https://learn.microsoft.com/azure/active-directory/app-provisioning/user-provisioning), with write-back of the email address to SuccessFactors.
 * **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](https://learn.microsoft.com/azure/active-directory/app-provisioning/user-provisioning).
 * **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Azure Active Directory and optionally Microsoft 365 and other SaaS applications supported by Azure AD.
@@ -40,7 +40,7 @@ Customers that are still using SAP HCM can also bring identities into Azure AD. 
 # Provision identities into modern SAP applications. 
 Once your users are in Azure Active Directory, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You've three ways to accomplish this.
 * **Option 1:** Use the enterprise application in Azure AD to configure both SSO and provisioning to SAP applications such as [SAP analytics cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial). With this option, you can apply a consistent set of governance processes across all your applications. 
-* **Option 2:** Use the [SAP IAS](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) enterprise application in Azure AD to provision identities into SAP IAS. Once you bring all the identities into SAP IAS, you can either enable federation with the application or use SAP IPS to provision the accounts from SAP IAS into the application.   
+* **Option 2:** Use the [SAP IAS](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) enterprise application in Azure AD to provision identities into SAP IAS. Once you bring all the identities into SAP IAS, you can use SAP IPS to provision the accounts from SAP IAS into the application when required.   
 * **Option 3:** Use the [SAP IPS](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/f2b2df8a273642a1bf801e99ecc4a043.html) integration to directly export identities from Azure AD into your [application](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/ab3f641552464c79b94d10b9205fd721.html). When choosing this route, all provisioning configuration is managed in SAP directly. You can still use the enterprise application in Azure AD to manage single sign-on and use [Azure AD as the corporate identity provider](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html). 
 
 # Provision identities into on-premises SAP systems such as SAP ECC that aren't supported by SAP IPS 
