@@ -41,7 +41,7 @@ A typical database template addresses the core requirements of a specific indust
 
 Currently, you can choose from the following database templates in Azure Synapse Studio to start creating your lake database: 
 
-* **Airlines** - For companies engaged in growing crops, raising livestock and dairy production.
+* **Airlines** - For companies operating passenger or cargo airline services.
 * **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
 * **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
 * **Banking** - For companies providing a wide range of banking and related financial services.
