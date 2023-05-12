@@ -1,3 +1,4 @@
+items:
 - name: Azure VMware Solution
   href: index.yml
 - name: Overview
@@ -150,8 +151,12 @@
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-  - name: Configure storage policies
-    href: configure-storage-policy.md
+  - name: Configure storage
+    items:
+    - name: Configure storage policies
+      href: configure-storage-policy.md
+    - name: Configure vSAN
+      href: configure-vsan.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
