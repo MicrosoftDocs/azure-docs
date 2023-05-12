@@ -11,10 +11,10 @@ manager: nitinme
 keywords: ChatGPT
 ---
 
-## Working with the ChatGPT models (preview)
+## Working with the ChatGPT models
 
-> [!NOTE]
-> The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-35-turbo) models. The Chat Completion API is also the only way to work with GPT-4 models.
+> [!IMPORTANT]
+> Using GPT-35-Turbo models with the completion endpoint remains in preview. We are providing this level of access for experimental purposes only and strongly recommend using the Chat Completion API/endpoint. Due to the potential for changes to the underlying ChatML syntax there are currently no plans to provide GA level support for this capability.The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-35-turbo) models. The Chat Completion API is also the only way to access the GPT-4 models.
 
 The following code snippet shows the most basic way to use the ChatGPT models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 

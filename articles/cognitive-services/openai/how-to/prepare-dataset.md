@@ -65,7 +65,7 @@ For this use case we fine-tuned an ada model since it is faster and cheaper, and
 Now we can query our model by making a Completion request.
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\ \
+curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15\ \
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{
@@ -90,7 +90,7 @@ Once the model is fine-tuned, you can get back the log probabilities for the fir
 Now we can query our model by making a Completion request.
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\ \
+curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15\ \
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{

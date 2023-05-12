@@ -13,7 +13,7 @@ ms.date: 03/21/2023
 keywords: 
 ---
 
-[REST API Spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json?azure-portal=true) |
+[REST API Spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json?azure-portal=true) |
 
 ## Prerequisites
 
