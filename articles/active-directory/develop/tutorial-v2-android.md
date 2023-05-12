@@ -800,7 +800,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
 ### Layout
 
-The following xml samples are provided if you would like to model your UI off this tutorial:
+A layout is a file that defines the visual structure and appearance of a user interface, specifying the arrangement of UI components. It is usually written in XML. The following XML samples are provided if you would like to model your UI off this tutorial:
 
 1. In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet to display buttons and text boxes:
 
@@ -1283,6 +1283,9 @@ The following xml samples are provided if you would like to model your UI off th
         <style name="Theme.MSALDemo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     </resources>
     ```
+
+
+Declaring your UI in XML allows you to separate the presentation of your app from the code that controls its behavior. To learn more about Android layout, see [Layouts](https://developer.android.com/develop/ui/views/layout/declaring-layout)
 
 ## Test your app
 
