@@ -161,6 +161,7 @@ These example code snippets show you how to do the following actions with the Az
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive messages from a queue](#receive-messages-from-a-queue)
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
@@ -297,6 +298,15 @@ updateMessageResponse = await queueClient.updateMessage(
 console.log("Message updated, requestId:", updateMessageResponse.requestId);
 ```
 
+### Get the queue length
+
+The [`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) method returns metadata about the queue, including the approximate number of messages waiting in the queue.
+
+```javascript
+const properties = await queueClient.getProperties();
+console.log("Approximate queue length: ", properties.approximateMessagesCount);
+```
+
 ### Receive messages from a queue
 
 Download previously added messages by calling the [`receiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) method. In the `numberOfMessages` field, pass in the maximum number of messages to receive for this call.
@@ -337,15 +347,6 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
     );
     console.log("\tMessage deleted, requestId:", deleteMessageResponse.requestId);
 }
-```
-
-### Get the queue length
-
-The [`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) method returns metadata about the queue, including the approximate number of messages waiting in the queue.
-
-```javascript
-const properties = await queueClient.getProperties();
-console.log("Approximate queue length: ", properties.approximateMessagesCount);
 ```
 
 ### Delete a queue

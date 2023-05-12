@@ -223,6 +223,7 @@ These example code snippets show you how to do the following actions with the Az
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
 

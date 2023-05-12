@@ -133,6 +133,7 @@ These example code snippets show you how to perform the following actions with t
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive messages from a queue](#receive-messages-from-a-queue)
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
@@ -265,22 +266,7 @@ Console.WriteLine("\nUpdating the third message in the queue...");
 await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Third message has been updated");
 ```
 
-### Receive messages from a queue
-
-Download previously added messages by calling the [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method.
-
-Add this code to the end of the *Program.cs* file:
-
-```csharp
-Console.WriteLine("\nReceiving messages from the queue...");
-
-// Get messages from the queue
-QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
-```
-
-You can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
-
-## Get the queue length
+### Get the queue length
 
 You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number isn't lower than the actual number of messages in the queue, but could be higher.
 
@@ -295,6 +281,21 @@ int cachedMessagesCount = properties.ApproximateMessagesCount;
 // Display number of messages
 Console.WriteLine($"Number of messages in queue: {cachedMessagesCount}");
 ```
+
+### Receive messages from a queue
+
+Download previously added messages by calling the [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method.
+
+Add this code to the end of the *Program.cs* file:
+
+```csharp
+Console.WriteLine("\nReceiving messages from the queue...");
+
+// Get messages from the queue
+QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
+```
+
+You can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
 
 ### Delete messages from a queue
 

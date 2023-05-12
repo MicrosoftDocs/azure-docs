@@ -135,6 +135,7 @@ These example code snippets show you how to do the following actions with the Az
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive messages from a queue](#receive-messages-from-a-queue)
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
@@ -271,6 +272,20 @@ Update the contents of a message by calling the [`update_message`](/python/api/a
         content="Third message has been updated")
 ```
 
+### Get the queue length
+
+You can get an estimate of the number of messages in a queue.
+
+The [get_queue_properties](/python/api/azure-storage-queue/azure.storage.queue.QueueClient#azure-storage-queue-queueclient-get-queue-properties) method returns queue properties including the `approximate_message_count`.
+
+```python
+properties = queue_client.get_queue_properties()
+count = properties.approximate_message_count
+print("Message count: " + str(count))
+```
+
+The result is approximate since messages can be added or removed after the service responds to your request.
+
 ### Receive messages from a queue
 
 You can download previously added messages by calling the [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-receive-messages) method.
@@ -285,20 +300,6 @@ Add this code to the end of the `try` block:
 ```
 
 When calling the `receive_messages` method, you can optionally specify a value for `max_messages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibility_timeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
-
-## Get the queue length
-
-You can get an estimate of the number of messages in a queue.
-
-The [get_queue_properties](/python/api/azure-storage-queue/azure.storage.queue.QueueClient#azure-storage-queue-queueclient-get-queue-properties) method returns queue properties including the `approximate_message_count`.
-
-```python
-properties = queue_client.get_queue_properties()
-count = properties.approximate_message_count
-print("Message count: " + str(count))
-```
-
-The result is only approximate because messages can be added or removed after the service responds to your request.
 
 ### Delete messages from a queue
 
