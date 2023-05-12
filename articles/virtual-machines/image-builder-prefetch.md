@@ -1,5 +1,5 @@
 --- 
-title: VM Boot Optimization for SIG Images with Azure VM Image Builder 
+title: VM Boot Optimization for Azure Compute Gallery Images with Azure VM Image Builder 
 description: Optimize VM Boot and Provisioning time with Azure VM Image Builder 
 ms.author: surbhijain 
 ms.reviewer: kofiforson 
@@ -13,42 +13,29 @@ ms.subservice: image-builder
 
 # VM optimization for gallery images with Azure VM Image Builder 
 
-  **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Virtual Machine Scale Sets 
+  **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Virtual Machine Scale Sets 
 
-  
-
-In this article, you learn how to use Azure VM Image Builder to optimize your SIG (Shared Image Gallery) Images to improve the create time for your VMs. 
-
-  
+In this article, you learn how to use Azure VM Image Builder to optimize your ACG (Azure Compute Gallery) or Managed Images or VHDs to improve the create time for your VMs. 
 
 ## Azure VM Optimization 
-
 Azure VM optimization improves virtual machine creation time by updating the gallery image to optimize the image for a faster boot time. 
-
-  
 
 ## Image types supported 
 
 Optimization for the following images is supported: 
 
-  
-
-
 | Features  | Details   |
 |---|---|
-|OS Type| Linux |
+|OS Type| Linux/Windows |
 | Partition | MBR/GPT |
 | Hyper-V | Gen1/Gen2 |
 | OS State | Generalized |
-
-  
 
 The following types of images aren't supported: 
 
 * Images with size greater than 2 TB 
 * ARM64 images 
 * Specialized images
-* Windows images
 
  
 
@@ -56,13 +43,10 @@ The following types of images aren't supported:
 
 Optimization can be enabled while creating a VM image using the CLI. 
 
-  
+Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template](/azure/virtual-machines/linux/image-builder-json). 
 
-1. Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template](/azure/virtual-machines/linux/image-builder-json). 
+To optimize the image, you can enable additional fields in the template](insert AIB repo link) like shown in below snippet. 
 
-To optimize the image, you can enable additional fields in the template like shown in below snippet. 
-
-  
 
 ```json 
 
@@ -77,38 +61,6 @@ To optimize the image, you can enable additional fields in the template like sho
     } 
 
 ``` 
-
-  
-
-2. Update the region, user managed identity, source and destination references and other fields accordingly in the template. 
-
-   
-
-3. Create the Azure VM Image Builder template using below command. Pass the JSON template location as –properties parameter. 
-
-  
-
-```azurecli-interactive 
-
- az resource create --resource-group <RGName> --properties @E:\helloImageTemplateforSIG2.json --is-full-object --resource-type Microsoft.VirtualMachineImages/imageTemplates -n <TemplateName> --api-version "2022-07-01" 
-
-``` 
-
-  
-
-4. Run the Azure VM Image Builder template 
-
-```azurecli-interactive 
-
- az resource invoke-action --resource-group <RGName> --resource-type  Microsoft.VirtualMachineImages/imageTemplates -n <TemplateName> --action Run --api-version "2022-07-01" 
-
-``` 
-
-  
-
-This creates optimized image in given target location. 
-
-Same process can be done via [PowerShell](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/Readme.md#submit-the-template) 
 
 > [!NOTE]
 > Use API Version `2022-07-01` or beyond to avail optimization benefits.
@@ -125,29 +77,9 @@ Same process can be done via [PowerShell](https://github.com/danielsollondon/azv
 
 Yes, customers can opt for only VM optimization without using Azure VM Image Builder customization feature. Customers can simply enable the optimization flag and keep customization field as empty.  
 
-   
-
-Subscription should be registered with the following provider namespaces: 
-
   
 
-``` 
-
-Microsoft.Compute 
-
-Microsoft.KeyValue 
-
-Microsoft.Storage 
-
-Microsoft.Network 
-
-Microsoft.VirtualMachineImages 
-
-``` 
-
-  
-
-### Can an existing SIG image version be optimized? 
+### Can an existing ACG image version be optimized? 
 
 No, this optimization feature won't update an existing SIG image version. However, optimization can be enabled during new version creation for an existing image 
 
