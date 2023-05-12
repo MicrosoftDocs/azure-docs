@@ -78,7 +78,7 @@ Investigate and reject deletions as necessary:
 
 
 ### Test deletion prevention
-You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, un-assigning users, and deleting users from the directory (see common scenarios in next section). 
+You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, unassigning users, and deleting users from the directory (see common scenarios in next section). 
 
 Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. You'll see the provisioning job in quarantine and can choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
 
