@@ -10,7 +10,7 @@ ms.date: 05/08/2023
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and it can be statically or dynamically provisioned. This article shows you how to create [Azure NetApp Files][anf] volumes to be used by pods on an Azure Kubernetes Service (AKS) cluster.
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure and supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB3](azure-netapp-files-smb.md), or [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB3, or NFSv4.1 and SMB3). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure and supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB](azure-netapp-files-smb.md), or [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB, or NFSv4.1 and SMB). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
 
 * Create Azure NetApp Files volumes **statically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes aren't recommended for most use cases.
 * Create Azure NetApp Files volumes **dynamically**, orchestrating through Kubernetes. This method is the **preferred** way to create multiple volumes directly through Kubernetes, and is achieved using [Astra Trident][astra-trident]. Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
@@ -96,9 +96,10 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
 
 ## Statically or dynamically provision Azure NetApp Files volumes for NFS or SMB
 
-After you [configure Azure NetApp Files for AKS workloads](#configure-azure-netapp-files-for-aks-workloads), you can statically or dynamically provision Azure NetApp Files NFS and SMB volumes within the capacity pool. Follow instructions in:
+After you [configure Azure NetApp Files for AKS workloads](#configure-azure-netapp-files-for-aks-workloads), you can statically or dynamically provision Azure NetApp Files using NFS, SMB, or dual-protocol volumes within the capacity pool. Follow instructions in:
 * [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md) 
-* [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md)  
+* [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md)
+* [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md)
 
 ## Next steps
 
