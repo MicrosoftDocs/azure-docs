@@ -28,7 +28,7 @@ For a complete working sample of how to display data from a vector tile source o
 
 :::image type="content" source="./media/drawing-tools-events/drawing-tools-events.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
 
-<!---------------------------------------------------------------------------------------
+<!------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Drawing tools events" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -46,6 +46,11 @@ Let's see some common scenarios that use the drawing tools events.
 
 This code demonstrates how to monitor an event of a user drawing shapes. For this example, the code monitors shapes of polygons, rectangles, and circles. Then, it determines which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, the code loops through all the data points on the map. It checks if there's an intersection of the point and the area of the drawn shape. This example makes use of the open-source [Turf.js](https://turfjs.org/) library to perform a spatial intersection calculation.
 
+For a complete working sample of how to use the drawing tools to draw polygon areas on the map with points within them that can be selected, see [Select data in drawn polygon area] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/drawing-tools-events/select-data-in-drawn-polygon-area.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+
+<!-------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Select data in drawn polygon area" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -53,7 +58,7 @@ This code demonstrates how to monitor an event of a user drawing shapes. For thi
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-<br/>
+---------------------------------------------------------------->
 
 ### Draw and search in polygon area
 
@@ -101,5 +106,7 @@ Check out more code samples:
 > [!div class="nextstepaction"]
 > [Code sample page](https://aka.ms/AzureMapsSamples)
 
-[Drawing tool events]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=drawing-tools-events
 [Azure Maps Samples]:https://samples.azuremaps.com
+[Drawing tool events]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=drawing-tools-events
+[Select data in drawn polygon area]:https://samples.azuremaps.com/?search=Drawing%20tool&sample=select-data-in-drawn-polygon-area
+
