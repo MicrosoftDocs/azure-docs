@@ -613,10 +613,7 @@ public class Program
     {
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
+            .AddAzureMonitorMetricExporter()
             .Build();
 
         Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
@@ -730,10 +727,7 @@ public class Program
     {
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
+            .AddAzureMonitorMetricExporter()
             .Build();
 
         Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
@@ -858,10 +852,7 @@ public class Program
     {
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
+            .AddAzureMonitorMetricExporter()
             .Build();
 
         var process = Process.GetCurrentProcess();
@@ -961,37 +952,75 @@ to draw attention in relevant experiences including the failures section and end
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-```csharp
-using (var activity = activitySource.StartActivity("ExceptionExample"))
-{
-    try
-    {
-        throw new Exception("Test exception");
-    }
-    catch (Exception ex)
-    {
-        activity?.SetStatus(ActivityStatusCode.Error);
-        activity?.RecordException(ex);
-    }
-}
-```
+- To log an Exception using an Activity:
+  ```csharp
+  using (var activity = activitySource.StartActivity("ExceptionExample"))
+  {
+      try
+      {
+          throw new Exception("Test exception");
+      }
+      catch (Exception ex)
+      {
+          activity?.SetStatus(ActivityStatusCode.Error);
+          activity?.RecordException(ex);
+      }
+  }
+  ```
+- To log an Exception using ILogger:
+  ```csharp
+  var logger = loggerFactory.CreateLogger(logCategoryName);
+
+  try
+  {
+      throw new Exception("Test Exception");
+  }
+  catch (Exception ex)
+  {
+      logger.Log(
+          logLevel: LogLevel.Error,
+          eventId: 0,
+          exception: ex,
+          message: "Hello {name}.",
+          args: new object[] { "World" });
+  }
+  ```
 
 #### [.NET](#tab/net)
 
-```csharp
-using (var activity = activitySource.StartActivity("ExceptionExample"))
-{
-    try
-    {
-        throw new Exception("Test exception");
-    }
-    catch (Exception ex)
-    {
-        activity?.SetStatus(ActivityStatusCode.Error);
-        activity?.RecordException(ex);
-    }
-}
-```
+- To log an Exception using an Activity:
+  ```csharp
+  using (var activity = activitySource.StartActivity("ExceptionExample"))
+  {
+      try
+      {
+          throw new Exception("Test exception");
+      }
+      catch (Exception ex)
+      {
+          activity?.SetStatus(ActivityStatusCode.Error);
+          activity?.RecordException(ex);
+      }
+  }
+  ```
+- To log an Exception using ILogger:
+  ```csharp
+  var logger = loggerFactory.CreateLogger("ExceptionExample");
+
+  try
+  {
+      throw new Exception("Test Exception");
+  }
+  catch (Exception ex)
+  {
+      logger.Log(
+          logLevel: LogLevel.Error,
+          eventId: 0,
+          exception: ex,
+          message: "Hello {name}.",
+          args: new object[] { "World" });
+  }
+  ```
 
 #### [Java](#tab/java)
 
@@ -1119,7 +1148,7 @@ For code representing a background job not captured by an instrumentation librar
 ```csharp
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("ActivitySourceName")
-        .AddAzureMonitorTraceExporter(o => o.ConnectionString = "<Your Connection String>")
+        .AddAzureMonitorTraceExporter()
         .Build();
 
 var activitySource = new ActivitySource("ActivitySourceName");
@@ -1512,10 +1541,7 @@ To add span attributes, use either of the following two ways:
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("OTel.AzureMonitor.Demo")
         .AddProcessor(new ActivityEnrichingProcessor())
-        .AddAzureMonitorTraceExporter(o =>
-        {
-                o.ConnectionString = "<Your Connection String>"
-        })
+        .AddAzureMonitorTraceExporter()
         .Build();
 ```
 
@@ -1855,10 +1881,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     using var tracerProvider = Sdk.CreateTracerProviderBuilder()
             .AddSource("OTel.AzureMonitor.Demo")
             .AddProcessor(new ActivityFilteringProcessor())
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                    o.ConnectionString = "<Your Connection String>"
-            })
+            .AddAzureMonitorTraceExporter()
             .Build();
     ```
     
