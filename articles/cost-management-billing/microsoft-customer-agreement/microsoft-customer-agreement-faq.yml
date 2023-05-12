@@ -86,7 +86,7 @@ sections:
           | TWD     | Taiwan Dollar      |
       - question: What exchange rate will be used and how does it work with my bill?
         answer: |
-          We use London closing spot rates that are captured in the two business days prior to the last business day of the previous month end. If the two business days prior to the end of the month fall on a bank holiday in major markets, the rate setting day is generally the day immediately preceding the two business days. The rate applies to all transactions during the upcoming month.
+          We use London closing spot rates that are captured in the two business days prior to the last business day of the previous month end. If the two business days prior to the end of the month fall on a bank holiday in major markets, the rate setting day is generally the day immediately preceding the two business days. This rate applies to all transactions during the upcoming month.
 
           For example, the exchange rate for January transactions is first captured in the final days of December. The rate is applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount will appear in the January invoice, which is available at the beginning of February.
 
