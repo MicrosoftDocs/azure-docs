@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ---
 
 # Azure Database for PostgreSQL output from Azure Stream Analytics
@@ -17,7 +17,7 @@ To learn more about how to create an Azure Database for PostgreSQL server by usi
 *    [Quick start for Azure Database for PostgreSQL – Flexible server](../postgresql/flexible-server/quickstart-create-server-portal.md)
 
 > [!NOTE] 
-> Single server is being deprecated
+> Single server is being deprecated.
 > To write to citus/hyperscale when using Azure Database for PostgreSQL, use Azure CosmosDB for PostgreSQL.
 
 ## Output configuration
