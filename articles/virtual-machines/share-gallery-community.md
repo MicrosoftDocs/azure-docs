@@ -44,12 +44,12 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 
 There are some limitations for sharing your gallery to the community:
 - Encrypted images aren't supported.
-- TrustedLaunch and TVMSupported Image is not supported
-- CVMSuppored image is not supported
+- TrustedLaunch and TVMSupported Image isn't supported
+- CVMSuppored image isn't supported
 - For the preview, image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
 - For the preview, you can't share [VM Applications](vm-applications.md) to the community.
-- The gallery must be created as a community gallery. For the preview, there is no way to migrate an existing private gallery to be a community gallery
-- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
+- The gallery must be created as a community gallery. For the preview, there's no way to migrate an existing private gallery to be a community gallery
+- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery isn't supported, however once the image is in the home region it can be replicated to other regions
 - To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images
 
 
@@ -57,13 +57,13 @@ There are some limitations for sharing your gallery to the community:
 
 You [create a gallery resource](create-gallery.md#create-a-community-gallery) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
 
-When you are ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
+When you're ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
 
-The end-users can only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
+The end-users can only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery is used, along with a unique GUID, to create the public facing name for your gallery.
 
 Azure users can see the latest image versions shared to the community in the portal, or query for them using the CLI. Only the latest version of an image is listed in the community gallery.
 
-When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing it:
+When creating a community gallery, you'll need to provide contact information for your images. This information is shown **publicly**, so be careful when providing it:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
@@ -88,14 +88,14 @@ As a content publisher, you might want to share a gallery to the community:
 
 - You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.
 
-## Reporting issues with a public image 
-Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+## Reporting issues with a community image 
+Using community-submitted virtual machine images has several risks. Images could contain malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images when you see these issues.
 
 The easiest way to report issues with a community gallery is to use the portal, which will pre-fill information for the report:
 - For issues with links or other information in the fields of an image definition, select **Report community image**.
 - If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
 
-You can also use the following links to report issues, but the forms will not be pre-filled:
+You can also use the following links to report issues, but the forms won't be pre-filled:
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
@@ -112,15 +112,15 @@ You can also use the following links to report issues, but the forms will not be
 
 **Q: Is it safe to use images shared to the community?**
 
-**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to certification and not scanned for malware/vulnerabilities and publisher details are not verified.
+**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to certification and not scanned for malware/vulnerabilities and publisher details aren't verified.
 
 **Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
 
-**A**: Azure isn't responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
+**A**: Azure isn't responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Look up the publisher contact information for the image and reach out to them for any support.  
 
 **Q: Is Community gallery sharing functionality part of Azure Marketplace?**
 
-**A**: No, Community gallery sharing is not part of Azure Marketplace, it's a feature of 'Azure Compute Gallery'. Anyone with an Azure subscription can use 'Community gallery' and make their images public.
+**A**: No, Community gallery sharing isn't part of Azure Marketplace, it's a feature of 'Azure Compute Gallery'. Anyone with an Azure subscription can use 'Community gallery' and make their images public.
 
 **Q: I have concerns about an image, who do I contact?**
 
@@ -141,7 +141,7 @@ In order to share a gallery publicly, it needs to be created as a community gall
 
 ### [CLI](#tab/cli)
 
-Once you are ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
+Once you're ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
 
 ```azurecli-interactive
 az sig share enable-community \
@@ -174,7 +174,7 @@ When you're ready to make the gallery public:
 1. On the page for the gallery, select **Sharing** from the left menu.
 1. Select **Share** from the top of the page.
    :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
-1. When you are done, select **Save**.
+1. When you're done, select **Save**.
 
 
 ---
