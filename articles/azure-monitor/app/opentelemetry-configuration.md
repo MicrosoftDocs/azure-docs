@@ -244,11 +244,7 @@ You may want to enable sampling to reduce your data ingestion volume, which redu
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
-In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
-
-```dotnetcli
-dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
-```
+In this example, we utilize the `ApplicationInsightsSampler`, which is included in the Distro.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -271,17 +267,17 @@ In this example, we utilize the `ApplicationInsightsSampler`, which offers compa
 dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
 ```
 
-TODO: CHANGE TO BUILDER PATTERN W/ EXPORTER
-
 ```csharp
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddSource("OTel.AzureMonitor.Demo")
-    .SetSampler(new ApplicationInsightsSampler(0.1F))
-    .AddAzureMonitorTraceExporter(o =>
-    {
-     o.ConnectionString = "<Your Connection String>";
-    })
-    .Build();
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry()
+    .WithTracing(builder => builder
+        .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 1.0F }))
+        .AddAzureMonitorTraceExporter(o => o.ConnectionString = connectionString));
+
+var app = builder.Build();
+
+app.Run();
 ```
 
 #### [Java](#tab/java)
@@ -357,7 +353,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry()
 
-TODO: AAD EXPORTER BUILDER PATTERN
+var credential = DefaultAzureCredential();
+
+builder.Services.AddOpenTelemetry()
+    .WithTracing(builder => builder
+        .AddAzureMonitorTraceExporter(options => {
+            options.Credential = credential;
+        }))
+    .WithMetrics(builder => builder
+        .AddAzureMonitorMetricExporter(options => {
+            options.Credential = credential;
+        }));
+
+builder.Logging.AddOpenTelemetry(options => options
+    .AddAzureMonitorLogExporter(options =>
+    {
+        options.Credential = credential;
+    }));
 
 var app = builder.Build();
 
@@ -426,6 +438,8 @@ var app = builder.Build();
 app.Run();
 ```
 
+To disable this feature, you should set `AzureMonitorOptions.DisableOfflineStorage = true`.
+
 ### [.NET](#tab/net)
 
 By default, the AzureMonitorExporter uses one of the following locations for offline storage (listed in order of precedence):
@@ -441,14 +455,27 @@ By default, the AzureMonitorExporter uses one of the following locations for off
 To override the default directory, you should set `AzureMonitorExporterOptions.StorageDirectory`.
 
 ```csharp
+var builder = WebApplication.CreateBuilder(args);
 
-TODO: configure storage BUILDER PATTERN W/ EXPORTER
+builder.Services.AddOpenTelemetry()
+    .WithTracing(builder => builder
+        .AddAzureMonitorTraceExporter(options => {
+            options.StorageDirectory = "C:\\SomeDirectory";
+        }))
+    .WithMetrics(builder => builder
+        .AddAzureMonitorMetricExporter(options => {
+            options.StorageDirectory = "C:\\SomeDirectory";
+        }));
 
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddAzureMonitorTraceExporter(o => {
-        o.StorageDirectory = "C:\\SomeDirectory";
-    })
-    .Build();
+builder.Logging.AddOpenTelemetry(options => options
+    .AddAzureMonitorLogExporter(options =>
+    {
+        options.StorageDirectory = "C:\\SomeDirectory";
+    }));
+
+var app = builder.Build();
+
+app.Run();
 ```
 
 To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
@@ -528,13 +555,21 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-TODO: OTLP DISTRO
+1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
+
+    ```dotnetcli
+    dotnet add package --prerelease OpenTelemetry.Exporter.OpenTelemetryProtocol
+    ```
+
+1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
+   
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
-
+builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddOtlpExporter());
+builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddOtlpExporter());
 
 var app = builder.Build();
 
@@ -543,22 +578,28 @@ app.Run();
 
 #### [.NET](#tab/net)
 
-1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package along with [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) in your project.
+1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
+
+    ```dotnetcli
+    dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
+    ```
 
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
     
-TODO: OTLP BUILDER PATTERN W/ EXPORTER
-
     ```csharp
-    // Sends data to Application Insights as well as OTLP
-    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>"
-            })
-            .AddOtlpExporter()
-            .Build();
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddOpenTelemetry()
+        .WithTracing(builder => builder
+            .AddAzureMonitorTraceExporter()
+            .AddOtlpExporter())
+        .WithMetrics(builder => builder
+            .AddAzureMonitorMetricExporter()
+            .AddOtlpExporter());
+
+    var app = builder.Build();
+
+    app.Run();
     ```
 
 #### [Java](#tab/java)
