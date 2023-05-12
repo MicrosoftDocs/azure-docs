@@ -2,7 +2,7 @@
 title: 'Azure Event Grid namespace MQTT clients'
 description: 'Describes MQTT client configuration.'
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---

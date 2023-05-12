@@ -2,7 +2,7 @@
 title: 'Azure Event Grid Namespace MQTT client authentication'
 description: 'Describes how MQTT clients are authenticated and mTLS connection is established when a client connects to MQTT service.'
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---

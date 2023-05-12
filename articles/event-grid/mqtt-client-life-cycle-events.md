@@ -2,7 +2,7 @@
 title: 'MQTT Clients Life Cycle Events'
 description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---

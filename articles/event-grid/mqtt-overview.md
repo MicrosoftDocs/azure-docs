@@ -2,7 +2,7 @@
 title: 'Overview of the MQTT Support in Azure Event Grid'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
@@ -16,7 +16,6 @@ Azure Event Grid enables your MQTT clients to communicate with each other and wi
 You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
 
 :::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png":::
-
 
 ## Key concepts:
 The following are a list of key concepts involved in MQTT messaging on Event Grid.
