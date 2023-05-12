@@ -62,6 +62,8 @@ The following JSON is a sample MongoDB collection restore request in a subscript
 
 ## Next steps
 
-* [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
+* Migrate an account [from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
-* [How to restore deleted container and database in same account](how-to-restore-in-account-continuous-backup)
+* Restore [deleted container and database in same account](how-to-restore-in-account-continuous-backup).
+* Restorable [SQL database] resource model(continuous-backup-restore-resource-model#restorable-sql-database).
+* Restorable [SQL container] resource model(continuous-backup-restore-resource-model#restorable-sql-container).
