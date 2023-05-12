@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: franlanglois
 
 ---
@@ -19,7 +19,7 @@ Managing access to your Azure Cache for Redis instance is critical to ensure tha
 Azure Cache for Redis now integrates this ACL functionality with Azure Active Directory (Azure AD) to allow you to configure your Data Access Policies for your application's service principal and managed identity.
 
 > [!IMPORTANT]
-> The updates to Azure Cache for Redis that enable Azure Active Directory for role-based access control are available only in East US region. Updates are expected to roll-out to the rest of the regions by May 25, 2023.
+> The updates to Azure Cache for Redis that enable Azure Active Directory for role-based access control are available only in East US region.
 
 Azure Cache for Redis offers three built-in access policies: _Owner_, _Contributor_, and _Reader_. If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in [Configure custom data access policy](#configure-a-custom-data-access-policy-for-your-application).
 
