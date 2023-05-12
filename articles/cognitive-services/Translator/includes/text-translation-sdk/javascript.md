@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 05/09/2023
+ms.date: 05/12/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -68,7 +68,7 @@ To interact with the Translator service using the client library, you need to cr
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `text-translation-app` directory.
 
-1. Copy and paste the following text translation code sample into your `index.js` file. Update **`<your-text-translation-app-endpoint>`** and **`<your-key>`** with values from your Azure portal Translator instance.
+1. Copy and paste the following text translation code sample into your `index.js` file. Update **`<your-endpoint>`** and **`<your-key>`** with values from your Azure portal Translator instance.
 
 ## Code sample
 
@@ -81,8 +81,8 @@ To interact with the Translator service using the client library, you need to cr
 const TextTranslationClient = require("@azure-rest/ai-translation-text").default
 
 const apiKey = "<your-key>";
-const endpoint = "<endpoint>";
-const region = "region";
+const endpoint = "<your-endpoint>";
+const region = "<region>";
 
 async function main() {
 
@@ -119,7 +119,7 @@ main().catch((err) => {
   module.exports = { main };
 ```
 
-## Run your application**
+## Run your application
 
 Once you've added the code sample to your application, run your program:
 

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 05/09/2023
+ms.date: 05/12/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -38,8 +38,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 ## Install the client library with NuGet
 
-1. Right-click on your Translator-text-sdk project and select **Manage NuGet Packages...
-**
+1. Right-click on your Translator-text-sdk project and select **Manage NuGet Packages...**
    :::image type="content" source="../../media/quickstarts/manage-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
 1. Select the **Browse** Tab and the **Include prerelease** checkbox and type **Azure.AI.Translation.Text**.

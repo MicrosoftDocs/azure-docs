@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 05/05/2023
+ms.date: 05/12/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -30,9 +30,6 @@ For this quickstart, we use the Gradle build automation tool to create and run t
   * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=text-translation-app&Page=quickstart&Section=Translate-documents)
 
 ## Create a new Gradle project
 
@@ -61,21 +58,21 @@ For this quickstart, we use the Gradle build automation tool to create and run t
 
 1. Update `build.gradle.kts` with the following code. The main class is **Translate**:
 
-```kotlin
-  plugins {
-  java
-  application
-}
-application {
-  mainClass.set("Translate")
-}
-repositories {
-  mavenCentral()
-}
-dependencies {
-  implementation("com.azure:azure-ai-translation-text:1.0.0-beta.1")
-}
-```
+   ```kotlin
+     plugins {
+     java
+     application
+   }
+   application {
+     mainClass.set("Translate")
+   }
+   repositories {
+     mavenCentral()
+   }
+   dependencies {
+     implementation("com.azure:azure-ai-translation-text:1.0.0-beta.1")
+   }
+   ```
 
 ## Create your Java application
 
@@ -135,7 +132,7 @@ public class Translate {
 
         String from = "en";
         List<String> targetLanguages = new ArrayList<>();
-        targetLanguages.add("fr");
+        targetLanguages.add("es");
         List<InputTextItem> content = new ArrayList<>();
         content.add(new InputTextItem("This is a test."));
 
