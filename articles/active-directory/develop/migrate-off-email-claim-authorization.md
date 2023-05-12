@@ -26,7 +26,7 @@ Microsoft recommends reviewing application source code and determining whether t
 - A mutable claim, such as `email`, is used for the purposes of uniquely identifying a user
 - A mutable claim, such as `email` is used for the purposes of authorizing a user's access to resources
 
-These patterns are considered insecure, as Azure AD users without a provisioned mailbox can have any email address set for their Mail (Primary SMTP) attribute. This attribute is **not guaranteed to come from a verified email address**. When an unverified email claim is used for authorization, any AAD user without a provisioned mailbox has the potential to gain unauthorized access by changing their Mail attribute to impersonate another AAD user. 
+These patterns are considered insecure, as users without a provisioned mailbox can have any email address set for their Mail (Primary SMTP) attribute. This attribute is **not guaranteed to come from a verified email address**. When an unverified email claim is used for authorization, any user without a provisioned mailbox has the potential to gain unauthorized access by changing their Mail attribute to impersonate another user. 
 
 This risk of unauthorized access has only been found in multi-tenant apps, as a user from one tenant could escalate their privileges to access resources from another tenant through modification of their Mail attribute.
 
