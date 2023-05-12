@@ -3,7 +3,7 @@ title: "Quickstart: Azure Queue Storage client library - .NET"
 description: Learn how to use the Azure Queue Storage client library for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 12/15/2022
+ms.date: 05/12/2023
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
@@ -31,7 +31,7 @@ Use the Azure Queue Storage client library for .NET to:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
@@ -278,6 +278,24 @@ Console.WriteLine("\nReceiving messages from the queue...");
 QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
 ```
 
+You can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, in seconds. The default is 30 seconds.
+
+## Get the queue length
+
+You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+
+Add this code to the end of the *Program.cs* file:
+
+```csharp
+QueueProperties properties = queueClient.GetProperties();
+
+// Retrieve the cached approximate message count
+int cachedMessagesCount = properties.ApproximateMessagesCount;
+
+// Display number of messages
+Console.WriteLine($"Number of messages in queue: {cachedMessagesCount}");
+```
+
 ### Delete messages from a queue
 
 Delete messages from the queue after they've been processed. In this case, processing is just displaying the message on the console.
@@ -376,6 +394,7 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for .NET and .NET Core developers](/dotnet/azure/)
 
+- For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](queues-v11-samples-dotnet.md).
 - To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 - For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
 - To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
