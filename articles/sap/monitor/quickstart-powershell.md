@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for SAP solutions with Azure PowerShell 
+title: Deploy Azure Monitor for SAP solutions with Azure PowerShell
 description: Deploy Azure Monitor for SAP solutions with Azure PowerShell
 author: sameeksha91
 ms.author: sakhare
