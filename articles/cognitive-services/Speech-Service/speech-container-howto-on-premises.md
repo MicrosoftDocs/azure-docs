@@ -210,9 +210,9 @@ Helm charts are hierarchical. Being hierarchical allows for chart inheritance, i
 
 [!INCLUDE [Speech umbrella-helm-chart-config](includes/speech-umbrella-helm-chart-config.md)]
 
-[!INCLUDE [Speech-to-Text Helm Chart Config](includes/speech-to-text-chart-config.md)]
+[!INCLUDE [Speech to text Helm Chart Config](includes/speech-to-text-chart-config.md)]
 
-[!INCLUDE [Text-to-Speech Helm Chart Config](includes/text-to-speech-chart-config.md)]
+[!INCLUDE [Text to speech Helm Chart Config](includes/text-to-speech-chart-config.md)]
 
 ## Next steps
 
