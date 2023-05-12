@@ -54,16 +54,16 @@ landingContent:
                url: concept-layout.md
          - linkListType: concept
            links:
-             - text: Custom model
-               url: concept-custom.md
-             - text: W-2 Form model
-               url: concept-w2.md
              - text: 🆕 Query field extraction (preview)
                url:  concept-query-fields.md
              - text: 🆕 Add-on capabilities (preview)
                url:  concept-add-on-capabilities.md
              - text: 🆕 Health insurance card model
                url:  concept-insurance-card.md
+             - text: Custom model
+               url: concept-custom.md
+             - text: W-2 Form model
+               url: concept-w2.md
              - text: Invoice model
                url: concept-invoice.md
              - text: Receipt model
@@ -74,7 +74,7 @@ landingContent:
                url: concept-business-card.md
 
   #Card 3
-   - title: Form Recognizer Studio (v3.0)
+   - title: Azure Form Recognizer Studio 
      linkLists:
       - linkListType: overview
         links:
