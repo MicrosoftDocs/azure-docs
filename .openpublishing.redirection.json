@@ -7045,13 +7045,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
-            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "source_path_from_root": "/articles/azure-functions/create-cli.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/create-cli.md",
-            "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
             "redirect_document_id": false
         },
         {
@@ -17432,6 +17432,11 @@
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-manage-dns-in-vnet.md",
             "redirect_url": "/azure/virtual-network/virtual-networks-using-network-configuration-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network-manager/how-to-exclude-elements.md",
+            "redirect_url": "/azure/virtual-network-manager/how-to-define-network-group-membership-azure-policy",
             "redirect_document_id": false
         },
         {
