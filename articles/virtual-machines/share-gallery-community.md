@@ -90,7 +90,7 @@ As a content publisher, you might want to share a gallery to the community:
 
 ## Should I use a marketplace image or a community gallery image?
 
-There are a variety of reasons why you might want to use n Azure Marketplace image instead of a community gallery image. The primary reason to choose an Azure Marketplace image is that they are supported by Microsoft, while community images are not. 
+There are a variety of reasons why you might want to use an Azure Marketplace image instead of a community gallery image. The primary reason to choose an Azure Marketplace image is that they are supported by Microsoft, while community images are not. 
 
 Why use a marketplace mage?
 - Microsoft certified images
