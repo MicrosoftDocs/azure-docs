@@ -15,7 +15,6 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Quickstart: Create and manage a room resource
 
-::: zone pivot="platform-azcli"
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
@@ -32,6 +31,7 @@ The table below lists the main properties of `room` objects:
 | `roomJoinPolicy`      | Specifies which user identities are allowed to join room calls. Valid options are `InviteOnly` and `CommunicationServiceUsers`. | 
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. | 
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
+
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
