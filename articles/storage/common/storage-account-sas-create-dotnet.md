@@ -7,12 +7,12 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Create an account SAS with .NET

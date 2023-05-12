@@ -12,6 +12,7 @@ ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Create a user delegation SAS for a container, directory, or blob with .NET
