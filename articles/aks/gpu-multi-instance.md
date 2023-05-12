@@ -179,13 +179,13 @@ The following examples are based on cuda base image version 12.1.1 for Ubuntu22.
             "nvidia.com/gpu": 1
     ```
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+2. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest.
 
     ```
     kubectl apply -f single-strategy-example.yaml
     ```
     
-3. Verify the allocated GPU devices using the [`kubectl exec`][kubectl-exec] command. This command returns a list of the cluster nodes.
+3. Verify the allocated GPU devices using the `kubectl exec` command. This command returns a list of the cluster nodes.
 
     ```
     kubectl exec nvidia-single -- nvidia-smi -L
@@ -224,13 +224,13 @@ The following examples are based on cuda base image version 12.1.1 for Ubuntu22.
             "nvidia.com/mig-1g.5gb": 1
     ```
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+2. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest.
 
     ```
     kubectl apply -f mixed-strategy-example.yaml
     ```
     
-3. Verify the allocated GPU devices using the [`kubectl exec`][kubectl-exec] command. This command returns a list of the cluster nodes.
+3. Verify the allocated GPU devices using the `kubectl exec` command. This command returns a list of the cluster nodes.
 
     ```
     kubectl exec nvidia-mixed -- nvidia-smi -L
