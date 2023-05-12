@@ -27,10 +27,10 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 | Apache Kafka     | 3.2.0  **              | 2.4.1       |
 | Apache Hadoop    | 3.3.4                  | 3.1.1       |
 | Apache Tez       | 0.9.1  **              | 0.9.1       |
-| Apache Ranger    |  2.3.0 *               | 1.1.0       |
+| Apache Ranger    | 2.3.0 *                | 1.1.0       |
 | Apache HBase     | 2.4.11 **              | 2.1.6       |
 | Apache Oozie     | 5.2.1  *               | 4.3.1       |
-| Apache ZooKeeper | 3.6.3                  | 3.4.6       |
+| Apache ZooKeeper | 3.6.3 **               | 3.4.6       |
 | Apache Livy      | 0.5. **                | 0.5         |
 | Apache Ambari    | 2.7.0  **              | 2.7.0       |
 | Apache Zeppelin  | 0.10.1 **              | 0.8.0       |
