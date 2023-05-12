@@ -1,6 +1,6 @@
 ---
 title: Manage access to your SAP applications
-description: Manage access to your SAP applications. 
+description: Manage access to your SAP applications. Bring identities from SAP SuccessFactors into Azure AD and provision access to SAP ECC, SAP S/4 Hana, and other SAP applications.  
 services: active-directory
 documentationcenter: ''
 author: amsliu
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, Microsoft 365, and Entra Identity Governance for managing access to applications. This document describes how you can use Entra Identity Governance to manage identities across your SAP applications. 
 
 
-![Diagram of SAP integrations.](./media/sap/SapIntegrations.png)
+![Diagram of SAP integrations.](./media/sap/sapintegrations.png)
 
 ## Bring identities from HR into Azure AD
 
@@ -39,7 +39,7 @@ Customers using SAP SuccessFactors can easily bring identities into [Azure AD](.
 #### SAP HCM
 Customers that are still using SAP HCM can also bring identities into Azure AD. Using the SAP Integration Suite, you can synchronize identities between SAP HCM and SAP SuccessFactors. From there, you can bring identities directly into Azure AD or provisioning them into Active Directory Domain Services, using the native provisioning integrations mentioned above. 
  
-![Diagram of SAP HR integrations.](./media/sap/SAPHR.png)
+![Diagram of SAP HR integrations.](./media/sap/saphr.png)
 
 ## Provision identities into modern SAP applications. 
 Once your users are in Azure Active Directory, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You've three ways to accomplish this.
