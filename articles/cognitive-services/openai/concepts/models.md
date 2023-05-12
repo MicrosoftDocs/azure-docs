@@ -20,7 +20,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 | Model family | Description |
 |--|--|
 | [GPT-4](#gpt-4-models) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. |
-| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo-preview). |
+| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -56,7 +56,7 @@ You can get a list of models that are available for both inference and fine-tuni
 
 We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities.
 
-## GPT-4 models (preview)
+## GPT-4 models 
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like gpt-35-turbo, GPT-4 is optimized for chat but works well for traditional completions tasks.
 

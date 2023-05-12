@@ -1,7 +1,7 @@
 ---
-title: How to work with the ChatGPT and GPT-4 models (preview)
+title: How to work with the ChatGPT and GPT-4 models 
 titleSuffix: Azure OpenAI Service
-description: Learn about the options for how to use the ChatGPT and GPT-4 models (preview)
+description: Learn about the options for how to use the ChatGPT and GPT-4 models 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
