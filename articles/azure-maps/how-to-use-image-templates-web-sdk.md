@@ -64,14 +64,18 @@ For a sample that demonstrates this, rendering a symbol layer using the `marker-
 
 Once an image template is loaded into the map image sprite, it can be rendered along the path of a line by adding a LineString to a data source and using a symbol layer with a `lineSpacing`option and by referencing the ID of the image resource in the `image` option of th `iconOptions`.
 
-The following sample renders a pink line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color.
+The [Line layer with built-in icon template] demonstrates how to do this. As show in the following screenshot, it renders a red line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color.
 
+:::image type="content" source="./media/how-to-use-image-templates-web-sdk/line-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a line layer marking the route with car icons along the route.":::
+
+<!-----------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Line layer with built-in icon template" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>Line layer with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------->
 
 > [!TIP]
 > If the image template points up, set the `rotation` icon option of the symbol layer to 90 if you want it to point in the same direction as the line.
@@ -536,3 +540,4 @@ See the following articles for more code samples where image templates can be us
 
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Symbol layer with built-in icon template]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-with-built-in-icon-template
+[Line layer with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=line-layer-with-built-in-icon-template
