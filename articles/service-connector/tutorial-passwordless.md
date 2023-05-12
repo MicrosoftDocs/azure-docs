@@ -162,7 +162,7 @@ As for `--client-type`, you can use `az webapp connection create postgres-flexib
 
 ::: zone pivot="mysql"
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad). You can use the following command to create a user-assigned managed identity.
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity.
 
 ```azurecli
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -174,7 +174,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 ```
 
 > [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication).
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
@@ -282,7 +282,7 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="postgresql"
 
-1. Update properties file. For more information, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
+1. Update properties file. For more information, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
     ```bash
     cat << EOF > src/main/resources/application.properties
     url=${AZURE_POSTGRESQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
@@ -332,15 +332,15 @@ using (var conn = new NpgsqlConnection(connString))
 ```
 
 For more information, see 
-* [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres)
-* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database)
-* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database)
+* [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md)
+* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
+* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
 * 
 :::zone-end
 
 :::zone pivot="mysql"
 
-1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](../mysql/flexible-server/connect-java?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
+1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](../mysql/flexible-server/connect-java.md?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
     ```bash
     cat << EOF > src/main/resources/application.properties
     url=${AZURE_POSTGRESQL_CONNECTIONSTRING}&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
@@ -418,7 +418,7 @@ using (var conn = new MySqlConnection(builder.ConnectionString))
 ```
 
 For more information, see 
-* [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql)
+* [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md)
 
 
 :::zone-end
@@ -428,7 +428,7 @@ For more information, see
 
 ### [System managed identity](#tab/system)
 
-For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver16#using-active-directory-managed-identity-authentication)
+For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
 ```csharp
 // The connection string should have been set to environment variables by Service Connector
@@ -442,7 +442,7 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
 
 ### [User managed identity](#tab/user)
 
-For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver16#using-active-directory-managed-identity-authentication)
+For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication)
 
 ```csharp
 // The connection string should have been set to environment variables by Service Connector
@@ -454,8 +454,8 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
 
 ```
 
-### [Service principal](#tab/service)
-For Service principal authentication, see [Using Active Directory Service Principal authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver16#using-active-directory-service-principal-authentication)
+### [Service principal](#tab/sp)
+For Service principal authentication, see [Using Active Directory Service Principal authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
 ```csharp
 // The connection string should have been set to environment variables by Service Connector
