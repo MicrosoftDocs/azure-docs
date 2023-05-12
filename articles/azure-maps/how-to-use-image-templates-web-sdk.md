@@ -84,14 +84,18 @@ The [Line layer with built-in icon template] demonstrates how to do this. As sho
 
 Once an image template is loaded into the map image sprite, it can be rendered as a fill pattern in a polygon layer by referencing the image resource ID in the `fillPattern` option of the layer.
 
-The following sample renders a polygon layer using the `dot` image template with a red primary color and a transparent secondary color.  
+The [Fill polygon with built-in icon template] demonstrates how to render a polygon layer using the `dot` image template with a red primary color and a transparent secondary color, as shown in the following screenshot.
 
+:::image type="content" source="./media/how-to-use-image-templates-web-sdk/fill-polygon-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a polygon layer using the dot image template with a red primary color and a transparent secondary color.":::
+
+<!-----------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Fill polygon with built-in icon template" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Fill polygon with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------->
 
 > [!TIP]
 > Setting the secondary color of fill patterns makes it easier to see the underlying map will still providing the primary pattern.
@@ -541,3 +545,4 @@ See the following articles for more code samples where image templates can be us
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Symbol layer with built-in icon template]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-with-built-in-icon-template
 [Line layer with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=line-layer-with-built-in-icon-template
+[Fill polygon with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=fill-polygon-with-built-in-icon-template
