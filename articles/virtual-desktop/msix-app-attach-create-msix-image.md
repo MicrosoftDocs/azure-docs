@@ -26,27 +26,22 @@ Before you can create an MSIX image, you need to meet the following prerequisite
 
 ## Create an MSIX image
 
-When creating an MSIX image, you convert an MSIX package to a VHD, VHDX, or CIM disk image using the MSIXMGR tool. We recommend using CIM for best performance, particularly with Windows 11, as it consumes less CPU and memory, with improved mounting and unmounting times. We don't recommend using VHD; use VHDX instead.
-
-> [!IMPORTANT]
-> - In the following examples, you'll need to change the example values for your own.
+When creating an MSIX image, you convert an MSIX package to a *VHD*, *VHDX*, or *CIM* disk image using the MSIXMGR tool. We recommend using CIM for best performance, particularly with Windows 11, as it consumes less CPU and memory, with improved mounting and unmounting times. We don't recommend using VHD; use VHDX instead.
 
 Select the relevant tab for your scenario.
 
 # [CIM](#tab/cim)
 
-Here are example commands to create an MSIX image as a CIM disk image. You should create a new folder for the destination because a CIM disk image is made up of multiple files and this helps differentiate between the images.
+Here are example commands to create an MSIX image as a CIM disk image. You'll need to change the example values for your own.
+
+You should create a new folder for the destination because a CIM disk image is made up of multiple files and this helps differentiate between the images.
 
 > [!IMPORTANT]
 > To guarantee compatibility, make sure the CIM files storing your MSIX images are generated on a version of Windows that is lower than or equal to the version of Windows where you are planning to run the MSIX packages. For example, CIM files generated on Windows 11 may not work on Windows 10.
 
 1. Open command prompt as an administrator and change to the directory you extracted the MSIXMGR tool. 
 
-1. Create a new folder for the destination by running the following command:
-
-   ```cmd
-   mkdir C:\msix\myapp
-   ```
+1. Create a new folder for the destination.
 
 1. To create the CIM disk image, run the following command:
 
