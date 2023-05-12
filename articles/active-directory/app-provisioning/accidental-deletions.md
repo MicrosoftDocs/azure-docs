@@ -57,7 +57,7 @@ threshold.
 When the deletion threshold is met, the job will go into quarantine and a notification email is sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 ## Recovering from an accidental deletion
-If you encounter an accidental deletion, you'll see it on the provisioning status page.  It will say `Provisioning has been quarantined. See quarantine details for more information`.
+When you encounter an accidental deletion, you see it on the provisioning status page.  It will say `Provisioning has been quarantined. See quarantine details for more information`.
 
 You can click either **Allow deletes** or **View provisioning logs**.
 
@@ -67,7 +67,7 @@ The **Allow deletes** action will delete the objects that triggered the accident
 
 1. Select **Allow deletes**.
 2. Click **Yes** on the confirmation to allow the deletions.
-3. You'll see confirmation that the deletions were accepted and the status will return to healthy with the next cycle.
+3. View the confirmation that the deletions were accepted. The status returns to healthy with the next cycle.
 
 ### Rejecting deletions
 
@@ -80,7 +80,7 @@ Investigate and reject deletions as necessary:
 ### Test deletion prevention
 You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, unassigning users, and deleting users from the directory (see common scenarios in next section). 
 
-Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. You'll see the provisioning job in quarantine and can choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
+Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. Check the provisioning job in quarantine and choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
 
 ## Common deprovisioning scenarios to test
 - Delete a user / put them into the recycle bin.
