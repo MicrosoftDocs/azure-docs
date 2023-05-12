@@ -57,21 +57,24 @@ For a complete working sample of how to use the drawing tools to draw polygon ar
   See the Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Select data in drawn polygon area</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
 ---------------------------------------------------------------->
 
 ### Draw and search in polygon area
 
 This code searches for points of interests inside the area of a shape after the user finished drawing the shape. You can modify and execute the code by clicking 'Edit on Code pen' on the top-right corner of the frame. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
 
+For a complete working sample of how to use the drawing tools to search for points of interests within drawn areas, see [Draw and search polygon area] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/drawing-tools-events/draw-and-search-polygon-area.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+
+<!-------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Draw and search in polygon area" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw and search in polygon area</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-<br/>
+---------------------------------------------------------------->
 
 ### Create a measuring tool
 
@@ -109,4 +112,4 @@ Check out more code samples:
 [Azure Maps Samples]:https://samples.azuremaps.com
 [Drawing tool events]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=drawing-tools-events
 [Select data in drawn polygon area]:https://samples.azuremaps.com/?search=Drawing%20tool&sample=select-data-in-drawn-polygon-area
-
+[Draw and search polygon area]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=draw-and-search-polygon-area
