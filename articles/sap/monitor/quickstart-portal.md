@@ -56,12 +56,12 @@ Get started with Azure Monitor for SAP solutions by using the [Azure portal](htt
 
 Refer the following for each of the Provider instance creation
 
-- [SAP NetWeaver Provider Creation](./provider-netweaver.md)
-- [SAP HANA Provider Creation](./provider-hana)
-- [SAP Microsoft SQL Provider Creation](./provider-sql-server)
-- [SAP IBM DB2 Provider Creation](./provider-ibm-db2)
-- [SAP Operating System Provider Creation](./provider-linux)
-- [SAP High Availability Provider Creation](./provider-ha-pacemaker-cluster)
+- [SAP NetWeaver Provider Creation](provider-netweaver.md)
+- [SAP HANA Provider Creation](provider-hana)
+- [SAP Microsoft SQL Provider Creation](provider-sql-server)
+- [SAP IBM DB2 Provider Creation](provider-ibm-db2)
+- [SAP Operating System Provider Creation](provider-linux)
+- [SAP High Availability Provider Creation](provider-ha-pacemaker-cluster)
 
 ## Next steps
 
