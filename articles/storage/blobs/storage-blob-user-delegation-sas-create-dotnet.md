@@ -1,5 +1,5 @@
 ---
-title: Use .NET to create a user delegation SAS for a container or blob
+title: Create a user delegation SAS for a container or blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Blob Storage.
 services: storage
@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Create a user delegation SAS for a container, directory, or blob with .NET
+# Create a user delegation SAS for a container or blob with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
@@ -116,10 +116,19 @@ The following code example shows how to use the user delegation SAS to authorize
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASContainer":::
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+## Resources
 
-## See also
+To learn more about creating a user delegation SAS using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library method for getting a user delegation key uses the following REST API operations:
+
+- [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
-- [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
+- [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas)
