@@ -17,7 +17,7 @@ For all language frameworks, App Service makes the claims in the incoming token 
 |------------------------------|-----------------------------------------------------------------------|
 | `X-MS-CLIENT-PRINCIPAL`      | A Base64 encoded JSON representation of available claims. See [Decoding the client principal header](#decoding-the-client-principal-header) for more information.   |
 | `X-MS-CLIENT-PRINCIPAL-ID`   | An identifier for the caller set by the identity provider.            |
-| `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider.    |
+| `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider, e.g. Email Address, User Principal Name.   |
 | `X-MS-CLIENT-PRINCIPAL-IDP`  | The name of the identity provider used by App Service Authentication. |
 
 Provider tokens are also exposed through similar headers. For example, the Microsoft Identity Provider also sets `X-MS-TOKEN-AAD-ACCESS-TOKEN` and `X-MS-TOKEN-AAD-ID-TOKEN` as appropriate.
