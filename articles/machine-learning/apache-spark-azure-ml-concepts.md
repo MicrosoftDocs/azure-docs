@@ -56,7 +56,7 @@ Disadvantages:
 
 ### Network configuration
 
-To use network isolation with Azure Machine Learning and serverless Spark compute, use a [managed virtual network](how-to-managed-network.md). 
+To use network isolation with Azure Machine Learning and serverless Spark compute, use a [managed virtual network](how-to-managed-network.md).
 
 ### Inactivity periods and tear-down mechanism
 
