@@ -63,12 +63,21 @@ Use one of the following two ways to configure the connection string:
 
     builder.Services.AddOpenTelemetry()
         .WithTracing(builder => builder
-            .AddAzureMonitorTraceExporter(options => options.ConnectionString = "<Your Connection String>"))
+            .AddAzureMonitorTraceExporter(options => 
+            {
+                options.ConnectionString = "<Your Connection String>"
+            }))
         .WithMetrics(builder => builder
-            .AddAzureMonitorMetricExporter(options => options.ConnectionString = "<Your Connection String>"));
+            .AddAzureMonitorMetricExporter(options => 
+            {
+                options.ConnectionString = "<Your Connection String>"
+            }));
 
     builder.Logging.AddOpenTelemetry(options => options
-        .AddAzureMonitorLogExporter(options => options.ConnectionString = "<Your Connection String>"));
+        .AddAzureMonitorLogExporter(options => 
+            {
+                options.ConnectionString = "<Your Connection String>"
+            }));
 
     var app = builder.Build();
 
@@ -149,7 +158,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
-    builder.ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(resourceAttributes)));
+    builder.ConfigureResource(resourceBuilder => 
+        resourceBuilder.AddAttributes(resourceAttributes)));
 
 var app = builder.Build();
 
@@ -171,18 +181,17 @@ var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttr
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(x => x.AddAttributes(resourceAttributes))
     .WithTracing(builder => builder
-        // Set ResourceBuilder on the provider.
+        // Set ResourceBuilder on the TracingProvider.
         .SetResourceBuilder(resourceBuilder)
         .AddAzureMonitorTraceExporter())
     .WithMetrics(builder => builder
-        // Set ResourceBuilder on the provider.
+        // Set ResourceBuilder on the MetricsProvider.
         .SetResourceBuilder(resourceBuilder)
         .AddAzureMonitorMetricExporter();
 
 builder.Logging.AddOpenTelemetry(options => options
-    // Set ResourceBuilder on the provider.
+    // Set ResourceBuilder on the Logging config.
     .SetResourceBuilder(resourceBuilder)
     .AddAzureMonitorLogExporter());
 
@@ -244,7 +253,7 @@ You may want to enable sampling to reduce your data ingestion volume, which redu
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
-In this example, we utilize the `ApplicationInsightsSampler`, which is included in the Distro.
+In this example, we utilize the `ApplicationInsightsSampler`, which is included with the Distro.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -273,7 +282,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenTelemetry()
     .WithTracing(builder => builder
         .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 1.0F }))
-        .AddAzureMonitorTraceExporter(o => o.ConnectionString = connectionString));
+        .AddAzureMonitorTraceExporter());
 
 var app = builder.Build();
 
@@ -350,8 +359,6 @@ We support the credential classes provided by [Azure Identity](https://github.co
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddOpenTelemetry()
 
 var credential = DefaultAzureCredential();
 
@@ -562,19 +569,18 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
     ```
 
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
-   
 
-```csharp
-var builder = WebApplication.CreateBuilder(args);
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
-builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddOtlpExporter());
-builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddOtlpExporter());
+    builder.Services.AddOpenTelemetry().UseAzureMonitor();
+    builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddOtlpExporter());
+    builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddOtlpExporter());
 
-var app = builder.Build();
+    var app = builder.Build();
 
-app.Run();
-```
+    app.Run();
+    ```
 
 #### [.NET](#tab/net)
 
