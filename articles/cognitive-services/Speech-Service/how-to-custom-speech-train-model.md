@@ -1,7 +1,7 @@
 ---
 title: Train a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model or a custom model.
+description: Learn how to train Custom Speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -126,7 +126,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
@@ -224,13 +224,13 @@ After the model is successfully copied, you'll be notified and can view it in th
 
 ::: zone pivot="speech-cli"
 
-Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech-to-text REST API](rest-speech-to-text.md).
+Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech to text REST API](rest-speech-to-text.md).
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-To copy a model to another Speech resource, use the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To copy a model to another Speech resource, use the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `targetSubscriptionKey` property to the key of the destination Speech resource.
 
@@ -328,7 +328,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 
