@@ -50,11 +50,11 @@ threshold.
 
 5. Ensure the **Notification Email** address is completed.
 
-    If the deletion threshold is met, an email will be sent.
+    If the deletion threshold is met, an email is sent.
 
 6. Select **Save** to save the changes.
 
-When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
+When the deletion threshold is met, the job will go into quarantine and a notification email is sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 ## Recovering from an accidental deletion
 If you encounter an accidental deletion, you'll see it on the provisioning status page.  It will say "Provisioning has been quarantined. See quarantine details for more information".
@@ -93,7 +93,7 @@ To learn more about deprovisioning scenarios, see [How Application Provisioning 
 ## Frequently Asked Questions
 
 ### What scenarios count toward the deletion threshold?
-When a user is set to be removed from the target application (or target tenant), it will be counted against the 
+When a user is set to be removed from the target application (or target tenant), it is counted against the 
 deletion threshold. Scenarios that could lead to a user being removed from the target 
 application (or target tenant) could include: unassigning the user from the application (or configuration) and soft / hard deleting a user in the directory. Groups 
 evaluated for deletion count towards the deletion threshold. In addition to deletions, the same functionality also works for disables.
@@ -101,7 +101,7 @@ evaluated for deletion count towards the deletion threshold. In addition to dele
 ### What is the interval that the deletion threshold is evaluated on?
 It's evaluated each cycle. If the number of deletions doesn't exceed the threshold during a 
 single cycle, the “circuit breaker” won’t be triggered. If multiple cycles are needed to reach a 
-steady state, the deletion threshold will be evaluated per cycle.
+steady state, the deletion threshold is evaluated per cycle.
 
 ### How are these deletion events logged?
 You can find users that should be disabled / deleted but haven’t due to the deletion threshold. 
