@@ -56,13 +56,13 @@ threshold.
 When the deletion threshold is met, the job goes into quarantine, and a notification email is sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 ## Recovering from an accidental deletion
-When you encounter an accidental deletion, you see it on the provisioning status page.  It will say `Provisioning has been quarantined. See quarantine details for more information`.
+When you encounter an accidental deletion, you see it on the provisioning status page.  It says `Provisioning has been quarantined. See quarantine details for more information`.
 
 You can click either **Allow deletes** or **View provisioning logs**.
 
 ### Allowing deletions
 
-The **Allow deletes** action will delete the objects that triggered the accidental delete threshold.  Use the procedure to accept the deletions.  
+The **Allow deletes** action deletes the objects that triggered the accidental delete threshold.  Use the procedure to accept the deletions.  
 
 1. Select **Allow deletes**.
 2. Click **Yes** on the confirmation to allow the deletions.
