@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # What is Azure Active Directory for customers?
 
-Azure Active Directory (Azure AD) for customers is a seamless way to add secure, customized sign-in to your customer-facing apps. For businesses that want to provide their customers with apps for buying products, subscribing to services, or accessing their account data, Microsoft Entra offers robust customer identity and access management (CIAM). This built-in solution lets you easily integrate your apps and get all the security, reliability, and scalability benefits of Microsoft Entra.
+Azure Active Directory (Azure AD) for customers is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Azure AD makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Azure AD, you also benefit from platform features like enhanced security, compliance, and scalability.
 
 :::image type="content" source="media/overview-customers-ciam/overview-ciam.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 
@@ -92,7 +92,7 @@ Learn more about [adding your own business logic](concept-custom-extensions.md) 
 
 ## Microsoft Entra security and reliability
 
-Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. Because it's built on Microsoft Entra and Azure AD, so you benefit from the advantages offered by these platforms.
+Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Azure AD platform. You benefit from platform features like enhanced security, compliance with regulations, and the ability to scale your identity and access management processes.
 
 - **Microsoft Entra security.** Get all the security and data privacy benefits of Microsoft Entra, including Conditional Access, multifactor authentication, and governance. Protect access to your apps using strong authentication and risk-based adaptive access policies. Because customers are managed in a separate tenant, you can tailor your access policies to users who typically use personal and shared devices instead of managed ones.
 
