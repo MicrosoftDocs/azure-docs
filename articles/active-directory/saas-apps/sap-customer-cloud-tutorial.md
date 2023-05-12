@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Cloud for Customer'
+title: 'Tutorial: Azure Active Directory SSO integration with SAP Cloud for Customer'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud for Customer.
 services: active-directory
 author: jeevansd
@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 05/12/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Cloud for Customer
+# Tutorial: Azure Active Directory SSO integration with SAP Cloud for Customer
 
-In this tutorial, you'll learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD). When you integrate SAP Cloud for Customer with Azure AD, you can:
+In this tutorial, you learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD). When you integrate SAP Cloud for Customer with Azure AD, you can:
 
 * Control in Azure AD who has access to SAP Cloud for Customer.
 * Enable your users to be automatically signed-in to SAP Cloud for Customer with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
 
 ## Prerequisites
 
@@ -33,9 +32,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SAP Cloud for Customer supports **SP** initiated SSO
+* SAP Cloud for Customer supports **SP** initiated SSO.
 
-## Adding SAP Cloud for Customer from the gallery
+## Add SAP Cloud for Customer from the gallery
 
 To configure the integration of SAP Cloud for Customer into Azure AD, you need to add SAP Cloud for Customer from the gallery to your list of managed SaaS apps.
 
@@ -139,9 +138,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your SAP Cloud for Customer company site as an administrator.
 
-2. From the left side of menu, click on **Identity Providers** > **Corporate Identity Providers** > **Add** and on the pop-up add the Identity provider name like **Azure AD**, click **Save** then click on **SAML 2.0 Configuration**.
+2. Go to **Applications & Resources** > **Tenant Settings** and select **SAML 2.0 Configuration**.
 
-	![Screenshot that shows the "Identity Providers" page with the "Add Identity Provider" dialog text box highlighted and the "Save" button selected.](./media/sap-customer-cloud-tutorial/configure01.png)
+	![Screenshot that shows the Identity Providers page selected.](./media/sap-customer-cloud-tutorial/configure.png)
 
 3. On the **SAML 2.0 Configuration** section, perform the following steps:
 
@@ -188,7 +187,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Go to SAP Cloud for Customer Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the SAP Cloud for Customer tile in the My Apps, this will redirect to SAP Cloud for Customer Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
 
 ## Next steps
 
