@@ -67,9 +67,9 @@ We have the following tagging strategy for the [self-hosted gateway container im
 
 ## Microsoft does not provide technical support for the following examples 
 
-* Questions about how to use the self-hosted gateway inside Kubernetes. For example, Microsoft Support does not provide advice on how to create custom ingress controllers, service mesh, use application workloads, or apply third-party or open-source software packages or tools. 
+* Questions about how to use the self-hosted gateway inside Kubernetes. For example, Microsoft Support doesn't provide advice on how to create custom ingress controllers, service mesh, use application workloads, or apply third-party or open-source software packages or tools. 
 
-* Third-party open-source projects combined with our self-hosted gateway, with the exception of specific supported projects, for example: Open Telemetry and DAPR (Distributed Application Runtime). 
+* Third-party open-source projects combined with our self-hosted gateway, except for specific supported projects, for example: Open Telemetry and DAPR (Distributed Application Runtime). 
 
 * Third-party closed-source software, including security scanning tools and networking devices or software. 
 
@@ -85,16 +85,16 @@ If you have a support plan and you need technical help, create a [support requ
 
 1. For **Subscription**, select your subscription. 
 
-1. For **Service**, click **My services**, then select **API Management Service**. 
+1. For **Service**, select **My services**, then select **API Management Service**. 
 
-1. For **Resource**, select the Azure resource that you are creating a support request for. 
+1. For **Resource**, select the Azure resource that you're creating a support request for. 
 
 1. For **Problem type**, select **Self-Hosted Gateway**. 
 
-You can also get help from our communities. You can file an issue on [Github](https://aka.ms/apim/sputnik/repo) or ask questions on [Stack  Overflow](https://aka.ms/apimso) and tag them with "azure-api-management".
+You can also get help from our communities. You can file an issue on [GitHub](https://aka.ms/apim/sputnik/repo) or ask questions on [Stack  Overflow](https://aka.ms/apimso) and tag them with "azure-api-management".
 
 ## Next steps
 
 * Learn how to deploy the API Management self-hosted gateway to [Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md), [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md), or a Kubernetes cluster using [YAML](how-to-deploy-self-hosted-gateway-kubernetes.md) or a [Helm chart](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
-* Review guidance for running the self-hosted guidance on [Kubernetes in production]().
+* Review guidance for running the self-hosted guidance on [Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
