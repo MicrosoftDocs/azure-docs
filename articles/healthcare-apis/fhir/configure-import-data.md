@@ -11,19 +11,28 @@ ms.author: kesheth
 
 # Configure bulk-import settings
 
-The FHIR service supports $import operation that allows you to import data into FHIR service account from a storage account.
+The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import operation does not guarantee ordering of valid resource execution. There are two modes of import supported today
+* Intial mode
+  Initial mode is intended to for loading FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and blocks API writes to the FHIR server, when enabled.
+  
+* Incremental mode
+  Incremental mode is optimized to load data into FHIR server periodically, in parallel with API CRUD operations. 
+  Note : Incremental import mode is in public preview, see disclaimer below. 
+  
+  [!INCLUDE Public Preview Disclaimer]
 
-The three steps used in configuring import settings in the FHIR service:
+In this document we will go over The three steps used in configuring import settings on the FHIR service:
 
-Step 1: Enable managed identity for the FHIR service.
+Step 1: Enable managed identity on the FHIR service.
 Step 2: Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
 Step 3: Set the import configuration in the FHIR service.
 
 ## Step 1: Enable managed identity on the FHIR service
 
-The first step in configuring the FHIR service for import is to enable system wide managed identity on the service, which will be used to grant the service to access the storage account. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+The first step is to enable system wide managed identity on the service. This will be used to grant the FHIR service an access to the storage account. 
+For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Follow the steps to enable managed identity
+Follow the steps to enable managed identity on FHIR service
 1. Browse to your FHIR service in the Azure portal.
 2. Select the **Identity** blade. 
 3. Select the **Status** option to **On** , and then select **Save**.
@@ -35,80 +44,63 @@ After the system identity has been enabled, you'll see a system assigned GUID va
 
 ## Step 2: Assign permissions to the FHIR service to access the storage account
 
-Browse to the **Access Control (IAM)** in the storage account, and then select **Add role assignment**. 
-If the add role assignment option is grayed out, you need to ask your Azure Administrator to assign you permission to perform this task.
-
+Follow the steps below to assign permissions to access the storage account
+1. Browse to the **Access Control (IAM)** in the storage account
+2. Select **Add role assignment**. During this step, if the add role assignment option is grayed out, you need to ask your Azure Administrator to assign you permission to perform this step.
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
-
-Add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the FHIR service, and then select **Save**.
+3. Add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the FHIR service.
+4. Select **Save**.
 
 [![Screen shot of the Add role assignment page.](media/bulk-import/add-role-assignment-page.png)](media/bulk-import/add-role-assignment-page.png#lightbox)
 
-Now you're ready to select the storage account in the FHIR service as a default storage account for import.
+Now you're ready to select the storage account for import.
 
 ## Step 3: Set import configuration of the FHIR service
 
-FHIR service supports two modes of import, Initial import mode and Incremental import mode. Incremental import mode is in public preview, see disclaimer below. 
-
-[!INCLUDE Public Preview Disclaimer]
-
-Initial import mode is optimized to load large volume of resources, it's primarily intended to load data into an empty FHIR server. During initial mode, the API writes to FHIR server are blocked. Incremental import is optimized to load data to FHIR server in parallel with API CRUD operations being executed on same server.
-
-The import operation is idempotent and there's no ordering guarantee of valid resource execution during import.
-
-Below steps walk through setting initial and incremental import mode. Choose the right import mode for your use case. 
-
-### Step 3.1: Set import configuration for Initial import mode.
-
-This step walks you through setting import configuration with your storage account and enabling initial import mode.
-
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To specify the Azure Storage account, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
+For this step you will need to get request URL and JSON body. Please follow the directions below
+1. Browse to the Azure portal of your FHIR service.
+2. Select **Overview**.
+3. Select **JSON View**.
+4. Select the API version to **2022-06-01** or later version. 
 
-To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
-
+To specify the Azure Storage account in JSON view, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 [![Screenshot of Get JSON View](media/bulk-import/fhir-json-view.png)](media/bulk-import/fhir-json-view.png#lightbox)
 
-Select the API version to **2022-06-01** or later version. 
+Below steps walk through setting configurations for initial and incremental import mode. Choose the right import mode for your use case. 
 
-Copy the URL as request URL and do following changes of the JSON as body:
-- Set enabled in importConfiguration to **true**
-- add or change the integrationDataStore with target storage account name 
-- Set initialImportMode in importConfiguration to **true**
-- Drop off provisioningState.
+### Step 3.1: Set import configuration for Initial import mode.
+Do following changes to JSON:
+1. Set enabled in importConfiguration to **true**
+2. Update the integrationDataStore with target storage account name 
+3. Set initialImportMode in importConfiguration to **true**
+4. Drop off provisioningState.
 
 [![Screenshot of the importer configuration code example](media/bulk-import/import-url-and-body.png)](media/bulk-import/import-url-and-body.png#lightbox)
 
-After you've completed this final step, you're ready to import data using $import.
-
-You can also use the **Deploy to Azure** button to open custom Resource Manager template that updates the configuration for $import.
-
- [![Deploy to Azure Button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
+After you've completed this final step, you're ready to perform **Initial mode** import using $import.
 
 ### Step 3.2: Set import configuration for Incremental import mode.
 
-This step walks you through setting import configuration with your storage account and enabling incremental import mode.
+Do following changes to JSON:
+1. Set enabled in importConfiguration to **true**
+2. Update the integrationDataStore with target storage account name 
+3. Set incrementalImportMode in importConfiguration to **true**
+4. Drop off provisioningState.
 
-> [!NOTE]
-> If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
+After you've completed this final step, you're ready to perform **Incremental mode** import using $import.
 
-To specify the Azure Storage account, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
-To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
+Note : You can also use the **Deploy to Azure** button to open custom Resource Manager template that updates the configuration for $import.
 
-[![Screenshot of Get JSON View](media/bulk-import/fhir-json-view.png)](media/bulk-import/fhir-json-view.png#lightbox)
+ [![Deploy to Azure Button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
 
-Select the API version to **2022-06-01** or later version. 
-
-As next step, copy the URL as request URL and add or change the integrationDataStore with target storage account name.
-
-After you've completed this final step, you're ready to import data using $import, in parallel with API calls. 
 
 ## Next steps
 
-In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 >[!div class="nextstepaction"]
 >[Use $import](import-data.md)
