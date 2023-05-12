@@ -1,5 +1,5 @@
 ---
-title: Azure AD Provisioning to applications via web services connector
+title: Azure AD provisioning to applications via web services connector
 description: This document describes how to configure Azure AD to provision users with external systems that offer web services based APIs.
 services: active-directory
 author: billmath
@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 
 # Provisioning with the web services connector
-The following documentation provides information about the generic web services connector. Microsoft Entra Identity Governance supports provisioning accounts into various appilcations such as SAP ECC, Oracle eBusiness Suite, and line of business applications that expose REST or SOAP APIs. Customers that have previously deployed MIM to connect to these applications can easily switch to using the light weight Azure AD provisioning agent, while reusing the same web services connector built for MIM.  
+The following documentation provides information about the generic web services connector. Microsoft Entra Identity Governance supports provisioning accounts into various applications such as SAP ECC, Oracle eBusiness Suite, and line of business applications that expose REST or SOAP APIs. Customers that have previously deployed MIM to connect to these applications can easily switch to using the lightweight Azure AD provisioning agent, while reusing the same web services connector built for MIM.  
 
 ## Capabilities supported
 
