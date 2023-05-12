@@ -68,7 +68,7 @@ Go to developers.cloudflare.com to [Set up Azure AD as an identity provider](htt
 
 Enforce Conditional Access policies on a Cloudflare Access application.
 
-1. Go to dash.cloudflare.com to [Log in to Cloudflare](https://dash.cloudflare.com/login).
+1. Go to dash.cloudflare.com to [Sign in to Cloudflare](https://dash.cloudflare.com/login).
 2. In **Zero Trust**, go to **Access**.
 3. Select **Applications**.
 4. See, [Add a self-hosted application](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-apps/).
