@@ -20,7 +20,7 @@ ms.custom:
 
 This article is meant to provide guidance to developers whose applications are currently using a pattern where [unverified emails are used for authorization](). 
 
-## Migrating applications to more secure configurations
+## Migrate applications to more secure configurations
 
 Microsoft recommends **never** using mutable claims (such as email, preferred_username, etc) as identifiers to perform authorization checks or index users in a database. These values are re-usable and could expose your application to privilege escalation attacks. 
 
