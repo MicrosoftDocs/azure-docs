@@ -54,7 +54,7 @@ This command prints the HBCK2 help, without passing options or arguments.
 
 ### assigns [OPTIONS] <ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES>... | -i <INPUT_FILE>...
 
-Options
+Options:
 
 * `-o,--override`: Overrides ownership by another procedure.
 * `-i,--inputFiles`: Takes one or more encoded region names.
@@ -73,7 +73,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### unassigns [OPTIONS] <ENCODED_REGIONNAME>...| -i <INPUT_FILE>...
 
-Options
+Options:
 
 * `-o,--override`: Overrides ownership by another procedure.
 * `-i,--inputFiles`: Takes ones or more input files of encoded names.
@@ -92,7 +92,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### bypass [OPTIONS] <PID>...
 
-Options
+Options:
 
 * `-o,--override`: Overrides if the procedure is running or stuck.
 * `-r,--recursive`: Bypasses the parent and its children. *This option is slow and expensive.*
@@ -113,13 +113,13 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### reportMissingRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...
 
-Option
+Option:
 
-`i,--inputFiles`: Takes one or more input files of namespace or table names.
+* `i,--inputFiles`: Takes one or more input files of namespace or table names.
 
-Use this option when regions are missing from `hbase:meta` but when directories are still present in HDFS. This command is only a check method. It's designed for reporting purposes and doesn't perform any fixes. It provides a view of which regions (if any) would get re-added to `hbase:meta`, grouped by respective table or namespace.
+Use this option when regions are missing from `hbase:meta` but when directories are still present in HDFS. This command is only a check method. It's designed for reporting purposes and doesn't perform any fixes. It provides a view of which regions (if any) would get readded to `hbase:meta`, grouped by respective table or namespace.
 
-To effectively re-add regions in meta, run `addFsRegionsMissingInMeta`. This command needs `hbase:meta` to be online. For each namespace/table passed as a parameter, it performs a diff between regions available in `hbase:meta` against existing regions' dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a "no missing regions" message. If no namespace or table is specified, it verifies all existing regions.
+To effectively readd regions in meta, run `addFsRegionsMissingInMeta`. This command needs `hbase:meta` to be online. For each namespace/table passed as a parameter, it performs a diff between regions available in `hbase:meta` against existing regions' dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a "no missing regions" message. If no namespace or table is specified, it verifies all existing regions.
 
 It accepts a combination of multiple namespaces and tables. Table names should include the namespace portion, even for tables in the default namespace. Otherwise, it assumes a namespace value. This example triggers missing regions reports for the tables `table_1` and `table_2`, under a default namespace:
 
@@ -142,11 +142,11 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### addFsRegionsMissingInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...
 
-Option
+Option:
 
-`-i,--inputFiles`: Takes one or more input files of namespace table names to be used when regions are missing from `hbase:meta` but directories are still present in HDFS. *Needs `hbase:meta` to be online.*
+* `-i,--inputFiles`: Takes one or more input files of namespace table names to be used when regions are missing from `hbase:meta` but directories are still present in HDFS. *Needs `hbase:meta` to be online.*
 
-For each table name passed as a parameter, it performs diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the `regioninfo` metadata file and re-creates a specific region in `hbase:meta`. Regions are re-created in the CLOSED state in the `hbase:meta` table, but not in the `Masters` cache. They aren't assigned either. To get these regions online, run the HBCK2 `assigns` command printed when this command run completes.
+For each table name passed as a parameter, it performs a diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the `regioninfo` metadata file and re-creates a specific region in `hbase:meta`. Regions are re-created in the CLOSED state in the `hbase:meta` table, but not in the `Masters` cache. They aren't assigned either. To get these regions online, run the HBCK2 `assigns` command printed when this command run completes.
 
 > [!NOTE]
 > If you're using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of `assigns` output. This example adds missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from namespace `n2`:
@@ -163,7 +163,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### extraRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...
 
-Options
+Options:
 
 * `-f, --fix`: Fixes meta by removing all extra regions found.
 * `-i,--inputFiles`: Takes one or more input files of namespace or table names.
@@ -221,7 +221,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### replication [OPTIONS] [<NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...]
 
-Options
+Options:
 
 * `-f, --fix`: Fixes any replication issues found.
 * `-i,--inputFiles`: Takes one or more input files of table names.
@@ -240,10 +240,10 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### setRegionState [<ENCODED_REGIONNAME> <STATE> | -i <INPUT_FILE>...]
 
-Option
+Option:
 
-`-i,--inputFiles`: Takes one or more input files of encoded region names and states.
-  
+* `-i,--inputFiles`: Takes one or more input files of encoded region names and states.
+
 Possible region states:
 
 * OFFLINE
@@ -260,7 +260,7 @@ Possible region states:
 * SPLITTING_NEW
 * MERGING_NEW
 * ABNORMALLY_CLOSED
-  
+
 > [!WARNING]
 > This risky option is intended for use only as a last resort.
 
@@ -272,7 +272,7 @@ Example scenarios include unassigns or assigns that can't move forward because t
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setRegionState de00010733901a05f5a2a3a382e27dd4 CLOSING
 ```
 
-It returns "0" if the region state changed and "1" otherwise. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<ENCODED_REGIONNAME> <STATE>`, one pair per line. For example:
+It returns `0` if the region state changed and `1` otherwise. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<ENCODED_REGIONNAME> <STATE>`, one pair per line. For example:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setRegionState -i fileName1 fileName2
@@ -280,14 +280,14 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### setTableState [<TABLENAME> <STATE> | -i <INPUT_FILE>...]
 
-Option
+Option:
 
-`-i,--inputFiles`: Takes one or more input files of table names and states.
+* `-i,--inputFiles`: Takes one or more input files of table names and states.
 
 Possible table states are ENABLED, DISABLED, DISABLING, and ENABLING.
 
 To read the current table state, in the hbase shell, run:
-  
+
 ```
 hbase> get 'hbase:meta', '<TABLENAME>', 'table:state'
 ```
@@ -306,9 +306,9 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 ### scheduleRecoveries <SERVERNAME>... | -i <INPUT_FILE>...
 
-Option
+Option:
 
-`-i,--inputFiles`: Takes one or more input files of server names.
+* `-i,--inputFiles`: Takes one or more input files of server names.
 
 Schedule `ServerCrashProcedure(SCP)` for a list of `RegionServers`. Format the server name as `<HOSTNAME>,<PORT>,<STARTCODE>`. (See HBase UI/logs.)
 
@@ -332,15 +332,15 @@ This section helps you troubleshoot common issues.
 ### General principles
 When you make a repair, *make sure that `hbase:meta` is consistent first before you fix any other issue type*, such as a file-system deviance. Deviance in the file system or problems with assign should be addressed after the `hbase:meta` is put in order. If `hbase:meta` has issues, the Master can't make proper placements when it adopts orphan file-system data or makes region assignments.
 
-A Region can't be assigned if it's in the CLOSING state (or the inverse, unassigned if in the OPENING state) without first transitioning via CLOSED. Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING and CLOSED.
+A region can't be assigned if it's in the CLOSING state (or the inverse, unassigned if in the OPENING state) without first transitioning via CLOSED. Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING and CLOSED.
 
 When you make a repair, fix tables one at a time.
 
-If a table is DISABLED, you can't assign a Region. In the Master logs, you see that the Master reports skipped because the table is DISABLED. You can assign a Region because it's currently in the OPENING state and you want it in the CLOSED state so that it agrees with the table's DISABLED state. In this situation, you might have to temporarily set the table status to ENABLED so that you can do the assign. Then you set it back again after the unassign statement. HBCK2 has the facility to allow you to do this change. See the HBCK2 usage output.
+If a table is DISABLED, you can't assign a region. In the Master logs, you see that the Master reports skipped because the table is DISABLED. You can assign a region because it's currently in the OPENING state and you want it in the CLOSED state so that it agrees with the table's DISABLED state. In this situation, you might have to temporarily set the table status to ENABLED so that you can do the assign. Then you set it back again after the unassign statement. HBCK2 has the facility to allow you to do this change. See the HBCK2 usage output.
 
 ### Assign and unassign
-  
-Generally, on assign, the Master persists until it's successful. An assign takes an exclusive lock on the Region. The lock precludes a concurrent assign or unassign from running. An assign against a locked Region waits until the lock is released before making progress.
+
+Generally, on assign, the Master persists until it's successful. An assign takes an exclusive lock on the region. The lock precludes a concurrent assign or unassign from running. An assign against a locked region waits until the lock is released before making progress.
 
 `Master startup cannot progress, in holding-pattern until region online`:
 
@@ -354,9 +354,9 @@ The Master is unable to continue startup because there's no procedure to assign 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns -skip 1588230740
 ```
 
-In this example, *1588230740 is the encoded name of the* `hbase:meta` *Region*. Pass the `-skip` option to stop HBCK2 from doing a version check against the remote Master. If the remote Master isn't up, the version check prompts a `Master is initializing response` or `PleaseHoldException` and drops the assign attempt. The `-skip` command avoids the version check and lands the scheduled assign.
+In this example, **1588230740 is the encoded name of the** `hbase:meta` **region**. Pass the `-skip` option to stop HBCK2 from doing a version check against the remote Master. If the remote Master isn't up, the version check prompts a `Master is initializing response` or `PleaseHoldException` and drops the assign attempt. The `-skip` command avoids the version check and lands the scheduled assign.
 
-The same might happen to the `hbase:namespace` system table. Look for the encoded Region name of the `hbase:namespace` Region and take similar steps to what we did for `hbase:meta`. In this latter case, the Master actually prints a helpful message that looks like this example:
+The same might happen to the `hbase:namespace` system table. Look for the encoded region name of the `hbase:namespace` region and take similar steps to what we did for `hbase:meta`. In this latter case, the Master actually prints a helpful message that looks like this example:
 
 ```
 2019-07-09 22:08:38,966 WARN  [master/localhost:16000:becomeActiveMaster] master.HMaster: hbase:namespace,,1562733904278.9559cf72b8e81e1291c626a8e781a6ae. isn't online; state={9559cf72b8e81e1291c626a8e781a6ae state=CLOSED, ts=1562735318897, server=null}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region onlined.
@@ -368,7 +368,7 @@ To schedule an assign for the `hbase:namespace` table noted in the preceding log
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar -skip assigns 9559cf72b8e81e1291c626a8e781a6ae
 ```
 
-Pass the encoded name for the namespace region (the encoded name differs per deploy).
+Pass the encoded name for the namespace region. (The encoded name differs per deployment.)
 
 ### Missing regions in hbase:meta region/table restore/rebuild
 Some unusual cases had table regions removed from the `hbase:meta` table. Triage on these cases revealed that they were operator induced. Users ran the obsolete hbck1 OfflineMetaRepair tool against an HBCK2 cluster. OfflineMetaRepair is a well-known tool for fixing `hbase:meta` table-related issues on HBase 1.x versions. The original version isn't compatible with HBase 2.x or higher versions, and it has undergone some adjustments. In extreme situations, it can now be run via HBCK2.
@@ -387,15 +387,15 @@ If `hbase:meta` corruption isn't too critical, hbase can still bring it online. 
 echo "scan 'hbase:meta', {COLUMN=>'info:regioninfo'}" | hbase shell
 ```
 
-HBCK2 **addFsRegionsMissingInMeta** can be used if the message doesn't show any errors. It reads region metadata info available on the FS region directories to re-create regions in `hbase:meta`. Because it can run with hbase partially operational, it attempts to disable online tables that are affected by the reported problem and it's going to re-add regions to `hbase:meta`. It can check for specific tables or namespaces, or all tables from all namespaces. This example shows adding missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from the namespace `n2`:
+HBCK2 **addFsRegionsMissingInMeta** can be used if the message doesn't show any errors. It reads region metadata info available on the FS region directories to re-create regions in `hbase:meta`. Because it can run with hbase partially operational, it attempts to disable online tables that are affected by the reported problem and it's going to readd regions to `hbase:meta`. It can check for specific tables or namespaces, or all tables from all namespaces. This example shows adding missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from the namespace `n2`:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
 ```
 
-Because it operates independently from Master, after it finishes successfully, more steps are required to have the re-added regions assigned. These messages are listed as follows:
+Because it operates independently from Master, after it finishes successfully, more steps are required to have the readded regions assigned. These messages are listed as follows:
 
-- **addFsRegionsMissingInMeta** outputs an assigns command with all regions that got re-added. This command must be executed later, so copy and save it for convenience.
+- **addFsRegionsMissingInMeta** outputs an assigns command with all regions that got readded. This command must be executed later, so copy and save it for convenience.
 - **For HBase versions prior to 2.3.0,** after `addFsRegionsMissingInMeta` finished successfully and output has been saved, restart all running HBase Masters.
 
 After Masters are restarted and `hbase:meta` is already online (check if the web UI is accessible), run the assigns command from `addFsRegionsMissingInMeta` output saved earlier.
@@ -460,6 +460,6 @@ HBCK2 can check for hanging references and corrupt files. You can ask it to side
 
 As a last resort, if the Master is distraught and all attempts at repair only turn up undoable locks or procedures that can't finish, or if the set of `MasterProcWALs` is growing without bounds, it's possible to wipe the Master state clean. Move aside the `/hbase/MasterProcWALs/` directory under your HBase installation and restart the Master process. It comes back as a tabular format without memory.
 
-If at the time of the erasure all Regions were happily assigned or offlined, on Master restart, the Master should pick up and continue as though nothing happened. But if there were regions in transition at the time, the operator has to intervene to bring outstanding assigns or unassigns to their terminal point.
+If at the time of the erasure all regions were happily assigned or offlined, on Master restart, the Master should pick up and continue as though nothing happened. But if there were regions in transition at the time, the operator has to intervene to bring outstanding assigns or unassigns to their terminal point.
 
-Read the `hbase:meta` `info:state` columns as described to determine what needs to be assigned or unassigned. After having erased all history by moving aside the `MasterProcWALs`, none of the entities should be locked, so you're free to bulk assign or unassign.
+Read the `hbase:meta` `info:state` columns as described to determine what needs to be assigned or unassigned. After all history is erased by moving aside the `MasterProcWALs`, none of the entities should be locked, so you're free to bulk assign or unassign.
