@@ -952,18 +952,29 @@ The following JSON is an example of how to use the targetRegions field to distri
 
 # [JSON](#tab/json)
 ```json
-"targetRegions": [
-     {
-      "name": "eastus",
-      "replicaCount": 2,
-      "storageAccountType": "Standard_ZRS"
-     },
-     {
-      "name": "eastus2",
-      "replicaCount": 3,
-      "storageAccountType": "Premium_LRS"
-     }
-]
+"distribute": [
+      {
+        "type": "SharedImage",
+        "galleryImageId": "<resource ID>",
+        "runOutputName": "<name>",
+        "artifactTags": {
+          "<name>": "<value>",
+          "<name>": "<value>"
+        },
+        "targetRegions": [
+             {
+              "name": "eastus",
+              "replicaCount": 2,
+              "storageAccountType": "Standard_ZRS"
+             },
+             {
+              "name": "eastus2",
+              "replicaCount": 3,
+              "storageAccountType": "Premium_LRS"
+             }
+          ]
+       },
+    ]
 ```
 # [Bicep](#tab/bicep)
 ```bicep
