@@ -927,19 +927,10 @@ The following JSON is an example of how to use the `replicationRegions` field to
 
 # [Bicep](#tab/bicep)
 ```bicep
-{
-  type: 'SharedImage'
-  galleryImageId: '<resource ID>'
-  runOutputName: '<name>'
-  artifactTags: {
-      <name>: '<value>'
-      <name>: '<value>'
-  }
-  replicationRegions: [
-      '<region where the gallery is deployed>'
-      '<region>'
-  ]
-}
+replicationRegions: [
+    '<region where the gallery is deployed>',
+    '<region>'
+]
 ```
 ---
 
@@ -978,17 +969,28 @@ The following JSON is an example of how to use the targetRegions field to distri
 ```
 # [Bicep](#tab/bicep)
 ```bicep
-param targetRegions array = [
-  {
-    name: 'eastus'
-    replicaCount: 2
-    storageAccountType: 'Standard_ZRS'
-  }
-  {
-    name: 'eastus2'
-    replicaCount: 3
-    storageAccountType: 'Premium_LRS'
-  }
+distribute: [
+    {
+        type: 'SharedImage'
+        galleryImageId: '<resource ID>'
+        runOutputName: '<name>'
+        artifactTags: {
+            '<name>': '<value>'
+            '<name>': '<value>'
+        }
+        targetRegions: [
+            {
+                name: 'eastus'
+                replicaCount: 2
+                storageAccountType: 'Standard_ZRS'
+            }
+            {
+                name: 'eastus2'
+                replicaCount: 3
+                storageAccountType: 'Premium_LRS'
+            }
+        ]
+    }
 ]
 ```
 ---
@@ -1270,15 +1272,14 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 
 ```bicep
 source: {
-  type: 'SharedImageVersion',
-  imageVersionID: '<replace with resourceId of the image stored in the Direct Shared Gallery>'
+    type: 'SharedImageVersion'
+    imageVersionId: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName>/versions/<imageVersion>'
 }
 ```
 
 ---
 - imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place. The `imageVersionId` should be the `ResourceId` of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
-### SharedImageVersion
 
 The following JSON sets the source image as an image stored in a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
 
@@ -1303,6 +1304,35 @@ source: {
 }
 ```
 ---
+
+The following JSON sets the source image as the latest image version for an image stored in an Azure Compute Gallery.
+
+# [JSON](#tab/json)
+
+```json
+"properties": {
+    "source": {
+        "type": "SharedImageVersion",
+        "imageVersionId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<azureComputeGalleryName>/images/<imageDefinitionName>/versions/latest"
+    }
+},
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+properties: {
+    source: {
+        type: 'SharedImageVersion'
+        imageVersionId: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<azureComputeGalleryName>/images/<imageDefinitionName>/versions/latest'
+    }
+}
+```
+---
+
+SharedImageVersion properties:
+
+**imageVersionId** - ARM resource id of the image version. When the image version name is 'latest', the version is evaluated when the image build takes place.
 
 
 ## Properties: stagingResourceGroup
