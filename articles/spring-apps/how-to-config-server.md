@@ -16,14 +16,14 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps service.
 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
 > [!NOTE]
-> The Config Server feature for the Standard consumption plan is currently under private preview. To sign up for this feature, fill in the form at [Azure Spring Apps Consumption - Fully Managed Spring Eureka & Config - Private Preview](https://aka.ms/asa-consumption-middleware-signup).
+> To use config server in the Standard consumption plan, you need to follow [Enable config server for Consumption Plan](quickstart-standard-consumption-config-server.md) to enable it first, you can disable it if you don't want it any more. And currently, config server portal is not available for Standard consumption plan.
 
 ## Prerequisites
 
