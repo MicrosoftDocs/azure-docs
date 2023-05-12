@@ -93,7 +93,7 @@ To learn more about deprovisioning scenarios, see [How Application Provisioning 
 ## Frequently Asked Questions
 
 ### What scenarios count toward the deletion threshold?
-When a user is set to be removed from the target application (or target tenant), it is counted against the 
+When a user is set to be removed from the target application (or target tenant), it's counted against the 
 deletion threshold. Scenarios that could lead to a user being removed from the target 
 application (or target tenant) could include: unassigning the user from the application (or configuration) and soft / hard deleting a user in the directory. Groups 
 evaluated for deletion count towards the deletion threshold. In addition to deletions, the same functionality also works for disables.
