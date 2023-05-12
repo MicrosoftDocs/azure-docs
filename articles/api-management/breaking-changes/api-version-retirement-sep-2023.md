@@ -20,7 +20,7 @@ From now through 30 September 2023, you can continue to use the templates, tools
 
 ## Is my service affected by this?
 
-While your service isn't* affected by this change, any tool, script, or program that uses the Azure Resource Manager (such as the Azure CLI, Azure PowerShell, Azure API Management DevOps Resource Kit, or Terraform) is affected by this change. You'll be unable to run those tools successfully unless you update the tools.
+While your service isn't affected by this change, any tool, script, or program that uses the Azure Resource Manager (such as the Azure CLI, Azure PowerShell, Azure API Management DevOps Resource Kit, or Terraform) to interact with the API Management service is affected by this change. You'll be unable to run those tools successfully unless you update the tools.
 
 ## What is the deadline for the change?
 
