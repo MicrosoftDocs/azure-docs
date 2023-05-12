@@ -168,7 +168,7 @@ The point data that a cluster represents is spread over an area. In this sample 
 
 For a complete working sample that demonstrates how to do this, see [Display cluster area with Convex Hull] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/cluster-point-data-web-sdk/display-cluster-area.png" alt-text="Screenshot showing a map that displays cluster areas represented by drop pens that show Convex Hull marking the cluster area when selected.":::
+:::image type="content" source="./media/cluster-point-data-web-sdk/display-cluster-area.png" alt-text="Screenshot showing a map that displays cluster areas represented by drop pins that show Convex Hull marking the cluster area when selected.":::
 
 <!----------------------------------------------------------------------
 <br/>
