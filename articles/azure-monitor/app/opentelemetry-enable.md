@@ -156,10 +156,10 @@ app.Run();
 Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
 ```csharp
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddAzureMonitorTraceExporter()
+    .AddAzureMonitorTraceExporter();
 
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
-    .AddAzureMonitorMetricExporter()
+    .AddAzureMonitorMetricExporter();
 
 var loggerFactory = LoggerFactory.Create(builder =>
 {
