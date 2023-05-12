@@ -61,7 +61,7 @@ Go to developers.cloudflare.com to [Set up Azure AD as an identity provider](htt
 9. Select **Properties**.
 10. For **Visible to users**, select **Yes**. This action enables the app to appear in App Launcher and in [My Apps](https://myapplications.microsoft.com/).
 11. Under **Security**, select **Conditional Access**.
-12. See, [Building a Condidtional Access policy](../conditional-access/concept-conditional-access-policies.md).
+12. See, [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md).
 13. Create and enable other policies for the application.
 
 ## Create a Cloudflare Access application
