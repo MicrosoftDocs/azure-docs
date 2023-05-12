@@ -138,17 +138,17 @@ Cross-tenant access settings can be managed with custom roles defined by your or
 
 This role can manage everything in cross-tenant access settings, including default and organizational based settings. This role should be assigned to users who need to manage all settings in cross-tenant access settings.
 
-:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png" alt-text="Screenshot of the audit logs for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png":::
+:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png" alt-text="Screenshot of the administrator custom for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png":::
 
 #### Cross-tenant access reader
 This role can read everything in cross-tenant access settings, including default and organizational based settings. This role should be assigned to users who only need to review settings in cross-tenant access settings, but not manage them.
 
-:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png" alt-text="Screenshot of the audit logs for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png":::
+:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png" alt-text="Screenshot of the reader custom role for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png":::
 
 #### Cross-tenant access partner administrator
 This role can manage everything relating to partners and read the default settings. This role should be assigned to users who need to manage organizational based settings but not be able to change default settings.
 
-:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png" alt-text="Screenshot of the audit logs for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png":::
+:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png" alt-text="Screenshot of the partner administrator custom role for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png":::
 
 ## Protect cross-tenant access administrative actions
 Any actions that modify cross-tenant access settings are considered protected actions and can be additionally protected with Conditional Access policies. For more information and configuration steps see [protected actions](../roles/protected-actions-overview.md).
