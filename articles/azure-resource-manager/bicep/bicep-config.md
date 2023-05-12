@@ -3,7 +3,7 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/28/2023
+ms.date: 05/12/2023
 ---
 
 # Configure your Bicep environment
@@ -11,6 +11,8 @@ ms.date: 04/28/2023
 Bicep supports a configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. If you don't add this file, Bicep uses default values.
 
 To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
+
+To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#vs-code-and-bicep-extension).
 
 ## Create the config file in Visual Studio Code
 

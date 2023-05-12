@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 05/12/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -39,6 +39,34 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
 You can deploy your Bicep files directly from the VS Code editor. For more information, see [Deploy Bicep files from Visual Studio Code](deploy-vscode.md).
+
+### Configure Bicep extension
+
+To see the settings:
+
+1. From the `View` menu, select `Extensions`.
+1. Select `Bicep` from the list of extensions.
+1. Select the `FEATURE CONTRIBUTIONS` tab:
+
+  :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Bicep extension settings":::
+
+The Bicep extension has these settings and default values:
+
+| ID	| Description	| Default |
+|-----|-------------|---------|
+| bicep.decompileOnPaste	| Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert)	| true |
+| bicep.enableOutputTimestamps	| Prepend each line displayed in the Bicep Operations output channel with a timestamp.	| true |
+| bicep.suppressedWarnings	| Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.| |
+| bicep.enableSurveys	| Enable occasional surveys to collect feedback that helps us improve the Bicep extension.	| true |
+| bicep.completions.getAllAccessibleAzureContainerRegistries	| When completing 'br:' module references, query Azure for all container registries accessible to the user (may be slow). If this option is off, only  registries configured under moduleAliases in bicepconfig.json will be listed.	| false |
+| bicep.trace.server	| Configure tracing of messages sent to the Bicep language server.	| Off |
+
+To configure the settings:
+
+1. From the `File` menu, select `Preferences`, and then select `Settings`.
+1. Expand `Extensions`, and then select `Bicep`:
+
+  :::image type="content" source="./media/install/bicep-extension-settings.png" alt-text="Configure Bicep extension settings":::
 
 ## Visual Studio and Bicep extension
 
