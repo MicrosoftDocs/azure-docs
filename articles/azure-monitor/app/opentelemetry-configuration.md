@@ -59,29 +59,28 @@ Use one of the following two ways to configure the connection string:
 
 - Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
     ```csharp
-    var builder = WebApplication.CreateBuilder(args);
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter(options =>
+    {
+        options.ConnectionString = "<Your Connection String>";
+    });
 
-    builder.Services.AddOpenTelemetry()
-        .WithTracing(builder => builder
-            .AddAzureMonitorTraceExporter(options => 
+    var metricsProvider = Sdk.CreateMeterProviderBuilder()
+        .AddAzureMonitorMetricExporter(options =>
+        {
+            options.ConnectionString = "<Your Connection String>";
+        });
+
+    var loggerFactory = LoggerFactory.Create(builder =>
+    {
+        builder.AddOpenTelemetry(options =>
+        {
+            options.AddAzureMonitorLogExporter(options =>
             {
-                options.ConnectionString = "<Your Connection String>"
-            }))
-        .WithMetrics(builder => builder
-            .AddAzureMonitorMetricExporter(options => 
-            {
-                options.ConnectionString = "<Your Connection String>"
-            }));
-
-    builder.Logging.AddOpenTelemetry(options => options
-        .AddAzureMonitorLogExporter(options => 
-            {
-                options.ConnectionString = "<Your Connection String>"
-            }));
-
-    var app = builder.Build();
-
-    app.Run();
+                options.ConnectionString = "<Your Connection String>";
+            });
+        });
+    });
     ```
 - Set an environment variable:
    ```console
@@ -178,24 +177,25 @@ var resourceAttributes = new Dictionary<string, object> {
     { "service.instance.id", "my-instance" }};
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddOpenTelemetry()
-    .WithTracing(builder => builder
-        // Set ResourceBuilder on the TracingProvider.
-        .SetResourceBuilder(resourceBuilder)
-        .AddAzureMonitorTraceExporter())
-    .WithMetrics(builder => builder
-        // Set ResourceBuilder on the MetricsProvider.
-        .SetResourceBuilder(resourceBuilder)
-        .AddAzureMonitorMetricExporter();
-
-builder.Logging.AddOpenTelemetry(options => options
-    // Set ResourceBuilder on the Logging config.
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    // Set ResourceBuilder on the TracingProvider.
     .SetResourceBuilder(resourceBuilder)
-    .AddAzureMonitorLogExporter());
+    .AddAzureMonitorTraceExporter();
 
-var app = builder.Build();
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    // Set ResourceBuilder on the MetricsProvider.
+    .SetResourceBuilder(resourceBuilder)
+    .AddAzureMonitorMetricExporter();
+
+var loggerFactory = LoggerFactory.Create(builder =>
+{
+    builder.AddOpenTelemetry(options =>
+    {
+        // Set ResourceBuilder on the Logging config.
+        options.SetResourceBuilder(resourceBuilder);
+        options.AddAzureMonitorLogExporter();
+    });
+});
 ```
 
 ### [Java](#tab/java)
@@ -277,16 +277,9 @@ dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
 ```
 
 ```csharp
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddOpenTelemetry()
-    .WithTracing(builder => builder
-        .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 1.0F }))
-        .AddAzureMonitorTraceExporter());
-
-var app = builder.Build();
-
-app.Run();
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 1.0F }))
+    .AddAzureMonitorTraceExporter();
 ```
 
 #### [Java](#tab/java)
@@ -358,29 +351,30 @@ We support the credential classes provided by [Azure Identity](https://github.co
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
 ```csharp
-var builder = WebApplication.CreateBuilder(args);
+var credential = new DefaultAzureCredential();
 
-var credential = DefaultAzureCredential();
-
-builder.Services.AddOpenTelemetry()
-    .WithTracing(builder => builder
-        .AddAzureMonitorTraceExporter(options => {
-            options.Credential = credential;
-        }))
-    .WithMetrics(builder => builder
-        .AddAzureMonitorMetricExporter(options => {
-            options.Credential = credential;
-        }));
-
-builder.Logging.AddOpenTelemetry(options => options
-    .AddAzureMonitorLogExporter(options =>
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter(options =>
     {
         options.Credential = credential;
-    }));
+    });
 
-var app = builder.Build();
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    .AddAzureMonitorMetricExporter(options =>
+    {
+        options.Credential = credential;
+    });
 
-app.Run();
+var loggerFactory = LoggerFactory.Create(builder =>
+{
+    builder.AddOpenTelemetry(options =>
+    {
+        options.AddAzureMonitorLogExporter(options =>
+        {
+            options.Credential = credential;
+        });
+    });
+});
 ```
     
 #### [Java](#tab/java)
@@ -462,27 +456,28 @@ By default, the AzureMonitorExporter uses one of the following locations for off
 To override the default directory, you should set `AzureMonitorExporterOptions.StorageDirectory`.
 
 ```csharp
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddOpenTelemetry()
-    .WithTracing(builder => builder
-        .AddAzureMonitorTraceExporter(options => {
-            options.StorageDirectory = "C:\\SomeDirectory";
-        }))
-    .WithMetrics(builder => builder
-        .AddAzureMonitorMetricExporter(options => {
-            options.StorageDirectory = "C:\\SomeDirectory";
-        }));
-
-builder.Logging.AddOpenTelemetry(options => options
-    .AddAzureMonitorLogExporter(options =>
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter(options =>
     {
         options.StorageDirectory = "C:\\SomeDirectory";
-    }));
+    });
 
-var app = builder.Build();
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    .AddAzureMonitorMetricExporter(options =>
+    {
+        options.StorageDirectory = "C:\\SomeDirectory";
+    });
 
-app.Run();
+var loggerFactory = LoggerFactory.Create(builder =>
+{
+    builder.AddOpenTelemetry(options =>
+    {
+        options.AddAzureMonitorLogExporter(options =>
+        {
+            options.StorageDirectory = "C:\\SomeDirectory";
+        });
+    });
+});
 ```
 
 To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
@@ -593,19 +588,13 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
     
     ```csharp
-    var builder = WebApplication.CreateBuilder(args);
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddAzureMonitorTraceExporter()
+        .AddOtlpExporter();
 
-    builder.Services.AddOpenTelemetry()
-        .WithTracing(builder => builder
-            .AddAzureMonitorTraceExporter()
-            .AddOtlpExporter())
-        .WithMetrics(builder => builder
-            .AddAzureMonitorMetricExporter()
-            .AddOtlpExporter());
-
-    var app = builder.Build();
-
-    app.Run();
+    var metricsProvider = Sdk.CreateMeterProviderBuilder()
+        .AddAzureMonitorMetricExporter()
+        .AddOtlpExporter();
     ```
 
 #### [Java](#tab/java)
