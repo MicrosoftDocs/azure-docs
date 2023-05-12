@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Cognitive Services Translator documentation
-summary:  Azure Cognitive Services Translator is a cloud-based machine translation service you can use to translate text and documents with a simple REST API call. The service uses modern neural machine translation technology. |
-The Custom Translator interface allows you to use your translation memory to create customized neural translation systems. The customized translation system can be used to translate text and documents with the Translator service.
+summary:  Azure Cognitive Services Translator is a cloud-based machine translation service you can use to translate text and documents with a simple REST API call. The service uses modern neural machine translation technology. The Custom Translator interface allows you to use your translation memory to create customized neural translation systems. The customized translation system can be used to translate text and documents with the Translator service.
 metadata:
   title: Azure Cognitive Services Translator documentation - quickstarts, tutorials, API reference
   titleSuffix: Azure Cognitive Services
