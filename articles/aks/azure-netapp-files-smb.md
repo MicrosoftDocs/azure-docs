@@ -463,17 +463,20 @@ Create the secret:
     kubectl apply -f backend-secret.yaml -n trident
     ```
 
+
     The output of the command resembles the following example:   
 
     ```output    
     secret/backend-tbc-anf-secret created
     ``` 
-    
+   
+   
     Create the backend:
     
     ```bash
     kubectl apply -f backend-anf.yaml -n trident
     ```
+
 
     The output of the command resembles the following example:   
 
@@ -610,7 +613,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
 ### Use the persistent volume
 
-After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an IIS pod that mounts the Azure NetApp Files SMB share created in the previous step. In this example, the volume is mounted at `/inetpub/wwwroot`.
+After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an Internet Information Services (IIS) pod that mounts the Azure NetApp Files SMB share created in the previous step. In this example, the volume is mounted at `/inetpub/wwwroot`.
 
 1. Create a file named `anf-iis-pod.yaml` and copy in the following YAML:
 
