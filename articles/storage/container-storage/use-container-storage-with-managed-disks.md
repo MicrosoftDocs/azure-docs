@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -33,7 +33,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code. The storage pool `name` value can be whatever you want.
+1. Paste in the following code. The storage pool **name** value can be whatever you want.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1alpha1
@@ -60,10 +60,10 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    storagepool.containerstorage.azure.com/azuredisk created
    ```
    
-   You can also run this command to check the status of the storage pool:
+   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **azuredisk**.
    
    ```azurecli-interactive
-   kubectl describe sp azuredisk -n acstor
+   kubectl describe sp <storage-pool-name> -n acstor
    ```
 
 ## Display the available storage classes
@@ -132,7 +132,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
      name: fiopod
    spec:
      nodeSelector:
-       openebs.io/engine: io.engine
+       acstor.azure.com/io-engine: acstor
      volumes:
        - name: azurediskpv
          persistentVolumeClaim:
@@ -174,6 +174,16 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
    ```
 
 You've now deployed a pod that's using Azure Disks as its storage, and you can use it for your Kubernetes workloads.
+
+## Detach and reattach a persistent volume
+
+To detach a persistent volume, delete the pod that the persistent volume is attached to. Replace `<pod-name>` with the name of the pod, for example **fiopod**.
+
+```azurecli-interactive
+kubectl delete pods <pod-name>
+```
+
+To reattach, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
 
 ## Delete the storage pool
 

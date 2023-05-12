@@ -4,7 +4,7 @@ description: Learn how to install and configure Azure Container Storage Preview 
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -139,7 +139,7 @@ az aks nodepool update --resource-group <resource group> --cluster-name <cluster
 ```
 
 > [!TIP]
-> You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: openebs.io/engine : io.engine`.
+> You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
 
 ## Assign Contributor role to AKS managed identity
 
