@@ -914,7 +914,7 @@ Before you can distribute to the gallery, you must create a gallery and an image
 ```
 ---
 
-The following JSON is an example of how to use the `replicationRegions` field to distribute to a Shared Image Gallery.
+The following JSON is an example of how to use the `replicationRegions` field to distribute to an Azure Compute Gallery.
 
 # [JSON](#tab/json)
 ```json
@@ -948,7 +948,7 @@ The following JSON is an example of how to use the `replicationRegions` field to
 
 #### Distribute: targetRegions
 
-The following JSON is an example of how to use the `targetRegions` field to distribute to a shared image gallery.
+The following JSON is an example of how to use the targetRegions field to distribute to a Azure Compute Gallery.
 
 # [JSON](#tab/json)
 ```json
