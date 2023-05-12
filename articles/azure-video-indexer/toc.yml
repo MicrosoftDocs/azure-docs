@@ -261,6 +261,8 @@
   - name: Switch between tenants in portal
     href: switch-tenants-portal.md
     displayName: Azure Video Indexer Azure Resource Manager, Azure Video Indexer website description, current Azure subscription, Azure Active Directory, same subscription tenant, Azure AD account, correct domain name, Azure environment, AVI website, Azure portal, same problem, tenant switching, tenant list, relevant accounts, Trial accounts, Classic accounts, ARM accounts, right-top corner, last step, top-right corner, current directory, account name, two options, ARM) account, AAD account, other options, default directory, different directory, new directory, user name, following section, multiple tenants, different directories, title, article, Note, users, videoindexer, Screenshot, credentials, Hover, account-attributes, domains, preferences, button, organization, domain-name
+  - name: Resource health
+    href: resource-health.md
 - name: Reference
   items:
   - name: Azure Video Indexer API
