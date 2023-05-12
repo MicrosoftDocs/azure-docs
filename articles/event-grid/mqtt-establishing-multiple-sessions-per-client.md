@@ -2,7 +2,7 @@
 title: 'Azure Event Grid Namespace MQTT client establishing multiple sessions'
 description: 'Describes how to configure MQTT clients to establish multiple sessions.'
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---

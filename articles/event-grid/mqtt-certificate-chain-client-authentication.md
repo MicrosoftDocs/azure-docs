@@ -2,7 +2,7 @@
 title: 'Azure Event Grid Namespace MQTT client authentication using certificate chain'
 description: 'Describes how to configure MQTT clients to authenticate using CA certificate chains.'
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---
