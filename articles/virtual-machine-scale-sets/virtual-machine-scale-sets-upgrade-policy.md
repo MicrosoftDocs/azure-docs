@@ -132,11 +132,7 @@ Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/v
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --upgrade-policy-mode Rolling \
-    --max-unhealthy-instance-percent 40 \
-    --max-unhealthy-upgraded-instance-percent 30 \
-    --pause-time-between-batches PT30S \
-    --max-surge true
+    --set upgradePolicy.rollingUpgradePolicy.maxSurge=true
 ```
 
 ### [PowerShell](#tab/powershell2)
