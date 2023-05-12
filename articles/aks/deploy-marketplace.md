@@ -8,7 +8,7 @@ ms.date: 05/01/2023
 ms.custom: ignite-fall-2022, references_regions
 ---
 
-# Deploy a Kubernetes application from Azure Marketplace 
+# Deploy and Manage a Kubernetes application from Azure Marketplace
 
 [Azure Marketplace][azure-marketplace] is an online store that contains thousands of IT software applications and services built by industry-leading technology companies. In Azure Marketplace, you can find, try, buy, and deploy the software and services that you need to build new solutions and manage your cloud infrastructure. The catalog includes solutions for different industries and technical areas, free trials, and consulting services from Microsoft partners.
 
@@ -38,7 +38,7 @@ az provider register --namespace Microsoft.ContainerService --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 ```
 
-## Select and deploy a Kubernetes offer
+## Select and deploy a Kubernetes Application
 
 ### From the AKS portal screen
 
@@ -56,7 +56,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
    :::image type="content" source="./media/deploy-marketplace/plan-pricing.png" alt-text="Screenshot of the offer purchasing page in the Azure portal, showing plan and pricing information.":::
 
-1. Follow each page in the wizard, all the way through Review + Create. Fill in information for your resource group, your cluster, and any configuration options that the application requires. You can decide to deploy on a new AKS cluster or use an existing cluster.
+1. Follow each page in the wizard, all the way through Review + Create. Fill in information for your resource group, your cluster, and any configuration options that the application requires. 
 
    :::image type="content" source="./media/deploy-marketplace/review-create.png" alt-text="Screenshot of the Azure portal wizard for deploying a new offer, with the selector for creating a cluster or using an existing one.":::
 
@@ -144,6 +144,7 @@ To manage settings of your installed extension, you can edit the configuration s
 ![Cluster-extension-config-settings.](media/deploy-marketplace/cluster-extension-config-settings.png)
 
 
+
 ---
 
 ## Monitor billing and usage information
@@ -190,6 +191,7 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
 
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
 
 
 
