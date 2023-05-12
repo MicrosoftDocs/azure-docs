@@ -97,9 +97,9 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 1. Ensure that your client executes a Redis [AUTH command](https://redis.io/commands/auth/) automatically before your Azure AD token expires using:
 
-   1. `UserName` = Object ID of your managed identity or service principal
+   - `UserName` = Object ID of your managed identity or service principal
 
-   1. `Password` = Azure AD token refreshed periodically
+   - `Password` = Azure AD token refreshed periodically
 
    <!-- (ADD code snippet) -->
 
