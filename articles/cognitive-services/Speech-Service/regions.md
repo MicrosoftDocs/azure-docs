@@ -1,7 +1,7 @@
 ---
 title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
-description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
+description: A list of available regions and endpoints for the Speech service, including speech to text, text to speech, and speech translation.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -28,7 +28,7 @@ Keep in mind the following points:
 
 ## Speech service
 
-The following regions are supported for Speech service features such as speech-to-text, text-to-speech, pronunciation assessment, and translation. The geographies are listed in alphabetical order.
+The following regions are supported for Speech service features such as speech to text, text to speech, pronunciation assessment, and translation. The geographies are listed in alphabetical order.
 
 | Geography | Region | Region identifier |
 | ----- | ----- | ----- |
