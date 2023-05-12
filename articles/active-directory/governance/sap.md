@@ -54,9 +54,7 @@ In addition to the native provisioning integrations that allow you to manage acc
 Custom workflows: When a new employee is hired in your organization, you may need to trigger a workflow within your SAP server. Using the Entra Identity Governance 
 * [Lifecycle Workflow capability](https://learn.microsoft.com/azure/active-directory/governance/lifecycle-workflow-extensibility) in conjunction with the [SAP connector in Azure Logic apps](https://learn.microsoft.com/azure/logic-apps/logic-apps-using-sap-connector), you can trigger custom actions in SAP upon hiring a new employee.
 * Segregation of duties: With separation of duties checks now available in preview in Azure AD [entitlement management](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/ensure-compliance-using-separation-of-duties-checks-in-access/ba-p/2466939), customers can now ensure that users don't take on excessive access rights.  Admins and access managers can prevent users from requesting additional access packages if they’re already assigned to other access packages or are a member of other groups that are incompatible with the requested access.
-Enterprises with critical regulatory requirements for SAP apps will have a single consistent view of access controls and enforce separation of duties checks across their financial and other business critical applications and Azure AD-integrated applications.
- 
-With our [Pathlock](https://pathlock.com/), integration customers can leverage fine-grained separation of duties checks with access packages in Azure AD, and over time will help customers to address Sarbanes Oxley and other compliance requirements.
+Enterprises with critical regulatory requirements for SAP apps will have a single consistent view of access controls and enforce separation of duties checks across their financial and other business critical applications and Azure AD-integrated applications. With our [Pathlock](https://pathlock.com/), integration customers can leverage fine-grained separation of duties checks with access packages in Azure AD, and over time will help customers to address Sarbanes Oxley and other compliance requirements.
 
 
 
