@@ -4,8 +4,8 @@ metadata:
   description: Frequently asked questions for Azure Cloud Services (extended support)
   ms.topic: faq
   ms.service: cloud-services-extended-support
-  author: gachandw
-  ms.author: gachandw
+  author: hirshah
+  ms.author: hirshah
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
@@ -134,6 +134,11 @@ sections:
           Does Cloud Services (extended support) allow CTP package format?
         answer: |
           CTP package format is not supported in Cloud Services (extended support). However, it allows an enhanced package size limit of 800 MB
+                    
+      - question: |
+          CSES requires its package files to be stored in a storage account. Can the storage account be set as "enable access from selected virtual networks"
+        answer: |
+          CSES does not support Managed Identity Support. So, Storage account by design does not allow CSES to access the package files when storage account is enabled only selected VNet in the setting.
 
   - name: Migration
     questions:
