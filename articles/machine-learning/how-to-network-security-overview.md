@@ -36,7 +36,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 :::moniker range="azureml-api-2"
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure machine learning registries (preview)](how-to-registry-network-isolation.md)
+* [Secure machine learning registries](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
@@ -324,7 +324,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 :::moniker range="azureml-api-2"
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure machine learning registries (preview)](how-to-registry-network-isolation.md)
+* [Secure machine learning registries](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
