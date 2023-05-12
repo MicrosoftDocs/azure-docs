@@ -225,9 +225,9 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
     ```bash
     # Update the certificate store
 
-    # For Ubuntu and Debian, use update-ca-certificates command
+    # For Ubuntu or Debian - use update-ca-certificates
     sudo update-ca-certificates
-    # For EFLOW, use update-ca-trust
+    # For EFLOW or RHEL - use update-ca-trust
     sudo update-ca-trust
     ```
 
@@ -447,9 +447,9 @@ To enable secure connections, every IoT Edge downstream device in a gateway scen
     ```bash
     # Update the certificate store
 
-    # For Ubuntu and Debian, use update-ca-certificates command
+    # For Ubuntu or Debian - use update-ca-certificates
     sudo update-ca-certificates
-    # For EFLOW, use update-ca-trust
+    # For EFLOW or RHEL - use update-ca-trust
     sudo update-ca-trust
     ```
 

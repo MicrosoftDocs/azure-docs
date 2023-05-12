@@ -363,7 +363,7 @@ sections:
       - question: |
           Are Classic network security groups supported?
         answer: |
-          No, traffic analytics doesn't support classic network security groups. It's recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources are [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
+          No, traffic analytics doesn't support classic network security groups. It's recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
       
       - question: |
           Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 

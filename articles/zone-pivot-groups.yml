@@ -355,6 +355,14 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other
+- id: programming-languages-set-functions-nodejs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
 - id: development-environment-functions
   title: Development environment
   prompt: Choose a development environment
@@ -1339,6 +1347,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-web-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -1568,6 +1586,15 @@ groups:
     title: Chat Completion
   - id: programming-language-chat-ml
     title: ChatML
+#Owner: mbullwin
+- id: openai-prompt
+  title: API Options
+  prompt: API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-completions
+    title: Completion
 # Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
@@ -1974,6 +2001,15 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: cshoe
+- id: container-apps-portal-or-cli
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+# Owner: cshoe
 - id: arm-portal
   title: Interaction type
   prompt: Select how you want to interact with Azure
@@ -1982,7 +2018,7 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
-# Owner: cebundy
+# Owner: cshoe
 - id: container-apps-interface-types
   title: Interaction type
   prompt: Select how you want to interact with Azure
@@ -2147,7 +2183,7 @@ groups:
     title: Cloud build
   - id: docker-local
     title: Local build (requires Docker)
-# Owner: cebundy
+# Owner: cshoe
 - id: container-apps-image-build-from-repo
   title: Container GitHub and local build methods
   prompt: Choose your source location
@@ -2263,6 +2299,32 @@ groups:
     title: ASE Pro 2
   - id: ase-pro-gpu
     title: ASE Pro
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Azure AD PowerShell, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-aadpowershell-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization

@@ -16,6 +16,8 @@
   items:
   - name: Update and maintenance options
     href: updates-maintenance-schedules.md
+  - name: Schedule patching configuration on Azure VMs for business continuity
+    href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
   - name: Query resources with Azure Resource Graph
@@ -52,6 +54,8 @@
       href: periodic-assessment-at-scale.md
     - name: Create reports using workbooks
       href: manage-workbooks.md
+    - name: Manage updates for customized images
+      href: manage-updates-customized-images.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues

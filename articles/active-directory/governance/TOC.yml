@@ -20,6 +20,8 @@
   items:
     - name: Govern access to applications
       items:
+      - name: Connected applications
+        href: apps.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell

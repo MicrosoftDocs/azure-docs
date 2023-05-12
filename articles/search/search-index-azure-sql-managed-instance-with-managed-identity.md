@@ -54,7 +54,7 @@ Follow these steps to assign the search service system managed identity permissi
 4. In the T-SQL window, copy the following commands and include the brackets around your search service name. Click on **Execute**.
 
     
-    ```tsql
+    ```sql
     CREATE USER [insert your search service name here or user-assigned managed identity name] FROM EXTERNAL PROVIDER;
     EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
@@ -63,7 +63,7 @@ Follow these steps to assign the search service system managed identity permissi
 
 If you later change the search service system identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
- ```tsql
+ ```sql
 sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
 
 DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];

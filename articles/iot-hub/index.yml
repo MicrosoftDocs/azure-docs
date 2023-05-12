@@ -72,8 +72,8 @@ landingContent:
    linkLists:
    - linkListType: tutorial
      links:
-     - text: Use X.509 certificates to authenticate
-       url: tutorial-x509-prove-possession.md
+     - text: Create and upload certificates for testing
+       url: tutorial-x509-test-certs.md
    - linkListType: concept
      links:
      - text: Security best practices
@@ -87,7 +87,7 @@ landingContent:
      links:
      - text: Learn about Azure IoT SDKs
        url: iot-hub-devguide-sdks.md
-     - text: Use the Azure IoT Tools for VS Code
+     - text: Use the Azure IoT Hub extension for VS Code
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
      - text: Supported device protocols
        url: iot-hub-devguide-protocols.md

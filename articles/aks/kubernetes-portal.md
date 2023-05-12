@@ -75,7 +75,7 @@ This section addresses common problems and troubleshooting steps.
 To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
 
 >[!NOTE]
-> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-aad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
+> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-azure-ad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 
@@ -119,6 +119,6 @@ This article showed you how to access Kubernetes resources from the Azure portal
 [concepts-identity]: concepts-identity.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[aks-managed-aad]: managed-aad.md
-[cli-aad-upgrade]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration
+[aks-managed-aad]: managed-azure-ad.md
+[cli-aad-upgrade]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md

@@ -88,7 +88,6 @@ The following are important considerations to evaluate:
 
     * Creates a new PersistentVolume with name `existing-pv-csi` for all PersistentVolumes in namespaces for storage class `storageClassName`.
     * Configure new PVC name as `existing-pvc-csi`.
-    * Updates the application (deployment/StatefulSet) to refer to new PVC.
     * Creates a new PVC with the PV name you specify.
 
     ```bash
@@ -181,7 +180,6 @@ The following are important considerations to evaluate:
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - The CSI storage driver-based StorageClass, which can be either one of the default storage classes that have the provisioner set to **disk.csi.azure.com** or **file.csi.azure.com**. Or you can create a custom storage class as long as it is set to either one of those two provisioners. 
-   * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
    * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 

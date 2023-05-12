@@ -87,7 +87,7 @@ The steps in this section show how to set up the template VM:
 
 Let's cover a possible cost estimate for this class. This estimate doesn't include the cost of running the license server. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we selected was **Medium**, which is 42 lab units.
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 42 Lab Units * 0.01 USD per hour = 315.00 USD
+25 lab users \* (20 scheduled hours + 10 quota hours) \* 42 Lab Units * 0.01 USD per hour = 315.00 USD
 
 > [!IMPORTANT]
 > Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  

@@ -90,4 +90,4 @@ The Long Audio API is limited to 20,000 requests for each Azure subscription acc
 
 - [Batch synthesis API](batch-synthesis.md)
 - [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
-- [Text-to-speech quickstart](get-started-text-to-speech.md)
+- [Text to speech quickstart](get-started-text-to-speech.md)

@@ -85,7 +85,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Workload parallelization:** For parallel supported workloads that use multiple threads and clients, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
 
-- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large volume of files. See Monitoring metadata operations.
+- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](files-troubleshoot-performance.md#cause-2-metadata-or-namespace-heavy-workload).
 
 ## Latency
 
