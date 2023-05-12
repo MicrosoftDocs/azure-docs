@@ -131,9 +131,9 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | `--configuration-protected-settings-file` | Path to the JSON file having key value pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
-|`--plan-name` | **Plan ID** of the extension, found in Marketplace portal under **Usage Information + Support**. |
-|`--plan-product` | **Product ID** of the extension, found in Marketplace portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
-|`--plan-publisher` | **Publisher ID** of the extension, found in Marketplace portal under **Usage Information + Support**. |
+|`--plan-name` | **Plan ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
+|`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
+|`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
 
 ## Delete extension instance
 
