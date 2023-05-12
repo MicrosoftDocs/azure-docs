@@ -51,7 +51,7 @@ To mitigate the risk of unauthorized access before updating application code, yo
 | Email OTP | Email address the user signed up with |
 | Social IDP: Google | Email address the user signed up with | 
 | Social IDP: Facebook | Email claim isn't issued |
-| Direct Fed | Email claim will not be issued |
+| Direct Fed | Email claim isn't be issued |
 
 Enabling `replace_unverified_email_with_upn` eliminates the most significant risk of cross-tenant privilege escalation by ensuring authorization doesn't occur against an arbitrarily set email value.  While enabling this property prevents unauthorized access, it can also break access to users with unverified emails. Internal data suggests the overall percentage of users with unverified emails is low and this tradeoff is appropriate to secure applications in the short term. 
 
