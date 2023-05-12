@@ -4,7 +4,7 @@ description: This article describes how to create, view and manage namespaces
 author: robece
 ms.topic: how-to
 ms.author: robece
-ms.date: 05/09/2023
+ms.date: 05/23/2023
 ---
 
 # Create, view, and manage namespaces

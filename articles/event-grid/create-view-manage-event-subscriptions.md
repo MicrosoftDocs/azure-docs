@@ -4,7 +4,7 @@ description: This article describes how to create, view and manage event subscri
 author: robece
 ms.topic: how-to
 ms.author: robece
-ms.date: 04/28/2023
+ms.date: 05/23/2023
 ---
 
 # Create, view, and manage event subscriptions in namespace topics
