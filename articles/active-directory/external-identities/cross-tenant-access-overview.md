@@ -107,7 +107,7 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 > [!IMPORTANT]
 > Changing the default inbound or outbound settings to block access could block existing business-critical access to apps in your organization or partner organizations. Be sure to use the tools described in this article and consult with your business stakeholders to identify the required access.
 
-- To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role.
+- To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator, Security administrator, or a [custom role](#custom-roles-for-managing-cross-tenant-access-settings) you've defined.
 
 - To configure trust settings or apply access settings to specific users, groups, or applications, you'll need an Azure AD Premium P1 license. The license is required on the tenant that you configure. For B2B direct connect, where mutual trust relationship with another Azure AD organization is required, you'll need an Azure AD Premium P1 license in both tenants. 
 
@@ -127,6 +127,31 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 - If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you must configure your trust settings so that your Conditional Access policies will accept MFA claims from the external organization.
 
 - If you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as Office 365 Message Encryption or OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
+
+## Custom roles for managing cross-tenant access settings
+
+Cross-tenant access settings can be managed with custom roles defined by your organization. This enables you to [define your own finely-scoped roles](../roles/custom-create.md) to manage cross-tenant access settings instead of using one of the built-in roles for management.
+
+### Recommended custom roles
+
+#### Cross-tenant access administrator
+
+This role can manage everything in cross-tenant access settings, including default and organizational based settings. This role should be assigned to users who need to manage all settings in cross-tenant access settings.
+
+:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png" alt-text="Screenshot of the audit logs for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png":::
+
+#### Cross-tenant access reader
+This role can read everything in cross-tenant access settings, including default and organizational based settings. This role should be assigned to users who only need to review settings in cross-tenant access settings, but not manage them.
+
+:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png" alt-text="Screenshot of the audit logs for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png":::
+
+#### Cross-tenant access partner administrator
+This role can manage everything relating to partners and read the default settings. This role should be assigned to users who need to manage organizational based settings but not be able to change default settings.
+
+:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png" alt-text="Screenshot of the audit logs for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png":::
+
+## Protect cross-tenant access administrative actions
+Any actions that modify cross-tenant access settings are considered protected actions and can be additionally protected with Conditional Access policies. For more information and configuration steps see [protected actions](../roles/protected-actions-overview.md).
 
 ## Identify inbound and outbound sign-ins
 
