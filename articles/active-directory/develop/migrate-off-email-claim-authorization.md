@@ -6,13 +6,12 @@ author: medhir
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/11/2023
-ms.author: medhir
-ms.reviewer: 
-ms.custom: 
+ms.author: davidmu1
+ms.reviewer: medhir
+ms.custom: curation-claims
 
 ---
 
