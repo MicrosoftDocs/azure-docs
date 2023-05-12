@@ -11,7 +11,8 @@ ms.author: kesheth
 
 # Configure bulk-import settings
 
-The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import operation does not guarantee ordering of valid resource execution. There are two modes of import supported today
+The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import operation does not guarantee ordering of valid resource execution. There are two modes of import supported today:
+
 * Intial mode
   Initial mode is intended to for loading FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and blocks API writes to the FHIR server, when enabled.
   
@@ -38,7 +39,8 @@ Follow the steps to enable managed identity on FHIR service
 3. Select the **Status** option to **On** , and then select **Save**.
 4. Select **Yes** to enable the managed identity for FHIR service. 
 
-After the system identity has been enabled, you'll see a system assigned GUID value. 
+After the system identity has been enabled, you'll see a system assigned GUID value.
+
 [![Enable Managed Identity](media/export-data/fhir-mi-enabled.png)](media/export-data/fhir-mi-enabled.png#lightbox)
 
 
