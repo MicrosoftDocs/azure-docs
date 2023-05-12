@@ -79,9 +79,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 Because most Azure Cache for Redis clients assume that a password/access key is used for authentication, you likely need to update your client workflow to support authentication using Azure AD. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using an Azure AD token.
 
-:::image type="complex" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Azure AD to a customer application to a cache."":::
-
-:::image-end:::
+:::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Azure AD to a customer application to a cache.":::
 
 ### Azure AD Client Workflow
 
