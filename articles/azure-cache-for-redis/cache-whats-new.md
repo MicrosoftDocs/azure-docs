@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/11/2023
-ms.date: 03/28/2023
+
 
 ---
 
@@ -35,19 +35,19 @@ For more information, see [Configure clustering for Azure Cache for Redis instan
 
 ### In-place scale up and scale out for the Enterprise tiers (preview)
 
-The Enterprise and Enterprise Flash tiers now support the ability to scale cache instances up and out without requiring downtime or data loss. Scale up and scale out actions can both occur in the same operation. 
+The Enterprise and Enterprise Flash tiers now support the ability to scale cache instances up and out without requiring downtime or data loss. Scale up and scale out actions can both occur in the same operation.
 
 For more information, see [Scale an Azure Cache for Redis instance](cache-how-to-scale.md)
 
 ### Support for RedisJSON in active geo-replicated caches (preview)
 
-Cache instances using active geo-replication now support the RedisJSON module. 
+Cache instances using active geo-replication now support the RedisJSON module.
 
-For more information, see [Configure active geo-replication](cache-how-to-active-geo-replication.md). 
+For more information, see [Configure active geo-replication](cache-how-to-active-geo-replication.md).
 
 ### Flush operation for active geo-replicated caches (preview)
 
-Caches using active geo-replication now include a built-in _flush_ operation that can be initiated at the control plane level. Use the _flush_ operation with your cache instead of the `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches. 
+Caches using active geo-replication now include a built-in _flush_ operation that can be initiated at the control plane level. Use the _flush_ operation with your cache instead of the `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches.
 
 For more information, see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation)
 
@@ -187,7 +187,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 ## January 2022
 
-### Support for managed identity in Azure Cache for Redis
+### Support for managed identity in Azure Cache for Redis in storage
 
 Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
