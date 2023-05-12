@@ -138,7 +138,7 @@ Follow these steps to create a new project if you don't already have an Android 
 1. In the Android Studio project window, navigate to **app** > **build.gradle** and add the following libraries in the _dependencies_ section:
 
    ```gradle
-    implementation 'com.microsoft.identity.client:msal:4.2.0'
+    implementation 'com.microsoft.identity.client:msal:4.5.0'
     implementation 'com.android.volley:volley:1.2.1'
    ```
 
