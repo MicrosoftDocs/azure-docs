@@ -12,7 +12,7 @@ ms.author: msangapu
 > Automatic scaling is in preview. It's available for Premium Pv2 and Pv3 pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
 >
 
-Automatic scaling is a new scale out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed ones. If you have Azure Functions apps in the same App Service Plan, it's recommended to use [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history.
+Automatic scaling is a new scale out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history. You're charged per second for every instance, including prewarmed instances. 
 
 A comparison of scale out and scale in options available on App Service:
 
@@ -130,6 +130,9 @@ az appservice plan update --resource-group <RESOURCE_GROUP> --name <APP_SERVICE_
 ```
 
 --- 
+
+## Does automatic scaling support Azure Function apps?
+No, you can only have Azure App Service web apps in the App Service Plan where you wish to enable automatic scaling. If you have existing Azure Functions apps in the same App Service Plan, or if you create new Azure Functions apps, then automatic scaling is disabled. For Functions, it's recommended to use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
 
 <a name="Next Steps"></a>
 
