@@ -38,7 +38,7 @@ Azure Cache for Redis offers three built-in access policies: _Owner_, _Contribut
 
 ## Permissions for your data access policy
 
-As documented on [Redis Access Control List](https://redis.io/docs/management/security/acl/), ACL in Redis version 1.1 allows configuring access permissions for two areas:
+As documented on [Redis Access Control List](https://redis.io/docs/management/security/acl/), ACL in Redis version 6.0 allows configuring access permissions for three areas:
 
 ### Command categories
 
