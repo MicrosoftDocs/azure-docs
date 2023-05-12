@@ -41,7 +41,7 @@ This tutorial covers the following tasks:
    | Filter Period |January |
    | Fields |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Select **Download**. You get a .zip file with the data fields you selected.
+3. Select **Download**. A .zip file is downloaded with the data fields that you selected.
 
 ## Upload data to an HDInsight cluster
 
