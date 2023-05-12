@@ -63,7 +63,7 @@ You can click either **Allow deletes** or **View provisioning logs**.
 
 ### Allowing deletions
 
-The **Allow deletes** action will delete the objects that triggered the accidental delete threshold.  Use the procedure to accept the deletetions.  
+The **Allow deletes** action will delete the objects that triggered the accidental delete threshold.  Use the procedure to accept the deletions.  
 
 1. Select **Allow deletes**.
 2. Click **Yes** on the confirmation to allow the deletions.
