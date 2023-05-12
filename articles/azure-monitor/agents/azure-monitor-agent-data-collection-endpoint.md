@@ -2,7 +2,7 @@
 title: Define Azure Monitor Agent network settings
 description: Define network settings and enable network isolation for Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 5/1/2023
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -13,7 +13,9 @@ Azure Monitor Agent supports connecting by using direct proxies, Log Analytics g
 
 ## Virtual network service tags
 
-Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureResourceManager* tags are required.
+Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureResourceManager* tags are required. 
+
+Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags can not be used, the Firewall requirements are given below.
 
 ## Firewall requirements
 
@@ -28,7 +30,7 @@ Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-
 | Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 >[!NOTE]
-> If you use private links on the agent, you must also add the [data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
+> If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
 > The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure China clouds.
 
 ## Proxy configuration

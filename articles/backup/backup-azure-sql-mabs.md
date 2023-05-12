@@ -2,14 +2,14 @@
 title: Back up SQL Server by using Azure Backup Server
 description: In this article, learn the configuration to back up SQL Server databases by using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 01/16/2023
+ms.date: 03/01/2023
 author: jyothisuri
 ms.author: jsuri
 ms.service: backup
 ms.custom: engagement-fy23
 ---
 
-# Back up SQL Server to Azure by using Azure Backup Server
+# Back up SQL Server to Azure using Azure Backup Server
 
 This article describes how to back up and restore SQL Server to Azure by using Microsoft Azure Backup Server (MABS).
 
@@ -20,7 +20,7 @@ Microsoft Azure Backup Server (MABS) provides backup and recovery for SQL Server
 
 ## Supported scenarios
 
-- MABS v3 UR2 supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV).
+- MABS v3 UR2, MABS v4, or later supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV).
 - Protection of SQL Server FCI with Storage Spaces Direct on Azure, and SQL Server FCI with Azure shared disks is supported with this feature. The DPM server must be deployed in the Azure Virtual Machine to protect the SQL FCI instance, deployed on the Azure VMs.
 - A SQL Server Always On availability group with theses preferences:
   - Prefer Secondary
@@ -97,11 +97,10 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
 1. Select **Next**. MABS shows the overall storage space available. It also shows the potential disk space utilization.
 
-    ![Screenshot shows how to set up disk allocation in MABS.](./media/backup-azure-backup-sql/pg-storage.png)
+    :::image type="content" source="./media/backup-azure-backup-sql/postgresql-storage-inline.png" alt-text="Screenshot shows how to set up disk allocation in MABS." lightbox="./media/backup-azure-backup-sql/postgresql-storage-expanded.png":::
 
-    By default, MABS creates one volume per data source (SQL Server database). The volume is used for the initial backup copy. In this configuration, Logical Disk Manager (LDM) limits MABS protection to 300 data sources (SQL Server databases). To work around this limitation, select **Co-locate data in DPM Storage Pool**. If you use this option, MABS uses a single volume for multiple data sources. This setup allows MABS to protect up to 2,000 SQL Server databases.
-
-    If you select **Automatically grow the volumes**, then MABS can account for the increased backup volume as the production data grows. If you don't select **Automatically grow the volumes**, then MABS limits the backup storage to the data sources in the protection group.
+   *Total data size* is the size of the data you want to back up, and disk space to be provisioned on DPM is the space that MABS recommends for the protection group. DPM chooses the ideal backup volume based on the settings. However, you can edit the backup volume choices in the disk allocation details. For the workloads, select the preferred storage in the dropdown menu. The edits change the values for *Total Storage* and *Free Storage* in the **Available Disk Storage** pane. *Underprovisioned space* is the amount of storage that DPM suggests you add to the volume for continuous smooth backups.
+    
 1. If you're an administrator, you can choose to transfer this initial backup **Automatically over the network** and choose the time of transfer. Or choose to **Manually** transfer the backup. Then select **Next**.
 
     ![Screenshot shows how to choose a replica-creation method in MABS.](./media/backup-azure-backup-sql/pg-manual.png)

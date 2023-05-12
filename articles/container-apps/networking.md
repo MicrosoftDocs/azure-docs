@@ -111,12 +111,12 @@ IP addresses are broken down into the following types:
 
 Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which plan you're using in Azure Container Apps. Selecting an appropriately sized subnet for the scale of your Container Apps is important as subnet sizes can't be modified post creation in Azure.
 
-- Consumption only architecture:
+- **Consumption only architecture:**
     - /23 is the minimum subnet size required for virtual network integration. 
     - Container Apps reserves a minimum of 60 IPs for infrastructure in your VNet, and the amount may increase up to 256 addresses as your container environment scales.
     - As your app scales, a new IP address is allocated for each new replica.
 
-- Workload profiles architecture:
+- **Workload profiles architecture:**
     - /27 is the minimum subnet size required for virtual network integration. 
     - The subnet you're integrating your container app with must be delegated to `Microsoft.App/environments`.
     - 11 IP addresses are automatically reserved for integration with the subnet. When your apps are running on workload profiles, the number of IP addresses required for infrastructure integration doesn't vary based on the scale of your container apps. 
@@ -152,18 +152,45 @@ User Defined Routes (UDR) and controlled egress through NAT Gateway are supporte
 
 ### User defined routes (UDR) - preview
 
-You can use UDR on the workload profiles architecture to restrict outbound traffic from your container app through Azure Firewall or other network appliances.  Configuring UDR is done outside of the Container Apps environment scope. 
+> [!NOTE]
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview).
+
+You can use UDR on the workload profiles architecture to restrict outbound traffic from your container app through Azure Firewall or other network appliances. Configuring UDR is done outside of the Container Apps environment scope. UDR isn't supported for external environments.
 
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 
-Important notes for configuring UDR with Azure Firewall:
+Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall.
 
-- You need to allow the `MicrosoftContainerRegistry` and its dependency `AzureFrontDoor.FirstParty` service tags to your Azure Firewall. Alternatively, you can add the following FQDNs: *mcr.microsoft.com* and **.data.mcr.microsoft.com*.
-- If you're using Azure Container Registry (ACR), you need to add the `AzureContainerRegistry` service tag and the **.blob.core.windows.net* FQDN in the Azure Firewall.
-- If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add the following FQDNs to your firewall: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
-- External environments aren't supported.
+#### Configuring UDR with Azure Firewall - preview:
 
-Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall. For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+UDR is only supported on the workload profiles architecture. The following application and network rules must be added to the allowlist for your firewall depending on which resources you are using.
+
+> [!Note] 
+> For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+
+##### Azure Firewall - Application Rules
+
+Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules are required based on scenario.
+
+| Scenarios | FQDNs | Description | 
+|--|--|--|
+| All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
+| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
+| Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
+| Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. | 
+
+##### Azure Firewall - Network Rules
+
+Network rules allow or deny traffic based on the network and transport layer. The following outbound firewall network rules are required based on scenario.
+
+| Scenarios | Service Tag | Description | 
+|--|--|--|
+| All scenarios | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
+| Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. |
+
+> [!Note]
+> For Azure resources you are using with Azure Firewall not listed above, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
 
 ### NAT gateway integration - preview
 
@@ -180,7 +207,7 @@ With the workload profiles architecture (preview), you can fully secure your ing
 
 ## DNS
 
--	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Container Apps environment can't function.
+-	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, do not block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
 
 -	**VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal Container Apps environment, configure your domains in one of the following ways:
 

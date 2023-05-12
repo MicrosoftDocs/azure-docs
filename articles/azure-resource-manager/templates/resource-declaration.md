@@ -84,7 +84,7 @@ For more information, see [Set resource location in ARM template](resource-locat
 
 ## Set tags
 
-You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
+You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources-templates.md).
 
 ## Set resource-specific properties
 

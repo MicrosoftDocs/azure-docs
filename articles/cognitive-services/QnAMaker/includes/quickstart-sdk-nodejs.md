@@ -90,7 +90,7 @@ The authoring QnA Maker client is a [QnAMakerClient](/javascript/api/@azure/cogn
 
 Once the client is created, use the [knowledgebase](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient#knowledgebase) to create, manage, and publish your knowledge base.
 
-Manage your knowledge base by sending a JSON object. For immediate operations, a method usually returns a JSON object indicating status. For long-running operations, the response is the operation ID. Call the [client.operations.getDetails](/javascript/api/@azure/cognitiveservices-qnamaker/operations#getdetails-string--msrest-requestoptionsbase-) method with the operation ID to determine the [status of the request](/javascript/api/@azure/cognitiveservices-qnamaker/operation).
+Manage your knowledge base by sending a JSON object. For immediate operations, a method usually returns a JSON object indicating status. For long-running operations, the response is the operation ID. Call the [client.operations.getDetails](/javascript/api/@azure/cognitiveservices-qnamaker/operations#getdetails-string--msrest-requestoptionsbase-) method with the operation ID to determine the [status of the request](/javascript/api/@azure/cognitiveservices-qnamaker/operations).
 
 ### QnAMakerRuntimeClient object model
 
@@ -119,11 +119,11 @@ Instantiate a client with your endpoint and key. Create a ServiceClientCredentia
 
 ## Create a knowledge base
 
-A knowledge base stores question and answer pairs for the [CreateKbDTO](/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto) object from three sources:
+A knowledge base stores question and answer pairs for the [CreateKbDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.createkbdto) object from three sources:
 
-* For **editorial content**, use the [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadto) object.
+* For **editorial content**, use the [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.qnadto) object.
     * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
-* For **files**, use the [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto) object. The FileDTO includes the filename and the public URL to reach the file.
+* For **files**, use the [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.filedto) object. The FileDTO includes the filename and the public URL to reach the file.
 * For **URLs**, use a list of strings to represent publicly available URLs.
 
 The creation step also includes properties for the knowledgebase:
@@ -141,7 +141,7 @@ Make sure to include the [`wait_for_operation`](#get-status-of-an-operation) fun
 
 ## Update a knowledge base
 
-You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto) containing [add](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#add), [update](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#update), and [delete](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#deleteproperty) DTO objects to the [update](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#update-string--updatekboperationdto--msrest-requestoptionsbase-) method. The DTOs are also basically JSON objects. Use the [wait_for_operation](#get-status-of-an-operation) method to determine if the update succeeded.
+You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.updatekboperationdto) containing [add](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.updatekboperationdto#@azure-cognitiveservices-qnamaker-qnamakermodels-updatekboperationdto-add), [update](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.updatekboperationdto#@azure-cognitiveservices-qnamaker-qnamakermodels-updatekboperationdto-update), and [delete](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.updatekboperationdto#@azure-cognitiveservices-qnamaker-qnamakermodels-updatekboperationdto-deleteproperty) DTO objects to the [update](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#update-string--updatekboperationdto--msrest-requestoptionsbase-) method. The DTOs are also basically JSON objects. Use the [wait_for_operation](#get-status-of-an-operation) method to determine if the update succeeded.
 
 [!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=UpdateKBMethod)]
 
@@ -149,7 +149,7 @@ Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) fu
 
 ## Download a knowledge base
 
-Use the [download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#download-string--models-environmenttype--msrest-requestoptionsbase-) method to download the database as a list of [QnADocumentsDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto). This is _not_ equivalent to the QnA Maker portal's export from the **Settings** page because the result of this method is not a TSV file.
+Use the [download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#download-string--models-environmenttype--msrest-requestoptionsbase-) method to download the database as a list of [QnADocumentsDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.qnadocumentsdto). This is _not_ equivalent to the QnA Maker portal's export from the **Settings** page because the result of this method is not a TSV file.
 
 [!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DownloadKB)]
 
@@ -165,7 +165,7 @@ Publish the knowledge base using the [publish](/javascript/api/@azure/cognitives
 
 Once a knowledgebase is published, you need the query runtime key to query the runtime. This isn't the same key used to create the original client object.
 
-Use the [EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys) method to get the [EndpointKeysDTO](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeysdto) class.
+Use the [EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys) method to get the [EndpointKeysDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.endpointkeysdto) class.
 
 Use either of the key properties returned in the object to query the knowledgebase.
 
@@ -181,7 +181,7 @@ Use the QnAMakerRuntimeClient to get an answer from the knowledge or to send new
 
 ### Generate an answer from the knowledge base
 
-Generate an answer from a published knowledge base using the RuntimeClient.runtime.generateAnswer method. This method accepts the knowledge base ID and the [QueryDTO](/javascript/api/@azure/cognitiveservices-qnamaker/querydto). Access additional properties of the QueryDTO, such a Top and Context to use in your chat bot.
+Generate an answer from a published knowledge base using the RuntimeClient.runtime.generateAnswer method. This method accepts the knowledge base ID and the [QueryDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakermodels.querydto). Access additional properties of the QueryDTO, such a Top and Context to use in your chat bot.
 
 [!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GenerateAnswer)]
 
@@ -195,7 +195,7 @@ Delete the knowledge base using the [delete](/javascript/api/@azure/cognitiveser
 
 ## Get status of an operation
 
-Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](/javascript/api/@azure/cognitiveservices-qnamaker/operations) is returned. Use the [operation ID](/javascript/api/@azure/cognitiveservices-qnamaker/operation#operationid) from the operation to poll (with retry logic) to determine the status of the original method.
+Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](/javascript/api/@azure/cognitiveservices-qnamaker/operations) is returned. Use the [operation ID](/javascript/api/@azure/cognitiveservices-qnamaker/operations#operationid) from the operation to poll (with retry logic) to determine the status of the original method.
 
 The _delayTimer_ call in the following code block is used to simulate the retry logic. Replace this with your own retry logic.
 

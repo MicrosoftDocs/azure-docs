@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.

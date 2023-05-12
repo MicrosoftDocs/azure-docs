@@ -123,13 +123,13 @@ Register Azure CDN as an app in your Azure Active Directory.
 
 #### Azure PowerShell
 
-1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
 2. In PowerShell, run the following command:
 
      `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
-    ```bash
+    ```
     New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
 
     Secret                :
