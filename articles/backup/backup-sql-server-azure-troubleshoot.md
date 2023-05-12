@@ -2,7 +2,7 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 03/29/2023
+ms.date: 05/08/2023
 ms.service: backup
 ms.custom: engagement-fy23
 author: jyothisuri
@@ -233,6 +233,15 @@ The VM is not able to contact Azure Backup service due to internet connectivity 
 | Error message | Possible cause | Recommended action |
 | --- | --- | --- |
 | Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you've the mirrioring operation enabled on a SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
+
+### UserErrorWindowsWLExtFailedToStartPluginService
+
+| Error message | Possible cause | Recommendation |
+| --- | --- | --- |
+| Operation failing with `UserErrorWindowsWLExtFailedToStartPluginService` error. | Azure Backup workload extension is unable to start the workload backup plugin service on the Azure Virtual Machine due to service account misconfiguration. | **Step 1** <br><br> Verify if **NT Service\AzureWLBackupPluginSvc** user has **Read** permissions on: <br> - C:\windows\Microsoft.NET \assembly\GAC_32 <br> - C:\windows\Microsoft.NET \assembly\GAC_64 <br> - C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config.        <br><br>   If the permissions are missing, assign **Read** permissions on these directories.                 <br><br>   **Step 2**    <br><br> Verify if **NT Service\AzureWLBackupPluginSvc** has the **Bypass traverse chekcing** rights by going to **Local Security Policy** > **User Right Assignment** > **Bypass traverse checking**. **Everyone** must be selected by default.       <br><br> If **Everyone** and **NT Service\AzureWLBackupPluginSvc** are missing, add **NT Service\AzureWLBackupPluginSvc** user, and then try to restart the service or trigger a backup or restore operation for a datasource. |
+
+
+
 
 ## Re-registration failures
 

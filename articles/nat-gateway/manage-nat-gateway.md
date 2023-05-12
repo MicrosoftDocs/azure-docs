@@ -38,7 +38,7 @@ To use Azure PowerShell for this article, you need:
 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
-  If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+  If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
   If you run PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -451,14 +451,14 @@ $ng = @{
 }
 $nat = Get-AzNatGateway @ng
 
-## Place the existing public IP prefix associated with the NAT gateway into a variable. ##
+## Place the existing public IP address associated with the NAT gateway into a variable. ##
 $ip = @{
     Name = 'myPublicIP-NAT'
     ResourceGroupName = 'myResourceGroup'
 }
-$prefixIP1 = Get-AzPublicIPAddress @ip
+$publicIP1 = Get-AzPublicIPaddress @ip
 
-## Place the secondary public IP address into a variable. ##
+## Place the second public IP address into a variable. ##
 $ip = @{
     Name = 'myPublicIP-NAT2'
     ResourceGroupName = 'myResourceGroup'
@@ -468,7 +468,7 @@ $publicIP2 = Get-AzPublicIPAddress @ip
 ## Place ONLY the public IP you wish to keep in the array. ##
 $pipArray = $publicIP1
 
-## Add the IP address prefix to the NAT gateway. ##
+## Add the public IP address to the NAT gateway. ##
 $nt = @{
     NatGateway = $nat
     PublicIpAddress = $pipArray

@@ -23,7 +23,7 @@ You're responsible for designing and deploying your applications to meet [US exp
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you'll mostly have the same experience as in global Azure.
 
 > [!NOTE]
-> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-az-ps).
+> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-azure-powershell).
 
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
 

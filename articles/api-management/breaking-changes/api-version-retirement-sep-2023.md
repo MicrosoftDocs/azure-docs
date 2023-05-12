@@ -34,7 +34,7 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 * **Azure CLI** - Run `az version` to check your version. If you're running version 2.38.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
-* **Azure PowerShell** - Run `Get-Module -ListAvailable -Name Az` to check your version. If you're running version 8.1.0 or later, no action is required. Use `Update-Module -Name Az -Repository PSGallery` to update the module if necessary. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* **Azure PowerShell** - Run `Get-Module -ListAvailable -Name Az` to check your version. If you're running version 8.1.0 or later, no action is required. Use `Update-Module -Name Az -Repository PSGallery` to update the module if necessary. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 * **Other tools** - Use the following versions (or later):
 
@@ -51,7 +51,7 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 ## More information
 
 * [Azure CLI](/cli/azure/update-azure-cli)
-* [Azure PowerShell](/powershell/azure/install-az-ps)
+* [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Terraform on Azure](/azure/developer/terraform/)
 * [Bicep](../../azure-resource-manager/bicep/overview.md)

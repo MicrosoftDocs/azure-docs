@@ -87,8 +87,8 @@ Create a confidential [disk encryption set](../virtual-machines/linux/disks-enab
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
 For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
   ```azurecli
-  Connect-AzureAD -Tenant "your tenant ID"
-  New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+  Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
+  New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
   ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
