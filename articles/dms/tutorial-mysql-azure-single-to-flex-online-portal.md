@@ -187,6 +187,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
 
 10. Navigate to the **Review + create** tab, review the configurations, view the terms, and then select **Create**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-review-create.png" alt-text="Screenshot of a Select Review+Create.":::
+     
     Deployment of your instance of DMS now begins. The message **Deployment is in progress** appears for a few minutes, and then the message changes to **Your deployment is complete**.
 
 11. Select **Go to resource**.
