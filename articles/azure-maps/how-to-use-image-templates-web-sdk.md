@@ -48,14 +48,17 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 Once an image template is loaded into the map image sprite, it can be rendered as a symbol in a symbol layer by referencing the image resource ID in the `image` option of the `iconOptions`.
 
-The following sample renders a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color.
+For a sample that demonstrates this, rendering a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color, see [Symbol layer with built-in icon template] in the [Azure Maps Samples].
 
+:::image type="content" source="./media/how-to-use-image-templates-web-sdk/symbol-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+
+<!-----------------------------------------------------
 <br/>
-
 <iframe height="500" scrolling="no" title="Symbol layer with built-in icon template" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>Symbol layer with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------->
 
 ## Use an image template along a lines path
 
@@ -530,3 +533,6 @@ See the following articles for more code samples where image templates can be us
 
 > [!div class="nextstepaction"]
 > [Add HTML Makers](map-add-bubble-layer.md)
+
+[Azure Maps Samples]: https://samples.azuremaps.com
+[Symbol layer with built-in icon template]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-with-built-in-icon-template
