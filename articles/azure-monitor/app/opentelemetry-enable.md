@@ -155,17 +155,19 @@ app.Run();
 
 Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
 ```csharp
-var builder = WebApplication.CreateBuilder(args);
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter()
 
-builder.Services.AddOpenTelemetry()
-    .WithTracing(builder => builder.AddAzureMonitorTraceExporter())
-    .WithMetrics(builder => builder.AddAzureMonitorMetricExporter());
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    .AddAzureMonitorMetricExporter()
 
-builder.Logging.AddOpenTelemetry(options => options.AddAzureMonitorLogExporter();
-
-var app = builder.Build();
-
-app.Run();
+var loggerFactory = LoggerFactory.Create(builder =>
+{
+    builder.AddOpenTelemetry(options =>
+    {
+        options.AddAzureMonitorLogExporter();
+    });
+});
 ```
 
 ##### [Java](#tab/java)
@@ -1186,7 +1188,6 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there may be 
   
 This isn't available in .NET.
 
-
 #### [.NET](#tab/net)
 
 This isn't available in .NET.
@@ -1517,6 +1518,10 @@ Use the add [custom property example](#add-a-custom-property-to-a-span).
 activity?.SetTag("enduser.id", "<User Id>");
 ```
 
+##### [.NET](#tab/net)
+
+Coming soon.
+
 ##### [Java](#tab/java)
 
 Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
@@ -1572,6 +1577,10 @@ span._attributes["enduser.id"] = "<User ID>"
 
 OpenTelemetry uses .NET's ILogger.
 Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
+
+#### [.NET](#tab/net)
+
+Coming soon.
 
 #### [Java](#tab/java)
 
