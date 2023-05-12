@@ -117,7 +117,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
             "maxUnhealthyInstancePercent": 20,
             "maxUnhealthyUpgradedInstancePercent": 20,
             "pauseTimeBetweenBatches": "PT2S",
-	    "MaxSurge": "true"
+	        "MaxSurge": "true"
 ```
 ---
 
@@ -166,7 +166,7 @@ Update the properties section of your ARM template as follows:
             "maxUnhealthyInstancePercent": 20,
             "maxUnhealthyUpgradedInstancePercent": 20,
             "pauseTimeBetweenBatches": "PT2S",
-	    "MaxSurge": "true"
+	        "MaxSurge": "true"
 ```
 ---
 
