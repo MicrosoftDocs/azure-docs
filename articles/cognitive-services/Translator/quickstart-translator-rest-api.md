@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Azure Cognitive Services Translator"
+title: "Quickstart: Azure Cognitive Services Translator REST APIs"
 titleSuffix: Azure Cognitive Services
-description: "Learn to translate text with the Translator service. Examples are provided in C#, Go, Java, JavaScript and Python."
+description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript and Python."
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/17/2023
+ms.date: 05/03/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -19,7 +19,7 @@ ms.devlang: csharp, golang, java, javascript, python
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Quickstart: Azure Cognitive Services Translator
+# Quickstart: Azure Cognitive Services Translator REST APIs
 
 Try the latest version of Azure Translator. In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
