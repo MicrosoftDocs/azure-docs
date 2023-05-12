@@ -18,7 +18,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 ### Create an NFS volume
 
-1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *premium*, *myfilepath*, *myvolsize*, *myvolname*, *vnetid*, and *andSubnetID* with an appropriate value from your account and environment. The *filepath* must be unique within all ANF accounts.
+1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *premium*, *myfilepath*, *myvolsize*, *myvolname*, *vnetid*, and *anfSubnetID* with an appropriate value from your account and environment. The *filepath* must be unique within all ANF accounts.
 
     ```azurecli-interactive
     RESOURCE_GROUP="myresourcegroup"
