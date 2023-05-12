@@ -37,7 +37,7 @@ We recommend using them when:
 
 ## Batch deployments
 
-A deployment is a set of resources and compute required to implement the functionality the endpoint provides. Each endpoint can host multiple deployments with different configuration, which helps *decouple the interface* indicated by the endpoint, from *the implementation details* indicated by the deployment. Batch endpoints automatically route the client to the default deployment which can be configured and changed at any time.
+A deployment is a set of resources and computes required to implement the functionality the endpoint provides. Each endpoint can host multiple deployments with different configuration, which helps *decouple the interface* indicated by the endpoint, from *the implementation details* indicated by the deployment. Batch endpoints automatically route the client to the default deployment which can be configured and changed at any time.
 
 :::image type="content" source="./media/how-to-use-batch-endpoints/batch-endpoint.png" alt-text="Diagram showing the relationship between endpoints and deployments.":::
 
@@ -100,7 +100,7 @@ Invoking a batch endpoint triggers an asynchronous batch inference job. Compute 
 
 Batch endpoints also can run on low-priority VMs. Batch endpoints can automatically recover from deallocated VMs and resume the work from where it was left when deploying models for inference. See [Use low-priority VMs in batch endpoints](how-to-use-low-priority-batch.md).
 
-Finally, Azure Machine Learning doesn't charge for batch endpoints or batch deployments themselves, so you can organize your endpoints and deployments as best suits your scenario. Endpoints and deployment can use independant or shared clusters, so you can achieve fine grained control over which compute the produced jobs consume. Use __scale-to-zero__ in clusters to ensure no resources are consumed when they are idle. 
+Finally, Azure Machine Learning doesn't charge for batch endpoints or batch deployments themselves, so you can organize your endpoints and deployments as best suits your scenario. Endpoints and deployment can use independent or shared clusters, so you can achieve fine grained control over which compute the produced jobs consume. Use __scale-to-zero__ in clusters to ensure no resources are consumed when they are idle. 
 
 
 ## Flexible data sources and storage

@@ -36,7 +36,7 @@ This example deploys a training pipeline that takes input training data (labeled
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="Pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
+:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="An screenshot of the pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 

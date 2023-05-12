@@ -35,7 +35,7 @@ This example shows you how to reuse preprocessing code and the parameters learne
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="Inference pipeline comprising a scoring component alongside the outputs and prepare component from a training pipeline." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
+:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="An screenshot of the inference pipeline comprising a scoring component alongside the outputs and prepare component from a training pipeline." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
@@ -158,10 +158,10 @@ We're going to register components, models, and transformations that we need to 
 
 Now it's time to bind all the elements together. The inference pipeline we'll deploy has two components (steps):
 
-1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives two inputs:
+- `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives two inputs:
     - `data`: a folder containing the input data to score
     - `transformations`: (optional) Path to the transformations that will be applied, if available. When provided, the transformations are read from the model that is indicated at the path. However, if the path isn't provided, then the transformations will be learned from the input data. For inferencing, though, you can't learn the transformation parameters (in this example, the normalization coefficients) from the input data because you need to use the same parameter values that were learned during training. Since this input is optional, the `preprocess_job` component can be used during training and scoring.
-1. `score_job`: This step will perform inferencing on the transformed data, using the input model. Notice that the component uses an MLflow model to perform inference. Finally, the scores are written back in the same format as they were read.
+- `score_job`: This step will perform inferencing on the transformed data, using the input model. Notice that the component uses an MLflow model to perform inference. Finally, the scores are written back in the same format as they were read.
 
 # [Azure CLI](#tab/cli)
 
@@ -183,7 +183,7 @@ Let's build the pipeline in a function:
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png" alt-text="Inference pipeline showing batch scoring with preprocessing." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png":::
+:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png" alt-text="An screenshot of the inference pipeline showing batch scoring with preprocessing." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png":::
 
 ### Test the pipeline
 
@@ -392,7 +392,7 @@ The output looks as follows:
 | 1.3782  |	1   |	... |	4     |	0          |
 | -1.954  |	1   |	... |	3     |	0          |
 
-The output contains the predictions plus the data that was provided to the *score* component, which was preprocessed. For example, the column `age` has been normalized, and column `thal` contains orginal encoding values. In practice, you probably want to output the prediction only and then concat this predictions with the original values. This work has been left to the reader.
+The output contains the predictions plus the data that was provided to the *score* component, which was preprocessed. For example, the column `age` has been normalized, and column `thal` contains original encoding values. In practice, you probably want to output the prediction only and then concat it with the original values. This work has been left to the reader.
 
 ## Clean up resources
 

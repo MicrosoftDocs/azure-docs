@@ -31,7 +31,7 @@ The number and type of inputs and outputs depend on the [type of batch deploymen
 
 The following table summarizes it:
 
-| Deployment type | Input's number | Suported input's types | Output's number | Suported output's types |
+| Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
 | [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-inputs) |
 | [Pipeline component deployment (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
@@ -603,11 +603,11 @@ Content-Type: application/json
 
 ## Data outputs
 
-Data outputs refer to the location where the results of a batch job should be placed. Outputs are indentified by name and Azure Machine Learning automatically assign a unique path to each named output. However, you can indicate another path if required. Batch Endpoints only support writing outputs in blob Azure Machine learning data stores. 
+Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name and Azure Machine Learning automatically assign a unique path to each named output. However, you can indicate another path if required. Batch Endpoints only support writing outputs in blob Azure Machine learning data stores. 
 
-The following example shows how to change the location where an output named `score` is placed. For completeness, this examples also configure an input named `heart_dataset`.
+The following example shows how to change the location where an output named `score` is placed. For completeness, these examples also configure an input named `heart_dataset`.
 
-1. Let's use the default data store in the Azure Machine Learning workspace to save the outputs. You can use any other data store in your workspace as long as it's an blob storage account. 
+1. Let's use the default data store in the Azure Machine Learning workspace to save the outputs. You can use any other data store in your workspace as long as it's a blob storage account. 
 
     # [Azure CLI](#tab/cli)
 

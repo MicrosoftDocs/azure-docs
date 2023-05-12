@@ -11,7 +11,7 @@ ms.custom: how-to, devplatv2
 
 # Deploy existing pipeline jobs to batch endpoints
 
-Batch endpoints allow the deployment of pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deploying. However, if you already have a pipeline job that run successfully, **we can take that job as input and create the pipeline component automatically** for you. In this article, you'll learn how to achieve so.
+Batch endpoints allow the deployment of pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deploying. However, if you already have a pipeline job that runs successfully, **we can take that job as input and create the pipeline component automatically** for you. In this article, you'll learn how to achieve so.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -33,7 +33,7 @@ cd endpoints/batch/deploy-pipelines/hello-batch
 
 ## Run the pipeline job you want to deploy
 
-To demostrate it, let's first run a pipeline job:
+To demonstrate it, let's first run a pipeline job:
 
 # [Azure CLI](#tab/cli)
 
@@ -45,7 +45,7 @@ __pipeline-job.yml__
 
 # [Python](#tab/python)
 
-Load the pipeline component and instanciate it:
+Load the pipeline component and instantiate it:
 
 ```python
 hello_batch = load_component(source="hello-component/hello.yml")
@@ -250,7 +250,7 @@ ml_client.jobs.get(name=job.name)
 To wait for the job to finish, run the following code:
 
 ```python
-ml_client.jobs.get(name=job.name).stream()1
+ml_client.jobs.stream(name=job.name)
 ```
 ---
 

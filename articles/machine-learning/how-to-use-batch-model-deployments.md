@@ -156,7 +156,7 @@ A model deployment is a set of resources required for hosting the model that doe
 
 * A registered model in the workspace.
 * The code to score the model.
-* The environment in which the model runs.
+* The environment with the model's dependencies installed.
 * The pre-created compute and resource settings.
 
 1. Let's start by registering the model we want to deploy. Batch Deployments can only deploy models registered in the workspace. You can skip this step if the model you're trying to deploy is already registered. In this case, we're registering a Torch model for the popular digit recognition problem (MNIST).
