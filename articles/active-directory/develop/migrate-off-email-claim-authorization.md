@@ -1,6 +1,6 @@
 ---
 title: Migrate away from using email claims for authorization
-description: Learn how to migrate your Azure Active Directory application away from using insecure claims, such as email, for authorization purposes. 
+description: Learn how to migrate your application away from using insecure claims, such as email, for authorization purposes. 
 services: active-directory
 author: medhir
 
