@@ -165,7 +165,7 @@ For information on creating dual protocol volumes, please see [create a dual-pro
     ...
     ```
 
-### [SMB]()#tab/smb
+### [SMB](#tab/smb)
 
 ### Create a secret with the domain credentials
 
