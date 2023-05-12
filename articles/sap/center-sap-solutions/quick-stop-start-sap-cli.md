@@ -17,7 +17,7 @@ In this how-to guide, you'll learn how to start and stop your SAP systems throug
 
 Through the Azure CLI, you can start and stop:
 
-- Entire SAP Application tier in one go, which includes ABAP SAP Central Services (ASCS) and Application Server instances.
+- The entire SAP Application tier, which includes ABAP SAP Central Services (ASCS) and Application Server instances.
 - Individual SAP instances, which include Central Services and Application server instances.
 - HANA Database
 - You can start and stop instances in the following types of deployments:
