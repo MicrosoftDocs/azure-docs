@@ -126,7 +126,7 @@ The following platform SKUs are currently supported (and more are added periodic
 ### Service Fabric requirements
 
 If you are using Service Fabric, ensure the following conditions are met:
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types supports automatic OS image upgrades).
+-	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types support automatic OS image upgrades).
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 - An additional health probe or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
@@ -188,7 +188,7 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 ```
 
 > [!NOTE]
->After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+>After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-policy.md).
 
 ### ARM templates
 The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):
