@@ -359,13 +359,13 @@ The following sections provide information about the various actions and notific
 
 To check limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-You might have a limited number of runbook actions per action group.
+You are limited to 10 runbook actions per action group.
 
 ### Azure App Service push notifications
 
 To enable push notifications to the Azure mobile app, provide the email address that you use as your account ID when you configure the Azure mobile app. For more information about the Azure mobile app, see [Get the Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-You might have a limited number of Azure app actions per action group.
+You are limited to 10 Azure app actions per action group.
 
 ### Email
 
@@ -421,7 +421,7 @@ An action that uses Functions calls an existing HTTP trigger endpoint in Functio
 
 When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you must remove and re-create the function action in the action group.
 
-You might have a limited number of function actions per action group.
+You are limited to 10 function actions per action group.
 
    > [!NOTE]
    >
@@ -432,11 +432,11 @@ You might have a limited number of function actions per action group.
 
 An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md).
 
-You might have a limited number of ITSM actions per action group.
+You are limited to 10 ITSM actions per action group.
 
 ### Logic Apps
 
-You might have a limited number of Logic Apps actions per action group.
+You are limited to 10 Logic Apps actions per action group.
 
 ### Secure webhook
 
@@ -554,7 +554,7 @@ For information about rate limits, see [Rate limiting for voice, SMS, emails, Az
 
 For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
 
-You might have a limited number of SMS actions per action group.
+You are limited to 10 SMS actions per action group.
 
 > [!NOTE]
 >
@@ -607,7 +607,7 @@ You might have a limited number of SMS actions per action group.
 
 For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
 
-You might have a limited number of voice actions per action group.
+You are limited to 10 voice actions per action group.
 
 > [!NOTE]
 >
