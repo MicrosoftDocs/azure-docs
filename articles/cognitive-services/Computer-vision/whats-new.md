@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## April 2023
+
+### Face limited access tokens
+
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
+
 ## March 2023
 
 ### Computer Vision Image Analysis 4.0 SDK public preview
