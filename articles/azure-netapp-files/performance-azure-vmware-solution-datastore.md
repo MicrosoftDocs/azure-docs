@@ -170,7 +170,6 @@ You can monitor your datastore metrics through vCenter or through the Azure API/
 
 ## Next steps  
 
-Next Steps
 * [Striping Disks in Azure](../virtual-machines/premium-storage-performance.md#disk-striping)
 * [Creating striped volumes in Windows Server](/windows-server/administration/windows-commands/create-volume-stripe)
 * [Azure VMware Solution storage concepts](../azure-vmware/concepts-storage.md)
