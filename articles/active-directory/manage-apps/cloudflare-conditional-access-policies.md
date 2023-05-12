@@ -53,7 +53,7 @@ Go to developers.cloudflare.com to [set up Azure AD as an IdP](https://developer
 5. Go to **Branding & properties**.
 6. For **Home page URL**, enter the application hostname.
 
-   ![Screenshot of options and entries for branding and properties.](./media/cloudflare-condtional-access-policies/branding-properties.png)
+   ![Screenshot of options and entries for branding and properties.](./media/cloudflare-conditional-access-policies/branding-properties.png)
 
 7. Under **Manage**, select **Enterprise applications**.
 8. Select your application.
@@ -74,11 +74,11 @@ Enforce Conditional Access policies on a Cloudflare Access application.
 5. In **Application domain**, enter the protected application target URL.
 6. For **Identity providers**, select the IdP integration.
 
-   ![Screenshot of the IdP integration selection on Identity providers.](./media/cloudflare-condtional-access-policies/identity-providers.png)
+   ![Screenshot of the IdP integration selection on Identity providers.](./media/cloudflare-conditional-access-policies/identity-providers.png)
 
 7. Create an Access policy. See, [Access policies](https://developers.cloudflare.com/cloudflare-one/policies/access/) and the following example. 
 
-   ![Screenshot of an example policy.](./media/cloudflare-condtional-access-policies/access-policy-example.png)
+   ![Screenshot of an example policy.](./media/cloudflare-conditional-access-policies/access-policy-example.png)
 
    > [!NOTE]
    > Reuse the IdP integration for other applications if they require the same Conditional Access policies. For example, a baseline IdP integration with a Conditional Access policy requiring multifactor authentication and a modern authentication client. If an application requires specific Conditional Access policies, set up a dedicated IdP instance for that application.
