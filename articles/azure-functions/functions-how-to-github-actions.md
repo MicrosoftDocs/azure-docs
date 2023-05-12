@@ -88,7 +88,9 @@ To download the publishing profile of your function app:
 
 1. In [GitHub](https://github.com/), go to your repository.
 
-1. Select **Settings > Secrets > Actions**.
+1. Go to **Settings**. 
+
+1. Select **Secrets and variables > Actions**.
 
 1. Select **New repository secret**.
 
@@ -569,7 +571,7 @@ jobs:
 
 ## Use Azure CLI to create a GitHub Actions workflow file 
 
-In your existing repository with a functions app, run the `az functionapp deployment github-actions add` command to create a workflow file.
+In your existing repository with a functions app, run the `az functionapp deployment github-actions add` command to create a workflow file and have it get added to your repository.
 
 ```azurecli
 az functionapp deployment github-actions add --repo
@@ -587,10 +589,47 @@ az functionapp deployment github-actions add --repo
                                              [--token]
 ```
 
+To use the interactive method to retrieve a personal access token:
+
+1. Run this `az functionapp` command, replacing the values `githubUser/githubRepo`, `MyResourceGroup`, and `MyFunctionapp`.
+    ```azurecli
+    az functionapp deployment github-actions add --repo "githubUser/githubRepo" -g MyResourceGroup -n MyFunctionapp --login-with-github
+    ```
+
+1. In your terminal window, you'll see the message, "Please navigate to https://github.com/login/device and enter the user code 1234-ABCD to activate and retrieve your github personal access token." Your values will be `1234-ABDC` different. 
+
+1. Go to <https://github.com/login/device> and enter your unique code. 
+
+1. After entering your code, you should see a message like this:
+
+    ```
+    Verified GitHub repo and branch
+    Getting workflow template using runtime: java
+    Filling workflow template with name: func-app-123, branch: main, version: 8, slot: production, build_path: .
+    Adding publish profile to GitHub
+    Fetching publish profile with secrets for the app 'func-app-123'
+    Creating new workflow file: .github/workflows/master_func-app-123.yml
+    ```
+
+1. Go to your GitHub repository and select **Actions**. Verify that your workflow ran. 
 
 ## Use an Actions template
 
-s 
+You can also use functions templates from within GitHub Actions. 
+
+1. In [GitHub](https://github.com/), go to your repository.
+
+1. Go to **Actions**. 
+
+1. Select **New workflow**. 
+
+1. Search for *functions*. 
+
+    :::image type="content" source="media/functions-how-to-github-actions/github-actions-functions-templates.png" alt-text="Screenshot of search for GitHub Actions functions templates. ":::
+
+1. Select **Configure** and use one of the functions app workflows authored by Microsoft Azure. 
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
