@@ -503,6 +503,8 @@
                 href: azure-netapp-files-nfs.md
               - name: Provision Azure NetApp Files SMB volumes for AKS
                 href: azure-netapp-files-smb.md
+              - name: Provision Azure NetApp Files dual-protocol volumes for AKS
+                href: azure-netapp-files-dual-protocol.md
         - name: Block storage
           items:
             - name: Azure Disks CSI driver
