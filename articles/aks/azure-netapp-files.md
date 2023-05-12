@@ -1,12 +1,12 @@
 ---
 title: Configure Azure NetApp Files for Azure Kubernetes Service
-description: Learn how to configure Azure NetApp Files volumes on an Azure Kubernetes Service cluster.
+description: Learn how to configure Azure NetApp Files for an Azure Kubernetes Service cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 05/08/2023
 ---
 
-# Configure Azure NetApp Files volumes for Azure Kubernetes Service
+# Configure Azure NetApp Files for Azure Kubernetes Service
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and it can be statically or dynamically provisioned. This article shows you how to create [Azure NetApp Files][anf] volumes to be used by pods on an Azure Kubernetes Service (AKS) cluster.
 
