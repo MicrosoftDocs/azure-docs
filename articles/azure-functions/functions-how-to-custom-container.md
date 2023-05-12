@@ -13,15 +13,15 @@ This article demonstrates the support that Azure Functions provides for working 
 If you want to jump right in, the following article show you how to create your first function running in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
 
 :::zone pivot="container-apps"
-+ Azure Container Apps (preview): [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-aca.md)
+> [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-aca.md)
 
 To learn more about deployments to Azure Container Apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md). 
 :::zone-end
 :::zone pivot="azure-functions"
-+ Azure Functions: [Create your first containerized Azure Functions](functions-deploy-container.md)
+> [Create your first containerized Azure Functions](functions-deploy-container.md)
 :::zone-end
 :::zone pivot="azure-arc"
-+ Azure Arc (preview): [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
+> [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
 ::: zone-end
 
 ## Creating containerized function apps

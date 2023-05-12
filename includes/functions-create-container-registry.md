@@ -19,11 +19,11 @@ Before you begin, you must have the following requirements in place:
 ::: zone pivot="programming-language-csharp"
 + The [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v4) version 4.x.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v4) version 4.x.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + A version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
@@ -46,22 +46,22 @@ Before you begin, you must have the following requirements in place:
 + Development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
 -->
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.48 or a later version.
 
-<!---Requirements specific to Docker --->
-To publish the containerized function app image you create, you also need a registry account.
+If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+<!---Requirements specific to Docker -->
+To publish the containerized function app image you create to a container registry, you need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
 
 # [Azure Container Registry](#tab/acr)
 
-+ To create an Azure Container Registry instance, complete [this quickstart](../articles/container-registry/container-registry-get-started-portal.md).
+You also need to complete the [Create a container registry](../articles/container-registry/container-registry-get-started-portal.md#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully-qualified login server name.
 
 # [Docker Hub](#tab/docker)
 
-+ You need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
+You should be all set.
 
 ---
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
-
-If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 [!INCLUDE [functions-cli-create-venv](functions-cli-create-venv.md)]
 
@@ -278,7 +278,12 @@ func start
 ```
 ::: zone-end
 -->
+::: zone pivot="programming-language-csharp"  
+After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
+::: zone-end  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
+::: zone-end
 
 Press **Ctrl**+**C** to stop the host.
 
@@ -349,7 +354,7 @@ Azure Container Apps is a private registry service for building, storing, and ma
 1. Use the following command to tag your image with the fully qualified name of your registry login server:
 
     ```docker
-    docker tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 <LOGIN_SERVER>/azurefunctionsimage:v1 
+    docker tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 
     ```
     
     Replace `<LOGIN_SERVER>` with the fully qualified name of your registry login server and `<DOCKER_ID>` with your Docker ID.
@@ -357,7 +362,7 @@ Azure Container Apps is a private registry service for building, storing, and ma
 1.  Use the following command to push the container to your registry instance:
  
     ```docker
-    docker push <LOGIN_SERVER>/azurefunctionsimage:v1
+    docker push <LOGIN_SERVER>/azurefunctionsimage:v1.0.0
     ```
 
 # [Docker Hub](#tab/docker)

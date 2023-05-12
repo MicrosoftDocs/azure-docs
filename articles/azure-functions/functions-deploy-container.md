@@ -113,7 +113,7 @@ A function app on Azure manages the execution of your functions in your Azure Fu
 
     # [Azure Container Registry](#tab/acr/azure-cli)
     ```azurecli
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> 
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> 
     ```
 
     # [Docker Hub](#tab/docker/azure-cli)
@@ -123,7 +123,7 @@ A function app on Azure manages the execution of your functions in your Azure Fu
 
     # [Azure Container Registry](#tab/acr/azure-powershell)
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -DockerImageName <LOGIN_SERVER>/azurefunctionsimage:v1
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -DockerImageName <LOGIN_SERVER>/azurefunctionsimage:v1.0.0
     ```
 
     # [Docker Hub](#tab/docker/azure-powershell)

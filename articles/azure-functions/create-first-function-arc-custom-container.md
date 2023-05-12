@@ -52,7 +52,7 @@ Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) co
 
 # [Azure Container Registry](#tab/acr)
 ```azurecli
-az functionapp create --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> 
+az functionapp create --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> 
 ```
 
 # [Docker Hub](#tab/docker)
