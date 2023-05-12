@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-Shared device mode [https://learn.microsoft.com/azure/active-directory/develop/msal-shared-devices] allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single signed-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
+[Shared device mode](msal-shared-devices.md) allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single signed-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
 
 To take advantage of shared device mode feature, app developers and cloud device admins work together:
 
@@ -48,15 +48,6 @@ Microsoft Intune supports zero-touch provisioning for devices in Azure AD shared
 
 > [!IMPORTANT]
 > We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
-
-## Microsoft applications that support shared device mode
-
-These Microsoft applications support Azure AD's shared device mode:
-
-- [Microsoft Teams](/microsoftteams/platform/) (in Public Preview)
-
-> [!IMPORTANT]
-> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Modify your iOS application to support shared device mode
 
@@ -251,6 +242,15 @@ For more information about the available options for CFNotificationAddObserver o
 - [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
 
 For iOS, your app requires a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+
+## Microsoft applications that support shared device mode
+
+These Microsoft applications support Azure AD's shared device mode:
+
+- [Microsoft Teams](/microsoftteams/platform/) (in Public Preview)
+
+> [!IMPORTANT]
+> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Next steps
 
