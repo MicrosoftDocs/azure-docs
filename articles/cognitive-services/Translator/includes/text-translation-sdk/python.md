@@ -87,4 +87,4 @@ Type the following command in your terminal:
 
 Here's a snippet of the expected output:
 
-:::image type="content" source="../../media/quickstarts/python-output.png" alt-text="Screenshot of JavaScript output in the terminal window":::
+:::image type="content" source="../../media/quickstarts/python-output.png" alt-text="Screenshot of JavaScript output in the terminal window.":::
