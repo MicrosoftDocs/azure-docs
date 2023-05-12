@@ -97,4 +97,4 @@ You can also get help from our communities. You can file an issue on [GitHub](ht
 
 * Learn how to deploy the API Management self-hosted gateway to [Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md), [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md), or a Kubernetes cluster using [YAML](how-to-deploy-self-hosted-gateway-kubernetes.md) or a [Helm chart](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
-* Review guidance for running the self-hosted guidance on [Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
+* Review guidance for running the self-hosted gateway on [Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
