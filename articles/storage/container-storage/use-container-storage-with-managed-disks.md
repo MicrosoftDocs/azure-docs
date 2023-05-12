@@ -66,11 +66,13 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`.
+
 ## Display the available storage classes
 
 When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
 
-Run `kubectl get sc` to display the available storage classes. You should see a storage class with the same name as the storage pool you just created.
+Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
 
 > [!IMPORTANT]
 > Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
@@ -91,7 +93,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azuredisk # replace with the name of your storage class if different
+     storageClassName: acstor-azuredisk # replace with the name of your storage class if different
      resources:
        requests:
          storage: 100Gi
@@ -183,7 +185,9 @@ To detach a persistent volume, delete the pod that the persistent volume is atta
 kubectl delete pods <pod-name>
 ```
 
-To reattach, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
+To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
+
+To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
 
 ## Delete the storage pool
 

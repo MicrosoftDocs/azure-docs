@@ -58,20 +58,22 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    When storage pool creation is complete, you'll see a message like:
    
    ```output
-   storagepool.containerstorage.azure.com/azurenvme created
+   storagepool.containerstorage.azure.com/ephemeraldisk created
    ```
    
-   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **azurenvme**.
+   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **ephemeraldisk**.
    
    ```azurecli-interactive
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`.
+
 ## Display the available storage classes
 
 When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
 
-Run `kubectl get sc` to display the available storage classes. You should see a storage class with the same name as the storage pool you just created.
+Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
 
 > [!IMPORTANT]
 > Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
@@ -88,11 +90,11 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: azurenvmepvc
+     name: ephemeralpvc
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azurenvme # replace with the name of your storage class if different
+     storageClassName: acstor-ephemeraldisk # replace with the name of your storage class if different
      resources:
        requests:
          storage: 100Gi
@@ -107,13 +109,13 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    You should see output similar to:
    
    ```output
-   persistentvolumeclaim/azurenvmepvc created
+   persistentvolumeclaim/ephemeralpvc created
    ```
    
    You can verify the status of the PVC by running the following command:
    
    ```azurecli-interactive
-   kubectl describe pvc azurenvmepvc
+   kubectl describe pvc ephemeralpvc
    ```
 
 Once the PVC is created, it's ready for use by a pod.
@@ -135,9 +137,9 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
      nodeSelector:
        acstor.azure.com/io-engine: acstor
      volumes:
-       - name: azurenvmepv
+       - name: ephemeralpv
          persistentVolumeClaim:
-           claimName: azurenvmepvc
+           claimName: ephemeralpvc
      containers:
        - name: fio
          image: nixery.dev/shell/fio
@@ -146,7 +148,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
            - "1000000"
          volumeMounts:
            - mountPath: "/volume"
-             name: azurenvmepv
+             name: ephemeralpv
    ```
 
 1. Apply the YAML manifest file to deploy the pod.
@@ -165,7 +167,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
    ```azurecli-interactive
    kubectl describe pod fiopod
-   kubectl describe pvc azurenvmepvc
+   kubectl describe pvc ephemeralpvc
    ```
 
 1. Check fio testing to see its current status:
@@ -184,7 +186,9 @@ To detach a persistent volume, delete the pod that the persistent volume is atta
 kubectl delete pods <pod-name>
 ```
 
-To reattach, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
+To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
+
+To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
 
 ## Delete the storage pool
 
