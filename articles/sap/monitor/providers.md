@@ -1,5 +1,5 @@
 ---
-title: What are providers in Azure Monitor for SAP solutions? (preview)
+title: What are providers in Azure Monitor for SAP solutions? 
 description: This article provides answers to frequently asked questions about Azure Monitor for SAP solutions providers.
 author: rdeltcheva
 ms.service: sap-on-azure
@@ -10,13 +10,9 @@ ms.author: radeltch
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.
 ---
 
-# What are providers in Azure Monitor for SAP solutions? (preview)
-
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
+# What are providers in Azure Monitor for SAP solutions? 
 
 In the context of *Azure Monitor for SAP solutions*, a *provider* contains the connection information for a corresponding component and helps to collect data from there. There are multiple provider types. For example, an SAP HANA provider is configured for a specific component within the SAP landscape, like an SAP HANA database. You can configure an Azure Monitor for SAP solutions resource (also known as SAP monitor resource) with multiple providers of the same type or multiple providers of multiple types.
-
-This content applies to both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
 You can choose to configure different provider types for data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for the SAP HANA provider type, another provider for high availability cluster provider type, and so on.
 
@@ -31,8 +27,8 @@ If you don't configure any providers at the time of deployment, the Azure Monito
 ## Provider type: SAP NetWeaver
 
 You can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. Azure Monitor for SAP solutions NetWeaver provider uses the existing
-- [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information (also available in Azure Monitor for SAP Solutions classic)
-- SAP RFC - ability to collect additional information from the SAP system using Standard SAP RFC. (available only in Azure Monitor for SAP solution)
+- [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information.
+- SAP RFC - ability to collect additional information from the SAP system using Standard SAP RFC.
 
 You can get the following data with the SAP NetWeaver provider:
 

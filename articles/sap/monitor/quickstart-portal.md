@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for SAP solutions with the Azure portal (preview)
+title: Deploy Azure Monitor for SAP solutions with the Azure portal 
 description: Learn how to use a browser method for deploying Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.author: sakhare
@@ -12,11 +12,7 @@ ms.date: 10/19/2022
 
 # Quickstart: deploy Azure Monitor for SAP solutions in Azure portal
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
-
 Get started with Azure Monitor for SAP solutions by using the [Azure portal](https://azure.microsoft.com/features/azure-portal) to deploy Azure Monitor for SAP solutions resources and configure providers.
-
-This content applies to both versions of the service, Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic).
 
 ## Prerequisites
 
@@ -66,31 +62,6 @@ Refer the following for each of the Provider instance creation
 - [SAP IBM DB2 Provider Creation](./provider-ibm-db2)
 - [SAP Operating System Provider Creation](./provider-linux)
 - [SAP High Availability Provider Creation](./provider-ha-pacemaker-cluster)
-
-## Create Azure Monitor for SAP solutions (classic) monitoring resource
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (classic)**.
-
-   ![Diagram shows Azure Monitor for SAP solutions classic quick start page.](./media/quickstart-portal/azure-monitor-quickstart-classic.png)
-
-1. On the **Basics** tab, provide the required values.
-
-	1. **Subscription** Add relevant Azure subscription details
-	1. **Resource Group** Create a new or Select an existing Resource Group under the given subscription.
-	1. **Resource Name** Enter the name for Azure Monitor for SAP solutions.
-	1. **Region** is the region where the monitoring resources are created, make sure to select a region that is same as your virtual network.
-	1. For **Virtual Network** field select a virtual network, which has connectivity to your SAP systems for monitoring.
-	1. For the **Subnet** field, select a subnet that has connectivity to your SAP systems. You can use an existing subnet or create a new subnet. Make sure that you select a subnet, which is an **IPv4/25 block or larger**.
-
-
-   ![Screenshot that shows configuration options on the Basics tab.](./media/quickstart-portal/azure-monitor-quickstart-2.png)
-
-
-   > [!IMPORTANT]
-   > Selecting **Share** for **Share data with Microsoft support** enables our support teams to help you with troubleshooting. This feature is available only for Azure Monitor for SAP solutions (classic)
-
 
 ## Next steps
 

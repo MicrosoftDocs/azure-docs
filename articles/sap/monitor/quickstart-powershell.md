@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for SAP solutions with Azure PowerShell (preview)
+title: Deploy Azure Monitor for SAP solutions with Azure PowerShell 
 description: Deploy Azure Monitor for SAP solutions with Azure PowerShell
 author: sameeksha91
 ms.author: sakhare
@@ -13,8 +13,6 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: deploy Azure Monitor for SAP solutions with PowerShell
-
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 Get started with Azure Monitor for SAP solutions by using the [Az.Workloads](https://learn.microsoft.com/powershell/module/az.workloads) PowerShell module to create Azure Monitor for SAP solutions resources. You create a resource group, set up monitoring, and create a provider instance.
 

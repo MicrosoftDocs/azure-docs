@@ -1,5 +1,5 @@
 ---
-title: Set up network for Azure Monitor for SAP solutions (preview)
+title: Set up network for Azure Monitor for SAP solutions 
 description: Learn how to set up an Azure virtual network for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -9,16 +9,13 @@ ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to set up an Azure virtual network so that I can use Azure Monitor for SAP solutions.
 ---
-# Set up network for Azure Monitor for SAP solutions (preview)
+# Set up network for Azure Monitor for SAP solutions 
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
-
-In this how-to guide, you'll learn how to configure an Azure virtual network so that you can deploy *Azure Monitor for SAP solutions*. You'll learn to [create a new subnet](#create-new-subnet) for use with Azure Functions for both versions of the product, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*. Then, if you're using the current version of Azure Monitor for SAP solutions, you'll learn to [set up outbound internet access](#configure-outbound-internet-access) to the SAP environment that you want to monitor.
+In this how-to guide, you'll learn how to configure an Azure virtual network so that you can deploy *Azure Monitor for SAP solutions*. 
+- You'll learn to [create a new subnet](#create-new-subnet) for use with Azure Functions.
+- You'll learn to [set up outbound internet access](#configure-outbound-internet-access) to the SAP environment that you want to monitor.
 
 ## Create new subnet
-
-> [!NOTE]
-> This section applies to both Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic).
 
 Azure Functions is the data collection engine for Azure Monitor for SAP solutions. You'll need to create a new subnet to host Azure Functions.
 
@@ -33,9 +30,6 @@ This section only applies to if you are using Custom DNS for your Virtual Networ
 ![Custom DNS Setting ]([../../media/set-up-network/adding-custom-dns.png)
 
 ## Configure outbound internet access
-
-> [!IMPORTANT]
-> This section only applies to the current version of Azure Monitor for SAP solutions. If you're using Azure Monitor for SAP solutions (classic), skip this section.
 
 In many use cases, you might choose to restrict or block outbound internet access to your SAP network environment. However, Azure Monitor for SAP solutions requires network connectivity between the [subnet that you configured](#create-new-subnet) and the systems that you want to monitor. Before you deploy an Azure Monitor for SAP solutions resource, you need to configure outbound internet access, or the deployment will fail.
 

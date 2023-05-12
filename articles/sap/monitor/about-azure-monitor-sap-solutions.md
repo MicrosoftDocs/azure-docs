@@ -1,39 +1,26 @@
 ---
-title: What is Azure Monitor for SAP solutions? (preview)
+title: What is Azure Monitor for SAP solutions? 
 description: Learn about how to monitor your SAP resources on Azure for availability, performance, and operation.
 author: lauradolan
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: overview
-ms.custom: subject-monitoring
+ms.custom: subject-monitoringg
 ms.date: 10/27/2022
 ms.author: ladolan
 #Customer intent: As a developer, I want to learn how to monitor my SAP resources on Azure so that I can better understand their availability, performance, and operation.
 ---
 
-# What is Azure Monitor for SAP solutions? (preview)
+# What is Azure Monitor for SAP solutions? 
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 When you have critical SAP applications and business processes that rely on Azure resources, you might want to monitor those resources for availability, performance, and operation. *Azure Monitor for SAP solutions* is an Azure-native monitoring product for SAP landscapes that run on Azure. Azure Monitor for SAP solutions uses specific parts of the [Azure Monitor](../../azure-monitor/overview.md) infrastructure. You can use Azure Monitor for SAP solutions with both [SAP on Azure Virtual Machines (Azure VMs)](../../virtual-machines/workloads/sap/hana-get-started.md) and [SAP on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md). 
-
-There are currently two versions of this product, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
 ## What can you monitor?
 
 You can use Azure Monitor for SAP solutions to collect data from Azure infrastructure and databases in one central location. Then, you can visually correlate the data for faster troubleshooting.
 
 To monitor different components of an SAP landscape (such as Azure VMs, high-availability clusters, SAP HANA databases, SAP NetWeaver, etc.), add the corresponding *[provider](providers.md)*. For more information, see [how to deploy Azure Monitor for SAP solutions through the Azure portal](quickstart-portal.md).
-
-The following table provides a quick comparison of the Azure Monitor for SAP solutions (classic) and Azure Monitor for SAP solutions. 
-
-| Azure Monitor for SAP solutions | Azure Monitor for SAP solutions (classic) |
-| ------------------------------- | ----------------------------------------- |
-| Azure Functions-based collector architecture | VM-based collector architecture |
-| Support for Microsoft SQL Server, SAP HANA, and IBM Db2 databases | Support for Microsoft SQL Server, and SAP HANA databases |
-| Support for monitoring Linux Operating Systems | Support for monitoring Linux Operating Systems |
-| Support for monitoring Pace Maker High Availability for SUSE and RHEL OS | Support for monitoring Pace Maker High Availability for SUSE and RHEL OS  |
-| Support for SAP NetWeaver Monitoring | Support for SAP NetWeaver Monitoring |
 
 
 Azure Monitor for SAP solutions uses the [Azure Monitor](../../azure-monitor/overview.md) capabilities of [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
@@ -48,7 +35,7 @@ Azure Monitor for SAP solutions uses the [Azure Monitor](../../azure-monitor/ove
 
 Azure Monitor for SAP solutions doesn't collect Azure Monitor metrics or resource log data, like some other Azure resources do. Instead, Azure Monitor for SAP solutions sends custom logs directly to the Azure Monitor Logs system. There, you can then use the built-in features of Log Analytics.
 
-Data collection in Azure Monitor for SAP solutions depends on the providers that you configure. During public preview, the following data is collected.
+Data collection in Azure Monitor for SAP solutions depends on the providers that you configure. The following data is collected for each of the provider.
 
 ### Pacemaker cluster data
 
@@ -134,7 +121,7 @@ IBM Db2 data includes:
 
 ## What is the architecture?
 
-There are separate explanations for the [Azure Monitor for SAP solutions architecture](#azure-monitor-for-sap-solutions-architecture) and the [Azure Monitor for SAP solutions (classic) architecture](#azure-monitor-for-sap-solutions-classic-architecture).
+ [Azure Monitor for SAP solutions architecture](#azure-monitor-for-sap-solutions-architecture).
 
 Some important points about the architecture include: 
 
@@ -163,34 +150,11 @@ The key components of the architecture are:
    
 You can also use Kusto Query Language (KQL) to [run log queries](../../azure-monitor/logs/log-query-overview.md) against the raw tables inside the Log Analytics workspace. 
 
-### Azure Monitor for SAP solutions (classic) architecture
-
-The following diagram shows, at a high level, how Azure Monitor for SAP solutions (classic) collects data from the SAP HANA database. The architecture is the same if SAP HANA is deployed on Azure VMs or Azure Large Instances.
-
-:::image type="complex" source="./media/about-azure-monitor-sap-solutions/azure-monitor-sap-classic-architecture.png" lightbox="./media/about-azure-monitor-sap-solutions/azure-monitor-sap-classic-architecture.png" alt-text="Diagram showing the Azure Monitor for SAP solutions classic architecture.":::
-   Diagram of the Azure Monitor for SAP solutions (classic) architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. There's a managed resource group containing Log Analytics, Azure Functions, Key Vault, and Storage queue. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and JAVA), SAP HANA, Microsoft SQL Server, Pacemaker clusters, and Linux OS.
-:::image-end:::
-
-The key components of the architecture are:
-
-- The **Azure portal**, which is your starting point. You can navigate to marketplace within the Azure portal and discover Azure Monitor for SAP solutions.
-- The **Azure Monitor for SAP solutions resource**, which is the landing place for you to view monitoring data.
-- **Managed resource group**, which is deployed automatically as part of the Azure Monitor for SAP solutions resource's deployment. The resources deployed within the managed resource group help with the collection of data. Key resources deployed and their purposes are:
-   - **Azure VM**, also known as the *collector VM*, which is a **Standard_B2ms** VM. The main purpose of this VM is to host the *monitoring payload*. The monitoring payload is the logic of collecting data from the source systems and transferring the data to the monitoring framework. In the architecture diagram, the monitoring payload contains the logic to connect to the SAP HANA database over the SQL port. You're responsible for patching and maintaining the VM.
-   - **[Azure Key Vault](../../key-vault/general/basic-concepts.md)**: which is deployed to securely hold SAP HANA database credentials and to store information about providers.
-   - The **[Storage account](https://learn.microsoft.com/azure/storage/common/storage-account-overview)**, which is associated with Azure functions resource, it's used to manage triggers and logging function executions.  
-   - **[Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview), which is the destination where the data is stored.
-      - Visualization is built on top of data in Log Analytics using [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). You can customize visualization. You can also pin your Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh. The maximum frequency for refresh is every 30 minutes.
-      - You can use your existing Log Analytics workspace within the same subscription as Azure monitor resource by choosing this option at Azure Monitor for SAP solutions deployment.
-      - You can use KQL to run [queries](../../azure-monitor/logs/log-query-overview.md) against the raw tables inside the Log Analytics workspace. Look at **Custom Logs**.
-## Can you analyze Azure metrics?
-Azure Monitor for SAP solutions doesn't support Azure metrics. 
-
-### Analyze logs
+## Analyze logs
 
 Azure Monitor for SAP solutions doesn't support resource logs or activity logs. For a list of the tables used by Azure Monitor Logs that can be queried in Log Analytics, see [the data reference for monitoring SAP on Azure](data-reference.md#azure-monitor-logs-tables). 
 
-### Make Kusto queries
+## Make Kusto queries
 
 When you select **Logs** from the Azure Monitor for SAP solutions menu, Log Analytics is opened with the query scope set to the current Azure Monitor for SAP solutions. Log queries only include data from that resource. To run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) for details.
 
@@ -213,26 +177,15 @@ You have several options to deploy Azure Monitor for SAP solutions and configure
 
 - [Deploy Azure Monitor for SAP solutions directly from the Azure portal](quickstart-portal.md)
 - [Deploy Azure Monitor for SAP solutions with Azure PowerShell](quickstart-powershell.md)
-- [Deploy Azure Monitor for SAP solutions (classic) using the Azure Command-Line Interface (Azure CLI)](https://github.com/Azure/azure-hanaonazure-cli-extension#sapmonitor).
-
 ## What is the pricing?
 
 Azure Monitor for SAP solutions is a free product (no license fee). You're responsible for paying the cost of the underlying components in the managed resource group. You're also responsible for consumption costs associated with data use and retention. For more information, see standard Azure pricing documents:
 
 - [Azure Functions Pricing](https://azure.microsoft.com/pricing/details/functions/#pricing)
-- [Azure VM pricing (applicable to Azure Monitor for SAP solutions (classic))](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+
 - [Azure Key vault pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 - [Azure storage account pricing](https://azure.microsoft.com/pricing/details/storage/queues/)
 - [Azure Log Analytics and alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
-
-## How do you enable data sharing with Microsoft?
-
-> [!NOTE]
-> The following content only applies to the Azure Monitor for SAP solutions (classic) version.
-
-Azure Monitor for SAP solutions collects system metadata to provide improved support for SAP on Azure. No PII/EUII is collected.
-
-You can enable data sharing with Microsoft when you create Azure Monitor for SAP solutions resource by choosing *Share* from the drop-down. We recommend that you enable data sharing. Data sharing gives Microsoft support and engineering teams information about your environment, which helps us provide better support for your mission-critical SAP on Azure solution.
 
 ## Next steps
 
