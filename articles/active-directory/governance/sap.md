@@ -43,10 +43,10 @@ Once your users are in Azure Active Directory, you can provision accounts into t
 * **Option 2:** Use the [SAP IAS](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) enterprise application in Azure AD to provision identities into SAP IAS. Once you bring all the identities into SAP IAS, you can either enable federation with the application or use SAP IPS to provision the accounts from SAP IAS into the application.   
 * **Option 3:** Use the [SAP IPS](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/f2b2df8a273642a1bf801e99ecc4a043.html) integration to directly export identities from Azure AD into your [application](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/ab3f641552464c79b94d10b9205fd721.html). When choosing this route, all provisioning configuration is managed in SAP directly. You can still use the enterprise application in Azure AD to manage single sign-on and use [Azure AD as the corporate identity provider](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html). 
 
-# Provision identities into on-premises SAP systems such as SAP R/3 that aren't supported by SAP IPS 
+# Provision identities into on-premises SAP systems such as SAP ECC that aren't supported by SAP IPS 
 
-Customers who have yet to transition from applications such as SAP R/3 to SAP S/4 Hana can still rely on the Azure AD provisioning service to provision user accounts. Within SAP R/3, you'll expose the necessary BAPIs for creating, updating, and deleting users. Within Azure AD, you have two options:
-* **Option 1:** Use the lightweight Azure AD provisioning agent and web services connector to provision users into apps such as SAP R/3.
+Customers who have yet to transition from applications such as SAP ECC to SAP S/4 Hana can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ECC, you'll expose the necessary BAPIs for creating, updating, and deleting users. Within Azure AD, you have two options:
+* **Option 1:** Use the lightweight Azure AD provisioning agent and web services connector to provision users into apps such as SAP ECC.
 * **Option 2:** In scenarios where you need to do more complex group and role management, use the [Microsoft Identity Manager](https://learn.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) to manage access to your legacy SAP applications. 
 
 ## SSO, workflows, and Segregation of Duties
