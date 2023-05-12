@@ -457,7 +457,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
     ```
 3. Create the secret and backend using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command.
 
-Create the secret: 
+   Create the secret: 
 
     ```bash
     kubectl apply -f backend-secret.yaml -n trident
@@ -471,7 +471,7 @@ Create the secret:
     ``` 
    
    
-    Create the backend:
+   Create the backend:
     
     ```bash
     kubectl apply -f backend-anf.yaml -n trident
