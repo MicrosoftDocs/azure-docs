@@ -24,7 +24,7 @@ This article is meant to provide guidance to developers whose applications are c
 
 You should never use mutable claims (such as `email`, `preferred_username`, etc) as identifiers to perform authorization checks or index users in a database. These values are re-usable and could expose your application to privilege escalation attacks. 
 
-If your application is currently using a mutable value for indexing users, we recommend migrating to a globally unique identifier, such as the object ID (referred to as `oid` in the token claims). Doing so will ensure that each user is indexed on a value that cannot be re-used (or abused to impersonate another user). 
+If your application is currently using a mutable value for indexing users, you should migrate to a globally unique identifier, such as the object ID (referred to as `oid` in the token claims). Doing so ensures that each user is indexed on a value that can't be re-used (or abused to impersonate another user). 
 
 
 If your application uses email (or any other mutable claim) for authorization purposes, it is recommended to read through [Microsoft Identity platform’s best practices for securing applications through validation of claims](./claims-validation) and implement the appropriate checks. 
