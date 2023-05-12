@@ -48,7 +48,7 @@ To configure the integration of Marketo into Azure AD, you need to add Marketo f
 1. In the **Add from the gallery** section, type **Marketo** in the search box.
 1. Select **Marketo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Marketo
 
@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -114,7 +114,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Marketo.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Marketo.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Marketo**.
@@ -228,7 +228,7 @@ In this section, you create a user called Britta Simon in Marketo. follow these 
    
     ![test user3](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
-5. In the Invite New User wizard fill the following information.
+5. In the Invite New User wizard, fill the following information.
    
     a. Enter the user **Email** address in the textbox
    
