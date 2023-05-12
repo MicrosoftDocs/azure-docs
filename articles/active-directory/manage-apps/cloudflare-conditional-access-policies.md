@@ -16,11 +16,11 @@ ms.custom: not-enterprise-apps
 
 # Use Conditional Access policies in Cloudlfare Access
 
-With Conditional Access, administrators enforce policies on application and user policies in Azure Active Directory (Azure AD). Conditional Access brings togther identity-driven signals, to make decisions, and enforce organizational policies. Cloudflare Access creates access to self-hosted, software as a service (SaaS), or non-web applications.
+With Conditional Access, administrators enforce policies on application and user policies in Azure Active Directory (Azure AD). Conditional Access brings together identity-driven signals, to make decisions, and enforce organizational policies. Cloudflare Access creates access to self-hosted, software as a service (SaaS), or nonweb applications.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
-## Prerequisistes
+## Prerequisites
 
 * An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
@@ -45,7 +45,7 @@ Go to developers.cloudflare.com to [Set up Azure AD as an identity provider](htt
    > [!NOTE]
    > It's recommended you name the identity provider (IdP) integration in relation to the target application. For example, **Azure AD - Customer management portal**.
 
-## Configure Conditiona Access
+## Configure Conditional Access
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory**.
@@ -56,12 +56,12 @@ Go to developers.cloudflare.com to [Set up Azure AD as an identity provider](htt
 
    ![Screenshot of options and entries for branding and properties.](./media/cloudflare-condtional-access-policies/branding-properties.png)
 
-7. Under **Manage**, select **Enterprise applictions**.
+7. Under **Manage**, select **Enterprise applications**.
 8. Select your application.
 9. Select **Properties**.
 10. For **Visible to users**, select **Yes**. This action enables the app to appear in App Launcher and in [My Apps](https://myapplications.microsoft.com/).
 11. Under **Security**, select **Conditional Access**.
-12. See, [Building a Condidtion Access policy](../conditional-access/concept-conditional-access-policies.md).
+12. See, [Building a Condidtional Access policy](../conditional-access/concept-conditional-access-policies.md).
 13. Create and enable other policies for the application.
 
 ## Create a Cloudflare Access application
