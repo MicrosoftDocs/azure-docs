@@ -460,7 +460,7 @@ You can collect more data automatically when you include instrumentation librari
 
 To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
 
-The following example demonstrates how the the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect additional metrics.
+The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect additional metrics.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -475,7 +475,13 @@ app.Run();
 
 ### [.NET](#tab/net)
 
-Coming soon.
+The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect additional metrics.
+
+```csharp
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    .AddRuntimeInstrumentation()
+    .AddAzureMonitorMetricExporter();
+```
 
 ### [Java](#tab/java)
 You cannot extend the Java Distro with community instrumentation libraries. To request that we include another instrumentation library, please open an issue on our GitHub page. You can find a link to our GitHub page in [Next Steps](#next-steps).
@@ -1470,7 +1476,12 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 #### [.NET](#tab/net)
 
-Coming soon.
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
+
+```C#
+// only applicable in case of activity.Kind == Server
+activity.SetTag("http.client_ip", "<IP Address>");
+```
 
 ##### [Java](#tab/java)
 
@@ -1520,7 +1531,11 @@ activity?.SetTag("enduser.id", "<User Id>");
 
 ##### [.NET](#tab/net)
 
-Coming soon.
+Use the add [custom property example](#add-a-custom-property-to-a-span).
+
+```csharp
+activity?.SetTag("enduser.id", "<User Id>");
+```
 
 ##### [Java](#tab/java)
 
@@ -1580,7 +1595,8 @@ Attaching custom dimensions to logs can be accomplished using a [message templat
 
 #### [.NET](#tab/net)
 
-Coming soon.
+OpenTelemetry uses .NET's ILogger.
+Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [Java](#tab/java)
 
@@ -1631,7 +1647,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
+    - [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
 
 1. Use a custom processor:
     
@@ -1810,7 +1826,14 @@ string spanId = activity?.SpanId.ToHexString();
 
 #### [.NET](#tab/net)
 
-Coming soon.
+> [!NOTE]
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
+```csharp
+Activity activity = Activity.Current;
+string traceId = activity?.TraceId.ToHexString();
+string spanId = activity?.SpanId.ToHexString();
+```
 
 #### [Java](#tab/java)
 
@@ -1869,7 +1892,8 @@ Get the request trace ID and the span ID in your code:
 
 #### [.NET](#tab/net)
 
-Coming soon.
+- For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Java](#tab/java)
 
@@ -1905,15 +1929,19 @@ To provide feedback:
 
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
-- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore/) page.
-- To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
+- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
+- To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
-
 #### [.NET](#tab/net)
 
-Coming soon.
+- To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
+- To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
+- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) page.
+- To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
+- To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
+- To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ### [Java](#tab/java)
 
