@@ -8,15 +8,18 @@ ms.date: 05/08/2023
 
 # Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service
 
-After you [configure Azure NetApp Files volumes for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
+After you [configure Azure NetApp Files for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
 
-Azure NetApp Files supportsvolumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB](azure-netapp-files-smb.md), or dual-protocol (NFSv3 and SMB, or NFSv4.1 and SMB). This article describes details about provisioning the volumes for dual-protocol access. For information about provisioning SMB volumes statically and dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md). For information about provisioning NFS volumes statically and dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md).
+Azure NetApp Files supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB](azure-netapp-files-smb.md), or dual-protocol (NFSv3 and SMB, or NFSv4.1 and SMB). 
+* This article describes details for statically provisioning volumes for dual-protocol access. 
+* For information about provisioning SMB volumes statically or dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md). 
+* For information about provisioning NFS volumes statically or dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md).
 
-This section describes how to create a dual-protocol volume on Azure NetApp Files and expose the volume statically to Kubernetes. It also describes how to use the volume with a containerized application.
+This section describes how to provision a dual-protocol volume on Azure NetApp Files and expose the volume statically to Kubernetes. It also describes how to use the volume with a containerized application.
 
-## Create a dual-protocol volume
+## Before you begin
 
-For information on creating dual protocol volumes, please see [create a dual-protocol volume for Azure NetApp Files](../azure-netapp-files/create-volumes-dual-protocol).
+* You must have already created a dual-protocol volume. See [create a dual-protocol volume for Azure NetApp Files](../azure-netapp-files/create-volumes-dual-protocol).
 
 ## Provision a dual-protocol volume in Azure Kubernetes Service
 
@@ -26,7 +29,16 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
 
 ### Create the persistent volume for NFS
 
-1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) command. Replace the variables with appropriate values from your Azure NetApp Files account and environment if not defined in a previous step.
+1. Define variables for later usage. Replace *myresourcegroup*, *myaccountname*, *mypool1*, *myvolname* with an appropriate value from your dual-protocol volume.
+
+    ```azurecli-interactive
+    RESOURCE_GROUP="myresourcegroup"
+    ANF_ACCOUNT_NAME="myaccountname"
+    POOL_NAME="mypool1"
+    VOLUME_NAME="myvolname"
+    ``` 
+    
+2. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) command. Replace the variables with appropriate values from your Azure NetApp Files account and environment if not defined in a previous step.
 
     ```azurecli-interactive
     az netappfiles volume show \
@@ -54,7 +66,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
     }
     ```
 
-2. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from Step 1, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
+3. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from Step 1, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
 
     ```yaml
     apiVersion: v1
@@ -73,13 +85,13 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
         path: /myfilepath2
     ```
 
-3. Create the persistent volume using the [`kubectl apply`][kubectl-apply] command:
+4. Create the persistent volume using the [`kubectl apply`][kubectl-apply] command:
 
     ```bash
     kubectl apply -f pv-nfs.yaml
     ```
 
-4. Verify the status of the persistent volume is *Available* by using the [`kubectl describe`][kubectl-describe] command:
+5. Verify the status of the persistent volume is *Available* by using the [`kubectl describe`][kubectl-describe] command:
 
     ```bash
     kubectl describe pv pv-nfs
@@ -210,7 +222,16 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
 ### Create the persistent volume for SMB
 
-1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
+1. Define variables for later usage. Replace *myresourcegroup*, *myaccountname*, *mypool1*, *myvolname* with an appropriate value from your dual-protocol volume.
+
+    ```azurecli-interactive
+    RESOURCE_GROUP="myresourcegroup"
+    ANF_ACCOUNT_NAME="myaccountname"
+    POOL_NAME="mypool1"
+    VOLUME_NAME="myvolname"
+    ``` 
+    
+2. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
 
     ```azurecli-interactive
     az netappfiles volume show \
@@ -239,7 +260,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     }
     ```
 
-2. Create a file named `pv-smb.yaml` and copy in the following YAML. If necessary, replace `myvolname` with the `creationToken` and replace `ANF-1be3.contoso.com\myvolname` with the value of `smbServerFqdn` from the previous step. Be sure to include your AD credentials secret along with the namespace where it is located that you created in a prior step.
+3. Create a file named `pv-smb.yaml` and copy in the following YAML. If necessary, replace `myvolname` with the `creationToken` and replace `ANF-1be3.contoso.com\myvolname` with the value of `smbServerFqdn` from the previous step. Be sure to include your AD credentials secret along with the namespace where it is located that you created in a prior step.
 
     ```yaml
     apiVersion: v1
@@ -268,13 +289,13 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
           namespace: default
     ```
 
-3. Create the persistent volume using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
+4. Create the persistent volume using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
 
     ```bash
     kubectl apply -f pv-smb.yaml
     ```
 
-4. Verify the status of the persistent volume is *Available* using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
+5. Verify the status of the persistent volume is *Available* using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe pv pv-smb
