@@ -9,10 +9,7 @@ ms.author: daknappe
 
 # Create an MSIX image for Azure Virtual Desktop
 
-To use MSIX app attach with Azure Virtual Desktop, you need to expand an MSIX-packaged application into an MSIX image. This article shows you how to create an MSIX image, which you need to upload to a file share and publish in Azure Virtual Desktop.
-
-> [!IMPORTANT]
-> To guarantee compatibility, make sure the CIM files storing your MSIX images are generated on a version of Windows that is lower than or equal to the version of Windows where you are planning to run the MSIX packages. For example, CIM files generated on Windows 11 may not work on Windows 10.
+To use MSIX app attach with Azure Virtual Desktop, you need to expand an MSIX-packaged application into an MSIX image. This article shows you how to create an MSIX image, which you then need to upload to a file share and publish in Azure Virtual Desktop.
 
 ## Prerequisites
 
@@ -40,6 +37,9 @@ Select the relevant tab for your scenario.
 
 Here are example commands to create an MSIX image as a CIM disk image. You should create a new folder for the destination because a CIM disk image is made up of multiple files and this helps differentiate between the images.
 
+> [!IMPORTANT]
+> To guarantee compatibility, make sure the CIM files storing your MSIX images are generated on a version of Windows that is lower than or equal to the version of Windows where you are planning to run the MSIX packages. For example, CIM files generated on Windows 11 may not work on Windows 10.
+
 1. Open command prompt as an administrator and change to the directory you extracted the MSIXMGR tool. 
 
 1. Create a new folder for the destination by running the following command:
@@ -51,7 +51,7 @@ Here are example commands to create an MSIX image as a CIM disk image. You shoul
 1. To create the CIM disk image, run the following command:
 
    ```cmd
-   msixmgr.exe -Unpack -packagepath "C:\msix\myapp.msix" -destination "C:\msix\myapp\myapp.cim" -applyacls -create -filetype cim -rootDirectory apps
+   msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp\myapp.cim" -applyACLs -create -fileType cim -rootDirectory apps
    ```
 
    The output should be as follows:
@@ -69,7 +69,7 @@ Here's an example command to create an MSIX image as a VHDX disk image. A single
 1. To create the VHDX disk image, run the following command:
 
    ```cmd
-   msixmgr.exe -Unpack -packagepath "C:\msix\myapp.msix" -destination "C:\msix\myapp.vhdx" -applyacls -create -filetype vhdx -vhdSize 600 -rootDirectory apps
+   msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp.vhdx" -applyACLs -create -fileType vhdx -vhdSize 600 -rootDirectory apps
    ```
 
    > [!TIP]
