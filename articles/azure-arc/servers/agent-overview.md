@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/23/2023
+ms.date: 05/12/2023
 ms.topic: conceptual
 ---
 
@@ -160,6 +160,14 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
   * The Linux OS Update Extension (used by Azure Update Management Center) can use up to 30% of the CPU to patch the server.
   * The Microsoft Defender for Endpoint extension can use up to 30% of the CPU during installation, upgrades, and removal operations.
   * The Microsoft Sentinel DNS extension can use up to 30% of the CPU to collect logs from DNS servers
+
+During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
+
+| | Windows | Linux |
+| **CPU usage (normalized to 1 core)** | 0.07% | 0.02% |
+| **Memory usage** | 57 MB | 42 MB |
+
+The performance data above was gathered in April 2023 on virtual machines running Windows Server 2022 and Ubuntu 20.04. Actual agent performance and resource consumption will vary based on the configuration of your servers.
 
 ## Instance metadata
 
