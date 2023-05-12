@@ -79,7 +79,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 ### VM types
 
-To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs).
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
 If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. The VMs must have standard hard disk drives (HDD), not SSD.
 

@@ -16,11 +16,11 @@ ms.topic: conceptual
 
 * <a id="azure-container-storage-vs-csi-drivers"></a>
   **What's the difference between Azure Container Storage and Azure CSI drivers?**  
-  Azure Container Storage is built natively for containers and provides a storage solution that's optimized for creating and managing volumes for running production-scale stateful container applications. Other Azure CSI drivers provide a more general storage solution that can be used with different container orchestrators and support the specific type of storage solution per CSI driver definition.
+  Azure Container Storage is built natively for containers and provides a storage solution that's optimized for creating and managing volumes for running production-scale stateful container applications. Other Azure CSI drivers provide a standard storage solution that can be used with different container orchestrators and support the specific type of storage solution per CSI driver definition.
 
 * <a id="azure-container-storage-regions"></a>
   **In which Azure regions is Azure Container Storage available?**  
-  See [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products).
+  Azure Container Storage Preview is only available in East US, West Europe, West US 2, and West US 3. See [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products).
 
 * <a id="azure-container-storage-preview-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
