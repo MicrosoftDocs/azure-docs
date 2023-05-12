@@ -6,7 +6,7 @@ ms.date: 05/09/2023
 ---
 
 # Migrate from MMA custom text log to AMA DCR based custom text logs
-This article describes the steps to migrate a [MMA Custom text log](data-source-custom.md) table so you can use it as a destination for a new [AMA custom text log](data-collection-text-log.md) DCR. You will not lose any data. If you are creating a new AMA custom text log table, then this article does not pertain to you.
+This article describes the steps to migrate a [MMA Custom text log](data-source-custom-logs.md) table so you can use it as a destination for a new [AMA custom text log](data-collection-text-log.md) DCR. You will not lose any data. If you are creating a new AMA custom text log table, then this article does not pertain to you.
   
 ## Background
 MMA custom text logs must be configured to support new features in order for AMA custom text log DCRs to write to it. The following actions are taken:
@@ -18,9 +18,9 @@ MMA custom text logs must be configured to support new features in order for AMA
 You should follow the steps only if the following criteria are true:  
 - You created the original table using the Custom Log Wizard.
 - You're going to preserve the existing data in the table.
-- You're going to write new data using and [AMA custom text log DCR](data-collection-text-log.md) and possibly configure an [ingestion time transformation]( azure-monitor-agent-transformation.md).
+- You're going to write new data using and [AMA custom text log DCR](data-collection-text-log.md) and possibly configure an [ingestion time transformation](azure-monitor-agent-transformation.md).
 
-1. Configure your data collection rule (DCR) following procedures at [collect test logs with Azure Monitor Agent](data-collection-text-log.md) 
+1. Configure your data collection rule (DCR) following procedures at [collect text logs with Azure Monitor Agent](data-collection-text-log.md) 
 2. Issue the following API call against your existing custom logs table to enable ingestion from Data Collection Rule and manage your table from the portal UI. This call is idempotent and future calls have no effect. Migration is one-way, you can't migrate the table back to MMA. 
     ```rest
  POST https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
