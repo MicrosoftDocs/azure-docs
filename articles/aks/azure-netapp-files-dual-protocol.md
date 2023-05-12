@@ -27,7 +27,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
 
 ### Create the persistent volume for NFS
 
-1. Define variables for later usage. Replace *myresourcegroup*, *myaccountname*, *mypool1*, *myvolname* with an appropriate value from your dual-protocol volume.
+1. Define variables for later usage. Replace *myresourcegroup*, *myaccountname*, *mypool1*, *myvolname* with an appropriate values from your dual-protocol volume.
 
     ```azurecli-interactive
     RESOURCE_GROUP="myresourcegroup"
@@ -64,7 +64,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
     }
     ```
 
-3. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from Step 1, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
+3. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from the previous step, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
 
     ```yaml
     apiVersion: v1
@@ -83,13 +83,13 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
         path: /myfilepath2
     ```
 
-4. Create the persistent volume using the [`kubectl apply`][kubectl-apply] command:
+4. Create the persistent volume using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl apply -f pv-nfs.yaml
     ```
 
-5. Verify the status of the persistent volume is *Available* by using the [`kubectl describe`][kubectl-describe] command:
+5. Verify the status of the persistent volume is *Available* by using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe pv pv-nfs
@@ -113,13 +113,13 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
           storage: 100Gi
     ```
 
-2. Create the persistent volume claim using the [`kubectl apply`][kubectl-apply] command:
+2. Create the persistent volume claim using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl apply -f pvc-nfs.yaml
     ```
 
-3. Verify the *Status* of the persistent volume claim is *Bound* by using the [`kubectl describe`][kubectl-describe] command:
+3. Verify the *Status* of the persistent volume claim is *Bound* by using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe pvc pvc-nfs
@@ -151,19 +151,19 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
           claimName: pvc-nfs
     ```
 
-2. Create the pod using the [`kubectl apply`][kubectl-apply] command:
+2. Create the pod using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl apply -f nginx-nfs.yaml
     ```
 
-3. Verify the pod is *Running* by using the [`kubectl describe`][kubectl-describe] command:
+3. Verify the pod is *Running* by using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl describe pod nginx-nfs
     ```
 
-4. Verify your volume has been mounted on the pod by using [`kubectl exec`][kubectl-exec] to connect to the pod, and then use `df -h` to check if the volume is mounted.
+4. Verify your volume has been mounted on the pod by using [`kubectl exec`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) to connect to the pod, and then use `df -h` to check if the volume is mounted.
 
     ```bash
     kubectl exec -it nginx-nfs -- sh
@@ -296,7 +296,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 5. Verify the status of the persistent volume is *Available* using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
-    kubectl describe pv pv-smb
+    kubectl describe pv anf-pv-smb
     ```
 
 ### Create a persistent volume claim for SMB
@@ -324,10 +324,10 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     kubectl apply -f pvc-smb.yaml
     ```
 
-    Verify the status of the persistent volume claim is *Bound* by using the [kubectl describe][kubectl-describe] command:   
+    Verify the status of the persistent volume claim is *Bound* by using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
 
     ```bash
-    kubectl describe pvc pvc-smb
+    kubectl describe pvc anf-pvc-smb
     ```
 
 ### Mount within a pod using SMB 
@@ -363,13 +363,13 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
           readOnly: false
     ```
 
-2. Create the pod using the [kubectl apply][kubectl-apply] command:
+2. Create the pod using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl apply -f iis-smb.yaml
     ```
 
-3. Verify the pod is *Running* and `/inetpub/wwwroot` is mounted from SMB by using the [kubectl describe][kubectl-describe] command:
+3. Verify the pod is *Running* and `/inetpub/wwwroot` is mounted from SMB by using the [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe pod iis-pod
@@ -413,7 +413,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     ...
     ```
 
-4. Verify your volume has been mounted on the pod by using the [kubectl exec][kubectl-exec] command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
+4. Verify your volume has been mounted on the pod by using the [kubectl exec](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
 
     ```bash
     kubectl exec -it iis-pod –- cmd.exe
