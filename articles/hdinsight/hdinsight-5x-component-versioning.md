@@ -25,7 +25,7 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 | Apache Spark     | 3.3.1  **              | 3.1.3       |
 | Apache Hive      | 3.1.2  **              | 3.1.2       |
 | Apache Kafka     | 3.2.0  **              | 2.4.1       |
-| Apache Hadoop    | 3.3.4                  | 3.1.1       |
+| Apache Hadoop    | 3.3.4  **              | 3.1.1       |
 | Apache Tez       | 0.9.1  **              | 0.9.1       |
 | Apache Ranger    | 2.3.0 *                | 1.1.0       |
 | Apache HBase     | 2.4.11 **              | 2.1.6       |
