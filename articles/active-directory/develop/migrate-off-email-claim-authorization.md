@@ -2,15 +2,15 @@
 title: Migrate away from using email claims for authorization
 description: Learn how to migrate your application away from using insecure claims, such as email, for authorization purposes. 
 services: active-directory
-author: medhir
+author: davidmu1
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/11/2023
-ms.author: davidmu1
-ms.reviewer: medhir
+ms.author: davidmu
+ms.reviewer: medbhargava
 ms.custom: curation-claims
 
 ---
@@ -61,5 +61,5 @@ Enabling `replace_unverified_email_with_upn` should be viewed mainly as a short-
 
 ## Next steps
 
-- To learn more about using claims-based authorization securly, see [Secure applications and APIs by validating claims](claims-validation.md)
+- To learn more about using claims-based authorization securely, see [Secure applications and APIs by validating claims](claims-validation.md)
 - For more information about optional claims, see [Provide optional claims to your application](./active-directory-optional-claims.md)
