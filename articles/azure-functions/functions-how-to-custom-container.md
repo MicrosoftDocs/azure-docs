@@ -3,21 +3,26 @@ title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
 ms.date: 05/09/2023
 ms.topic: how-to
+zone_pivot_groups: functions-container-hosting
 ---
 
 # Working with containers and Azure Functions
 
-This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. Unless otherwise noted, the content applies to all function apps running in containers, regardless of the hosting environment. 
+This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. Choose the hosting environment for your containerized function app at the top of the article. 
 
-If you want to jump right in, the following articles show you how to create your first function running in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
+If you want to jump right in, the following article show you how to create your first function running in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
 
+:::zone pivot="container-apps"
 + Azure Container Apps (preview): [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-aca.md)
 
-+ Azure Functions: [Create your first containerized Azure Functions](functions-deploy-container.md)
-
-+ Azure Arc (preview): [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
-
 To learn more about deployments to Azure Container Apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md). 
+:::zone-end
+:::zone pivot="azure-functions"
++ Azure Functions: [Create your first containerized Azure Functions](functions-deploy-container.md)
+:::zone-end
+:::zone pivot="azure-arc"
++ Azure Arc (preview): [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
+::: zone-end
 
 ## Creating containerized function apps
 
@@ -46,23 +51,31 @@ Replace `<DOCKER_ID>` with your Docker Hub account ID.
 
 ---
 
-At this point, you need to update the deployment to use the new image. You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
+At this point, you need to update the deployment to use the new image. The following example updates the function app to use the new image: 
 
+```azurecli
+az functionapp config container set --image <IMAGE_NAME> --registry-password <SECURE_PASSWORD>--registry-username <USER_NAME> --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+In this example, `<IMAGE_NAME>` is the full name of the new image with version. Private registries require you to supply a username and password. Store these credentials securely.
+
+:::zone pivot="azure-functions"
+You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
+::: zone-end
 ## Work with images in Azure Functions
 
 When your function app container is deployed from a registry, Functions maintains information about the source image. Use the following commands to get data about the image or change the deployment image used:
 
  +  [`az functionapp config container show`](/cli/azure/functionapp/config/container#az-functionapp-config-container-show): returns information about the image used for deployment. 
 
- +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or the image used for deployment.
+ +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or update the image used for deployment, as shown in the previous example.
 
 ## Application settings
 
 Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
 
+:::zone pivot="azure-functions"
 ## Enable continuous deployment to Azure
-
-_Currently supported only for containers deployed to Azure Functions_ 
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 
@@ -94,6 +107,7 @@ You can enable Azure Functions to automatically update your deployment of an ima
     :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot showing how to add the webhook in your Docker Hub window.":::  
 
 1. With the webhook set, Azure Functions redeploys your image whenever you update it in Docker Hub.
+::: zone-end
 
 ## Enable SSH connections
 

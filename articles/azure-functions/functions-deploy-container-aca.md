@@ -96,6 +96,9 @@ A function app on Azure manages the execution of your functions in your Azure Co
     In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` or `<LOGIN_SERVER>` with your Docker Hub account ID or Container Registry server, respectively. 
 
     When you first create the function app, it pulls the initial image from your registry. 
+
+    >[!TIP] 
+    > When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry)  
 <!--- CI/CD isn't yet supported: 
 You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.-->
 
@@ -134,7 +137,7 @@ az group delete --name AzureFunctionsContainers-rg
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Working with containers and Azure Functions](./functions-how-to-custom-container.md)
-
-[authorization keys]: functions-bindings-http-webhook-trigger.md#authorization-keys
+> [!div class="nextstepaction"]  
+> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)  
+> [!div class="nextstepaction"]  
+> [Working with containers and Azure Functions](./functions-how-to-custom-container.md)  

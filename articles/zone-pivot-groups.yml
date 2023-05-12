@@ -399,6 +399,16 @@ groups:
     title: v4 (preview)
   - id: nodejs-model-v3
     title: v3
+- id: functions-container-hosting
+  title: Container hosting
+  prompt: Choose a container host
+  pivots:
+  - id: azure-functions
+    title: Azure Functions
+  - id: container-apps
+    title: Azure Container Apps (preview)
+  - id: azure-arc
+    title: Azure Arc (preview)    
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
