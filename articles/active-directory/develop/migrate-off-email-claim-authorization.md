@@ -16,7 +16,7 @@ ms.custom:
 
 ---
 
-# Migrating Away from Incorrect Use of Email Claims for Authorization
+# Migrate away from using email claims for authorization
 
 This article is meant to provide guidance to developers whose applications are currently using an incorrect pattern where [unverified emails are used for authorization](). 
 
