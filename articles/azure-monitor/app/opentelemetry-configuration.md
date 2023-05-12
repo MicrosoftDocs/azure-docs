@@ -57,7 +57,7 @@ Use one of the following three ways to configure the connection string:
 
 Use one of the following two ways to configure the connection string:
 
-- Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, this will be in either your `startup.cs` or `program.cs` class.
+- Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup.
     ```csharp
     var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter(options =>
@@ -178,12 +178,12 @@ var resourceAttributes = new Dictionary<string, object> {
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
 
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    // Set ResourceBuilder on the TracingProvider.
+    // Set ResourceBuilder on the TracerProvider.
     .SetResourceBuilder(resourceBuilder)
     .AddAzureMonitorTraceExporter();
 
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
-    // Set ResourceBuilder on the MetricsProvider.
+    // Set ResourceBuilder on the MeterProvider.
     .SetResourceBuilder(resourceBuilder)
     .AddAzureMonitorMetricExporter();
 
