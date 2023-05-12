@@ -79,7 +79,7 @@ az vmss create \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \
     --max-surge true \
-    --instance-count 2 \
+    --instance-count 5 \
     --disable-overprovision \
     --admin-username azureuser \
     --generate-ssh-keys
@@ -117,7 +117,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
             "maxUnhealthyInstancePercent": 20,
             "maxUnhealthyUpgradedInstancePercent": 20,
             "pauseTimeBetweenBatches": "PT2S",
-	        "MaxSurge": "true"
+	    "MaxSurge": "true"
 ```
 ---
 
@@ -126,7 +126,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
 ### [CLI](#tab/cli2)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and set the Upgrade Policy from `Manual` to `Rolling` with `MaxSurge` enabled. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurecli-interactive
 az vmss update \
@@ -166,7 +166,7 @@ Update the properties section of your ARM template as follows:
             "maxUnhealthyInstancePercent": 20,
             "maxUnhealthyUpgradedInstancePercent": 20,
             "pauseTimeBetweenBatches": "PT2S",
-	        "MaxSurge": "true"
+	    "MaxSurge": "true"
 ```
 ---
 
