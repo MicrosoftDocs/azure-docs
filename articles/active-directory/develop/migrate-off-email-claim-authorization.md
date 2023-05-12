@@ -37,7 +37,7 @@ You should never use mutable claims (such as `email`, `preferred_username`, etc)
 If your application is currently using a mutable value for indexing users, you should migrate to a globally unique identifier, such as the object ID (referred to as `oid` in the token claims). Doing so ensures that each user is indexed on a value that can't be re-used (or abused to impersonate another user). 
 
 
-If your application uses email (or any other mutable claim) for authorization purposes, you should read through the [Secure applications and APIs by validating claims](./claims-validation) and implement the appropriate checks. 
+If your application uses email (or any other mutable claim) for authorization purposes, you should read through the [Secure applications and APIs by validating claims](claims-validation.md) and implement the appropriate checks. 
 
 ## Short-term risk mitigation
 
@@ -55,11 +55,11 @@ To mitigate the risk of unauthorized access before updating application code, yo
 
 Enabling `replace_unverified_email_with_upn` eliminates the most significant risk of cross-tenant privilege by ensuring authorization doesn't occur against an arbitrarily set email value.  While enabling this property prevents unauthorized access, it can also break access to users with unverified emails. Internal data suggests the overall percentage of users with unverified emails is low and this tradeoff is appropriate to secure applications in the short term. 
 
-The `replace_unverified_email_with_upn` option is also documented under the documentation for [additional properties of optional claims](./active-directory-optional-claims.md#additional-properties-of-optional-claims).
+The `replace_unverified_email_with_upn` option is also documented under the documentation for [additional properties of optional claims](active-directory-optional-claims.md#additional-properties-of-optional-claims).
 
 Enabling `replace_unverified_email_with_upn` should be viewed mainly as a short-term risk mitigation strategy while migrating applications away from email claims, and not as a permanent solution for resolving account escalation risk related to email usage. 
 
 ## Next steps
 
-- To learn more about using claims-based authorization securly, see [Secure applications and APIs by validating claims](./claims-validation)
+- To learn more about using claims-based authorization securly, see [Secure applications and APIs by validating claims](claims-validation.md)
 - For more information about optional claims, see [Provide optional claims to your applicaiton](./active-directory-optional-claims.md)
