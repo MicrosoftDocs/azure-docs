@@ -3,10 +3,12 @@ title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 author: flang-msft
 
+ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 05/11/2023
+
 
 ---
 
@@ -17,6 +19,9 @@ ms.date: 05/10/2023
 ### Azure Active Directory-based authentication and authorization (preview)
 
 Azure Active Directory (Azure AD) based authentication and authorization is now available for public preview with Azure Cache for Redis. With this Azure AD integration, users can connect to their cache instance without an access key and use role-based access control to connect to their cache instance.
+
+> [!IMPORTANT]
+> The updates to Azure Cache for Redis that enable both  Azure Active Directory for authentication and role-based access control are available only in East US region.
 
 This feature is available for Azure Cache for Redis Basic, Standard, and Premium SKUs. With this update, customers can look forward to increased security and a simplified authentication process when using Azure Cache for Redis.
 
@@ -182,7 +187,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 ## January 2022
 
-### Support for managed identity in Azure Cache for Redis with storage
+### Support for managed identity in Azure Cache for Redis in storage
 
 Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
