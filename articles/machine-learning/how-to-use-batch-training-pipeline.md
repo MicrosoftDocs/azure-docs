@@ -345,7 +345,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 
-It's worth mentioning that only the pipeline's inputs are published as inputs in the batch endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs you want to expose to your clients and which ones you don't want to expose.
+It's worth mentioning that only the pipeline's inputs are published as inputs in the batch endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs you want to expose to your clients and which ones you want to hide.
 
 ### Access job outputs
 

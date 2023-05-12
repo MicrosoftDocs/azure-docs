@@ -18,7 +18,7 @@ ms.custom: how-to, devplatv2
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch endpoints allow you to deploy pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deployment. However, if you already have a pipeline job that runs successfully, Azure Machine Learning can accept that job as input and create the pipeline component automatically for you. In this article, you'll learn how to use your existing pipeline job as an input Azure Machine Learning.
+Batch endpoints allow you to deploy pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deployment. However, if you already have a pipeline job that runs successfully, Azure Machine Learning can accept that job as input to your batch endpoint and create the pipeline component automatically for you. In this article, you'll learn how to use your existing pipeline job as input for batch deployment.
 
 You'll learn to:
 
