@@ -29,7 +29,7 @@ Azure Cache for Redis now supports upto 30 shards for clustered caches. Clustere
 
 ### Limitations
 
-- Shard limit for caches with Redis verion 4 is 10.
+- Shard limit for caches with Redis version 4 is 10.
 - Shard limit for [caches affected by cloud service retirement](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic) is 10.
 - Maintenance will take longer as each node take roughly 20 minutes to update. Other maintenance operations will be blocked while your cache is under maintenance.
 
@@ -95,7 +95,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 
 To change the cluster size on a premium cache that you created earlier, and is already running with clustering enabled, select **Cluster size** from the Resource menu.
 
-:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Screenshot of Resource manager with Cluster size selected. ":::
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Screenshot of Resource Manager with Cluster size selected. ":::
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
 
@@ -202,7 +202,7 @@ If you're using StackExchange.Redis and receive `MOVE` exceptions when using clu
 
 ### Does scaling out using clustering help to increase the number of supported client connections?
 
-No,scaling out using clustering and increasing the number of shards doesn't help in increasing the number of supported client connections.
+No, scaling out using clustering and increasing the number of shards doesn't help in increasing the number of supported client connections.
 
 ## Next steps
 
