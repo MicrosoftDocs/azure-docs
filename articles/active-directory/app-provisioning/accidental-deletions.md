@@ -53,7 +53,7 @@ threshold.
 
 6. Select **Save** to save the changes.
 
-When the deletion threshold is met, the job will go into quarantine and a notification email is sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
+When the deletion threshold is met, the job goes into quarantine and a notification email is sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 ## Recovering from an accidental deletion
 When you encounter an accidental deletion, you see it on the provisioning status page.  It will say `Provisioning has been quarantined. See quarantine details for more information`.
