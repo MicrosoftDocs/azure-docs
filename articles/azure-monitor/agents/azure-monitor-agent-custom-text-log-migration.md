@@ -6,13 +6,13 @@ ms.date: 05/09/2023
 ---
 
 # Migrate from MMA custom text log to AMA DCR based custom text logs
-This article describes the steps to migrate a [MMA Custom text log](data-sources-custom-logs.md) table so you can use it as a destination for a new [AMA custom text log](data-collection-text-log.md) DCR. You will not lose any data. If you are creating a new AMA custom text log table, then this article does not pertain to you.
+This article describes the steps to migrate a [MMA Custom text log](data-sources-custom-logs.md) table so you can use it as a destination for a new [AMA custom text logs](data-collection-text-log.md) DCR. When you follow the steps, you won't lose any data. If you're creating a new AMA custom text log table, then this article doesn't pertain to you.
   
 ## Background
 MMA custom text logs must be configured to support new features in order for AMA custom text log DCRs to write to it. The following actions are taken:
-- The table is reconfigured to enable all DCR-based custom logs features. This includes DCR and DCE support and management with the tables control plane.
-- All MMA custom fields will stop updating in the table. AMA can write data to any column in the table. 
-- The MMS Custom text log can write to non-custom fields, but it will not be able to create new columns. The portal table management UI can be used to change the schema after migration.
+- The table is reconfigured to enable all DCR-based custom logs features.
+- All MMA custom fields stop updating in the table. AMA can write data to any column in the table. 
+- The MMS Custom text log can write to noncustom fields, but it will not be able to create new columns. The portal table management UI can be used to change the schema after migration.
 
 ## Migration procedure
 You should follow the steps only if the following criteria are true:  
