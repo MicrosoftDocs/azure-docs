@@ -22,13 +22,13 @@ ms.custom: aaddev
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-[Shared device mode](msal-shared-devices.md) allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single signed-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
+[Shared device mode](msal-shared-devices.md) allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single sign-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
 
 To take advantage of shared device mode feature, app developers and cloud device admins work together:
 
-1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune. The MDM pushes the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) app to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode. To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
+1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune. The MDM pushes the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode. To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
 
-1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) to handle the following:
+1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) to handle the following scenario:
 
    - Sign in a user device-wide through any supported application.
    - Sign out a user device-wide through any supported application.
@@ -38,13 +38,13 @@ To take advantage of shared device mode feature, app developers and cloud device
    Supporting shared device mode should be considered a feature upgrade for your application, and can help increase its adoption in environments where the same device is used among multiple users.
 
     > [!IMPORTANT] 
-    > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS dont require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
+    > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS don't require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
 
 ## Set up device in Shared Device Mode
 
 Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
-Microsoft Intune supports zero-touch provisioning for devices in Azure AD shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To setup device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
+Microsoft Intune supports zero-touch provisioning for devices in Azure Active Directory (Azure AD) shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To setup device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
 
 > [!IMPORTANT]
 > We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
@@ -236,7 +236,7 @@ void sharedModeAccountChangedCallback(CFNotificationCenterRef center, void * o
 } 
 ```
 
-For more information about the available options for CFNotificationAddObserver or to see the corresponding method signatures in Swift, see:
+For more information about the available options for `CFNotificationAddObserver` or to see the corresponding method signatures in Swift, see:
 
 - [CFNotificationAddObserver](https://developer.apple.com/documentation/corefoundation/1543316-cfnotificationcenteraddobserver?language=objc)
 - [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
