@@ -137,7 +137,12 @@ You'll see your recently installed extensions listed:
 
 Select an extension name to navigate to a properties view where you're able to disable auto upgrades, check the provisioning state, delete the extension instance, or modify configuration settings as needed.
 
-:::image type="content" source="./media/deploy-marketplace/properties.png" alt-text="The Azure portal page for extension properties.":::
+:::image type="content" source="./media/deploy-marketplace/properties.png" alt-text="The Azure portal page for extension properties."::: 
+
+To manage settings of your installed extension, you can edit the configuration settings:
+
+![Cluster-extension-config-settings.](media/deploy-marketplace/cluster-extension-config-settings.png)
+
 
 ---
 
@@ -185,5 +190,6 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
 
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
 
 
