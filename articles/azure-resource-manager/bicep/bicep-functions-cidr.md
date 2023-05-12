@@ -14,7 +14,7 @@ Classless Inter-Domain Routing (CIDR) is a method of allocating IP addresses and
 
 `parseCidr(network)`
 
-Parses an IP address range in CIDR notation and returns an object containing various properties of the address range.
+Parses an IP address range in CIDR notation to get various properties of the address range.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -22,7 +22,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| `network` | Yes | `string` | String in CIDR notation containing an IP address range to be converted. |
+| network | Yes | string | String in CIDR notation containing an IP address range to be converted. |
 
 ### Return value
 
@@ -79,9 +79,9 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| `network` | Yes | `string` | String containing an IP address range to convert in CIDR notation. |
-| `cidr` | Yes | `int` | An integer representing the CIDR to be used to subnet.  |
-| `subnetIndex` | Yes | `int` | Index of the desired subnet IP address range to return. |
+| network | Yes | string | String containing an IP address range to convert in CIDR notation. |
+| cidr | Yes | int | An integer representing the CIDR to be used to subnet.  |
+| subnetIndex | Yes | int | Index of the desired subnet IP address range to return. |
 
 ### Return value
 
@@ -137,8 +137,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| `network` | Yes | `string` | String containing an ip network to convert (must be correct networking format). |
-| `hostIndex` | Yes | `int` |  The index of the host IP address to return. |
+| network | Yes | string | String containing an ip network to convert (must be correct networking format). |
+| hostIndex | Yes | int |  The index of the host IP address to return. |
 
 ### Return value
 

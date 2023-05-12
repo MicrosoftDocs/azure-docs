@@ -17,7 +17,7 @@ This article describes the functions for working with CIDR in your Azure Resourc
 
 `parseCidr(network)`
 
-Parses an IP address range in CIDR notation and returns an object containing various properties of the address range.
+Parses an IP address range in CIDR notation to get various properties of the address range.
 
 In Bicep, use the [parseCidr](../bicep/bicep-functions-cidr.md#parsecidr) function.
 
@@ -25,7 +25,7 @@ In Bicep, use the [parseCidr](../bicep/bicep-functions-cidr.md#parsecidr) functi
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| `network` | Yes | `string` | String in CIDR notation containing an IP address range to be converted. |
+| network | Yes | string | String in CIDR notation containing an IP address range to be converted. |
 
 ### Return value
 
@@ -102,9 +102,9 @@ In Bicep, use the [cidrSubnet](../bicep/bicep-functions-cidr.md#cidrsubnet) func
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| `network` | Yes | `string` | String containing an IP address range to convert in CIDR notation. |
-| `cidr` | Yes | `int` | An integer representing the CIDR to be used to subnet.  |
-| `subnetIndex` | Yes | `int` | Index of the desired subnet IP address range to return. |
+| network | Yes | string | String containing an IP address range to convert in CIDR notation. |
+| cidr | Yes | int | An integer representing the CIDR to be used to subnet.  |
+| subnetIndex | Yes | int | Index of the desired subnet IP address range to return. |
 
 ### Return value
 
@@ -180,14 +180,14 @@ The preceding example returns the following array:
 
 Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation.
 
-In Bicep, use the [cidrHost](../bicep/bicep-functions-cidr.md#cidrHost) function.
+In Bicep, use the [cidrHost](../bicep/bicep-functions-cidr.md#cidrhost) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| `network` | Yes | `string` | String containing an ip network to convert (must be correct networking format). |
-| `hostIndex` | Yes | `int` |  The index of the host IP address to return. |
+| network | Yes | string | String containing an ip network to convert (must be correct networking format). |
+| hostIndex | Yes | int |  The index of the host IP address to return. |
 
 ### Return value
 
