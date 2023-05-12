@@ -12,15 +12,15 @@ After you [configure Azure NetApp Files volumes for Azure Kubernetes Service](az
 
 Azure NetApp Files supportsvolumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB3](azure-netapp-files-smb.md), or dual-protocol (NFSv3 and SMB3, or NFSv4.1 and SMB3). This article describes details about provisioning the volumes for dual-protocol access. For information about provisioning SMB volumes statically and dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md). For information about provisioning NFS volumes statically and dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md).
 
-## Statically configure for applications that use dual-protocol volumes
-
 This section describes how to create a dual-protocol volume on Azure NetApp Files and expose the volume statically to Kubernetes. It also describes how to use the volume with a containerized application.
 
-### Create a dual-protocol volume
+## Create a dual-protocol volume
 
 For information on creating dual protocol volumes, please see [create a dual-protocol volume for Azure NetApp Files](../azure-netapp-files/create-volumes-dual-protocol).
 
-## Expose via NFS
+## Use a dual-protocol volume in Azure Kubernetes Service
+
+### [NFS](#tab/nfs)
 
 ### Create the persistent volume for NFS
 
@@ -165,7 +165,7 @@ For information on creating dual protocol volumes, please see [create a dual-pro
     ...
     ```
 
-## Expose via SMB
+### [SMB]()#tab/smb
 
 ### Create a secret with the domain credentials
 
@@ -417,4 +417,4 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
                2 Dir(s)  107,373,838,336 bytes free
     ```
 
-
+---
