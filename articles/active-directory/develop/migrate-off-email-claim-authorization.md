@@ -6,7 +6,7 @@ author: medhir
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: 
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 05/11/2023
@@ -18,11 +18,22 @@ ms.custom:
 
 # Migrating Away from Incorrect Use of Email Claims for Authorization
 
-This article is meant to provide guidance to developers whose applications are currently using an incorrect pattern where [unverified emails are used for authorization](). 
+This article is meant to provide guidance to developers whose applications are currently using an incorrect pattern where the email claim is used for authorization, which can lead to full account takeover by another user. Continue reading to learn more about if your application is impacted, and steps for remediation. 
+
+## How do I know if my application is impacted?
+
+Microsoft recommends reviewing application source code and determining whether the following patterns are present: 
+
+- A mutable claim, such as `email`, is used for the purposes of uniquely identifying a user
+- A mutable claim, such as `email` is used for the purposes of authorizing a user's access to resources
+
+These patterns are considered insecure, as Azure AD users without a provisioned mailbox can have any email address set for their Mail (Primary SMTP) attribute. This attribute is **not guaranteed to come from a verified email address**. When an unverified email claim is used for authorization, any AAD user without a provisioned mailbox has the potential to gain unauthorized access by changing their Mail attribute to impersonate another AAD user. 
+
+This risk of unauthorized access has only been found in multi-tenant apps, as a user from one tenant could escalate their privileges to access resources from another tenant through modification of their Mail attribute.
 
 ## Migrating applications to more secure configurations
 
-Microsoft recommends **never** using mutable claims (such as email, preferred_username, etc) as identifiers to perform authorization checks or index users in a database. These values are re-usable and could expose your application to privilege escalation attacks. 
+Microsoft recommends **never** using mutable claims (such as email, preferred_username, etc) as identifiers to perform authorization checks or uniquely identify users. These values are re-usable and could expose your application to privilege escalation attacks. 
 
 If your application is currently using a mutable value for indexing users, we recommend migrating to a globally unique identifier, such as the object ID (referred to as `oid` in the token claims). Doing so will ensure that each user is indexed on a value that cannot be re-used (or abused to impersonate another user). 
 
