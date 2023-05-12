@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/09/2023
+ms.date: 05/12/2023
 ms.author: glenga
 ---
 
@@ -19,14 +19,14 @@ Before you begin, you must have the following requirements in place:
 ::: zone pivot="programming-language-csharp"
 + The [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.17 or a later version.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v4) version 4.x.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.17 or a later version.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v4) version 4.x.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (16.16.0 and 14.20.0 recommended).
++ A version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -147,16 +147,6 @@ Navigate into the project folder:
 ```console
 cd fabrikam-functions
 ```
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
-
-Open the Dockerfile and add the following lines after the first `FROM` statement, if not already present:
-
-```docker
-# Build requires 3.1 SDK
-COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/dotnet
-```
-
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
