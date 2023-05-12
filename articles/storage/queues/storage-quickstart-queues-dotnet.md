@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Queue Storage client library - .NET"
-description: Learn how to use the Azure Queue Storage client library for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+description: Learn how to use the Azure Queue Storage client library for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 05/12/2023
@@ -143,7 +143,7 @@ These example code snippets show you how to perform the following actions with t
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step.
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed in with in the previous step.
 
 To authorize using `DefaultAzureCredential`, make sure you've added the **Azure.Identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add a using directive for the `Azure.Identity` namespace in the *Program.cs* file:
 
@@ -151,7 +151,7 @@ To authorize using `DefaultAzureCredential`, make sure you've added the **Azure.
 using Azure.Identity;
 ```
 
-Next, decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Next, decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using `DefaultAzureCredential` for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -188,7 +188,7 @@ Add this code to the end of the *Program.cs* file:
 string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using the connection string for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -282,7 +282,7 @@ You can optionally specify a value for `maxMessages`, which is the number of mes
 
 ## Get the queue length
 
-You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number isn't lower than the actual number of messages in the queue, but could be higher.
 
 Add this code to the end of the *Program.cs* file:
 
@@ -300,7 +300,7 @@ Console.WriteLine($"Number of messages in queue: {cachedMessagesCount}");
 
 Delete messages from the queue after they've been processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `Console.ReadLine` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+The app pauses for user input by calling `Console.ReadLine` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the *Program.cs* file:
 
