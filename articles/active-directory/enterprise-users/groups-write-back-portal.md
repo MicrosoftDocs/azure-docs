@@ -66,7 +66,7 @@ You can use PowerShell to get a list of writeback enabled group using the follow
 ```powershell-console
 Connect-MgGraph -Scopes @('Group.Read.all')
 Select-MgProfile -Name beta
-PS D:\> Get-MgGroup -All |Where-Object {$_.AdditionalProperties.writebackConfiguration.isEnabled -Like $true} |Select-Object Displayname,@{N="WriteBackEnabled";E={$_.AdditionalProperties.writebackConfiguration.isEnabled}}
+PS D:\> Get-MgGroup -All |Where-Object {$_.writebackConfiguration.isEnabled -Like $true} |Select-Object Displayname,@{N="WriteBackEnabled";E={$_.writebackConfiguration.isEnabled}}
 
 DisplayName WriteBackEnabled
 ----------- ----------------

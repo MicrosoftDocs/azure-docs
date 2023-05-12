@@ -2,8 +2,8 @@
 title: Add a bubble layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn how to use the bubble layer in an Azure Maps Power BI visual.
-author: eriklindeman
-ms.author: eriklind
+author: deniseatmicrosoft
+ms.author: limingchen 
 ms.date: 11/14/2022
 ms.topic: how-to
 ms.service: azure-maps

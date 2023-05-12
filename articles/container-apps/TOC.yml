@@ -118,6 +118,9 @@
       - name: Session affinity
         href: sticky-sessions.md
         displayName: Sticky sessions
+      - name: CORS
+        href: cors.md
+        displayName: Cross origin resource sharing
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain
