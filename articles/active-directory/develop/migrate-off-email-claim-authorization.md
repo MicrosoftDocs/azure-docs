@@ -43,7 +43,7 @@ To mitigate the risk of unauthorized access before updating application code, yo
 | Social IDP: Facebook | Email claim isn't issued |
 | Direct Fed | Email claim will not be issued |
 
-Enabling `replace_unverified_email_with_upn` eliminates the most significant risk of cross-tenant privilege by ensuring authorization does not occur against an arbitrarily set email value.  It should be noted that while enabling this property prevents unauthorized access, it can also break access to users with unverified emails. Internal data suggests the overall percentage of users with unverified emails is low and this tradeoff is appropriate to secure applications in the short term. 
+Enabling `replace_unverified_email_with_upn` eliminates the most significant risk of cross-tenant privilege by ensuring authorization doesn't occur against an arbitrarily set email value.  While enabling this property prevents unauthorized access, it can also break access to users with unverified emails. Internal data suggests the overall percentage of users with unverified emails is low and this tradeoff is appropriate to secure applications in the short term. 
 
 The `replace_unverified_email_with_upn` option is also documented under the documentation for [additional properties of optional claims](./active-directory-optional-claims.md#additional-properties-of-optional-claims).
 
