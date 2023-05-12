@@ -6,7 +6,7 @@ ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
-# Overview of the MQTT Support in Azure Event Grid
+# Overview of the MQTT Support in Azure Event Grid (Preview)
 Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. Event Grid’s MQTT support enables you to accomplish the following scenarios:
 - Ingest telemetry using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
@@ -16,6 +16,9 @@ Azure Event Grid enables your MQTT clients to communicate with each other and wi
 You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
 
 :::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png":::
+
+> [!NOTE]
+> This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key concepts:
 The following are a list of key concepts involved in MQTT messaging on Event Grid.
