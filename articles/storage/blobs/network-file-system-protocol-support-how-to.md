@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 05/12/2023
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -74,7 +74,7 @@ The following image shows the squash options as they appear in the Azure portal.
 
 ## Step 5: Mount the container
 
-Create a directory on your Linux system, and then mount the container in the storage account.
+Create a directory on your Linux system, install the AZNFS Mount Helper package, and then mount the container in the storage account.
 
 1. On your Linux system, create a directory:
 
@@ -82,17 +82,34 @@ Create a directory on your Linux system, and then mount the container in the sto
    mkdir -p /nfsdata
    ```
 
-2. Mount the container by using one of the following methods. In both methods, replace the `<storage-account-name>` placeholder with the name of your storage account, and replace `<container-name>` with the name of your container.
+2. Install The AZNFS Mount Helper package. This package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which detects any change to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. 
+
+   To install the AZNFS Mount Helper program and `aznfswatchdog` service, run the following command:
+
+   ```
+   wget -O - -q https://github.com/Azure/AZNFS-mount/releases/latest/download/aznfs_install.sh | bash
+   ```
+
+   > [!NOTE]
+   > AZNFS is supported on following Linux distributions:
+   > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS)
+   > - Centos7, Centos8
+   > - RedHat7, RedHat8, RedHat9
+   > - Rocky8, Rocky9
+   > - SUSE (SLES 15)
+
+
+3. Mount the container by using one of the following methods. In both methods, replace the `<storage-account-name>` placeholder with the name of your storage account, and replace `<container-name>` with the name of your container.
 
    - To have the share mounted automatically on reboot:
 
      1. Create an entry in the /etc/fstab file by adding the following line:
   
         ```
-        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    nfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    nfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,aznfs    0 0
         ```
 
-     1. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
+     2. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
  
         ```
         mount /nfsdata
@@ -101,8 +118,11 @@ Create a directory on your Linux system, and then mount the container in the sto
    - For a temporary mount that doesn't persist across reboots, run the following command: 
     
      ```
-     mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
-     ```
+     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdatain 
+     ``` 
+     
+     > [!TIP]
+     > The `aznfs` parameter is optional but highly recommended. This parameter enables the AZNFS service for your container mount. 
 
 ## Resolve common errors
 
@@ -117,6 +137,11 @@ Create a directory on your Linux system, and then mount the container in the sto
 |`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
 |`mount: /nfsdata: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
 |`Connection Timed Out`| Make sure that client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports. Makes sure to mount the storage account by using the Blob service endpoint and not the Data Lake Storage endpoint. |
+
+## Limitations and troubleshooting for AZNFS Mount Helper
+
+See [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
+
 
 ## See also
 
