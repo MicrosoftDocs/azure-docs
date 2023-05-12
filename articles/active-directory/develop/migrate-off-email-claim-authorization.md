@@ -47,5 +47,5 @@ Enabling `replace_unverified_email_with_upn` eliminates the most significant ris
 
 The `replace_unverified_email_with_upn` option is also documented under the documentation for [additional properties of optional claims](./active-directory-optional-claims.md#additional-properties-of-optional-claims).
 
-Microsoft views enabling `replace_unverified_email_with_upn` mainly as a short-term risk mitigation strategy while migrating applications away from email claims, and **not as a permanent solution** for resolving account escalation risk related to email usage. 
+Enabling `replace_unverified_email_with_upn` should be viewed mainly as a short-term risk mitigation strategy while migrating applications away from email claims, and not as a permanent solution for resolving account escalation risk related to email usage. 
 
