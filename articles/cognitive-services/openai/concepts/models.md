@@ -174,6 +174,9 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 ## Model Summary table and region availability
 
+> [!IMPORTANT]
+> South Central US is temporarily unavailable for creating new resources due to high demand.
+
 ### GPT-3 Models
 
 These models can be used with Completion API requests. `gpt-35-turbo` is the only model that can be used with both Completion API requests and the Chat Completion API.
