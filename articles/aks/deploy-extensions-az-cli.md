@@ -48,6 +48,12 @@ Create a new extension instance with `k8s-extension create`, passing in values f
 az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True
 ```
 
+This example command creates creates a sample Kubernetes application (published on Marketplace) on your AKS cluster:
+
+```azurecli
+az k8s-extension create --name voteapp --extension-type Contoso.AzureVoteKubernetesAppTest --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --plan-name testPlanID --plan-product testOfferID --plan-publisher testPublisherID --configuration-settings title=VoteAnimal value1=Cats value2=Dogs
+```
+
 > [!NOTE]
 > The Cluster Extensions service is unable to retain sensitive information for more than 48 hours. If the cluster extension agents don't have network connectivity for more than 48 hours and can't determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you'll need to run `k8s-extension create` again to create a fresh extension instance.
 
@@ -97,13 +103,13 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 > [!NOTE]
 > Refer to documentation for the specific extension type to understand the specific settings in `--configuration-settings` and `--configuration-protected-settings` that are able to be updated. For `--configuration-protected-settings`, all settings are expected to be provided, even if only one setting is being updated. If any of these settings are omitted, those settings will be considered obsolete and deleted.
 
-To update an existing extension instance, use `k8s-extension update`, passing in values for the mandatory parameters. The below command updates the auto-upgrade setting for an Azure Machine Learning extension instance:
+To update an existing extension instance, use `k8s-extension update`, passing in values for the mandatory parameters. The following command updates the auto-upgrade setting for an Azure Machine Learning extension instance:
 
 ```azurecli
 az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-### Required parameters
+### Required parameters for update
 
 | Parameter name | Description |
 |----------------|------------|
@@ -113,7 +119,7 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | `--resource-group` | The resource group containing the AKS cluster |
 | `--cluster-type` | The cluster type on which the extension instance has to be created. Specify `managedClusters` as it maps to AKS clusters|
 
-### Optional parameters
+### Optional parameters for update
 
 | Parameter name | Description |
 |--------------|------------|
@@ -124,7 +130,10 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | `--configuration-protected-settings` | These settings are not retrievable using `GET` API calls or `az k8s-extension show` commands, and are thus used to pass in sensitive settings. When you update a setting, all settings are expected to be specified. If some settings are omitted, those settings would be considered obsolete and deleted. Pass values as space separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. |
 | `--configuration-protected-settings-file` | Path to the JSON file having key value pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
-| `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
+| `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
+|`--plan-name` | **Plan ID** of the extension, found in Marketplace portal under **Usage Information + Support**. |
+|`--plan-product` | **Product ID** of the extension, found in Marketplace portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
+|`--plan-publisher` | **Publisher ID** of the extension, found in Marketplace portal under **Usage Information + Support**. |
 
 ## Delete extension instance
 
