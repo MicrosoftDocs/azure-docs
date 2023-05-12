@@ -16,9 +16,9 @@ On February 27, 2023, we started rolling out a new version of HDInsight: version
 
 All upgraded cluster shapes are supported as part of HDInsight 5.1.
 
-## Open-source components available with HDInsight version 5.x
+## Open-source components available with HDInsight 5.x
 
-The following table lists the versions of open-source components that are associated with HDInsight 5.1.
+The following table lists the versions of open-source components that are associated with HDInsight 5.x.
 
 | Component        | HDInsight 5.1 | HDInsight 5.0 |
 |------------------|---------------|---------------|
@@ -69,7 +69,7 @@ If you're using the Azure user interface to create a Spark cluster for HDInsight
 
 This is only a UI-level change. It doesn't affect anything for existing users and for users who are already using the Azure Resource Manager template (ARM template) to build their clusters.
 
-For backward compatibility, Resource Manager supports creating Spark 3.1 with the HDInsight 4.0 and 5.0 versions, which map to same versions for Spark 3.1 (HDI 5.0).
+For backward compatibility, Resource Manager supports creating Spark 3.1 with the HDInsight 4.0 and 5.0 versions, which map to the same versions for Spark 3.1 (HDI 5.0).
 
 The Spark 3.1 (HDI 5.0) cluster comes with Hive Warehouse Connector (HWC) 2.0, which works well together with the Interactive Query (HDI 5.0) cluster.
 
