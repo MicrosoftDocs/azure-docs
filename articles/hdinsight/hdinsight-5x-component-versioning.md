@@ -92,8 +92,8 @@ We have fixed the arm templated issue.
 HDInsight team is working on upgrading other open-source components.
 
 * ESP cluster support for all cluster shapes
-* Oozie 5.2.1 
-
+* Oozie 5.2.1
+* HWC 2.1 
 
 ## Next steps
 
