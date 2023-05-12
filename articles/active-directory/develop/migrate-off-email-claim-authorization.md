@@ -31,7 +31,7 @@ If your application uses email (or any other mutable claim) for authorization pu
 
 ## Short-term risk mitigation
 
-To mitigate the risk of unauthorized access before updating application code, Microsoft Identity platform is introducing an additional property for the optional email claim, referred to as `replace_unverified_email_with_upn`, which will replace (or remove) email claims, depending on account type, according to the table below: 
+To mitigate the risk of unauthorized access before updating application code, you can use the `replace_unverified_email_with_upn` property for the optional `email` claim, which replaces (or removes) email claims, depending on account type, according to the following table: 
 
 | **User type** | **Replaced with** |
 |---------------|-------------------|
