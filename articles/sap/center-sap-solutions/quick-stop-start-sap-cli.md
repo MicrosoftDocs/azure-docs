@@ -32,7 +32,7 @@ Through the Azure CLI, you can start and stop:
 - For the start operation to work, the underlying virtual machines (VMs) of the SAP instances must be running. This capability starts or stops the SAP application instances, not the VMs that make up the SAP system resources.
 - The `sapstartsrv` service must be running on all VMs related to the SAP system.
 - For HA deployments, the HA interface cluster connector for SAP (`sap_vendor_cluster_connector`) must be installed on the ASCS instance. For more information, see the [SUSE connector specifications](https://www.suse.com/c/sap-netweaver-suse-cluster-integration-new-sap_suse_cluster_connector-version-3-0-0/) and [RHEL connector specifications](https://access.redhat.com/solutions/3606101).
-- For HANA Database, Stop operation is initiated only when the cluster maintenance mode is in **Disabled** status. Similarly, Start operation is initiated only when the cluster maintenance mode is in **Enabled** status.
+- The Stop operation function for the HANA Database can only be initiated when the cluster maintenance mode is in **Disabled** status. Similarly,  the Start operation function can only be initiated when the cluster maintenance mode is in **Enabled** status.
 
 ## Start SAP system
 To Start an SAP system represented as a *Virtual Instance for SAP solutions* resource:
