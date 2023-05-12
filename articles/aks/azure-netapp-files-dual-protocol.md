@@ -292,7 +292,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     spec:
       accessModes:
         - ReadWriteMany
-      volumeName: pv-smb
+      volumeName: anf-pv-smb
       storageClassName: ""
       resources:
         requests:
