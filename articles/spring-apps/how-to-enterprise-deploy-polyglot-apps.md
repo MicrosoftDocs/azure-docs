@@ -109,7 +109,7 @@ az spring container-registry update \
 
 ---
 
-### Build and Deploy polyglot applications
+### Build and deploy polyglot applications
 
 You can build and deploy polygot applications in two ways using the container registry:
 
