@@ -8,9 +8,9 @@ ms.date: 05/08/2023
 
 # Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service
 
-After you [configure Azure NetApp Files volumes for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
+After you [configure Azure NetApp Files for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
 
-Azure NetApp Files supportsvolumes using NFS (NFSv3 or NFSv4.1), [SMB3](azure-netapp-files-smb.md), or [dual-protocol](azurenetapp-files-dual-protocol.md) (NFSv3 and SMB3, or NFSv4.1 and SMB3). This article describes details about provisioning the volumes for NFS access. For information about provisioning SMB volumes statically and dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md). For information about provisioning dual-protocol volumes statically, see [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md).   
+Azure NetApp Files supports volumes using NFS (NFSv3 or NFSv4.1), [SMB3](azure-netapp-files-smb.md), or [dual-protocol](azurenetapp-files-dual-protocol.md) (NFSv3 and SMB3, or NFSv4.1 and SMB3). This article describes details about provisioning the volumes for NFS access, statically or dynamically. For information about provisioning SMB volumes statically or dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md). For information about provisioning dual-protocol volumes statically, see [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md). It is recommended to use dynamic provisioning where possible.
 
 ## Statically configure for applications that use NFS volumes
 
