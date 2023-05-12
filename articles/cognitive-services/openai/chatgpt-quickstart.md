@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart - Get started using ChatGPT  and GPT-4  with Azure OpenAI Service'
+title: 'Quickstart - Get started using ChatGPT and GPT-4  with Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with ChatGPT and GPT-4 on Azure OpenAI Service.
 services: cognitive-services
