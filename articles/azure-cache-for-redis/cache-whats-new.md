@@ -37,7 +37,7 @@ For more information, see [Configure clustering for Azure Cache for Redis instan
 
 The Enterprise and Enterprise Flash tiers now support the ability to scale cache instances up and out without requiring downtime or data loss. Scale up and scale out actions can both occur in the same operation.
 
-For more information, see [Scale an Azure Cache for Redis instance](cache-how-to-scale.md)
+For more information, see [Scale an Azure Cache for Redis instance](cache-how-to-scale.md).
 
 ### Support for RedisJSON in active geo-replicated caches (preview)
 
@@ -49,19 +49,19 @@ For more information, see [Configure active geo-replication](cache-how-to-active
 
 Caches using active geo-replication now include a built-in _flush_ operation that can be initiated at the control plane level. Use the _flush_ operation with your cache instead of the `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches.
 
-For more information, see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation)
+For more information, see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation).
 
 ### Customer managed key (CMK) disk encryption (preview)
 
 Redis data that is saved on disk can now be encrypted using customer managed keys (CMK) in the Enterprise and Enterprise Flash tiers. Using CMK adds another layer of control to the default disk encryption.
 
-For more information, see [Enable disk encryption](cache-how-to-encryption.md)
+For more information, see [Enable disk encryption](cache-how-to-encryption.md).
 
 ### Connection event audit logs (preview)
 
 Enterprise and Enterprise Flash tier caches can now log all connection, disconnection, and authentication events through diagnostic settings. Logging this information helps in security audits. You can also monitor who has access to your cache resource.
 
-For more information, see [Enabling connection audit logs](cache-monitor-diagnostic-settings.md)
+For more information, see [Enabling connection audit logs](cache-monitor-diagnostic-settings.md).
 
 ## November 2022
 
