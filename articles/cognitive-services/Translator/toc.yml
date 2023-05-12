@@ -31,9 +31,17 @@ items:
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
     href: how-to-create-translator-resource.md
-  - name: Quickstart
-    displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,set up
-    href: quickstart-translator.md
+  - name: 🆕 SDK overview (preview)
+    displayName: get started,sdk,keys,endpoint
+    href: text-sdk-overview.md
+  - name: Quickstarts
+    items:
+    - name: 🆕 Translator Text SDK (preview)
+      displayName: get started,sdk,keys,endpoint,headers,c#,go,java,javascript,python,setup
+      href: quickstart-translator-sdk.md
+    - name:  Translator Text REST API
+      displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
+      href: quickstart-translator-rest-api.md
   - name: Samples
     items:
     - name: Code Sample page
