@@ -172,8 +172,6 @@ resourceGroup="myResourceGroup"
 location="westcentralus"
 az aks update --name $clusterName \
 --group $resourceGroup \
---location $location \
---network-plugin azure \
 --network-plugin-mode overlay \
 --pod-cidr 192.168.0.0/16
 ```
