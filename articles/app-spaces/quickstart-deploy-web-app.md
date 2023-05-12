@@ -5,7 +5,7 @@ ms.author: chcomley
 author: chcomley
 ms.service: app-spaces
 ms.topic: quickstart
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ---
 
 # Quickstart: Deploy a web app with Azure App Spaces
@@ -107,7 +107,7 @@ The following table shows the tabs you can select, which allow you to view infor
 |---------|---------|
 |**App setting**     | Add an app setting. Enter `Name`, `Value`, and optionally check the box for `Deployment slot setting`. Select **Apply**.     |
 |**Connection strings**    |Add a connection string. Enter `Name`, `Value`, select `Type` (MySQL, SQLServer, SQLAzure, PostgreSQL, or Custom), and optionally check the box for `Deployment slot setting`. Select **Apply**.         |
-|**Deployment**    | View `Deployment name`, `Status`, and `Time` for code deployment logs.       |
+|**Deployment**    | View deployment name, status, and time for code deployment logs.       |
 
 #### [Container Apps](#tab/container-apps/)
 
@@ -119,7 +119,7 @@ The following table shows the components tabs that you can select, which allow y
 |**Container details**   | View container information, like name, image source, registry, and resource allocation.     |
 |**Environment variables** | Add an environment variable. Enter `Name` and `Value` of manually entered or referenced secret, and then select **Apply**.        |
 |**Log Stream**    | View logs.        |
-|**Deployment**   |  View Deployment name, Status, and Time for code deployment logs.|
+|**Deployment**   |  View deployment name, status, and time for code deployment logs.|
 
 The following image shows an example of the Hosting tab, Container details selection.
 
@@ -133,9 +133,10 @@ The following table shows the components tabs that you can select, which allow y
 
 |Hosting tab  |Actions | 
 |---------|---------|
-|   |    |
-|    |    |
-| **Deployment**   |  View Deployment name, Status, and Time for code deployment logs.|
+|**Environments**   | View production and preview environment name, branch, last update time, and status.   |
+| **Environment variables**  |Add an environment variable. Enter `Name` and `Value` , and then select **Apply**.    |
+| **Backend & API**   |Bring your own API backends. Enter environment name, backend type, backend resource name, and link, and then select **Apply**.|
+|**Deployment**     | View deployment name, status, and time for code deployment logs.      |
 
 
 * * *
