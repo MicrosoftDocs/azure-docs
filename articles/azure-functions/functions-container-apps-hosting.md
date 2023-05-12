@@ -72,7 +72,8 @@ Keep in mind the following considerations when deploying your function app conta
     + Azure Queue Storage 
     + Azure Service Bus 
     + Azure Event Hubs 
-    + Kafka (without certificates)   
+    + Kafka*  
+    \*The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).   
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. However, you can access the AKS instance directly.
 + Use of user-assigned managed identities is currently supported. For more information, see [Add a user-assigned identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity).
