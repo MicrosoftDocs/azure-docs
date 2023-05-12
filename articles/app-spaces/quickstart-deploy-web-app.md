@@ -71,15 +71,15 @@ Do the following steps to deploy an existing repository from GitHub.
 
 #### [Static Web Apps](#tab/static-web-apps/)
 
-6. Confirm the autoselected Azure service and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from  **Choose another Azure service**, **Framework dropdown menu**, or **Compare plans**.
+6. Confirm the autoselected Azure service and plan, as determined by the code in your repository. If you want to choose a different service or investigate other options, you can select from **Choose another framework**, **Choose another Azure service**, or **Compare plans**.
    
    :::image type="content" source="media/define-app-space-details-static-web-apps-deployment.png" alt-text="Screenshot showing autoselected service, framework, and plan in Define App Space details screen.":::
 
 7. Enter a name for your App Space.
 8. Enter the following values to create a GitHub Actions workflow file for build and release, which you can modify later in your repository.
-- App location
-- API location
-- Output location
+   - App location
+   - API location
+   - Output location
 
    :::image type="content" source="media/enter-values-for-github-actions-workflow-creation.png" alt-text="Screenshot showing. ":::
 
@@ -135,7 +135,7 @@ The following table shows the components tabs that you can select, which allow y
 |---------|---------|
 |**Environments**   | View production and preview environment name, branch, last update time, and status.   |
 | **Environment variables**  |Add an environment variable. Enter `Name` and `Value` , and then select **Apply**.    |
-| **Backend & API**   |Bring your own API backends. Enter environment name, backend type, backend resource name, and link, and then select **Apply**.|
+| **Backend & API**   |Bring your own API backends. Enter `Environment Name`, `Backend Type`, `Backend Resource Name`, and `Link`, and then select **Apply**.|
 |**Deployment**     | View deployment name, status, and time for code deployment logs.      |
 
 
