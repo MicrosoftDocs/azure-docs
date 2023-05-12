@@ -74,3 +74,6 @@ Use the InputObject parameter and pass the resource ID of the Virtual Instance f
      ```azurecli-interactive
      az workloads sap-virtual-instance stop --id <ResourceID>
      ```
+ 
+ ## Next steps
+- [Monitor SAP system from the Azure portal](monitor-portal.md)
