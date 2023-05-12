@@ -332,11 +332,36 @@ print(f"Created job: {returned_job}")
 returned_job.services["Studio"].endpoint
 ```
 
-Once the job is submitted, AutoML will provision compute resources, apply featurization and other preparation steps to the input data, and begin sweeping over forecasting models. For more details, see our articles on [forecasting methodology](./concept-automl-forecasting-methods.md) and [model search](concept-automl-forecasting-sweeping.md).
+Once the job is submitted, AutoML will provision compute resources, apply featurization and other preparation steps to the input data, then begin sweeping over forecasting models. For more details, see our articles on [forecasting methodology](./concept-automl-forecasting-methods.md) and [model search](concept-automl-forecasting-sweeping.md).
 
 ## Orchestrating training, inference, and evaluation with components and pipelines
 
+Your ML workflow likely requires more than just training. Inference, or retrieving model predictions on newer data, and evaluation of model accuracy on a test set with known target values are other common tasks that you can orchestrate in AzureML along with training jobs. To support inference and evaluation tasks, AzureML provides [components](concept-component.md), which are self-contained pieces of code that do one step in an AzureML [pipeline](concept-ml-pipelines.md).
 
+In the following example, we retrieve component instances from a client registry:
+
+```python
+# Create a client for accessing assets in the AzureML registry
+ml_client_registry = MLClient(
+    credential=credential,
+    registry_name="<REGISTRY_NAME>",
+    registry_location="<REGISTRY_REGION>"
+)
+
+# Get an inference component from the registry
+inference_component = ml_client_registry.components.get(
+    name="forecasting_model_inference",
+    label="latest"
+)
+
+# Get a component for computing evaluation metrics from the registry
+compute_metrics_component = ml_client_registry.components.get(
+    name="compute_metrics",
+    label="latest"
+)
+```
+
+Next, we define a factory function that creates pipelines orchestrating training, inference, and metric computation. See the [training configuration](#configure-experiment) section for more details on training settings.
 
 ```python
 from azure.ai.ml import automl
@@ -344,17 +369,18 @@ from azure.ai.ml.constants import AssetTypes
 from azure.ai.ml.dsl import pipeline
 
 @pipeline(description="AutoML Forecasting Pipeline")
-def train_and_evaluate(
-    train_data,
-    test_data,
+def forecasting_train_and_evaluate_factory(
+    train_data_input,
+    test_data_input,
     target_column_name,
     time_column_name,
     forecast_horizon,
     primary_metric='NormalizedRootMeanSquaredError',
     cv_folds='auto'
 ):
+    # Configure the training node of the pipeline
     training_node = automl.forecasting(
-        training_data=train_data,
+        training_data=train_data_input,
         target_column_name=target_column_name,
         primary_metric=primary_metric,
         n_cross_validations=cv_folds,
@@ -379,14 +405,16 @@ def train_and_evaluate(
         ...
     )
 
+    # Configure the inference node to make rolling forecasts on the test set
     inference_node = inference_component(
-        test_data=test_dataset,
+        test_data=test_data_input,
         model_path=training_node.outputs.best_model,
         target_column_name=target_column_name,
         forecast_mode='rolling',
         forecast_step=1
     )
 
+    # Configure the metrics calculation node
     compute_metrics_node = compute_metrics_component(
         task="tabular-forecasting",
         ground_truth=inference_node.outputs.inference_output_file,
@@ -394,10 +422,42 @@ def train_and_evaluate(
         evaluation_config=inference_node.outputs.evaluation_config_output_file
     )
 
+    # return a dictionary with the evaluation metrics and the raw test set forecasts
     return {
         "metrics_result": compute_metrics_node.outputs.evaluation_result,
         "rolling_eval_result": inference_node.outputs.inference_output_file
     }
+```
+
+Now, we define test data input assuming that the test data is contained in a local folder, `./data/test`:
+
+```python
+my_test_data_input = Input(
+    type=AssetTypes.URI_FOLDER,
+    path="./data/test",
+)
+```
+
+Finally, we construct the pipeline, set its default compute and submit the job:
+
+```python
+pipeline_job = forecasting_train_and_evaluate_factory(
+    my_training_data_input,
+    my_test_data_input,
+    target_column_name,
+    time_column_name,
+    forecast_horizon
+)
+
+# set pipeline level compute
+pipeline_job.settings.default_compute = compute_name
+
+# submit the pipeline job
+returned_pipeline_job = ml_client.jobs.create_or_update(
+    pipeline_job,
+    experiment_name=experiment_name
+)
+returned_pipeline_job
 ```
  
 ## Forecasting with a trained model
