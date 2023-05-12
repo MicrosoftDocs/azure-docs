@@ -21,7 +21,7 @@ This article provides performance considerations for Azure VMware Solution (AVS)
 
 The considerations outlined in this article help you achieve the highest levels of performance from your applications with optimized cost efficiency. 
 
-Azure NetApp Files provides an instantly scalable, high performance, and highly reliable storage service for AVS.  The tests included various different configurations between AVS and Azure NetApp Files.  They were able to drive over 10,500 MiB/s and over 585,000 input/output operations per second (IOPS) with only four AVS/ESXi hosts and a single Azure NetApp Files capacity pool. 
+Azure NetApp Files provides an instantly scalable, high performance, and highly reliable storage service for AVS.  The tests included various different configurations between AVS and Azure NetApp Files.  The tests were able to drive over 10,500 MiB/s and over 585,000 input/output operations per second (IOPS) with only four AVS/ESXi hosts and a single Azure NetApp Files capacity pool. 
  
 ## Achieving higher storage performance for AVS using Azure NetApp Files   
 
@@ -33,7 +33,7 @@ When you determine how to configure datastores, the easiest from a management pe
 
 For Azure NetApp Files performance data, see: 
 
-* [Azure NetApp Files: Getting the Most Out of Your Cloud Storage – Introduction and How-to guide](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
+* [Azure NetApp Files: Getting the Most Out of Your Cloud Storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 
     On an AVS host, a single network connection is established per NFS datastore akin to using `nconnect=1` on the Linux tests referenced in Section 6 (*The Tuning Options*). This fact is key to understanding how AVS scales performance so well across multiple datastores. 
 
@@ -51,6 +51,7 @@ This testing follows the "four-corners" methodology, which includes both read op
 * Scaling number of VMs per host on a single Azure NetApp Files datastore.
 * Scaling number of AVS hosts, each with one VM sharing a single Azure NetApp Files datastore.
 * Scaling number of Azure NetApp Files datastores, each with one VMDK equally spread across AVS hosts. 
+
 Testing both small and large block operations and iterating through sequential and random workloads ensure the testing of all components in the compute, storage, and network stacks to the "edge".  To cover the four-corners with block size and randomization, the following common combination are used:
 * 64K sequential tests
     * Large file streaming workloads commonly read and write in large block sizes as well as being the default MSSQL extent size. 
@@ -67,7 +68,7 @@ Testing both small and large block operations and iterating through sequential a
 The results in this article were achieved using the following environment configuration:   
 
 * AVS hosts:
-    * Size: AV36 
+    * Size: [AV36](../azure-vmware/introduction.md#av36p-and-av52-node-sizes-available-in-azure-vmware-solution) 
     * Host count: 4
     * VMware ESXi version 7u3
 * AVS private cloud connectivity: UltraPerformance gateway with FastPath
@@ -110,6 +111,12 @@ It scales poorly to increase the number of VMs driving IO to a single datastore 
 Increasing the block size (to 64 KB) for large block workloads had comparable results, reaching a peak of 2148 MiB/s (single VM, single VMDK) and 2138 MiB/s (4 VMs, 16 VMDKs). 
 
 :::image type="content" source="../media/azure-netapp-files/performance-avs-datastore-scale-single-host.png" alt-text="Diagram that shows scaling VMs on a single datastore host." lightbox="../media/azure-netapp-files/performance-avs-datastore-scale-single-host.png":::
+
+### Single-host scaling – Multiple datastores
+
+From the context of a single AVS host, while a single datastore allowed the VMs to drive about 76,000 IOPS, spreading the workloads across two datastores increased total throughput by 76% on average. Moving beyond two datastores to four resulted in a 163% increase (over one datastore, a 49% increase from two to four) as shown in the following diagram. Even though there were still performance gains, increasing beyond eight datastores showed diminishing returns.
+
+:::image type="content" source="../media/azure-netapp-files/performance-avs-datastore-scale-single-host-four-vm.png" alt-text="Diagram that shows scaling VMs on a single datastore host with four VMs." lightbox="../media/azure-netapp-files/performance-avs-datastore-scale-single-host-four-vm.png":::
 
 ### Multi-host scaling – Single datastore 
 
