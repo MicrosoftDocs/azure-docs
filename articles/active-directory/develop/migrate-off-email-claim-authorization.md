@@ -38,7 +38,7 @@ To mitigate the risk of unauthorized access before updating application code, yo
 | On Premise | Home tenant UPN |
 | Cloud Managed | Home tenant UPN |
 | Microsoft Account (MSA) | Email address the user signed up with |
-| Email OTP | Email address user signed up with |
+| Email OTP | Email address the user signed up with |
 | Social IDP: Google | Email address user signed up with | 
 | Social IDP: Facebook | Email claim will not be issued |
 | Direct Fed | Email claim will not be issued |
