@@ -35,6 +35,7 @@ Customers using SAP SuccessFactors can easily bring identities into [Active Dire
 #### SAP HCM
 Customers that are still using SAP HCM can also get identities into Azure AD. Using the SAP Integration Suite, you can synchronize identities between SAP HCM and SAP SuccessFactors. From there, you can bring identities directly into Azure AD or provisioning them into Active Directory Domain Services, using the native provisioning integrations mentioned above. 
  
+![Diagram of SAP integrations.](./media/sap/SAPHR.png)
 
 # Provision identities into modern SAP applications. 
 Once your users are in Azure Active Directory, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You've three ways to accomplish this.
