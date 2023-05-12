@@ -48,25 +48,25 @@ To see the settings:
 1. Select `Bicep` from the list of extensions.
 1. Select the `FEATURE CONTRIBUTIONS` tab:
 
-  :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Bicep extension settings":::
+    :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Bicep extension settings":::
 
-The Bicep extension has these settings and default values:
+    The Bicep extension has these settings and default values:
 
-| ID	| Description	| Default |
-|-----|-------------|---------|
-| bicep.decompileOnPaste	| Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert)	| true |
-| bicep.enableOutputTimestamps	| Prepend each line displayed in the Bicep Operations output channel with a timestamp.	| true |
-| bicep.suppressedWarnings	| Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.| |
-| bicep.enableSurveys	| Enable occasional surveys to collect feedback that helps us improve the Bicep extension.	| true |
-| bicep.completions.getAllAccessibleAzureContainerRegistries	| When completing 'br:' module references, query Azure for all container registries accessible to the user (may be slow). If this option is off, only  registries configured under moduleAliases in bicepconfig.json will be listed.	| false |
-| bicep.trace.server	| Configure tracing of messages sent to the Bicep language server.	| Off |
+    | ID | Default value | Description |
+    |-----|-------------|---------|
+    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert). For more information, see [Paste as Bicep](./visual-studio-code.md#paste-as-bicep).|
+    | bicep.enableOutputTimestamps | true | Prepend each line displayed in the Bicep Operations output channel with a timestamp. |
+    | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
+    | bicep.enableSurveys | true | Enable occasional surveys to collect feedback that helps us improve the Bicep extension. |
+    | bicep.completions.getAllAccessibleAzureContainerRegistries | false | When completing 'br:' module references, query Azure for all container registries accessible to the user (may be slow). If this option is off, only  registries configured under [moduleAliases](./bicep-config-modules.md#aliases-for-modules) in [bicepconfig.json](./bicep-config.md) will be listed. |
+    | bicep.trace.server | off | Configure tracing of messages sent to the Bicep language server. |
 
 To configure the settings:
 
 1. From the `File` menu, select `Preferences`, and then select `Settings`.
 1. Expand `Extensions`, and then select `Bicep`:
 
-  :::image type="content" source="./media/install/bicep-extension-settings.png" alt-text="Configure Bicep extension settings":::
+    :::image type="content" source="./media/install/bicep-extension-settings.png" alt-text="Configure Bicep extension settings":::
 
 ## Visual Studio and Bicep extension
 
