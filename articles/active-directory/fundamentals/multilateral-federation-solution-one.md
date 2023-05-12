@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 In Solution 1, Azure AD is used as the primary IdP for all applications while a managed service provides multilateral federation. In this example, Cirrus Bridge is the managed service used for integration of CAS and multilateral federation apps.
 
-[![Diagram showing Azure AD integration with various application environments using Cirrus to provide CAS bridge and SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png#lightbox)
+[![Diagram showing Azure AD integration with various application environments using Cirrus to provide CAS bridge and SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/cirrus-bridge.png#lightbox)
 
 If on-premises Active Directory is also being used, then [AD is configured](../hybrid/whatis-hybrid-identity.md) with hybrid identities. Implementing this Azure AD with Cirrus Bridge solution provides:
 
