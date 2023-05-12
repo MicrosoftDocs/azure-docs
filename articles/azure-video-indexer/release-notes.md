@@ -18,6 +18,12 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Bug fixes
 * Deprecated functionality
 
+## May 2023
+
+### Topics insight improvements 
+
+We now support all five levels of IPTC ontology. 
+
 ## April 2023
 
 ### Resource Health support
