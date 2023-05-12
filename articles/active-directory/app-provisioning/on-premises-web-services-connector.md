@@ -42,10 +42,8 @@ The web services connector implements the following functionalities:
 ##  Documentation for popular applications
 Integrations with popular applications such as SAP ECC and Oracle eBusiness Suite can be found [here](https://www.microsoft.com/download/details.aspx?id=51495). You can also configure a template to connect to your own [rest or SOAP API](microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws).
 
-<<<<<<< HEAD
-For more information, see [the Overview of the generic Web Service connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws.md) in the MIM documentation library.
-=======
->>>>>>> acf7a06e91259a5a3203bfcda723188dca983e93
+
+For more information, see [the Overview of the generic Web Service connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) in the MIM documentation library.
 
 ## Next steps
 
