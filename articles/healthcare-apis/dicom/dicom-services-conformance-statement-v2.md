@@ -377,13 +377,13 @@ The following `Accept` header(s) are supported for retrieving a rendered image a
 - `image/jpeg`
 - `image/png`
 
-In the case that no `Accept` header is specified the service will render an `image/jpeg` by default.
+In the case that no `Accept` header is specified the service renders an `image/jpeg` by default.
 
-The service only supports rendering of a single frame. If rendering is requested for an instance with multiple frames then only the first frame will be rendered as an image by default.
+The service only supports rendering of a single frame. If rendering is requested for an instance with multiple frames, then only the first frame is rendered as an image by default.
 
 When specifying a particular frame to return, frame indexing starts at 1.
 
-The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) may be passed as the value for the query paramater. This is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
+The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) may be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
 ### Retrieve response status codes
 
@@ -394,8 +394,8 @@ The `quality` query parameter is also supported. An integer value between `1` an
 | `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
-| `404 (Not Found)`              | The specified DICOM resource couldn't be found or for rendered request the instance did not contain pixel data. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported or for rendered and transcode requests the file requested was too large. |
+| `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance didn't contain pixel data. |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported, or for rendered and transcodes requests the file requested was too large. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 ### Search (QIDO-RS)
