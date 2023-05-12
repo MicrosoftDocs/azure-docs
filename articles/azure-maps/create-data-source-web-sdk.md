@@ -126,7 +126,7 @@ map.layers.add(flowLayer, 'labels');
 
 For a complete working sample of how to display data from a vector tile source on the map, see [Vector tile line layer] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/cluster-point-data-web-sdk/vector-tile-line-layer.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+:::image type="content" source="./media/create-data-source-web-sdk/vector-tile-line-layer.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
 
 <!---------------------------------------------------------------------------------------
 <br/>
