@@ -81,6 +81,9 @@ az k8s-extension create --name voteapp --extension-type Contoso.AzureVoteKuberne
 | `--release-namespace` | This parameter indicates the namespace within which the release is to be created. This parameter is only relevant if `scope` parameter is set to `cluster`. |
 | `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `--auto-upgrade-minor-version` parameter is set to `false`. |
 | `--target-namespace` | This parameter indicates the namespace within which the release will be created. Permission of the system account created for this extension instance will be restricted to this namespace. This parameter is only relevant if the `scope` parameter is set to `namespace`. |
+|`--plan-name` | **Plan ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
+|`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
+|`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
 
 ## Show details of an extension instance
 
