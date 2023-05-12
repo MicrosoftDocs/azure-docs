@@ -1,6 +1,6 @@
 ---
-title: Use Conditional Access policies in Cloudlfare Access
-description: Use Condtional Access to enforce application and user policies in Cloudflare Access
+title: Tutorial to configure Conditional Access policies in Cloudflare Access
+description: Configure Condtional Access to enforce application and user policies in Cloudflare Access
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Use Conditional Access policies in Cloudlfare Access
+# Tutorial: Configure Conditional Access policies in Cloudflare Access
 
 With Conditional Access, administrators enforce policies on application and user policies in Azure Active Directory (Azure AD). Conditional Access brings together identity-driven signals, to make decisions, and enforce organizational policies. Cloudflare Access creates access to self-hosted, software as a service (SaaS), or nonweb applications.
 
@@ -33,17 +33,16 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 ## Scenario architecture
 
-* **Azure AD** - identity provider (IdP) that verifies user credentials and Conditional Access
-* **Application** - you created for IdP integration
-* **Cloudflare Access** - creates access to applications
-
+* **Azure AD** - Identity Provider (IdP) that verifies user credentials and Conditional Access
+* **Application** - You created for IdP integration
+* **Cloudflare Access** - Provides access to applications
 
 ## Set up an identity provider
 
-Go to developers.cloudflare.com to [Set up Azure AD as an identity provider](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/azuread/#set-up-azure-ad-as-an-identity-provider).
+Go to developers.cloudflare.com to [set up Azure AD as an IdP](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/azuread/#set-up-azure-ad-as-an-identity-provider).
 
    > [!NOTE]
-   > It's recommended you name the identity provider (IdP) integration in relation to the target application. For example, **Azure AD - Customer management portal**.
+   > It's recommended you name the IdP integration in relation to the target application. For example, **Azure AD - Customer management portal**.
 
 ## Configure Conditional Access
 
@@ -68,7 +67,7 @@ Go to developers.cloudflare.com to [Set up Azure AD as an identity provider](htt
 
 Enforce Conditional Access policies on a Cloudflare Access application.
 
-1. Go to dash.cloudflare.com to [Sign in to Cloudflare](https://dash.cloudflare.com/login).
+1. Go to dash.cloudflare.com to [sign in to Cloudflare](https://dash.cloudflare.com/login).
 2. In **Zero Trust**, go to **Access**.
 3. Select **Applications**.
 4. See, [Add a self-hosted application](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-apps/).
@@ -87,4 +86,5 @@ Enforce Conditional Access policies on a Cloudflare Access application.
 ## Next steps
 
 * [What is Conditional Access?](../conditional-access/overview.md)
+* [Secure Hybrid Access with Azure AD partner integrations](secure-hybrid-access-integrations.md)
 * [Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-azure-ad-integration.md)
