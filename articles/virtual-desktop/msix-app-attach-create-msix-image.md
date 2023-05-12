@@ -64,11 +64,8 @@ Here's an example command to create an MSIX image as a VHDX disk image. A single
 1. To create the VHDX disk image, run the following command:
 
    ```cmd
-   msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp.vhdx" -applyACLs -create -fileType vhdx -vhdSize 600 -rootDirectory apps
+   msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp.vhdx" -applyACLs -create -fileType vhdx -rootDirectory apps
    ```
-
-   > [!TIP]
-   > The parameter `vhdSize` is in MB. We recommend you specify a size that is four times the size of the MSIX package.
 
    The output should be as follows:
 
