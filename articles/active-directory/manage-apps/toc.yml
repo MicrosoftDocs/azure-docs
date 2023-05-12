@@ -166,7 +166,7 @@
         items:
         - name: Configure Cloudflare with Azure AD
           href: cloudflare-azure-ad-integration.md
-        - name: Use Conditional Access policies in Cloudlfare Access
+        - name: Configure Conditional Access policies in Cloudflare Access
           href: cloudflare-conditional-access-policies.md
       - name: Datawiza
         items:
