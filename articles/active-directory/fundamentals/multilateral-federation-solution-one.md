@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 In Solution 1, Azure AD is used as the primary IdP for all applications while a managed service provides multilateral federation. In this example, Cirrus Bridge is the managed service used for integration of CAS and multilateral federation apps.
 
-[![Diagram showing Azure AD integration with various application environments using Cirrus to provide CAS bridge and SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png#lightbox)
+[![Diagram showing Azure AD integration with various application environments using Cirrus to provide CAS bridge and SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/cirrus-bridge.png#lightbox)
 
 If on-premises Active Directory is also being used, then [AD is configured](../hybrid/whatis-hybrid-identity.md) with hybrid identities. Implementing this Azure AD with Cirrus Bridge solution provides:
 
@@ -28,7 +28,7 @@ If on-premises Active Directory is also being used, then [AD is configured](../h
 
 Implementing Azure AD with Cirrus bridge enables you to take advantage of more capabilities available in Azure AD:
 
-* **External attribute store support** - [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md) enables you to use an external attribute store (like an external LDAP Directory) to add additional claims into tokens on a per app basis. It uses a custom extension that calls an external REST API to fetch claims from external systems.
+* **Custom claims provider support** - [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md) enables you to use an external attribute store (like an external LDAP Directory) to add additional claims into tokens on a per app basis. It uses a custom extension that calls an external REST API to fetch claims from external systems.
 
 * **Custom security attributes** - Provides you with the ability to add custom attributes to objects in the directory and control who can read them. [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) enable you to store more of your attributes directly in Azure AD.
 
