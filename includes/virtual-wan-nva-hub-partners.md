@@ -21,10 +21,10 @@ The following security Network Virtual Appliance can be deployed in the Virtual 
 |Partners|Configuration/How-to/Deployment guide| Dedicated support model |
 |---|---| --- | 
 |[Check Point CloudGuard Network Security (CGNS) Firewall](https://pages.checkpoint.com/cgns-vwan-hub-ea.html) |  [Check Point CGNS Firewall](https://aka.ms/checkpointdeploymentguide) deployment guide. | No |
-|[Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall)| [Fortinet NGFW](https://aka.ms/fortinetngfwdocumentation) deployment guide.  Fortinet NGFW isn't intended to support SD-WAN tunnel termination. For SD-WAN tunnel termination, see [Fortinet SD-WAN and NGFW doumentation](https://aka.ms/fortinetdualroledocumentation). | No|
+|[Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall)| [Fortinet NGFW](https://aka.ms/fortinetngfwdocumentation) deployment guide.  Fortinet NGFW isn't intended to support SD-WAN tunnel termination and supports up to 80 scale units. For SD-WAN tunnel termination, see [Fortinet SD-WAN and NGFW doumentation](https://aka.ms/fortinetdualroledocumentation). | No|
 
 The following dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances can be deployed in the Virtual WAN hub. These Virtual Appliances can be used to inspect all North-South, East-West, and Internet-bound traffic.
 
 |Partners|Configuration/How-to/Deployment guide| Dedicated support model |
 |---|---| --- | 
-| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | [Fortinet SD-WAN and NGFW NVA](https://aka.ms/fortinetdualroledocumentation) deployment guide. Fortinet SD-WAN and NGFW NVA is designated to support both SD-WAN tunnel termination and Next-Generation Firewall capabilities. | No |
+| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | [Fortinet SD-WAN and NGFW NVA](https://aka.ms/fortinetdualroledocumentation) deployment guide and supports up to 20 scale units. Fortinet SD-WAN and NGFW NVA is designated to support both SD-WAN tunnel termination and Next-Generation Firewall capabilities. | No |
