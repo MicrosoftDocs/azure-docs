@@ -2,7 +2,7 @@
 title: How to enable automatic scaling
 description: Learn how to scale automatically in Azure App Service with zero configuration.
 ms.topic: article
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: msangapu
 
 ---
@@ -16,7 +16,7 @@ Automatic scaling is a new scale out option that automatically handles scaling d
 
 A comparison of scale out and scale in options available on App Service:
 
-| | **Manual scaling** | **Auto scaling** | **Automatic scaling** |
+| | **Manual** | **Autoscale** | **Automatic scaling** |
 | --- | --- | --- | --- |
 | Available pricing tiers	| Basic and Up | Standard and Up | Premium v2 and Premium v3 |
 |Rule-based scaling	|No	|Yes	|No, the platform manages the scale out and in based on HTTP traffic. |
@@ -69,7 +69,7 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the minimum number of instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, update the **Always ready instances** value, and select the **Save** button.
+To set the minimum number of web app instances, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Update the **Always ready instances** value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Screenshot of always ready instances" :::
 
@@ -86,7 +86,7 @@ The __maximum scale limit__ sets the maximum number of instances a web app can s
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the maximum number of web app instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Enforce scale out limit**, update the **Maximum scale limit**, and select the **Save** button.
+To set the maximum number of web app instances, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Select **Enforce scale out limit**, update the **Maximum scale limit**, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Screenshot of maximum scale limit" :::
 
@@ -118,7 +118,7 @@ You can modify the number of prewarmed instances for an app using the Azure CLI.
 
 #### [Azure portal](#tab/azure-portal)
 
-To disable automatic scaling in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Manual**, and select the **Save** button.   
+To disable automatic scaling, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Select **Manual**, and select the **Save** button.   
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-manual-scaling.png" alt-text="Screenshot of manual scaling" :::
 
