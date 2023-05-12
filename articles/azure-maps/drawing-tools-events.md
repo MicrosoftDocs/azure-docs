@@ -22,8 +22,13 @@ When using drawing tools on a map, it's useful to react to certain events as the
 | `drawingmodechanged` | Fired when the drawing mode has changed. The new drawing mode is passed into the event handler. |
 | `drawingstarted` | Fired when the user starts drawing a shape or puts a shape into edit mode.  |
 
-The following code shows how the events in the Drawing Tools module work. Draw shapes on the map and watch as the events fire.
+The following image shows a screenshot of the complete working sample that demonstrates how the events in the Drawing Tools module work.
 
+For a complete working sample of how to display data from a vector tile source on the map, see [Drawing tool events] in the [Azure Maps Samples]. In this sample you can draw shapes on the map and watch as the events fire.
+
+:::image type="content" source="./media/drawing-tools-events/drawing-tools-events.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+
+<!---------------------------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Drawing tools events" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -31,7 +36,7 @@ The following code shows how the events in the Drawing Tools module work. Draw s
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-<br/>
+-------------------------------------------------------------------->
 
 ## Examples
 
@@ -95,3 +100,6 @@ Check out more code samples:
 
 > [!div class="nextstepaction"]
 > [Code sample page](https://aka.ms/AzureMapsSamples)
+
+[Drawing tool events]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=drawing-tools-events
+[Azure Maps Samples]:https://samples.azuremaps.com
