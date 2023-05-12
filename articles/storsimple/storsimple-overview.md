@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 series solution overview | Microsoft Docs
-description: Describes StorSimple tiering, the device, virtual device, services, and storage management, and introduces key terms used in StorSimple.
+description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management, and introduces key terms used in StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.custom: devx-track-azurepowershell
 ms.workload: TBD
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---
@@ -31,29 +31,29 @@ The following resources are available to help you migrate backup files or to cop
 |[Azure StorSimple 8000 Series Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs)    |Instructions for use of the Copy Utility. |
 |[StorSimple archived documentation](https://aka.ms/storsimple-archive-docs)   |Archived StorSimple articles from Microsoft technical documentation.   |
 
-## Copy data to your environment and then decommission your StorSimple 8000 appliance
+## Copy data and then decommission your appliance
 
 Use the following steps to copy data to your environment and then decommission your StorSimple 8000 appliance. If your data has already been migrated to your own environment, you can proceed with decommissioning your appliance.
 
 **Step 1. Copy backup files or live data to your own environment.**
 
 - **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment. For more information, see [Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs).
-- **Live data.** As an alternate option, if you have live data to copy, you can access and copy live data to your environment via iSCSI.
+- **Live data.** If you have live data to copy, you can access and copy live data to your environment via iSCSI.
 
 **Step 2. Decommission your device.**
 
-After you complete your data migration from the StorSimple device, use the following steps to decommission the device. Before you decommission your device, make sure to copy all data from your appliance, using either local host copy operations or using the Utility.
+After you complete your data migration, use the following steps to decommission the device. Before you decommission your device, make sure to copy all data from your appliance, using either local host copy operations or using the Utility.
 
-Decommission operations cannot be undone. We recommend that you complete your data migration as soon as possible.
+Decommission operations can't be undone. We recommend that you complete your data migration as soon as possible.
 
 1.	Disconnect the iSCSI session on the host – that is, the iSCSI Initiators.
 2.	Reset the device to factory default:
 
-    This procedure describes how to reset your Microsoft Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple. Resetting a device removes all data and settings from the entire cluster by default.
+    This procedure describes how to reset your Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple. Resetting a device removes all data and settings from the entire cluster by default.
 
-    Use the following steps to reset your Microsoft Azure StorSimple device to factory default settings:
+    Use the following steps to reset your device to factory default settings:
 
-    1. Access the device through its serial console. Check the banner message to ensure that you are connected to the **Active** controller.
+    1. Access the device through its serial console. Check the banner message to ensure that you're connected to the **Active** controller.
     2. In the serial console menu, choose option 1: **Log in with full access.**
     3. At the prompt, type the following command to reset the entire cluster, removing all data, metadata, and controller settings:
 
@@ -62,7 +62,7 @@ Decommission operations cannot be undone. We recommend that you complete your da
     ```
     To instead reset a single controller, use the [Reset-HcsFactoryDefault](https://learn.microsoft.com/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
 
-    The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
+    The system reboots multiple times. You'll be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
 **Step 3. Shut down the device.**
 
@@ -97,7 +97,7 @@ This section explains how to shut down a running or a failed StorSimple device f
     7. Select **Open** to start a serial session.
 
 2. In the serial console menu, select option 1: **Log in with full access.**
-3. In the banner message, make a note of the controller you are connected to, Controller 0 or Controller 1, and whether it’s the active or the passive (standby) controller.
+3. In the banner message, make a note of the controller you're connected to, Controller 0 or Controller 1, and whether it’s the active or the passive (standby) controller.
 
    1. Run the following command to shut down a single controller:
 
@@ -105,7 +105,7 @@ This section explains how to shut down a running or a failed StorSimple device f
    Stop-HcsController 
    ```
 
-   This shuts down the controller that you are connected to. If you stop the active controller, then the device fails over to the passive controller.
+   This shuts down the controller you're connected to. When you stop the active controller, the device fails over to the passive controller.
 
    2. To restart a controller, at the prompt, run the following command:
 
@@ -113,11 +113,11 @@ This section explains how to shut down a running or a failed StorSimple device f
    Restart-HcsController
    ```
 
-   This restarts the controller that you are connected to. If you restart the active controller, it fails over to the passive controller before the restart.
+   This restarts the controller you're connected to. When you restart the active controller, it fails over to the passive controller before the restart.
 
 **Step 3.2** - Repeat the previous step to shut down the active controller.
 
-**Step 3.3** - You must now look at the back plane of the device. After the two controllers are completely shut down, the status LEDs on both the controllers should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This should turn off the device.
+**Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
 
 ## StorSimple 8000 series overview
 
