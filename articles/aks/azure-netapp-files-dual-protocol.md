@@ -33,7 +33,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
         --resource-group $RESOURCE_GROUP \
         --account-name $ANF_ACCOUNT_NAME \
         --pool-name $POOL_NAME \
-        --volume-name "$VOLUME_NAME -o JSON
+        --volume-name $VOLUME_NAME -o JSON
     ```
 
     The following output is an example of the above command executed with real values. 
