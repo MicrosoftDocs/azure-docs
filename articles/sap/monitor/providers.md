@@ -65,7 +65,7 @@ For SOAP+RFC:
    - SAP Client ID, HTTP port, SAP Username and Password for login.
    - Host file entries of all SAP application servers that get listed via SAPcontrol "GetSystemInstanceList" web method.
 
-Check [SAP NetWeaver provider](https://learn.microsoft.com/azure/sap/monitor/provider-netweaver) creation for more detail steps.
+Check [SAP NetWeaver provider](./provider-netweaver) creation for more detail steps.
 
 ![Diagram showing the NetWeaver provider architecture.](./media/providers/netweaver-architecture.png)
 
@@ -98,7 +98,7 @@ Configuring the SAP HANA provider requires:
 
 It's recommended to configure the SAP HANA provider against **SYSTEMDB**. However, more providers can be configured against other database tenants.
 
-Check [SAP HANA provider](https://learn.microsoft.com/azure/sap/monitor/provider-hana) creation for more detail steps.
+Check [SAP HANA provider](./provider-hana) creation for more detail steps.
 
 ![Diagram shows Azure Monitor for SAP solutions providers - SAP HANA architecture.](./media/providers/azure-monitor-providers-hana.png)
 
@@ -119,7 +119,7 @@ Configuring Microsoft SQL Server provider requires:
 - The SQL Server port number
 - The SQL Server username and password
 
-Check [SQL Database provider](https://learn.microsoft.com/azure/sap/monitor/provider-sql-server) creation for more detail steps.
+Check [SQL Database provider](./provider-sql-server) creation for more detail steps.
 
 ![Diagram shows Azure Monitor for SAP solutions providers - SQL architecture.](./media/providers/azure-monitor-providers-sql.png)
 
@@ -138,7 +138,7 @@ You can get the following data with the High-availability cluster provider:
 
 To configure a High-availability cluster provider, two primary steps are involved:
 
-1. Install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) in *each* node within the Pacemaker cluster.
+1. Install [ha_cluster_exporter](./ha_cluster_exporter) in *each* node within the Pacemaker cluster.
 
    You have two options for installing ha_cluster_exporter:
 
@@ -155,7 +155,7 @@ To configure a High-availability cluster provider, two primary steps are involve
    - **Cluster name**. The cluster name used when creating the cluster. The cluster name can be found in the cluster property `cluster-name`.
    - **Hostname**. The Linux hostname of the virtual machine (VM).
 
-  Check [High Availability Cluster provider](https://learn.microsoft.com/azure/sap/monitor/provider-ha-pacemaker-cluster) creation for more detail steps.
+  Check [High Availability Cluster provider](./provider-ha-pacemaker-cluster) creation for more detail steps.
 
 ## Provider type: OS (Linux)
 
@@ -182,7 +182,7 @@ To configure an OS (Linux) provider, two primary steps are involved:
 
 Port 9100 is exposed for the **Node_Exporter** endpoint.
 
-Check [Operating System provider](https://learn.microsoft.com/azure/sap/monitor/provider-linux) creation for more detail steps.
+Check [Operating System provider](./provider-linux) creation for more detail steps.
 
 > [!Warning]
 > Make sure **Node-Exporter** keeps running after the node reboot.
@@ -206,7 +206,7 @@ Configuring IBM Db2 provider requires:
 - The Port number of the DB2 Server to connect to
 - The Db2 Server username and password
 
-Check [IBM Db2 provider](https://learn.microsoft.com/azure/sap/monitor/provider-ibm-db2) creation for more detail steps.
+Check [IBM Db2 provider](./provider-ibm-db2) creation for more detail steps.
 
 ![Diagram shows Azure Monitor for SAP solutions providers - IBM Db2 architecture.](./media/providers/azure-monitor-providers-db2.png)
 

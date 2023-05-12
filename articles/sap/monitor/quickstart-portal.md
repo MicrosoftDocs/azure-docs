@@ -22,7 +22,7 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-- Setup [Network](https://learn.microsoft.com/azure/sap/monitor/set-up-network/) before creating Azure Monitor.
+- [Setup Network](./set-up-network.md) before creating Azure Monitor.
 
 - Create or Use an existing Virtual Network for Azure Monitor for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network.
 - Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms" as shown.
@@ -60,12 +60,12 @@ This content applies to both versions of the service, Azure Monitor for SAP solu
 
 Refer the following for each of the Provider instance creation
 
-- ## [SAP NetWeaver Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-netweaver)
-- ## [SAP HANA Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-hana)
-- ## [SAP Microsoft SQL Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-sql-server)
-- ## [SAP IBM DB2 Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-ibm-db2)
-- ## [SAP Operating System Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-linux)
-- ## [SAP High Availability Provider Creation](https://learn.microsoft.com/azure/sap/monitor/provider-ha-pacemaker-cluster)
+- [SAP NetWeaver Provider Creation](./provider-netweaver.md)
+- [SAP HANA Provider Creation](./provider-hana)
+- [SAP Microsoft SQL Provider Creation](./provider-sql-server)
+- [SAP IBM DB2 Provider Creation](./provider-ibm-db2)
+- [SAP Operating System Provider Creation](./provider-linux)
+- [SAP High Availability Provider Creation](./provider-ha-pacemaker-cluster)
 
 ## Create Azure Monitor for SAP solutions (classic) monitoring resource
 
