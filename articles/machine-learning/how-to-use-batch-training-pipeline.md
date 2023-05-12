@@ -127,7 +127,7 @@ Let's get a reference to the new data asset:
 
 ### Create the pipeline
 
-The pipeline we want to operationalize takes 1 input, the training data, and produces 3 outputs, the trained model, the evaluation results, and the data transformations applied as preprocessing. It is composed of 2 components:
+The pipeline we want to operationalize takes one input, the training data, and produces three outputs: the trained model, the evaluation results, and the data transformations applied as preprocessing. The pipeline consists of two components:
 
 1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
@@ -345,7 +345,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 
-It's worth to be mentioned that only the pipeline's inputs are published as inputs in the Batch Endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs do you want to expose to your clients and which ones you do not.
+It's worth mentioning that only the pipeline's inputs are published as inputs in the batch endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs you want to expose to your clients and which ones you don't want to expose.
 
 ### Access job outputs
 
@@ -435,7 +435,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 
 1. Your deployment is ready for use.
 
-### Test a non-default deployment
+### Test a nondefault deployment
 
 Once the deployment is created, it's ready to receive jobs. We can test it in the same way we did before, but now we'll invoke a specific deployment:
 

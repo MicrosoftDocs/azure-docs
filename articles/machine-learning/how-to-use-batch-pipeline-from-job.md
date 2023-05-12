@@ -1,23 +1,37 @@
 ---
-title: How to deploy existing pipeline jobs to a batch endpoint
+title: How to deploy existing pipeline jobs to a batch endpoint (preview)
+titleSuffix: Azure Machine Learning
 description: Learn how to create pipeline component deployment for Batch Endpoints
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
 author: santiagxf
 ms.author: fasantia
-ms.service: machine-learning
+reviewer: msakande
+ms.reviewer: mopeakande
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 05/12/2023
 ms.custom: how-to, devplatv2
 ---
 
-# Deploy existing pipeline jobs to batch endpoints
+# Deploy existing pipeline jobs to batch endpoints (preview)
 
-Batch endpoints allow the deployment of pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deploying. However, if you already have a pipeline job that runs successfully, **we can take that job as input and create the pipeline component automatically** for you. In this article, you'll learn how to achieve so.
+[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+
+Batch endpoints allow you to deploy pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deployment. However, if you already have a pipeline job that runs successfully, Azure Machine Learning can accept that job as input and create the pipeline component automatically for you. In this article, you'll learn how to use your existing pipeline job as an input Azure Machine Learning.
+
+You'll learn to:
+
+> [!div class="checklist"]
+> * Run and create the pipeline job that you want to deploy
+> * Create a batch deployment from the existing job
+> * Test the deployment
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
-In this example, we're going to deploy a pipeline consisting of a simple command job that prints "hello world!". Instead of registering the component before the deployment, we are indicating an existing pipeline job for deployment. When done, batch endpoints will create the pipeline component automatically for us and deploy it under a batch endpoint pipeline component deployment.
+In this example, we're going to deploy a pipeline consisting of a simple command job that prints "hello world!". Instead of registering the pipeline component before deployment, we indicate an existing pipeline job to use for deployment. Azure Machine Learning will then create the pipeline component automatically and deploy it as a batch endpoint pipeline component deployment.
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
@@ -33,7 +47,7 @@ cd endpoints/batch/deploy-pipelines/hello-batch
 
 ## Run the pipeline job you want to deploy
 
-To demonstrate it, let's first run a pipeline job:
+In this section, we begin by running a pipeline job:
 
 # [Azure CLI](#tab/cli)
 
@@ -52,12 +66,13 @@ hello_batch = load_component(source="hello-component/hello.yml")
 pipeline_job = hello_batch()
 ```
 
-Now, we'll configure some run settings to run the test. This tutorial assumes you have a compute cluster named `batch-cluster`. You can replace it with the name of yours.
+Now, configure some run settings to run the test. This article assumes you have a compute cluster named `batch-cluster`. You can replace the cluster with the name of yours.
 
 ```python
 pipeline_job.settings.default_compute = "batch-cluster"
 pipeline_job.settings.default_datastore = "workspaceblobstore"
 ```
+
 ---
 
 Create the pipeline job:
@@ -77,10 +92,9 @@ pipeline_job_run
 
 ---
 
-
 ## Create a batch endpoint
 
-Now, let being with the deployment of the pipeline job. First, we need to deploy a batch endpoint to host the deployment.
+Before we deploy the pipeline job, we need to deploy a batch endpoint to host the deployment.
 
 1. Provide a name for the endpoint. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, append any trailing characters to the name specified in the following code.
 
@@ -142,7 +156,7 @@ Now, let being with the deployment of the pipeline job. First, we need to deploy
 
 To deploy the pipeline component, we have to create a batch deployment from the existing job.
 
-1. We need to indicate to Azure Machine Learning the name of the job we want to deploy. In our case, that job is indicated in the following variable:
+1. We need to tell Azure Machine Learning the name of the job that we want to deploy. In our case, that job is indicated in the following variable:
 
     # [Azure CLI](#tab/cli)
     
@@ -160,7 +174,7 @@ To deploy the pipeline component, we have to create a batch deployment from the 
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment-from-job.yml` file contains the deployment's configuration. Notice now how we use the key `job_definition` instead of `component`:
+    The `deployment-from-job.yml` file contains the deployment's configuration. Notice how we use the key `job_definition` instead of `component` to indicate that this deployment is created from a pipeline job:
 
     __deployment-from-job.yml__
 
@@ -197,11 +211,11 @@ To deploy the pipeline component, we have to create a batch deployment from the 
     :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_deployment_from_job" :::
     
     > [!TIP]
-    > Notice the use of `--set job_definition=azureml:$JOB_NAME`. Since job names are unique, the command `--set` is used here to change the name of the job when your run it in your workspace.
+    > Notice the use of `--set job_definition=azureml:$JOB_NAME`. Since job names are unique, the command `--set` is used here to change the name of the job when you run it in your workspace.
 
     # [Python](#tab/python)
 
-    This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+    This command starts the deployment creation and returns a confirmation response while the deployment creation continues.
 
     ```python
     ml_client.batch_deployments.begin_create_or_update(deployment).result()
@@ -271,6 +285,7 @@ Delete the endpoint:
 ```python
 ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 ```
+
 ---
 
 ## Next steps
