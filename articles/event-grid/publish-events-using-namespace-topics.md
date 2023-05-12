@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
 ms.custom: references_regions
-ms.date: 04/27/2023
+ms.date: 05/23/2023
 ---
 
 # Publish to namespace topics and consume events
