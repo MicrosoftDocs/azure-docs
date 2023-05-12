@@ -88,6 +88,24 @@ As a content publisher, you might want to share a gallery to the community:
 
 - You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.
 
+## Should I use a marketplace image or a community gallery image?
+
+There are a variety of reasons why you might want to use n Azure Marketplace image instead of a community gallery image. The primary reason to choose an Azure Marketplace image is that they are supported by Microsoft, while community images are not. 
+
+Why use a marketplace mage?
+- Microsoft certified images
+- Can be use for production workloads
+- First party and third party images
+- Paid images with additional software offerings
+- Supported by Microsoft
+
+When to use a community image?
+- You trust and know how to contact the publisher
+- You are looking for a community version of an image published by open-source community
+- Using the image for testing
+- Community images are free
+- Supported by the owner of the image, not Microsoft.
+
 ## Reporting issues with a public image 
 Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
 
