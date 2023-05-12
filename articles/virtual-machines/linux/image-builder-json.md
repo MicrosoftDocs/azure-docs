@@ -1278,6 +1278,8 @@ source: {
 ---
 - imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place. The `imageVersionId` should be the `ResourceId` of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
+### SharedImageVersion
+
 The following JSON sets the source image as an image stored in a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
 
 > [!NOTE]
@@ -1302,7 +1304,6 @@ source: {
 ```
 ---
 
-paste from: https://github.com/MicrosoftDocs/azure-docs-pr/pull/232209/files#r1173054534
 
 ## Properties: stagingResourceGroup
 
