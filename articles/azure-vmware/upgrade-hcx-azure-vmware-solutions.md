@@ -19,6 +19,7 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 - For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://docs.vmware.com/en/VMware-HCX/index.html).  
 
 - For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.vmware.com/Upgrade?productId=660). 
+- For information regarding VMware product compatibility by version, see the [Compatibility Matrix](https://interopmatrix.vmware.com/Interoperability?col=660,&row=0,).
 
 - Ensure HCX manager and site pair configurations are healthy.  
 
