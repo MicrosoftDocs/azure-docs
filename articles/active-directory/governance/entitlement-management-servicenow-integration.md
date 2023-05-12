@@ -1,17 +1,17 @@
 ---
-title: Integrating Entitlement Management with ServiceNow using Custom Extensibility and Logic Apps
-description: This tutorial walks you through integrating Azure Active Directory's Entitlement Management with ServiceNow using Custom Extensibility and Logic Apps 
+title: Ticketed provisioning via ServiceNow
+description: This tutorial walks you through Ticketed provisioning via ServiceNow integration with entitlement management using custom extensions and Logic Apps.
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
 ms.subservice: compliance
 ms.workload: identity
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+ms.topic: tutorial 
 ms.date: 05/08/2023
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial 
 ---
 
-# Tutorial: Integrating Azure Active Directory Entitlement Management with ServiceNow using Custom Extensibility and Logic Apps
+# Tutorial: Ticketed provisioning via ServiceNow
 
 
 
@@ -32,17 +32,19 @@ In this tutorial, you learn how to:
 - An Azure AD user account with an active Azure subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - A [ServiceNow instance](https://www.servicenow.com/) of Rome or higher
-- Create SSO integration with ServiceNow - [Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow](../saas-apps/servicenow-tutorial.md)
+- SSO integration with ServiceNow. If this is not already configured, see:[Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow](../saas-apps/servicenow-tutorial.md) before continuing.
 
 ## Adding Logic App Workflow to an existing Catalog for Entitlement Management
 
 Prerequisite roles: Global administrator, Identity Governance administrator, or Catalog owner and Resource Group Owner.
 
-To add a Logic App workflow to an existing catalog, you can use an ARM template for the Logic App creation here: [OneClick Deploy to Azure link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Figaelmprodportalhosting.blob.core.windows.net%2Farm-deployment-template%2FLogicAppServiceNowIntegration.json ).
+To add a Logic App workflow to an existing catalog, you use an ARM template for the Logic App creation here: 
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Figaelmprodportalhosting.blob.core.windows.net%2Farm-deployment-template%2FLogicAppServiceNowIntegration.json ).
 
 :::image type="content" source="media/entitlement-management-servicenow-integration/logic-app-arm-template.png" alt-text="Screenshot of Logic App ARM template.":::
 
-Provide the Azure subscription, resource group details, along with the Logic App name and the Catalog ID to associate the Logic App with and select Purchase. For more information on how to create a new catalog, please follow the steps in this document: [Create and manage a catalog of resources in entitlement management](entitlement-management-catalog-create.md).
+Provide the Azure subscription, resource group details, along with the Logic App name and the Catalog ID to associate the Logic App with and select purchase. For more information on how to create a new catalog, please follow the steps in this document: [Create and manage a catalog of resources in entitlement management](entitlement-management-catalog-create.md).
 
 
 1. Navigate To Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
@@ -55,9 +57,9 @@ Provide the Azure subscription, resource group details, along with the Logic App
 
 1. In the **Basics** tab, enter the name of the custom extension and a description of the workflow. These fields show up in the **Custom Extensions** tab of the Catalog.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png" alt-text="Screenshot of creating a custom extension for entitlement management.":::
-1. Select the **Extension Type** as “**Request workflow**” which supports policy stages: access package requested is created, when the request is approved, when assignment is granted, and when assignment is removed. 
+1. Select the **Extension Type** as “**Request workflow**” to correspond with the policy stage of the access package requested being created.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png" alt-text="Screenshot of entitlement management custom extension behavior actions tab.":::
-1. Select **Launch and wait** in the **Extension Configuration** which will pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. If no response is sent back in the wait time period defined, this process would be considered a failure. This process is further described in the document: [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
+1. Select **Launch and wait** in the **Extension Configuration** which will pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. For further information on this process, see:  [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
 
 1. In the **Details** tab, choose No in the "*Create new logic app*" field as the logic app has already been created in the previous steps. However, you need to provide the Azure subscription and resource group details, along with the Logic App name.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-details.png" alt-text="Screenshot of the entitlement management  custom extension details tab.":::
@@ -96,7 +98,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 ## Register an application with secrets in Azure portal
 
-To register an application with secrets within the Azure portal, you'd follow these steps:
+To register an application with secrets within the Azure portal, follow these steps:
 
 1. Sign in to the Azure portal.
 
@@ -123,7 +125,7 @@ After registering your application, you must add a client secret by following th
 1. Select Add.
 
 > [!NOTE]
-> You can find more detailed information on Microsoft's official documentation [here](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app):
+> To find more detailed information on registering an application, see: [Quickstart: Register an app in the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app):
 
 To authorize the created application to call the [MS Graph resume API](/graph/api/accesspackageassignmentrequest-resume) you'd do the following steps:
 
@@ -141,7 +143,7 @@ To authorize the created application to call the [MS Graph resume API](/graph/ap
 > You can find more detailed information on delegation and roles on Microsoft’s official documentation located here: [Delegation and roles in entitlement management](entitlement-management-delegate.md).
 
 
-## Configuring ServiceNow for Automation Authentication: A Step-by-Step Guide
+## Configuring ServiceNow for Automation Authentication
 
 At this point it's time to configure ServiceNow for resuming the entitlement management workflow after the ServiceNow ticket closure:
 
