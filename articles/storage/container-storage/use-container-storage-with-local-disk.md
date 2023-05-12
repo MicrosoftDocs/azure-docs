@@ -1,6 +1,6 @@
 ---
-title: Use Azure Container Storage Preview with Azure Ephemeral OS disk
-description: Configure Azure Container Storage Preview for use with Azure Ephemeral OS disk (NVMe). Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage Preview with Ephemeral Disk
+description: Configure Azure Container Storage Preview for use with Ephemeral Disk (NVMe). Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
@@ -9,8 +9,8 @@ ms.author: kendownie
 ms.subservice: container-storage
 ---
 
-# Use Azure Container Storage Preview with Azure Ephemeral OS disk
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Ephemeral OS disk as back-end storage for your Kubernetes workloads.
+# Use Azure Container Storage Preview with Ephemeral Disk
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk as back-end storage for your Kubernetes workloads.
 
 > [!IMPORTANT]
 > Azure Container Storage Preview only supports NVMe for local disk. Temp drives and local SSD aren't currently supported. Local NVMe disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
@@ -176,7 +176,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You've now deployed a pod that's using Azure Ephemeral OS Disk as its storage, and you can use it for your Kubernetes workloads.
+You've now deployed a pod that's using Ephemeral Disk as its storage, and you can use it for your Kubernetes workloads.
 
 ## Detach and reattach a persistent volume
 

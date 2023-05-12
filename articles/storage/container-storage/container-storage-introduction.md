@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 05/10/2023
+ms.date: 05/12/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
@@ -25,13 +25,13 @@ To sign up for Azure Container Storage Preview, complete the [onboarding survey]
 
 Azure Container Storage utilizes existing Azure Storage offerings for actual data storage and offers a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
-Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Supported backing storage options include block storage offerings only: Ephemeral Disks, Azure Disks, and a new managed option hosted on Azure Elastic SAN Preview. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
+Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Supported backing storage options include block storage offerings only: Azure Disks, Ephemeral Disks, and Azure Elastic SAN Preview. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
 
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
 | **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)** | Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN Preview | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
 | **[Azure Disks](../../virtual-machines/managed-disks-overview.md)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD v2, Premium SSD | Provisioned per target container storage pool size and maximum volume size. |
-| **[Ephemeral OS Disk](../../virtual-machines/ephemeral-os-disks.md)** | Utilizes local storage resources on AKS nodes | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe only (available on [storage optimized VM SKUs](../../virtual-machines/sizes-storage.md)) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
+| **Ephemeral Disk** | Utilizes local storage resources on AKS nodes | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe only (available on [storage optimized VM SKUs](../../virtual-machines/sizes-storage.md)) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
 
 ## Regional availability
 
@@ -49,7 +49,7 @@ Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-
 
 You can use Azure Container Storage to:
 
-* **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This includes ephemeral disk that provides extremely low latency for workloads like Cassandra, as well as a managed option backed by Azure Elastic SAN Preview that provides native iSCSI and shared provisioned targets.
+* **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This includes ephemeral disk that provides extremely low latency for workloads like Cassandra, as well as Azure Elastic SAN Preview that provides native iSCSI and shared provisioned targets.
 
 * **Simplify volume management with Kubernetes:** By providing volume orchestration via the Kubernetes control plane, Azure Container Storage makes it easy to deploy and manage volumes within Kubernetes - without the need to move back and forth between different control planes.
 

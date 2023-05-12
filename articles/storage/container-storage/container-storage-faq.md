@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: storage
-ms.date: 05/09/2023
+ms.date: 05/12/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.topic: conceptual
@@ -24,7 +24,7 @@ ms.topic: conceptual
 
 * <a id="azure-container-storage-preview-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
-  During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral OS Disk, or Azure Elastic SAN Preview.
+  During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral Disk, or Azure Elastic SAN Preview.
 
 * <a id="azure-container-storage-delete-aks-resource-group"></a>
   **I've created an Elastic SAN storage pool, and I'm trying to delete my resource group where my AKS cluster is located and it's not working. Why?**  
