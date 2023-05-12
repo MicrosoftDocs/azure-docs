@@ -1,6 +1,6 @@
 ---
-title: Azure AD Provisioning to applications via Web services
-web services based APIs.
+title: Azure AD Provisioning to applications via web services connector
+description: This document describes how to configure Azure AD to provision users with external systems that offer web services based APIs.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -12,6 +12,7 @@ ms.date: 05/11/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
+
 
 # Provisioning with the web services connector
 The following documentation provides information about the generic web services connector. The ECMA Connector Host can be used to integrate Azure AD with external systems that offer web services based APIs.
