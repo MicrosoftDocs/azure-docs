@@ -62,4 +62,4 @@ Enabling `replace_unverified_email_with_upn` should be viewed mainly as a short-
 ## Next steps
 
 - To learn more about using claims-based authorization securly, see [Secure applications and APIs by validating claims](claims-validation.md)
-- For more information about optional claims, see [Provide optional claims to your applicaiton](./active-directory-optional-claims.md)
+- For more information about optional claims, see [Provide optional claims to your application](./active-directory-optional-claims.md)
