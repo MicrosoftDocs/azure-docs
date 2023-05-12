@@ -133,4 +133,4 @@ Once you've added the code sample to your application, run your program:
 
 Here's a snippet of the expected output:
 
-  :::image type="content" source="../../media/quickstarts/javascript-output.png" alt-text="Screenshot of JavaScript output in the terminal window":::
+  :::image type="content" source="../../media/quickstarts/javascript-output.png" alt-text="Screenshot of JavaScript output in the terminal window.":::
