@@ -172,7 +172,7 @@ Each paragraph of the utterance results in a separate audio. If you want to comb
 
 ### Update engine version for your voice model
 
-Azure Text-to-Speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version.
+Azure Text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version.
 
 When a new engine is available, you're prompted to update your neural voice model.
 

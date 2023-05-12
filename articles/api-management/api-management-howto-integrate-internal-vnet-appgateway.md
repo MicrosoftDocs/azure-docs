@@ -48,7 +48,7 @@ To follow the steps described in this article, you must have:
      - A CER file for the root certificate of the PFX certificates.
      
     For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
-* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
+* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Scenario
 
