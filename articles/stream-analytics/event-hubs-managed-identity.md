@@ -48,14 +48,13 @@ For the Stream Analytics job to access your Event Hub using managed identity, th
 > [!NOTE]
 > When giving access to any resource, you should give the least needed access. Depending on whether you are configuring Event Hubs as an input or output, you may not need to assign the Azure Event Hubs Data Owner role which would grant more than needed access to your Eventhub resource. For more information see [Authenticate an application with Azure Active Directory to access Event Hubs resources](https://learn.microsoft.com/azure/event-hubs/authenticate-application)
 
+ | Setting | Value |
+ | --- | --- |
+ | Role | Azure Event Hubs Data Owner |
+ | Assign access to | User, group, or service principal |
+ | Members | \<Name of your Stream Analytics job> |
 
-    | Setting | Value |
-    | --- | --- |
-    | Role | Azure Event Hubs Data Owner |
-    | Assign access to | User, group, or service principal |
-    | Members | \<Name of your Stream Analytics job> |
-
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 You can also grant this role at the Event Hub Namespace level, which will naturally propagate the permissions to all Event Hubs created under it. That is, all Event Hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
 
