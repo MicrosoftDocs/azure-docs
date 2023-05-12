@@ -1,5 +1,5 @@
 ---
-title: "Create limited access tokens - Face"
+title: "Use limited access tokens - Face"
 titleSuffix: Azure Cognitive Services
 description: Learn how ISVs can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 05/11/2023
 ms.author: pafarley
 ---
 
-# Create limited access tokens for Face
+# Use limited access tokens for Face
 
 Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process.
 
@@ -169,6 +169,7 @@ static void Main(string[] args)
     }
 }
 ```
+---
 
 ## Next steps
 * [LimitedAccessToken API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueLimitedAccessToken)
