@@ -36,7 +36,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
     VOLUME_NAME="myvolname"
     ``` 
     
-2. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) command. Replace the variables with appropriate values from your Azure NetApp Files account and environment if not defined in a previous step.
+2. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) command.
 
     ```azurecli-interactive
     az netappfiles volume show \
@@ -229,7 +229,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     VOLUME_NAME="myvolname"
     ``` 
     
-2. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
+2. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show).
 
     ```azurecli-interactive
     az netappfiles volume show \
