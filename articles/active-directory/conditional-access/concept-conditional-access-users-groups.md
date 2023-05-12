@@ -56,7 +56,7 @@ The following options are available to include when creating a Conditional Acces
 > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../roles/admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../roles/custom-create.md).
 
 > [!NOTE]
-> When targeting policies to B2B direct connect external users, these policies will also be applied to B2B collaboration users accessing Teams or SharePoint Online who are also eligible for B2B direct connect.
+> When targeting policies to B2B direct connect external users, these policies will also be applied to B2B collaboration users accessing Teams or SharePoint Online who are also eligible for B2B direct connect. The same applies for policies targeted to B2B collaboration external users, meaning users accessing Teams shared channels will have B2B collaboration policies apply if they also have a guest user presence in the tenant.
 
 ## Exclude users
 
