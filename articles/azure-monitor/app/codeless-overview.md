@@ -1,14 +1,14 @@
 ---
-title: Auto-instrumentation for Azure Monitor Application Insights
-description: Overview of auto-instrumentation for Azure Monitor Application Insights codeless application performance management.
+title: Autoinstrumentation for Azure Monitor Application Insights
+description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
 ms.date: 05/12/2023
 ms.reviewer: abinetabate
 ---
 
-# What is auto-instrumentation for Azure Monitor Application Insights?
+# What is autoinstrumentation for Azure Monitor Application Insights?
 
-Auto-instrumentation quickly and easily enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model-complete.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md).
+Autoinstrumentation quickly and easily enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model-complete.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md).
 
 > [!div class="checklist"]
 > - No code changes are required.
@@ -17,7 +17,7 @@ Auto-instrumentation quickly and easily enables [Application Insights](app-insig
 
 ## Supported environments, languages, and resource providers
 
-The following table shows the current state of auto-instrumentation availability.
+The following table shows the current state of autoinstrumentation availability.
 
 Links are provided to more information for each supported scenario.
 
