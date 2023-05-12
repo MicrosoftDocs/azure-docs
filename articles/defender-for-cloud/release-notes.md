@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 05/09/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,6 +24,9 @@ Updates in May include:
 - [Revised JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud)
 - [Onboard selected AWS regions](#onboard-selected-aws-regions)
 - [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)
+- [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
+- [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
+- [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -106,6 +109,35 @@ The following security recommendations are now deprecated:
 | Deprecated accounts should be removed from subscriptions | 00c6d40b-e990-6acf-d4f3-471e747a27c4 |
 
 We recommend updating your custom scripts, workflows, and governance rules to correspond with the V2 recommendations.
+
+### Deprecation of legacy standards in compliance dashboard
+
+Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](https://learn.microsoft.com/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards. 
+We have fully deprecated support of [PCI DSS](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+
+Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+### Two Defender for DevOps recommendations now include Azure DevOps scan findings
+
+Defender for DevOps Code and IaC has expanded its recommendation coverage in Microsoft Defender for Cloud to include Azure DevOps security findings for the following two recommendations:
+
+- `Code repositories should have code scanning findings resolved`
+
+- `Code repositories should have infrastructure as code scanning findings resolved`
+
+Previously, coverage for Azure DevOps security scanning only included the secrets recommendation.   
+
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+
+### New default setting for Defender for Servers vulnerability assessment solution
+
+Vulnerability assessment (VA) solutions are essential to safeguard machines from cyberattacks and data breaches.
+
+Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a built-in solution in the Defender for Servers plan that doesn't have a VA solution selected.
+
+If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
+
+Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
 
 ## April 2023
 
