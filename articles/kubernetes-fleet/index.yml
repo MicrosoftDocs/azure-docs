@@ -48,6 +48,10 @@ landingContent:
             url: quickstart-create-fleet-and-members.md
       - linkListType: how-to-guide
         links:
+          - text: Orchestrate updates across multiple member clusters
+            url: update-orchestration.md
+      - linkListType: how-to-guide
+        links:
           - text: Propagate Kubernetes resource objects from a Fleet resource to member clusters
             url: configuration-propagation.md
       - linkListType: how-to-guide
