@@ -9,9 +9,9 @@ ms.date: 06/06/2022
 ms.author: kesheth
 ---
 
-# Bulk-import FHIR data
+# Import Operation
 
-The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Bulk import supports both initial and incremental data load into FHIR server.Incremental import mode is in public preview, see disclaimer below. 
+Import operations enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. Incremental import mode is in public preview, see disclaimer below. 
 
 [!INCLUDE Public Preview Disclaimer]
 
@@ -20,7 +20,7 @@ The bulk-import feature enables importing Fast Healthcare Interoperability Resou
 
 ## Using $import operation
 
-To use $import, you need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article.
+To use $import, you need to configure the FHIR server using the instructions in the [Configure import settings](configure-import-data.md) article.
 The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. 
 
 For import operation, ensure
@@ -28,14 +28,12 @@ For import operation, ensure
 * The data to be imported must be in the same Tenant as of the FHIR service.
 * Maximum number of files to be imported per operation is 10,000.
 
-Note : Import operation does not support conditional references in resources and If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the ID.
+Note : Import operation does not support conditional references in resources and If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the resource ID.
 
 
 ### Calling $import
 
-Make a ```POST``` call to ```<<FHIR service base URL>>/$import``` with the following required headers and body, which contains a FHIR [Parameters](http://hl7.org/fhir/parameters.html) resource.
-
-An empty response body with a **callback** link will be returned in the `Content-location` header of the response together with ```202-Accepted``` status code. You can use this callback link to check the import status.
+Make a ```POST``` call to ```<<FHIR service base URL>>/$import``` with the headers and body listed below:
 
 #### Request Header
 
@@ -108,7 +106,10 @@ Content-Type:application/fhir+json
 
 ### Checking import status
 
-Make the REST call with the ```GET``` method to the **callback** link returned in the previous step. You can interpret the response using the following table:
+Once $import is initiated, an empty response body with a **callback** link will be returned in the `Content-location` header of the response together with ```202-Accepted``` status code. Store  this callback link to check the import status.
+
+To check import status, make the REST call with the ```GET``` method to the **callback** link returned in the previous step.
+You can interpret the response using the following table:
 
 | Response code      | Response body |Description |
 | ----------- | -----------  |-----------  |
@@ -247,7 +248,7 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 ## Next steps
 
-In this article, you've learned about how the Bulk import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+In this article, you've learned about how the import operation enables importing FHIR data to the FHIR server at high throughput. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 
 >[!div class="nextstepaction"]
