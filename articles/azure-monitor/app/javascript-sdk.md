@@ -20,24 +20,10 @@ ms.reviewer: mmcc
 
 ## Enable Application Insights
 
-Three methods are available to enable the Application Insights via the Application Insights JavaScript SDK.
+Two methods are available to manually enable Application Insights via the Application Insights JavaScript SDK.
 
 > [!TIP] 
-> Alternatively, if your JavaScript application is hosted on an applicable Azure environment or resource provider, Application Insights is instrumented automatically. For more information, see [auto-instrumentation for Azure Monitor Application Insights]().
-
-### [Auto-Instrumentation](#tab/autoinstrumentation)
-
-Use this method if you want to automatically inject the Application Insights JavaScript SDK into every webpage of your web application instead of including the Application Insights code with your application code. 
-
-The following Application Insights SDKs are supported.
-
-| SDK   | More information
-|	:---	|	:---	|
-| ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-| Node.js | [Automatic web Instrumentation[Preview]](./nodejs.md#automatic-web-instrumentationpreview) |
-
-> [!NOTE] 
-> If you want more control over which pages you add the Application Insights JavaScript SDK to or if you're using a programming language other than .NET and Node.js, see [SDK Loader Script](?tabs=sdkloaderscript#enable-application-insights).
+> Good news! We're making it even easier to enable JavaScript. Check out where [auto-instrumentation is available](./codeless-overview.md)!
 
 ### [SDK Loader Script](#tab/sdkloaderscript)
 
@@ -82,6 +68,37 @@ Use the following steps to enable Application Insights:
 
    > [!NOTE]
    > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
+
+1. (Optional) If needed, configure the SDK Loader Script:
+
+| Name | Type | Required? | Description
+|------|------|-----------|------------
+| src | string | Required | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
+| name | string | Optional | The global name for the initialized SDK, defaults to appInsights. So ```window.appInsights``` is a reference to the initialized instance. Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct snippet skeleton, and proxy methods are initialized and updated.
+| ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. The default value is 0ms. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
+| useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. Reporting first attempts to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
+| crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values aren't defined (the default); ""; or "anonymous" (For all valid values see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation)
+| onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). It's passed a reference to the sdk instance that it's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of snippet version 5--the sv:"5" value within the snippet script)
+| cfg | object | Required | The required connection string and optional [SDK configuration](./javascript-sdk-advanced.md#advanced-configuration) passed to the Application Insights SDK during initialization.
+
+### Example using the snippet onInit callback
+
+```html
+<script type="text/javascript">
+!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+crossOrigin: "anonymous",
+onInit: function (sdk) {
+  sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data = envelope.data || {};
+    envelope.data.someField = 'This item passed through my telemetry initializer';
+  });
+}, // Once the application insights instance has loaded and initialized this method will be called
+cfg: { // Application Insights Configuration
+    connectionString: "YOUR_CONNECTION_STRING"
+}});
+</script>
+```
 
 ### [npm Package](#tab/npmpackage)
 
@@ -129,41 +146,9 @@ npm i --save @microsoft/applicationinsights-web
    > [!NOTE]
    > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
 
+1. (Optional) Within the `config` object in the JavaScript code you added, specify [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration).
+
 ---
-
-## Snippet configuration
-
-> [!NOTE]
-> For advanced configuration, which is optional, see [Advanced configuration](javascript-sdk-advanced.md#advanced-configuration).
-
-| Name | Type | Description
-|------|------|----------------
-| src | string **[required]** | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
-| name | string *[optional]* | The global name for the initialized SDK, defaults to appInsights. So ```window.appInsights``` is a reference to the initialized instance. Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct snippet skeleton, and proxy methods are initialized and updated.
-| ld | number in ms *[optional]* | Defines the load delay to wait before attempting to load the SDK. The default value is 0ms. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
-| useXhr | boolean *[optional]* | This setting is used only for reporting SDK load failures. Reporting first attempts to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
-| crossOrigin | string *[optional]* | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values aren't defined (the default); ""; or "anonymous" (For all valid values see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation)
-| onInit | function(aiSdk) { ... } *[optional]* | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). It's passed a reference to the sdk instance that it's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of snippet version 5--the sv:"5" value within the snippet script)
-| cfg | object **[required]** | The configuration passed to the Application Insights SDK during initialization.
-
-### Example using the snippet onInit callback
-
-```html
-<script type="text/javascript">
-!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
-src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
-crossOrigin: "anonymous",
-onInit: function (sdk) {
-  sdk.addTelemetryInitializer(function (envelope) {
-    envelope.data = envelope.data || {};
-    envelope.data.someField = 'This item passed through my telemetry initializer';
-  });
-}, // Once the application insights instance has loaded and initialized this method will be called
-cfg: { // Application Insights Configuration
-    connectionString: "YOUR_CONNECTION_STRING"
-}});
-</script>
-```
 
 ## What is collected automatically?
 
