@@ -8,9 +8,9 @@ ms.date: 05/08/2023
 
 # Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service
 
-After you [configure Azure NetApp Files volumes for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files NFS volumes for Azure Kubernetes Service. 
+After you [configure Azure NetApp Files for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
 
-Azure NetApp Files supportsvolumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), SMB3, or [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB3, or NFSv4.1 and SMB3). This article describes details about provisioning the volumes for SMB access. For information about provisioning NFS volumes statically and dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md). For information about provisioning dual-protocol volumes statically, see [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md).   
+Azure NetApp Files supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), SMB3, or [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB3, or NFSv4.1 and SMB3). This article describes details about provisioning the volumes for SMB access, statically or dynamically. For information about provisioning NFS volumes statically or dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md). For information about provisioning dual-protocol volumes statically, see [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md). It is recommended to use dynamic provisioning where possible.
 
 ## Statically configure for applications that use SMB volumes 
 
@@ -18,9 +18,14 @@ This section describes how to create an SMB volume on Azure NetApp Files and exp
 
 ### Create an SMB Volume
 
-1. Define variables for later usage. Replace *myfilepath*, *myvolsize*, *myvolname*, and *virtnetid* with an appropriate value for your environment. The filepath must be unique within all ANF accounts.
+1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *premium*, *myfilepath*, *myvolsize*, *myvolname*, and *virtnetid* with an appropriate value for your environment. The filepath must be unique within all ANF accounts.
 
     ```azurecli-interactive
+    RESOURCE_GROUP="myresourcegroup"
+    LOCATION="mylocation"
+    ANF_ACCOUNT_NAME="myaccountname"
+    POOL_NAME="mypool1"
+    SERVICE_LEVEL="premium" # Valid values are standard, premium, and ultra
     UNIQUE_FILE_PATH="myfilepath"
     VOLUME_SIZE_GIB="myvolsize"
     VOLUME_NAME="myvolname"
@@ -47,7 +52,7 @@ This section describes how to create an SMB volume on Azure NetApp Files and exp
 
 ### Create a secret with the domain credentials
 
-1. Create a secret on your AKS cluster to access the AD server using the [`kubectl create secret`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) command. This secret will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command to create the secret, replacing `USERNAME` with your username, `PASSWORD` with your password, and `DOMAIN_NAME` with your domain name for your Active Directory.
+1. Create a secret on your AKS cluster to access the Active Directory (AD) server using the [`kubectl create secret`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) command. This secret will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command to create the secret, replacing `USERNAME` with your username, `PASSWORD` with your password, and `DOMAIN_NAME` with your domain name for your AD.
 
     ```bash
         kubectl create secret generic smbcreds --from-literal=username=USERNAME --from-literal=password="PASSWORD" --from-literal=domain='DOMAIN_NAME'
@@ -86,7 +91,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
 ### Create the persistent volume
 
-1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment. 
+1. List the details of your volume using [`az netappfiles volume show`](/cli/azure/netappfiles/volume#az-netappfiles-volume-show). Replace the variables with appropriate values from your Azure NetApp Files account and environment if not defined in a previous step.
 
     ```azurecli-interactive
     az netappfiles volume show \
@@ -115,7 +120,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     }
     ```
 
-2. Create a file named `pv-smb.yaml` and copy in the following YAML. If necessary, replace `myvolname` with the `creationToken` and replace `ANF-1be3.contoso.com\myvolname` with the value of `smbServerFqdn` from the previous step. Be sure to include your AD credentials secret along with the namespace where it is located that you created in a prior step.
+2. Create a file named `pv-smb.yaml` and copy in the following YAML. If necessary, replace `myvolname` with the `creationToken` and replace `ANF-1be3.contoso.com\myvolname` with the value of `smbServerFqdn` from the previous step. Be sure to include your AD credentials secret along with the namespace where the secret is located that you created in a prior step.
 
     ```yaml
     apiVersion: v1
@@ -168,7 +173,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     spec:
       accessModes:
         - ReadWriteMany
-      volumeName: pv-smb
+      volumeName: anf-pv-smb
       storageClassName: ""
       resources:
         requests:
@@ -220,13 +225,13 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
           readOnly: false
     ```
 
-2. Create the pod using the [kubectl apply][kubectl-apply] command:
+2. Create the pod using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:
 
     ```bash
     kubectl apply -f iis-smb.yaml
     ```
 
-3. Verify the pod is *Running* and `/inetpub/wwwroot` is mounted from SMB by using the [kubectl describe][kubectl-describe] command:
+3. Verify the pod is *Running* and `/inetpub/wwwroot` is mounted from SMB by using the [kubectl describe](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
 
     ```bash
     kubectl describe pod iis-pod
@@ -270,7 +275,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     ...
     ```
 
-4. Verify your volume has been mounted on the pod by using the [kubectl exec][kubectl-exec] command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
+4. Verify your volume has been mounted on the pod by using the [kubectl exec](https://kubernetes.io/docs/reference/kubectl/kubectl-commands#exec) command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
 
     ```bash
     kubectl exec -it iis-pod –- cmd.exe
@@ -450,7 +455,9 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
         name: backend-tbc-anf-secret
       nasType: smb
     ```
-3. Create the secret and backend using the the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
+3. Create the secret and backend using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command.
+
+Create the secret: 
 
     ```bash
     kubectl apply -f backend-secret.yaml -n trident
@@ -461,7 +468,9 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
     ```output    
     secret/backend-tbc-anf-secret created
     ``` 
-
+    
+    Create the backend:
+    
     ```bash
     kubectl apply -f backend-anf.yaml -n trident
     ```
