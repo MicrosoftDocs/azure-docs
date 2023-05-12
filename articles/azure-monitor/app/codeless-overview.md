@@ -43,6 +43,18 @@ Links are provided to more information for each supported scenario.
 > [!NOTE]
 > Auto-instrumentation was known as "codeless attach" before October 2021.
 
+### JavaScript Auto-Instrumentation
+
+Auto-instrumentation for JavaScript web comes in these flavors:
+
+- In [Supported environments, languages, and resource providers](#supported-environments-languages-and-resource-providers), we show where it's available via the portal. 
+- Alternatively, if you’re using the following supported SDKs, you can configure the SDK Loader Script to inject from the server-side SDK onto each page.
+
+| SDK   | More information
+|	:---	|	:---	|
+| ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
+| Node.js | [Automatic web Instrumentation[Preview]](./nodejs.md#automatic-web-instrumentationpreview) |
+
 ## Next steps
 
 * [Application Insights overview](app-insights-overview.md)
