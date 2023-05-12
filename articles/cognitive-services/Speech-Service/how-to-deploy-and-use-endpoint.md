@@ -51,7 +51,7 @@ The application settings that you use as REST API [request parameters](#request-
 
 The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
 
-One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text to speech quickstart](get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -317,5 +317,5 @@ The HTTP status code for each response indicates success or common errors.
 ## Next steps
 
 - [How to record voice samples](record-custom-voice-samples.md)
-- [Text-to-Speech API reference](rest-text-to-speech.md)
+- [Text to speech API reference](rest-text-to-speech.md)
 - [Batch synthesis](batch-synthesis.md)
