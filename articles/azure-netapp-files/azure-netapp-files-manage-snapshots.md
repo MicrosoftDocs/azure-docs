@@ -44,5 +44,6 @@ Azure NetApp Files supports creating on-demand [snapshots](snapshots-introductio
 * [Learn more about snapshots](snapshots-introduction.md)
 * [Manage snapshot policies with Azure NetApp Files](snapshots-manage-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Create a short-term clone from an Azure NetApp File snapshot](create-short-term-clone.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
 * [What is Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)

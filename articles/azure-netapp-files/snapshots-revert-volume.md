@@ -51,3 +51,5 @@ type the name of the volume, and click **Revert**.
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)
 * [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
+* [Create a short-term clone from an Azure NetApp File snapshot](create-short-term-clone.md)
+
