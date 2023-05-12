@@ -71,7 +71,7 @@ The **Allow deletes** action will delete the objects that triggered the accident
 
 ### Rejecting deletions
 
-If you don't want to allow the deletions, you need to do the following:
+Investigate and reject deletions as necessary:
 - Investigate the source of the deletions. You can use the provisioning logs for details.
 - Prevent the deletion by assigning the user / group to the application (or configuration) again, restoring the user / group, or updating your provisioning configuration.
 - Once you've made the necessary changes to prevent the user / group from being deleted, restart provisioning. Don't restart provisioning until you've made the necessary changes to prevent the users / groups from being deleted. 
