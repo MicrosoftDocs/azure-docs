@@ -37,7 +37,7 @@ For Azure NetApp Files performance data, see:
 
     On an AVS host, a single network connection is established per NFS datastore akin to using `nconnect=1` on the Linux tests referenced in Section 6 (*The Tuning Options*). This fact is key to understanding how AVS scales performance so well across multiple datastores. 
 
-* [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](https://learn.microsoft.com/en-us/azure/azure-netapp-files/performance-benchmarks-azure-vmware-solution)
+* [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](performance-benchmarks-azure-vmware-solution.md)
 
 
 ## Test methodology 
@@ -52,12 +52,12 @@ This testing follows the "four-corners" methodology, which includes both read op
 * Scaling number of AVS hosts, each with one VM sharing a single Azure NetApp Files datastore.
 * Scaling number of Azure NetApp Files datastores, each with one VMDK equally spread across AVS hosts. 
 
-Testing both small and large block operations and iterating through sequential and random workloads ensure the testing of all components in the compute, storage, and network stacks to the "edge".  To cover the four-corners with block size and randomization, the following common combination are used:
+Testing both small and large block operations and iterating through sequential and random workloads ensure the testing of all components in the compute, storage, and network stacks to the "edge". To cover the four corners with block size and randomization, the following common combinations are used:
 * 64K sequential tests
-    * Large file streaming workloads commonly read and write in large block sizes as well as being the default MSSQL extent size. 
+    * Large file streaming workloads commonly read and write in large block sizes, as well as being the default MSSQL extent size. 
     * Large block tests typically produce the highest throughput (in MiB/s).
 * 8K random tests
-    * This is the commonly used block size for database software, including those from Microsoft, Oracle, and PostgreSQL.
+    * This setting is the commonly used block size for database software, including software from Microsoft, Oracle, and PostgreSQL.
     * Small block tests typically produce the highest number of IOPS.
 
 > [!NOTE]
@@ -74,14 +74,14 @@ The results in this article were achieved using the following environment config
 * AVS private cloud connectivity: UltraPerformance gateway with FastPath
 * Guest VMs: 
     * Operating system: Ubuntu 20.04
-    * CPUs/Memory: 16 vCPU / 64 GB memory
-    * Virtual LSI SAS SCSI controller with 16GB OS disk on AVS vSAN datastore
+    * CPUs/Memory: 16 vCPU / 64-GB memory
+    * Virtual LSI SAS SCSI controller with 16-GB OS disk on AVS vSAN datastore
     * Paravirtual SCSI controller for test VMDKs
     * LVM/Disk configurations:
-        * 1 physical volume per disk
-        * 1 volume group per physical volume
-        * 1 logical partition per volume group
-        * 1 XFS file system per logical partition
+        * One physical volume per disk
+        * One volume group per physical volume
+        * One logical partition per volume group
+        * One XFS file system per logical partition
 * AVS to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs ) 
 * Workload generator: `fio` version 3.16
 * Fio scripts: [`fio-parser`](https://github.com/mchad1/fio-parser)
@@ -94,19 +94,19 @@ This section describes the results of the performed tests.
 
 When you configure datastore-presented storage on an AVS virtual machine, you should consider the impact of file-system layout. Configuring multiple VMDKs spread across multiple datastores provides for the highest amounts of available bandwidth. Configuring one-to-many VMDKs placed on a single datastore ensures the greatest simplicity when it comes to backups and DR operations, but at the cost of a lower performance ceiling. The empirical data provided in this article helps you with the decisions.
 
-To maximize performance, it's common to scale a single VM across multiple VMDKs and place those VMDKs across multiple datastores. A single VM with just one or two VMDKs can be throttled by one NFS datastore as it is mounted via a single TCP connection to a given AVS host. 
+To maximize performance, it's common to scale a single VM across multiple VMDKs and place those VMDKs across multiple datastores. A single VM with just one or two VMDKs can be throttled by one NFS datastore as it's mounted via a single TCP connection to a given AVS host. 
 
 For example, engineers often provision a VMDK for a database log and then provision one-to-many VMDKs for database files. With multiple VMDKs, there are two options. The first option is using each VDMK as an individual file system. The second option is using a storage-management utility such as LVM, MSSQL Filegroups, or Oracle ASM to balance IO by striping across VMDKs. When VMDKs are used as individual file systems, distributing workloads across multiple datastores is a manual effort and can be cumbersome. Using storage management utilities to spread the files across VMDKs enables workload scalability. 
 
-If you strip volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously. As individual writes are stripped across multiple disks, the file system needs to ensure disks are "frozen" during snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation which backup software can take advantage of, such as `xfs` (`xfs_freeze`) and NTFS (volume shadow copies). 
+If you strip volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously. As individual writes are stripped across multiple disks, the file system needs to ensure disks are "frozen" during snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as `xfs` (`xfs_freeze`) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
-To understand how well a single AVS VM scales as additional virtual disks are added, we tested with 1, 2, 4, and 8 datastores (each containing a single VMDK).  The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
+To understand how well a single AVS VM scales as more virtual disks are added, tests were performed with one, two, four, and eight datastores (each containing a single VMDK). The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
 
 :::image type="content" source="../media/azure-netapp-files/performance-avs-datastore-scale-single-multiple.png" alt-text="Diagram that shows single VM scaling to multiple datastores." lightbox="../media/azure-netapp-files/performance-avs-datastore-scale-single-multiple.png":::
 
 ### Single-host scaling – Single datastore 
 
-It scales poorly to increase the number of VMs driving IO to a single datastore from a single host. This fact is due to the single network flow. When maximum performance is reached for a given workload, it is often the result of a single queue used along the way to the host’s single NFS datastore over a single TCP connection. Using an 8-KB block size, total IOPS increased between 3% and 16% when scaling from one VM with a single VMDK to four VMs with sixteen total VMDKs (four per VM, all on a single datastore). 
+It scales poorly to increase the number of VMs driving IO to a single datastore from a single host. This fact is due to the single network flow. When maximum performance is reached for a given workload, it's often the result of a single queue used along the way to the host’s single NFS datastore over a single TCP connection. Using an 8-KB block size, total IOPS increased between 3% and 16% when scaling from one VM with a single VMDK to four VMs with 16 total VMDKs (four per VM, all on a single datastore). 
 
 Increasing the block size (to 64 KB) for large block workloads had comparable results, reaching a peak of 2148 MiB/s (single VM, single VMDK) and 2138 MiB/s (4 VMs, 16 VMDKs). 
 
@@ -158,7 +158,7 @@ When the performance capabilities of a single datastore are insufficient, spread
   
 Four Azure NetApp Files datastores provide up of 10 GBps of usable bandwidth for large sequential IO or the capability to drive up to 500K 8K-random IOPS. While one datastore may be sufficient for many performance needs, for best performance, start with a minimum of four datastores planning. 
 
-For granular performance tuning, both Windows and Linux guest operating systems allow for striping across multiple disks. As such, you should stripe file systems across multiple VMDKs spread across multiple datastores.  However, if application snapshot consistency is an issue and cannot be overcome with LVM or storage spaces, consider mounting Azure NetApp Files from the guest operating system or investigate application-level scaling, of which Azure has many great options. 
+For granular performance tuning, both Windows and Linux guest operating systems allow for striping across multiple disks. As such, you should stripe file systems across multiple VMDKs spread across multiple datastores.  However, if application snapshot consistency is an issue and can't be overcome with LVM or storage spaces, consider mounting Azure NetApp Files from the guest operating system or investigate application-level scaling, of which Azure has many great options. 
 
 If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are stripped across multiple disks, the file system needs to ensure disks are “frozen” during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
