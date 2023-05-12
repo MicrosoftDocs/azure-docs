@@ -19,7 +19,7 @@ ms.custom: seo-lt-2019
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server by using Azure Database Migration Service (DMS), a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms. In this tutorial, we’ll perform an online migration of a sample database from an Azure Database for MySQL single server to a MySQL flexible server (both running version 5.7) using a DMS migration activity.
 
 > [!NOTE]
-> DMS online migration is now in preview. DMS supports migration for MySQL versions 5.7 and 8.0, and also supports migration from lower version MySQL servers (v5.7 and above) to higher version servers. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a region, resource group, and subscription for the target server that is different than what is specified for your source server.
+> DMS online migration is now generally available. DMS supports migration to MySQL versions 5.7 and 8.0 and also supports migration from lower version MySQL servers (v5.6 and above) to higher version servers. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a region, resource group, and subscription for the target server that is different than what is specified for your source server.
 
 In this tutorial, you'll learn how to:
 
@@ -40,10 +40,10 @@ In this tutorial, you'll learn how to:
 To complete this tutorial, you need to:
 
 * Create or use an existing instance of Azure Database for MySQL – Single Server (the source server).
-* To complete the replicate changes migration successfully, ensure that the following prerequisites are in place:
+* To complete the online migration successfully, ensure that the following prerequisites are in place:
   * Use the MySQL command line tool of your choice to verify that log_bin is enabled on the source server by running the command: SHOW VARIABLES LIKE 'log_bin’. If log_bin isn't enabled, be sure to enable it before starting the migration.
   * Ensure that the user has “REPLICATION CLIENT” and “REPLICATION SLAVE” permissions on the source server for reading and applying the bin log.
-  * If you're targeting a replicate changes migration, configure the binlog_expire_logs_seconds parameter on the source server to ensure that binlog files aren't purged before the replica commits the changes. We recommend at least two days to start. After a successful cutover, you can reset the value.
+  * If you're targeting a online migration, configure the binlog_expire_logs_seconds parameter on the source server to ensure that binlog files aren't purged before the replica commits the changes. We recommend at least two days to start. After a successful cutover, you can reset the value.
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
   * “READ” privilege on the source database.
   * “SELECT” privilege for the ability to select objects from the database
@@ -60,11 +60,10 @@ As you prepare for the migration, be sure to consider the following limitations.
 
 * When migrating non-table objects, DMS doesn't support renaming databases.
 * When migrating to a target server with bin_log enabled, be sure to enable log_bin_trust_function_creators to allow for creation of routines and triggers.
-* When migrating the schema, DMS doesn't support creating a database on the target server.
-* Currently, DMS doesn't support migrating the DEFINER clause for objects. All object types with definers on the source are dropped and after the migration, the default definer for tables will be set to the login used to run the migration.
+* Currently, DMS doesn't support migrating the DEFINER clause for objects. All object types with definers on the source are dropped and after the migration, the default definer for all objects that support a definer clause and that are created during schema migration, will be set to the login used to run the migration.
 * Currently, DMS only supports migrating a schema as part of data movement. If nothing is selected for data movement, the schema migration won't occur. Note that selecting a table for schema migration also selects it for data movement.
 * Online migration support is limited to the ROW binlog format.
-* Online migration only replicates DML changes; replicating DDL changes isn't supported. Don't make any schema changes to the source while replication is in progress.
+* Online migration only replicates DML changes; replicating DDL changes isn't supported. Don't make any schema changes to the source while replication is in progress, if DMS detects DDL while replicating, it will generate a warning that can be viewed in the Azure portal.
 
 ## Best practices for creating a flexible server for faster data loads using DMS
 
@@ -108,13 +107,10 @@ With these best practices in mind, create your target flexible server, and then 
     * If migrating a table with “DATA DIRECTORY” or “INDEX DIRECTORY” partition options, the user must have the “FILE” privilege.
     * If migrating to a table with a “UNION” option, the user must have the “SELECT,” “UPDATE,” and “DELETE” privileges for the tables you map to a MERGE table.
     * If migrating views, you must have the “CREATE VIEW” privilege.
-    Keep in mind that some privileges may be necessary depending on the contents of the views. Refer to the MySQL docs specific to your version for “CREATE VIEW STATEMENT” for details
+    Keep in mind that some privileges may be necessary depending on the contents of the views. Refer to the MySQL docs specific to your version for “CREATE VIEW STATEMENT” for details.
     * If migrating events, the user must have the “EVENT” privilege.
     * If migrating triggers, the user must have the “TRIGGER” privilege.
     * If migrating routines, the user must have the “CREATE ROUTINE” privilege.
-  * Create a target database with the same name as the source server, though you need not populate it with tables/views, etc.
-    * Set the appropriate character, collations, and any other applicable schema settings prior to starting the migration, as this may affect the DEFAULT set in some of the object definitions.
-    * Additionally, if migrating non-table objects, be sure to use the same name for the target schema as is used on the source.
   * Configure the server parameters on the target flexible server as follows:
     * Set the TLS version and require_secure_transport server parameter to match the values on the source server.
     * Set the sql_mode server parameter to match the values on the source server.
@@ -191,6 +187,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
 
 10. Navigate to the **Review + create** tab, review the configurations, view the terms, and then select **Create**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-review-create.png" alt-text="Screenshot of a Select Review+Create.":::
+     
     Deployment of your instance of DMS now begins. The message **Deployment is in progress** appears for a few minutes, and then the message changes to **Your deployment is complete**.
 
 11. Select **Go to resource**.
@@ -210,7 +207,7 @@ To create a migration project, perform the following steps.
 
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/11-select-create.png" alt-text="Screenshot of a Select a new migration project.":::
 
-3. On the **New migration project** page, specify a name for the project, in the **Source server type** selection box, select **Azure Database For MySQL – Single Server**, in the **Target server type** selection box, select **Azure Database For MySQL**, in the **Migration activity type** selection box, select **Online migration**, and then select **Create and run activity**.
+3. On the **New migration project** page, specify a name for the project, in the **Source server type** selection box, select **Azure Database For MySQL – Single Server**, in the **Target server type** selection box, select **Azure Database For MySQL - Flexible Server**, in the **Migration activity type** selection box, select **Online data migration**, and then select **Create and run activity**.
 
     > [!NOTE]
     > Selecting **Create project only** as the migration activity type will only create the migration project; you can then run the migration project at a later time.
@@ -221,21 +218,25 @@ To create a migration project, perform the following steps.
 
 To configure your DMS migration project, perform the following steps.
 
-1. On the **Select source** screen, specify the connection details for the source MySQL instance.
+1. On the **Select source** screen, locate the server based on the subscription, location, and resource group. The user name is auto populated, then provide the password for the source server.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/select-source-online.png" alt-text="Screenshot of an Add source details screen.":::
 
-2. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
+2. Select **Next : Select target>>**, and then, on the **Select target** screen, locate the server based on the subscription, location, and resource group. The user name is auto populated, then provide the password for the target flexible server.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/select-target-online.png" alt-text="Screenshot of a Select target.":::
 
-3. Select **Next : Select databases>>**, and then, on the **Select databases** tab, under **Preview**, select the server objects that you want to migrate.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Screenshot of a Select database.":::
+3. Select **Next : Select databases>>**, and then, on the **Select databases** tab, under **Server migration options**, select **Migrate all applicable databases** or under **Select databases** select the server objects that you want to migrate.
+
+    > [!NOTE]
+    > There is now a **Migrate all applicable databases** option when selected, this option will migrate all user created databases and tables. Note that because Azure Database for MySQL - Flexible Server does not support mixed case databases, mixed case databases on the source will not be included for an online migration.
+
+:::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Screenshot of a Select database.":::
 
 4. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
 
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped. You can only select the source and target databases whose names match that on the source and target server.
-    If you select a database on the source server that doesn’t exist on the target database, you'll see a warning message ‘Not available at Target’ and you won’t be able to select the database for migration.
+    If you select a database on the source server that doesn’t exist on the target server, it will be created on the target server.
 
-5. Select **Next : Select databases>>** to navigate to the **Select tables** tab.
+5. Select **Next : Select tables>>** to navigate to the **Select tables** tab.
 
     Before the tab populates, DMS fetches the tables from the selected database(s) on the source and target and then determines whether the table exists and contains data.
 
@@ -248,7 +249,7 @@ To configure your DMS migration project, perform the following steps.
 
 7. After configuring for schema migration, select **Review and start migration**.
     > [!NOTE]
-    > You only need to navigate to the **Configure migration settings tab if you are trying to troubleshoot failing migrations.
+    > You only need to navigate to the **Configure migration settings** tab if you are trying to troubleshoot failing migrations.
 
 8. On the **Summary** tab, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/18-summary-online.png" alt-text="Screenshot of a Select Summary.":::
@@ -302,14 +303,15 @@ When performing a migration, be sure to consider the following best practices.
 
 * As part of discovery and assessment, take the server SKU, CPU usage, storage, database sizes, and extensions usage as some of the critical data to help with migrations.
 * Perform test migrations before migrating for production:
-  * Test migrations are important for ensuring that you cover all aspects of the database migration, including application testing. The best practice is to begin by running a migration entirely for testing purposes. After a newly started migration enters the Replicate Data Changes phase with minimal lag, make your Flexible Server target the primary database server. Use that target for testing the application to ensure expected performance and results. If you're migrating to a higher MySQL version, test for application compatibility.
+  * Test migrations are important for ensuring that you cover all aspects of the database migration, including application testing. The best practice is to begin by running a migration entirely for testing purposes. After a newly started migration enters the Replicate Data Changes phase with minimal lag, only use your Flexible Server target for running test workloads. Use that target for testing the application to ensure expected performance and results. If you're migrating to a higher MySQL version, test for application compatibility.
   * After testing is completed, you can migrate the production databases. At this point, you need to finalize the day and time of production migration. Ideally, there's low application use at this time. All stakeholders who need to be involved should be available and ready. The production migration requires close monitoring. For an online migration, the replication must be completed before you perform the cutover, to prevent data loss.
-* Redirect all dependent applications to access the new primary database and open the applications for production usage.
+* Redirect all dependent applications to access the new primary database and make the source server read-only. Then, open the applications for production usage.
 * After the application starts running on the target flexible server, monitor the database performance closely to see if performance tuning is required.
 
 ## Next steps
 
 * For information about Azure Database for MySQL - Flexible Server, see [Overview - Azure Database for MySQL Flexible Server](./../mysql/flexible-server/overview.md).
 * For information about Azure Database Migration Service, see [What is Azure Database Migration Service?](./dms-overview.md).
+* For information about known issues and limitations when migrating to Azure Database for MySQL - Flexible Server using DMS, see [Known Issues With Migrations To Azure Database for MySQL - Flexible Server](./known-issues-azure-mysql-fs-online.md).
 * For information about known issues and limitations when performing migrations using DMS, see [Common issues - Azure Database Migration Service](./known-issues-troubleshooting-dms.md).
 * For troubleshooting source database connectivity issues while using DMS, see article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).
