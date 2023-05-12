@@ -18,8 +18,8 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
  
-** New Azure VMware Solution Region: Qatar**
- 
+**New Azure VMware Solution Region: Qatar**
+
 We are excited to announce that the Azure VMware Solution has gone live in Qatar Central and is now available to customers. 
 
 With the introduction of AV36P in Qatar, customers will receive access to 36 cores, 2.6 GHz clock speed, 768GB of RAM, and 19.2TB of SSD storage.
@@ -182,5 +182,6 @@ Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://ww
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+
 
 
