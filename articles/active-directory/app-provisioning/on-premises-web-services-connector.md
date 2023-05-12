@@ -38,7 +38,7 @@ When the ECMA Connector Host invokes the Web Service connector, it loads its con
 
 ## More configuration information
 
-For more information, see [the Overview of the generic Web Service connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) in the MIM documentation library.
+For more information, see [the Overview of the generic Web Service connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws.md) in the MIM documentation library.
 
 ## Next steps
 
