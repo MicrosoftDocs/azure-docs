@@ -2,26 +2,30 @@
 title: Manage access to your SAP applications
 description: Manage access to your SAP applications. 
 services: active-directory
-author: billmath
+documentationcenter: ''
+author: amsliu
 manager: amycolannino
+editor: markwahl-msft
 ms.service: active-directory
-ms.subservice: compliance
-ms.topic: overview
 ms.workload: identity
-ms.date: 05/12/2023
-ms.author: billmath
-ms.custom: contperf-fy21q3-portal
-ms.reviewer: amycolannino
+ms.tgt_pltfrm: na
+ms.topic: conceptual
+ms.subservice: compliance
+ms.date: 7/29/2022
+ms.author: amsliu
+ms.reviewer: markwahl-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Manage access to your SAP applications
+
 
 SAP likely runs critical functions such as HR and ERP for your business. At the same time, your business relies on Microsoft for various Azure services, Microsoft 365, and relies on Entra Identity Governance to manage access to applications. This document describes how you can use Entra Identity Governance to manage identities across your SAP applications. 
 
 
 ![Diagram of SAP integrations.](./media/sap/SapIntegrations.png)
 
-# Bring identities from HR into Azure AD
+## Bring identities from HR into Azure AD
 
 #### SuccessFactors
 Customers using SAP SuccessFactors can easily bring identities into [Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) or [Azure AD](../../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) using native connectors. The connectors support the following scenarios:
@@ -37,19 +41,19 @@ Customers that are still using SAP HCM can also bring identities into Azure AD. 
  
 ![Diagram of SAP HR integrations.](./media/sap/SAPHR.png)
 
-# Provision identities into modern SAP applications. 
+## Provision identities into modern SAP applications. 
 Once your users are in Azure Active Directory, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You've three ways to accomplish this.
 * **Option 1:** Use the enterprise application in Azure AD to configure both SSO and provisioning to SAP applications such as [SAP analytics cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial). With this option, you can apply a consistent set of governance processes across all your applications. 
 * **Option 2:** Use the [SAP IAS](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) enterprise application in Azure AD to provision identities into SAP IAS. Once you bring all the identities into SAP IAS, you can use SAP IPS to provision the accounts from SAP IAS into the application when required.   
 * **Option 3:** Use the [SAP IPS](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/f2b2df8a273642a1bf801e99ecc4a043.html) integration to directly export identities from Azure AD into your [application](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/ab3f641552464c79b94d10b9205fd721.html). When choosing this route, all provisioning configuration is managed in SAP directly. You can still use the enterprise application in Azure AD to manage single sign-on and use [Azure AD as the corporate identity provider](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html). 
 
-# Provision identities into on-premises SAP systems such as SAP ECC that aren't supported by SAP IPS 
+## Provision identities into on-premises SAP systems such as SAP ECC that aren't supported by SAP IPS 
 
 Customers who have yet to transition from applications such as SAP ECC to SAP S/4 Hana can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ECC, you'll expose the necessary BAPIs for creating, updating, and deleting users. Within Azure AD, you have two options:
 * **Option 1:** Use the lightweight Azure AD provisioning agent and web services connector to provision users into apps such as SAP ECC.
 * **Option 2:** In scenarios where you need to do more complex group and role management, use the [Microsoft Identity Manager](https://learn.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) to manage access to your legacy SAP applications. 
 
-## SSO, workflows, and Segregation of Duties
+## SSO, workflows, and separation of duties
 In addition to the native provisioning integrations that allow you to manage access to your SAP applications, Azure AD supports a rich set of integrations with SAP.   
 * SSO: Once you’ve setup provisioning for your SAP application, you’ll want to enable single sign-on for those applications. Azure AD can serve as the identity provider and server as the authentication authority for your SAP applications. Learn more about how you can [configure Azure AD as the corporate identity provider for your SAP applications](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html).   
 Custom workflows: When a new employee is hired in your organization, you may need to trigger a workflow within your SAP server. 
