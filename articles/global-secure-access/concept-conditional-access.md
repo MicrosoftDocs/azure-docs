@@ -19,11 +19,13 @@ ms.reviewer: mamkumar
 1. Install the [Global Secure Access client](how-to-install-windows-client.md).
 1. Branches
 1. Quick Acces ranges
-1. Restrict access to Global Secure Access using Conditional Access policies.
-    1. Some may require MFA or compliant device
+1. Protect access to Global Secure Access using Conditional Access policies.
+    1. Some may require MFA (Auth strength not tested) or compliant device
 1. Source IP restoration 
-1. Conditional Acces to resources like compliant network to SharePoint
+1. Protect resources behind a compliant network check like SharePoint or Exchange
 1. Monitor
+
+APIs 
 
 Global Secure Access enlightens services in multiple ways to help organizations improve their security posture and adopt Zero Trust principles. The underlying Conditional Access feature does not change with the following additions, the policies are processed in the same way. Functionalitiy like continuous access evaluation and more benefit from these additional enhancements to visibility in traffic coming from Global Secure Access clients or configured branch offices.
 
