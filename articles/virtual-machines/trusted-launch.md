@@ -35,13 +35,13 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 | [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
 | [Memory optimized](sizes-memory.md) | Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
 | [Storage optimized](sizes-storage.md) |Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
-| [GPU](sizes-gpu.md) &#42; | NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCasT4_v3-series, NCads A10 v4-series, NVadsA10 v5-series | NC-series, NCv2-series, NCv3-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series,  NV-series, 
+| [GPU](sizes-gpu.md) &#42; | NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCasT4_v3-series, NCads A10 v4-series, NVadsA10 v5-series | NC-series, NCv2-series, NCv3-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series,  NV-series
 
 To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](generation-2.md) and Trusted Launch VMs.
 
 > [!NOTE]
-> &#42; Please refer to [Install CUDA Drivers on Ubuntu with Secure Boot Enabled](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup#install-cuda-driver-on-ubuntu-with-secure-boot-enabled) for installing **CUDA Drivers** with Secure Boot Enabled.
-> The **GRID driver** installation process does not offer any options to skip kernel module build and installation, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
+> &#42; The **CUDA driver** requires [additional steps to install with Secure Boot Enabled](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).
+> <br/>The **GRID driver** installation process does not offer any options to skip kernel module build and installation, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
 
 ## Operating systems supported
 
