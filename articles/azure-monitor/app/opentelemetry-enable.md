@@ -1492,7 +1492,7 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 
 To add span attributes, use either of the following two ways:
 
-* Use options provided by [instrumentation libraries](#instrumentation-libraries).
+* Use options provided by instrumentation libraries.
 * Add a custom span processor.
 
 > [!TIP]
