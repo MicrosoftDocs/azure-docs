@@ -264,7 +264,7 @@
         - name: Use the Spring Boot Starter for Apache Kafka
           href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
           maintainContext: true
-    - name: Integrate with Apache Kafka
+    - name: Use Kafka on Event Hubs
       items:
         - name: Kafka developer guide for Event Hubs
           href: apache-kafka-developer-guide.md

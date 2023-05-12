@@ -5,18 +5,11 @@ ms.topic: how-to
 ms.date: 11/03/2022
 ---
 
-# Integrate Apache Kafka Connect support on Azure Event Hubs (Preview)
+# Integrate Apache Kafka Connect support on Azure Event Hubs
 [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) is a framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Event Hubs.
 
-> [!NOTE]
-> This feature is currently in Preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-> [!WARNING]
-> Use of the Apache Kafka Connect framework and its connectors is **not eligible for product support through Microsoft Azure**.
-> Kafka Connect feature relies on Kafka Log compaction feature to fully function. [Log Compaction](./log-compaction.md) feature is currently available as a preview. Hence, Kafka Connect support is also in the preview state. 
-
-
-This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
+This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
