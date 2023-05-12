@@ -20,7 +20,7 @@ sections:
           Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. 
           Disconnected containers are offered through commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
           * Speech Services
-            *	Speech-to-Text
+            *	Speech to text
             *	Custom Speech to text
             * Neural Text to speech
           *	Text Translation (Standard)
@@ -129,7 +129,7 @@ sections:
           > To find the pricing information for disconnected containers on these pricing pages, scroll down to **Commitment Tiers** section.
 
           * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for:
-            *	Speech-to-Text
+            *	Speech to text
             *	Custom Speech to text
             * Neural Text to speech
           * [Text Translation (Standard)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)

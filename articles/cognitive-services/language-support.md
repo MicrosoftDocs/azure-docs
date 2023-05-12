@@ -39,7 +39,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 ## Speech
 
 * [Speech Service: Speech to text](./speech-service/language-support.md?tabs=stt)
-* [Speech Service:Text-to-Speech](./speech-service/language-support.md?tabs=tts)
+* [Speech Service: Text to speech](./speech-service/language-support.md?tabs=tts)
 * [Speech Service: Speech Translation](./speech-service/language-support.md?tabs=speech-translation)
 
 ## Decision
