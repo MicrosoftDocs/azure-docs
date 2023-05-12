@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 05/11/2023
+ms.date: 05/15/2023
 recommendations: false
 keywords:  
 ---
@@ -16,6 +16,20 @@ keywords:
 # What's new in Azure OpenAI Service
 
 ## May 2023
+
+### Azure OpenAI Chat Completion General Availability (GA)
+
+- General availability support for:
+  - Chat Completion API version `5-15-2023`.
+  - GPT-35-Turbo models.
+  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  
+If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `05-15-2023` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
+
+> [!IMPORTANT]
+> Using GPT-35-Turbo models with the completion endpoints remains in preview. We are providing this level of access for experimental purposes only and strongly recommend using the Chat Completion API/endpoint. Due to the potential for changes to the underlying ChatML syntax there are currently no plans to provide GA level support for this capability.
+  
+### France Central
 
 - Azure OpenAI is now available in the France Central region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
 
