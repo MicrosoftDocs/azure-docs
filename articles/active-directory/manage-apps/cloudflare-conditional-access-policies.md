@@ -75,7 +75,7 @@ Enforce Conditional Access policies on a Cloudflare Access application.
 5. In **Application domain**, enter the protected application target URL.
 6. For **Identity providers**, select the IdP integration.
 
-   ![Screenshot of the IdP integration selection on Identity providers.](./media/cloudflare-condtional-access-policies/identity-providers).png)
+   ![Screenshot of the IdP integration selection on Identity providers.](./media/cloudflare-condtional-access-policies/identity-providers.png)
 
 7. Create an Access policy. See, [Access policies](https://developers.cloudflare.com/cloudflare-one/policies/access/) and the following example. 
 
