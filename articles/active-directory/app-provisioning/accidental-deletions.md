@@ -100,7 +100,7 @@ evaluated for deletion count towards the deletion threshold. In addition to dele
 
 ### What is the interval that the deletion threshold is evaluated on?
 It's evaluated each cycle. If the number of deletions doesn't exceed the threshold during a 
-single cycle, the “circuit breaker” won’t be triggered. If multiple cycles are needed to reach a 
+single cycle, the “circuit breaker” isn't triggered. If multiple cycles are needed to reach a 
 steady state, the deletion threshold is evaluated per cycle.
 
 ### How are these deletion events logged?
