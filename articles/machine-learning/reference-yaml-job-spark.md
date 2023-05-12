@@ -20,7 +20,7 @@ ms.reviewer: franksolomon
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v2 (current version)](./reference-yaml-job-spark.md)
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkJob.schema.json.
+<!--- The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkJob.schema.json. --->
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -34,7 +34,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `display_name` | string | Display name of the job in the studio UI. Can be nonunique within the workspace. If omitted, Azure Machine Learning autogenerates a human-readable adjective-noun identifier for the display name. | | |
 | `experiment_name` | string | Experiment name to organize the job under. The run record of each job is organized under the corresponding experiment in the "Experiments" tab of the studio. If omitted, Azure Machine Learning defaults it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
-| `tags` | object | Dictionary of tags for the job. | | || `code` | string | Local path to the source code directory to be uploaded and used for the job. | | |
+| `tags` | object | Dictionary of tags for the job. | | |
+| `code` | string | Local path to the source code directory to be uploaded and used for the job. | | |
 | `code` | string | **Required.** The location of the folder that contains source code and scripts for this job. | | |
 | `entry` | object | **Required.** The entry point for the job. It could define a `file` or a `class_name`. | | |
 | `entry.file` | string | The location of the folder that contains source code and scripts for this job. | | |
@@ -52,9 +53,9 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `compute` | string | Name of the attached Synapse Spark pool to execute the job on. One of the `compute` or `resources` should be defined. | | |
 | `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `args` using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
-| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `args` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | The Spark job output. Output for a Spark job can be written to either a file or a folder location by providing an object containing the [job output specification](#job-outputs). | |
-| `identity` | object | The identity is used for data accessing. It can be [UserIdentityConfiguration](#useridentityconfiguration), [ManagedIdentityConfiguration](#managedidentityconfiguration) or None. For UserIdentityConfiguration, the identity of job submitter is used to access the input data and write the result to the output folder. Otherwise, [the appropriate identity is based on the Spark compute type](./apache-spark-azure-ml-concepts.md#ensuring-resource-access-for-spark-jobs). | |
+| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `args` using the `${{ outputs.<output_name> }}` expression. | | |
+| `outputs.<output_name>` | object | The Spark job output. Output for a Spark job can be written to either a file or a folder location by providing an object containing the [job output specification](#job-outputs). | | |
+| `identity` | object | The identity is used for data accessing. It can be [UserIdentityConfiguration](#useridentityconfiguration), [ManagedIdentityConfiguration](#managedidentityconfiguration) or None. For UserIdentityConfiguration, the identity of job submitter is used to access the input data and write the result to the output folder. Otherwise, [the appropriate identity is based on the Spark compute type](./apache-spark-azure-ml-concepts.md#ensuring-resource-access-for-spark-jobs). | | |
 
 ### Attributes of the `conf` key
 
@@ -114,7 +115,7 @@ See examples at [examples GitHub repository](https://github.com/Azure/azureml-ex
 
 ## YAML: A standalone Spark job using serverless Spark compute and user identity
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/serverless-spark-standalone-user-identity.yaml":::
+<!--- >:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/serverless-spark-standalone-user-identity.yaml"::: --->
 
 ## Next steps
 

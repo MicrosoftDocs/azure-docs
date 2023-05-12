@@ -20,7 +20,7 @@ ms.reviewer: franksolomon
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v2 (current version)](./reference-yaml-component-spark.md)
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkComponent.schema.json.
+<!--- The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkComponent.schema.json. --->
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
