@@ -26,7 +26,7 @@ Before you can create an MSIX image, you need to meet the following prerequisite
 
 ## Create an MSIX image
 
-When creating an MSIX image, you convert an MSIX package to a VHD, VHDX, or CIM disk image using the MSIXMGR tool. We recommend using CIM for best performance, particularly with Windows 11 as it consumes less CPU and memory, with improved mounting and unmounting times. We don't recommend using VHD; use VHDX instead.
+When creating an MSIX image, you convert an MSIX package to a VHD, VHDX, or CIM disk image using the MSIXMGR tool. We recommend using CIM for best performance, particularly with Windows 11, as it consumes less CPU and memory, with improved mounting and unmounting times. We don't recommend using VHD; use VHDX instead.
 
 > [!IMPORTANT]
 > - In the following examples, you'll need to change the example values for your own.
@@ -86,7 +86,7 @@ Here's an example command to create an MSIX image as a VHDX disk image. A single
    Successfully formatted disk
    Starting the Shell Hardware Detection service
    Successfully started the Shell Hardware Detection Service
-   Finished unpacking packages to: C:\Temp\Firefox Test 4.vhdx
+   Finished unpacking packages to: C:\msix\myapp.vhdx
    ```
 ---
 
