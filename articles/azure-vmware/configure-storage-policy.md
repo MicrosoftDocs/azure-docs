@@ -154,7 +154,7 @@ This function creates a new or overwrites an existing vSphere Storage Policy. No
    | **Field** | **Value** |
    | --- | --- |
    | **Overwrite** | Overwrite existing Storage Policy.  <ul><li>Default is $false. <li>Passing overwrite true provided will overwrite an existing policy exactly as defined. <li>Those values not passed will be removed or set to default values. </ul></li>|
-   | **NotTags** | Match to datastores that do NOT have these tags. <ul><li>Tags are case sensitive. <li>Comma seperate multiple tags. <li> Example: Tag1,Tag 2,Tag_3 | <ul><li>
+   | **NotTags** | Match to datastores that do NOT have these tags. <ul><li>Tags are case sensitive. <li>Comma seperate multiple tags. <li> Example: Tag1,Tag 2,Tag_3 |
    | **Tags** | Match to datastores that do have these tags.  <ul><li> Tags are case sensitive. <li>Comma seperate multiple tags. <li>Example: Tag1,Tag 2,Tag_3 </ul></li>|
    | **vSANForceProvisioning** | Default is $false. <ul><li> Force provisioning for the policy. <li> Valid values are $true or $false <li>**WARNING** - vSAN Force Provisioned Objects are not covered under Microsoft SLA.  Data LOSS and vSAN instability may occur. <li>Recommended value is $false.</ul></li> |
    | **vSANChecksumDisabled** | Default is $false. <ul><li> Enable or disable checksum for the policy. <li>Valid values are $true or $false. <li> **WARNING** - Disabling checksum may lead to data LOSS and/or corruption. <li> Recommended value is $false.</ul></li> |
