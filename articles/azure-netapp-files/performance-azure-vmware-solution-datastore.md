@@ -149,7 +149,7 @@ As shown in the [test results](#test-results), the performance capabilities of A
 * Testing shows that one datastore can drive an average **~148,980 8K IOPS or ~4147 MiB/s** with 64K IOPS (average of all the write%/read% tests) from a four-host configuration. 
 * One VM on one datastore – 
     * If you have individual VMs that may need more than **~75K 8K IOPS or over ~1700 MiB/s**, spread the file systems over multiple VMDKs to scale the VMs storage performance.
-* One VM on multiple datastores – A Single VM across 8 datastores achieved up to **~147,000 8K IOPS or ~2786 MiB/s** with 64K block size.
+* One VM on multiple datastores – A Single VM across 8 datastores achieved up to **~147,000 8K IOPS or ~2786 MiB/s** with a 64K block size.
 * One host - Each host was able to support an average **~198,060 8K IOPS or ~2351 MiB/s** if you use at least 4 VMs per host with at least 4 Azure NetApp Files datastores.  So you have the option to balance provisioning enough datastores for maximum, potentially bursting, performance, versus complication of management and cost.
 
 ### Recommendations 
