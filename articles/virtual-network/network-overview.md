@@ -32,7 +32,7 @@ Additionally, consider these optional resources:
 
 ## Network interfaces
 
-A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a virtual machine and a virtual network. A virtual machine must have at least one NIC. A virtual machine can have more than one NIC, depending on the size of the VM you create. To learn about the number of NICs each virtual machine size supports, see [VM sizes](../virtual-machines/sizes.md).
+A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a virtual machine and a virtual network. A virtual machine must have at least one NIC. A virtual machine can have more than one NIC, depending on the size of the VM you create. See VM sizes to learn about the number of NICs each virtual machine size supports, see [VM sizes](../virtual-machines/sizes.md).
 
 You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets.
 
