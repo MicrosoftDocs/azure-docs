@@ -425,7 +425,7 @@ def forecasting_train_and_evaluate_factory(
     # return a dictionary with the evaluation metrics and the raw test set forecasts
     return {
         "metrics_result": compute_metrics_node.outputs.evaluation_result,
-        "rolling_eval_result": inference_node.outputs.inference_output_file
+        "rolling_fcst_result": inference_node.outputs.inference_output_file
     }
 ```
 
@@ -434,7 +434,7 @@ Now, we define test data input assuming that the test data is contained in a loc
 ```python
 my_test_data_input = Input(
     type=AssetTypes.URI_FOLDER,
-    path="./data/test",
+    path='./data/test',
 )
 ```
 
@@ -460,14 +460,138 @@ returned_pipeline_job = ml_client.jobs.create_or_update(
 returned_pipeline_job
 ```
 
-Once submitted, the pipeline runs AutoML training, rolling evaluation inference, and metric calculation in sequence. You can monitor and inspect the run in the studio UI. For more details and examples, see our [forecasting model evaluation article](concept-automl-forecasting-evaluation.md).   
+Once submitted, the pipeline runs AutoML training, rolling evaluation inference, and metric calculation in sequence. You can monitor and inspect the run in the studio UI. When the run is finished, the rolling forecasts and the evaluation metrics can be downloaded to the local working directory:
+
+```python
+# Download the metrics json
+ml_client.jobs.download(returned_pipeline_job.name, download_path=".", output_name='metrics_result')
+
+# Download the rolling forecasts
+ml_client.jobs.download(returned_pipeline_job.name, download_path=".", output_name='rolling_fcst_result')
+```
+
+Then, you can find the metrics results in `./named-outputs/metrics_results/evaluationResult/metrics.json` and the forecasts, in JSON lines format, in `./named-outputs/rolling_fcst_result/inference_output_file`. 
+
+For more details on rolling evaluation, see our [forecasting model evaluation article](concept-automl-forecasting-evaluation.md).   
  
-## Forecasting at scale
+## Forecasting at scale: many models
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+```python
+# Get a many models training component
+mm_train_component = ml_client_registry.components.get(
+    name='automl_many_model_training',
+    version='latest'
+)
 
-> [!IMPORTANT]
-> Many models and hierarchical time series are currently only supported in Azure Machine Learning v1. Support for Azure Machine Learning v2 is forthcoming.
+# Get a many models inference component
+mm_inference_component = ml_client_registry.components.get(
+    name='automl_many_model_inferencing',
+    version='latest'
+)
+
+# Get a component for computing evaluation metrics
+compute_metrics_component = ml_client_registry.components.get(
+    name="compute_metrics",
+    label="latest"
+)
+```
+
+```json
+{
+  "task": "forecasting",
+  "primary_metric": "normalized_root_mean_squared_error",
+  "debug_log": "mm-train-debug.txt",
+  "iterations": 25,
+  "experiment_timeout_minutes": 1440,
+  "label_column_name": "target",
+  "n_cross_validations": "auto",
+  "cv_step_size": "auto",
+  "time_column_name": "date",
+  "forecast_horizon": 24,
+  "partition_column_names": [
+    "region", "state", "SKU"
+  ],
+  "time_series_id_column_names": [
+    "region", "state", "SKU"
+  ],
+  "track_child_runs": false,
+  "verbosity": 20,
+  "enable_early_stopping": true,
+  "max_cores_per_iteration": -1,
+  "pipeline_fetch_max_batch_size": 15,
+  "allow_multi_partitions": false
+}
+```
+
+```python
+@pipeline(description="AutoML Many Models Forecasting Pipeline")
+def many_models_train_evaluate_factory(
+    train_data_input,
+    test_data_input,
+    automl_config,
+    max_concurrency_per_instance=4,
+    prs_step_timeout=3700,
+    instance_count=4,
+    enable_event_logger=True,
+    retrain_failed_model=False,
+    forecast_mode="rolling"
+):
+    mm_train_node = mm_train_component(
+        raw_data=train_data_input,
+        automl_config=automl_config,
+        max_concurrency_per_instance=max_concurrency_per_instance,
+        prs_step_timeout=prs_step_timeout,
+        instance_count=instance_count,
+        enable_event_logger=enable_event_logger,
+        retrain_failed_model=retrain_failed_model
+    )
+
+    mm_inference_node = mm_inference_component(
+        raw_data=test_data_input,
+        enable_event_logger=enable_event_logger,
+        instance_count=instance_count,
+        max_concurrency_per_instance=max_concurrency_per_instance,
+        prs_step_timeout=prs_step_timeout,
+        optional_train_metadata=mm_train_node.outputs.run_output,
+        forecast_mode=forecast_mode
+    )
+
+    compute_metrics_node = compute_metrics_component(
+        task="tabular-forecasting",
+        prediction=mm_inference_node.outputs.evaluation_data,
+        ground_truth=mm_inference_node.outputs.evaluation_data,
+        evaluation_config=mm_inference_node.outputs.evaluation_configs
+    )
+
+    # Return the metrics results from the rolling evaluation
+    return {
+        "metrics_result": compute_metrics_node.outputs.evaluation_result
+    }
+```
+
+```python
+pipeline_job = many_models_train_evaluate_factory(
+    train_data_input=Input(
+        type="uri_folder",
+        path="./data/train"
+    ),
+    test_data_input=Input(
+        type="uri_folder",
+        path="./data/test"
+    ),
+    automl_config=Input(
+        type="uri_file",
+        path="./automl_settings_mm.json"
+    )
+)
+pipeline_job.settings.default_compute = "cluster-name"
+
+returned_pipeline_job = ml_client.jobs.create_or_update(
+    pipeline_job,
+    experiment_name=experiment_name,
+)
+ml_client.jobs.stream(returned_pipeline_job.name)
+```
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 

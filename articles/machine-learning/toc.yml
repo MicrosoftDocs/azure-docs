@@ -223,6 +223,9 @@
                 - name: Lag features
                   displayName: auto ML, time series, lags
                   href: concept-automl-forecasting-lags.md
+                - name: Evaluating forecasting models
+                  displayName: auto ML, time series, model evaluation
+                  href: concept-automl-forecasting-evaluation.md
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md

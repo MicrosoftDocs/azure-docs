@@ -18,7 +18,7 @@ show_latex: true
 
 This article introduces best practices for evaluating forecasting models. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-Once you've used AutoML to train and select a best model, the next step is to evaluate its accuracy on a test set held out from the training data. If it meets your requirements, you can use it to generate forecasts for the future.
+Once you've used AutoML to train and select a best model, the next step is to evaluate its accuracy on a test set held out from the training data. To see how to do forecasting model evaluation in automated machine learning, see our guide on [inference and evaluation components](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines). 
   
 ## Rolling evaluation
 
