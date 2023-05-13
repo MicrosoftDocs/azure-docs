@@ -1,11 +1,13 @@
 ---
+title: Deploy an Azure Kubernetes application programmatically by using Azure CLI
+description: Learn how to deploy an Azure Kubernetes application programmatically by using Azure CLI.
 author: maanasagovi
 ms.author: maanasagovi
 ms.topic: conceptual
 ms.date: 05/15/2023
 ---
 
-# Deploy an Azure Kubernetes Application programmatically through Azure CLI
+# Deploy an Azure Kubernetes application programmatically by using Azure CLI
 
 To deploy a Kubernetes application programmatically through Azure CLI, you select the Kubernetes application and settings, accept legal terms and conditions, and finally deploy the application through CLI commands.
 

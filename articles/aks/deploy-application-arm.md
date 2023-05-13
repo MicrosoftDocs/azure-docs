@@ -1,11 +1,13 @@
 ---
+title: Deploy an Azure Kubernetes application by using an ARM template
+description: Learn how to deploy an Azure Kubernetes application by using an ARM template.
 author: maanasagovi
 ms.author: maanasagovi
 ms.topic: conceptual
 ms.date: 05/15/2023
 ---
 
-# Deploying an Azure Kubernetes Application Through an ARM Template
+# Deploy an Azure Kubernetes application by using an ARM template
 
 To deploy a Kubernetes application programmatically through Azure CLI, you select the Kubernetes application and settings, generate an ARM template, accept legal terms and conditions, and finally deploy the ARM template.
 
