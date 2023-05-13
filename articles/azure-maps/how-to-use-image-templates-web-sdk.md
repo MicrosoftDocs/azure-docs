@@ -48,7 +48,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 Once an image template is loaded into the map image sprite, it can be rendered as a symbol in a symbol layer by referencing the image resource ID in the `image` option of the `iconOptions`.
 
-For a sample that demonstrates this, rendering a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color, see [Symbol layer with built-in icon template] in the [Azure Maps Samples].
+The [Symbol layer with built-in icon template] sample demonstrates how to do this by rendering a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color, as shown in the following screenshot.
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/symbol-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a symbol layer using the marker-flat image template with a teal primary color and a white secondary color.":::
 
