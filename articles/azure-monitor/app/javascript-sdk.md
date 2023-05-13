@@ -69,19 +69,21 @@ Use the following steps to enable Application Insights:
    > [!NOTE]
    > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
 
-1. (Optional) If needed, configure the SDK Loader Script:
+1. (Optional) Add or update [SDK Loader Script configuration](#sdk-loader-script-configuration).
 
-| Name | Type | Required? | Description
-|------|------|-----------|------------
-| src | string | Required | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
-| name | string | Optional | The global name for the initialized SDK, defaults to appInsights. So ```window.appInsights``` is a reference to the initialized instance. Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct snippet skeleton, and proxy methods are initialized and updated.
-| ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. The default value is 0ms. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
-| useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. Reporting first attempts to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
-| crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values aren't defined (the default); ""; or "anonymous" (For all valid values see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation)
-| onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). It's passed a reference to the sdk instance that it's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of snippet version 5--the sv:"5" value within the snippet script)
-| cfg | object | Required | The required connection string and optional [SDK configuration](./javascript-sdk-advanced.md#advanced-configuration) passed to the Application Insights SDK during initialization.
+### SDK Loader Script Configuration
 
-### Example using the snippet onInit callback
+   | Name | Type | Required? | Description
+   |------|------|-----------|------------
+   | src | string | Required | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
+   | name | string | Optional | The global name for the initialized SDK, defaults to appInsights. So ```window.appInsights``` is a reference to the initialized instance. Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct snippet skeleton, and proxy methods are initialized and updated.
+   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. The default value is 0ms. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
+   | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. Reporting first attempts to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
+   | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values aren't defined (the default); ""; or "anonymous" (For all valid values see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation)
+   | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). It's passed a reference to the sdk instance that it's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script)<br><br>For more information, see the [SDK Loader Script example](#example-using-javascript-loader-script-with-the-oninit-callback-function).
+   | cfg | object | Required | The required connection string and optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) passed to the Application Insights SDK during initialization.
+
+### Example using SDK Loader Script with the onInit callback function
 
 ```html
 <script type="text/javascript">
@@ -110,12 +112,12 @@ This option is only needed for developers who require more custom events and con
 
 1. Use the following command to install the Microsoft Application Insights JavaScript SDK - Web package.
 
-```sh
-npm i --save @microsoft/applicationinsights-web
-```
+   ```sh
+   npm i --save @microsoft/applicationinsights-web
+   ```
 
-> [!Note]
-> *Typings are included with this package*, so you do *not* need to install a separate typings package.
+   > [!Note]
+   > *Typings are included with this package*, so you do *not* need to install a separate typings package.
 
 1. Add the following JavaScript to your application's code.
 
@@ -146,7 +148,7 @@ npm i --save @microsoft/applicationinsights-web
    > [!NOTE]
    > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
 
-1. (Optional) Within the `config` object in the JavaScript code you added, specify [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration).
+1. (Optional) Add [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration).
 
 ---
 
@@ -206,7 +208,6 @@ dataset
 
 Additional information is available for the following advanced scenarios:
 
-- [JavaScript SDK npm setup](javascript-sdk-advanced.md#npm-setup)
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
