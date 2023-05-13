@@ -24,28 +24,6 @@ Apps are services that run continuously. If a container in an app fails, it's re
 
 Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or in response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
-## Jobs preview limitations
-
-The jobs preview has the following limitations:
-
-- Supported only in the East US 2 EUAP, North Central US, and Australia East regions
-- Supported only in the Azure CLI using a preview version of the Azure Container Apps extension
-
-    To use jobs, you need to uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
-
-    ```azurecli
-    az extension remove --name containerapp
-    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.5-py2.py3-none-any.whl --yes
-    ```
-
-- Only supported in the Consumption plan
-- Logs are currently unavailable for scheduled jobs
-- The following features are not supported:
-    - Volume mounts
-    - Dapr
-    - Azure Key Vault references in secrets
-    - Ingress and related features such as custom domains and SSL certificates
-
 ## Job trigger types
 
 A job's trigger type determines how the job is started. The following trigger types are available:
@@ -484,6 +462,16 @@ The following example Azure Resource Manager template creates a job with advance
 ```
 
 ---
+
+## Jobs preview restrictions
+
+The following features are not supported:
+
+    - Volume mounts
+    - Init containers
+    - Dapr
+    - Azure Key Vault references in secrets
+    - Ingress and related features such as custom domains and SSL certificates
 
 ## Next steps
 
