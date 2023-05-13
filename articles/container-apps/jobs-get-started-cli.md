@@ -128,7 +128,10 @@ Job executions output logs to the logging provider that you configured for the C
         --query "[].Log_s"
     ```
 
-    It may take a few minutes for the logs to appear in Log Analytics. The following output is an example of the logs printed by the job execution.
+    > [!NOTE]
+    > Until the `ContainerAppConsoleLogs_CL` table is ready, the command returns an error: `BadArgumentError: The request had some invalid properties`. Wait a few minutes and try again.
+
+    The following output is an example of the logs printed by the job execution.
 
     ```json
     [
