@@ -1,0 +1,167 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "adminUsername": {
+        "type": "string",
+        "defaultValue": "clouduser",
+        "metadata": {
+          "description": "The admin user name of the virtual machine."
+        }
+      },
+      "adminGroupObjectIds": {
+        "type": "array",
+        "metadata": {
+          "description": "The placement zones to use for Kubernetes cluster nodes."
+        }
+      },
+      "cniL3NetworkId": {
+        "type": "string",
+        "metadata": {
+          "description": "The resourceId of the L3 Network."
+        }
+      },
+      "cloudServicesNetworkId": {
+        "type": "string",
+        "metadata": {
+          "description": "The resourceId of the Cloud services network"
+        }
+      },
+      "controlPlaneCount": {
+        "type": "int",
+        "metadata": {
+          "description": "The number of Nexus Kubernetes control plane machines to create"
+        },
+        "defaultValue": 3
+      },
+      "extendedLocation": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+          "description": "The extended location (custom-location) of the Azure Operator Nexus instance"
+        }
+      },
+      "controlPlaneVmSkuName": {
+        "type": "string",
+        "metadata": {
+          "description": "The Nexus Kubernetes control plane vmSize to use (e.g. NC_G4_v1)"
+        },
+        "defaultValue": "NC_G4_v1",
+        "allowedValues": [
+          "NC_G2_v1",
+          "NC_G4_v1",
+          "NC_G8_v1",
+          "NC_G12_v1",
+          "NC_G16_v1"
+        ]
+      },
+      "kubernetesClusterName": {
+        "type": "string",
+        "defaultValue": "[concat('nexus-k8s-cluster-',uniqueString(resourceGroup().id))]",
+        "metadata": {
+          "description": "Nexus Kubernetes cluster name"
+        }
+      },
+      "kubernetesVersion": {
+        "type": "string",
+        "metadata": {
+          "description": "The Nexus Kubernetes Kubernetes Version to use"
+        },
+        "defaultValue": "1.25.4"
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location of resource"
+        }
+      },
+      "workerVmSkuName": {
+        "type": "string",
+        "metadata": {
+          "description": "The Nexus Kubernetes worker vmSize to use (e.g. NC_M8_v1)"
+        },
+        "defaultValue": "NC_M16_v1",
+        "allowedValues": [
+          "NC_M4_v1",
+          "NC_M8_v1",
+          "NC_M12_v1",
+          "NC_M16_v1",
+          "NC_M32_v1",
+          "NC_M36_v1",
+          "NC_M44_v1"
+        ]
+      },
+      "ncApiVersion": {
+        "type": "string",
+        "defaultValue": "2023-05-01-preview"
+      },
+      "sshPublicKey": {
+        "type": "string",
+        "metadata": {
+          "description": "The SSH key to install on the Nexus Kubernetes cluster"
+        },
+        "defaultValue": ""
+      },
+      "workerCount": {
+        "type": "int",
+        "metadata": {
+          "description": "The number of Nexus Kubernetes workers to create"
+        },
+        "defaultValue": 5
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.NetworkCloud/kubernetesClusters",
+        "apiVersion": "[parameters('ncApiVersion')]",
+        "name": "[parameters('kubernetesClusterName')]",
+        "location": "[parameters('location')]",
+        "tags": {
+          "ManagedBy": "sample-nexus-aks-tag-from-doc"
+        },
+        "extendedLocation": {
+          "name": "[parameters('extendedLocation')]",
+          "type": "CustomLocation"
+        },
+        "properties": {
+          "administratorConfiguration": {
+            "adminUsername": "[parameters('adminUsername')]",
+            "sshPublicKeys": [
+              {
+                "keyData": "[parameters('sshPublicKey')]"
+              }
+            ]
+          },
+          "controlPlaneNodeConfiguration": {
+            "count": "[parameters('controlPlaneCount')]",
+            "vmSkuName": "[parameters('controlPlaneVmSkuName')]",
+            "availabilityZones": []
+          },
+          "initialAgentPoolConfigurations": [
+            {
+              "count": "[parameters('workerCount')]",
+              "mode": "System",
+              "name": "system-pool-1",
+              "vmSkuName": "[parameters('workerVmSkuName')]",
+              "availabilityZones": [],
+              "labels": [],
+              "taints": []
+            }
+          ],
+          "kubernetesVersion": "[parameters('kubernetesVersion')]",
+          "networkConfiguration": {
+            "cloudServicesNetworkId": "[parameters('cloudServicesNetworkId')]",
+            "cniNetworkId": "[parameters('cniL3NetworkId')]",
+            "podCidrs": ["10.245.0.0/16"],
+            "dnsServiceIp": "10.96.0.10",
+            "serviceCidrs": ["10.97.0.0/16"]
+          },
+          "aadConfiguration": {
+            "adminGroupObjectIds": "[parameters('adminGroupObjectIds')]"
+          }
+        },
+        "dependsOn": []
+      }
+    ]
+  }
