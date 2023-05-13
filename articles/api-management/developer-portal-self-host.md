@@ -121,8 +121,8 @@ Configure the file:
     1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
     1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
     1. Select **Create credentials** > **API key**.
-    1. In the open dialog, copy the generated key and and paste as the value of `apiKey` in the `config.design.json` file. Select **Close**.
-    1. Select **Edit API key** to open the editor.
+    1. In the open dialog, copy the generated key and and paste as the value of `apiKey` in the `config.design.json` file. 
+    1. Select **Edit API key** to open the key editor.
     1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
     1. Select **Save**.
 
