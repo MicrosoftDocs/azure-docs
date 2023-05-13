@@ -176,7 +176,7 @@
         - name: Studio network data access
           href: ./v1/concept-network-data-access.md
         # end v1
-        - name: Apache Spark in Azure Machine Learning (preview)
+        - name: Apache Spark in Azure Machine Learning
           href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
@@ -1421,6 +1421,10 @@
     - name: Azure Container for PyTorch 
       href: resource-azure-container-for-pytorch.md
       displayName: acpt
+    - name: CLI (v2) Spark component YAML schema
+      href: reference-yaml-component-spark.md
+    - name: CLI (v2) Spark job YAML schema
+      href: reference-yaml-job-spark.md
     - name: Azure CLI
       href: /cli/azure/ml
     # v1
