@@ -13,14 +13,17 @@ ms.reviewer: mmcc
 The Azure Application Insights JavaScript SDK provides advanced features for tracking, monitoring, and debugging your web applications.
 
 > [!div class="checklist"]
-> - [npm setup](#npm-setup)
+> - [SDK configuration](#sdk-configuration)
 > - [Cookie configuration and management](#cookies)
 > - [Source map un-minify support](#source-map)
 > - [Tree shaking optimized code](#tree-shaking)
 
 ### SDK configuration
 
-These configuration fields are optional and default to false unless otherwise stated.
+These configuration fields are optional and default to false unless otherwise stated. Depending on how you're enabling Application Insights, add these configuration fields as follows: 
+
+- If you're using the SDK Loader Script to enable Application Insights, add these configuration fields within the `cfg` object.
+-  If you're using the npm package to enable Application Insights, add these configuration fields within the `config` object.
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
