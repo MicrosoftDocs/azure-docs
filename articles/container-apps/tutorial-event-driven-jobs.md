@@ -29,6 +29,8 @@ The job you create starts an execution for each message that is sent to an Azure
 1. Deletes the message from the queue.
 1. Exits.
 
+The source code for the job you run in this tutorial is available in an Azure Samples [GitHub repository](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial/blob/main/index.js).
+
 [!INCLUDE [container-apps-create-cli-steps-jobs.md](../../includes/container-apps-create-cli-steps-jobs.md)]
 
 ## Set up a storage queue
