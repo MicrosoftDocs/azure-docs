@@ -129,7 +129,7 @@ To deploy the job, you must first build a container image for the job and push i
         --memory "1Gi" \
         --secrets "connection-string-secret=$QUEUE_CONNECTION_STRING" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io" \
-        --env-vars "AZURE_QUEUE_NAME=$QUEUE_NAME" "AZURE_STORAGE_CONNECTION_STRING=secretref:connection-string-secret"
+        --env-vars "AZURE_STORAGE_QUEUE_NAME=$QUEUE_NAME" "AZURE_STORAGE_CONNECTION_STRING=secretref:connection-string-secret"
     ```
 
     The following table describes the key parameters used in the command.
@@ -150,6 +150,8 @@ To deploy the job, you must first build a container image for the job and push i
     | `--secrets` | The secrets to use for the job. |
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
     | `--env-vars` | The environment variables to use for the job. |
+
+    The scale rule configuration determines To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
