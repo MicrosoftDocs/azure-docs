@@ -28,20 +28,11 @@ ms.custom: references_regions
     az upgrade
     ```
 
-1. Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
+1. Install the latest version of the Azure Container Apps CLI extension.
 
     ```azurecli
-    az extension remove --name containerapp
-    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.5-py2.py3-none-any.whl --yes
+    az extension add --name containerapp --upgrade
     ```
-
-    > [!NOTE]
-    > Only use this version of the CLI extension for the jobs preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest public version of the extension.
-    > 
-    > ```azurecli
-    > az extension remove --name containerapp
-    > az extension add --name containerapp
-    > ```
 
 1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
@@ -58,9 +49,6 @@ ms.custom: references_regions
     ENVIRONMENT="env-jobs-quickstart"
     JOB_NAME="my-job"
     ```
-
-    > [!NOTE]
-    > The jobs preview is only supported in the East US 2 EUAP, North Central US, and Australia East regions.
 
 ## Create a Container Apps environment
 

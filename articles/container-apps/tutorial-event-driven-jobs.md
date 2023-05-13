@@ -7,7 +7,6 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/05/2023
 ms.author: cshoe
-ms.custom: references_regions
 ---
 
 # Tutorial: Deploy an event-driven job with Azure Container Apps
