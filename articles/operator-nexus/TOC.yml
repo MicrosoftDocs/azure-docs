@@ -18,6 +18,8 @@
     href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
+   - name: Troubleshoot haks cluster provision failures
+    href: Troubleshoot-haks-cluster-provision-failures.md
   - name: Before you start Operator Nexus NFC and CM deployment
     href: howto-azure-operator-nexus-prerequisites.md
   - name: Network Fabric Controller
