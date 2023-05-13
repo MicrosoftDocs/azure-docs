@@ -7,47 +7,57 @@ ms.date: 05/15/2023
 
 # Deploying an Azure Kubernetes Application Through an ARM Template
 
-To deploy the Kubernetes application programmatically, first select the Kubernetes application, then generate an ARM template, accept legal terms and conditions, and finally deploy the ARM template.
+To deploy a Kubernetes application programmatically through Azure CLI, you select the Kubernetes application and settings, generate an ARM template, accept legal terms and conditions, and finally deploy the ARM template.
 
-## Select Kubernetes Application
+## Select Kubernetes application
 
-1. Log into your Microsoft [Marketplace in Azure Portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/fromContext/AKS). 
+First, you need to select the Kubernetes application that you want to deploy in the Azure portal.
 
-1. Select your Kubernetes application
+1. In the Azure portal, go to the [Marketplace page](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/fromContext/AKS).
+1. Select your Kubernetes application.
+1. Select the required plan.
+1. Select the **Usage Information + Support** tab. Copy the values for `publisherID`, `productID`, and `planID`. You'll need these values later.
 
-1. Select the required plan
+   :::image type="content" source="media/deploy-application-arm/usage-information.png" alt-text="Screenshot showing the Usage Information + Support tab for a Kubernetes application.":::
 
-1. Click on the ‘Usage Information + Support’ tab to obtain the publisherID, productID, and planID. Copy and save these IDs for later use in accepting terms and agreements
+## Generate ARM template
 
-![User-Usage-and-information-blade-to-provide-parameters.](user-usage-information.png)
+Continue on to generate the ARM template for your deployment.
 
-## Generate ARM Template
+1. Select the **Create** button.
+1. Fill out all the application (extension) details.
+1. In the **Review + Create** tab, select **Download a template for automation**. 
 
-1. Click on the 'Create' button above
+   :::image type="content" source="media/deploy-application-arm/download-template.png" alt-text="Screenshot showing the option to download a template for a Kubernetes application.":::
 
-1. Fill out all the application (extension) details
+  If all the validations are passed, you'll see the ARM template in the editor.
 
-1. In the 'Review + Create' tab, click on 'Download a template for automation.' If all the validations are passed, you will be able to successfully view the ARM template in the editor. 
+   :::image type="content" source="media/deploy-application-arm/download-arm-template.png" alt-text="Screenshot showing an ARM template for a Kubernetes application.":::
 
-![automation image](https://github.com/maanasagovi/azure-docs-pr/assets/112022180/5c19ff29-eebe-4ba0-9818-2c37d5cb44fd)
+1. Download the ARM template and save it to a file on your computer.
 
-![Users-ARM-template-in-editor-view.](media/armtemplatedeployk8apps/download-arm-template.png)
+## Accept terms and agreements
 
-4. Finally, copy the ARM template to a file.
+Before you can deploy a Kubernetes application, you need to accept its terms and agreements. To do so, use [Azure CLI](/cli/azure/vm/image/terms) or [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/). Be sure to use the values you copied for `plan-publisher`, `plan-offerID`, and `plan-name` in your command.
 
-## Accept Terms and Agreements
-
-After generating your ARM template, you will need to accept the terms and agreements before being able to deploy it. To accept the terms and agreements you can use the [Azure CLI](/cli/azure/vm/image/terms?view=azure-cli-latest) or[ PowerShell](/powershell/module/azurerm.marketplaceordering/?view=azurermps-6.13.0) commands. For 'Publisher ID,' 'Product ID,' and 'Plan ID,' use the values previously copied above. 
-
-# [Azure CLI](#tab/azure-cli/linux)
+```azurecli
 az vm image terms accept --offer <Product ID> --plan <Plan ID> --publisher <Publisher ID>
+```
 
-Note: Although the commands are for VMs, the commands also work for containers
----
+> [!NOTE]
+> Although this command is for VMs, it also works for containers. For more information, see the [`az cm image terms` reference](/cli/azure/vm/image/terms).
 
-# [Azure PowerShell](#tab/azure-powershell/linux)
+```azurepowershell
 ## Get-AzureRmMarketplaceTerms -Publisher <Publisher ID> -Product <Product ID> -Name <Plan ID>
+```
+
 
 ## Deploy ARM Template
 
-Once you've accepted the terms, you can deploy your ARM template. To deploy your ARM template, follow the steps [here.](/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli)
+Once you've accepted the terms, you can deploy your ARM template. For instructions, see [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template).
+
+## Next steps
+
+- Learn about [Kubernetes applications available through Marketplace](deploy-marketplace.md).
+- Learn about [cluster extensions](cluster-extensions.md).
+
