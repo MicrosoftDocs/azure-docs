@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires serverless ephemeral compute resources.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn how to work with [event-driven jobs](jobs.md#event-driven-jobs).
 
 > [!div class="checklist"]
 > * Create a Container Apps environment to deploy your container apps
