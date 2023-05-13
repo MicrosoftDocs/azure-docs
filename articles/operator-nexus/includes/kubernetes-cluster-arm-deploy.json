@@ -6,52 +6,52 @@
         "type": "string",
         "defaultValue": "clouduser",
         "metadata": {
-          "description": "The admin user name of the virtual machine."
+          "description": "Admin user name of the virtual machine."
         }
       },
       "adminGroupObjectIds": {
         "type": "array",
         "metadata": {
-          "description": "The placement zones to use for Kubernetes cluster nodes."
+          "description": "AAD admin group object ids who need to be added to the cluster as admin users."
         }
       },
       "cniL3NetworkId": {
         "type": "string",
         "metadata": {
-          "description": "The resourceId of the L3 Network."
+          "description": "Resource ID of the Nexus L3 Network."
         }
       },
       "cloudServicesNetworkId": {
         "type": "string",
         "metadata": {
-          "description": "The resourceId of the Cloud services network"
+          "description": "Resource ID of the Nexus Cloud services network"
         }
       },
       "podCidrs": {
         "type": "array",
         "metadata": {
-          "description": "Kubernetes cluster pod CIDRs."
+          "description": "Nexus Kubernetes cluster pod CIDRs."
         },
         "defaultValue": ["10.245.0.0/16"]
       },
       "dnsServiceIp": {
         "type": "array",
         "metadata": {
-          "description": "Kubernetes cluster DNS service IP."
+          "description": "Nexus Kubernetes cluster DNS service IP."
         },
         "defaultValue": "10.96.0.10"
       },
       "serviceCidrs": {
         "type": "array",
         "metadata": {
-          "description": "Kubernetes cluster service CIDRs."
+          "description": "Nexus Kubernetes cluster service CIDRs."
         },
         "defaultValue": ["10.97.0.0/16"]
       },
       "controlPlaneCount": {
         "type": "int",
         "metadata": {
-          "description": "The number of Nexus Kubernetes control plane machines to create"
+          "description": "Number of Nexus Kubernetes control plane machines to create"
         },
         "defaultValue": 3
       },
@@ -59,13 +59,13 @@
         "type": "string",
         "defaultValue": "",
         "metadata": {
-          "description": "The extended location (custom-location) of the Azure Operator Nexus instance"
+          "description": "Extended location (custom-location) of the Azure Operator Nexus instance"
         }
       },
       "controlPlaneVmSkuName": {
         "type": "string",
         "metadata": {
-          "description": "The Nexus Kubernetes control plane vmSize to use (e.g. NC_G4_v1)"
+          "description": "Nexus Kubernetes control plane vmSize to use (e.g. NC_G4_v1)"
         },
         "defaultValue": "NC_G4_v1",
         "allowedValues": [
@@ -93,7 +93,7 @@
       "kubernetesVersion": {
         "type": "string",
         "metadata": {
-          "description": "The Nexus Kubernetes Kubernetes Version to use"
+          "description": "Nexus Kubernetes Kubernetes Version to use"
         },
         "defaultValue": "1.25.4"
       },
@@ -101,13 +101,13 @@
         "type": "string",
         "defaultValue": "[resourceGroup().location]",
         "metadata": {
-          "description": "Location of resource"
+          "description": "Azure DC location of resource"
         }
       },
       "workerVmSkuName": {
         "type": "string",
         "metadata": {
-          "description": "The Nexus Kubernetes worker vmSize to use (e.g. NC_M8_v1)"
+          "description": "Nexus Kubernetes worker vmSize to use (e.g. NC_M8_v1)"
         },
         "defaultValue": "NC_M16_v1",
         "allowedValues": [
@@ -127,7 +127,7 @@
       "sshPublicKey": {
         "type": "array",
         "metadata": {
-          "description": "The SSH key to install on the Nexus Kubernetes cluster"
+          "description": "SSH keys to install on the Nexus Kubernetes cluster"
         },
         "defaultValue": []
       },
