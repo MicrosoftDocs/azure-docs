@@ -4,7 +4,7 @@ description: Learn about service quotas and service plans for Azure Spring Apps.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 03/21/2023
+ms.date: 05/15/2023
 ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
@@ -41,7 +41,7 @@ The following table defines limits for the pricing tiers in Azure Spring Apps.
 <sup>2</sup> You can increase this limit via support request to a maximum of 10.
 
 > [!TIP]
-> Limits listed for total app instances, per service instance, apply for apps and deployments in any state, including apps in a stopped state. Be sure to delete apps or deployments that are not being used.
+> Limits listed apply for apps and deployments in any state, including apps in a stopped state. These limits include total app instances and per service instance. Be sure to delete apps and deployments that are not being used.
 
 ## Next steps
 

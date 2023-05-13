@@ -28,7 +28,7 @@ The sample project is an event-driven application that subscribes to a [Service 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
+- [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
@@ -153,7 +153,7 @@ Use the following steps to create the environment:
 
 ## Create the Azure Spring Apps instance
 
-An Azure Spring Apps Standard consumption and dedicated plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
+An instance of an Azure Spring Apps Standard consumption and dedicated plan hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
 1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption and dedicated by using the following command:
 
@@ -188,7 +188,7 @@ An Azure Spring Apps Standard consumption and dedicated plan instance hosts the 
 
 ## Create an app in your Azure Spring Apps instance
 
-You can create an app in either stanard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
 
 **Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
 
@@ -214,22 +214,22 @@ Dedicated workload profiles support run apps with customized hardware and increa
 
 ```azurecli
 az containerapp env workload-profile set -n ${AZURE_CONTAINER_APPS_ENVIRONMENT}
-   --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+    --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
 ```
 
 And use the following command to create an app with the dedicated workload profile:
 
 ```azurecli-interactive
-az spring app create \
-   --service ${AZURE_SPRING_APPS_INSTANCE} \
-   --name ${APP_NAME} \
-   --cpu 1 \
-   --memory 2Gi \
-   --min-replicas 2 \
-   --max-replicas 2 \
-   --runtime-version Java_17 \
-   --assign-endpoint true \
-   --workload-profile my-wlp
+az spring app create \       
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME} \
+    --cpu 1 \
+    --memory 2Gi \
+    --min-replicas 2 \
+    --max-replicas 2 \
+    --runtime-version Java_17 \
+    --assign-endpoint true \
+    --workload-profile my-wlp
 ```
 
 ## Bind the Service Bus to Azure Spring Apps and deploy the app

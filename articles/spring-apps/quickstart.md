@@ -127,7 +127,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --output tsv)
    ```
 
-1. Use the following command to create an Azure Spring Apps service instance. The Azure Spring Apps Standard consumption and dedicated plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
+1. Use the following command to create an Azure Spring Apps service instance. An instance of the Azure Spring Apps Standard consumption and dedicated plan is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
 
    ```azurecli-interactive
    az spring create \
@@ -144,7 +144,7 @@ An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one bu
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
-You can create an app in either stanard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
 
 **Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
 
@@ -291,7 +291,7 @@ An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one bu
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
 
-Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
+Use the following command to specify the app name on Azure Spring Apps as `hellospring`:
 
 ```azurecli-interactive
 az spring app create \
@@ -352,7 +352,7 @@ Use the following steps to create the project:
    https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
    ```
 
-   The following image shows the recommended Initializr settings for the *hellospring* sample project.
+   The following image shows the recommended Initializr settings for the `hellospring` sample project.
 
    This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**.
 

@@ -23,7 +23,7 @@ This article shows you how to configure a managed Spring Cloud Config Server in 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
 > [!NOTE]
-> To use config server in the Standard consumption plan, you need to follow [Enable config server for Consumption Plan](quickstart-standard-consumption-config-server.md) to enable it first, you can disable it if you don't want it any more. And currently, config server portal is not available for Standard consumption plan.
+> To use config server in the Standard consumption plan, you must enable it. For more information, see [Enable config server for Consumption Plan](quickstart-standard-consumption-config-server.md).
 
 ## Prerequisites
 
@@ -300,7 +300,7 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client performs queries for configuration changes every 60 seconds, which is the minimum value you can set for a refresh interval.
 
    By default, autorefresh is set to *false* and the refresh-interval is set to *60 seconds*.
 
