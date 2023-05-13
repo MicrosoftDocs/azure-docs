@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 05/12/2023
 ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -60,7 +60,14 @@ The following steps show how to prepare a VM, take a snapshot, and create an ima
 
 ### Prepare a VM
 
-If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
+If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. 
+
+To get a full list of current Azure Marketplace image references supported by Azure Batch, use one of the following APIs to return a list of Windows and Linux VM images including the node agent SKU IDs for each image:
+
+- PowerShell: [Azure Batch supported images](/powershell/module/az.batch/get-azbatchsupportedimage)
+- Azure CLI:  [Azure Batch pool supported images](/cli/azure/batch/pool/supported-images)
+- Batch service APIs: [Batch service APIs](batch-apis-tools.md#batch-service-apis.md) and [Azure Batch service supported images](/rest/api/batchservice/account/listsupportedimages)
+- List node agent SKUs: [Node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 
 
 > [!NOTE]
 > You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
@@ -83,6 +90,11 @@ A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS
 
 To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. Create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
+To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
+
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md#portal).
+
+
 ### Create an Azure Compute Gallery
 
 Once you have successfully created your managed image, you need to create an Azure Compute Gallery to make your custom image available. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
@@ -99,7 +111,7 @@ az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
     --image "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}" \
-    --node-agent-sku-id "batch.node.ubuntu 16.04"
+    --node-agent-sku-id "batch.node.ubuntu 20.04"
 ```
 
 ## Create a pool from a Shared Image using C#
@@ -185,7 +197,7 @@ ir = batchmodels.ImageReference(
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
     image_reference=ir,
-    node_agent_sku_id="batch.node.ubuntu 18.04"
+    node_agent_sku_id="batch.node.ubuntu 20.04"
 )
 
 # Create the unbound pool
@@ -201,7 +213,7 @@ new_pool = batchmodels.PoolAddParameter(
 client.pool.add(new_pool)
 ```
 
-## Create a pool from a Shared Image using the Azure portal
+## Create a pool from a Shared Image or Custom Image using the Azure portal
 
 Use the following steps to create a pool from a Shared Image in the Azure portal.
 
@@ -211,8 +223,12 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. In the **Image Type** section, select **Azure Compute Gallery**.
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
+1. Once the node is allocated, use **Connect** to generate user and the RDP file to login to the allocated node and verify.
 
 ![Create a pool with from a Shared image with the portal.](media/batch-sig-images/create-custom-pool.png)
+
+> [!NOTE]
+> Ensure that the OS SKU is matching the custom image SKU. If the selected option is not matching your custom image, the node will not start.  
 
 ## Considerations for large pools
 
