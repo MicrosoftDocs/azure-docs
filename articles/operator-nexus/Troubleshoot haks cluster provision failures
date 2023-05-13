@@ -12,8 +12,6 @@ ms.author: v-saambe
 
 Follow these steps in order to gather the data needed to diagnose Hybrid AKS creation or management issues. These steps require k8s controller access and bare metal linux host access.
 
-image.png
-
 If Status: is not Connected and Provisioning State: is not Succeeded then the install failed
 
 # Prerequisites
