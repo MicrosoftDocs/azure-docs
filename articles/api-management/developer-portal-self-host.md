@@ -82,7 +82,12 @@ Go to the `src` folder and open the `config.design.json` file.
   "managementApiUrl": "https://<service-name>.management.azure-api.net",
   "managementApiAccessToken": "SharedAccessSignature ...",
   "backendUrl": "https://<service-name>.developer.azure-api.net",
-  "useHipCaptcha": false
+  "useHipCaptcha": false,
+  "integration": {
+      "googleFonts": {
+          "apiKey": "..."
+      }
+  }
 }
 ```
 
@@ -112,10 +117,19 @@ Configure the file:
 
 1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
+1. In `integration`, under `googleFonts`, set the value of `apiKey` to a Google API key. This key is needed to add Google fonts in the developer portal editor. If you don't already have a key, use the following steps to obtain one using the Google Cloud console. 
+    1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
+    1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
+    1. Select **Create credentials** > **API key**.
+    1. In the open dialog, copy the generated key and and paste as the value of `apiKey` in the `config.design.json` file. Select **Close**.
+    1. Select **Edit API key** to open the editor.
+    1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
+    1. Select **Save**.
+
 ### config.publish.json file
 
 Go to the `src` folder and open the `config.publish.json` file.
-
+    
 ```json
 {
   "environment": "publishing",
