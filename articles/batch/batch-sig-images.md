@@ -66,7 +66,7 @@ To get a full list of current Azure Marketplace image references supported by Az
 
 - PowerShell: [Azure Batch supported images](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI:  [Azure Batch pool supported images](/cli/azure/batch/pool/supported-images)
-- Batch service APIs: [Batch service APIs](batch-apis-tools.md#batch-service-apis.md) and [Azure Batch service supported images](/rest/api/batchservice/account/listsupportedimages)
+- Batch service APIs: [Batch service APIs](batch-apis-tools.md#batch-service-apis) and [Azure Batch service supported images](/rest/api/batchservice/account/listsupportedimages)
 - List node agent SKUs: [Node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 
 
 > [!NOTE]
@@ -92,7 +92,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
 
-To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md#portal).
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md#tab-portal).
 
 
 ### Create an Azure Compute Gallery
