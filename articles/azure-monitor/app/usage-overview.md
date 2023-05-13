@@ -20,7 +20,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 1. **Webpage code:** Add the following script to your webpage before the closing ``</head>``. Replace the instrumentation key with the appropriate value for your Application Insights resource.
     
-    The current snippet is version 5 and is listed here. The version is encoded in the snippet as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+    The current SDK Loader Script is version 5 and is listed here. The version is encoded in the SDK Loader Script as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
     ```html
     <script type="text/javascript">

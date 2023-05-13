@@ -221,9 +221,9 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 JavaScript doesn't support the use of environment variables.
 
-Using the snippet:
+Using the SDK Loader Script:
 
-The current snippet is version 5 and is shown here. The version is encoded in the snippet as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current SDK Loader Script is version 5 and is shown here. The version is encoded in the SDK Loader Script as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -241,7 +241,7 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> For readability and to reduce possible JavaScript errors, all the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
+> For readability and to reduce possible JavaScript errors, all the possible configuration options are listed on a new line in the preceding SDK Loader Script code. If you don't want to change the value of a commented line, it can be removed.
 
 Manual setup:
 ```javascript

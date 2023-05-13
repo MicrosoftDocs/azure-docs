@@ -322,11 +322,11 @@ For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers)
 ### JavaScript telemetry initializers
 *JavaScript*
 
-Insert a telemetry initializer using the snippet onInit callback:
+Insert a telemetry initializer by adding the onInit callback function in the [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights):
 
 ```html
 <script type="text/javascript">
-!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+!function(T,l,y){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
