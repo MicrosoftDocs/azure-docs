@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/29/2023
+ms.date: 05/12/2023
 ms.author: lajanuar
 ---
 
@@ -24,7 +24,7 @@ ms.author: lajanuar
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents, Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract structured, semi-structured, and unstructured content from your documents.</br></br>
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Effectively managing the velocity at which the data is collected and processed is key to improved operations and data-driven decision making and innovation. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to quickly analyze and accurately extract structured, semi-structured, and unstructured content from your documents.</br></br>
 
 ## Form Recognizer model types
 
@@ -72,8 +72,12 @@ Prebuilt models are pretrained to extract key data from specific document types.
 :::row-end:::
 :::row:::
    :::column span="":::
+      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#w-2":::</br>
+    [🆕 **Insurance card**](#w-2) | Extract health insurance coverage details.
+   :::column-end:::
+   :::column span="":::
       :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
-    [**W2**](#w-2) | Extract taxable compensation details
+    [**W2**](#w-2) | Extract taxable compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
@@ -223,6 +227,17 @@ You can Use Form Recognizer to automate your document processing in applications
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
 |[**Identity document (ID) model**](concept-id-document.md) |Extract key information from passports and ID cards.</br></br>Prebuilt ID document API supports the **extraction of endorsements, restrictions, and vehicle classifications from US driver's licenses**. |&#9679; Know your customer (KYC) financial services guidelines compliance.</br>&#9679; Medical account management.</br>&#9679; Identity checkpoints and gateways.</br>&#9679; Hotel registration. |&#9679;  [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)</br>&#9679; [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)|
+
+> [!div class="nextstepaction"]
+> [Return to model types](#prebuilt-models)
+
+### Health insurance card
+
+:::image type="content" source="media/overview/analyze-health-insurance.png" alt-text="Screenshot of Health insurance card model analysis using Form Recognizer Studio.":::
+
+| About | Description |Automation use cases | Development options |
+|----------|--------------|-------------------------|-----------|
+| [**Health insurance card**](concept-insurance-card.md)|Extract key information from US health insurance cards.|&#9679;Coverage and eligibility verification. </br>&#9679;Predictive modeling.</br>&#9679; Value-based analytics.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -417,7 +432,7 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Choose a Form Recognizer model](choose-the-best.md)
+* [Choose a Form Recognizer model](choose-model-feature.md)
 
 * Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
