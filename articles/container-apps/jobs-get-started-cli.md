@@ -7,94 +7,20 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 05/08/2023
 ms.author: cshoe
-ms.custom: references_regions
+zone_pivot_groups: container-apps-job-types
 ---
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps [jobs](jobs.md) allows you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually or schedule their execution.
+Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
 
 Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
 
-In this quickstart, you create a manual or scheduled job.
+In this quickstart, you create a manual or scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
 
-## Prerequisites
+[!INCLUDE [container-apps-create-cli-steps-jobs.md](../../includes/container-apps-create-cli-steps-jobs.md)]
 
-- An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- Install the [Azure CLI](/cli/azure/install-azure-cli).
-- See [Jobs preview limitations](jobs.md#jobs-preview-limitations) for a list of limitations.
-
-## Setup
-
-1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-    ```azurecli
-    az login
-    ```
-
-1. Ensure you're running the latest version of the CLI via the `upgrade` command.
-
-    ```azurecli
-    az upgrade
-    ```
-
-1. Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
-
-    ```azurecli
-    az extension remove --name containerapp
-    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.5-py2.py3-none-any.whl --yes
-    ```
-
-    > [!NOTE]
-    > Only use this version of the CLI extension for the jobs preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest public version of the extension.
-    > 
-    > ```azurecli
-    > az extension remove --name containerapp
-    > az extension add --name containerapp
-    > ```
-
-1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
-
-    ```azurecli
-    az provider register --namespace Microsoft.App
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-1. Define the environment variables used throughout this article.
-
-    ```azurecli
-    RESOURCE_GROUP="jobs-quickstart"
-    LOCATION="northcentralus"
-    ENVIRONMENT="env-jobs-quickstart"
-    JOB_NAME="my-job"
-    ```
-
-    > [!NOTE]
-    > The jobs preview is only supported in the East US 2 EUAP, North Central US, and Australia East regions.
-
-## Create a Container Apps environment
-
-The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
-
-1. Create a resource group using the following command.
-
-    ```azurecli
-    az group create \
-        --name "$RESOURCE_GROUP" \
-        --location "$LOCATION"
-    ```
-
-1. Create the Container Apps environment using the following command.
-
-    ```azurecli
-    az containerapp env create \
-        --name "$ENVIRONMENT" \
-        --resource-group "$RESOURCE_GROUP" \
-        --location "$LOCATION"
-    ```
-
-# [Manual job](#tab/manual)
+::: zone pivot="container-apps-job-manual"
 
 ## Create and run a manual job
 
@@ -123,7 +49,9 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
 
     The command returns details of the job execution, including its name.
 
-# [Scheduled job](#tab/scheduled)
+::: zone-end
+
+::: zone pivot="container-apps-job-scheduled"
 
 ## Create and run a scheduled job
 
@@ -145,7 +73,7 @@ Job executions start automatically based on the schedule.
 
 Container Apps jobs use cron expressions to define schedules. It supports the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format with five fields for minute, hour, day of month, month, and day of week.
 
----
+::: zone-end
 
 ## List recent job execution history
 
@@ -170,8 +98,6 @@ Succeeded  my-job-jvsgub6  2023-05-08T21:21:45+00:00
 ## Query job execution logs
 
 Job executions output logs to the logging provider that you configured for the Container Apps environment. By default, logs are stored in Azure Log Analytics.
-
-# [Manual job](#tab/manual)
 
 1. Save the Log Analytics workspace ID for the Container Apps environment to a variable.
 
@@ -202,7 +128,10 @@ Job executions output logs to the logging provider that you configured for the C
         --query "[].Log_s"
     ```
 
-    It may take a few minutes for the logs to appear in Log Analytics. The following output is an example of the logs printed by the job execution.
+    > [!NOTE]
+    > Until the `ContainerAppConsoleLogs_CL` table is ready, the command returns an error: `BadArgumentError: The request had some invalid properties`. Wait a few minutes and try again.
+
+    The following output is an example of the logs printed by the job execution.
 
     ```json
     [
@@ -211,12 +140,6 @@ Job executions output logs to the logging provider that you configured for the C
         "2023/04/24 18:38:33 Finished processing. Shutting down!"
     ]
     ```
-
-# [Scheduled job](#tab/scheduled)
-
-Logs are currently unavailable for scheduled jobs.
-
----
 
 ## Clean up resources
 
