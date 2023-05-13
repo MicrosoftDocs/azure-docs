@@ -188,7 +188,7 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 ## Create an app in your Azure Spring Apps instance
 
-You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 **Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
 

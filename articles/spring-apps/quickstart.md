@@ -144,7 +144,7 @@ An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one bu
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
-You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+You can create an app in either standard consumption or dedicated workload profiles. See [Azure Spring Apps pricing](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 **Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
 
