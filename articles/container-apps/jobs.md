@@ -466,11 +466,11 @@ The following example Azure Resource Manager template creates a job with advance
 
 The following features are not supported:
 
-    - Volume mounts
-    - Init containers
-    - Dapr
-    - Azure Key Vault references in secrets
-    - Ingress and related features such as custom domains and SSL certificates
+- Volume mounts
+- Init containers
+- Dapr
+- Azure Key Vault references in secrets
+- Ingress and related features such as custom domains and SSL certificates
 
 ## Next steps
 
