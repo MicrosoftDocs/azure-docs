@@ -10,7 +10,7 @@ zone_pivot_groups: functions-container-hosting
 
 This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. Choose the hosting environment for your containerized function app at the top of the article. 
 
-If you want to jump right in, the following article show you how to create your first function running in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
+If you want to jump right in, the following article shows you how to create your first function running in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
 
 :::zone pivot="container-apps"
 > [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-aca.md)

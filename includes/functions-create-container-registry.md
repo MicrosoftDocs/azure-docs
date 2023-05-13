@@ -46,7 +46,7 @@ Before you begin, you must have the following requirements in place:
 + Development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
 -->
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.48 or a later version.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or a later version.
 
 If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -55,7 +55,7 @@ To publish the containerized function app image you create to a container regist
 
 # [Azure Container Registry](#tab/acr)
 
-You also need to complete the [Create a container registry](../articles/container-registry/container-registry-get-started-portal.md#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully-qualified login server name.
+You also need to complete the [Create a container registry](../articles/container-registry/container-registry-get-started-portal.md#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully qualified login server name.
 
 # [Docker Hub](#tab/docker)
 
@@ -364,7 +364,24 @@ Azure Container Apps is a private registry service for building, storing, and ma
     ```docker
     docker push <LOGIN_SERVER>/azurefunctionsimage:v1.0.0
     ```
+1. Use the following command to enable the built-in admin account so that Functions can connect to the registry with a username and password:
 
+    ```azurecli
+    az acr update -n <REGISTRY_NAME> --admin-enabled true
+    ```
+
+    > [!IMPORTANT]
+    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  
+
+1. Use the following command to retrieve the admin username and password, which Functions needs to connect to the registry:
+
+    ```azurecli
+    az acr credential show -n <REGISTRY_NAME> --query "[username, passwords[0].value]" -o tsv
+    ```
+
+    > [!IMPORTANT]
+    > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository.
+ 
 # [Docker Hub](#tab/docker)
 
 Docker Hub is a container registry that hosts images and provides image and container services. 

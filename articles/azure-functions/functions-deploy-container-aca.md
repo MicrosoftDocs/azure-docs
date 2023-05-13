@@ -28,15 +28,17 @@ Use the following commands to create these items.
 
 1. If you haven't done already, sign in to Azure.
 
-    ```azurecli
-    az login
-    az account set -subscription <SUBSCRIPTION_NAME>
-    ```
-
     The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Use `az account set` when you have more than one subscription associated with your account.
 
+1. Run the following command to update the Azure CLI to the latest version:
+     
+    ```azurecli
+    az upgrade
+    ```
+   
+    If your version of Azure CLI isn't the latest version, an installation begins. The manner of upgrade depends on your operating system. You can proceed after the upgrade is complete.
 
-1. Run the following commands that upgrade the Azure Container Apps extension and register required namespaces:
+1. Run the following commands that upgrade the Azure Container Apps extension and register namespaces required by Container Apps:
 
     ```azurecli
     az extension add --name containerapp --upgrade -y
