@@ -153,7 +153,7 @@ To deploy the job, you must first build a container image for the job and push i
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
     | `--env-vars` | The environment variables to use for the job. |
 
-    The scale rule configuration determines To learn more, see [Set scaling rules](scale-app.md).
+    The scale rule configuration defines the event source to monitor. It is evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
