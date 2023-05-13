@@ -89,7 +89,7 @@ Notice the resourceType and sort elements in the URL.
 
 ## Deploy the template
 
-1. Create a file named ```kubernetes-deploy-parameters.json``` and add the required parameters in JSON format. You can use the following content as a template:
+1. Create a file named ```kubernetes-deploy-parameters.json``` and add the required parameters in JSON format. You can use the following example as a starting point. Replace the values with your own.
 
 :::code language="json" source="includes/kubernetes-cluster-arm-deploy-params.json":::
 

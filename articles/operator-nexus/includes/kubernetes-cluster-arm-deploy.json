@@ -27,6 +27,27 @@
           "description": "The resourceId of the Cloud services network"
         }
       },
+      "podCidrs": {
+        "type": "array",
+        "metadata": {
+          "description": "Kubernetes cluster pod CIDRs."
+        },
+        "defaultValue": ["10.245.0.0/16"]
+      },
+      "dnsServiceIp": {
+        "type": "array",
+        "metadata": {
+          "description": "Kubernetes cluster DNS service IP."
+        },
+        "defaultValue": "10.96.0.10"
+      },
+      "serviceCidrs": {
+        "type": "array",
+        "metadata": {
+          "description": "Kubernetes cluster service CIDRs."
+        },
+        "defaultValue": ["10.97.0.0/16"]
+      },
       "controlPlaneCount": {
         "type": "int",
         "metadata": {
@@ -60,6 +81,13 @@
         "defaultValue": "[concat('nexus-k8s-cluster-',uniqueString(resourceGroup().id))]",
         "metadata": {
           "description": "Nexus Kubernetes cluster name"
+        }
+      },
+      "systemPoolName": {
+        "type": "string",
+        "defaultValue": "system-pool-1",
+        "metadata": {
+          "description": "Nexus Kubernetes cluster system pool name"
         }
       },
       "kubernetesVersion": {
@@ -97,18 +125,18 @@
         "defaultValue": "2023-05-01-preview"
       },
       "sshPublicKey": {
-        "type": "string",
+        "type": "array",
         "metadata": {
           "description": "The SSH key to install on the Nexus Kubernetes cluster"
         },
-        "defaultValue": ""
+        "defaultValue": []
       },
-      "workerCount": {
+      "systemPoolNodeCount": {
         "type": "int",
         "metadata": {
-          "description": "The number of Nexus Kubernetes workers to create"
+          "description": "The number of Nexus Kubernetes system pool nodes to create"
         },
-        "defaultValue": 5
+        "defaultValue": 3
       }
     },
     "resources": [
@@ -140,9 +168,9 @@
           },
           "initialAgentPoolConfigurations": [
             {
-              "count": "[parameters('workerCount')]",
+              "count": "[parameters('systemPoolNodeCount')]",
               "mode": "System",
-              "name": "system-pool-1",
+              "name": "[parameters('systemPoolName')]",
               "vmSkuName": "[parameters('workerVmSkuName')]",
               "availabilityZones": [],
               "labels": [],
@@ -153,9 +181,9 @@
           "networkConfiguration": {
             "cloudServicesNetworkId": "[parameters('cloudServicesNetworkId')]",
             "cniNetworkId": "[parameters('cniL3NetworkId')]",
-            "podCidrs": ["10.245.0.0/16"],
-            "dnsServiceIp": "10.96.0.10",
-            "serviceCidrs": ["10.97.0.0/16"]
+            "podCidrs": "[parameters('podCidrs')]",
+            "dnsServiceIp": "[parameters('dnsServiceIp')]",
+            "serviceCidrs": "[parameters('serviceCidrs')]"
           },
           "aadConfiguration": {
             "adminGroupObjectIds": "[parameters('adminGroupObjectIds')]"
