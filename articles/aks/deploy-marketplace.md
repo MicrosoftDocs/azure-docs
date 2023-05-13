@@ -8,7 +8,7 @@ ms.date: 05/01/2023
 ms.custom: ignite-fall-2022, references_regions
 ---
 
-# Deploy and Manage a Kubernetes application from Azure Marketplace
+# Deploy and manage a Kubernetes application from Azure Marketplace
 
 [Azure Marketplace][azure-marketplace] is an online store that contains thousands of IT software applications and services built by industry-leading technology companies. In Azure Marketplace, you can find, try, buy, and deploy the software and services that you need to build new solutions and manage your cloud infrastructure. The catalog includes solutions for different industries and technical areas, free trials, and consulting services from Microsoft partners.
 
@@ -38,7 +38,7 @@ az provider register --namespace Microsoft.ContainerService --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 ```
 
-## Select and deploy a Kubernetes Application
+## Select and deploy a Kubernetes application
 
 ### From the AKS portal screen
 
@@ -141,7 +141,7 @@ Select an extension name to navigate to a properties view where you're able to d
 
 To manage settings of your installed extension, you can edit the configuration settings:
 
-![Cluster-extension-config-settings.](media/deploy-marketplace/cluster-extension-config-settings.png)
+![Screenshot of Cluster-extension-config-settings.](media/deploy-marketplace/cluster-extension-config-settings.png)
 
 
 
