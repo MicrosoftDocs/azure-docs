@@ -28,11 +28,11 @@ Continue on to generate the ARM template for your deployment.
 
 1. Select the **Create** button.
 1. Fill out all the application (extension) details.
-1. In the **Review + Create** tab, select **Download a template for automation**. 
+1. At the bottom of the **Review + Create** tab, select **Download a template for automation**. 
 
    :::image type="content" source="media/deploy-application-arm/download-template.png" alt-text="Screenshot showing the option to download a template for a Kubernetes application.":::
 
-  If all the validations are passed, you'll see the ARM template in the editor.
+   If all the validations are passed, you'll see the ARM template in the editor.
 
    :::image type="content" source="media/deploy-application-arm/download-arm-template.png" alt-text="Screenshot showing an ARM template for a Kubernetes application.":::
 
@@ -47,7 +47,7 @@ az vm image terms accept --offer <Product ID> --plan <Plan ID> --publisher <Publ
 ```
 
 > [!NOTE]
-> Although this command is for VMs, it also works for containers. For more information, see the [`az cm image terms` reference](/cli/azure/vm/image/terms).
+> Although this Azure CLI command is for VMs, it also works for containers. For more information, see the [`az cm image terms` reference](/cli/azure/vm/image/terms).
 
 ```azurepowershell
 ## Get-AzureRmMarketplaceTerms -Publisher <Publisher ID> -Product <Product ID> -Name <Plan ID>
