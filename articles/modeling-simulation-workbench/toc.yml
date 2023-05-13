@@ -37,6 +37,10 @@ items:
   items: 
     - name: Manage chamber
       items: 
+        - name: Manage users
+          href: ./howtoguide-manage-users.md
+        - name: Setup networking
+          href: ./howtoguide-setup-networking.md
         - name: Manage license services
           href: ./howtoguide-licenses.md
         - name: Import data

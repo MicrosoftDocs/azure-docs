@@ -175,7 +175,7 @@ Take note of the properties in the next steps:
    - Select secret
    - Click on the latest version
    - Copy the secret identifier shown.
-   - Remove the version from the secret identifier URL shown. Example: https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid would be your secret identifier for the App Registration Client ID, vs https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid/95e7cae001f612345468abcd1c109b3a
+   - Remove the version from the secret identifier URL shown. Example: https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid would be your secret identifier for the App Registration Client ID, not https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid/95e7cae001f612345468abcd1c109b3a
 
 ## Create an Azure Modeling and Simulation Workbench (preview)
 

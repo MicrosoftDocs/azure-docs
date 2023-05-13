@@ -51,6 +51,10 @@ landingContent:
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
+          - text: Manage users
+            url: ./howtoguide-manage-users.md
+          - text: Setup networking
+            url: ./howtoguide-setup-networking.md
           - text: Manage license service
             url: ./howtoguide-licenses.md
           - text: Import data
