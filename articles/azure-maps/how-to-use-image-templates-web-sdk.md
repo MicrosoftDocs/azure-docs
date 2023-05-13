@@ -50,7 +50,7 @@ Once an image template is loaded into the map image sprite, it can be rendered a
 
 For a sample that demonstrates this, rendering a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color, see [Symbol layer with built-in icon template] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/how-to-use-image-templates-web-sdk/symbol-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+:::image type="content" source="./media/how-to-use-image-templates-web-sdk/symbol-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a symbol layer using the marker-flat image template with a teal primary color and a white secondary color.":::
 
 <!-----------------------------------------------------
 <br/>
@@ -106,7 +106,7 @@ An image template can be retrieved using the `altas.getImageTemplate` function a
 
 The [HTML Marker with built-in icon template] sample demonstrates this using the `marker-arrow` template with a red primary color, a pink secondary color, and a text value of "00", as shown in the following screenshot.
 
-:::image type="content" source="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a polygon layer using the dot image template with a red primary color and a transparent secondary color.":::
+:::image type="content" source="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying the marker-arrow template with a red primary color, a pink secondary color, and a text value of 00 inside the red arrow.":::
 
 <!-----------------------------------------------------
 <br/>
