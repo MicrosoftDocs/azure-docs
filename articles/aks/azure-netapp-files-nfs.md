@@ -17,7 +17,7 @@ Azure NetApp Files supports volumes using NFS (NFSv3 or NFSv4.1), [SMB](azure-ne
 
 ## Statically configure for applications that use NFS volumes
 
-This section describes how to create a NFS volume on Azure NetApp Files and expose the volume statically to Kubernetes. It also describes how to use the volume with a containerized application.
+This section describes how to create an NFS volume on Azure NetApp Files and expose the volume statically to Kubernetes. It also describes how to use the volume with a containerized application.
 
 ### Create an NFS volume
 
@@ -200,7 +200,7 @@ This section describes how to create a NFS volume on Azure NetApp Files and expo
 
 Astra Trident may be used to dynamically provision NFS or SMB files on Azure NetApp Files. Dynamically provisioned SMB volumes are only supported with windows worker nodes.
 
-This section describes how to use Astra Trident to dynamically create a NFS volume on Azure NetApp Files and automatically mount it to a containerized application. 
+This section describes how to use Astra Trident to dynamically create an NFS volume on Azure NetApp Files and automatically mount it to a containerized application. 
 
 ### Install Astra Trident
 
@@ -212,7 +212,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
 
 [Helm](https://helm.sh/) must be installed on your workstation to install Astra Trident using this method. For other methods of installing Astra Trident, see the [Astra Trident Install Guide](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
 
-1. To install Astra Trident using Helm for a cluster with only linux worker nodes, run the following commands:   
+1. To install Astra Trident using Helm for a cluster with only Linux worker nodes, run the following commands:   
 
     ```bash
     helm repo add netapp-trident https://netapp.github.io/trident-helm-chart   

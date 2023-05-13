@@ -10,7 +10,7 @@ ms.date: 05/08/2023
 
 After you [configure Azure NetApp Files for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
 
-Azure NetApp Files supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), SMB, or [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB, or NFSv4.1 and SMB). 
+Azure NetApp Files supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), SMB, and [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB, or NFSv4.1 and SMB). 
 * This article describes details for provisioning SMB volumes statically or dynamically. 
 * For information about provisioning NFS volumes statically or dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md).
 * For information about provisioning dual-protocol volumes statically, see [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md)
@@ -278,7 +278,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     ...
     ```
 
-4. Verify your volume has been mounted on the pod by using the [kubectl exec](https://kubernetes.io/docs/reference/kubectl/kubectl-commands#exec) command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
+4. Verify your volume has been mounted on the pod by using the [kubectl exec](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) command to connect to the pod, and then use `dir` command in the correct directory to check if the volume is mounted and the size matches the size of the volume you provisioned. 
 
     ```bash
     kubectl exec -it iis-pod –- cmd.exe
@@ -581,7 +581,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
       storageClassName: anf-sc-smb
     ```
 
-2. Create the persistent volume claim with the the  [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
+2. Create the persistent volume claim with the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command:  
 
     ```bash
     kubectl apply -f anf-pvc-smb.yaml

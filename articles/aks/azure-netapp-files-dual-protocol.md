@@ -10,14 +10,14 @@ ms.date: 05/08/2023
 
 After you [configure Azure NetApp Files for Azure Kubernetes Service](azure-netapp-files.md), you can provision Azure NetApp Files volumes for Azure Kubernetes Service. 
 
-Azure NetApp Files supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB](azure-netapp-files-smb.md), or dual-protocol (NFSv3 and SMB, or NFSv4.1 and SMB). 
+Azure NetApp Files supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB](azure-netapp-files-smb.md), and dual-protocol (NFSv3 and SMB, or NFSv4.1 and SMB). 
 * This article describes details for statically provisioning volumes for dual-protocol access. 
 * For information about provisioning SMB volumes statically or dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md). 
 * For information about provisioning NFS volumes statically or dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md).
 
 ## Before you begin
 
-* You must have already created a dual-protocol volume. See [create a dual-protocol volume for Azure NetApp Files](../azure-netapp-files/create-volumes-dual-protocol).
+* You must have already created a dual-protocol volume. See [create a dual-protocol volume for Azure NetApp Files](../azure-netapp-files/create-volumes-dual-protocol.md).
 
 ## Provision a dual-protocol volume in Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
 
 ### Create the persistent volume for NFS
 
-1. Define variables for later usage. Replace *myresourcegroup*, *myaccountname*, *mypool1*, *myvolname* with an appropriate values from your dual-protocol volume.
+1. Define variables for later usage. Replace *myresourcegroup*, *myaccountname*, *mypool1*, *myvolname* with an appropriate value from your dual-protocol volume.
 
     ```azurecli-interactive
     RESOURCE_GROUP="myresourcegroup"
@@ -64,7 +64,7 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
     }
     ```
 
-3. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from the previous step, and the path matches the output from `creationToken` above. The capacity must also match the volume size from the step above.
+3. Create a file named `pv-nfs.yaml` and copy in the following YAML. Make sure the server matches the output IP address from the previous step, and the path matches the output from `creationToken` above. The capacity must also match the volume size from Step 2.
 
     ```yaml
     apiVersion: v1
@@ -258,7 +258,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     }
     ```
 
-3. Create a file named `pv-smb.yaml` and copy in the following YAML. If necessary, replace `myvolname` with the `creationToken` and replace `ANF-1be3.contoso.com\myvolname` with the value of `smbServerFqdn` from the previous step. Be sure to include your AD credentials secret along with the namespace where it is located that you created in a prior step.
+3. Create a file named `pv-smb.yaml` and copy in the following YAML. If necessary, replace `myvolname` with the `creationToken` and replace `ANF-1be3.contoso.com\myvolname` with the value of `smbServerFqdn` from the previous step. Be sure to include your AD credentials secret along with the namespace where it's located that you created in a prior step.
 
     ```yaml
     apiVersion: v1
@@ -439,3 +439,47 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
     ```
 
 ---
+
+## Next steps
+
+Astra Trident supports many features with Azure NetApp Files. For more information, see:
+
+* [Expanding volumes][expand-trident-volumes]
+* [On-demand volume snapshots][on-demand-trident-volume-snapshots]
+* [Importing volumes][importing-trident-volumes]
+
+<!-- EXTERNAL LINKS -->
+[astra-trident]: https://docs.netapp.com/us-en/trident/index.html
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[astra-control-service]: https://cloud.netapp.com/astra-control
+[kubernetes-csi-driver]: https://kubernetes-csi.github.io/docs/
+[trident-install-guide]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html
+[trident-helm-chart]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html
+[tridentctl]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html
+[trident-backend-install-guide]: https://docs.netapp.com/us-en/trident/trident-use/backends.html
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[expand-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html
+[on-demand-trident-volume-snapshots]: https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html
+[importing-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-import.html
+[backend-anf.yaml]: https://raw.githubusercontent.com/NetApp/trident/v23.01.1/trident-installer/sample-input/backends-samples/azure-netapp-files/backend-anf.yaml
+
+<!-- INTERNAL LINKS -->
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[anf]: ../azure-netapp-files/azure-netapp-files-introduction.md
+[anf-delegate-subnet]: ../azure-netapp-files/azure-netapp-files-delegate-subnet.md
+[anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netapp-files-dynamic]: azure-netapp-files-dynamic.md
+[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
+[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
+[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+[install-azure-cli]: /cli/azure/install-azure-cli
+[use-tags]: use-tags.md
+[azure-ad-app-registration]: ../active-directory/develop/howto-create-service-principal-portal.md

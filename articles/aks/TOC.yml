@@ -497,7 +497,7 @@
               href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Azure NetApp Files for AKS
               items:
-              - name: Configure Azure NetApp Files volumes for AKS
+              - name: Configure Azure NetApp Files for AKS
                 href: azure-netapp-files.md
               - name: Provision Azure NetApp Files NFS volumes for AKS
                 href: azure-netapp-files-nfs.md
