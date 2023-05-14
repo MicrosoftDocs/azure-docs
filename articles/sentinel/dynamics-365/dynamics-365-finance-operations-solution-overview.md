@@ -30,7 +30,7 @@ Beyond the low-code aspect, Finance and operations applications:
 
 Therefore, it's important to protect your Finance and operations system against these risks.
 
-## How the solution addresses BTP security risks
+## How the solution addresses Dynamics 365 Finance and operations security risks
 
 With the Microsoft Sentinel Solution for D365 F&O, you can:
 
@@ -41,12 +41,12 @@ With the Microsoft Sentinel Solution for D365 F&O, you can:
 
 The solution includes:
 
-- The **Dynamics 365 F&O** connector, which allows you to stream Dynamics 365 Finance and operations logs into Microsoft Sentinel, and to enable auditing on the relevant Finance and operations data tables. Learn how to install the solution and data connector - TBD add link.
-- **Built-in analytics rules** - TBD add link - to detect suspicious activity in your Dynamics 365 Finance and operations environment, like changes to user accounts, suspicious sign-in events, changes to workload identities, and more.
+- The **Dynamics 365 F&O** connector, which allows you to stream Dynamics 365 Finance and operations logs into Microsoft Sentinel, and to enable auditing on the relevant Finance and operations data tables. Learn how to [install the solution and data connector](deploy-dynamics-365-finance-operations-solution.md).
+- [**Built-in analytics rules**](dynamics-365-finance-operations-security-content.md) to detect suspicious activity in your Dynamics 365 Finance and operations environment, like changes to user accounts, suspicious sign-in events, changes to workload identities, and more.
   
 ## Next steps
 
 In this article, you learned about the Microsoft Sentinel Solution for D365 F&O.
 
 > [!div class="nextstepaction"]
-> Deploy the Microsoft Sentinel Solution for D365 F&O - TBD add link
+> [Deploy the Microsoft Sentinel Solution for D365 F&O](deploy-dynamics-365-finance-operations-solution.md)
