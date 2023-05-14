@@ -90,24 +90,24 @@ When you enable role-based access control in the portal, the failure mode will b
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
+Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
 
 All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
    ```
 
 1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](#disable-api-key-authentication).
 
-   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
     {
         "properties": {
             "disableLocalAuth": false,
@@ -161,7 +161,7 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
 
 When [using PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
-Before you start, make sure you load the Az and AzureAD modules and connect to Azure:
+Before you start, make sure you load the **Az** and **AzureAD** modules and connect to Azure:
 
 ```powershell
 Import-Module -Name Az
@@ -217,7 +217,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az login
    ```
 
-1. Get your subscription ID. You'll provide this value as variable in a future step. 
+1. Get your subscription ID.  The ID is used as a variable in a future step. 
 
    ```azurecli
    az account show --query id -o tsv
@@ -229,7 +229,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az group create -l westus -n MyResourceGroup
    ```
 
-1. Create the service principal, replacing the placeholder values with valid values. You'll need a descriptive security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
+1. Create the service principal, replacing the placeholder values with valid values for a security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
 
     ```azurecli
     az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
@@ -307,7 +307,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
 
 For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
-### [**.NET SDK**](#tab/test-csharp)
+### [**.NET**](#tab/test-csharp)
 
 See [Authorize access to a search app using Azure Active Directory](search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
 
@@ -537,13 +537,13 @@ To disable key-based authentication, set "disableLocalAuth" to true.
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
    ```
 
 1. Use PATCH to update service configuration. The following modification will set "authOptions" to null.
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
     {
         "properties": {
             "disableLocalAuth": true
