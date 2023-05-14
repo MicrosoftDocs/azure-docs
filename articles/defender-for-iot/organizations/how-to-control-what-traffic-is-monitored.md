@@ -66,7 +66,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 
 ### Manually define a subnet as ICS
 
-If you have an OT subnet that is not being marked automatically as an ICS subnet by the sensor, you can change the device type of any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be marked by the sensor as an ICS subnet.
+If you have an OT subnet that is not being marked automatically as an ICS subnet by the sensor, edit the device type for any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be automatically marked by the sensor as an ICS subnet.
 
 > [!NOTE]
 > To manually change the subnet to be marked as ICS, the device type must be changed in device inventory in the OT sensor, and not from the Azure portal.
