@@ -24,7 +24,7 @@ This article shows you how to configure your client for Azure AD:
 
 + For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
-+ Update your client code to call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential)
++ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Configure role-based access for data plane
 
@@ -42,11 +42,11 @@ In this step, configure your search service to recognize an **authorization** he
 
 1. Choose an **API access control** option. We recommend **Both** if you want flexibility or need to migrate apps. 
 
-   | Option | Status | Description |
-   |--------|--------|-------------|
-   | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
-   | Both | Preview | Requests are valid using either an API key or role-based access control. |
+   | Option | Description |
+   |--------|------------|
+   | API Key | (default) Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
+   | Role-based access control | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
+   | Both | Requests are valid using either an API key or role-based access control. |
 
 The change is effective immediately, but wait a few seconds before testing. 
 
@@ -56,24 +56,24 @@ When you enable role-based access control in the portal, the failure mode will b
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
+Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
 
 All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
    ```
 
 1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](search-security-rbac.md#disable-api-key-authentication).
 
-   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
     {
         "properties": {
             "disableLocalAuth": false,
@@ -106,7 +106,7 @@ In this step, create a [managed identity](../active-directory/managed-identities
 
 Next, you need to grant your managed identity access to your search service. Azure Cognitive Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
-It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader (preview)](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
+It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
