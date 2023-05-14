@@ -8,45 +8,19 @@ ms.date: 07/10/2022
 ---
 
 # Azure Active Directory authorization proxy 
-The azure Active Directory authorization proxy is a reverse proxy which can be used to authenticate requests using Azure Active Directory. This proxy can be used to authenticate requests to any service which supports Azure Active Directory authentication. Use this proxy to authenticate requests to Azure Monitor managed service for Prometheus. 
+The Azure Active Directory authorization proxy is a reverse proxy, which can be used to authenticate requests using Azure Active Directory. This proxy can be used to authenticate requests to any service that supports Azure Active Directory authentication. Use this proxy to authenticate requests to Azure Monitor managed service for Prometheus. 
 
 
 ## Prerequisites
 
-To set up the proxy you must have an Azure Monitor workspace. If you do not have a workspace, create one using the [Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-
-
-## Getting started
-
-THe proxy can be deployed in custom templates using release image or as helm chart. Both deployments contain the same parameters which can be customized. These parameters are described in the [table below](#parameters).
-
+To set up the proxy, you must have an Azure Monitor workspace. If you don't have a workspace, create one using the [Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 
 ## Deployment
 
-Use the following YAML file to deploy the proxy. Modify the required fields according to the deployment instructions below.
-For mor information on the parameters see [Parameters](#parameters).
+The proxy can be deployed in custom templates using release image or as helm chart. Both deployments contain the same parameters that can be customized. These parameters are described in the [Parameters](#parameters) table.
 
-
-
-## Parameters
-
-| Image Parameter | Helm chart Parameter name | Description | Supported values | Mandatory |
-| --------- | --------- | --------------- | --------- | --------- |
-|  TARGET_HOST | targetHost | this is the target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace this is the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace this is the `Data collection rule` from the workspaces Overview page| | Yes |
-|  IDENTITY_TYPE | identityType | this is the identity type which will be used to authenticate requests. This proxy supports 3 types of identities. | systemassigned, userassigned, aadapplication | Yes |
-| AAD_CLIENT_ID | aadClientId | this is the client_id of the identity used. This is needed for userassigned and aadapplication identity types. Check [Fetch parameters for identities](IDENTITY.md#fetch-parameters-for-identities) on how to fetch client_id | | Yes for userassigned and aadapplication |
-| AAD_TENANT_ID | aadTenantId | this is the tenant_id of the identity used. This is needed for aadapplication identity types. Check [Fetch parameters for identities](IDENTITY.md#fetch-parameters-for-identities) on how to fetch tenant_id | | Yes for aadapplication |
-| AAD_CLIENT_CERTIFICATE_PATH | aadClientCertificatePath | this is the path where proxy can find the certificate for aadapplication. This path should be accessible by proxy and should be a either a pfx or pem certificate containing private key. Check [CSI driver](IDENTITY.md#set-up-csi-driver-for-certificate-management) for managing certificates. | | Yes for aadapplication |
-| AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE | aadTokenRefreshIntervalInMinutes | token will be refreshed based on the percentage of time till token expiry. Default value is 10% time before expiry. | | No |
-| AUDIENCE | audience | this will be the audience for the token | | No |
-| LISTENING_PORT | listeningPort | proxy will be listening on this port | | Yes |
-| OTEL_SERVICE_NAME | otelServiceName | this will be set as the service name for OTEL traces and metrics. Default value is aad_auth_proxy | | No |
-| OTEL_GRPC_ENDPOINT | otelGrpcEndpoint | proxy will push OTEL telemetry to this endpoint. Default values is http://localhost:4317 | | No |
-
-
-## Liveness and readiness probes
-The proxy supports readiness and liveness probes. The sample proxy deployment configuration above, uses these checks to monitor the health of the proxy.
+To deploy the proxy for remote write, see the [Remote write example](#tab/remote-write-example). For querying data from Azure Monitor, see the [Query example](#tab/query-example) example.
 
 ## [Remote write example](#tab/remote-write-example)
 
@@ -77,14 +51,15 @@ Assign the `Monitoring Metrics Publisher` role to the identity using the `client
 az role assignment create --assignee <clientid>  --role "Monitoring Metrics Publisher" --scope <workspace-id>
 ```
 
-Use the YAML filebelow to deploy the proxy for remote write after modifying the following parameters:
+Use the following YAML file to deploy the proxy for remote write. Modify the following parameters:
 
-
-+ `TARGET_HOST` - The target host where you want to forward the request to. When sending data to an Azure Monitor workspace this is the hostname part of the `Metrics ingestion endpoint` from the workspaces Overview page. For example `https://proxy-test-abcd.eastus-1.metrics.ingest.monitor.azure.com`
++ `TARGET_HOST` - The target host where you want to forward the request to. To send data to an Azure Monitor workspace, use the hostname part of the `Metrics ingestion endpoint` from the workspaces Overview page. For example, `https://proxy-test-abcd.eastus-1.metrics.ingest.monitor.azure.com`
 + `AAD_CLIENT_ID` - The `clientId` of the managed identity used that was assigned the `Monitoring Metrics Publisher` role.
 `AUDIENCE` - For ingesting metrics to Azure Monitor Workspace, set `AUDIENCE` to `https://monitor.azure.com` .
 
 Remove `OTEL_GRPC_ENDPOINT` and `OTEL_SERVICE_NAME` if you aren't using OpenTelemetry.
+
+For more information about the parameters, see the [Parameters](#parameters) table.
 
 proxy-ingestion.yaml
 
@@ -167,8 +142,8 @@ kubectl apply -f proxy-ingestion.yaml -n observability
 
 ### Deploy using helm chart
 
-Below sample command can be modified with user specific parameters and deployed as a helm chart.
-Modify the command with your oci, `targetHost`, and `aadClientId` parameters.
+Deploy the proxy with helm using the following command:
+>>>>>>> ??Modify the command with your oci, `targetHost`, and `aadClientId` parameters.
 
 ```bash 
 helm install aad-auth-proxy oci://mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/helmchart/aad-auth-proxy \
@@ -180,8 +155,6 @@ helm install aad-auth-proxy oci://mcr.microsoft.com/azuremonitor/auth-proxy/prod
 --set audience=https://monitor.azure.com
 ```
 
-```
-
 Configure remote write using the `Metrics ingestion endpoint` from the Azumer Monitor workspace page. For example:
 
 ```yml
@@ -190,12 +163,10 @@ server:
   - url: "https://proxy-test-abcd.eastus-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-1234567890abcdef01234567890abcdef/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"  
 ```
 
+## [Publish metrics example](#tab/publish-metrics-example)
+This deployment allows external entities to query an Azure Monitor workspace via the proxy.
 
-
-## [Publish metrics example](#tabpublish-metrics-example)
-
-
-Before deploying the proxy, find your managed identity and assign it the `Monitoring Metrics Reader` role for the Azure Monitor workspace. 
+Before deploying the proxy, find your managed identity and assign it the `Monitoring Metrics Reader` role for the Azure Monitor workspace.
 
 ```azurecli
 # Get the identity client_id
@@ -219,11 +190,13 @@ Assign the `Monitoring Data Reader` role to the identity using the `clientId` fr
 az role assignment create --assignee <clientid>  --role "Monitoring Data Reader" --scope <workspace-id>
 ```
 
-Use the YAML file below to deploy the proxy for remote write after modifying the following parameters:
+Use the following YAML file to deploy the proxy for remote query. Modify the following parameters:
 
-+ `TARGET_HOST` - The host that you want to query data from. Use the `Query endpoint` from the Azure monitor workspace Overview page. For example `proxy-test`
++ `TARGET_HOST` - The host that you want to query data from. Use the `Query endpoint` from the Azure monitor workspace Overview page. For example, `proxy-test`
 + `AAD_CLIENT_ID` - The `clientId` of the managed identity used that was assigned the `Monitoring Metrics Reader` role.
 + `AUDIENCE` - For querying metrics from Azure Monitor Workspace, set `AUDIENCE` to `https://prometheus.monitor.azure.com`.
+
+For more information on the parameters, see the [Parameters](#parameters) table.
 
 proxy-query.yaml
 
@@ -310,32 +283,21 @@ Test that you can query metrics from the proxy using the following command: <<<<
 ```
 ---
 
+## Parameters
+
+| Image Parameter | Helm chart Parameter name | Description | Supported values | Mandatory |
+| --------- | --------- | --------------- | --------- | --------- |
+|  TARGET_HOST | targetHost | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Data collection rule` from the workspaces Overview page| | Yes |
+|  IDENTITY_TYPE | identityType | Identity type that is used to authenticate requests. This proxy supports three types of identities. | systemassigned, userassigned, aadapplication | Yes |
+| AAD_CLIENT_ID | aadClientId | Client ID of the identity used. This is used for userassigned and aadapplication identity types. Check [Fetch parameters for identities](IDENTITY.md#fetch-parameters-for-identities) on how to fetch client_id | | Yes for userassigned and aadapplication |
+| AAD_TENANT_ID | aadTenantId | Tenant ID  of the identity used. Tenant ID is used for aadapplication identity types. Check [Fetch parameters for identities](IDENTITY.md#fetch-parameters-for-identities) on how to fetch tenant_id | | Yes for aadapplication |
+| AAD_CLIENT_CERTIFICATE_PATH | aadClientCertificatePath | this is the path where proxy can find the certificate for aadapplication. This path should be accessible by proxy and should be a either a pfx or pem certificate containing private key. Check [CSI driver](IDENTITY.md#set-up-csi-driver-for-certificate-management) for managing certificates. | | Yes for aadapplication |
+| AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE | aadTokenRefreshIntervalInMinutes | Token is refreshed based on the percentage of time until token expiry. Default value is 10% time before expiry. | | No |
+| AUDIENCE | audience | Audience for the token | | No |
+| LISTENING_PORT | listeningPort | Proxy listening on this port | | Yes |
+| OTEL_SERVICE_NAME | otelServiceName | Service name for OTEL traces and metrics. Default value: aad_auth_proxy | | No |
+| OTEL_GRPC_ENDPOINT | otelGrpcEndpoint | Proxy pushes OTEL telemetry to this endpoint. Default value:  http://localhost:4317 | | No |
 
 
+## Troubleshooting
 
-## Example scenarios
-### [Query prometheus metrics for KEDA or Kubecost](EXAMPLE_SCENARIOS.md#query-prometheus-metrics-for-kubecost)
-### [Ingest prometheus metrics via prometheus remote write](EXAMPLE_SCENARIOS.md#ingest-prometheus-metrics-via-remote-write)
-
-
-
-
-
-
-Navigate to VMSS with the name aks-agentpool-<ID>-vmss. Select Identity TOC and System assigned tab, and toggle Status to On. This will enable system assigned identity on the underlying VMSS of AKS cluster.
---- there is no `aks-agentpool-<ID>-vmss` but there is alread a system assigned identity on the VMSS
-<clustername>-agenpool identity
-
-
-remote-write.yaml:
-
-apiVersion: apps/v1
-kind: Prometheus
-server:
-  remoteWrite:
-  - url: "https://ed-k8s-03-am-workspace-s1ih.eastus-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-43fb76a2148e44049137de65ffc46041/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"
-  
-
-ed@Azure:~$ kubectl apply -f remote-write.yaml
-error: resource mapping not found for name: "" namespace: "" from "remote-write.yaml": no matches for kind "Prometheus" in version "apps/v1"
-ensure CRDs are installed first
