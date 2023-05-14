@@ -87,7 +87,7 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 
 1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see the [table in the Prerequisites](#hw) section above.
 
-Continue with the next steps, and complete the VM installation later in this procedure after downloading the sensor software.
+Continue with the next steps in this tutorial, the VM creation will continue later when installing the sensor software.
 
 ## Onboard the virtual sensor
 
@@ -112,16 +112,16 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
     |Name  |Description  |
     |---------|---------|
     |**Sensor name**     |  Enter a name for the sensor. <br><br>We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.       |
-    |**Subscription**     |  Select the Azure subscription where you want to add your sensors.      |
-    |**Cloud connected**     |  Toggle on to connect your sensor to Azure.      |
-    |**Automatic threat intelligence updates**     |   Displayed only when the **Cloud connected** option is toggled on.  Select this option to have Microsoft threat intelligence packages automatically updated on your sensor.  For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md).   |
+    |**Subscription**     |  Select the Azure subscription where you want to add your sensor.      |
+    |**Cloud connected**     |  Toggle on to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.      |
+    |**Automatic threat intelligence updates**     |   Displayed only when the **Cloud connected** option is toggled on.  Select this option to have Defender for IoT automatically push threat intelligence packages to your OT sensor.  For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md).   |
     |**Sensor version**     | Displayed only when the **Cloud connected** option is toggled on. Select the software version installed on your sensor. Verify that version **22.X and above** is selected.       |
-    |**Site**     | In the **Resource name** field, select the site where you want to associate your sensor, or select **Create site** to create a new site. Define a display name for your site and optional tags to help identify the site later.       |
-    |**Zone**     |  Select the zone where you want to deploy your sensor, or select **Create zone** to create a new one.       |
+    |**Site**     | In the **Resource name** field, select the site you want to use for your OT sensor, or select **Create site** to create a new site.<br> In the **Display name** field, enter a meaningful name for your site to be shown across Defender for IoT in Azure.<br>In the **Tags** > **Key** and **Value** fields, enter tag values to help you identify and locate your site and sensor in the Azure portal (optional).    |
+    |**Zone**     |  Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.       |
 
     For more information, see [Plan OT sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 
-1. Select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
+1. When you're done with all other fields, select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -192,7 +192,7 @@ For more information, see [Methods for connecting sensors to Azure](architecture
 
 **To configure endpoint details**:
 
-Using the endpoint details file you'd downloaded earlier, configure your firewall rules so that your sensor can access the cloud on port 443, to each of the listed endpoints in the downloaded list.
+Using the endpoint details file you'd downloaded earlier when [onboarding the sensor](#onboard-the-virtual-sensor), configure your firewall rules so that your sensor can access the cloud on port 443, to each of the listed endpoints in the downloaded list.
 
 To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription.
 
@@ -308,7 +308,7 @@ This procedure describes how to validate your installation using the sensor's ow
 
 1. Sign in to the sensor.
 
-1. Select **System Settings**> **Sensor management** > **System Health Check**.
+1. Select **System Settings** > **Sensor management** > **System Health Check**.
 
 1. Select the following commands:
 
@@ -324,23 +324,40 @@ This procedure describes how to use the sensor activation file downloaded from D
 
 **To activate your sensor**:
 
+<!--We recommend using the **Support** credentials when signing into the OT sensor for the first time. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+
+
+The first time you sign in to your OT network sensors, you're prompted to confirm the OT sensor's network settings. These network settings were configured during installation.
+
+
+1. Select **Save** to open your OT sensor console.
+
+
+1. In a browser, go to the OT sensor's IP address, and enter the username and password.
+
+    > [!NOTE]
+    > If you forgot your password, select **Reset Password**. For more information, see [Investigate password failure at initial sign-in](how-to-troubleshoot-sensor.md#investigate-password-failure-at-initial-sign-in).
+    >-->
+
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign-in page.":::
 
 1. Enter the credentials defined during the sensor installation.
 
-1. Select **Login/Next**.  The **Sensor Network Settings** tab opens.
+1. Select **Login**.  The **Sensor Network Settings** tab opens.
 
       :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate.png" alt-text="Screenshot of the sensor network settings options when signing into the sensor.":::
 
 1. In the **Sensor Network Settings** tab, you can modify the sensor network configuration defined during installation. For the sake of this tutorial, leave the default values as they are, and select **Next**.
 
-1. In the **Activation** tab, select **Upload**, and then browse to and select your activation file.
+1. In the **Activation** tab, select **Upload** to upload the activation file you'd downloaded when [onboarding the virtual sensor](#onboard-the-virtual-sensor).
 
-1. Approve the terms and conditions and then select **Activate**.
+    Make sure that the confirmation message includes the name of the sensor that you're deploying.
 
-1. In the **SSL/TLS Certificates** tab, you can import a trusted CA certificate, which is the recommended process for production environments. However, for the sake of the tutorial, you can select **Use Locally generated self-signed certificate**, and then select **Finish**.
+1. Select the **Approve these terms and conditions** option, and then select **Activate** to continue in the **Certificates** screen.
+
+1. In the **SSL/TLS Certificates** tab, you can import a trusted CA certificate, which is the recommended process for production environments. However, for the sake of the tutorial, you can select **Use Locally generated self-signed certificate**, and then select **Finish** <!--or save?-->.
 
 Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
 
