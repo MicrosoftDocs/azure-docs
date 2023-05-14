@@ -43,7 +43,7 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 | [Azure Machine Learning][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
 | [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. See also [supported versions of Flux (GitOps)][gitops-support] and [Tutorial: Deploy applications using GitOps with Flux v2][gitops-tutorial].|
 
-You can also [select and deploy Kubernetes applications available through Marketplace](deploy-marketplace.md#select-and-deploy-a-kubernetes-offer).
+You can also [select and deploy Kubernetes applications available through Marketplace](deploy-marketplace.md).
 
 > [!NOTE]
 > Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. If you are facing issues while using any of these extensions, please open a support ticket with the respective service.
