@@ -79,6 +79,10 @@ items:
     href: active-directory-how-to-find-tenant.md
   - name: Get support for Azure AD
     href: how-to-get-support.md
+  - name: Manage Support Access requests
+    href: how-to-manage-support-access-requests.md
+  - name: How diagnostic data is used
+    href: concept-diagnostic-data-access.md
 - name: Reference
   expanded: false
   items:
