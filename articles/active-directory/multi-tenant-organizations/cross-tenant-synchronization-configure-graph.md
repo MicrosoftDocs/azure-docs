@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -335,7 +335,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    POST https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipalId}/synchronization/jobs/validateCredentials
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/validateCredentials
     Content-Type: application/json
     
     {
@@ -375,7 +375,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
     **Request**
     
     ```http
-    POST https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipalId}/synchronization/jobs
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs
     Content-type: application/json
     
     { 
@@ -390,7 +390,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
     Content-type: application/json
     
     {
-        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#servicePrincipals('{servicePrincipalId}')/synchronization/jobs/$entity",
+        "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('{servicePrincipalId}')/synchronization/jobs/$entity",
         "id": "{jobId}",
         "templateId": "Azure2Azure",
         "schedule": {
@@ -429,12 +429,12 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. In the source tenant, use the [synchronization: secrets](/graph/api/synchronization-synchronization-secrets?branch=main) API to save your credentials.
+1. In the source tenant, use the [Add synchronization secrets](/graph/api/synchronization-synchronization-secrets?branch=main) API to save your credentials.
 
     **Request**
     
     ```http
-    PUT https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipalId}/synchronization/secrets 
+    PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/secrets 
     Content-Type: application/json
     
     { 
@@ -516,7 +516,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     **Request**
     
     ```http
-    POST https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/provisionOnDemand
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/provisionOnDemand
     Content-Type: application/json
 
     {
@@ -543,7 +543,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     **Request**
     
     ```http
-    POST https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/start
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/start
     ```
     
     
@@ -562,7 +562,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     **Request**
     
     ```http
-    GET https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}
+    GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}
     ```
     
     **Response**
