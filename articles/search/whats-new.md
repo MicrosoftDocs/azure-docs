@@ -98,21 +98,16 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 | March | [Normalizers (preview)](search-normalizers.md) | Public preview, REST only, api-version=2020-06-30-Preview |
 | March | [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md ) |  Scans for strings specified in a custom, user-defined list of words and phrases. Generally available. |
 | February | [Reset Documents (preview)](search-howto-run-reset-indexers.md) |  Available in the [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview). |
-| February | [Availability Zones](search-reliability.md#availability-zones) | Search services with two or more replicas in certain regions gain resiliency by having replicas in two or more distinct physical locations.  The region and date of search service creation determine availability.  |
-| February | [Azure CLI](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | New revisions now provide the full range of operations in the Management REST API 2020-08-01, including support for IP firewall rules and private endpoint. Generally available. |
-| January | [Solution accelerator for Azure Cognitive Search and QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | Pulls questions and answers out of the document and suggest the most relevant answers. A live demo app can be found at [https://aka.ms/qnaWithAzureSearchDemo](https://aka.ms/qnaWithAzureSearchDemo). This feature is an open-source project (no SLA). |
 
-## 2020 announcements
+## Previous year's announcements
 
-See [2020 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2020) in the content archive.
-
-## 2019 announcements
-
-See [2019 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2019) in the content archive.
++ [2021 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2021)
++ [2020 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2020)
++ [2019 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2019)
 
 <a name="new-service-name"></a>
 
-## Service re-brand announcement
+## Service re-brand
 
 Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
 
