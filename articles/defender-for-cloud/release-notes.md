@@ -123,8 +123,8 @@ We recommend updating your custom scripts, workflows, and governance rules to co
 
 ### Deprecation of legacy standards in compliance dashboard
 
-Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](https://learn.microsoft.com/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards. 
-We have fully deprecated support of [PCI DSS](https://learn.microsoft.com/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards.
+We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
