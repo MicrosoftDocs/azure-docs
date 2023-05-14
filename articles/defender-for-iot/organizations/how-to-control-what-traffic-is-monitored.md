@@ -75,7 +75,7 @@ If you have an OT subnet that is not being marked automatically as an ICS subnet
 
 1. Sign in to your OT sensor console and go to **Device inventory**.
 
-1. In the device inventory grid, select a device from the relevant subnet, and then select **Edit** in the tool bar at the top of the page.
+1. In the device inventory grid, select a device from the relevant subnet, and then select **Edit** in the toolbar at the top of the page.
 
 1. In the **Type** field, select a device type from the dropdown list that is listed under **ICS** or **IoT**.
 
