@@ -81,7 +81,7 @@ If you have an OT subnet that is not being marked automatically as an ICS subnet
 
 The subnet will now be marked as an ICS subnet in the sensor.  
 
-For more information on editing device details, see [Edit device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details).
+For more information, see [Edit device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details).
 
 ## Customize port and VLAN names
 
