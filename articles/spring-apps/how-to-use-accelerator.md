@@ -299,6 +299,68 @@ Use the following steps to bootstrap a new project using accelerators:
 
    :::image type="content" source="media/how-to-use-accelerator/download-file.png" alt-text="Screenshot showing the Task Activity pane." lightbox="media/how-to-use-accelerator/download-file.png":::
 
+### Configure accelerators with self-signed certificate
+
+When a user sets up a private git repository and enables **https** with self-signed certificate, the **CA certificate name** should be configured to accelerator for client cert verification from accelerator to git repository.
+
+Use the following steps to configure accelerators with self-signed certificate:
+
+First, import the certificate from Key Vault to Azure Spring Apps referring to [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate#import-a-certificate-from-key-vault);
+
+Next, configure the certificate for accelerator from portal and CLI.
+
+#### Configure the certificate for an accelerator
+
+##### [Azure portal](#tab/Portal)
+
+To configure certificate for an accelerator, open the **Accelerators** section and then select **Add Accelerator** under the Customized Accelerators section and select the certificate from dropdown list.
+
+:::image type="content" source="media/how-to-use-accelerator/config-cert.png" alt-text="Screenshot configure the certificate." lightbox="media/how-to-use-accelerator/config-cert.png":::
+
+---
+##### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to configure certificate for accelerator in Azure CLI.
+
+```azurecli
+az spring application-accelerator customized-accelerator add \
+    --name <customized-accelerator-name> \
+    --service <service-instance-name> \
+    --resource-group <resource-group-name> \
+    --git-url <git-repo-url> \
+    --ca-cert-name <ca-cert-name>
+```
+
+---
+
+#### Sync certificate
+
+The accelerators will not automatically use the latest certificate. User should sync single or all certificates from portal and CLI.
+
+##### [Azure portal](#tab/Portal)
+
+To sync certificate for an accelerator, open the **Accelerators** section and then select **Sync certificate** button.
+
+:::image type="content" source="media/how-to-use-accelerator/sync-cert.png" alt-text="Screenshot sync certificate." lightbox="media/how-to-use-accelerator/sync-cert.png":::
+
+To sync certificate for all accelerator, open the **Accelerators** section and then select **Sync certificate** button from the dropdown menu of an accelerator.
+
+:::image type="content" source="media/how-to-use-accelerator/sync-all-cert.png" alt-text="Screenshot sync all certificates." lightbox="media/how-to-use-accelerator/sync-all-cert.png":::
+
+---
+##### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to sync certificate for an accelerator in Azure CLI.
+
+```azurecli
+az spring application-accelerator customized-accelerator sync-cert \
+    --name <customized-accelerator-name> \
+    --service <service-instance-name> \
+    --resource-group <resource-group-name>
+```
+
+---
+
 ## Manage App Accelerator in an existing Enterprise tier instance
 
 You can enable App Accelerator under an existing Azure Spring Apps Enterprise tier instance using the Azure portal or Azure CLI.
