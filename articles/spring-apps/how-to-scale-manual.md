@@ -67,4 +67,4 @@ If you're on the Basic tier and constrained by current limits, you can upgrade t
 This example explained how to manually scale an application in Azure Spring Apps. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Learn how to set up alerts](./tutorial-alerts-action-groups.md)
+> [Monitor Azure Spring Apps resources using alerts and action groups](how-to-alerts-action-groups.md)

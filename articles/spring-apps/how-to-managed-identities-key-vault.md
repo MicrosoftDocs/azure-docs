@@ -100,7 +100,7 @@ export MANAGED_IDENTITY_PRINCIPAL_ID=$(az spring app show \
 
 First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration.
 
-:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
+:::image type="content" source="media/how-to-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/how-to-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
 ```bash
 export MANAGED_IDENTITY_PRINCIPAL_ID=<principal-ID-of-user-assigned-managed-identity>
