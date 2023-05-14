@@ -35,6 +35,8 @@ In this article, you learn how to:
 
 ## Prerequisites
 
+Before you begin, make sure that you have the following prerequisites:
+
 ### Aruba ClearPass requirements
 
 CPPM runs on hardware appliances with pre-installed software or as a Virtual Machine under the following hypervisors. Hypervisors that run on a client computer such as VMware Player aren't supported.
@@ -50,8 +52,6 @@ CPPM runs on hardware appliances with pre-installed software or as a Virtual Mac
 ### Defender for IoT requirements
 
 - Defender for IoT version 2.5.1 or higher.
-
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 - Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -146,8 +146,6 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 **To define a ClearPass forwarding rule on the Defender for IoT sensor**:
 
-**To create the forwarding rule**:
-
 1. Sign in to the sensor, and select **Forwarding**.
 
 1. Select **+ Create new rule**.
@@ -205,6 +203,5 @@ For example, API logs between Defender for IoT and ClearPass:
 
 ## Next steps
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](integrate-overview.md)

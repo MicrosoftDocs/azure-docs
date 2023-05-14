@@ -32,6 +32,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+Before you begin, make sure that you have the following prerequisites:
+
 ### Version requirements
 
 The following versions are required for the application to run.
@@ -116,6 +118,5 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 ## Next steps
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](integrate-overview.md)

@@ -57,7 +57,5 @@ For more information, see the [LogRhythm documentation](https://docs.logrhythm.c
 
 ## Next steps
 
-For more information, see:
-
 - [Integrations with Microsoft and partner services](../integrate-overview.md)
 - [Forward alert information](../how-to-forward-alert-information-to-partners.md)

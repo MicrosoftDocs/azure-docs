@@ -19,9 +19,11 @@ Integrating with QRadar supports:
 
 ## Prerequisites
 
-Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Access to a Defender for IoT OT on-premises management console as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Access to the QRadar Admin area.
 
 ## Configure Syslog listener for QRadar
 
@@ -89,7 +91,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Actions** area, select **Add**, and then select **Qradar**. For example:
 
-   :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window.":::
+   :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window." lightbox="media/tutorial-qradar/create.png":::
 
 1. Define the QRadar **Host**, **Port**, and **Timezone**. You can also choose to **Enable Encryption** and then **CONFIGURE ENCRYPTION**, and you can choose to **Manage alerts externally**.
 
@@ -170,6 +172,5 @@ For example:
 
 ## Next steps
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](integrate-overview.md)

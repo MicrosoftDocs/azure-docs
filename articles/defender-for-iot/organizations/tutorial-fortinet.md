@@ -44,11 +44,13 @@ In this article, you learn how to:
 > - Send Defender for IoT alerts to FortiSIEM
 > - Block a malicious source using the Fortigate firewall
 
-If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
-
 ## Prerequisites
 
-Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+Before you begin, make sure that you have the following prerequisites:
+
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Ability to create API keys in Fortinet.
 
 ## Create an API key in Fortinet
 
@@ -249,6 +251,5 @@ For example, the following alert can block the malicious source:
 
 ## Next steps
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](integrate-overview.md)

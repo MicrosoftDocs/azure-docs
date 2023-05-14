@@ -31,13 +31,14 @@ A dedicated network interface is also provided in the Defender for IoT appliance
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > - Configure PSM in CyberArk
 > - Enable the integration in Defender for IoT
 > - View and manage detections
-> - Stop the Integration
+> - Stop the integration
 
 ## Prerequisites
+
+Before you begin, make sure that you have the following prerequisites:
 
 - CyberARK version 2.0.
 
@@ -140,6 +141,5 @@ At any point in time, you can stop the integration from communicating.
 
 ## Next steps
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](integrate-overview.md)

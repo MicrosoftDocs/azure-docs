@@ -28,6 +28,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+Before you begin, make sure that you have the following prerequisites:
+
 - Confirmation by the Panorama Administrator to allow automatic blocking.
 - Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -47,7 +49,7 @@ When Defender for IoT identifies a critical threat, it sends an alert that inclu
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    :::image type="content" source="media/tutorial-palo-alto/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." border="false" lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
+    :::image type="content" source="media/tutorial-palo-alto/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
 
     | Parameter | Description |
     |--|--|
@@ -110,9 +112,9 @@ The policy is applied only when the Panorama administrator pushes it to the rele
 
 In IT networks, there may be dynamic IP addresses. Therefore, for those subnets, the policy must be based on FQDN (DNS name) and not the IP address. Defender for IoT performs reverse lookup and matches devices with dynamic IP address to their FQDN (DNS name) every configured number of hours.
 
-In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT-Panorama Integration Architecture.
+In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT and Panorama integration architecture.
 
-:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the Defender for IoT-Panorama Integration Architecture." border="false" lightbox="media/tutorial-palo-alto/structure.png":::
+:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the Defender for IoT-Panorama Integration Architecture." lightbox="media/tutorial-palo-alto/structure.png":::
 
 The first step in creating Panorama blocking policies in Defender for IoT is to configure DNS lookup.
 
@@ -151,7 +153,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of creating the rules for your Palo Alto Panorama forwarding rule." border="false" lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
+    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of creating the rules for your Palo Alto Panorama forwarding rule." lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
 
     | Parameter | Description |
     |--|--|
@@ -175,7 +177,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     > [!NOTE]
     > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
 
-1. Configure the following options to allow blocking of the suspicious sources by the Palo Alto Panorama::
+1. Configure the following options to allow blocking of the suspicious sources by the Palo Alto Panorama:
 
     | Parameter | Description |
     |--|--|
@@ -199,6 +201,5 @@ You'll then need to block any suspicious source.
 
 ## Next step
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](integrate-overview.md)

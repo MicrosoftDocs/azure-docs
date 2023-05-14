@@ -42,13 +42,16 @@ In this article, you learn how to:
 
 ## Prerequisites
 
+Before you begin, make sure that you have the following prerequisites:
+
 ### Software requirements
 
-Access to ServiceNow and Defender for IoT
+- Access to ServiceNow and Defender for IoT
 
-- ServiceNow Service Management version 3.0.2.
+    - ServiceNow Service Management version 3.0.2.
+    - Defender for IoT patch 2.8.11.1 or above.
 
-- Defender for IoT patch 2.8.11.1 or above.
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
 > [!NOTE]
 >If you are already working with a Defender for IoT and ServiceNow integration and upgrade using the on-premises management console. In that case, the previous data from Defender for IoT sensors should be cleared from ServiceNow.
@@ -102,7 +105,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Actions** area, select **Add**, and then select **ServiceNow**. For example:
 
-    :::image type="content" source="../media/tutorial-servicenow/forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window.":::
+    :::image type="content" source="../media/tutorial-servicenow/forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window." lightbox="../media/tutorial-servicenow/forwarding-rule.png":::
 
 1. Verify that **Report Alert Notifications** is selected.
 
@@ -139,7 +142,7 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 1. Enter the following sync parameters in the ServiceNow Sync dialog box.
 
-    :::image type="content" source="../media/tutorial-servicenow/sync.png" alt-text="Screenshot of the ServiceNow sync dialog box.":::
+    :::image type="content" source="../media/tutorial-servicenow/sync.png" alt-text="Screenshot of the ServiceNow sync dialog box." lightbox="../media/tutorial-servicenow/sync.png":::
 
      Parameter | Description |
     |--|--|
@@ -155,7 +158,7 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 Verify that the on-premises management console is connected to the ServiceNow instance by reviewing the Last Sync date.
 
-:::image type="content" source="../media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync.":::
+:::image type="content" source="../media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync." lightbox="../media/tutorial-servicenow/sync-confirmation.png":::
 
 ## Set up the integrations using an HTTPS proxy
 
@@ -211,6 +214,5 @@ To view connected devices:
 
 ## Next steps
 
-For more information, see:
 > [!div class="nextstepaction"]
 > [Integrations with Microsoft and partner services](../integrate-overview.md)
