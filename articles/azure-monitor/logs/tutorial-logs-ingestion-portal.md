@@ -80,6 +80,9 @@ A [data collection endpoint](../essentials/data-collection-endpoint-overview.md)
 ## Create new table in Log Analytics workspace
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
+> [!NOTE]
+> The table creation for a log ingestion API custom log below can't be used to create a [agent custom log table](../agents/data-collection-text-log.md). You must use the CLI or custom template process to create the table. If you do not have sufficent rights to run CLI or custom tempate you must ask your adminitrator to add the table for you.
+
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-custom-log.png" lightbox="media/tutorial-logs-ingestion-portal/new-custom-log.png" alt-text="Screenshot that shows the new DCR-based custom log.":::

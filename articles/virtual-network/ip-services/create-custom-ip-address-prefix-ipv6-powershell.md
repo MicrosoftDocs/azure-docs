@@ -26,7 +26,7 @@ The steps in this article detail the process to:
 ## Differences between using BYOIPv4 and BYOIPv6
 
 > [!IMPORTANT]
-> Onboarded custom IPv6 address prefixes are have several unique attributes which make them different than custom IPv4 address prefixes.
+> Onboarded custom IPv6 address prefixes have several unique attributes which make them different than custom IPv4 address prefixes.
 
 * Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Global ranges must be /48 in size, while regional ranges must always be /64 size.
 
@@ -42,7 +42,7 @@ The steps in this article detail the process to:
 - Ensure your Az.Network module is 5.1.1 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
 - A customer owned IPv6 range to provision in Azure. A sample customer range (2a05:f500:2::/48) is used for this example, but would not be validated by Azure; you will need to replace the example range with yours.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).

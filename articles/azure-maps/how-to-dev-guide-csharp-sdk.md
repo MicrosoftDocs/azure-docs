@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the C# REST SDK
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps

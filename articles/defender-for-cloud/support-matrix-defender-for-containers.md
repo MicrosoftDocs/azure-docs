@@ -2,8 +2,8 @@
 title: Matrices of Defender for Containers features in Azure, multicloud, and on-premises environments
 description: Learn about the container and Kubernetes services that you can protect with Defender for Containers.
 ms.topic: limits-and-quotas
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.date: 01/01/2023
 ms.custom: references_regions, ignite-2022
 ---
