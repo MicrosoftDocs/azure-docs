@@ -56,7 +56,6 @@ The following languages are supported:
 The following list shows the required environment variables:
 
 - `connection-string`
-- `sampling-percentage`
 
 Upper-case keys are allowed, and you can also replace `_` with `-`.
 

@@ -11,7 +11,6 @@ ms.date: 04/25/2023
 ms.author: lajanuar
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Custom classification model

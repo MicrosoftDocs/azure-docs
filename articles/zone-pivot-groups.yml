@@ -87,6 +87,19 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-set-translator-sdk
+# Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: "C#: Visual Studio"
+  - id: programming-language-java
+    title: "Java: Gradle"
+  - id: programming-language-javascript
+    title: "JavaScript: Node.js"
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -355,6 +368,14 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other
+- id: programming-languages-set-functions-nodejs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
 - id: development-environment-functions
   title: Development environment
   prompt: Choose a development environment

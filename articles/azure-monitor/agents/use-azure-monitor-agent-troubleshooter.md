@@ -18,7 +18,8 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 
 
 ## Prerequisites
-The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
+- Ensure that the AMA agent is installed by looking for the directory C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent on the Windows OS and /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-* on the Linux agent. 
+- The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
 
 |Python Package|	Required for Python2?	|Required for Python3?|
 |:---|:---|:---|
