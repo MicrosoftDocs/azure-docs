@@ -19,7 +19,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 
 ## Using kubectl raw
 you can quickly veiw any node kubelet logs by using this command :
-kubectl get --raw "/api/v1/nodes//<nodename/>/proxy/logs/messages"|grep kubelet
+kubectl get --raw "/api/v1/nodes/nodename/proxy/logs/messages"|grep kubelet
 
 ## Create an SSH connection
 
