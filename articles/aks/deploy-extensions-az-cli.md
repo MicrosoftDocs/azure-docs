@@ -48,7 +48,7 @@ Create a new extension instance with `k8s-extension create`, passing in values f
 az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True
 ```
 
-This example command creates creates a sample Kubernetes application (published on Marketplace) on your AKS cluster:
+This example command creates a sample Kubernetes application (published on Marketplace) on your AKS cluster:
 
 ```azurecli
 az k8s-extension create --name voteapp --extension-type Contoso.AzureVoteKubernetesAppTest --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --plan-name testPlanID --plan-product testOfferID --plan-publisher testPublisherID --configuration-settings title=VoteAnimal value1=Cats value2=Dogs

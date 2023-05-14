@@ -10,7 +10,7 @@ ms.author: nickoman
 
 # Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)
 
-Cluster extensions provide an Azure Resource Manager driven experience for installation and lifecycle management of services like Azure Machine Learning (ML) or Kubernetes applications on an AKS cluster. This feature enables:
+Cluster extensions provide an Azure Resource Manager driven experience for installation and lifecycle management of services like Azure Machine Learning or Kubernetes applications on an AKS cluster. This feature enables:
 
 * Azure Resource Manager-based deployment of extensions, including at-scale deployments across AKS clusters.
 * Lifecycle management of the extension (Update, Delete) from Azure Resource Manager
@@ -40,7 +40,7 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 | Extension | Description |
 | --------- | ----------- |
 | [Dapr][dapr-overview] | Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on cloud and edge. |
-| [Azure ML][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
+| [Azure Machine Learning][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
 | [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. See also [supported versions of Flux (GitOps)][gitops-support] and [Tutorial: Deploy applications using GitOps with Flux v2][gitops-tutorial].|
 
 You can also [select and deploy Kubernetes applications available through Marketplace](deploy-marketplace.md#select-and-deploy-a-kubernetes-offer).
@@ -50,8 +50,8 @@ You can also [select and deploy Kubernetes applications available through Market
 
 ## Next steps
 
-- Learn how to [deploy cluster extensions by using Azure CLI](deploy-extensions-az-cli.md).
-- Read about [cluster extensions for Azure Arc-enabled Kubernetes clusters][arc-k8s-extensions].
+* Learn how to [deploy cluster extensions by using Azure CLI](deploy-extensions-az-cli.md).
+* Read about [cluster extensions for Azure Arc-enabled Kubernetes clusters][arc-k8s-extensions].
 
 <!-- LINKS -->
 <!-- INTERNAL -->
