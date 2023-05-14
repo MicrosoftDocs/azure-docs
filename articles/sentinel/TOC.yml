@@ -182,7 +182,7 @@
     - name: Finance and operations (F&O) solution
       items:
       - name: Overview
-        href: dynamics-365/dynamics-365-finance-operations-solution-overview.md
+        href: dynamics-365/dynamics-365-finance-operations-solution-overview.md 
 - name: How-tos
   items:
   - name: Plan architecture

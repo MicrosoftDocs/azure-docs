@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/14/2023
 ---
 
-# Microsoft Sentinel Solution for SAP® BTP overview
+# Microsoft Sentinel solution for D365 F&O overview
 
 This article introduces the Microsoft Sentinel Solution for D365 F&O. The solution monitors and protects your Dynamics 365 Finance and operations system: It collects audits and activity logs from the Dynamics 365 Finance and operations environment, and detects threats, suspicious activities, illegitimate activities, and more.
 
