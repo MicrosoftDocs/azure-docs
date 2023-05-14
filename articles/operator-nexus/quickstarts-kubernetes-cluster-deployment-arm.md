@@ -30,15 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-* Install the latest version of the [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
-* This article requires version 2.48.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-* To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.NetworkCloud/kubernetesclusters/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
-* You need the `custom location` resource ID of your Azure Operator Nexus cluster.
-* You need to create various networks according to your specific workload requirements, and it's essential to have the appropriate IP addresses available for your workloads. To ensure a smooth implementation, it's advisable to consult the relevant support teams for assistance.
+[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster-prereq.md]
 
 <!--
 * To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
