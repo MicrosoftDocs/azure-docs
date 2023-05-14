@@ -152,8 +152,10 @@ Here's a list of limits per account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases and containers per account  | 100 |
+| Maximum number of databases and containers per account  | 100 ¹ |
 | Maximum number of regions | 1 (Any Azure region) |
+
+¹ You can increase this limit by creating an [Azure Support request](nosql/create-support-request-quota-increase.md).
 
 ## Per-container limits
 
@@ -221,7 +223,7 @@ Azure Cosmos DB uses HMAC for authorization. You can use either a primary key, o
 
 ## Limits for autoscale provisioned throughput
 
-See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#lowering-the-max-ru-s) for more detailed explanation of the throughput and storage limits with autoscale.
+See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#how-do-i-lower-the maximum-ru-s---) for more detailed explanation of the throughput and storage limits with autoscale.
 
 | Resource | Limit |
 | --- | --- |
@@ -229,8 +231,8 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 | Minimum RU/s the system can scale to | `0.1 * Tmax`|
 | Current RU/s the system is scaled to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
 | Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you're billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
-| Minimum autoscale max RU/s for a container  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10)` rounded to nearest 1000 RU/s |
-| Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per extra container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s).
+| Minimum autoscale max RU/s for a container  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10)` rounded up to nearest 1000 RU/s |
+| Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded up to the nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per extra container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s).|
 
 ## SQL query limits
 
@@ -295,9 +297,11 @@ The following table lists the limits for [Azure Cosmos DB free tier accounts.](o
 | Maximum number of shared throughput databases | 5 |
 | Maximum number of containers in a shared throughput database | 25 <br>In free tier accounts, the minimum RU/s for a shared throughput database with up to 25 containers is 400 RU/s. |
 
-In addition to the previous table, the [Per-account limits](#per-account-limits) also apply to free tier accounts. To learn more, see how to [free tier account](free-tier.md) article.
+In addition to the previous table, the [Per-account limits](#per-account-limits) also apply to free tier accounts. To learn more, see how to create a [free tier account](free-tier.md).
 
 ## Next steps
 
 * Read more about [global distribution](distribute-data-globally.md)
 * Read more about [partitioning](partitioning-overview.md) and [provisioned throughput](request-units.md).
+
+

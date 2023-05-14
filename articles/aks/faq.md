@@ -60,7 +60,7 @@ Microsoft provides guidance for other actions you can take to secure your worklo
 
 ## How does the managed Control Plane communicate with my Nodes?
 
-AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
+AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through mTLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
 ## Why are two resource groups created with AKS?
 
@@ -116,7 +116,7 @@ Currently, you can't modify the list of admission controllers in AKS.
 
 Yes, you may use admission controller webhooks on AKS. It's recommended you exclude internal AKS namespaces, which are marked with the **control-plane label.** For example:
 
-```
+```output
 namespaceSelector:
     matchExpressions:
     - key: control-plane
@@ -255,7 +255,7 @@ As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will c
 
 The following example shows what the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be two routes. The first one saying, all traffic excluding local on azure0 will go to the default gateway of the subnet through the interface with ip "src 10.240.0.4" (which is Node primary IP) and the second one saying "10.20.x.x" Pod space to kernel for kernel to decide.
 
-```bash
+```output
 default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
 10.240.0.0/12 dev azure0 proto kernel scope link src 10.240.0.4
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
@@ -270,7 +270,7 @@ Transparent mode takes a straight forward approach to setting up Linux networkin
 
 The following example shows a ip route setup of transparent mode. Each Pod's interface will get a static route attached so that traffic with dest IP as the Pod will be sent directly to the Pod's host side `veth` pair interface.
 
-```bash
+```output
 10.240.0.216 dev azv79d05038592 proto static
 10.240.0.218 dev azv8184320e2bf proto static
 10.240.0.219 dev azvc0339d223b9 proto static
