@@ -121,16 +121,16 @@ SSH enables secure communication between a container and a client. With SSH enab
 
     This example uses the SSH-enabled version of the Node.js version 18 base image. Visit the [Azure Functions base image repos](https://mcr.microsoft.com/en-us/catalog?search=functions) to verify that you're using the latest version of the SSH-enabled base image.
     
-1. Rebuild the image by using the `docker build` command, replace the `<docker_id>` with your Docker Hub account ID, as in the following example.
+1. Rebuild the image by using the `docker build` command, replace the `<DOCKER_ID>` with your Docker Hub account ID, as in the following example.
 
     ```console
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
+    docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
     ```
 
 1. Push the updated image to Docker Hub, which should take considerably less time than the first push. Only the updated segments of the image need to be uploaded now.
 
     ```console
-    docker push <docker_id>/azurefunctionsimage:v1.0.0
+    docker push <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
     
 1. Azure Functions automatically redeploys the image to your functions app; the process takes place in less than a minute.
