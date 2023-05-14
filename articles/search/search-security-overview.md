@@ -39,7 +39,7 @@ You can review the [REST APIs](/rest/api/searchservice/) to understand the full 
 At a minimum, all inbound requests must be authenticated:
 
 + Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted party.
-+ Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
++ Alternatively, you can use Azure Active Directory and role-based access control for data plane operations. 
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
@@ -86,7 +86,7 @@ A search service is provisioned with a public endpoint that allows access using 
 
 You can use the portal to [configure firewall access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2022-09-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Inbound connection to a private endpoint (network isolation, no Internet traffic)
 
@@ -100,7 +100,7 @@ While this solution is the most secure, using additional services is an added co
 
 ## Authentication
 
-Once a request is admitted, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
+Once a request is admitted to the search service, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
