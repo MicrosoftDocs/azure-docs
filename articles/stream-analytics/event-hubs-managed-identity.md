@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 05/13/2023
 ms.custom: subject-rbac-steps
 ---
 
