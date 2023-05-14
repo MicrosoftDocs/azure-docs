@@ -73,7 +73,7 @@ If you have an OT subnet that is not being marked automatically as an ICS subnet
 
 **To change the device type to manually update the subnet**:
 
-1. Sign in to your OT sensor console, and go to **Device inventory**.
+1. Sign in to your OT sensor console and go to **Device inventory**.
 
 1. In the device inventory grid, select a device from the relevant subnet, and then select **Edit** in the tool bar at the top of the page.
 
