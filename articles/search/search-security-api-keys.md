@@ -145,7 +145,7 @@ Use [List Admin Keys](/rest/api/searchmanagement/2022-09-01/admin-keys) or [List
 You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2021-04-01-preview
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2022-09-01
 ```
 
 ---
