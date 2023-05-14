@@ -38,7 +38,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 * A pull secret for your Azure Red Hat OpenShift cluster. [Download the pull secret file from the Red Hat OpenShift Cluster Manager web site](https://cloud.redhat.com/openshift/install/azure/aro-provisioned).
 
-* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 * If you want to run the Azure CLI code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).

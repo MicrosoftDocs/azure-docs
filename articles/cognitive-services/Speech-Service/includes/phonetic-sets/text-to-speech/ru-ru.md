@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 ### Vowels for ru-RU
 
 | `ipa` | `viseme` | Example 1     | Example 2         | Example 3      |
@@ -12,7 +20,7 @@
 | `ɔ`   | 3        | **о**крик     | м**о**т           | весл**о**      |
 | `u`   | 7        | **у**жин      | к**у**ст          | пойд**у**      |
 
-### Consonantru-RU
+### Consonant for ru-RU
 
 | `ipa` | `viseme` | Example 1     | Example 2         | Example 3      |
 |-------|----------|---------------|-------------------|----------------|

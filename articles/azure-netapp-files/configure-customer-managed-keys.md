@@ -49,7 +49,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * Customer-managed keys private endpoints do not support the **Disable public access** option. You must choose one of the **Allow public access** options.
-* MSI Automatic certificate renewal isn't currently supported.  
+* MSI Automatic certificate renewal isn't currently supported. It is recommended to set up an Azure monitor alert for when the MSI certificate is going to expire.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
     * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, an error message communicates the date of eligibility. 
     * Version 2.42 or later of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account#az-netappfiles-account-renew-credentials). For example:
@@ -60,6 +60,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 
 * Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
+* If Azure Key Vault becomes inaccessible, Azure NetApp Files loses its access to the encryption keys and the ability to read or write data to volumes enabled with customer-managed keys. In this situation, create a support ticket to have access manually restored for the affected volumes.
 * Currently, customer-managed keys can't be configured while creating data replication volumes to establish an Azure NetApp Files cross-region replication or cross-zone replication relationship.
 
 ## Supported regions 
