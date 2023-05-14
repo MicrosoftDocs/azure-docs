@@ -63,7 +63,7 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 
 **To create a VM for your sensor**:
 
-1. Make sure that you have the sensor software downloaded and accessible, and that VMware is running on your machine.
+1. Make sure that VMware is running on your machine.
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -86,6 +86,8 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 1. Choose the relevant datastore and select **Next**.
 
 1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see the [table in the Prerequisites](#hw) section above.
+
+Continue with the next steps, and complete the VM installation later in this procedure after downloading the sensor software.
 
 ## Onboard the virtual sensor
 
@@ -294,7 +296,7 @@ This procedure describes how to install the sensor software on your VM.
     - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
     - When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 
-    When you've successfully signed in, the following confirmation screen appears:
+    When you have successfully signed in, the following confirmation screen appears:
 
     :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of install confirmation.":::
 
