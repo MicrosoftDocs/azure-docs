@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 05/08/2023
 ms.author: cherylmc
 ---
 
@@ -77,6 +77,7 @@ The following features are currently in gated public preview. After working with
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
+| Managed preview | Route-maps | This feature allows you to preform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps (preview)](route-maps-about.md#key-considerations).
 |Managed preview|Configure user groups and IP address pools for P2S User VPNs| This feature allows you to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**.|| Known limitations are displayed here: [Configure User Groups and IP address pools for P2S User VPNs (preview)](user-groups-create.md).|
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 |Managed preview|Routing intent and policies enabling inter-hub security|This feature allows you to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](how-to-routing-policies.md).|For access to the preview, contact previewinterhub@microsoft.com|Not compatible with NVA in a spoke, but compatible with BGP peering.<br><br>For additional limitations, see [How to configure Virtual WAN  hub routing intent and routing policies](how-to-routing-policies.md#key-considerations).|
@@ -93,6 +94,7 @@ The following features are currently in gated public preview. After working with
 |2|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with NVA in a spoke VNet.|For deployments with an NVA provisioned in a spoke VNet, the customer will have to delete and recreate the BGP peering with the spoke NVA.|March 2022|The Virtual WAN team is working on a fix to remove the need for users to delete and recreate the BGP peering with a spoke NVA after upgrading.|
 |3|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with spoke VNets in different regions |If your Virtual WAN hub is connected to a combination of spoke virtual networks in the same region as the hub and a separate region than the hub, then you may experience a lack of connectivity to these respective spoke virtual networks after upgrading your hub router to VMSS-based infrastructure.|March 2023|To resolve this and restore connectivity to these virtual networks, you can modify any of the virtual network connection properties (For example, you can modify the connection to propagate to a dummy label). We are actively working on removing this requirement. |
 |4|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with more than 100 spoke VNets |If your Virtual WAN hub is connected to more than 100 spoke VNets, then the upgrade may time out, causing your virtual hub to remain on Cloud Services-based infrastructure.|March 2023|The Virtual WAN team is working on a fix to support upgrades when there are more than 100 spoke VNets connected.|
+|5|ExpressRoute connectivity with [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and the 0.0.0.0/0 route|If you have configured a 0.0.0.0/0 route statically in a virtual hub route table or dynamically via a network virtual appliance for traffic inspection, that traffic will bypass inspection when destined for an Azure PaaS service (for example, storage) that supports service endpoints and is in the same region as the ExpressRoute gateway in the virtual hub.|January 2023|As a workaround, you can either use [Private Link](../private-link/private-link-overview.md) to access the Azure PaaS service or put the PaaS service in a different region than the virtual hub.|
 
 ## Next steps
 

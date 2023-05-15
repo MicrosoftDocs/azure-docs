@@ -98,24 +98,24 @@ A participant is a user who joins a conversation.
 
 When creating or joining a conversation, each user must choose a primary language: the language that they will speak and send instant messages in, and also the language they will see other users' messages.
 
-There are two kinds of languages: speech-to-text and text-only:
-- If the user chooses a speech-to-text language as their primary language, then they will be able to use both speech and text input in the conversation.
+There are two kinds of languages: speech to text and text-only:
+- If the user chooses a speech to text language as their primary language, then they will be able to use both speech and text input in the conversation.
 
-- If the user chooses a text-only language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech-to-text. You can see available languages on the [language support](./language-support.md) page.
+- If the user chooses a text-only language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech to text. You can see available languages on the [language support](./language-support.md) page.
 
 Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
 Below is a summary of what the user will be able to do in a multi-device conversation, based to their chosen primary language.
 
 
-| What the user can do in the conversation | Speech-to-text | Text-only |
+| What the user can do in the conversation | Speech to text | Text-only |
 |-----------------------------------|----------------|------|
 | Use speech input | ✔️ | ❌ |
 | Send instant messages | ✔️ | ✔️ |
 | Translate the conversation | ✔️ | ✔️ |
 
 > [!NOTE]
-> For lists of available speech-to-text and text translation languages, see [supported languages](./language-support.md).
+> For lists of available speech to text and text translation languages, see [supported languages](./language-support.md).
 
 
 

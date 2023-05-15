@@ -35,6 +35,8 @@ The Azure Active Directory (Azure AD) application model specifies these restrict
     * `https://contoso.com/abc` is returned as `https://contoso.com/abc`
     * `https://contoso.com/abc/response-oidc` is returned as `https://contoso.com/abc/response-oidc`
 
+* Redirect URIs do not support special characters - `! $ ' ( ) , ;`
+
 ## Maximum number of redirect URIs
 
 This table shows the maximum number of redirect URIs you can add to an app registration in the Microsoft identity platform.
