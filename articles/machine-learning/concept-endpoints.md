@@ -68,7 +68,7 @@ Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pi
 > * You want to operationalize machine learning pipelines and reuse components.
 > * You need to perform inference over large amounts of data, distributed in multiple files.
 > * You don't have low latency requirements.
-> * Your model's inputs are stored in an Storage Account or in an Azure Machine learning data asset.
+> * Your model's inputs are stored in a Storage Account or in an Azure Machine Learning data asset.
 > * You can take advantage of parallelization.
 
 ### Comparison
@@ -79,17 +79,17 @@ Both online and batch endpoints are based on the idea of endpoints and deploymen
 
 The following table shows a summary of the different features in Online and Batch endpoints.
 
-| Feature                               | Online endpoints                 | Batch endpoints                |
-|---------------------------------------|----------------------------------|--------------------------------|
-| Stable invocation URL                 | Yes                              | Yes                            |
-| Multiple deployments support          | Yes                              | Yes                            |
-| Deployment's routing                  | Traffic split                    | Switch to default              |
-| Mirror traffic to all deployment      | Yes                              | No                             |
-| Swagger support                       | Yes                              | No                             |
-| Authentication                        | Key and token                    | Azure AD                       |
-| Private network support               | Yes                              | Yes                            |
-| Managed network isolation<sup>1</sup> | Yes                              | No                             |
-| Customer-managed keys                 | Yes                              | No                             |
+| Feature                               | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
+|---------------------------------------|-------------------------------------------------|-----------------------------------------------|
+| Stable invocation URL                 | Yes                                             | Yes                                           |
+| Multiple deployments support          | Yes                                             | Yes                                           |
+| Deployment's routing                  | Traffic split                                   | Switch to default                             |
+| Mirror traffic to all deployment      | Yes                                             | No                                            |
+| Swagger support                       | Yes                                             | No                                            |
+| Authentication                        | Key and token                                   | Azure AD                                      |
+| Private network support               | Yes                                             | Yes                                           |
+| Managed network isolation<sup>1</sup> | Yes                                             | No                                            |
+| Customer-managed keys                 | Yes                                             | No                                            |
 
 <sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows managing the networking configuration of the endpoint independently from the Azure Machine Learning workspace configuration.
 
@@ -97,19 +97,19 @@ The following table shows a summary of the different features in Online and Batc
 
 The following table shows a summary of the different features in Online and Batch endpoints at the deployment level. These concepts apply per each deployment under the endpoint.
 
-| Feature                       | Online endpoints                 | Batch endpoints                          |
-|-------------------------------|----------------------------------|------------------------------------------|
-| Deployment's types            | Models                           | Models and Pipeline components (preview) |
-| MLflow model's deployment     | Yes (requires public networking) | Yes                                      |
-| Custom model's deployment     | Yes, with scoring script         | Yes, with scoring script                 |
-| Inference server <sup>1</sup> | - AzureML Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | AzureML Batch   |
-| Compute resource consumed     | Instances or granular resources  | Cluster instances                        |
-| Compute type                  | AzureML and Kubernetes           | AzureML and Kubernetes                   |
-| Low-priority compute          | No                               | Yes                                      |
-| Scales compute to zero         | No                               | Yes                                      |
-| Autoscale compute<sup>2</sup> | Yes, based on resources' load    | Yes, based on jobs count                 |
-| Overcapacity management       | Throttling                       | Queuing                                  |
-| Test deployments locally      | Yes                              | No                                       |
+| Feature                       | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
+|-------------------------------|-------------------------------------------------|-----------------------------------------------|
+| Deployment's types            | Models                                          | Models and Pipeline components (preview)      |
+| MLflow model's deployment     | Yes (requires public networking)                | Yes                                           |
+| Custom model's deployment     | Yes, with scoring script                        | Yes, with scoring script                      |
+| Inference server <sup>1</sup> | - Azure Machine Learning Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | Batch Inference        |
+| Compute resource consumed     | Instances or granular resources                 | Cluster instances                             |
+| Compute type                  | Managed compute and Kubernetes                  | Managed compute and Kubernetes                |
+| Low-priority compute          | No                                              | Yes                                           |
+| Scales compute to zero        | No                                              | Yes                                           |
+| Autoscale compute<sup>2</sup> | Yes, based on resources' load                   | Yes, based on jobs count                      |
+| Overcapacity management       | Throttling                                      | Queuing                                       |
+| Test deployments locally      | Yes                                             | No                                            |
 
 <sup>1</sup> *Inference server* makes reference to the serving technology that takes request, process them, and creates a response. The inference server also dictates the format of the input and the expected outputs.
 

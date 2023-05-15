@@ -34,11 +34,12 @@ In this article, you'll learn how to use batch endpoints to deploy a machine lea
 
 In this example, we're going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we're going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. In the second half, [we're going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to either `cli/endpoints/batch/deploy-models/mnist-classifier` if you're using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/mnist-classifier` if you're using the Python SDK.
+[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples-with-studio.md)]
+
+The files for this example are in:
 
 ```azurecli
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch/deploy-models/mnist-classifier
+cd endpoints/batch/deploy-models/mnist-classifier
 ```
 
 ### Follow along in Jupyter Notebooks

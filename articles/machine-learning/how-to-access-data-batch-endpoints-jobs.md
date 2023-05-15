@@ -603,7 +603,7 @@ Content-Type: application/json
 
 ## Data outputs
 
-Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name and Azure Machine Learning automatically assign a unique path to each named output. However, you can indicate another path if required. Batch Endpoints only support writing outputs in blob Azure Machine learning data stores. 
+Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name and Azure Machine Learning automatically assign a unique path to each named output. However, you can indicate another path if required. Batch Endpoints only support writing outputs in blob Azure Machine Learning data stores. 
 
 The following example shows how to change the location where an output named `score` is placed. For completeness, these examples also configure an input named `heart_dataset`.
 

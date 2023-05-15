@@ -35,7 +35,7 @@ This example shows you how to reuse preprocessing code and the parameters learne
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="An screenshot of the inference pipeline comprising a scoring component alongside the outputs and prepare component from a training pipeline." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
+:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="A screenshot of the inference pipeline comprising a scoring component alongside the outputs and prepare component from a training pipeline." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
@@ -183,7 +183,7 @@ Let's build the pipeline in a function:
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png" alt-text="An screenshot of the inference pipeline showing batch scoring with preprocessing." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png":::
+:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png" alt-text="A screenshot of the inference pipeline showing batch scoring with preprocessing." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png":::
 
 ### Test the pipeline
 

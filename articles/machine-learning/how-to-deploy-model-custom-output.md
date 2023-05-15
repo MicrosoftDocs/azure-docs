@@ -177,7 +177,7 @@ Follow the next steps to create a deployment using the previous scoring script:
 
 For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
 
-1. Let's invoke the endpoint with data from an storage account:
+1. Let's invoke the endpoint with data from a storage account:
 
    # [Azure CLI](#tab/cli)
    

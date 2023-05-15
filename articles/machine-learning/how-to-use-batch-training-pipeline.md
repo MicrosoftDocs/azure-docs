@@ -129,11 +129,11 @@ Let's get a reference to the new data asset:
 
 The pipeline we want to operationalize takes one input, the training data, and produces three outputs: the trained model, the evaluation results, and the data transformations applied as preprocessing. The pipeline consists of two components:
 
-1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
+- `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
     - `transformations`: (optional) Path to the transformations that will be applied, if available. If the path isn't provided, then the transformations will be learned from the input data. Since the `transformations` input is optional, the `preprocess_job` component can be used during training and scoring.
     - `categorical_encoding`: the encoding strategy for the categorical features (`ordinal` or `onehot`).
-1. `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model. The step receives three inputs:
+- `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model. The step receives three inputs:
     - `data`: the preprocessed data.
     - `target_column`: the column that we want to predict.
     - `eval_size`: indicates the proportion of the input data used for evaluation.

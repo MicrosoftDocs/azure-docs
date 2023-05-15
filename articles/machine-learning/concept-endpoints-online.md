@@ -82,7 +82,7 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 Visual Studio Code enables you to interactively debug endpoints.
 
-:::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
+:::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VS Code." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
 ## Private endpoint support
 
