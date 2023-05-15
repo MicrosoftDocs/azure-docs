@@ -48,7 +48,7 @@ Built-in roles include generally available and preview roles. If these roles are
 
 + If you migrate your Azure subscription to a new tenant, the Azure RBAC preview will need to be re-enabled. 
 
-+ Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
++ Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
@@ -161,7 +161,7 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
 
 When [using PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
-Before you start, make sure you load the **Az** and **AzureAD** modules and connect to Azure:
+Before you start, make sure to load the **Az** and **AzureAD** modules and connect to Azure:
 
 ```powershell
 Import-Module -Name Az
@@ -169,7 +169,7 @@ Import-Module -Name AzureAD
 Connect-AzAccount
 ```
 
-Scoped to the service, your syntax should look similar to the following example:
+This example creates a role assignment scoped to a search service:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -177,7 +177,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>"
 ```
 
-Scoped to an individual index:
+This example creates a role assignment scoped to a specific index:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -225,7 +225,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az account show --query id -o tsv
    ````
 
-1. Create a resource group for your security principal. This example uses the West US region. You'll provide this value as a variable in a future step. The role that you create is scoped to the resource group.
+1. Create a resource group for your security principal. This example uses the West US region. You provide this value as a variable in a future step. The role that you create is scoped to the resource group.
 
    ```azurecli
    az group create -l westus -n MyResourceGroup
@@ -237,7 +237,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
     az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
     ```
 
-   A successful response includes "appId", "password", and "tenant". You'll use these values for the variables "clientId", "clientSecret", and "tenant".
+   A successful response includes "appId", "password", and "tenant". You use these values for the variables "clientId", "clientSecret", and "tenant".
 
 1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
 
@@ -313,10 +313,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
 
-
-See [Authorize access to a search app using Azure Active Directory](search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
-
-1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentiation. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
+1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
    + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
 
@@ -339,6 +336,43 @@ See [Authorize access to a search app using Azure Active Directory](search-howto
     SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
     ```
 
+### [**Python**](#tab/test-python)
+
+1. Use [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/).
+
+1. Use [Azure.Identity for Python](/python/api/overview/azure/identity-readme) for token authentication.
+
+1. Use [DefaultAzureCredential](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential&preserve-view=true) if the Python client is an application that executes server-side. Enable [interactive authentication](/python/api/overview/azure/identity-readme?view=azure-python#enable-interactive-authentication-with-defaultazurecredential&preserve-view=true) if the app runs in a browser.
+
+1. Here's an example:
+
+    ```python
+    from azure.search.documents import SearchClient
+    from azure.identity import DefaultAzureCredential
+    
+    credential = DefaultAzureCredential()
+    endpoint = "https://<mysearch>.search.windows.net"
+    index_name = "myindex"
+    client = SearchClient(endpoint=endpoint, index_name=index_name, credential=credential)
+    ```
+
+### [**JavaScript**](#tab/test-javascript)
+
+1. Use [@azure/search-documents (Azure SDK for JavaScript), version 11.3](https://www.npmjs.com/package/@azure/search-documents).
+
+1. Use [Azure.Identity for JavaScript](/javascript/api/overview/azure/identity-readme) for token authentication.
+
+1. If you're using React, use `InteractiveBrowserCredential` for Azure AD authentication to Search. See [When to use `@azure/identity`](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#when-to-use&preserve-view=true) for details.
+
+### [**Java**](#tab/test-java)
+
+1. Use [azure-search-documents (Azure SDK for Java) version 11.5.6](https://central.sonatype.com/artifact/com.azure/azure-search-documents/11.5.6).
+
+1. Use [Azure.Identity for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true) for token authentication.
+
+1. Microsoft recommends [DefaultAzureCredential](/java/api/overview/azure/identity-readme?view=azure-java-stable#defaultazurecredential&preserve-view=true) for apps that run on Azure.
+
+---
 
 ## Test as current user
 
