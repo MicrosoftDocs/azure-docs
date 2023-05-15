@@ -336,7 +336,54 @@ Rate limiting applies to SMS, voice, and email notifications. All other notifica
 Rate limiting applies across all subscriptions. Rate limiting is applied as soon as the threshold is reached, even if messages are sent from multiple subscriptions.
 
 When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
-## SMS replies
+
+## Email
+
+When you use email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
+
+A notification email is sent only to the primary email address.
+
+If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role
+:
+
+1. In the Azure portal, go to **Active Directory**.
+1. On the left, select **All users**. On the right, a list of users appears.
+1. Select the user whose *primary email* you want to review.
+
+   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot that shows the Azure portal All users page. Information about one user is visible but is indecipherable." border="true":::
+
+1. In the user profile, look under **Contact info** for an **Email** value. If it's blank:
+
+   1. At the top of the page, select **Edit**.
+   1. Enter an email address.
+   1. At the top of the page, select **Save**.
+
+   :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Screenshot that shows a user profile page in the Azure portal. The Edit button and the Email box are called out." border="true":::
+
+You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
+
+When you set up the Resource Manager role:
+
+1. Assign an entity of type **User** to the role.
+1. Make the assignment at the **subscription** level.
+1. Make sure an email address is configured for the user in their **Azure AD profile**.
+
+> [!NOTE]
+>
+> It can take up to 24 hours for a customer to start receiving notifications after they add a new Azure Resource Manager role to their subscription.
+## SMS
+
+For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+
+For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
+
+You might have a limited number of SMS actions per action group.
+
+> [!NOTE]
+>
+> If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party SMS provider that offers support in your country/region.
+
+### SMS replies
 
 These replies are supported for SMS notifications. The recipient of the SMS can reply to the SMS with these values:
 
@@ -352,6 +399,7 @@ These replies are supported for SMS notifications. The recipient of the SMS can 
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
 
 You might have a limited number of Azure app actions per action group.
+### Countries with SMS notification support
 
 | Country code | Country |
 |:---|:---|
@@ -394,7 +442,17 @@ You might have a limited number of Azure app actions per action group.
 | 44 | United Kingdom |
 | 1 | United States |
 
-## Countries with voice notification support
+## Voice
+
+For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+
+You might have a limited number of voice actions per action group.
+
+> [!NOTE]
+>
+> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
+
+### Countries with Voice notification support
 | Country code | Country |
 |:---|:---|
 | 61 | Australia |
@@ -417,46 +475,28 @@ You might have a limited number of Azure app actions per action group.
 | 351 | Portugal |
 | 65 | Singapore |
 | 27 | South Africa |
-| 46 | Sweden |
+| 46 | Sweeden |
 | 44 | United Kingdom |
 | 1 | United States |
 
 For information about pricing for supported countries/regions, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-## Configure the email address for the Email Azure Resource Manager role
-
-When you use this type of notification, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
-
-A notification email is sent only to the primary email address.
-
-If your primary email doesn't receive notifications, take the following steps:
-
-1. In the Azure portal, go to **Active Directory**.
-1. On the left, select **All users**. On the right, a list of users appears.
-1. Select the user whose *primary email* you want to review.
-
-   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot that shows the Azure portal All users page. Information about one user is visible but is indecipherable." border="true":::
-
-1. In the user profile, look under **Contact info** for an **Email** value. If it's blank:
-
-   1. At the top of the page, select **Edit**.
-   1. Enter an email address.
-   1. At the top of the page, select **Save**.
-
-   :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Screenshot that shows a user profile page in the Azure portal. The Edit button and the Email box are called out." border="true":::
-
-You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
-
-When you set up the Resource Manager role:
-
-1. Assign an entity of type **User** to the role.
-1. Make the assignment at the **subscription** level.
-1. Make sure an email address is configured for the user in their **Azure AD profile**.
+## Webhook
 
 > [!NOTE]
 >
-> It can take up to 24 hours for a customer to start receiving notifications after they add a new Azure Resource Manager role to their subscription.
+> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
-## Configure authentication for Secure webhook
+Webhook action groups use the following rules:
+- When a webhook is invoked, if the first call fails, it is retried at least 1 more time, and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
+    - The delay between 1st and 2nd attempt is 5 seconds
+    - The delay between 2nd and 3rd attempt is 20 seconds
+    - The delay between 3rd and 4th attempt is 5 seconds
+    - The delay between 4th and 5th attempt is 40 seconds
+    - The delay between 5th and 6th attempt is 5 seconds
+- After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
+- The retry logic assumes that the call can be retried. The status codes: 408, 429, 503, 504, or HttpRequestException, WebException, `TaskCancellationException` allow for the call to be retried”.
+ 
+### Configure authentication for Secure webhook
 
 The secure webhook action authenticates to the protected API by using a Service Principal instance in the Azure AD tenant of the "AZNS AAD Webhook" Azure AD application. To make the action group work, this Azure AD Webhook Service Principal must be added as a member of a role on the target Azure AD application that grants access to the target endpoint.
 
@@ -495,7 +535,7 @@ If you use the webhook action, your target webhook endpoint must be able to proc
 
    :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot that shows the Secured Webhook dialog in the Azure portal with the Object ID box." border="true":::
 
-## Secure webhook PowerShell script
+### Secure webhook PowerShell script
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -563,117 +603,6 @@ Write-Host "My Azure AD Application (ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
-
-### SMS
-
-For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
-
-For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
-
-You might have a limited number of SMS actions per action group.
-
-> [!NOTE]
->
-> If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party SMS provider that offers support in your country/region.
-
-#### Countries with SMS notification support
-
-| Country code | Country |
-|:---|:---|
-| 61 | Australia |
-| 43 | Austria |
-| 32 | Belgium |
-| 55 | Brazil |
-| 1    |Canada |
-| 56 | Chile |
-| 86 | China |
-| 420 | Czech Republic |
-| 45 | Denmark |
-| 372 | Estonia |
-| 358 | Finland |
-| 33 | France |
-| 49 | Germany |
-| 852 | Hong Kong |
-| 91 | India |
-| 353 | Ireland |
-| 972 | Israel |
-| 39 | Italy |
-| 81 | Japan |
-| 352 | Luxembourg |
-| 60 | Malaysia |
-| 52 | Mexico |
-| 31 | Netherlands |
-| 64 | New Zealand |
-| 47 | Norway |
-| 351 | Portugal |
-| 1 | Puerto Rico |
-| 40 | Romania |
-| 7  | Russia  |
-| 65 | Singapore |
-| 27 | South Africa |
-| 82 | South Korea |
-| 34 | Spain |
-| 41 | Switzerland |
-| 886 | Taiwan |
-| 971 | UAE    |
-| 44 | United Kingdom |
-| 1 | United States |
-
-### Voice
-
-For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
-
-You might have a limited number of voice actions per action group.
-
-> [!NOTE]
->
-> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
-
-#### Countries with Voice notification support
-| Country code | Country |
-|:---|:---|
-| 61 | Australia |
-| 43 | Austria |
-| 32 | Belgium |
-| 55 | Brazil |
-| 1    |Canada |
-| 56 | Chile |
-| 420 | Czech Republic |
-| 45 | Denmark |
-| 358 | Finland |
-| 353 | Ireland |
-| 972 | Israel |
-| 352 | Luxembourg |
-| 60 | Malaysia |
-| 52 | Mexico |
-| 31 | Netherlands |
-| 64 | New Zealand |
-| 47 | Norway |
-| 351 | Portugal |
-| 65 | Singapore |
-| 27 | South Africa |
-| 46 | Sweeden |
-| 44 | United Kingdom |
-| 1 | United States |
-
-For information about pricing for supported countries/regions, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-### Webhook
-
-> [!NOTE]
->
-> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
-
-Webhook action groups use the following rules:
-- When a webhook is invoked, if the first call fails, it is retried at least 1 more time, and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
-    - The delay between 1st and 2nd attempt is 5 seconds
-    - The delay between 2nd and 3rd attempt is 20 seconds
-    - The delay between 3rd and 4th attempt is 5 seconds
-    - The delay between 4th and 5th attempt is 40 seconds
-    - The delay between 5th and 6th attempt is 5 seconds
-- After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
-- The retry logic assumes that the call can be retried. The status codes: 408, 429, 503, 504, or HttpRequestException, WebException, `TaskCancellationException` allow for the call to be retried”.
-
 ## Next steps
 
 - Get an [overview of alerts](./alerts-overview.md) and learn how to receive alerts.
