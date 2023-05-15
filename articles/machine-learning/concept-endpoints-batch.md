@@ -67,7 +67,8 @@ To create a model deployment in a batch endpoint, you need to specify the follow
 - Scoring script (optional for MLflow models)
 - Environment (optional for MLflow models)
 
-Create your first [model deployment with batch endpoints](how-to-use-batch-model-deployments.md) to perform inference at scale.
+> [!div class="nextstepaction"]
+> [Create your first model deployment](how-to-use-batch-model-deployments.md)
 
 ### Pipeline component deployment (preview)
 
@@ -89,7 +90,10 @@ To create a pipeline component deployment in a batch endpoint, you need to speci
 - Pipeline component
 - Compute cluster configuration
 
-See [Deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md) to create your first pipeline component deployment. Batch endpoints also allow you to [create Pipeline component deployments from an existing pipeline job (preview)](how-to-use-batch-pipeline-from-job.md). When doing that, Azure Machine Learning automatically creates a Pipeline component out of the job. This simplifies the use of these kinds of deployments. However, it is a best practice to always [create pipeline components explicitly to streamline your MLOps practice](how-to-use-batch-pipeline-deployments.md).
+> [!div class="nextstepaction"]
+> [Create your first pipeline component deployment](how-to-use-batch-pipeline-deployments.md)
+
+Batch endpoints also allow you to [create Pipeline component deployments from an existing pipeline job (preview)](how-to-use-batch-pipeline-from-job.md). When doing that, Azure Machine Learning automatically creates a Pipeline component out of the job. This simplifies the use of these kinds of deployments. However, it is a best practice to always [create pipeline components explicitly to streamline your MLOps practice](how-to-use-batch-pipeline-deployments.md).
 
 ## Cost management
 
