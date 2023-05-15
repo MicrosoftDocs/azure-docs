@@ -1,6 +1,7 @@
 ---
 title: Outbound network rules with Azure Policy (Preview)
 description: Learn about outbound network rules using Azure Policy (Preview).
+ms.service: data-factory
 ms.reviewer: jburchel
 ms.author: abnarain
 author: nabhishek
@@ -10,9 +11,7 @@ ms.date: 05/23/2023
 
 # Outbound network rules using Azure Policy (Preview)
 
-Outbound whitelisting of Fully Qualified Domain Names (FQDN) is a network security practice that allows organizations to control and restrict outbound traffic from their networks to specific, approved domain names.
-
-[!INCLUDE [df-preview-warning](includes/data-factory-preview-warning.md)]
+Outbound white listing of Fully Qualified Domain Names (FQDN) is a network security practice that allows organizations to control and restrict outbound traffic from their networks to specific, approved domain names.
 
 ## Overview
 
@@ -21,11 +20,11 @@ Outbound rules in Azure Data Factory are an effective way for users to limit out
 These outbound rules apply to various pipeline activities. This includes Copy, Dataflows, Web, Webhook, and Azure Function activities, as well as authoring scenarios like data preview and test connection. In addition to Managed VNet, these outbound rules help you build a secure and exfiltration-proof data integration solution.
 
 > [!NOTE]
-> This feature is currently in Preview.
+> This feature is currently in preview.
 
 ## Prerequisites
 
-To apply an Azure Policy to Azure Data Factory, user needs to have the [Resource Policy Contributor](/azure/role-based-access-control/built-in-roles.md#resource-policy-contributor) permission. This role can be assigned to the individual responsible for configuring policies for Data Factory.
+To apply an Azure Policy to Azure Data Factory, user needs to have the [Resource Policy Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#resource-policy-contributor) permission. This role can be assigned to the individual responsible for configuring policies for Data Factory.
 
 ## Steps to enable Azure Policy for outbound rules
 
@@ -69,4 +68,4 @@ To apply policies to an Azure Data Factory instance, complete the following step
 
 Check out the following article to learn more about the Azure security baseline:
 
-[Azure security baseline](data-factory-security-baseline.md)
+[Azure security baseline](/security/benchmark/azure/baselines/data-factory-security-baseline.md?toc=%2Fazure%2Fdata-factory%2FTOC.json)
