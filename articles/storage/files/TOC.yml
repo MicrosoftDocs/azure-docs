@@ -43,6 +43,10 @@
       href: nfs-nconnect-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
+  - name: Authentication and authorization
+    items:
+    - name: Authorize with Azure AD
+      href: authorize-oauth-rest.md
   - name: Understanding billing
     href: understanding-billing.md
   - name: Windows Server to Azure Files
@@ -125,6 +129,10 @@
       href: storage-files-identity-auth-azure-active-directory-enable.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Authorize
+    items:
+    - name: Authorize access to file data
+      href: authorize-data-operations-portal.md
   - name: Data protection
     items:
     - name: Enable soft delete
