@@ -18,7 +18,7 @@ Outbound whitelisting of Fully Qualified Domain Names (FQDN) is a network securi
 
 Outbound rules in Azure Data Factory are an effective way for users to limit outgoing traffic by specifying allowed Fully Qualified Domain Names (FQDN) or network endpoints. This critical feature offers network security administrators greater control, improving governance and preventing data exfiltration. Azure Policy is used to enforce these rules [TBD Policy link].  
 
-These outbound rules apply to various pipeline activities, including Copy, Dataflows, Web, Webhook, and Azure Functions, as well as authoring scenarios like data preview and test connection. In addition to Managed VNet, these outbound rules help you build a secure and exfiltration-proof data integration solution.
+These outbound rules apply to various pipeline activities. This includes Copy, Dataflows, Web, Webhook, and Azure Function activities, as well as authoring scenarios like data preview and test connection. In addition to Managed VNet, these outbound rules help you build a secure and exfiltration-proof data integration solution.
 
 > [!NOTE]
 > This feature is currently in Preview.
@@ -33,11 +33,11 @@ To apply policies to an Azure Data Factory instance, complete the following step
 
 1. Navigate to a resource group that contains the Azure Data Factory instance.
 
-   :::image type="content" source="media/configure-outbound-allow-list-azure-policy/access-policies-from-resource-group.png" alt-text="Screenshot showing a resource group in the Azure Portal with the Policies settings option highlighted.":::
+   :::image type="content" source="media/configure-outbound-allow-list-azure-policy/access-policies-from-resource-group.png" alt-text="Screenshot showing a resource group in the Azure portal with the Policies settings option highlighted.":::
 
 1. Select the policies tab on the left and then navigate to built-in policy definitions published by Microsoft. Select **ADF_Dataplane_Policies - Microsoft Azure**.
 
-   :::image type="content" source="media/configure-outbound-allow-list-azure-policy/dataplane-policies.png" alt-text="Screenshot showing the ADF Dataplane Policies for Microsoft Azure.":::
+   :::image type="content" source="media/configure-outbound-allow-list-azure-policy/dataplane-policies.png" alt-text="Screenshot showing the ADF data plane Policies for Microsoft Azure.":::
 
 1. Assign the policy.
 
@@ -59,11 +59,11 @@ To apply policies to an Azure Data Factory instance, complete the following step
 
 ## Known limitations
 
-- Outbound policy rules are not enforced for **Airflow** and **SSIS** scenarios.
-- While configuring domain names, you must provide fully qualified domain names. Wildcard/regex patterns are not supported in domain names. If you want to specify that both microsoft.com, & www.microsoft.com as trusted domains, then both need to be specified while configuring policy. For example: [“microsoft.com”, “www.microsoft.com”].
+- Outbound policy rules aren't enforced for **Airflow** and **SSIS** scenarios.
+- While configuring domain names, you must provide fully qualified domain names. Wildcard/regex patterns aren't supported in domain names. If you want to specify that both microsoft.com, & www.microsoft.com as trusted domains, then both need to be specified while configuring policy. For example: [“microsoft.com”, “www.microsoft.com”].
 - Throttling limits applied in Azure Policy during the preview: 
-  - For an individual Azure Data factory: 1000 requests / 5 minutes. Only 1000 activity runs can be executed in a 5 minute period. Subsequent run requests will fail once this limit is reached. 
-  - For a subscription: 50,000 requests / 5 minutes. Only 50,000 activity runs can be executed in a 5 minute period per subscription. Subsequent run requests will fail once this limit is reached.
+  - For an individual Azure Data factory: 1,000 requests / 5 minutes. Only 1,000 activity runs can be executed in a 5-minute period. Subsequent run requests fail once this limit is reached. 
+  - For a subscription: 50,000 requests / 5 minutes. Only 50,000 activity runs can be executed in a 5-minute period per subscription. Subsequent run requests fail once this limit is reached.
 
 ## Next steps
 
