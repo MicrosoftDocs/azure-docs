@@ -13,7 +13,7 @@ ms.author: duau
 > [!NOTE]
 > Microsoft Hollow Core Fiber products and manufacturing processes may be protected by one or more claims of the following patents or published patent applications.
 
-| Grant Number [Critical Dates] | Publication Number [Critical Dates] | Country (Wording)            |
+| Grant number                  | Publication number                  | Country                      |
 |-------------------------------|-------------------------------------|------------------------------|
 | ZL201580042024.6              |                                     | China                        |
 | ZL201880044747.3              |                                     | China                        |
