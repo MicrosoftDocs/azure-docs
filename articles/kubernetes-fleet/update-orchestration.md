@@ -88,7 +88,7 @@ You can assign a member cluster to a specific update group in one of two ways:
 
     :::image type="content" source="./media/update-orchestration/add-members-assign-group-inline.png" alt-text="A screenshot of the Azure portal page for adding member clusters to Fleet and assigning them to groups" lightbox="./media/update-orchestration/add-members-assign-group.png":::
 
-#### [CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az fleet member create --resource-group $GROUP --fleet-name $FLEET --name member1 --member-cluster-id $AKS_CLUSTER_ID --update-group group-1a
@@ -104,7 +104,7 @@ az fleet member create --resource-group $GROUP --fleet-name $FLEET --name member
 
     :::image type="content" source="./media/update-orchestration/existing-members-assign-group-inline.png" alt-text="A screenshot of the Azure portal page for assigning existing member clusters to a group" lightbox="./media/update-orchestration/existing-members-assign-group.png":::
 
-1. Specify the group name and click **Assign**.
+1. Specify the group name and select **Assign**.
 
     :::image type="content" source="./media/update-orchestration/group-name-inline.png" alt-text="A screenshot of the Azure portal page for member clusters, showing the form for updating a member cluster's group." lightbox="./media/update-orchestration/group-name.png":::
 
