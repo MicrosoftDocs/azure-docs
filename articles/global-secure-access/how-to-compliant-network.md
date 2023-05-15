@@ -23,8 +23,8 @@ Administrators today struggle to track IP network locations with the concept of 
 This compliant network check is specific to each tenant. 
 
 - Using this check you can ensure that other organizations using Microsoft's Global Secure Access services can't access your resources. 
-- For example: Contoso can protect their services like Exchange Online and SharePoint Online behind their compliant network check to ensure only Contoso users can access these resources. 
-- If another organization like Fabrikam was using a compliant network check they would not pass Contoso's compliant network check. 
+   - For example: Contoso can protect their services like Exchange Online and SharePoint Online behind their compliant network check to ensure only Contoso users can access these resources. 
+   - If another organization like Fabrikam was using a compliant network check they would not pass Contoso's compliant network check. 
 
 Further this compliant network check removes the need to hairpin traffic through a VPN, providing your users with better performance and security. This compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No upkeep is required by administrators.
 
@@ -35,7 +35,7 @@ Further this compliant network check removes the need to hairpin traffic through
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](NEED-LINK-TO-DOC).
-* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md)
+* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md).
 
 ### Known limitations
 
@@ -95,7 +95,7 @@ ADD A SCREENSHOT WITH THE BLOCK ERROR MESSAGE
 
 ## Troubleshooting
 
-Verify the new named location is automatically created with [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
+Verify the new named location was automatically created using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
 
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
 
