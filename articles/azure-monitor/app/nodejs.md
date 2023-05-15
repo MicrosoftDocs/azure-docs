@@ -452,14 +452,15 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | correlationIdRetryIntervalMs    | The time to wait before retrying to retrieve the ID for cross-component correlation. (Default is `30000`.)     |
 | correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection. (Default. See [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts).)|
 
-##**How do I customize logs collection?**
+## How do I customize logs collection?
 
 By default, Application Insights Node.js SDK logs at warning level to console.
 
-To spot and diagnose issues with Application Insights, "Self-diagnostics" can be enabled. This means collection of internal logging from Application Insights Node.js SDK.
+To spot and diagnose issues with Application Insights, "Self-diagnostics" can be enabled. This means collection of internal logging from the Application Insights Node.js SDK.
 
-The following code demonstrates how to enable debug logging as well and generate telemetry for internal logs.
+The following code demonstrates how to enable debug logging as well as generate telemetry for internal logs.
 
+```
 let appInsights = require("applicationinsights");
 appInsights.setup("<YOUR_CONNECTION_STRING>")
     .setInternalLogging(true, true) // Enable both debug and warning logging
@@ -472,6 +473,7 @@ process.env.APPLICATIONINSIGHTS_LOG_DESTINATION = "file+console";
 process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
 
 // Application Insights SDK setup....
+```
 
 ## Troubleshooting
 
