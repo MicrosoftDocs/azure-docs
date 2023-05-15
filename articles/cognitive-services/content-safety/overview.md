@@ -1,5 +1,5 @@
 ---
-title: What is Azure Content Safety? (preview)
+title: What is Azure AI Content Safety? (preview)
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Content Safety to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
@@ -14,12 +14,12 @@ ms.author: pafarley
 keywords: content safety, azure content safety, online content safety, content filtering software, content moderation service, content moderation
 ms.custom: references_regions
 
-#Customer intent: As a developer of content management software, I want to find out whether Azure Content Safety is the right solution for my moderation needs.
+#Customer intent: As a developer of content management software, I want to find out whether Azure AI Content Safety is the right solution for my moderation needs.
 ---
 
-# What is Azure Content Safety? (preview)
+# What is Azure AI Content Safety? (preview)
 
-Azure Content Safety detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
+Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
 
 Content filtering software can help your app comply with regulations or maintain the intended environment for your users.
 
@@ -55,7 +55,7 @@ There are different types of analysis available from this service. The following
 
 ## Content Safety Studio
 
-[Azure Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with provided sample content.
+[Azure AI Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with provided sample content.
 
 Content Safety Studio not only contains the out-of-the-box AI models, but also includes Microsoft's built-in terms blocklists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
 
@@ -105,7 +105,7 @@ This API supports eight languages: English, German, Japanese, Spanish, French, I
 
 ### Region / location
 
-To use the preview APIs, you must create your Azure Content Safety resource in a supported region. Currently, the public preview features are available in the following Azure regions: 
+To use the preview APIs, you must create your Azure AI Content Safety resource in a supported region. Currently, the public preview features are available in the following Azure regions: 
 
 - East US
 - West Europe
