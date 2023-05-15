@@ -12,11 +12,11 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 
 | Tasks | Options | Bicep CLI installation |
 | ------ | ------- | ----------- |
-| Author | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+| Author | [VS Code and Bicep extension](#visual-studio-code-and-bicep-extension) | automatic |
 |  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
-|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
+|  | [VS Code and Bicep extension](#visual-studio-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## Visual Studio Code and Bicep extension

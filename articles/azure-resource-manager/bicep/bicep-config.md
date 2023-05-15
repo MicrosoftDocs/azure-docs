@@ -12,7 +12,7 @@ Bicep supports a configuration file named `bicepconfig.json`. Within this file, 
 
 To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
 
-To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#vs-code-and-bicep-extension).
+To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
 ## Create the config file in Visual Studio Code
 
