@@ -247,7 +247,7 @@ sections:
         answer: Yes, as long as traffic is allowed.
 
       - question: Can one backend pool serve many applications on different ports?
-        answer: Microservice architecture is supported. To probe on different ports, you need to configure multiple HTTP settings.
+        answer: Microservice architecture is supported. To probe on different ports, you need to configure multiple backend settings.
 
       - question: Do custom probes support wildcards or regex on response data?
         answer: No. 
