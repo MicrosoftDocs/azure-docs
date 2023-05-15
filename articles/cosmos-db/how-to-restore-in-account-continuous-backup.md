@@ -1,7 +1,7 @@
 ---
-title: Restore a container or database into existing account (preview)
+title: Restore a container or database into existing same account (preview)
 titleSuffix: Azure Cosmos DB
-description: Restore a deleted container or database to an existing Azure Cosmos DB account using Azure portal, PowerShell, or CLI when using continuous backup mode.
+description: Restore a deleted container or database to an existing same Azure Cosmos DB account using Azure portal, PowerShell, or CLI when using continuous backup mode.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: mjbrown
@@ -11,11 +11,11 @@ ms.date: 05/08/2023
 zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
 ---
 
-# Restore a container or database into an existing Azure Cosmos DB account with continuous backup (preview)
+# Restore a deleted container or database into same Azure Cosmos DB account (preview)
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-Azure Cosmos DB's point-in-time in-account restore feature helps you to recover from an accidental deletion of a container or database. Theis feature restores the deleted  database or container to an existing account in any region where backups exist. The continuous backup mode allows you to restore to any point of time within the last 30 days.
+Azure Cosmos DB's point-in-time same account restore feature helps you to recover from an accidental deletion of a container or database. Theis feature restores the deleted  database or container to an existing same account in any region where backups exist. The continuous backup mode allows you to restore to any point of time within the last 30 days.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Azure Cosmos DB's point-in-time in-account restore feature helps you to recover 
 
 ## Restore a deleted container or database
 
-Use the Azure portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template to restore a deleted container or database into an existing account.
+Use the Azure portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template to restore a deleted container or database into an same account.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -73,7 +73,7 @@ Use the Azure portal to restore a deleted container or database (including child
 Use Azure CLI to restore a deleted container or database (including child containers).
 
 > [!IMPORTANT]
-> The `cosmosdb-preview` extension for Azure CLI version **0.19.0** or later is required to access the in-account restore command. If you do not have the preview version installed, run `az extension add --name cosmosdb-preview --version 0.19.0`.
+> The `cosmosdb-preview` extension for Azure CLI version **0.24.0** or later is required to access the in-account restore command. If you do not have the preview version installed, run `az extension add --name cosmosdb-preview --version 0.24.0`.
 
 :::zone pivot="api-nosql"
 
@@ -649,13 +649,8 @@ You can restore deleted containers and databases using an Azure Resource Manager
 1. Update the Azure Cosmos DB resource in your template by:
 
     - Setting `properties.createMode` to `restore`.
-
     - Defining a `properties.restoreParameters` object.
-
-    - Setting `properties.restoreParameters.restoreMode` to `PointInTime`.
-
     - Setting `properties.restoreParameters.restoreTimestampInUtc` to a UTC timestamp.
-
     - Setting `properties.restoreParameters.restoreSource` to the **instance identifier** of the account that is the source of the restore operation.
 
     :::zone pivot="api-nosql"
@@ -666,7 +661,6 @@ You can restore deleted containers and databases using an Azure Resource Manager
         "name": "<name-of-database-or-container>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreMode": "PointInTime",
           "restoreTimestampInUtc": "<timestamp>"
         },
         "createMode": "Restore"
@@ -684,7 +678,6 @@ You can restore deleted containers and databases using an Azure Resource Manager
         "name": "<name-of-database-or-collection>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreMode": "PointInTime",
           "restoreTimestampInUtc": "<timestamp>"
         },
         "createMode": "Restore"
@@ -702,7 +695,6 @@ You can restore deleted containers and databases using an Azure Resource Manager
         "name": "<name-of-database-or-graph>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreMode": "PointInTime",
           "restoreTimestampInUtc": "<timestamp>"
         },
         "createMode": "Restore"
@@ -720,7 +712,6 @@ You can restore deleted containers and databases using an Azure Resource Manager
         "name": "<name-of-table>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreMode": "PointInTime",
           "restoreTimestampInUtc": "<timestamp>"
         },
         "createMode": "Restore"
@@ -753,7 +744,7 @@ To get a list of restore operations for a specific resource, filter the Activity
 
 ### [Azure CLI / Azure PowerShell / Azure Resource Manager template](#tab/azure-cli+azure-powershell+azure-resource-manager)
 
-Not supported yet.
+At present portal is used for getting the activity log of the account using the search filter `InAccount Restore Deleted` and a time filter. 
 
 ---
 
