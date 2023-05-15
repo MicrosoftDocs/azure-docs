@@ -29,23 +29,7 @@ To work with the code examples in this article, make sure you have:
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
 - Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Java](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `import` directives, see [Code samples](#code-samples).
 
-## About copying a blob with asynchronous scheduling
-
-The `Copy Blob` operation can finish asynchronously and is performed on a best-effort basis, which means that the operation isn't guaranteed to start immediately or complete within a specified time frame. The copy operation is scheduled in the background and performed as the server has available resources.  The operation can complete synchronously if the copy occurs within the same storage account. 
-
-A `Copy Blob` operation can perform any of the following actions:
-
-- Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or it can be a new blob created by the copy operation.
-- Copy a source blob to a destination blob with the same name, which replaces the destination blob. This type of copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
-- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs isn't supported.
-- Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
-- Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
-
-The source blob for a copy operation may be one of the following types: block blob, append blob, page blob, blob snapshot, or blob version. The copy operation always copies the entire source blob or file. Copying a range of bytes or set of blocks isn't supported.
-
-If the destination blob already exists, it must be of the same blob type as the source blob, and the existing destination blob is overwritten. The destination blob can't be modified while a copy operation is in progress, and a destination blob can only have one outstanding copy operation.
-
-To learn more about the `Copy Blob` operation, including information about properties, index tags, metadata, and billing, see [Copy Blob remarks](/rest/api/storageservices/copy-blob#remarks).
+[!INCLUDE [storage-dev-guide-blob-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-copy-async.md)]
 
 ## Copy a blob with asynchronous scheduling
 
@@ -57,21 +41,18 @@ The following method wraps the [Copy Blob](/rest/api/storageservices/copy-blob) 
 
 The `beginCopy` method returns a [SyncPoller](/java/api/com.azure.core.util.polling.syncpoller) to poll the progress of the copy operation. The poll response type is [BlobCopyInfo](/java/api/com.azure.storage.blob.models.blobcopyinfo). The `beginCopy` method is used when you want asynchronous scheduling for a copy operation.
 
-## Copy a blob within the same storage account
+## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. The operation can complete synchronously if the copy occurs within the same storage account. 
+If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md).
 
-The following example shows a scenario for copying a source blob within the same storage account. This example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
+If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyWithinStorageAccount_CopyBlob":::
-
-## Copy a blob from another storage account
-
-If the source is a blob in another storage account, the source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
-
-The following example shows a scenario for copying a blob from another storage account. In this example, we create a source blob URL with an appended user delegation SAS token. The example shows how to generate the SAS token using the client library, but you can also provide your own.
+The following example shows a scenario for copying a source blob from a different storage account with asynchronous scheduling. In this example, we create a source blob URL with an appended user delegation SAS token. The example shows how to generate the SAS token using the client library, but you can also provide your own. The example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyAcrossStorageAccounts_CopyBlob":::
+
+> [!NOTE]
+> User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key. To create a user delegation SAS token, the Azure AD security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
 
 ## Copy a blob from a source outside of Azure
 

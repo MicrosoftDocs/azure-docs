@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 04/07/2023
+ms.date: 05/10/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -11,17 +11,14 @@ manager: femila
 
 This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
 
-> [!NOTE]
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3916 or later](users/connect-windows.md) with Insider releases enabled. For more information, see [Prerequisites](#prerequisites).
-
 ## Prerequisites
 
 Before you can use multimedia redirection on Azure Virtual Desktop, you'll need the following things:
 
 - An Azure Virtual Desktop deployment.
 - Microsoft Edge or Google Chrome installed on your session hosts.
-- Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 - Windows Desktop client, version 1.2.3916 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. This includes the multimedia redirection plugin (`C:\Program Files\Remote Desktop\MsMmrDVCPlugin.dll`), which is required on the client device. Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts and Windows client devices. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 
 ## Install the multimedia redirection extension
 
@@ -41,11 +38,11 @@ To install the host component on your session hosts, you can install the MSI man
 
 ### Install the browser extension
 
-Next, you'll need to install the browser extension. This is installed on session hosts where you already have Edge or Chrome available. Installing the host component also installs the browser extension. Users will see a prompt that says **New Extension added**. In order to use the app, they'll need to enable the extension. A user can enable the extension by doing the following:
+Next, you'll need to install the browser extension on session hosts where you already have Edge or Chrome available. When you install the host component, it also installs the browser extension. In order to use multimedia redirection, they'll need to enable the extension:
 
 1. Sign in to Azure Virtual Desktop and open Edge or Chrome.
 
-1. At the prompt to enable the extension, select **Turn on extension**. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
+1. When opening the browser, after a short while users will see a prompt that says **New Extension added**, then they should select **Turn on extension**. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
 
    :::image type="content" source="./media/mmr-extension-enable.png" alt-text="A screenshot of the prompt to enable the extension.":::
 

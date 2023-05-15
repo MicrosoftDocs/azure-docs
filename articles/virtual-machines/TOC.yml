@@ -241,6 +241,11 @@
         href: ev5-esv5-series.md
       - name: Ebdsv5 and Ebsv5 series
         href: ebdsv5-ebsv5-series.md
+        items:
+        - name: Enable NVMe and SCSI interface
+          href: enable-nvme-interface.md  
+        - name: Enable NVMe FAQ
+          href: enable-nvme-faqs.yml   
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
@@ -1076,8 +1081,16 @@
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ../availability-zones/migrate-vm.md
-  - name: Virtual machine scale sets
-    href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
+  - name: Virtual Machine Scale Sets
+    items: 
+    - name: Overview
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
+    - name: Scaling profiles
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-scaling-profile.md
+      maintainContext: true
+    - name: Attach VMs to a scale set
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md
+      maintainContext: true
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1124,23 +1137,6 @@
     href: disks-shared.md
   - name: Enable shared disks
     href: disks-shared-enable.md
-  - name: Disk pools
-    items:
-    - name: Overview
-      displayName: Disk pools overview
-      href: disks-pools.md
-    - name: Plan for disk pools
-      href: disks-pools-planning.md
-    - name: Deploy a disk pool
-      href: disks-pools-deploy.md
-    - name: Move a disk pool to a different subscription
-      href: disks-pools-move-resource.md
-    - name: Manage a disk pool
-      href: disks-pools-manage.md
-    - name: Deprovision a disk pool
-      href: disks-pools-deprovision.md
-    - name: Troubleshoot a disk pool
-      href: disks-pools-troubleshoot.md
   - name: Encryption
     items:
     - name: Disk encryption overview

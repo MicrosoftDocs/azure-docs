@@ -206,6 +206,10 @@
       href: cache-management-faq.yml
     - name: Azure Functions
       href: cache-how-to-functions.md
+    - name: Role-based access control
+      href: cache-configure-role-based-access-control.md
+    - name: Azure AD for authentication
+      href: cache-azure-active-directory-for-authentication.md
   - name: Monitor
     items:
     - name: Monitor in Azure portal

@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 ### Vowels for ms-MY
 
 | `ipa` | `viseme` | Example 1    | Example 2       | Example 3        |

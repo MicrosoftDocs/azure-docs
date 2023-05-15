@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/03/2023
 ms.author: lajanuar
-recommendations: false
+
 ms.custom: references.regions
 ---
 <!-- markdownlint-disable MD033 -->
@@ -200,7 +200,7 @@ The following are the fields extracted per document type. The Azure Form Recogni
 
 >[!NOTE]
 >
-> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national identity card, residence permit, or US social security card ).
+> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national/regional identity card, residence permit, or US social security card ).
 
 ### Data extraction (all types)
 
@@ -270,8 +270,8 @@ The following are the fields extracted per document type. The Azure Form Recogni
 |:------|:-----|:------------|:--------|
 |`CountryRegion`|`countryRegion`|Country or region code|USA|
 |`Region`|`string`|State or province|Washington|
-|`DocumentNumber`|`string`|National identity card number|WDLABCD456DG|
-|`DocumentDiscriminator`|`string`|National identity card document discriminator|12645646464554646456464544|
+|`DocumentNumber`|`string`|National/regional identity card number|WDLABCD456DG|
+|`DocumentDiscriminator`|`string`|National/regional identity card document discriminator|12645646464554646456464544|
 |`FirstName`|`string`|Given name and middle initial if applicable|LIAM R.|
 |`LastName`|`string`|Surname|TALBOT|
 |`Address`|`address`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|

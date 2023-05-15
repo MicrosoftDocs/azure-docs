@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 04/18/2023
+ms.date: 03/25/2023
 ms.author: cwatson
 ---
 
@@ -188,6 +188,10 @@ Data connectors are available as part of the following offerings:
 
 - [Cybersixgill Actionable Alerts (using Azure Function)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
 
+## Cynerio
+
+- [Cynerio Security Events](data-connectors/cynerio-security-events.md)
+
 ## Darktrace
 
 - [AI Analyst Darktrace](data-connectors/ai-analyst-darktrace.md)
@@ -352,7 +356,6 @@ Data connectors are available as part of the following offerings:
 - [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
-- [Azure Information Protection](data-connectors/azure-information-protection.md)
 - [Azure Key Vault](data-connectors/azure-key-vault.md)
 - [Azure Kubernetes Service (AKS)](data-connectors/azure-kubernetes-service-aks.md)
 - [Azure Logic Apps](data-connectors/azure-logic-apps.md)

@@ -68,6 +68,8 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 ```
 
 Press return to execute the code. You should see a 200 response, and details about the table you just created will show up. To validate that the table was created go to your workspace and select Tables on the left blade. You should see your table in the list.
+> [!Note]
+> The column names are case sensitive. For example Rawdata will not correcly collect the event data.  It must be RawData.
 
 
 ## Create data collection rule to collect text logs
@@ -120,7 +122,7 @@ To create the data collection rule in the Azure portal:
 
 1. Specify the following information:
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas if your AMA is using Fluent Bit v1.5.1 or more.  
     
         Examples of valid inputs: 
         - 20220122-MyLog.txt 

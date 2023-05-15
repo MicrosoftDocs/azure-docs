@@ -12,13 +12,15 @@ manager: femila
 ---
 # What is MSIX app attach?
 
-MSIX is a new packaging format that offers many features aimed to improve packaging experience for all Windows apps. To learn more about MSIX, see the [MSIX overview](/windows/msix/overview).
+MSIX is a packaging format that offers many features aimed to improve packaging experience for all Windows apps. To learn more about MSIX, see the [MSIX overview](/windows/msix/overview).
 
 MSIX app attach is a way to deliver MSIX applications to both physical and virtual machines. However, MSIX app attach is different from regular MSIX because it's made especially for supported products, such as Azure Virtual Desktop. This article will describe what MSIX app attach is and what it can do for you.
 
 ## What does MSIX app attach do?
 
 In an Azure Virtual Desktop deployment, MSIX app attach delivers apps to session hosts within [MSIX containers](/windows/msix/msix-container). These containers separate user data, the OS, and apps, increasing security and ensuring easier troubleshooting if something goes wrong. App attach removes the need for repackaging apps when delivering applications dynamically, which increases the speed of deployments and reduces the time it takes for users to sign in to their remote sessions. This rapid delivery reduces operational overhead and costs for your organization.
+
+MSIX app attach allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the custom image and make them available them to users later.
 
 ## Traditional app layering compared to MSIX app attach
 

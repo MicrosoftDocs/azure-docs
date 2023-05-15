@@ -14,7 +14,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 04/25/2023
 ms.author: radeltch
 
 ---
@@ -396,7 +396,7 @@ The following items are prefixed with:
     ```bash
     # Temporarily mount the volume.
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4.1,sec=sys
     # Create the SAP directories.
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -424,9 +424,9 @@ The following items are prefixed with:
    With the simple mount configuration, the Pacemaker cluster doesn't control the file systems.     
 
     ```bash
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1/ /usr/sap/NW1 nfs vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab   
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1/ /usr/sap/NW1 nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs vers=4.1,sec=sys  0  0" >> /etc/fstab   
     # Mount the file systems.
     mount -a 
     ```
@@ -473,9 +473,9 @@ The instructions in this section are applicable only if you're using Azure NetAp
     # Temporarily mount the volume.
     sudo mkdir -p /saptmp
     # If you're using NFSv3:
-    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.27.1.5:/sapnw1 /saptmp
+    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,nfsvers=3,tcp 10.27.1.5:/sapnw1 /saptmp
     # If you're using NFSv4.1:
-    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys,tcp 10.27.1.5:/sapnw1 /saptmp
+    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys,tcp 10.27.1.5:/sapnw1 /saptmp
     # Create the SAP directories.
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -504,13 +504,13 @@ The instructions in this section are applicable only if you're using Azure NetAp
 
     ```bash
     # If you're using NFSv3:
-    echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=3,hard 0 0" >> /etc/fstab
-    echo "10.27.1.5:/sapnw1/usrsapNW1 /usr/sap/NW1 nfs vers=3,hard 0 0" >> /etc/fstab
-    echo "10.27.1.5:/saptrans /usr/sap/trans nfs vers=3,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=3,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/sapnw1/usrsapNW1 /usr/sap/NW1 nfs nfsvers=3,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=3,hard 0 0" >> /etc/fstab
     # If you're using NFSv4.1:
-    echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=4,minorversion=1,sec=sys,hard 0 0" >> /etc/fstab
-    echo "10.27.1.5:/sapnw1/usrsapNW1 /usr/sap/NW1 nfs vers=4,minorversion=1,sec=sys,hard 0 0" >> /etc/fstab
-    echo "10.27.1.5:/saptrans /usr/sap/trans nfs vers=4,minorversion=1,sec=sys,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/sapnw1/usrsapNW1 /usr/sap/NW1 nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab
     # Mount the file systems.
     mount -a 
     ```
@@ -883,8 +883,8 @@ If you're using NFS on Azure Files, use the following instructions to prepare th
 2. Mount the file systems.
 
     ```bash
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab   
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4.1,sec=sys  0  0" >> /etc/fstab   
     # Mount the file systems.
     mount -a 
     ```   
@@ -904,11 +904,11 @@ If you're using NFS on Azure NetApp Files, use the following instructions to pre
 
     ```bash
     # If you're using NFSv3:
-	echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=3,hard 0 0" >> /etc/fstab
-    echo "10.27.1.5:/saptrans /usr/sap/trans nfs vers=3, hard 0 0" >> /etc/fstab
+	echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=3,hard 0 0" >> /etc/fstab
+    echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=3, hard 0 0" >> /etc/fstab
     # If you're using NFSv4.1:
-	echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=4,minorversion=1,sec=sys,hard 0 0" >> /etc/fstab    
-    echo "10.27.1.5:/saptrans /usr/sap/trans nfs vers=4,minorversion=1,sec=sys,hard 0 0" >> /etc/fstab
+	echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab    
+    echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab
     # Mount the file systems.
     mount -a 
     ```
