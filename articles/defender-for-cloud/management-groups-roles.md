@@ -87,7 +87,7 @@ You can add subscriptions to the management group that you created.
 
 ### Assign Azure roles to users with PowerShell: 
 
-1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 2. Run the following commands: 
 
     ```azurepowershell

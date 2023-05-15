@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 03/10/2023 
+ms.date: 05/05/2023 
 ---
 
 
@@ -68,6 +68,7 @@ Availability zone support is a property of the App Service plan. The following a
     - France Central
     - Germany West Central
     - Japan East
+    - Korea Central
     - North Europe
     - Norway East
     - Qatar Central

@@ -65,6 +65,9 @@ The set of optional claims available by default for applications to use are list
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant's preferred language, if set. Formatted LL ("en"). |
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 
+> [!WARNING]
+> Never use `email` or `upn` claim values to store or determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
+
 ## v2.0-specific optional claims set
 
 These claims are always included in v1.0 Azure AD tokens, but not included in v2.0 tokens unless requested. These claims are only applicable for JWTs (ID tokens and Access Tokens).

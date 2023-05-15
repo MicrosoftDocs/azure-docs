@@ -10,7 +10,7 @@ ms.date: 05/31/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Monitor application end-to-end
+# Quickstart: Monitor applications end-to-end
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -46,7 +46,7 @@ You must manually provide the Application Insights connection string to the Orde
 
    ```azurecli
    INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group=<resource-group-name>
+       --resource-group=<resource-group-name> \
        --app <app-insights-name> | jq -r '.connectionString')
 
    az keyvault secret set \
