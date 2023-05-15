@@ -13,7 +13,7 @@ author: v-saambe
 
 Follow these steps in order to gather the data needed to diagnose AKS-Hybrid creation or management issues. 
 
-[How to Connect AKS hybrid cluster using Azure CLI](../azure-stack-docs/AkS-Hybrid/create-aks-hybrid-preview-cli.md#connect-to-the-aks-hybrid-cluster)
+[How to Connect AKS hybrid cluster using Azure CLI](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster)
 
 :::image type="content" source="media/AKS-Hybrid-connected-status.png" alt-text="Connected status":::
 
@@ -140,7 +140,7 @@ If the resource has already been created, see the section on Surfacing Errors be
 
 Depending on the mechanism used for creation (portal, cli, ARM), it is sometimes hard to see why resources are Failed.
 
-One useful tool to help surface errors is the [az monitor activity-log](../azure-docs-cli/latest/docs-ref-autogen/monitor/activity-log?view=azure-cli-latest) command, which can be used to show actvitities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
+One useful tool to help surface errors is the [az monitor activity-log](/cli/azure/monitor/activity-log?view=azure-cli-latest#) command, which can be used to show actvitities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
 
 For example, to see why a defaultcninetwork failed:
 
@@ -151,7 +151,7 @@ az monitor activity-log list --resource-id "${RESOURCE_ID}" -o tsv --query '[].p
 ```
 
 The result:
-~~~~
+```
 {
   "status": "Failed",
   "error": {
@@ -166,7 +166,7 @@ The result:
   }
 }
 
-~~~~
+```
 
 ### Arc appliance is offline
 This may be associated with an L2 connectivity issue on one of the preconfigured infrastructure vlans (specifically, l2infranetwork-200)
@@ -195,9 +195,21 @@ Symptoms:
  
  If possible, check:
 
-  - Can the natterizer pod reach the hybridaks vm?
+  - Can the natterizer pod reach the hybridaks vm using the [az hybridaks proxy --h](/cli/azure/hybridaks?view=azure-cli-latest#az-hybridaks-proxy) command
+
+  ```Azure CLI
+      $ az hybridaks show -n $name -g $resorucegroup | grep -i defaultcninetwork
+  ```
   - Can the natterizer pod reach the default gateway (.1, .2, .3) of the DCN?
+
+  ```Azure CLI
+  $ az networkcloud defaultcninetwork show -g $resorucegroup -n defaultcninetwork-$ | grep -i ipv4ConnectedPrefix
+    ```
   - Can the hybridaks vm reach its default gateway?
+
+  ```bash
+   infrapxy:~$ nmap -sP $ipv4ConnectedPrefix
+  ```
 
 ### OOM on AKS-Hybrid node
 
