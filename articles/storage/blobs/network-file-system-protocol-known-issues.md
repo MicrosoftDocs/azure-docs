@@ -58,6 +58,10 @@ To see how each Blob Storage feature is supported in accounts that have NFS 3.0 
 > [!NOTE]
 > Static websites is an example of a partially supported feature because the configuration page for static websites does not yet appear in the Azure portal for accounts that have NFS 3.0 support enabled. You can enable static websites only by using PowerShell or Azure CLI.
 
+## Blob Storage Events
+
+Storage Events aren't supported for NFS specific operations. However, if you are performing Blob or Datalake storage operations on NFS enabled account, then the events shall get created based on the API being called.
+
 ## See also
 
 - [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md)
