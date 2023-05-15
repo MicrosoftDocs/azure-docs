@@ -82,11 +82,11 @@ You can assign a member cluster to a specific update group in one of two ways:
 
 1. On the page for your Fleet resource, navigate to **Member clusters**.
 
-    :::image type="content" source="./media/update-orchestration/add-members-inline.png" alt-text="Screenshot of the Azure portal page for Fleet member clusters" lightbox="./media/update-orchestration/add-members.png":::
+    :::image type="content" source="./media/update-orchestration/add-members-inline.png" alt-text="Screenshot of the Azure portal page for Fleet member clusters." lightbox="./media/update-orchestration/add-members.png":::
 
 1. Specify the update group the member cluster should belong to.
 
-    :::image type="content" source="./media/update-orchestration/add-members-assign-group-inline.png" alt-text="A screenshot of the Azure portal page for adding member clusters to Fleet and assigning them to groups" lightbox="./media/update-orchestration/add-members-assign-group.png":::
+    :::image type="content" source="./media/update-orchestration/add-members-assign-group-inline.png" alt-text="A screenshot of the Azure portal page for adding member clusters to Fleet and assigning them to groups." lightbox="./media/update-orchestration/add-members-assign-group.png":::
 
 #### [Azure CLI](#tab/cli)
 
@@ -102,13 +102,13 @@ az fleet member create --resource-group $GROUP --fleet-name $FLEET --name member
 
 1. On the page for your Fleet resource, navigate to **Member clusters** menu. Choose the member clusters you want and select **Assign update group**.
 
-    :::image type="content" source="./media/update-orchestration/existing-members-assign-group-inline.png" alt-text="A screenshot of the Azure portal page for assigning existing member clusters to a group" lightbox="./media/update-orchestration/existing-members-assign-group.png":::
+    :::image type="content" source="./media/update-orchestration/existing-members-assign-group-inline.png" alt-text="A screenshot of the Azure portal page for assigning existing member clusters to a group." lightbox="./media/update-orchestration/existing-members-assign-group.png":::
 
 1. Specify the group name and select **Assign**.
 
     :::image type="content" source="./media/update-orchestration/group-name-inline.png" alt-text="A screenshot of the Azure portal page for member clusters, showing the form for updating a member cluster's group." lightbox="./media/update-orchestration/group-name.png":::
 
-#### [CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az fleet member update --resource-group $GROUP --fleet-name $FLEET --name member1 --update-group group-1a
@@ -138,11 +138,11 @@ You can define an update run by using update stages to pool together update grou
 
     :::image type="content" source="./media/update-orchestration/create-stage-choose-groups.png" alt-text="A screenshot of the Azure portal page for stage creation, showing the selection upgrade groups.":::
 
-1. Once you have defined all your stages and ordered them using the **Move up** and **Move down** controls, proceed wth creating the update run.
+1. Once you have defined all your stages and ordered them using the **Move up** and **Move down** controls, proceed with creating the update run.
 
 1. In the **Multi-cluster update** menu, choose the update run and select **Start**.
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 1. Run the following command to create the update run:
 
