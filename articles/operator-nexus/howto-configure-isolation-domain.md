@@ -465,7 +465,7 @@ Use the `show` or `list` command to validate that the isolation domain has been 
 
 ## Create internal networks
 
-After you successfully create an isolation domain, the next step is to create an internal network. Internal networks enable Layer 3 inter-rack and intra-rack communication between workloads by exchanging routes with the fabric. An L3 isolation domain can support multiple internal networks, each on a separate VLAN.
+After you successfully create an L3 isolation domain, the next step is to create an internal network. Internal networks enable Layer 3 inter-rack and intra-rack communication between workloads by exchanging routes with the fabric. An L3 isolation domain can support multiple internal networks, each on a separate VLAN.
 
 The following diagram represents an example network function with three internal networks: trusted, untrusted, and management. Each of the internal networks is created in its own L3 isolation domain.
 
