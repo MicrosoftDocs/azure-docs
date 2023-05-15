@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Android app with Azure Maps'
 titleSuffix:  Microsoft Azure Maps
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps

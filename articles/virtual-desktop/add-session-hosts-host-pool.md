@@ -17,21 +17,22 @@ This article shows you how to generate a registration key using the Azure portal
 
 ## Prerequisites
 
-Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required. In addition, you'll need:
+Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required, such as operating systems, virtual networks, and identity providers. In addition, you'll need:
 
 - An existing host pool.
 
-- If you're joining session hosts to Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
-
-- If you're joining session hosts to Active Directory domain using Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS), you need a domain account that can join computers to your domain. For Azure AD DS, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-
-- A virtual network and subnet in the same Azure region you want to create session hosts. You don't need a public IP address or open inbound ports for your session hosts.
-
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that was used. All session hosts in a host pool should be the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Azure AD and some session hosts joined to an Active Directory domain.
 
-- If you're creating virtual machines outside of the Azure Virtual Desktop service, make sure you're using a [supported operating system](prerequisites.md#operating-systems-and-licenses) (OS). Remember to use a multi-session OS for a pooled host pool.
+- The Azure account you use must have the following built-in role-based access control (RBAC) roles as a minimum on the resource group:
 
-- A minimum of *Contributor* built-in [role-based access control](../role-based-access-control/built-in-roles.md) (RBAC) role on the resource group.
+   | Action | RBAC role(s) |
+   |--|--|
+   | Generate a host pool registration key | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
+   | Create and add session hosts using the Azure portal | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role.
+
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating and adding session hosts using the Azure portal, as it's required by [PowerShell DSC](/powershell/dsc/overview).
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -160,7 +161,7 @@ Here's how to create session hosts and register them to a host pool using the Az
    | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **Basic** will create a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG. |
    | Public inbound ports | We recommend you select **No**. |
    | **Domain to join** |  |
-   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.  |
+   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.<br /><br />To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md). |
    | **Virtual Machine Administrator account** |  |
    | Username | Enter a name to use as the local administrator account for the new session host VMs. |
    | Password | Enter a password for the local administrator account. |
@@ -202,8 +203,10 @@ Select the relevant tab for your scenario and follow the steps.
 1. Download the Agent and the Agent Bootloader installation files using the following links You may need to unblock them; right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
    - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+
+   > [!TIP]
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -215,7 +218,9 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Follow the prompts and complete the installation.
 
-1. The virtual machines should now appear as a session host in the host pool. Finally, restart the virtual machines.
+1. After a short time, the virtual machines should now be listed as session hosts in the host pool. The status of the session hosts may initially show as **Unavailable** and if there is a newer agent version available, it will upgrade automatically.
+
+1. Once the status of the session hosts is **Available**, restart the virtual machines.
 
 # [Command line](#tab/cmd)
 
@@ -256,6 +261,9 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    }
    ```
 
+   > [!TIP]
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
+
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
 
    ```powershell
@@ -268,7 +276,9 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    msiexec /i Microsoft.RDInfra.RDAgentBootLoader.Installer-x64.msi /quiet
    ```
 
-1. The virtual machines should now appear as a session host in the host pool. Finally, restart the virtual machines. 
+1. After a short time, the virtual machines should now be listed as session hosts in the host pool. The status of the session hosts may initially show as **Unavailable** and if there is a newer agent version available, it will upgrade automatically.
+
+1. Once the status of the session hosts is **Available**, restart the virtual machines.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and manage a room resource
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to create a Room within your Azure Communication Services resource.
+description: In this quickstart, you learn how to create a Room within your Azure Communication Services resource.
 services: azure-communication-services
 author: radubulboaca
 manager: mariusu
@@ -15,33 +15,48 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Quickstart: Create and manage a room resource
 
+::: zone pivot="platform-azcli"
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
+This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
-::: zone pivot="platform-azcli"
 [!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
+
 [!INCLUDE [Use rooms with .NET SDK](./includes/rooms-quickstart-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
+
 [!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
+
 [!INCLUDE [Use rooms with Python SDK](./includes/rooms-quickstart-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
+
 [!INCLUDE [Use rooms with JavaScript SDK](./includes/rooms-quickstart-javascript.md)]
 ::: zone-end
 
 ## Object model
 
-The table below lists the main properties of `room` objects: 
+The table lists the main properties of `room` objects: 
 
 | Name                  | Description                               |
 |-----------------------|-------------------------------------------|

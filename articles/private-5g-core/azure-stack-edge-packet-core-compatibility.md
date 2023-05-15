@@ -1,6 +1,6 @@
 ---
 title: Packet core and Azure Stack Edge compatibility
-description: Discover which Azure Stack Edge versions are compatible with each packet core version
+description: Discover which Azure Stack Edge models and versions are compatible with each packet core version
 author: liumichelle
 ms.author: limichel
 ms.service: private-5g-core
@@ -10,9 +10,19 @@ ms.date: 03/30/2023
 
 # Packet core and Azure Stack Edge (ASE) compatibility
 
-Each site in your deployment contains an Azure Stack Edge (ASE) Pro device that hosts a packet core instance. This article provides information on version compatibility between ASE and packet core that you can refer to when installing a packet core instance or performing an upgrade.
+Each site in your deployment contains an Azure Stack Edge (ASE) Pro device that hosts a single packet core instance. This article provides information on version compatibility between ASE and packet core that you can refer to when installing a packet core instance or performing an upgrade.
 
-## Packet core and ASE compatibility table
+## Supported Azure Stack Edge Pro models
+
+The following Azure Stack Edge Pro models are supported:
+
+- Azure Stack Edge Pro with GPU
+- Azure Stack Edge Pro 2
+  - Model 64G2T
+  - Model 128G4T1GPU
+  - Model 256G6T2GPU
+
+## Packet core and Azure Stack Edge version compatibility table
 
 The following table provides information on which versions of the ASE device are compatible with each packet core version.
 
