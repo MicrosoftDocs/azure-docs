@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Start and stop SAP systems with CLI
+title: Quickstart - Start and stop SAP systems from Azure Center for SAP solutions with CLI
 description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -37,7 +37,7 @@ Through the Azure CLI, you can start and stop:
 ## Start SAP system
 To Start an SAP system represented as a *Virtual Instance for SAP solutions* resource:
 
-1. Use the [az workloads sap-virtual-instance start](/cli/azure/workloads/sap-virtual-instance#az-workloads-sap-virtual-instance-start) command:
+Use the [az workloads sap-virtual-instance start](/cli/azure/workloads/sap-virtual-instance#az-workloads-sap-virtual-instance-start) command:
 
 Option 1:
 
@@ -48,7 +48,7 @@ Use the Virtual Instance for SAP solutions resource Name and ResourceGroupName t
 ```
 Option 2:
 
-Use the id parameter and pass the resource ID of the Virtual Instance for SAP solutions resource you intend to start.
+Use the `id` parameter and pass the resource ID of the Virtual Instance for SAP solutions resource you intend to start.
      
 ```azurecli-interactive
      az workloads sap-virtual-instance start --id <ResourceID>
@@ -58,7 +58,7 @@ Use the id parameter and pass the resource ID of the Virtual Instance for SAP so
 
 To stop an SAP system represented as a *Virtual Instance for SAP solutions* resource:
 
-1. Use the [az workloads sap-virtual-instance stop](/cli/azure/workloads/sap-virtual-instance#az-workloads-sap-virtual-instance-stop) command:
+Use the [az workloads sap-virtual-instance stop](/cli/azure/workloads/sap-virtual-instance#az-workloads-sap-virtual-instance-stop) command:
 
 Option 1:
 
@@ -69,7 +69,7 @@ Use the Virtual Instance for SAP solutions resource Name and ResourceGroupName t
 ```
 Option 2:
 
-Use the InputObject parameter and pass the resource ID of the Virtual Instance for SAP solutions resource you intend to stop.
+Use the `id` parameter and pass the resource ID of the Virtual Instance for SAP solutions resource you intend to stop.
      
 ```azurecli-interactive
      az workloads sap-virtual-instance stop --id <ResourceID>
