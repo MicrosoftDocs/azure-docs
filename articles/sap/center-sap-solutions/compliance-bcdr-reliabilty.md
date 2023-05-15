@@ -19,7 +19,7 @@ Azure availability zones are at least three physically separate groups of datace
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
-Azure Center for SAP Solutions supports zone-redundancy.When creating a new SAP system through Azure Center for SAP solutions, you can choose the Compute availability option for the infrastructure being deployed. You can choose to deploy the SAP system with zone redundancy based on your requirements, while the service is zone-redundant by default. [Learn more about deployment type options for SAP systems here](https://learn.microsoft.com/azure/sap/center-sap-solutions/deploy-s4hana#deployment-types).
+Azure Center for SAP Solutions supports zone-redundancy.When creating a new SAP system through Azure Center for SAP solutions, you can choose the Compute availability option for the infrastructure being deployed. You can choose to deploy the SAP system with zone redundancy based on your requirements, while the service is zone-redundant by default. [Learn more about deployment type options for SAP systems here](/azure/sap/center-sap-solutions/deploy-s4hana#deployment-types).
 
 ### Regional availability
 
@@ -37,7 +37,7 @@ When deploying SAP systems using Azure Center for SAP solutions, you can use Zon
 - Zone redundancy for the SAP system infrastructure that you deploy using Azure Center for SAP solutions can only be chosen when creating the Virtual Instance for SAP solutions (VIS) resource. Once the VIS resource is created and infrastructure is deployed, you will not be able to change the underlying infrastructure configuration to zone redundant.
 
 #### Deploy an SAP system with availability zone enabled
-This section explains how you can deploy an SAP system with Zone redundancy from the Azure Portal. You can also use PowerShell and CLI interfaces to do this. Learn more about [deploying a new SAP system using Azure Center for SAP solutions](https://learn.microsoft.com/azure/sap/center-sap-solutions/deploy-s4hana).
+This section explains how you can deploy an SAP system with Zone redundancy from the Azure Portal. You can also use PowerShell and CLI interfaces to do this. Learn more about [deploying a new SAP system using Azure Center for SAP solutions](/azure/sap/center-sap-solutions/deploy-s4hana).
 
 1. Open the Azure portal and navigate to the **Azure Center for SAP solutions** page.
 
@@ -49,7 +49,7 @@ This section explains how you can deploy an SAP system with Zone redundancy from
 
     ![Screenshot of Zone redundancy option while VIS creation.](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/BCDR_Images/ACSS_AVzone.png)
 
-3. There are no more input fields in the rest of the process that affects zone redundancy. You can proceed with creating the system as per the [deployment guide](https://learn.microsoft.com/azure/sap/center-sap-solutions/deploy-s4hana).
+3. There are no more input fields in the rest of the process that affects zone redundancy. You can proceed with creating the system as per the [deployment guide](/azure/sap/center-sap-solutions/deploy-s4hana).
 
 ### Zone down experience
 If the SAP system infrastrucutre is deployed with Zone-redundancy, and if the primary instance goes down because of a zone outage, the SAP workload will failover to the secondary virtual machine and you will be able to access the system without any interruptions.
@@ -64,11 +64,11 @@ Azure Center for SAP solutions service is a zone redundant service. So, service 
 | Case 3 | A (Down)        | B (Down)         | ACSS Service and SAP workload regions are down   | 1. Customers should perform workload failover to DR region (outside of ACSS). <br> 2. Register the failed over workload with ACSS service available in another region using PowerShell or CLI which allow to select an available service location.
 
 ### Outage detection, notification, and management
-When service goes down in a region customers will be notified through AZCOM. Customer also can check the service health page in Azure portal, and can also configure the notifications on service health by following [steps to create a service health alert](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json).
+When service goes down in a region customers will be notified through AZCOM. Customer also can check the service health page in Azure portal, and can also configure the notifications on service health by following [steps to create a service health alert](/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json).
 
 ### Capacity and proactive disaster recovery resiliency
 You need to plan the capacity for your workload in the DR region.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview.md)
+> [Resiliency in Azure](/azure/reliability/availability-zones-overview)
