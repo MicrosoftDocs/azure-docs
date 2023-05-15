@@ -83,6 +83,33 @@ You can have greater control over how to divide uploads into blocks by manually 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadBlocks":::
 
+## Upload a block blob with configuration options
+
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. Some options can be configured at the client level by using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions). Other options are configured at the operation level for uploads by using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions). The following code examples show how to define configuration options at the operation level for an upload.
+
+### Specify transfer validation options on upload
+
+You can specify transfer validation options to help ensure that data is uploaded properly and hasn't been tampered with during transit. The following code example shows how to create a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) object and specify an algorithm for generating a checksum. The checksum is then used to verify data integrity for the uploaded content.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithChecksum":::
+
+The following table shows the available options for the checksum algorithm, as defined by [StorageChecksumAlgorithm](/dotnet/api/azure.storage.storagechecksumalgorithm):
+
+| Name | Value | Description |
+| --- | --- | --- |
+| Auto | 0 | Recommended. Allows the library to choose an algorithm. Different library versions may choose different algorithms. |
+| None | 1 | No selected algorithm. Don't calculate or request checksums.
+| MD5 | 2 | Standard MD5 hash algorithm. |
+| StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
+
+### Specify the access tier for a blob
+
+You can set the access tier of a blob on upload.
+
+### 
+
+To learn more about 
+
 ## Resources
 
 To learn more about uploading blobs using the Azure Blob Storage client library for .NET, see the following resources.
