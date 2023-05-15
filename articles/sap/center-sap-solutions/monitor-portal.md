@@ -1,5 +1,5 @@
 ---
-title: Monitor SAP system from the Azure portal (preview)
+title: Monitor SAP system from the Azure portal
 description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions within the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -10,9 +10,9 @@ ms.author: ladolan
 #Customer intent: As a developer, I want to set up monitoring for my Virtual Instance for SAP solutions, so that I can monitor the health and status of my SAP system in Azure Center for SAP solutions.
 ---
 
-# Monitor SAP system from Azure portal (preview)
+# Monitor SAP system from Azure portal 
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+
 
 In this how-to guide, you'll learn how to monitor the health and status of your SAP system with *Azure Center for SAP solutions* through the Azure portal. The following capabilities are available for your *Virtual Instance for SAP solutions* resource:
 
