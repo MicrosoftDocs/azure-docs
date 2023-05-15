@@ -1081,8 +1081,16 @@
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ../availability-zones/migrate-vm.md
-  - name: Virtual machine scale sets
-    href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
+  - name: Virtual Machine Scale Sets
+    items: 
+    - name: Overview
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
+    - name: Scaling profiles
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-scaling-profile.md
+      maintainContext: true
+    - name: Attach VMs to a scale set
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md
+      maintainContext: true
   - name: Proximity Placement Groups
     items:
     - name: Overview
