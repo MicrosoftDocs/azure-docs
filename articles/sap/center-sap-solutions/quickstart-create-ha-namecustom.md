@@ -9,7 +9,7 @@ ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to Create a Distributed Highly available SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
-# Quickstart: Use Azure CLI to Create infrastructure for a distributed highly available (HA) SAP system with Azure Center for SAP solutions with customized resource names
+# Quickstart: Use Azure CLI to create infrastructure for a distributed highly available (HA) SAP system with Azure Center for SAP solutions with customized resource names
 
 The [Azure CLI](/cli/azure/) is used to create and manage Azure resources from the command line or in scripts.
 
