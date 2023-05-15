@@ -20,7 +20,7 @@ To set up the proxy, you must have an Azure Monitor workspace. If you don't have
 
 The proxy can be deployed in custom templates using release image or as helm chart. Both deployments contain the same parameters that can be customized. These parameters are described in the [Parameters](#parameters) table.
 
-THe following examples show how to deply the proxy for To deploy the proxy for remote write and for querying data from Azure Monitor.
+The following examples show how to deply the proxy for To deploy the proxy for remote write and for querying data from Azure Monitor.
 
 ## [Remote write example](#tab/remote-write-example)
 
@@ -55,7 +55,7 @@ Use the following YAML file to deploy the proxy for remote write. Modify the fol
 
 + `TARGET_HOST` - The target host where you want to forward the request to. To send data to an Azure Monitor workspace, use the hostname part of the `Metrics ingestion endpoint` from the workspaces Overview page. For example, `https://proxy-test-abcd.eastus-1.metrics.ingest.monitor.azure.com`
 + `AAD_CLIENT_ID` - The `clientId` of the managed identity used that was assigned the `Monitoring Metrics Publisher` role.
-`AUDIENCE` - For ingesting metrics to Azure Monitor Workspace, set `AUDIENCE` to `https://monitor.azure.com` .
++ `AUDIENCE` - For ingesting metrics to Azure Monitor Workspace, set `AUDIENCE` to `https://monitor.azure.com` .
 
 Remove `OTEL_GRPC_ENDPOINT` and `OTEL_SERVICE_NAME` if you aren't using OpenTelemetry.
 
@@ -143,8 +143,7 @@ kubectl apply -f proxy-ingestion.yaml -n observability
 ### Deploy using helm chart
 
 Deploy the proxy with helm using the following command:
->>>>>>> ??Modify the command with your oci, `targetHost`, and `aadClientId` parameters.
-
+>>>>>>> ??Modify the command with your oci ?
 ```bash 
 helm install aad-auth-proxy oci://mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/helmchart/aad-auth-proxy \
 --version 0.1.0 \
