@@ -137,7 +137,9 @@
 - name: Samples
   expanded: false
   items: 
-    - name: Authenticate and Connect
+    - name: Overview
+      href: samples-overview.md
+    - name: Authenticate and connect
       href: samples-authenticate-and-connect.md
     - name: App scenarios
       href: samples-app-scenarios.md
@@ -146,6 +148,8 @@
 - name: Intergrate with other Azure services
   expanded: false
   items: 
+    - name: Overview
+      href: intergration-overview.md
     - name: App Service
       href: samples-persist messages.md
     - name: Azure Functions
