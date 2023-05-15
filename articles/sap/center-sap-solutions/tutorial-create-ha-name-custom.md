@@ -1,21 +1,20 @@
 ---
-title: Tutorial - Create a Distributed Highly available SAP system with Azure Center for SAP solutions with Azure CLI
-description: In this tutorial Create a Distributed Highly available SAP system in Azure Center for SAP solutions through Azure CLI.
+title: Tutorial - Create a distributed highly available SAP system with Azure Center for SAP solutions with Azure CLI
+description: In this tutorial you learn to create a distributed highly available SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: tutorial
 ms.date: 05/04/2023
 ms.author: sagarkeswani
 author: sagarkeswani
-#Customer intent: As a developer, I want to Create a Distributed Highly available SAP system so that I can use the system with Azure Center for SAP solutions.
+#Customer intent: As a developer, I want to create a distributed highly available SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
-# Tutorial: Use Azure CLI to Create infrastructure for a Distributed Highly available (HA) SAP system with Azure Center for SAP solutions with customized resource names
-
-## Introduction
-
-The [Azure CLI](/cli/azure/) is used to create and manage Azure resources from the command line or in scripts.
+# Tutorial: Use Azure CLI to create infrastructure for a distributed highly available (HA) SAP system with *Azure Center for SAP solutions* with customized resource names
 
 [Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. After you deploy infrastructure and [install SAP software](install-software.md) with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the [Virtual Instance for SAP solutions](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-azure-center-sap-ga/articles/sap/center-sap-solutions/manage-virtual-instance.md)
+
+## Introduction
+The [Azure CLI](/cli/azure/) is used to create and manage Azure resources from the command line or in scripts.
 
 This tutorial shows you how to use Azure CLI to deploy infrastructure for an SAP system with highly available (HA) Three-tier Distributed architecture. You also see how to customize resource names for the Azure infrastructure that gets deployed. See the following steps:
 > [!div class="checklist"]
@@ -66,20 +65,20 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
 
 ## Create *json* configuration file with custom resource names
 
-- Prepare a *json* file with the conguration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
-- In this json file, provide the custom resource names for the insfrastructure that is deployed for your SAP system
+- Prepare a *json* file with the configuration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
+- In this json file, provide the custom resource names for the infrastructure that is deployed for your SAP system
 - The parameters available for customization are: 
-    1. VM Name
-    2. Host Name
-    3. Network interface name
-    4. OS Disk Name
-    5. Load Balancer Name
-    6. Frontend IP Configuration Names
-    7. Backend Pool Names
-    8. Health Probe Names
-    9. Data Disk Names: default, hanaData or hana/data, hanaLog or hana/log, usrSap or usr/sap, hanaShared or hana/shared, backup
-    10. Shared Storage Account Name
-    11. Shared Storage Account Private End Point Name
+    - VM Name
+    - Host Name
+    - Network interface name
+    - OS Disk Name
+    - Load Balancer Name
+    - Frontend IP Configuration Names
+    - Backend Pool Names
+    - Health Probe Names
+    - Data Disk Names: default, hanaData or hana/data, hanaLog or hana/log, usrSap or usr/sap, hanaShared or hana/shared, backup
+    - Shared Storage Account Name
+    - Shared Storage Account Private End Point Name
 
 You can download the [sample payload](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) and replace the resource names and any other parameter as needed
 
@@ -98,7 +97,7 @@ If you no longer wish to use the VIS resource, you can delete it by using [az wo
 ```azurecli-interactive
 az workloads sap-virtual-instance delete -g <Resource_Group_Name> -n <VIS Name>
 ```
-This command will only delete the VIS and other resources created by Azue Center for SAP solutions. This will not delete the deployed infrastructure like VMs, Disks etc. 
+This command will only delete the VIS and other resources created by Azure Center for SAP solutions. This will not delete the deployed infrastructure like VMs, Disks etc. 
 
 
 ## Next steps
