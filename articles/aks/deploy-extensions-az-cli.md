@@ -1,7 +1,7 @@
 ---
 title: Deploy and manage cluster extensions by using the Azure CLI
 description: Learn how to use Azure CLI to deploy and manage extensions for Azure Kubernetes Service clusters.
-ms.date: 05/12/2023
+ms.date: 05/15/2023
 ms.topic: article
 author: JnHs
 ms.author: jenhayes
@@ -101,7 +101,7 @@ To list all extensions installed on a cluster, use `k8s-extension list`, passing
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-### Update extension instance
+## Update extension instance
 
 > [!NOTE]
 > Refer to documentation for the specific extension type to understand the specific settings in `--configuration-settings` and `--configuration-protected-settings` that are able to be updated. For `--configuration-protected-settings`, all settings are expected to be provided, even if only one setting is being updated. If any of these settings are omitted, those settings will be considered obsolete and deleted.
@@ -122,6 +122,14 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | `--resource-group` | The resource group containing the AKS cluster |
 | `--cluster-type` | The cluster type on which the extension instance has to be created. Specify `managedClusters` as it maps to AKS clusters|
 
+If updating a Kubernetes application procured through Marketplace, the following parameters are also required:
+
+| Parameter name | Description |
+|----------------|------------|
+|`--plan-name` | **Plan ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
+|`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
+|`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
+
 ### Optional parameters for update
 
 | Parameter name | Description |
@@ -134,9 +142,7 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | `--configuration-protected-settings-file` | Path to the JSON file having key value pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
-|`--plan-name` | **Plan ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
-|`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
-|`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
+
 
 ## Delete extension instance
 
