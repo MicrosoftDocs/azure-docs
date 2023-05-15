@@ -13,7 +13,7 @@ author: sagarkeswani
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to  Install SAP software for infrastructure deployed for an SAP system. In the [previous step](quickstart-create-distributed-non-HA.md), you created infrastructure for an SAP system with non highly available (HA) Distributed architecture on Azure with *Azure Center for SAP solutions* using Az PowerShell module.
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to  Install SAP software for infrastructure deployed for an SAP system. In the [previous step](deploy-s4hana.md), you created infrastructure for an SAP system with non highly available (HA) Distributed architecture on Azure with *Azure Center for SAP solutions* using Az PowerShell module.
 
 After you [deploy infrastructure](deploy-s4hana.md) and install SAP software with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the [Virtual Instance for SAP solutions](manage-virtual-instance.md). For example, you can:
 
@@ -35,7 +35,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - You should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
-- The *json* configuration file that you used to create infrastructure in the [previous step](quickstart-create-distributed-non-HA.md) for SAP system using PowerShell or Azure CLI. 
+- The *json* configuration file that you used to create infrastructure in the [previous step](deploy-s4hana.md) for SAP system using PowerShell or Azure CLI. 
 
 ## Create *json* configuration file
 
