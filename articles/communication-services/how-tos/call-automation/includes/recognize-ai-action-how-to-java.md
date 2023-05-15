@@ -137,6 +137,22 @@ Logger.logMessage(
         "startRecognizingWithResponse --> " + getResponse(response)
 ```
 
+### Speech-To-Text
+``` java
+ CallMediaRecognizeSpeechOrDtmfOptions recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(new CommunicationUserIdentifier("id"), 6, Duration.ofMillis(1000));
+
+ String ssmlText = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hi, welcome to Contoso. How can I help you today?</voice></speak>";
+ recognizeOptions.setRecognizeInputType(RecognizeInputType.SPEECH_OR_DTMF);
+ recognizeOptions.setPlayPrompt(new SsmlSource().setSsmlText(ssmlText));
+ recognizeOptions.setInterruptCallMediaOperation(true);
+ recognizeOptions.setStopCurrentOperations(true);
+ recognizeOptions.setOperationContext("operationContext");
+ recognizeOptions.setInterruptPrompt(true);
+ recognizeOptions.setInitialSilenceTimeout(Duration.ofSeconds(4));
+
+ Response<Void> response = callMedia.startRecognizingWithResponse(recognizeOptions, Context.NONE);
+```
+
 **Note:** If parameters aren't set, the defaults will be applied where possible.
 
 ## Receiving recognize event updates
@@ -160,6 +176,13 @@ if (callEvent instanceof RecognizeCompleted) {
                     // Take action on collect tones
                     CollectTonesResult collectTonesResult = (CollectTonesResult) recognizeResult;
                     List<DtmfTone> tones = collectTonesResult.getTones();
+                }
+                else if(recognizeResult instanceof SpeechResult)
+                {
+                    // Take action on speech
+                    logger.LogInformation($"Speech result received for call connection id: {@event.CallConnectionId}");
+                    phraseDetected = speechResult.Speech;
+                    logger.LogInformation($"Phrased Detected: {phraseDetected ?? "Continuous speech detected using speech recognition"}");
                 }
             }
 ```
