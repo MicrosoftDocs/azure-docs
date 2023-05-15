@@ -58,7 +58,7 @@ az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" 
   --limit-time-seconds 600
 ```
 
-In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the **Checking command status and viewing output** section for details on how to track command completion and viewing the output file.
+In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the **Viewing the output** section for details on how to track command completion and view the output file.
 
 ## Viewing the output
 
