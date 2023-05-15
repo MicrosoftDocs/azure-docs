@@ -311,27 +311,34 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**.NET**](#tab/test-csharp)
 
+1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
+
+
 See [Authorize access to a search app using Azure Active Directory](search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
 
-The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package. Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
+1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentiation. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
-+ When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
+   + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
 
-+ The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for "https://search.azure.com/.default".
+   + The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for "https://search.azure.com/.default".
 
-Example of using [client secret credential](/dotnet/api/azure.core.tokencredential):
+1. Here's an example of a client connection using `DefaultAzureCredential()`.
 
-```csharp
-var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
-SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
-```
+    ```csharp
+    // Create a SearchIndexClient to send create/delete index commands
+    SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, new DefaultAzureCredential());
 
-More details about using [Azure AD authentication with the Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) are available in the SDK's GitHub repo.
+    // Create a SearchClient to load and query documents
+    SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, new DefaultAzureCredential());
+    ```
 
-> [!NOTE]
-> If you get a 403 error, verify that your search service is enrolled in the preview program and that your service is configured for preview role assignments.
+1. Here's another example of using [client secret credential](/dotnet/api/azure.core.tokencredential):
 
----
+    ```csharp
+    var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
+    SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
+    ```
+
 
 ## Test as current user
 
