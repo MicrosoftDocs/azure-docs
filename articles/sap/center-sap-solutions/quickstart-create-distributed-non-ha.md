@@ -1,19 +1,19 @@
 ---
-title: Quickstart - Create a Distributed non-HA SAP system with Azure Center for SAP solutions with PowerShell
-description: Learn how to Create a Distributed non-HA SAP system in Azure Center for SAP solutions through Azure PowerShell module.
+title: Quickstart - Create a distributed non-HA SAP system with Azure Center for SAP solutions with PowerShell
+description: Learn how to create a distributed non-HA SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: quickstart
 ms.date: 05/04/2023
 ms.author: sagarkeswani
 author: sagarkeswani
-#Customer intent: As a developer, I want to Create a Distributed non-HA SAP system so that I can use the system with Azure Center for SAP solutions.
+#Customer intent: As a developer, I want to create a distributed non-HA SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
-# Quickstart: Create infrastructure for a Distributed Non-High-Availability SAP system with Azure Center for SAP solutions 
+# Quickstart: Create infrastructure for a distributed non-high-availability SAP system with *Azure Center for SAP solutions* 
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to deploy infrastrucure for an SAP system with non highly-available (HA) Distributed architecture on Azure with *Azure Center for SAP solutions* using Az PowerShell module. Alternatively, you can deploy SAP systems using the Azure CLI, or in the Azure Portal. 
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to deploy infrastructure for an SAP system with non highly available (HA) Distributed architecture on Azure with *Azure Center for SAP solutions* using Az PowerShell module. Alternatively, you can deploy SAP systems using the Azure CLI, or in the Azure Portal. 
 
 After you deploy infrastructure and [install SAP software](install-software.md) with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
@@ -66,7 +66,7 @@ Prepare a *json* file with the payload that will be used for the deployment of S
 
 ## Deploy infrastructure for your SAP system
 
-Use [New-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance) to deploy inrastructure for your SAP system with Three tier non-HA architecture
+Use [New-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance) to deploy infrastructure for your SAP system with Three tier non-HA architecture
 
 ```powershell
 New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Name L46 -Location eastus -Environment 'NonProd' -SapProduct 'S4HANA' -Configuration .\CreatePayload.json -Tag @{k1 = "v1"; k2 = "v2"} -IdentityType 'UserAssigned' -ManagedResourceGroupName "L46-rg" -UserAssignedIdentity @{'/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourcegroups/SAP-E2ETest-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/E2E-RBAC-MSI'= @{}}
@@ -74,7 +74,7 @@ New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Na
 
 
 ## Next steps
-In this quickstart, you deployed infrstructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to install SAP software on the infrastructure deployed. 
+In this quickstart, you deployed infrastructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to install SAP software on the infrastructure deployed. 
 > [!div class="nextstepaction"]
 > [Install SAP software](install-software.md)
 
