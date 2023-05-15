@@ -59,6 +59,10 @@ For more information, see [Provision OT sensors for cloud management](ot-deploy/
 
 ### Configure sensor proxy settings
 
+> [!NOTE]
+> An intermediate certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma.
+> For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
+
 If you already have a proxy set up in your Azure VNET, start by defining the proxy settings on your sensor console:
 
 1. Sign into your OT sensor and select **System settings > Sensor Network Settings**.
@@ -74,8 +78,6 @@ If you don't yet have a proxy configured in your Azure VNET, use the following s
 1. [Define an Azure virtual machine scale set](#step-5-define-an-azure-virtual-machine-scale-set)
 1. [Create an Azure load balancer](#step-6-create-an-azure-load-balancer)
 1. [Configure a NAT gateway](#step-7-configure-a-nat-gateway)
-
-If your proxy implements SSL inspection, set up SSL inspection through a cloud security platform, such as [Zscaler](https://www.zscaler.com/capabilities/ssl-inspection), then use the OT sensor console to deploy the intermediate certificate. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 #### Step 1: Define a storage account for NSG logs
 
