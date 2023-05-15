@@ -14,7 +14,7 @@ ms.author: kesheth
 
 The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html) for exporting FHIR data from a FHIR server. In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into a pre-configured Azure storage account.
 
-Ensure you are granted with application role - 'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](../../healthcare-apis/authentication-authorization).
+Ensure you are granted with application role - 'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](../../healthcare-apis/authentication-authorization.md).
 
 Below are three steps in setting up the `$export` operation for the FHIR service-
 
@@ -121,7 +121,7 @@ Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $sto
 
 After running this command, in the **Firewall** section under **Resource instances** you will see **2 selected** in the **Instance name** dropdown list. These are the names of the workspace instance and FHIR service instance that you just registered as Microsoft Trusted Resources.
 
-  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
+:::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
 You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
@@ -156,7 +156,7 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](./deploy-convert-data.md#step-6-configure-the-azure-container-registry-firewall-for-secure-access---optional).
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](./configure-convert-data.md#step-6-configure-the-azure-container-registry-firewall-for-secure-access-optional).
 
 ### Allowing specific IP addresses to access the Azure storage account in the same region
 

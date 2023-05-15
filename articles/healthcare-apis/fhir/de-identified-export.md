@@ -10,7 +10,7 @@ ms.author: kesheth
 ---
 # Exporting de-identified data
 
-> [!Note] 
+> [!NOTE] 
 > Results when using the FHIR service's de-identified export will vary based on the nature of the data being exported and what de-id functions are in use. Microsoft is unable to evaluate de-identified export outputs or determine the acceptability for customers' use cases and compliance needs. The FHIR service's de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
 
  The FHIR service is able to de-identify data on export when running an `$export` operation. For de-identified export, the FHIR service uses the anonymization engine from the [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization) (OSS) project on GitHub. There is a [sample config file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#sample-configuration-file) to help you get started redacting/transforming FHIR data fields that contain personally identifying information. 
@@ -50,11 +50,13 @@ For detailed information on the settings within the configuration file, visit [h
 
 ## Manage Configuration File in storage account
 You will need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see below). 
-> [!Note] 
+
+> [!NOTE] 
 > It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
 
 ## Manage Configuration File in ACR
-It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](convert-data.md#host-your-own-templates).  
+
+It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](configure-convert-data.md#host-your-own-templates).  
 1. Push the configuration files to your Azure Container Registry.
 2. Enable Managed Identity on your FHIR service instance.
 3. Provide access of the ACR to the FHIR service Managed Identity.
@@ -63,7 +65,8 @@ It's recommended that you host the export configuration files on Azure Container
 
 ## Using the `$export` endpoint for de-identifying data
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfigCollectionReference=<<ACR image reference>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
-> [!Note] 
+
+> [!NOTE] 
 > Right now the FHIR service only supports de-identified export at the system level (`$export`).
 
 |Query parameter            | Example |Optionality| Description|

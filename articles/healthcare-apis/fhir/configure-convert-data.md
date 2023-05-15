@@ -1,6 +1,6 @@
 ---
-title: Deploy convert-data using the Azure portal - Azure Health Data Services
-description: Learn how to deploy convert-data using the Azure portal.
+title: Configure convert-data using the Azure portal - Azure Health Data Services
+description: Learn how to configure convert-data using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,7 +9,7 @@ ms.date: 05/15/2022
 ms.author: jasteppe
 ---
 
-# Deploy convert-data
+# Configure convert-data
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
