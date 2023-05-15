@@ -101,7 +101,6 @@ One of the following [Azure built-in roles](../role-based-access-control/built-i
 |---------          |---------               |
 |Resource Manager   | Owner                  |
 |                   | Contributor            |
-|                   | Reader                 |
 |                   | Network Contributor    |
 
 If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) to your account. The custom role should support the following actions at the subscription level:
