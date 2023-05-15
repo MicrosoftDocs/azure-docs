@@ -62,10 +62,10 @@ Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-
 az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> --environment NonProd --sap-product s4hana --configuration <Payload file path> --identity "{type:UserAssigned,userAssignedIdentities:{<Managed_Identity_ResourceID>:{}}}"
 ```
 
-**Note:** The command for infrastructure deployment and installation are the same but the payload file for the two needs to be different. 
+**Note:** The commands for infrastructure deployment and installation are the same but the payload file for the two needs to be different. 
 
 ## Next steps
-In this quickstart, you installed SAP software on the deployed infrstructure in Azure for an SAP system with Highly Available architecture type using Azure Center for SAP solutions. You also noted that the resource names were customized for the system while deploying infrastructure. Continue to the next article to learn how to Manage your SAP system on Azure using Virtual Instance for SAP solutions
+In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system with Highly Available architecture type using Azure Center for SAP solutions. You also noted that the resource names were customized for the system while deploying infrastructure. Continue to the next article to learn how to Manage your SAP system on Azure using Virtual Instance for SAP solutions
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
 
