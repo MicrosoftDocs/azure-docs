@@ -94,7 +94,7 @@ Modern authentication clients (Office 2016 and Office 2013, iOS, and Android app
 
 To plan for rollback, use the [documented current federation settings](#document-current-federation-settings) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
 
-The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true) cmdlet. If necessary, configuring extra claims rules.
+The rollback process should include converting managed domains to federated domains by using the [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true) cmdlet. If necessary, configuring extra claims rules.
 
 ## Migration considerations 
 

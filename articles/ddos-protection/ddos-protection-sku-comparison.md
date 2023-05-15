@@ -42,7 +42,7 @@ The following table shows features and corresponding SKUs.
 | Mitigation flow logs| Yes| Yes |
 | Mitigation policies tuned to customers application | Yes| Yes |
 | Integration with Firewall Manager | Yes | Yes |
-| Azure Sentinel data connector and workbook | Yes | Yes |
+| Microsoft Sentinel data connector and workbook | Yes | Yes |
 | Protection of resources across subscriptions in a tenant   | Yes | Yes |
 | Public IP Standard SKU protection | Yes | Yes |
 | Public IP Basic SKU protection | No | Yes |

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 03/31/2023
+ms.date: 04/25/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -394,7 +394,7 @@ res = search_docs(df_bills, "Can I get information on cable company tax revenue?
 
 :::image type="content" source="../media/tutorials/query-result.png" alt-text="Screenshot of the formatted results of res once the search query has been run." lightbox="../media/tutorials/query-result.png":::
 
-Finally, we'll show the top result from document search based on user query against the entire knowledge base. This returns the top result of the "Taxpayer's Right to View Act of 1993". This document has a cosine similarity score of 0.36 between the query and the document:
+Finally, we'll show the top result from document search based on user query against the entire knowledge base. This returns the top result of the "Taxpayer's Right to View Act of 1993". This document has a cosine similarity score of 0.76 between the query and the document:
 
 ```python
 res["summary"][9]

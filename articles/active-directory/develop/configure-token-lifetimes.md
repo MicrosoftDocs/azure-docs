@@ -29,7 +29,7 @@ To get started, download the latest [Microsoft Graph PowerShell SDK](/powershell
 In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. This policy sets the lifetime of the access/ID tokens for your web app.
 
 ```powershell
-Connect-MgGraph -Scopes  "Policy.ReadWrite.ApplicationConfiguration"
+Connect-MgGraph -Scopes  "Policy.ReadWrite.ApplicationConfiguration","Policy.Read.All","Application.ReadWrite.All"
 
 # Create a token lifetime policy
 $params = @{

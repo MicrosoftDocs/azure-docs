@@ -140,11 +140,11 @@ Select the **Performance** tab on the left and select the **Dependencies** tab a
 
 Select a **Dependency Name** under **Overall**. After you select a dependency, a graph of that dependency's distribution of durations appears on the right.
 
-![Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.](./media/asp-net-dependencies/2-perf-dependencies.png)
+:::image type="content" source="./media/asp-net-dependencies/2-perf-dependencies.png" lightbox="./media/asp-net-dependencies/2-perf-dependencies.png" alt-text="Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.":::
 
 Select the **Samples** button at the bottom right. Then select a sample to see the end-to-end transaction details.
 
-![Screenshot that shows selecting a sample to see the end-to-end transaction details.](./media/asp-net-dependencies/3-end-to-end.png)
+:::image type="content" source="./media/asp-net-dependencies/3-end-to-end.png" lightbox="./media/asp-net-dependencies/3-end-to-end.png" alt-text="Screenshot that shows selecting a sample to see the end-to-end transaction details.":::
 
 ### Profile your live site
 
@@ -156,7 +156,7 @@ Failed requests might also be associated with failed calls to dependencies.
 
 Select the **Failures** tab on the left and then select the **Dependencies** tab at the top.
 
-![Screenshot that shows selecting the failed requests chart.](./media/asp-net-dependencies/4-fail.png)
+:::image type="content" source="./media/asp-net-dependencies/4-fail.png" lightbox="./media/asp-net-dependencies/4-fail.png" alt-text="Screenshot that shows selecting the failed requests chart.":::
 
 Here you'll see the failed dependency count. To get more information about a failed occurrence, select a **Dependency Name** in the bottom table. Select the **Dependencies** button at the bottom right to see the end-to-end transaction details.
 

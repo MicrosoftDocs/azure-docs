@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 03/24/2023
+ms.date: 04/17/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -30,7 +30,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
-> For more information on input requirements, *see* [content limits](get-started-with-document-translation.md#content-limits)
+> For more information on input requirements, *see* [Document Transaltion request limits](../request-limits.md#document-translation)
 
 ## Document Translation development options
 
@@ -69,6 +69,10 @@ Document Translation supports the following document file types:
 |Rich Text Format|`rtf`|A text document containing formatting.|
 |Tab Separated Values/TAB|`tsv`/`tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|`txt`| An unformatted text document.|
+
+## Request limits
+
+For detailed information regarding Azure Translator Service request limits, *see* [**Document Translation request limits**](../request-limits.md#document-translation).
 
 ### Legacy file types
 

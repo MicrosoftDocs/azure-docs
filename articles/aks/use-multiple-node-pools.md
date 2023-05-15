@@ -3,7 +3,7 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
-ms.date: 05/16/2022
+ms.date: 03/11/2023
 ---
 
 # Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -406,19 +406,53 @@ It takes a few minutes to delete the nodes and the node pool.
 
 ## Associate capacity reservation groups to node pools (preview)
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-As your application workloads demands, you may associate node pools to capacity reservation groups created prior. This ensures guaranteed capacity is allocated for your node pools.  
+As your application workloads demands, you may associate node pools to capacity reservation groups already created. This ensures guaranteed capacity is allocated for your node pools.  
 
 For more information on the capacity reservation groups, please refer to [Capacity Reservation Groups][capacity-reservation-groups].
 
-Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag" The capacity reservation group should already exist, otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
+### Register preview feature
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+Register the `CapacityReservationGroupPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Manage capacity reservations
+
+Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag". The capacity reservation group should already exist, otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated.
 
 ```azurecli-interactive
 az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
 ```
 
-Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association. 
+Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association.
 
 ```azurecli-interactive
 az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG

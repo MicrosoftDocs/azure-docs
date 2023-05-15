@@ -65,7 +65,10 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft, where it will be verified to determine its authenticity and correctness as part of the provisioning process.
 
 > [!NOTE]
-> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.  Also note that Microsoft will not stop advertising the range after the specified date, but it is recommended to independently create a follow-up ROA if the original expiration date has passed.
+> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
 
 ### Certificate readiness
 

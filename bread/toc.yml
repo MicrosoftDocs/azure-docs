@@ -972,6 +972,9 @@
       - name: Confidential Ledger
         tocHref: /azure/confidential-ledger/
         topicHref: /azure/confidential-ledger/
+      - name: Microsoft Defender External Attack Surface Management
+        tocHref: /azure/external-attack-surface-management/
+        topicHref: /azure/external-attack-surface-management/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/

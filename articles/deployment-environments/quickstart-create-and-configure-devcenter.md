@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.date: 02/08/2023
+ms.date: 04/25/2023
 ---
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments

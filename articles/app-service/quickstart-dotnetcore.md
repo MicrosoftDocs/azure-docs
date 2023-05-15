@@ -146,12 +146,12 @@ If you've already installed Visual Studio 2022:
 ### [.NET 6.0](#tab/net60)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- A GitHub account [Create an account for free](http://github.com/).
+- A GitHub account [Create an account for free](https://github.com/).
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- A GitHub account [Create an account for free](http://github.com/).
+- A GitHub account [Create an account for free](https://github.com/).
     
 :::zone-end
 

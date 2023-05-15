@@ -269,7 +269,7 @@ A deployment is a set of resources required for hosting the model that does the 
     
     __deployment-torch/environment/conda.yml__
         
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml":::
     
     > [!IMPORTANT]
     > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
@@ -789,7 +789,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     __deployment-keras/environment/conda.yml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yaml":::
     
 1. Create a scoring script for the model:
    

@@ -2,7 +2,7 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: This article provides instructions on how to wire up OpenCensus Python with Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/24/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
@@ -206,9 +206,9 @@ import logging
 from opencensus.ext.azure.log_exporter import AzureEventHandler
 
 logger = logging.getLogger(__name__)
-logger.addHandler(AzureLogHandler())
+logger.addHandler(AzureEventHandler())
 # Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
+# logger.addHandler(AzureEventHandler(connection_string=<appinsights-connection-string>))
 
 logger.setLevel(logging.INFO)
 logger.info('Hello, World!')

@@ -62,7 +62,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
-| [Speech Service API][sp-containers-stt] |  **Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Speech Service API][sp-containers-stt] |  **Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-speech-to-text)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-cstt] | **Custom Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text using a custom model. | Generally available <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-ntts] | **Neural Text-to-speech** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-neural-text-to-speech)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-language-detection)) | Determines the language of spoken audio. | Gated preview |
@@ -126,12 +126,10 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md
-[sp-containers-lid]: speech-service/speech-container-howto.md?tabs=lid
-[sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
-[sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
-[sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
-[sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
-[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
+[sp-containers-lid]: speech-service/speech-container-lid.md
+[sp-containers-stt]: speech-service/speech-container-stt.md
+[sp-containers-cstt]: speech-service/speech-container-cstt.md
+[sp-containers-ntts]: speech-service/speech-container-ntts.md
 [ta-containers]: language-service/overview.md#deploy-on-premises-using-docker-containers
 [ta-containers-keyphrase]: language-service/key-phrase-extraction/how-to/use-containers.md
 [ta-containers-language]: language-service/language-detection/how-to/use-containers.md

@@ -1,22 +1,22 @@
 ---
 title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn how to add image icons and pattern-filled polygons to maps by using the Azure Maps Web SDK. View available image and fill pattern templates.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: devx-track-js
 ---
 
 # How to use image templates
 
 Images can be used with HTML markers and various layers within the Azure Maps web SDK:
 
- - Symbol layers can render points on the map with an image icon. Symbols can also be rendered along a lines path.
- - Polygon layers can be rendered with a fill pattern image. 
- - HTML markers can render points using images and other HTML elements.
+- Symbol layers can render points on the map with an image icon. Symbols can also be rendered along a lines path.
+- Polygon layers can be rendered with a fill pattern image.
+- HTML markers can render points using images and other HTML elements.
 
 In order to ensure good performance with layers, load the images into the map image sprite resource before rendering. The [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions), of the SymbolLayer, preloads a couple of marker images in a handful of colors into the map image sprite, by default. These marker images and more are available as SVG templates. They can be used to create images with custom scales, or used as a customer primary and secondary color. In total there are 42 image templates provided: 27 symbol icons and 15 polygon fill patterns.
 
@@ -35,12 +35,12 @@ The following code shows how to create an image from one of the built-in templat
 ```javascript
 map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#fff').then(function () {
 
-	//Add a symbol layer that uses the custom created icon.
-	map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-		iconOptions: {
-			image: 'myTemplatedIcon'
-		}
-	}));
+   //Add a symbol layer that uses the custom created icon.
+   map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+      iconOptions: {
+         image: 'myTemplatedIcon'
+      }
+   }));
 });
 ```
 
@@ -48,7 +48,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 Once an image template is loaded into the map image sprite, it can be rendered as a symbol in a symbol layer by referencing the image resource ID in the `image` option of the `iconOptions`.
 
-The following sample renders a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color. 
+The following sample renders a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color.
 
 <br/>
 
@@ -59,9 +59,9 @@ The following sample renders a symbol layer using the `marker-flat` image templa
 
 ## Use an image template along a lines path
 
-Once an image template is loaded into the map image sprite, it can be rendered along the path of a line by adding a LineString to a data source and using a symbol layer with a `lineSpacing`option and by referencing the ID of the image resource in the `image` option of th `iconOptions`. 
+Once an image template is loaded into the map image sprite, it can be rendered along the path of a line by adding a LineString to a data source and using a symbol layer with a `lineSpacing`option and by referencing the ID of the image resource in the `image` option of th `iconOptions`.
 
-The following sample renders a pink line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color. 
+The following sample renders a pink line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color.
 
 <br/>
 
@@ -87,7 +87,7 @@ The following sample renders a polygon layer using the `dot` image template with
 </iframe>
 
 > [!TIP]
-> Setting the secondary color of fill patterns makes it easier to see the underlying map will still providing the primary pattern. 
+> Setting the secondary color of fill patterns makes it easier to see the underlying map will still providing the primary pattern.
 
 ## Use an image template with an HTML marker
 
@@ -102,9 +102,9 @@ The following sample uses the `marker-arrow` template with a red primary color, 
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-
 > [!TIP]
 > Image templates can be used outside of the map too. The getImageTemplate funciton returns an SVG string that has placeholders; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Replace these placeholder values to create a valid SVG string. You can then either add the SVG string directly to the HTML DOM or convert it into a data URI and insert it into an image tag. For example:
+>
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -115,24 +115,24 @@ The following sample uses the `marker-arrow` template with a red primary color, 
 
 ## Create custom reusable templates
 
-If your application uses the same icon with different icons or if you are creating a module that adds additional image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
+If your application uses the same icon within different modules or if you're creating a module that adds more image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
 
-| Name | Return Type | Description | 
-|-|-|-|
+| Name | Return Type | Description |
+|------|-------------|-------------|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adds a custom SVG image template to the atlas namespace. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Retrieves an SVG template by name. |
 | `getAllImageTemplateNames()` | string[] |  Retrieves an SVG template by name. |
 
 SVG image templates support the following placeholder values:
 
-| Placeholder | Description |
-|-|-|
-| `{color}` | The primary color. | 
-| `{secondaryColor}` | The secondary color. | 
-| `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it is converted to ensure it renders clearly. | 
+| Placeholder | Description        |
+|-------------|--------------------|
+| `{color}`   | The primary color. |
+| `{secondaryColor}` | The secondary color. |
+| `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it's converted to ensure it renders clearly. |
 | `{text}` | The location to render text when used with an HTML Marker. |
 
-The following example shows how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template. 
+The following example shows how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template.
 
 <br/>
 
@@ -356,7 +356,6 @@ This table lists all image templates currently available within the Azure Maps w
    :::column-end:::
 :::row-end:::
 
-
 **Polygon fill pattern templates**
 
 :::row:::
@@ -481,7 +480,7 @@ This table lists all image templates currently available within the Azure Maps w
 
 **Preloaded image icons**
 
-The map preloads a set of icons into the maps image sprite using the `marker`, `pin`, and `pin-round` templates. These icon names and their color values are listed in the table below.
+The map preloads a set of icons into the maps image sprite using the `marker`, `pin`, and `pin-round` templates. These icon names and their color values are listed in the following table.
 
 | icon name | color | secondaryColor |
 |-----------|-------|----------------|
@@ -496,7 +495,6 @@ The map preloads a set of icons into the maps image sprite using the `marker`, `
 | `pin-round-blue` | `#2072b8` | `#ffffff` |
 | `pin-round-darkblue` | `#003963` | `#ffffff` |
 | `pin-round-red` | `#ef4c4c` | `#ffffff` |
-
 
 ## Try it now tool
 
@@ -517,8 +515,7 @@ Learn more about the classes and methods used in this article:
 > [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [atlas namespace](/javascript/api/azure-maps-control/atlas#functions
-)
+> [atlas namespace](/javascript/api/azure-maps-control/atlas#functions)
 
 See the following articles for more code samples where image templates can be used:
 

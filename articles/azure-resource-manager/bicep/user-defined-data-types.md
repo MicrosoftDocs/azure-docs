@@ -218,4 +218,4 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Next steps
 
-- For a list of the Bicep date types, see [Data types](./data-types.md).
+- For a list of the Bicep data types, see [Data types](./data-types.md).

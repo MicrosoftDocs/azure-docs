@@ -121,7 +121,7 @@ In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is r
 
    ```kusto
    Heartbeat
-   | where Computer == "vm-ubuntu"
+   | where Computer == "vm-linux"
    | take 10
    ```
 
@@ -179,7 +179,7 @@ After you configured your linux-based device to send logs to your VM, verify tha
 
    ```kusto
    Syslog
-   | where Computer == "vm-ubuntu"
+   | where Computer == "vm-linux"
    | summarize by HostName
    ```
 

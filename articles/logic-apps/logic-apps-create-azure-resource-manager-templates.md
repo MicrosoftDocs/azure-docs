@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 08/20/2022
 ---
 

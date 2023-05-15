@@ -122,7 +122,7 @@ Configure your deployment in the new region using the information you gathered i
 
 ## Verify
 
-Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
+Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
 
 ## Next steps
 

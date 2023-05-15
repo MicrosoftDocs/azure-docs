@@ -17,7 +17,7 @@ The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud se
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the key groups of components: devices, IoT cloud services, other cloud services, and solution-wide concerns. Other articles in this section provide more detail on each of these components.
 
-:::image type="content" source="media/iot-introduction/iot-architecture.svg" lightbox="media/iot-introduction/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture." border="false":::
+:::image type="content" source="media/iot-introduction/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture." border="false":::
 
 ## IoT devices
 

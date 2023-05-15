@@ -153,6 +153,8 @@ Steps to create a passive-cold region without GRS and GZRS are summarized as fol
 - Aside from Azure Front Door, which is proposed in this article, Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
 - It's also recommended to set up monitoring and alerts for your web apps to for timely notifications during a disaster. For more information, see [Application Insights availability tests](../azure-monitor/app/availability-overview.md).
 
+[!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
+
 ## Next steps
 
 [Tutorial: Create a highly available multi-region app in Azure App Service](tutorial-multi-region-app.md)

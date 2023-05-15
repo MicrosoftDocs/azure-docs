@@ -4,7 +4,7 @@ description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monito
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 01/24/2023
+ms.date: 04/24/2023
 ms.reviewer: cithomas
 ---
 

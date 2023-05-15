@@ -20,7 +20,7 @@ keywords:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to Azure OpenAI Service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` (preview), or the `gpt-4` (preview)<sup>1</sup> models deployed. These models are currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` (preview), or the `gpt-4` (preview)<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 <sup>1</sup> **GPT-4 models are currently in preview.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
@@ -121,4 +121,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 ## Next steps
 
 * Learn more about how to work with ChatGPT and the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

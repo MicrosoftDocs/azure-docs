@@ -17,6 +17,27 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## April 12, 2023
+
+### Image tag
+
+`v1.18.0_2023-04-11`
+
+For complete release version information, see [Version log](version-log.md#april-11-2023).
+
+New for this release:
+
+- Azure Arc-enabled SQL Managed Instance
+  - Direct mode for failover groups is generally available az CLI
+  - Schedule the HA orchestrator replicas on different nodes when available
+
+- Arc PostgreSQL
+  - Ensure postgres extensions work per database/role
+  - Arc PostgreSQL | Upload metrics/logs to Azure Monitor
+
+- Bug fixes and optimizations in the following areas:
+  - Deploying Arc data controller using the individual create experience has been removed as it sets the auto upgrade parameter incorrectly. Use the all-in-one create experience. This experience creates the extension, custom location, and data controller. It also sets all the parameters correctly. For specific information, see [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md).
+
 ## March 14, 2023
 
 ### Image tag
@@ -435,7 +456,7 @@ For complete release version information, see [Version log](version-log.md#febru
     - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
+- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disk) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).

@@ -121,7 +121,20 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/fixed-delay)
 
-Retry policies aren't yet supported when they're running in an isolated worker process.
+```csharp
+[Function("EventHubsFunction")]
+[FixedDelayRetry(5, "00:00:10")]
+[EventHubOutput("dest", Connection = "EventHubConnectionAppSetting")]
+public static string Run([EventHubTrigger("src", Connection = "EventHubConnectionAppSetting")] string[] input,
+    FunctionContext context)
+{
+// ...
+}
+  ```
+|Property  | Description |
+|---------|-------------| 
+|MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
 # [C# script](#tab/csharp-script/fixed-delay)
 

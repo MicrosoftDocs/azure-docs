@@ -62,7 +62,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
 Backend service upgrades and restarts may cause these issues in your applications.
 
 ### Resolution
-If the application code uses SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
+If the application code uses SDK, the [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) is already built in and active. The application will reconnect without significant impact to the application/workflow.
 
 ## Unauthorized access: Send claims are required
 

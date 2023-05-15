@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/19/2023
+ms.date: 04/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,23 +16,29 @@ ms.custom: devx-track-python, devguide-python
 
 # Upload a block blob with Python
 
-This article shows how to upload a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can upload a blob, open a blob stream and write to the stream, or upload blobs with index tags.
+This article shows how to upload a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also upload blobs with index tags.
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with Python](storage-blob-container-create-python.md). 
+## Prerequisites
+
+To work with the code examples in this article, make sure you have:
+
+- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
+    - [Put Blob](/rest/api/storageservices/put-blob#authorization)
+    - [Put Block](/rest/api/storageservices/put-block#authorization)
+- The package **azure-storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and Python](storage-blob-python-get-started.md#set-up-your-project).
+
+## Upload data to a block blob
 
 To upload a blob using a stream or a binary object, use the following method:
 
 - [BlobClient.upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob)
 
-To upload a blob from a given URL, use the following method:
+## Upload a block blob from a local file path
 
-- [BlobClient.upload_blob_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob-from-url)
+The following example uploads a file to a block blob using a `BlobClient` object:
 
-## Upload data to a block blob
-
-The following example uploads data to a block blob using a `BlobClient` object:
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_data":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_file":::
 
 ## Upload a block blob from a stream
 
@@ -40,11 +46,11 @@ The following example creates random bytes of data and uploads a `BytesIO` objec
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_stream":::
 
-## Upload a block blob from a local file path
+## Upload binary data to a block blob
 
-The following example uploads a file to a block blob using a `BlobClient` object:
+The following example uploads binary data to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_file":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_data":::
 
 ## Upload a block blob with index tags
 
@@ -61,7 +67,7 @@ To learn more about uploading blobs using the Azure Blob Storage client library 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for uploading blobs use the following REST API operations:
 
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+- [Put Block](/rest/api/storageservices/put-block) (REST API)
 
 ### Code samples
 

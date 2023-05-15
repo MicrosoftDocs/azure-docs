@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2023
+ms.date: 04/19/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -14,11 +14,15 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 ## What's new in 2023
 
+### 2023 quarter 2 (April, May, June)
+#### AD Kerberos authentication for Linux clients (SMB)
+
+Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+
 ### 2023 quarter 1 (January, February, March)
 #### Nconnect for NFS Azure file shares
 
 Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
-
 
 ## What's new in 2022
 

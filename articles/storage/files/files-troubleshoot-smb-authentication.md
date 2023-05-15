@@ -148,19 +148,19 @@ New-AzStorageAccountKey `
 The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```bash
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
+RESOURCE_GROUP_NAME="<resource-group>"
+STORAGE_ACCOUNT_NAME="<storage-account>"
 
 # Rotate primary key (key 1). You should switch to key 2 before rotating key 1.
 az storage account keys renew \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --key "primary"
 
 # Rotate secondary key (key 2). You should switch to the new key 1 before rotating key 2.
 az storage account keys renew \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --key "secondary"
 ```
 

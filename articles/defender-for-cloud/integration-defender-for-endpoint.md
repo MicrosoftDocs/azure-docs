@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 01/15/2023
+ms.date: 04/24/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -163,7 +163,7 @@ You'll deploy Defender for Endpoint to your Linux machines in one of these ways,
 - Enable for multiple subscriptions with a PowerShell script
 
 > [!NOTE]
-> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing security solutions using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements).
+> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing running services using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) and other services that can also cause MDE to malfunction or may be affected by MDE, such as security services.
 > After you validate potential compatibility issues, we recommend that you manually install Defender for Endpoint on these servers.
 
 ##### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows

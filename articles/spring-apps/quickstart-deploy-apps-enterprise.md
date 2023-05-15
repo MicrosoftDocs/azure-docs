@@ -22,9 +22,8 @@ This quickstart shows you how to build and deploy applications to Azure Spring A
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
-- [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Download the sample app
@@ -96,14 +95,18 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
-   ```bash
+   ```azurecli
    LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
        --resource-group <resource-group-name> \
-       --workspace-name <workspace-name> | jq -r '.id')
+       --workspace-name <workspace-name> \
+       --query id \
+       --output tsv)
 
-   SPRING_CLOUD_RESOURCE_ID=$(az spring show \
+   AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
        --resource-group <resource-group-name> \
-       --name <Azure-Spring-Apps-service-instance-name> | jq -r '.id')
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --query id \
+       --output tsv)
    ```
 
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps Service:
@@ -111,7 +114,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    ```azurecli
    az monitor diagnostic-settings create \
        --name "send-logs-and-metrics-to-log-analytics" \
-       --resource ${SPRING_CLOUD_RESOURCE_ID} \
+       --resource ${AZURE_SPRING_APPS_RESOURCE_ID} \
        --workspace ${LOG_ANALYTICS_RESOURCE_ID} \
        --logs '[
             {
@@ -318,7 +321,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    az spring gateway update \
        --resource-group <resource-group-name> \
@@ -379,7 +384,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    echo "https://${GATEWAY_URL}"
    ```
@@ -404,7 +411,9 @@ Use the following steps to configure API Portal.
    ```azurecli
    PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    echo "https://${PORTAL_URL}"
    ```

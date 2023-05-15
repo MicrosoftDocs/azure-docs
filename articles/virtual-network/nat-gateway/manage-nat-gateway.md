@@ -1,6 +1,6 @@
 ---
 title: Manage a NAT gateway
-titleSuffix: Azure Virtual Network NAT
+titleSuffix: Azure NAT Gateway
 description: Learn how to create and remove a NAT gateway resource from a virtual network subnet. Add and remove public IP addresses and prefixes used for outbound connectivity.
 author: asudbring
 ms.author: allensu
@@ -695,6 +695,6 @@ az network nat gateway update \
 
 To learn more about Azure Virtual Network NAT and its capabilities, see the following articles:
 
-- [What is Azure Virtual Network NAT?](nat-overview.md)
+- [What is Azure NAT Gateway?](nat-overview.md)
 - [NAT gateway and availability zones](nat-availability-zones.md)
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)

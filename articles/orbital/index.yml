@@ -47,8 +47,6 @@ landingContent:
         links:
           - text: Prepare network to receive and send data
             url: prepare-network.md
-          - text: License your spacecraft
-            url: license-spacecraft.md
           - text: Integrate partner network ground stations
             url: partner-network-integration.md
           - text: Receive real-time telemetry

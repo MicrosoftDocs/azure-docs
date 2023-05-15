@@ -75,8 +75,12 @@
       href: authentication.md
     - name: Workload profiles
       href: workload-profiles-overview.md
-    - name: Dapr integration
-      href: dapr-overview.md
+    - name: Dapr
+      items:
+      - name: Dapr integration
+        href: dapr-overview.md
+      - name: Scale Dapr apps with KEDA using Bicep
+        href: dapr-keda-scaling.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
 - name: How-to guides
@@ -96,7 +100,11 @@
     - name: Manage revisions
       href: revisions-manage.md
     - name: Manage workload profiles
-      href: workload-profiles-manage-cli.md
+      items:
+        - name: CLI
+          href: workload-profiles-manage-cli.md
+        - name: Portal
+          href: workload-profiles-manage-portal.md
     - name: Ingress
       items:
       - name: Configure ingress

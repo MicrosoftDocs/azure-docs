@@ -81,7 +81,7 @@ Logs|[Manage tables in a Log Analytics workspace]()|Refreshed all Log Analytics 
 Security-Fundamentals|[Monitoring Azure App Service](../../articles/app-service/monitor-app-service.md)|Revised the Azure Monitor overview to improve usability. The article is cleaned up, streamlined, and better reflects the product architecture and the customer experience. |
 Snapshot-Debugger|[host.json reference for Azure Functions 2.x and later](../../articles/azure-functions/functions-host-json.md)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
 Snapshot-Debugger|[Configure Bring Your Own Storage (BYOS) for Application Insights Profiler and Snapshot Debugger](profiler/profiler-bring-your-own-storage.md)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
-Snapshot-Debugger|[Release notes for Microsoft.ApplicationInsights.SnapshotCollector](snapshot-debugger/snapshot-collector-release-notes.md)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
+Snapshot-Debugger|[Release notes for Microsoft.ApplicationInsights.SnapshotCollector](./snapshot-debugger/snapshot-debugger.md#release-notes-for-microsoftapplicationinsightssnapshotcollector)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger/snapshot-debugger-app-service.md)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](snapshot-debugger/snapshot-debugger-function-app.md)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
 Snapshot-Debugger|[ Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
@@ -341,7 +341,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | Article | Description |
 |---|---|
 |[Autoscale in Microsoft Azure](autoscale/autoscale-overview.md)|Updated conceptual diagrams.|
-|[Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)](autoscale/autoscale-predictive.md)|Predictive autoscale (preview) is now available in all regions.|
+|[Use predictive autoscale to scale out before load demands in Virtual Machine Scale Sets (preview)](autoscale/autoscale-predictive.md)|Predictive autoscale (preview) is now available in all regions.|
 
 ### Change Analysis
 

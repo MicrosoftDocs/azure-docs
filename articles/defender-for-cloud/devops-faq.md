@@ -2,7 +2,7 @@
 title: Defender for DevOps FAQ
 description: If you're having issues with Defender for DevOps perhaps, you can solve it with these frequently asked questions.
 ms.topic: reference
-ms.date: 02/23/2023
+ms.date: 04/18/2023
 ---
 
 # Defender for DevOps frequently asked questions (FAQ)
@@ -104,7 +104,7 @@ The ability to block developers from committing code with exposed secrets isn't 
 
 ### I'm not able to configure Pull Request Annotations
 
-Make sure you have write (owner/contributor) access to the subscription. 
+Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating an Azure Active Directory role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
 
 ### What programming languages are supported by Defender for DevOps?
 

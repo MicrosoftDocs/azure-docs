@@ -16,11 +16,11 @@ This article describes how to prepare on-premises machines before you migrate th
 In this article, you:
 > [!div class="checklist"]
 > * Review migration limitations.
-> * Select a method for migrating VMware vSphere VMs
+> * Select a method for migrating VMware vSphere VMs.
 > * Check hypervisor and operating system requirements for machines you want to migrate.
 > * Review URL and port access for machines you want to migrate.
 > * Review changes you might need to make before you begin migration.
-> * Check Azure VMs requirements for migrated machines
+> * Check Azure VMs requirements for migrated machines.
 > * Prepare machines so you can connect to the Azure VMs after migration.
 
 
@@ -36,7 +36,7 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 
 ## Select a VMware vSphere migration method
 
-If you're migrating VMware vSphere VMs to Azure, [compare](server-migrate-overview.md#compare-migration-methods) the agentless and agent-based migration methods, to decide what works for you.
+If you're migrating VMware vSphere VMs to Azure, [compare](server-migrate-overview.md#compare-migration-methods) the agentless and agent-based migration methods, to decide what works best for you.
 
 ## Verify hypervisor requirements
 

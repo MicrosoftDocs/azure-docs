@@ -176,11 +176,12 @@ Consider the following when managing session hosts:
 Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to virtual desktops and remote apps. The following clients support Azure Virtual Desktop:
 
 - [Windows Desktop client](./users/connect-windows.md)
+- [Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
 - [Web client](./users/connect-web.md)
 - [macOS client](./users/connect-macos.md)
 - [iOS and iPadOS client](./users/connect-ios-ipados.md)
 - [Android and Chrome OS client](./users/connect-android-chrome-os.md)
-- [Microsoft Store client](./users/connect-microsoft-store.md)
+- [Remote Desktop app for Windows](./users/connect-microsoft-store.md)
 
 > [!IMPORTANT]
 > Azure Virtual Desktop doesn't support connections from the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.

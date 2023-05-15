@@ -192,9 +192,15 @@ To set up the pattern:
 * Add generic error handling step to the end of the pipeline
 * Connect both UponFailure and UponSkip paths from the last activity to the error handling activity
 
-:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-2-generic-no-branching.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching.":::
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-3-generic-no-branching.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching.":::
 
 The last step, Generic Error Handling, will only run if any of the previous activities fails. It will not run if they all succeed.
+
+You can add multiple activities for error handling.
+
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-4-generic-no-branching-multiple.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching and multiple activities.":::
+
+
 
 ## Next steps
 

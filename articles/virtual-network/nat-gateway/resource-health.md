@@ -1,16 +1,16 @@
 ---
-title: Azure Virtual Network NAT Resource Health
+title: Azure NAT Gateway Resource Health
 titleSuffix: Azure Virtual Network
-description: Understand how to use resource health for Virtual Network NAT.
+description: Understand how to use resource health for NAT gateway.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
-# Customer intent: As an IT administrator, I want to understand how to use resource health to monitor Virtual Network NAT.
+# Customer intent: As an IT administrator, I want to understand how to use resource health to monitor NAT gateway.
 ms.topic: conceptual
 ms.date: 04/25/2022
 ms.author: allensu
 ---
-# Azure Virtual Network NAT Resource Health
+# Azure NAT Gateway Resource Health
 
 This article provides guidance on how to use Azure Resource Health to monitor and troubleshoot connectivity issues with your NAT gateway resource. Resource health provides an automatic check to keep you informed on the current availability of your NAT gateway.
 
@@ -41,7 +41,7 @@ To view the health of your NAT gateway resource:
 
 ## Next steps
 
-- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [Azure NAT Gateway](./nat-overview.md)
 - Learn about [metrics and alerts for NAT gateway](./nat-metrics.md)
 - Learn about [troubleshooting NAT gateway resources](./troubleshoot-nat.md)
 - Learn about [Azure resource health](../../service-health/resource-health-overview.md)

@@ -154,7 +154,7 @@ New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
 ```
 
-The cmdlets above should return the key value. Once you have the kerb1 key, create either a service account or computer account in AD under your OU, and use the key as the password for the AD identity.
+The cmdlets should return the key value. Once you have the kerb1 key, create either a [computer account](/powershell/module/activedirectory/new-adcomputer) or [service account](/powershell/module/activedirectory/new-adserviceaccount) in AD under your OU, and use the key as the password for the AD identity.
 
 1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name and `<ADAccountName>` with your AD account name):
 
@@ -162,7 +162,7 @@ The cmdlets above should return the key value. Once you have the kerb1 key, crea
    Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
-2. Use PowerShell to set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges):
+2. Set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges):
 
    ```powershell
    Set-ADAccountPassword -Identity servername$ -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "kerb1_key_value_here" -Force)
