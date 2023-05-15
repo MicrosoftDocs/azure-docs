@@ -11,7 +11,7 @@ This article shows you how to use Red Hat Ansible Automation Platform to deploy 
 
 The examples in this article rely on content developed and incubated by Red Hat through the [Ansible Content Lab for Cloud Content](https://cloud.lab.ansible.io/).
 
-This article also uses the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection. This collection contains a number of roles and playbooks that are pertinent to this article, including the following:
+This article also uses the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection. This collection contains many roles and playbooks that are pertinent to this article, including the following:
 
 |File or Folder  |Description  |
 |---------|---------|
@@ -84,7 +84,7 @@ You'll need to create templates in order to enable and disable Arc-enabled serve
 
 ### Enable Azure Arc VM extensions
 
-This template is responsible for enabling an Azure Arc-enabled server VM extension on the hosts you identify. Arc only supports enabling or disabling a single extension at a time, so this process can take some time. If you attempt to enable or disable another VM extension with this template prior to Azure completing this process, the template will report an error.
+This template is responsible for enabling an Azure Arc-enabled server VM extension on the hosts you identify. Arc only supports enabling or disabling a single extension at a time, so this process can take some time. If you attempt to enable or disable another VM extension with this template prior to Azure completing this process, the template reports an error.
 
 Once the job template has run, it may take minutes to hours for each machine to report that the extension is operational.  Once the extension is operational, then this job template can be run again with another extension and will not report an error.
 
