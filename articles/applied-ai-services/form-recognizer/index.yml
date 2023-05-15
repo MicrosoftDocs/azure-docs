@@ -90,6 +90,8 @@ landingContent:
             url: https://formrecognizer.appliedai.azure.com/studio/layout
           - text:  Custom model
             url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
+          - text: 🆕 Health insurance card model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us
           - text: W2 model
             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
           - text:  Invoice model
