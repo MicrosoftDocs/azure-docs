@@ -19,7 +19,7 @@ Azure availability zones are at least three physically separate groups of datace
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](/azure/reliability/availability-zones-service-support).
 
-Azure Center for SAP Solutions supports zone-redundancy.When creating a new SAP system through Azure Center for SAP solutions, you can choose the Compute availability option for the infrastructure being deployed. You can choose to deploy the SAP system with zone redundancy based on your requirements, while the service is zone-redundant by default. [Learn more about deployment type options for SAP systems here](/azure/sap/center-sap-solutions/deploy-s4hana#deployment-types).
+Azure Center for SAP Solutions supports zone-redundancy. When creating a new SAP system through Azure Center for SAP solutions, you can choose the Compute availability option for the infrastructure being deployed. You can choose to deploy the SAP system with zone redundancy based on your requirements, while the service is zone-redundant by default. [Learn more about deployment type options for SAP systems here](/azure/sap/center-sap-solutions/deploy-s4hana#deployment-types).
 
 ### Regional availability
 
