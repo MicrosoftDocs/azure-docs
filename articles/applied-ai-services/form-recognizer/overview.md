@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 05/12/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 ---
 
@@ -26,16 +26,11 @@ ms.author: lajanuar
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Effectively managing the velocity at which the data is collected and processed is key to improved operations and data-driven decision making and innovation. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to quickly analyze and accurately extract structured, semi-structured, and unstructured content from your documents.</br></br>
 
-## Form Recognizer model types
-
-* [**Document analysis models**](#document-analysis-models)
-* [**Prebuilt models**](#prebuilt-models)
-* [**Custom models**](#custom-model-overview)
-* [**Gated preview models**](#gated-preview-models)
+|[**Document analysis models**](#document-analysis-models)|[**Prebuilt models**](#prebuilt-models)|[**Custom models**](#custom-model-overview)|[**Gated preview models**](#gated-preview-models)
 
 ### Document analysis models
 
-Documents are a major communication tool between organizations. Document analysis models enable text extraction from forms and documents and returns structured business-ready content ready for your organization's action, use, or progress.
+Document analysis models enable text extraction from forms and documents and returns structured business-ready content ready for your organization's action, use, or progress.
 
 :::row:::
    :::column:::
@@ -54,7 +49,7 @@ Documents are a major communication tool between organizations. Document analysi
 
 ### Prebuilt models
 
-Prebuilt models are pretrained to extract key data from specific document types. Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models
+Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models
 
 :::row:::
    :::column span="":::
