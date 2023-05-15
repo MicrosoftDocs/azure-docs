@@ -2,7 +2,7 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
-ms.date: 05/10/2023
+ms.date: 05/15/2023
 
 ---
 
@@ -70,6 +70,17 @@ Use the following command to enable Secure Boot by updating a node pool.
 ```azurecli
 az aks nodepool update --cluster-name myCluster --resource-group myResourceGroup --name mynodepool --enable-secure-boot 
 ```
+
+## Disable Secure Boot
+
+To disable Secure Boot on the AKS cluster where it's been enabled and configured, you can run the following command:
+
+```azurecli
+az aks nodepool update –cluster-name myCluster –g myResourceGroup –n mynodepool –disable-secure-boot 
+```
+
+> [!NOTE]
+> Updates do not automatically kickoff node reimage. You need to restart nodes for the update process to complete.
 
 <!-- EXTERNAL LINKS -->
 
