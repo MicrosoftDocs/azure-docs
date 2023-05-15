@@ -333,7 +333,7 @@ The `azureiotedge-diagnostics` value is pulled from the container registry that'
 
 If you're using a private container registry, make sure that all the images (IoTEdgeAPIProxy, edgeAgent, edgeHub, Simulated Temperature Sensor, and diagnostics) are present in the container registry.
 
-If a downstream device has a different processor architecture from the parent device, you need to specify the correct image for the *edgeAgent* and *edgeHub* modules in the downstream device *config.toml* file. For example, if the parent device is running on an ARM32v7  architecture and the downstream device is running on an AMD64 architecture, you need to specify the matching version and architecture image tag in the downstream device *config.toml* file.
+If a downstream device has a different processor architecture from the parent device, you need the appropriate architecture image. You can use a [connected registry](/azure/container-registry/intro-connected-registry) or you can specify the correct image for the *edgeAgent* and *edgeHub* modules in the downstream device *config.toml* file. For example, if the parent device is running on an ARM32v7  architecture and the downstream device is running on an AMD64 architecture, you need to specify the matching version and architecture image tag in the downstream device *config.toml* file.
 
 ```toml
 [agent.config]
