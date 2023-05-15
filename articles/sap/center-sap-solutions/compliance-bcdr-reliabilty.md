@@ -47,7 +47,7 @@ This section explains how you can deploy an SAP system with Zone redundancy from
     | ------------ | ---------------- | ----------- |
     | **Deployment Type** | Distributed with High Availability (HA) | You should choose Availability-Zone configuration for Compute Availability|
 
-    ![Screenshot of Zone redundancy option while VIS creation.](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/BCDR_Images/ACSS_AVzone.png)
+    ![Screenshot of Zone redundancy option while VIS creation.](azure-center-for-sap-solutions-availability-zone.png)
 
 3. There are no more input fields in the rest of the process that affects zone redundancy. You can proceed with creating the system as per the [deployment guide](/azure/sap/center-sap-solutions/deploy-s4hana).
 
