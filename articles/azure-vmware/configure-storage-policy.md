@@ -13,7 +13,7 @@ ms.date: 2/5/2023
 
 VMware vSAN storage policies define storage requirements for your virtual machines (VMs). These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. Each VM deployed to a vSAN datastore is assigned at least one VM storage policy.
 
-You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating. Post-deployment cloudadmin users or equivalent roles can't change the default storage policy for a VM. However, **VM storage policy** per disk changes is permitted. 
+You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating. Post-deployment cloudadmin users or equivalent roles can't change the default storage policy for a VM. However, **VM storage policy** per disk changes is permitted.
 
 The Run command lets authorized users change the default or existing VM storage policy to an available policy for a VM post-deployment. There are no changes made on the disk-level VM storage policy. You can always change the disk level VM storage policy as per your requirements.
 
@@ -28,7 +28,8 @@ In this how-to, you learn how to:
 > * List all storage policies
 > * Set the storage policy for a VM
 > * Specify default storage policy for a cluster
-
+> * Create storage policy
+> * Remove storage policy
 
 
 ## Prerequisites
@@ -44,14 +45,14 @@ Make sure that the [minimum level of hosts are met](https://docs.vmware.com/en/V
 | RAID-1 (Mirroring)  | 3  | 7  |
 
 
- 
+
 
 ## List storage policies
 
 You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policies available to set on a VM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-   
+
    >[!NOTE]
    >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
@@ -63,7 +64,7 @@ You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policie
 1. Provide the required values or change the default values, and then select **Run**.
 
    :::image type="content" source="media/run-command/run-command-get-storage-policy.png" alt-text="Screenshot showing how to list storage policies available. ":::
-   
+
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
@@ -81,7 +82,7 @@ You'll run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policie
 
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
+> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
@@ -102,7 +103,7 @@ You'll run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policie
 You'll run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies on all VMs in a location where a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in Cluster-3, supplying "Cluster-3" would change the storage policy on all 3 VMs.
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
+> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
 
@@ -153,7 +154,7 @@ This function creates a new or overwrites an existing vSphere Storage Policy. No
    | **Field** | **Value** |
    | --- | --- |
    | **Overwrite** | Overwrite existing Storage Policy.  <ul><li>Default is $false. <li>Passing overwrite true provided will overwrite an existing policy exactly as defined. <li>Those values not passed will be removed or set to default values. </ul></li>|
-   | **NotTags** | Match to datastores that do NOT have these tags. <ul><li>Tags are case sensitive. <li>Comma seperate multiple tags. <li> Example: Tag1,Tag 2,Tag_3 | <ul><li>
+   | **NotTags** | Match to datastores that do NOT have these tags. <ul><li>Tags are case sensitive. <li>Comma seperate multiple tags. <li> Example: Tag1,Tag 2,Tag_3 |
    | **Tags** | Match to datastores that do have these tags.  <ul><li> Tags are case sensitive. <li>Comma seperate multiple tags. <li>Example: Tag1,Tag 2,Tag_3 </ul></li>|
    | **vSANForceProvisioning** | Default is $false. <ul><li> Force provisioning for the policy. <li> Valid values are $true or $false <li>**WARNING** - vSAN Force Provisioned Objects are not covered under Microsoft SLA.  Data LOSS and vSAN instability may occur. <li>Recommended value is $false.</ul></li> |
    | **vSANChecksumDisabled** | Default is $false. <ul><li> Enable or disable checksum for the policy. <li>Valid values are $true or $false. <li> **WARNING** - Disabling checksum may lead to data LOSS and/or corruption. <li> Recommended value is $false.</ul></li> |
