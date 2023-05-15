@@ -39,7 +39,7 @@ Service Connector will need to access Azure Active Directory to get information 
 az ad signed-in-user show
 ```
 
-If you get a error code `AADSTS530003`, please ask your IT department for help to join this device to Azure Active Directory.
+If you get a error code `AADSTS530003`, please ask your IT department for help to join this device to Azure Active Directory. For more information, please refer to [Azure AD joined devices](../active-directory/devices/concept-azure-ad-join.md).
 
 
 #### Network connectivity
