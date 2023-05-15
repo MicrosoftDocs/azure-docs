@@ -75,7 +75,7 @@ If you don't yet have a proxy configured in your Azure VNET, use the following s
 1. [Create an Azure load balancer](#step-6-create-an-azure-load-balancer)
 1. [Configure a NAT gateway](#step-7-configure-a-nat-gateway)
 
-If your proxy implements SSL inspection, set up SSL inspection through a cloud security platform, such as [ZSCALER](https://www.zscaler.com/capabilities/ssl-inspection), then use the OT sensor console to deploy the intermediate certificate. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
+If your proxy implements SSL inspection, set up SSL inspection through a cloud security platform, such as [Zscaler](https://www.zscaler.com/capabilities/ssl-inspection), then use the OT sensor console to deploy the intermediate certificate. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 #### Step 1: Define a storage account for NSG logs
 
