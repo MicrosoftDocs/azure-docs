@@ -308,11 +308,11 @@ To create an automation rule:
 
 ### Respond to alerts&mdash;legacy method
 
-Another way to run playbooks automatically in response to **alerts** has been to call them from an **analytics rule**. When the rule generates an alert the playbook runs.
+Another way to run playbooks automatically in response to **alerts** is to call them from an **analytics rule**. When the rule generates an alert, the playbook runs.
 
-**This method will be deprecated as of April 2026.**
+**This method will be deprecated as of March 2026.**
 
-Beginning **May 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md).
+Beginning **May 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules, and these playbooks will still run until March 2006. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md) before then.
 
 ## Run a playbook on demand
 
