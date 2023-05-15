@@ -62,7 +62,7 @@ You can only use this option before you deploy an Azure Monitor for SAP solution
 
 ### Allow Inbound Traffic
 
-Incase you have NSG or User Defined Route rules that block inbound traffic to your SAP Environment, then you need to modify the rules to allow the inbound traffic, also depending on the types of providers you are trying to onboard you have to unblock a few ports as mentioned below.
+In case you have NSG or User Defined Route rules that block inbound traffic to your SAP Environment, then you need to modify the rules to allow the inbound traffic, also depending on the types of providers you are trying to onboard you have to unblock a few ports as mentioned below.
 
 | **Provider Type**                  | **Port Number**                                                         |
 |------------------------------------|---------------------------------------------------------------------|
