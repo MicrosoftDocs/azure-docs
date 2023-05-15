@@ -530,7 +530,7 @@ A sample configuration is shown in the following sample:
 }
 ```
 
-In subsequent examples, we assume that the configuation is stored at the path, `./automl_settings_mm.json`. 
+In subsequent examples, we assume that the configuration is stored at the path, `./automl_settings_mm.json`. 
 
 The following table shows property descriptions for the JSON configuration:
 
@@ -542,7 +542,7 @@ Property|Description
 | **blocked_models**                 | List of models to block. Blocked models won't be used by AutoML. |
 | **iteration_timeout_minutes**      | Maximum amount of time in minutes that each model can train. |
 | **iterations**                     | Number of models to train for each AutoML instance. |
-| **experiment_timeout_minutes**       | Maximum amount of time in minutes for the whole many models training job. |
+| **experiment_timeout_minutes**       | Maximum amount of time in minutes for an AutoML run on a single parition. |
 | **label_column_name**              | The name of the label, or target, column. |
 | **n_cross_validations**            | Number of cross validation splits. The default value is \"auto\", in which case AutoMl determines the number of cross-validations automatically, if a validation set is not provided. Or users could specify an integer value. Rolling Origin Validation is used to split time-series in a temporally consistent way. |
 | **cv_step_size**                   |Number of periods between two consecutive cross-validation folds. The default value is \"auto\", in which case AutoMl determines the cross-validation step size automatically, if a validation set is not provided. Or users could specify an integer value. |
@@ -553,7 +553,18 @@ Property|Description
 
 ### Many models pipeline
 
-Next, we define a factory function that creates pipelines orchestrating many models training, inference, and metric computation:
+Next, we define a factory function that creates pipelines for orchestration of many models training, inference, and metric computation. The parameters of this factory function are detailed in the following table:
+
+Parameter|Description
+--|--
+**instance_count** | Number of compute nodes to use in the training job 
+**max_concurrency_per_instance** | Number of AutoML processes to run on each node. Hence, the total concurrency of a many models jobs is `instance_count * max_concurrency_per_instance`. 
+**prs_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
+**enable_event_logger** | Flag to enable event logging.
+**retrain_failed_models** | Flag to enable re-training for failed models. This is useful if you've done previous many models runs that resulted in failed AutoML jobs on some data partitions. When this flag is enabled, many models will only launch training jobs for previously failed partitions.
+**forecast_mode** | Inference mode for model evaluation. Valid values are `"recursive"` and "`rolling`". See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.   
+
+The following sample exemplifies a factory method for constructing many models training and model evaluation pipelines:
 
 ```python
 @pipeline(description="AutoML Many Models Forecasting Pipeline")
@@ -572,7 +583,7 @@ def many_models_train_evaluate_factory(
         raw_data=train_data_input,
         automl_config=automl_config_input,
         max_concurrency_per_instance=max_concurrency_per_instance,
-        prs_step_timeout=prs_step_timeout,
+        prs_step_timeout_in_seconds=prs_step_timeout,
         instance_count=instance_count,
         enable_event_logger=enable_event_logger,
         retrain_failed_model=retrain_failed_model
@@ -601,6 +612,8 @@ def many_models_train_evaluate_factory(
     }
 ```
 
+Finally, we construct the pipeline via the factory function, set its default compute and submit the job:
+
 ```python
 pipeline_job = many_models_train_evaluate_factory(
     train_data_input=Input(
@@ -624,6 +637,10 @@ returned_pipeline_job = ml_client.jobs.create_or_update(
 )
 ml_client.jobs.stream(returned_pipeline_job.name)
 ```
+
+After the job finishes, the evaluation metrics can be downloaded locally using the same procedure as in the single training run pipeline in the [previous section](#orchestrating-training-inference-and-evaluation-with-components-and-pipelines).
+
+## Forecasting at scale: hierarchical time series
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 
