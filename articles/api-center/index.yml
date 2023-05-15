@@ -1,6 +1,6 @@
 ### YamlMime:Landing 
 
-title: Azure API Center documentation 
+title: Azure API Center (Preview) documentation 
 summary: API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery and governance at scale and accelerates API development in organizations of any size.
 
 metadata: 
@@ -11,7 +11,7 @@ metadata:
   ms.collection: 
   author: dlepow
   ms.author: danlep
-  ms.date: 05/05/2023
+  ms.date: 05/15/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
