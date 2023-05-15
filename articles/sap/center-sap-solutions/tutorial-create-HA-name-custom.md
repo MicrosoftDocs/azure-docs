@@ -49,7 +49,7 @@ This tutorial shows you how to use Azure CLI to deploy infrastructure for an SAP
 
 ## Understand the SAP certified Azure SKUs available for your deployment type
 
-Use [az workloads sap-supported-sku](/cli/azure/workloads?view=azure-cli-latest#az-workloads-sap-supported-sku) to get a list of SKUs supported for your SAP system deployment type from Azure Center for SAP solutions
+Use [az workloads sap-supported-sku](/cli/azure/workloads?view=azure-cli-latest#az-workloads-sap-supported-sku&preserve-view=true) to get a list of SKUs supported for your SAP system deployment type from Azure Center for SAP solutions
 
 ```azurecli-interactive
 az workloads sap-supported-sku --app-location "eastus" --database-type "HANA" --deployment-type "ThreeTier" --environment "Prod" --high-availability-type "AvailabilitySet" --sap-product "S4HANA" --location "eastus"
@@ -58,7 +58,7 @@ You can use any of these SKUs recommended for App tier and Database tier when de
 
 ## Check for recommended SKUs for SAPS and Memory requirements for your SAP system
 
-Use [az workloads sap-sizing-recommendation](/cli/azure/workloads?view=azure-cli-latest#az-workloads-sap-sizing-recommendation) to get SAP system sizing recommendations by providing SAPS input for application tier and memory required for database tier
+Use [az workloads sap-sizing-recommendation](/cli/azure/workloads?view=azure-cli-latest#az-workloads-sap-sizing-recommendation&preserve-view=true) to get SAP system sizing recommendations by providing SAPS input for application tier and memory required for database tier
 
 ```azurecli-interactive
 az workloads sap-sizing-recommendation --app-location "eastus" --database-type "HANA" --db-memory 1024 --deployment-type "ThreeTier" --environment "Prod" --high-availability-type "AvailabilitySet" --sap-product "S4HANA" --saps 75000 --location "eastus2" --db-scale-method ScaleUp
@@ -66,7 +66,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
 
 ## Create *json* configuration file with custom resource names
 
-- Prepare a *json* file with the conguration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload]([https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayloadDistributedNon-HA.json](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
+- Prepare a *json* file with the conguration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
 - In this json file, provide the custom resource names for the insfrastructure that is deployed for your SAP system
 - The parameters available for customization are: 
     1. VM Name
@@ -85,7 +85,7 @@ You can download the [sample payload](https://github.com/Azure/Azure-Center-for-
 
 ## Deploy infrastructure for your SAP system
 
-Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create) to deploy infrastructure for your SAP system with Three tier HA architecture.
+Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create&preserve-view=true) to deploy infrastructure for your SAP system with Three tier HA architecture.
 
 ```azurecli-interactive
 az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> --environment NonProd --sap-product s4hana --configuration <Payload file path> --identity "{type:UserAssigned,userAssignedIdentities:{<Managed_Identity_ResourceID>:{}}}"
@@ -93,7 +93,7 @@ az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> 
 This will deploy your SAP system and the Virtual instance for SAP solutions (VIS) resource representing your SAP system in Azure. 
 
 ## Cleanup
-If you no longer wish to use the VIS resource, you can delete it by using [az workloads sap-virtual-instance delete](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-delete)
+If you no longer wish to use the VIS resource, you can delete it by using [az workloads sap-virtual-instance delete](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-delete&preserve-view=true)
 
 ```azurecli-interactive
 az workloads sap-virtual-instance delete -g <Resource_Group_Name> -n <VIS Name>
