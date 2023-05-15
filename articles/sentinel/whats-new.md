@@ -154,7 +154,7 @@ Automated responses to alerts, in the form of playbooks, can be run in one of tw
 
 - **Automation rule:** creating an automation rule to run in response to the creation of alerts, and the automation rule will run the playbook. This method has [several advantages, as described here](migrate-playbooks-to-automation-rules.md).
 
-Beginning **May 2023**, you will no longer be able to add playbooks using the **Classic** method; rather, you must use [automation rules](automate-incident-handling-with-automation-rules.md).
+As of **May 2023**, you can no longer add playbooks to be run using the **Classic** method; rather, you must use [automation rules](automate-incident-handling-with-automation-rules.md).
 
 Playbooks in the existing **Classic** lists will continue to run until this method's scheduled deprecation in **March 2026**.
 
