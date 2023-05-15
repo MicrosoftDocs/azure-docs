@@ -281,9 +281,7 @@ az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-
 1. Select **Change size** and select either **Premium SSD v2** or **Ultra Disk** for the **Storage Type**.
 1. Select the performance and capacity you'd like the disk to have.
 1. Continue to the **Advanced** tab.
-1. If the disk you created the snapshot from was either a Premium SSD, Standard SSD, or Standard HDD, select **512** for **Logical sector size (bytes)**.
-    
-	Using the **4096** sector size will only result in a usable disk if the snapshot was of a disk that was either a Premium SSD v2 or Ultra Disk that also used a 4096 sector size. If the snapshot was of a Premium SSD, Standard SSD, or Standard HDD, and you select **4096** for the logical sector size, the disk won't be usable.
+1. Select **512** for **Logical sector size (bytes)**.
 1. Select **Review+Create** and then **Create**.
 ---
 
