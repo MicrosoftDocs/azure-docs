@@ -43,8 +43,6 @@ items:
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
-  - name: Creating certificate signing request
-    href: create-certificate-signing-request.md
   - name: Certificate access control
     href: certificate-access-control.md
     
@@ -54,7 +52,9 @@ items:
     href: tutorial-import-certificate.md
   - name: Configure certificate rotation
     href: tutorial-rotate-certificates.md
-  - name: Integrating Key Vault with DigiCert CA
+  - name: Create certificate signing requests
+    href: create-certificate-signing-request.md
+  - name: Integrate Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
   - name: Export certificate from key vault
     href: how-to-export-certificate.md

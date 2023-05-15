@@ -87,7 +87,7 @@ For partition key, use {date} and {time} tokens from your event fields in the pa
 
 ## Output batch size
 
-For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The maximum blob block size is 4 MB and the maximum blob bock count is 50,000.
+For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits). The maximum blob block size is 4 MB and the maximum blob bock count is 50,000.
 
 ## Limitations
 

@@ -51,7 +51,7 @@ To verify that infrastructure encryption is enabled for a storage account with t
 
 # [PowerShell](#tab/powershell)
 
-To use PowerShell to create a storage account with infrastructure encryption enabled, make sure you have installed the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 2.2.0 or later. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+To use PowerShell to create a storage account with infrastructure encryption enabled, make sure you have installed the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 2.2.0 or later. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 Next, create a general-purpose v2 or premium block blob storage account by calling the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Include the `-RequireInfrastructureEncryption` option to enable infrastructure encryption.
 

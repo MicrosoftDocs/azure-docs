@@ -96,7 +96,7 @@ Global requests from clients can be processed by action group services in any re
 >
 > When you configure an action to notify a person by email or SMS, they receive a confirmation that indicates they were added to the action group.
 
-## Test an action group in the Azure portal (preview)
+### Test an action group in the Azure portal
 
 When you create or update an action group in the Azure portal, you can test the action group.
 
@@ -351,7 +351,7 @@ These replies are supported for SMS notifications. The recipient of the SMS can 
 >[!NOTE]
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
 
-## Countries with SMS notification support
+You might have a limited number of Azure app actions per action group.
 
 | Country code | Country |
 |:---|:---|
@@ -563,7 +563,106 @@ Write-Host "My Azure AD Application (ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
-## Webhook action retry rules
+
+### SMS
+
+For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+
+For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
+
+You might have a limited number of SMS actions per action group.
+
+> [!NOTE]
+>
+> If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party SMS provider that offers support in your country/region.
+
+#### Countries with SMS notification support
+
+| Country code | Country |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgium |
+| 55 | Brazil |
+| 1    |Canada |
+| 56 | Chile |
+| 86 | China |
+| 420 | Czech Republic |
+| 45 | Denmark |
+| 372 | Estonia |
+| 358 | Finland |
+| 33 | France |
+| 49 | Germany |
+| 852 | Hong Kong |
+| 91 | India |
+| 353 | Ireland |
+| 972 | Israel |
+| 39 | Italy |
+| 81 | Japan |
+| 352 | Luxembourg |
+| 60 | Malaysia |
+| 52 | Mexico |
+| 31 | Netherlands |
+| 64 | New Zealand |
+| 47 | Norway |
+| 351 | Portugal |
+| 1 | Puerto Rico |
+| 40 | Romania |
+| 7  | Russia  |
+| 65 | Singapore |
+| 27 | South Africa |
+| 82 | South Korea |
+| 34 | Spain |
+| 41 | Switzerland |
+| 886 | Taiwan |
+| 971 | UAE    |
+| 44 | United Kingdom |
+| 1 | United States |
+
+### Voice
+
+For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+
+You might have a limited number of voice actions per action group.
+
+> [!NOTE]
+>
+> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
+
+#### Countries with Voice notification support
+| Country code | Country |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgium |
+| 55 | Brazil |
+| 1    |Canada |
+| 56 | Chile |
+| 420 | Czech Republic |
+| 45 | Denmark |
+| 358 | Finland |
+| 353 | Ireland |
+| 972 | Israel |
+| 352 | Luxembourg |
+| 60 | Malaysia |
+| 52 | Mexico |
+| 31 | Netherlands |
+| 64 | New Zealand |
+| 47 | Norway |
+| 351 | Portugal |
+| 65 | Singapore |
+| 27 | South Africa |
+| 46 | Sweeden |
+| 44 | United Kingdom |
+| 1 | United States |
+
+For information about pricing for supported countries/regions, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+### Webhook
+
+> [!NOTE]
+>
+> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
 Webhook action groups use the following rules:
 - When a webhook is invoked, if the first call fails, it is retried at least 1 more time, and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
