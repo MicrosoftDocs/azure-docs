@@ -133,7 +133,7 @@ To enable this feature:
 3. In Managed preview feature panel, toggle on **Submit pipeline jobs using the optimized submission wizard**
 
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/enable-submission-wizard.png" alt-text="Screenshot showing how to enable submission wizard." lightbox= "./media/how-to-use-pipeline-ui/enable-submission-wizard.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/enable-submission-wizard.png" alt-text="Screenshot showing how to enable submission wizard." lightbox= "./media/how-to-debug-pipeline-failure/enable-submission-wizard.png":::
 
 After enabling the pipeline submission wizard, select **Configure & Submit** button on the top right to submit the pipeline job.
 

@@ -1,5 +1,5 @@
 ---
-title: What is the Azure Machine Learning designer?
+title: What is the Azure Machine Learning designer(v1)?
 titleSuffix: Azure Machine Learning
 description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables model training and deployment. 
 services: machine-learning
@@ -11,10 +11,9 @@ ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 08/03/2022
 ms.custom: designer, training
-#monikerRange: 'azureml-api-1'
 ---
 
-# What is Azure Machine Learning designer? 
+# What is Azure Machine Learning designer (v1)? 
 
 Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. This article describes the tasks you can do in the designer.
 
