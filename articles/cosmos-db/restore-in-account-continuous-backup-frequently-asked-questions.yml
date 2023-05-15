@@ -21,7 +21,7 @@ sections:
           Can I read or update other resources while a restore is in progress? 
         answer: |
           Yes, you can read or update other databases or containers while a restore operation is in progress on previously deleted resources. Deleted containers and databases aren't available for those same operations in that same time period. 
-     - question: |
+      - question: |
           What is the granularity of resources which I'm able to restore into the same account? 
         answer: |
           You can restore deleted containers, databases into the same account. The only exception is that shared-throughput containers can't be restored individually. An entire shared-throughput database must be restored entirely.
