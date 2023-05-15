@@ -24,7 +24,7 @@ THIM defines the Azure security baseline for Azure Confidential computing (ACC) 
 ### How do I use THIM with Intel processors?
 
 To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/verification collateral. All or parts of this collateral must be fetched from THIM. This can be done using the Intel Quote Provider Library (QPL) or Azure DCAP Client Library.
- - To learn more on how to use Intel QPL with THIM, please see: [How do I use the Intel Quote Provider Library (QPL) with THIM?](#How-do-I-use-the-Intel-Quote-Provider-Library-(QPL)-with-THIM?)
+ - To learn more on how to use Intel QPL with THIM, please see: [How do I use the Intel Quote Provider Library (QPL) with THIM?](#how-do-i-use-the-intel-quote-provider-library-qpl-with-thim)
  - To learn more on how to use Azure DCAP with THIM, please see: [Azure DCAP library](#what-is-the-azure-dcap-library)
 
 
@@ -69,8 +69,8 @@ The Intel QPL configuration file (“sgx_default_qcnl.conf”) contains three ke
 The following table lists how these keys can be set. 
 | Name | Possible Endpoints |
 |--|--|
-| "pccs_url" | <ul><li>THIM endpoint: https://global.acccache.azure.net/sgx/certification/v3</li></ul> |
-| "collateral_service" | <ul><li>THIM endpoint: https://global.acccache.azure.net/sgx/certification/v3</li><li>Intel PCS endpoint: The following file will always list the most up-to-date endpoint in the “collateral_service” key: [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13)</li></ul> |
+| "pccs_url" | THIM endpoint: "https://global.acccache.azure.net/sgx/certification/v3" |
+| "collateral_service" | THIM endpoint: "https://global.acccache.azure.net/sgx/certification/v3" or Intel PCS endpoint: The following file will always list the most up-to-date endpoint in the “collateral_service” key: [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) |
 
 The following is a code snipped from an Intel QPL configuration file example: 
 
