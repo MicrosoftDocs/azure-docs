@@ -162,8 +162,12 @@
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
-      - name: Configure Cloudflare with Azure AD
-        href: cloudflare-azure-ad-integration.md
+      - name: Cloudflare
+        items:
+        - name: Configure Cloudflare with Azure AD
+          href: cloudflare-azure-ad-integration.md
+        - name: Configure Conditional Access policies in Cloudflare Access
+          href: cloudflare-conditional-access-policies.md
       - name: Datawiza
         items:
         - name: Integrate Datawiza with Azure AD

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 05/15/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,17 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## May 2023 
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
+
+    Version 8 of the AzAcSnap tool is now generally available. [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases in Linux environments. AzAcSnap 8 introduces the following new capabilities and improvements: 
+
+    * Restore change -  ability to revert volume for Azure NetApp Files 
+    * New global settings file (.azacsnaprc) to control behavior of azacsnap 
+    * Logging enhancements for failure cases and new "mainlog" for summarized monitoring 
+    * Backup (-c backup) and Details (-c details) fixes  
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
 
 * [Single-file snapshot restore](snapshots-restore-file-single.md) is now generally available (GA)
 

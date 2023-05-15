@@ -55,7 +55,7 @@ When customizing an email sent via Lifecycle workflows, you can choose to custom
 
 1. Select the **Email Customization** tab.
 
-1. On the email customization screen, enter a custom subject, message body, and the email language translation option that will be used to translate the message body of the email.
+1. On the email customization screen, enter a custom subject, message body, and the email language translation option that will be used to translate the message body of the email. The custom subject and message body will not be translated.
     :::image type="content" source="media/customize-workflow-email/customize-workflow-email-example.png" alt-text="Screenshot of an example of a customized email from a workflow.":::
 1. After making changes, select **save** to capture changes to the customized email.
 
