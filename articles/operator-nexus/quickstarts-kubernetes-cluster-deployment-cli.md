@@ -15,7 +15,7 @@ ms.date: 05/13/2023
 
 ## Before you begin
 
-[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster-prereq.md]
+[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster-prereq.md)]
 
 ## Create an Azure Nexus Kubernetes cluster
 

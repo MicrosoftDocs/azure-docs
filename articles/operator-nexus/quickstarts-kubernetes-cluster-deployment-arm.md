@@ -30,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster-prereq.md]
+[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster-prereq.md)]
 
 <!--
 * To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
