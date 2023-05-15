@@ -20,7 +20,7 @@ To set up the proxy, you must have an Azure Monitor workspace. If you don't have
 
 The proxy can be deployed in custom templates using release image or as helm chart. Both deployments contain the same parameters that can be customized. These parameters are described in the [Parameters](#parameters) table.
 
-To deploy the proxy for remote write, see the [Remote write example](#tab/remote-write-example). For querying data from Azure Monitor, see the [Query example](#tab/query-example) example.
+THe following examples show how to deply the proxy for To deploy the proxy for remote write and for querying data from Azure Monitor.
 
 ## [Remote write example](#tab/remote-write-example)
 
@@ -136,7 +136,7 @@ spec:
 
 ### Deploy the proxy using commands:
 ```bash
-kubectl create namespace  observability 
+kubectl create namespace observability 
 kubectl apply -f proxy-ingestion.yaml -n observability
 ```
 
@@ -163,7 +163,7 @@ server:
   - url: "https://proxy-test-abcd.eastus-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-1234567890abcdef01234567890abcdef/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"  
 ```
 
-## [Publish metrics example](#tab/publish-metrics-example)
+## [Query metrics example](#tab/query-metrics-example)
 This deployment allows external entities to query an Azure Monitor workspace via the proxy.
 
 Before deploying the proxy, find your managed identity and assign it the `Monitoring Metrics Reader` role for the Azure Monitor workspace.
@@ -192,7 +192,8 @@ az role assignment create --assignee <clientid>  --role "Monitoring Data Reader"
 
 Use the following YAML file to deploy the proxy for remote query. Modify the following parameters:
 
-+ `TARGET_HOST` - The host that you want to query data from. Use the `Query endpoint` from the Azure monitor workspace Overview page. For example, `proxy-test`
++ `TARGET_HOST` - The host that you want to query data from. Use the `Query endpoint` from the Azure monitor workspace Overview page. For example, `https://k8s-03-workspace-abcs.eastus.prometheus.monitor.azure.com`
+`
 + `AAD_CLIENT_ID` - The `clientId` of the managed identity used that was assigned the `Monitoring Metrics Reader` role.
 + `AUDIENCE` - For querying metrics from Azure Monitor Workspace, set `AUDIENCE` to `https://prometheus.monitor.azure.com`.
 
@@ -271,8 +272,9 @@ spec:
 
 
 
-Deploy proxy using command: 
+Deploy proxy using command:
 ```bash
+kubectl create namespace observability 
 kubectl apply -f proxy-query.yaml -n observability
 ```
 
