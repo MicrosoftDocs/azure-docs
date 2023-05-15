@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Install software for a Distributed non-HA SAP system with Azure Center for SAP solutions with PowerShell
-description: Learn how to  Install software for a Distributed non-HA SAP system in Azure Center for SAP solutions through Azure PowerShell module.
+title: Quickstart - Install software for a distributed non-HA SAP system with Azure Center for SAP solutions with PowerShell
+description: Learn how to  install software for a distributed non-HA SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to Create a Distributed non-HA SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
-# Quickstart:  Install software for a Distributed Non High-Availability (HA) SAP system with Azure Center for SAP solutions using Azure PowerShell
+# Quickstart:  Install software for a distributed non-high-availability (HA) SAP system with Azure Center for SAP solutions using Azure PowerShell
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
