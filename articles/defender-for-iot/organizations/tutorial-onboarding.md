@@ -133,7 +133,7 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of the **Add outbound allow rules** box.":::
 
-    Save the downloaded file to [provision for cloud monitoring](#provision-for-cloud-monitoring) later in this procedure, to make sure that your new sensor will be able to successfully connect to Azure.
+    Save the downloaded file to [provision for cloud monitoring](#provision-for-cloud-monitoring) later in this tutorial, to make sure that your new sensor will be able to successfully connect to Azure.
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
@@ -205,13 +205,13 @@ To ensure that your sensor can connect to Azure, configure the listed endpoints 
 
 ## Download software for your virtual sensor
 
-Defender for IoT's solution for OT security includes on-premises network sensors, which connect to Defender for IoT and send device data for analysis.
+Defender for IoT's solution for OT security includes on-premises network sensors, which connect to Defender for IoT and send device data for analysis. <!--is this necessary?-->
 
 You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This tutorial uses your own machine and VMware and describes how to download and install the sensor software yourself.
 
 **To download software for your virtual sensors**:
 
-1. Go to Defender for IoT in the Azure portal. On the **Getting started** page, select the **Sensor** tab.
+1. In the Azure portal, go to the [**Defender for IoT > Getting started**](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) page, and select the **Sensor** tab.
 
 1. In the **Purchase an appliance and install software** box, ensure that the default option is selected for the latest and recommended software version, and then select **Download**.
 
@@ -228,13 +228,13 @@ This procedure describes how to install the sensor software on your VM.
 
 **To install the software on the virtual sensor**:
 
-1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
+<!--need to add this is continuation of creating vm, or open vm etc?the instructions seem off-->
+
+1. In your VM: For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
 1. Select **Next** > **Finish**.
 
 1. Power on the VM, and open a console.
-
-1. Open the VM console.
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to use.
 
@@ -306,7 +306,7 @@ This procedure describes how to validate your installation using the sensor's ow
 
 **To validate your installation**:
 
-1. Sign in to the sensor.
+1. Sign in to the OT sensor.
 
 1. Select **System Settings** > **Sensor management** > **System Health Check**.
 
