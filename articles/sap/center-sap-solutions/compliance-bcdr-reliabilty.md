@@ -38,7 +38,7 @@ When deploying SAP systems using Azure Center for SAP solutions, you can use Zon
 - Zone redundancy for the SAP system infrastructure that you deploy using Azure Center for SAP solutions can only be chosen when creating the Virtual Instance for SAP solutions (VIS) resource. Once the VIS resource is created and infrastructure is deployed, you cannot change the underlying infrastructure configuration to zone redundant.
 
 #### Deploy an SAP system with availability zone enabled
-This section explains how you can deploy an SAP system with Zone redundancy from the Azure Portal. You can also use PowerShell and CLI interfaces to deploy a zone redundant SAP system with Azure Center for SAP solutions. Learn more about [deploying a new SAP system using Azure Center for SAP solutions](/azure/sap/center-sap-solutions/deploy-s4hana).
+This section explains how you can deploy an SAP system with Zone redundancy from the Azure portal. You can also use PowerShell and CLI interfaces to deploy a zone redundant SAP system with Azure Center for SAP solutions. Learn more about [deploying a new SAP system using Azure Center for SAP solutions](/azure/sap/center-sap-solutions/deploy-s4hana).
 
 1. Open the Azure portal and navigate to the **Azure Center for SAP solutions** page.
 
