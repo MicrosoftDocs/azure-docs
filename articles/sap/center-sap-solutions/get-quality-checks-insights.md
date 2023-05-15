@@ -1,5 +1,5 @@
 ---
-title: Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
+title: Get quality checks and insights for a Virtual Instance for SAP solutions
 description: Learn how to get quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -10,9 +10,9 @@ ms.author: ladolan
 #Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
 ---
 
-# Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
+# Get quality checks and insights for a Virtual Instance for SAP solutions
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+
 
 The *Quality Insights* Azure workbook in *Azure Center for SAP solutions* provides insights about the SAP system resources as a result of running *more than 100 quality checks on the VIS*. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
 
