@@ -42,11 +42,11 @@ Revisions go through a series of states, based on status and availability.
 
 ### Provisioning status
 
-When a new revision is first created, it has to pass startup and readiness checks.  Provisioning status is set to _provisioning_ during verification.  Use provisioning status to follow progress.
+When a new revision is first created, it has to pass startup and readiness checks.  _Provisioning status_ is set to _provisioning_ during verification.  Use _provisioning status_ to follow progress.
 
-Once the revision is verified, running status is set to _running_.  The revision is available and ready for work.  
+Once the revision is verified, _running status_ is set to _running_.  The revision is available and ready for work.  
 
-Provisioning status values include:
+_Provisioning status_ values include:
 
 - _Provisioning:_ It's being provisioned.
 
@@ -56,7 +56,7 @@ Provisioning status values include:
 
 ### Running status
 
-After the revision is provisioned, it is running. Use running status to monitor the status of a revision after a successful provision. 
+After the revision is provisioned, it is running. Use _running status_ to monitor the status of a revision after a successful provision. 
 
 Running status values include:
 
@@ -72,7 +72,7 @@ Running status values include:
     - Resource quota exceeded
     - Image access issues, such as [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster).
 
-- _Failed:_ Critical errors cause revisions to fail.  The running state provides details. 
+- _Failed:_ Critical errors cause revisions to fail.  The _running state_ provides details. 
  
   Common causes include:
 
