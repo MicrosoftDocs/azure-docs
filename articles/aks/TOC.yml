@@ -358,10 +358,10 @@
                   href: csi-secrets-store-nginx-tls.md
     - name: Configure private clusters
       items:
-      - name: Create a private cluster
-        href: private-clusters.md
-      - name: Access a private cluster remotely
-        href: command-invoke.md
+        - name: Create a private cluster
+          href: private-clusters.md
+        - name: Access a private cluster remotely
+          href: command-invoke.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -422,7 +422,7 @@
             - name: Use a Standard Load Balancer
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
-              href: configure-kube-proxy.md   
+              href: configure-kube-proxy.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -438,7 +438,7 @@
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
         - name: Shared file storage
-          items: 
+          items:
             - name: On Azure Blob storage
               items:
                 - name: Azure Blob CSI driver
@@ -452,7 +452,7 @@
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
             - name: Provision Azure NetApp Files storage
-              href: azure-netapp-files.md 
+              href: azure-netapp-files.md
         - name: Block storage
           items:
             - name: Azure Disks CSI driver
@@ -487,7 +487,7 @@
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Upgrade from Windows Server 2019 to 2022
-          href: upgrade-windows-2019-2022.md          
+          href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
@@ -532,6 +532,8 @@
       items:
         - name: About Open Service Mesh
           href: open-service-mesh-about.md
+        - name: Migration Guidance to Istio AKS add-on
+          href: open-service-mesh-istio-migration-guidance.md
         - name: Use the Azure CLI
           href: open-service-mesh-deploy-addon-az-cli.md
         - name: Use Bicep template
