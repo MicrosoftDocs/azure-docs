@@ -8,7 +8,7 @@ items:
     - name: Deploy S/4HANA infrastructure - Azure PowerShell
       href: quickstart-create-distributed-non-ha.md
     - name: Install SAP software - Azure PowerShell
-      href: quickstart-install-distributed-non-ha.md  
+      href: quickstart-install-distributed-non-high-availability.md  
     - name: Deploy S/4HANA infrastructure - Azure CLI
       href: quickstart_create_ha_namecustom.md
     - name: Install SAP software - Azure CLI
