@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure Elasti
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 05/15/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -66,7 +66,22 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
-When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`.
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN Preview resource.
+
+## Assign Contributor role to AKS managed identity on Azure Elastic SAN Preview subscription
+
+You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+
+1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN Preview resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
+1. Select **Access control (IAM)** from the left pane.
+1. Select **Add > Add role assignment**.
+1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
+1. Under **Assign access to**, select **Managed identity**.
+1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
+1. Under **Managed identity**, select **User-assigned managed identity**.
+1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
+1. Select **Review + assign**.
 
 ## Display the available storage classes
 
