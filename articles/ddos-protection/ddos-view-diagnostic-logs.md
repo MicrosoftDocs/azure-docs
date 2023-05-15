@@ -70,6 +70,8 @@ Attack mitigation flow logs allow you to review the dropped traffic, forwarded t
     | where Category == "DDoSMitigationFlowLogs"
 ```
 
+The following table lists the field names and descriptions:
+
 | Field name | Description |
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the flow log was created. |
@@ -95,6 +97,8 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
     AzureDiagnostics
     | where Category == "DDoSMitigationReports"
 ```
+
+The following table lists the field names and descriptions:
 
 | Field name | Description |
 | --- | --- |
