@@ -137,8 +137,6 @@
 - name: Samples
   expanded: false
   items: 
-    - name: Overview
-      href: samples-overview.md
     - name: Authenticate and connect
       href: samples-authenticate-and-connect.md
     - name: App scenarios

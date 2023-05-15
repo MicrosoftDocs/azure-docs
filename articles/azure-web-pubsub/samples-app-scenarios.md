@@ -1,31 +1,31 @@
-# Azure Web PubSub samples - application
+---
+title: Azure Web PubSub samples - app scenarios
+titleSuffix: Azure Web PubSub
+description: A list of code samples showing how Web PubSub is used in a wide variety of web applications 
+author: kevinguo-ed
+ms.author: kevinguo
+ms.service: azure-web-pubsub
+ms.topic: samples
+ms.date: 05/15/2023
+ms.custom: mode-ui
+zone_pivot_groups: azure-web-pubsub-samples-app-scenarios
+---
+# Azure Web PubSub samples - app scenarios
 
-I am a description. I am a description. I am a description. I am a description.
+Azure Web PubSub is used in a wide range of industries, powering  
 
+## C#
+| App scenario                                        | Industry      | Description                                                           |   
+| --------------------------------------------------- | ------------- | --------------------------------------------------------------------- |
+| [Online auction](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | E-commerce | I am a description. I am a description.I am a description.I am a description.I am a description.
 
-:::row:::
-   :::column span="":::
-      [Notification](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-   :::column span="":::
-      [Online action](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-:::row-end:::
+## JavaScript
+| App scenario                                        | Industry      | Description                                                           |   
+| --------------------------------------------------- | ------------- | --------------------------------------------------------------------- |
+| [Online auction](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | E-commerce | I am a description. I am a description.I am a description.I am a description.I am a description.
+| [Cross-platform chat](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Social | I am a description. I am a description.I am a description.I am a description.I am a description.
+| [Collaborative code editor](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Modern work | I am a description. I am a description.I am a description.I am a description.I am a description.
 
-:::row:::
-   :::column span="":::
-      [Multi-player real-time games](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-   :::column span="":::
-      [Cross-platform chat](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-:::row-end:::
+## Java
 
-:::row:::
-   :::column span="":::
-      [Real-time collaboration authoring](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-   :::column span="":::
-      [Online action](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-:::row-end:::
+## Python
