@@ -53,7 +53,7 @@ Azure Center for SAP solutions runs more than 100 quality checks on all VIS reso
 - Hana DB file system checks.
 - OS parameter checks for ANF file system.
 - Pacemaker configuration checks for HANA DB and ASCS Instance for SLES OS and Redhat 
-- OS Configuration chcecks for Application Instances
+- OS Configuration checks for Application Instances
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
