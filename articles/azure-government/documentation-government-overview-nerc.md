@@ -6,12 +6,12 @@ ms.author: stevevi
 ms.topic: article
 ms.service: azure-government
 recommendations: false
-ms.date: 02/16/2022
+ms.date: 05/06/2023
 ---
 
 # NERC CIP standards and cloud computing
 
-This article is intended for electric power utilities and [registered entities](https://www.nerc.com/pa/comp/Pages/Registration.aspx) considering cloud adoption for data and workloads subject to compliance with the North American Electric Reliability Corporation (NERC) [Critical Infrastructure Protection (CIP) standards](https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx).
+This article is intended for electric power utilities and [registered entities](https://www.nerc.com/pa/comp/Pages/Registration.aspx) considering cloud adoption for data and workloads subject to compliance with the North American Electric Reliability Corporation (NERC) [Critical Infrastructure Protection (CIP) standards](https://www.nerc.com/pa/Stand/Pages/default.aspx).
 
 Microsoft makes two different cloud environments available to electric utilities and other registered entities: Azure and Azure Government. Both provide a multi-tenant cloud services platform that registered entities can use to deploy various solutions. A multi-tenant cloud platform implies that multiple customer applications and data are stored on the same physical hardware. Azure and Azure Government use logical isolation to segregate applications and data belonging to different customers. This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously preventing customers from accessing one another's data or applications. This article addresses common security and isolation concerns pertinent to the electric power industry. It also discusses compliance considerations for data and workloads deployed on Azure or Azure Government that are subject to NERC CIP standards. For in-depth technical description of isolation approaches, see [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md).
 
@@ -23,7 +23,7 @@ Both Azure and Azure Government are suitable for registered entities deploying c
 
 The [North American Electric Reliability Corporation (NERC)](https://www.nerc.com/AboutNERC/Pages/default.aspx) is a not-for-profit regulatory authority whose mission is to ensure the reliability of the North American bulk power system. NERC is subject to oversight by the US Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. In 2006, FERC granted the Electric Reliability Organization (ERO) designation to NERC in accordance with the Energy Policy Act of 2005, as stated in the US Public Law 109-58. NERC has jurisdiction over users, owners, and operators of the bulk power system that serves nearly 400 million people in North America. For more information about NERC ERO Enterprise and NERC regional entities, see [NERC key players](https://www.nerc.com/AboutNERC/keyplayers/Pages/default.aspx).
 
-NERC develops and enforces reliability standards known as NERC [CIP standards](https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx). In the United States, FERC approved the first set of CIP standards in 2007 and has continued to do so with every new revision. In Canada, the Federal, Provincial, and Territorial Monitoring and Enforcement Subgroup (MESG) develops provincial summaries for making CIP standards enforceable in Canadian jurisdictions.
+NERC develops and enforces reliability standards known as NERC [CIP standards](https://www.nerc.com/pa/Stand/Pages/default.aspx). In the United States, FERC approved the first set of CIP standards in 2007 and has continued to do so with every new revision. In Canada, the Federal, Provincial, and Territorial Monitoring and Enforcement Subgroup (MESG) develops provincial summaries for making CIP standards enforceable in Canadian jurisdictions.
 
 ## Azure and Azure Government
 
@@ -294,7 +294,7 @@ If you're a registered entities subject to compliance with NERC CIP standards, y
 - [Azure FedRAMP compliance offering](/azure/compliance/offerings/offering-fedramp)
 - [NIST SP 800-53](https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/800-53) *Security and Privacy Controls for Information Systems and Organizations*
 - [North American Electric Reliability Corporation](https://www.nerc.com/) (NERC)
-- NERC [Critical Infrastructure Protection (CIP) standards](https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx)
+- NERC [Critical Infrastructure Protection (CIP) standards](https://www.nerc.com/pa/Stand/Pages/default.aspx)
 - NERC [compliance guidance](https://www.nerc.com/pa/comp/guidance/)
 - NERC [Glossary of Terms](https://www.nerc.com/pa/Stand/Glossary%20of%20Terms/Glossary_of_Terms.pdf)
 - NERC [registered entities](https://www.nerc.com/pa/comp/Pages/Registration.aspx)

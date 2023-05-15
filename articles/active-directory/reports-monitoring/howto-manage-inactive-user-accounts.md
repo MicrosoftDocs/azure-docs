@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/05/2023
+ms.date: 05/02/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -43,7 +43,7 @@ You can detect inactive accounts by evaluating the `lastSignInDateTime` property
     - `https://graph.microsoft.com/v1.0/users?$filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
 > [!NOTE]
-> When you request the `signInActivity` property while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will fail. The `signInActivity` property supports `$filter` (`eq`, `ne`, `not`, `ge`, `le`) *but not with any other filterable properties*. 
+> The `signInActivity` property supports `$filter` (`eq`, `ne`, `not`, `ge`, `le`) *but not with any other filterable properties*. You must specify `$select=signInActivity` or `$filter=signInActivity` while [listing users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true), as the signInActivity property is not returned by default.
 
 ### What you need to know
 
@@ -61,7 +61,7 @@ The following details relate to the `lastSignInDateTime` property.
 
 - Each interactive sign-in attempt results in an update of the underlying data store. Typically, sign-ins show up in the related sign-in report within 6 hours. 
  
-- To generate a `lastSignInDateTime` timestamp, you an attempted sign-in. The value of the `lastSignInDateTime` property may be blank if:
+- To generate a `lastSignInDateTime` timestamp, you must attempt a sign-in. Either a failed or successful sign-in attempt, as long as it's recorded in the [Azure AD sign-in logs](concept-all-sign-ins.md), generates a `lastSignInDateTime` timestamp. The value of the `lastSignInDateTime` property may be blank if:
     - The last attempted sign-in of a user took place before April 2020.
     - The affected user account was never used for a sign-in attempt.
 
@@ -69,7 +69,7 @@ The following details relate to the `lastSignInDateTime` property.
 
 ## How to investigate a single user
 
-If you need to view the latest sign-in activity for a user you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
+If you need to view the latest sign-in activity for a user, you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Go to **Azure AD** > **Users** > select a user from the list.
@@ -77,7 +77,7 @@ If you need to view the latest sign-in activity for a user you can view the user
 
     ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)
 
-The last sign-in date and time shown on this tile may take up to 24 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
+The last sign-in date and time shown on this tile may take up to 6 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
 
 ## Next steps
 

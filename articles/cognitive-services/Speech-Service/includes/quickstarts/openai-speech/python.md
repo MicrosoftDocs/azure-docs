@@ -20,7 +20,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 - You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
+Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
 
 Install the following Python libraries: `os`, `requests`, `json`
 
@@ -84,7 +84,7 @@ Follow these steps to create a new console application.
         text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
         print('Azure OpenAI response:' + text)
         
-        # Azure text-to-speech output
+        # Azure text to speech output
         speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
     
         # Check result

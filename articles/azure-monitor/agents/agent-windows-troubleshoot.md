@@ -289,7 +289,7 @@ function GetVmssWithMMAInstalled
     $hash.One = 1
 
     $vmssList | Foreach-Object -ThrottleLimit $parallelThrottleLimit -Parallel {
-        $len = $using:vmsCount
+        $len = $using:vmssCount
         $hash = $using:hash
         $percent = 100 * $hash.One++ / $len
         Write-Progress -Activity "Getting VMSS Inventory" -PercentComplete $percent

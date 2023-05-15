@@ -121,6 +121,9 @@ Your virtual networks in Azure have default route tables in place when you creat
 
 ## Configure firewall policies
 
+> [!NOTE]
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to determine which service tags you need.
+
 Now, all outbound traffic from your container app is routed to the firewall. Currently, the firewall still allows all outbound traffic through. In order to manage what outbound traffic is allowed or denied, you need to configure firewall policies.
 
 1. In your *Azure Firewall* resource on the *Overview* page, select **Firewall policy**

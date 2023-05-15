@@ -64,7 +64,7 @@ These articles shows how to provision an Azure-SSIS IR by using the [Azure porta
 
   - You want to connect to on-premises data stores from SSIS packages running on your Azure-SSIS IR without configuring a self-hosted IR.
 
-- **Azure PowerShell (optional)**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps), if you want to run a PowerShell script to provision your Azure-SSIS IR.
+- **Azure PowerShell (optional)**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell), if you want to run a PowerShell script to provision your Azure-SSIS IR.
 
 ### Regional support
 

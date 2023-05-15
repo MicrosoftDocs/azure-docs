@@ -43,7 +43,7 @@ SecurityIncident
 | where Severity in ('High','Medium','Low', 'Informational')
 ```
 
-Mean time to closure:
+Closure time by percentile:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -52,7 +52,7 @@ SecurityIncident
   90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
 ```
 
-Mean time to triage:
+Triage time by percentile:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
