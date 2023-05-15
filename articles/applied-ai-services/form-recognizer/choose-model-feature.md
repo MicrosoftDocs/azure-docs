@@ -7,9 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/30/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
+monikerRange: 'form-recog-3.0.0'
 ---
 
 # Which Form Recognizer model should I use?
@@ -20,15 +20,18 @@ Azure Form Recognizer supports a wide variety of models that enable you to add i
 
 The following decision chart highlights the features of each **Form Recognizer v3.0** supported model and helps you choose the best model to meet the needs and requirements of your application.
 
-Document analysis models
+> [!NOTE]
+> Check the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
+
+## Document analysis models
 
 | Document type | Example| Data to extract | Your best solution |
 | -----------------|-----------|--------|-------------------|
-|**A generic document** written or printed in a [supported language](language-support.md#read-layout-and-custom-form-template-model).| A contract or letter. |You want to extract primarily text lines, words, locations, and detected languages.|[**Read OCR model**](concept-read.md)|
-|**A document that includes structural information** written or printed in a [supported language](language-support.md#read-layout-and-custom-form-template-model).|A report or study.| In addition to text, you need to extract structural information like tables, selection marks, paragraphs, titles, headings, and subheadings.| [**Layout analysis model**](concept-layout.md)
+|**A generic document**. | A contract or letter. |You want to extract primarily written or printed text lines, words, locations, and detected languages.|[**Read OCR model**](concept-read.md)|
+|**A document that includes structural information**. |A report or study.| In addition to written or printed text, you need to extract structural information like tables, selection marks, paragraphs, titles, headings, and subheadings.| [**Layout analysis model**](concept-layout.md)
 |**A structured or semi-structured document that includes content formatted as fields and values**.|A form or document that is a standardized format commonly used in your business or industry like a credit application or survey. | You want to extract fields and values including ones not covered by the scenario-specific prebuilt models **without having to train a custom model**.| [**General document  model**](concept-general-document.md)|
 
-Pretrained models
+## Pretrained models
 
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
@@ -46,3 +49,14 @@ Pretrained models
 > * The General Document model is powered by the Read OCR engine to detect text lines, words, locations, and languages.
 > * General document also extracts the same data as the Layout model (pages, tables, styles).
 
+## Custom extraction models
+
+| Training set | Example documents | Your best solution |
+| -----------------|--------------|-------------------|
+|**Structured, consistent documents with a static layout** |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
+|**Structured, semi-structured and unstructured documents**|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
+|**A collection of several models each trained on similar-type documents.** |&#9679; Supply purchase orders model</br>&#9679; Equipment purchase orders model</br>&#9679; Furniture purchase orders model</br> All composed into a single model.| [**Composed custom model**](concept-composed-models.md)|
+
+## Next steps
+
+* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
