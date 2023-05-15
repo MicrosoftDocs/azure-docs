@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: disks
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 05/15/2023
 ms.author: rogarana
 ---
 
@@ -227,7 +227,6 @@ $storageType = 'PremiumV2_LRS'
 #Get-AzLocation
 $location = 'westus'
 
-#To use a 4096 sector size, replace 512 with 4096
 $logicalSectorSize=512
 
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -255,7 +254,7 @@ resourceGroupName="yourResourceGroupNameHere"
 snapshotName="desiredSnapshotNameHere"
 #Provide the storage type. Use PremiumV2_LRS or UltraSSD_LRS.
 storageType=PremiumV2_LRS
-##Replace 512 with 4096 to deploy a disk with 4096 sector size
+
 logicalSectorSize=512
 
 # Get the disk you need to backup
