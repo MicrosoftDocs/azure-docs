@@ -12,11 +12,13 @@ ms.author: v-saambe
 
 Follow these steps in order to gather the data needed to diagnose Hybrid AKS creation or management issues. These steps require k8s controller access and bare metal linux host access.
 
+:::image type="content" source="media/Haks-connected-status.png" alt-text="Connected status":::
 [!Connected status](../../articles/operator-nexus/media/Haks-connected-status.png)
 
 If Status: is not Connected and Provisioning State: is not Succeeded then the install failed
 
-[!INCLUDE] [How to manage and lifecycle the AKS-Hybrid cluster](../../articles/operator-nexus/howto-hybrid-aks.md)
+[How to manage and lifecycle the AKS-Hybrid cluster](../../articles/operator-nexus/howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster)
+
 
 # Prerequisites
 
