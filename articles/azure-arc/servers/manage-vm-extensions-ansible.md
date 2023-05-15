@@ -5,7 +5,7 @@ ms.date: 05/15/2023
 ms.topic: conceptual
 ---
 
-# Enable Azure VM extensions by using ARM template
+# Enable Azure VM extensions using Red Hat Ansible automation
 
 This article shows you how to use Red Hat Ansible Automation Platform to deploy VM extensions at scale to Azure Arc-enabled servers.
 
@@ -15,8 +15,8 @@ This article also uses the [Azure Infrastructure Configuration Demo](https://git
 
 |File or Folder  |Description  |
 |---------|---------|
-|playbook_enable_arc_extension.yml  |Playbook that's used as a job template to enable Azure Arc extensions  |
-|playbook_disable_arc-extension.yml  |Playbook that's used as a job template to disable Azure Arc extensions  |
+|playbook_enable_arc_extension.yml  |Playbook that's used as a job template to enable Azure Arc extensions.  |
+|playbook_disable_arc-extension.yml  |Playbook that's used as a job template to disable Azure Arc extensions.  |
 |roles/arc  |Ansible role that contains the reusable automation leveraged by the playbooks.  |
 
 > [!NOTE]
@@ -74,7 +74,7 @@ The project you created from the Azure Infrastructure Configuration Demo collect
 |Azure Monitor for VMs (insights)  |azure_monitor_for-vms  |
 |Azure Key Vault Certificate Sync  |azure_key_vault  |
 |Azure Monitor Agent  |azure_monitor_agent  |
-|Azure Automation Hybrid Runbook Worker Extension  |azure_hybrid_rubook  |
+|Azure Automation Hybrid Runbook Worker extension  |azure_hybrid_rubook  |
 
 You'll need to create templates in order to enable and disable Arc-enabled server VM extensions (explained below).
 
@@ -122,7 +122,7 @@ Follow the steps below to create the template:
    > [!NOTE]
    >  Change the `resource group` and `arc_hosts` to match the names of your Azure resources. If you have a large number of  Arc hosts, use Jinja2 formatting to extract the list from your inventory sources.
 
-1. Check the *Prompt on launch* box for Variables so you can change the extension at run timel
+1. Check the **Prompt on launch** box for Variables so you can change the extension at run timel
 1. Select **Save**.
 
 ### Disable Azure Arc VM extensions
@@ -165,19 +165,19 @@ Follow the steps below to create the template:
    > [!NOTE]
    >  Change the `resource group` and `arc_hosts` to match the names of your Azure resources. If you have a large number of  Arc hosts, use Jinja2 formatting to extract the list from your inventory sources.
 
-1. Check the *Prompt on launch* box for Variables so you can change the extension at run timel
+1. Check the **Prompt on launch** box for Variables so you can change the extension at run timel
 1. Select **Save**.
 
 ### Run the automation
 
 Now that you have the job templates created, you can enable or disable Arc extensions by simply changing the name of the `extension` variable. Azure Arc extensions are mapped in the "arc" role in [this file](https://github.com/ansible-content-lab/azure.infrastructure_config_demos/blob/main/roles/arc/defaults/main.yml).
 
-When you click the “launch” 🚀 icon, the template will ask you to confirm that the variables are accurate. For example, to enable the Microsoft Defender extension, ensure that the extension variable is set to microsoft_defender. Then, click Next and then Launch to run the template:
+When you click the “launch” 🚀 icon, the template will ask you to confirm that the variables are accurate. For example, to enable the Microsoft Defender extension, ensure that the extension variable is set to `microsoft_defender`. Then, click **Next** and then **Launch** to run the template:
 
 :::image type="content" source="media/manage-vm-extensions-ansible/launch-extension.png" alt-text="Screenshot of the window to launch the Arc extension.":::
 
 
-If no errors are reported, the extension will be enabled and active on the applicable servers after a short period of time. You can then proceed to enable other extensions by changing the extension variable in the template.
+If no errors are reported, the extension will be enabled and active on the applicable servers after a short period of time. You can then proceed to enable (or disable) other extensions by changing the extension variable in the template.
 
 ## Next steps
 
