@@ -49,7 +49,45 @@ There are four steps to identifying and updating your apps in the Azure portal. 
     - For example, the steps for .NET and Python applications have separate instructions.
     - For a full list of instructions for each scenario, see [How to migrate to MSAL](../develop/msal-migration.md#how-to-migrate-to-msal).
 
-### Identify your apps programmatically
+### Identify your apps with the Microsoft Graph API
+
+You can use Microsoft Graph to identify apps that need to be migrated to MSAL. To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+
+Run the following query in Microsoft Graph, replacing the `<TENANT_ID>` placeholder with your tenant ID. This query returns a list of the impacted resources in your tenant.
+
+```http
+https://graph.microsoft.com/beta/directory/recommendations/<TENANT_ID>_Microsoft.Identity.IAM.Insights.AdalToMsalMigration/impactedResources
+```
+
+The following response provides the details of the impacted resources using ADAL:
+
+```json
+{
+    "id": "<APPLICATION_ID>",
+    "subjectId": "<APPLICATION_ID>",
+    "recommendationId": "TENANT_ID_Microsoft.Identity.IAM.Insights.AdalToMsalMigration",
+    "resourceType": "app",
+    "addedDateTime": "2023-03-29T09:29:01.1708723Z",
+    "postponeUntilDateTime": null,
+    "lastModifiedDateTime": "0001-01-01T00:00:00Z",
+    "lastModifiedBy": "System",
+    "displayName": "sample-adal-app",
+    "owner": null,
+    "rank": 1,
+    "portalUrl": "
+df.onecloud.azure-test.net/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Branding/appId/{0}"
+    "apiUrl": null,
+    "status": "completedBySystem",
+    "additionalDetails": [
+        {
+            "key": "Library",
+            "value": "ADAL.Net"
+        }
+    ]
+}
+```
+
+### Identify your apps with Microsoft Graph PowerShell SDK
 
 You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](/graph/powershell/installation) to get a list of all applications in your tenant that use ADAL.
 
