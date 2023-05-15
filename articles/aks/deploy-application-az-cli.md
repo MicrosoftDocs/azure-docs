@@ -56,7 +56,7 @@ First, you need to select the Kubernetes application that you want to deploy in 
    > [!NOTE]
    > If there are no configuration settings in the ARM template, refer to the application-related documentation in Azure Marketplace or on the partner's website.
   
-## Accept Terms and Agreements
+## Accept terms and agreements
 
 Before you can deploy a Kubernetes application, you need to accept its terms and agreements. To do so, run the following command, using the values you copied for `plan-publisher`, `plan-offerID`, and `plan-name`.
 

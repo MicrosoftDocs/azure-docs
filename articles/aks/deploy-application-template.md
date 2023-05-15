@@ -53,8 +53,7 @@ az vm image terms accept --offer <Product ID> --plan <Plan ID> --publisher <Publ
 ## Get-AzureRmMarketplaceTerms -Publisher <Publisher ID> -Product <Product ID> -Name <Plan ID>
 ```
 
-
-## Deploy ARM Template
+## Deploy ARM template
 
 Once you've accepted the terms, you can deploy your ARM template. For instructions, see [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template).
 
