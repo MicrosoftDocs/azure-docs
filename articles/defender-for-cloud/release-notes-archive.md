@@ -1,10 +1,10 @@
 ---
 title: Archive of what's new in Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: reference
-ms.date: 04/17/2023
+ms.date: 05/03/2023
 ---
 
 # Archive for what's new in Defender for Cloud?
