@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 # Azure Container Apps hosting of Azure Functions 
 
-Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). You should consider deploying your containerized function apps to Azure Container Apps when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows or any container hosted programs. Container Apps hosting lets you run your functions in a Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA
+Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows or any container hosted programs. Container Apps hosting lets you run your functions in a Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA
 
 [!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
@@ -66,14 +66,15 @@ Keep in mind the following considerations when deploying your function app conta
     + UK South 
     + West Europe 
     + West US3 
-+ When running in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
++ When your container is hosted in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
     + HTTP 
     + Azure Queue Storage 
     + Azure Service Bus 
     + Azure Event Hubs 
     + Kafka*  
-    \*The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).   
+    \*The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
++ Dapr is currently enabled by default in the preview release. In a later release, Dapr loading should be configurable. 
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. However, you can access the AKS instance directly.
 + Use of user-assigned managed identities is currently supported, and is preferred for accessing Azure Container Registry. For more information, see [Add a user-assigned identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity).
