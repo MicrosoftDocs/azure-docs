@@ -161,7 +161,7 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
 
 When [using PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
-Before you start, make sure you load the **Az** and **AzureAD** modules and connect to Azure:
+Before you start, make sure to load the **Az** and **AzureAD** modules and connect to Azure:
 
 ```powershell
 Import-Module -Name Az
@@ -225,7 +225,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az account show --query id -o tsv
    ````
 
-1. Create a resource group for your security principal. This example uses the West US region. You'll provide this value as a variable in a future step. The role that you create is scoped to the resource group.
+1. Create a resource group for your security principal. This example uses the West US region. You provide this value as a variable in a future step. The role that you create is scoped to the resource group.
 
    ```azurecli
    az group create -l westus -n MyResourceGroup
@@ -237,7 +237,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
     az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
     ```
 
-   A successful response includes "appId", "password", and "tenant". You'll use these values for the variables "clientId", "clientSecret", and "tenant".
+   A successful response includes "appId", "password", and "tenant". You use these values for the variables "clientId", "clientSecret", and "tenant".
 
 1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
 
@@ -313,7 +313,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
 
-1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentiation. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
+1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
    + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
 
