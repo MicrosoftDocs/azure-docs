@@ -1,5 +1,5 @@
 ---
-title: Install SAP software (preview)
+title: Install SAP software
 description: Learn how to install SAP software on an SAP system that you created using Azure Center for SAP solutions. You can either install the SAP software with  Azure Center for SAP solutions, or install the software outside the service and detect the installed system.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -10,11 +10,11 @@ ms.author: ladolan
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
 ---
 
-# Install SAP software (preview)
+# Install SAP software
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
 
-[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
+
+
 
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
 
