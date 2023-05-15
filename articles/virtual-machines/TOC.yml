@@ -1133,10 +1133,12 @@
     displayname: Performance, cost, perf, disks, disk
   - name: Deploy a ZRS disk
     href: disks-deploy-zrs.md
-  - name: Shared disks
-    href: disks-shared.md
-  - name: Enable shared disks
-    href: disks-shared-enable.md
+  - name: Share a disk between VMs
+    items:
+    - name: About shared disks
+      href: disks-shared.md
+    - name: Enable shared disks
+      href: disks-shared-enable.md
   - name: Encryption
     items:
     - name: Disk encryption overview
@@ -1343,6 +1345,16 @@
       href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
     - name: Upload a vhd to a disk - CLI
       href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+    - name: Export to a storage account
+      items:
+      - name: Export a snapshot as a VHD to a storage account - CLI
+        href: ./scripts/copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account - CLI
+        href: ./scripts/copy-managed-disks-vhd-to-storage-account.md
+      - name: Export a snapshot as a VHD to a storage account - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
     - name: Download a VHD
       items:
       - name: Linux
@@ -1361,6 +1373,14 @@
       - name: PowerShell
         displayName: Convert disk to another disk type
         href: ./windows/convert-disk-storage.md
+    - name: Migrate to the same or different subscription
+      items:
+      - name: Copy a managed disk to the same or different subscription - CLI
+        href: ./scripts/copy-managed-disks-to-same-or-different-subscription.md
+      - name: Copy a snapshot to the same or different subscription - CLI
+        href: ./scripts/copy-snapshot-to-same-or-different-subscription.md
+      - name: Copy a snapshot to the same or different subscription - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
     - name: Migrate AWS and on-premises disk to Azure
       href: ./windows/on-prem-to-azure.md
     - name: Migrate to premium SSDs with Azure Site Recovery
@@ -1383,6 +1403,22 @@
       - name: PowerShell
         displayName: Unmanaged VM to Managed Disks
         href: ./windows/convert-unmanaged-to-managed-disks.md
+  - name: Create resources
+    items:
+      - name: Create a disk from a VHD - CLI 
+        href: ./scripts/create-managed-disk-from-vhd.md
+      - name: Create a disk from a snapshot - CLI
+        href: ./scripts/create-managed-disk-from-snapshot.md
+      - name: Create a disk from a VHD - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
+      - name: Create a disk from a snapshot - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
+      - name: Create a snapshot from a VHD - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
+      - name: Create virtual machine from snapshot - CLI
+        href: ./scripts/create-vm-from-snapshot.md
+      - name: Create virtual machine from existing OS disk - CLI
+        href: ./scripts/create-vm-from-managed-os-disks.md
   - name: Add a data disk
     items:
     - name: Linux
@@ -1453,40 +1489,6 @@
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
       href: faq-for-disks.yml
-  - name: Code samples
-    items:
-    - name: CLI
-      items:
-      - name: Create managed disk from a VHD
-        href: ./scripts/create-managed-disk-from-vhd.md
-      - name: Create a managed disk from a snapshot
-        href: ./scripts/create-managed-disk-from-snapshot.md
-      - name: Copy a managed disk to the same or different subscription
-        href: ./scripts/copy-managed-disks-to-same-or-different-subscription.md
-      - name: Export a snapshot as a VHD to a storage account
-        href: ./scripts/copy-snapshot-to-storage-account.md
-      - name: Export a managed disk as a VHD to a storage account
-        href: ./scripts/copy-managed-disks-vhd-to-storage-account.md
-      - name: Copy a snapshot to the same or different subscription
-        href: ./scripts/copy-snapshot-to-same-or-different-subscription.md
-      - name: Create virtual machine from snapshot
-        href: ./scripts/create-vm-from-snapshot.md
-      - name: Create virtual machine from existing managed OS disk
-        href: ./scripts/create-vm-from-managed-os-disks.md
-    - name: PowerShell
-      items:
-      - name: Create managed disk from a VHD
-        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
-      - name: Create a managed disk from a snapshot
-        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
-      - name: Copy a snapshot to the same or different subscription
-        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-      - name: Export a snapshot as a VHD to a storage account
-        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
-      - name: Export a managed disk as a VHD to a storage account
-        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
-      - name: Create a snapshot from a VHD
-        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
 - name: Networking
   items:
   - name: Overview
