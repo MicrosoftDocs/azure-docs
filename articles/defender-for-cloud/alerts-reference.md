@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/20/2023
+ms.date: 05/15/2023
 ---
 
 # Security alerts - a reference guide
@@ -531,6 +531,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Unusual user-application pair accessed a key vault**<br>(KV_UserAppAnomaly) | A key vault has been accessed by a user-service principal pair that doesn't normally access it. This anomalous access pattern may be legitimate activity, but it could be an indication that a threat actor  has gained access to the key vault in an attempt to access the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
 | **User accessed high volume of key vaults**<br>(KV_AccountVolumeAnomaly) | A user or service principal has accessed an anomalously high volume of key vaults. This anomalous access pattern may be legitimate activity, but it could be an indication that a threat actor  has gained access to multiple key vaults in an attempt to access the secrets contained within them. We recommend further investigations. | Credential Access | Medium |
 | **Denied access from a suspicious IP to a key vault**<br>(KV_SuspiciousIPAccessDenied) | An unsuccessful key vault access has been attempted by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. Though this attempt was unsuccessful, it indicates that your infrastructure might have been compromised. We recommend further investigations. | Credential Access | Low |
+| **Unusual access to the key vault from a suspicious IP (Non-Microsoft or External)**<br>(KV_UnusualAccessSuspiciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern may be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
 
 
 ## <a name="alerts-azureddos"></a>Alerts for Azure DDoS Protection
@@ -543,7 +544,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **DDoS Attack mitigated for Public IP**<br>(NETWORK_DDOS_MITIGATED) | DDoS Attack mitigated for Public IP (IP address).                    | Probing                                      | Low      |
 
 
-## <a name="alerts-fusion"></a>Security incident alerts
+## <a name="alerts-fusion"></a>Security incident 
 
 [Further details and notes](alerts-overview.md#what-are-security-incidents)
 
@@ -581,7 +582,7 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 | **Command and Control**  | V7, V9    | The command and control tactic represents how adversaries communicate with systems under their control within a target network.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Exfiltration**         | V7, V9    | Exfiltration refers to techniques and attributes that result or aid in the adversary removing files and information from a target network. This category also covers locations on a system or network where the adversary may look for information to exfiltrate.                                                                                                                                                                                                                                                                                                                                  |
 | **Impact**               | V7, V9    | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others. 
-                                                                             
+
 > [!NOTE]
 > For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
