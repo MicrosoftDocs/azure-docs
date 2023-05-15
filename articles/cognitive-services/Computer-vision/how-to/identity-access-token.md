@@ -19,7 +19,7 @@ Independent software vendors (ISVs) can manage the Face API usage of their clien
 
 This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-The LimitedAccessToken feature is a part of the existing [Cognitive Services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature. Tokens expire after one hour.
+The LimitedAccessToken feature is a part of the existing [Cognitive Services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
 
 ## Example use case
 
@@ -56,7 +56,7 @@ The ISV's cloud service, running in a secure environment, calls the **issueLimit
 To call the **issueLimitedAccessToken** API, copy the following cURL command to a text editor.
 
 ```bash
-curl -X POST 'https://<isv-endpoint>/sts/v1.0/issueLimitedAccessToken' \  
+curl -X POST 'https://<isv-endpoint>/sts/v1.0/issueLimitedAccessToken?expiredTime=3600' \  
 -H 'Ocp-Apim-Subscription-Key: <client-face-key>' \  
 -H 'Content-Type: application/json' \  
 -d '{  
@@ -67,6 +67,7 @@ curl -X POST 'https://<isv-endpoint>/sts/v1.0/issueLimitedAccessToken' \
 
 Then, make the following changes:
 1. Replace `<isv-endpoint>` with the endpoint of the ISV's resource. For example, **westus.api.cognitive.microsoft.com**.
+1. Optionally set the `expiredTime` parameter to set the expiration time of the token in seconds. It must be between 60 and 86400. The default value is 3600 (one hour).
 1. Replace `<client-face-key>` with the key of the client's Face resource.
 1. Replace `<subscription-id>` with the subscription ID of the client's Azure subscription.
 1. Replace `<resource-group-name>` with the name of the client's resource group.
