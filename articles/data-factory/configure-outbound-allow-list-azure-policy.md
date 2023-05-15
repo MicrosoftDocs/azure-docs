@@ -24,7 +24,7 @@ These outbound rules apply to various pipeline activities. This includes Copy, D
 
 ## Prerequisites
 
-To apply an Azure Policy to Azure Data Factory, user needs to have the [Resource Policy Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#resource-policy-contributor) permission. This role can be assigned to the individual responsible for configuring policies for Data Factory.
+To apply an Azure Policy to Azure Data Factory, user needs to have the [Resource Policy Contributor](/azure/role-based-access-control/built-in-roles.md#resource-policy-contributor) permission. This role can be assigned to the individual responsible for configuring policies for Data Factory.
 
 ## Steps to enable Azure Policy for outbound rules
 
@@ -68,4 +68,4 @@ To apply policies to an Azure Data Factory instance, complete the following step
 
 Check out the following article to learn more about the Azure security baseline:
 
-[Azure security baseline](/security/benchmark/azure/baselines/data-factory-security-baseline.md?toc=%2Fazure%2Fdata-factory%2FTOC.json)
+[Azure security baseline](/security/benchmark/azure/baselines/data-factory-security-baseline?toc=%2Fazure%2Fdata-factory%2FTOC.json)
