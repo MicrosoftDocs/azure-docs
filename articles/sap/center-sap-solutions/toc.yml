@@ -70,8 +70,8 @@ items:
   - name: Reference
     items:
     - name: Azure CLI
-      href: https://learn.microsoft.com/cli/azure/workloads/sap-virtual-instance 
+      href: /cli/azure/workloads/sap-virtual-instance 
     - name: Azure PowerShell
-      href: https://learn.microsoft.com/powershell/module/az.workloads/new-azworkloadssapvirtualinstance
+      href: /powershell/module/az.workloads/new-azworkloadssapvirtualinstance
     - name: REST - SAP Virtual Instance
-      href: https://learn.microsoft.com/rest/api/workloads/  
+      href: /rest/api/workloads/  
