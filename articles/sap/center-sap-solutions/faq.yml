@@ -158,7 +158,7 @@ sections:
 
       - question:  What resources are available to learn more? 
         answer: | 
-                Customers and partners can find more information at Microsoft Learn: https://learn.microsoft.com and [SAP on Azure Resources page](aka.ms/SAPonAzureCTA)
+                Customers and partners can find more information at Microsoft Learn: https://learn.microsoft.com and [SAP on Azure Resources page](/users/lannateh-3810/collections/7rysj5w2007dn?wt.mc_id=saponazurecta_collections_webpage_azuremktg_csainfra)
 
 
       - question:  What is the SLA for this service?
