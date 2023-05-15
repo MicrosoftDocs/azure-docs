@@ -42,19 +42,10 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 | September | [Azure Cognitive Search Lab](https://github.com/Azure-Samples/azure-search-lab/blob/main/README.md). This C# sample provides the source code for building a web front-end that accesses all of the REST API calls against an index. This tool is used by support engineers to investigate customer support issues. You can try this [demo site](https://azuresearchlab.azurewebsites.net/) before building your own copy. |
 | September |  [Event-driven indexing for Cognitive Search](https://github.com/aditmer/Event-Driven-Indexing-For-Cognitive-Search/blob/main/README.md). This C# sample is an Azure Function app that demonstrates event-driven indexing in Azure Cognitive Search. If you've used indexers and skillsets before, you know that indexers can run on demand or on a schedule, but not in response to events. This demo shows you how to set up an indexing pipeline that responds to data update events. |
 | August | [Tutorial: Index large data from Apache Spark](search-synapseml-cognitive-services.md). This tutorial explains how to use the SynapseML open-source library to push data from Apache Spark into a search index. It also shows you how to make calls to Cognitive Services to get AI enrichment without skillsets and indexers. |
-
-## June 2022
-
-|Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
-|------------------------------|------|-------------|
-| [Semantic search (preview)](semantic-search-overview.md) | Feature | New support for Storage Optimized tiers (L1, L2). |
-| [Debug Sessions](cognitive-search-debug-session.md) | Feature | **General availability**. Debug sessions, a built-in editor that runs in Azure portal, is now generally available. |
-
-## May 2022
-
-|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
-|------------------------------|------|-------------|
-| [Power Query connector preview](/previous-versions/azure/search/search-how-to-index-power-query-data-sources) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
+| June | [Semantic search (preview)](semantic-search-overview.md). New support for Storage Optimized tiers (L1, L2). |
+| June | **General availability** - [Debug Sessions](cognitive-search-debug-session.md).|
+| May | **Retired** - [Power Query connector preview](/previous-versions/azure/search/search-how-to-index-power-query-data-sources).  |
+| February | [Index aliases](search-how-to-alias.md). An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. When index names change, for example if you version the index, instead of updating the references to an index name in your application, you can just update the mapping for your alias. |
 
 ## Previous year's announcements
 
