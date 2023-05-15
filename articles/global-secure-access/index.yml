@@ -81,8 +81,8 @@ landingContent:
           - text: App segment discovery
             url: how-to-app-segment-discovery.md
           - text: Enriched Office 365 logs
-            url: how-to-enriched-logs.md
+            url: how-to-view-enriched-logs.md
           - text: Network logging
             url: how-to-network-logging.md
           - text: Admin audit logging
-            url: how-to-admin-audit-logging.md
+            url: how-to-access-audit-logs.md
