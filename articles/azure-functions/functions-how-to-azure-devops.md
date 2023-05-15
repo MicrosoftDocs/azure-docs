@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 05/15/2023
 ms.author: jukullam
 ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devops-pipelines-deploy"
 ms.devlang: azurecli
@@ -26,39 +26,15 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
 * An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
 
+* A function app with its code in a GitHub repository.  
+    * [Create your first function in the Azure portal](functions-create-function-app-portal.md)
+    * [Code and test Azure Functions locally](functions-develop-local.md)    
+        * [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
+        * [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
+        * [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
+        * [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
+
 ::: zone pivot="v1"
-
-## Create your function app
-
-This is a step-by-step guide to using Azure Pipelines with Azure Functions.
-# [.NET Core](#tab/dotnet-core)
-
-If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
-
-To use sample code instead, fork this GitHub repo:
-
-```
-    https://github.com/microsoft/devops-project-samples/tree/master/dotnet/aspnetcore/functionApp
-```
-
-# [Java](#tab/java)
-
-If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
-
-To use sample code instead, fork this GitHub repo:
-```
-    https://github.com/MicrosoftDocs/pipelines-java-function
-```
-
-# [Nodejs](#tab/nodejs)
-
-If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
-
-To use sample code instead, fork this GitHub repo:
-```
-    https://github.com/microsoft/devops-project-samples/tree/master/node/plain/functionApp
-```
-***
 
 ## Build your app
 
@@ -381,37 +357,6 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
 ::: zone pivot="v2"
 
-## Create your function app
-
-This is a step-by-step guide to using Azure Pipelines with Azure Functions.
-# [.NET Core](#tab/dotnet-core)
-
-If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
-
-To use sample code instead, fork this GitHub repo:
-
-```
-    https://github.com/microsoft/devops-project-samples/tree/master/dotnet/aspnetcore/functionApp
-```
-
-# [Java](#tab/java)
-
-If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
-
-To use sample code instead, fork this GitHub repo:
-```
-    https://github.com/MicrosoftDocs/pipelines-java-function
-```
-
-# [Nodejs](#tab/nodejs)
-
-If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
-
-To use sample code instead, fork this GitHub repo:
-```
-    https://github.com/microsoft/devops-project-samples/tree/master/node/plain/functionApp
-```
-***
 
 ## Build your app
 
