@@ -17,7 +17,7 @@ The command produces an output file containing the results of the data extract l
 
 ## Before you begin
 
-- This article assumes that you've installed the Azure command line interface & the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](azure/operator-nexus/howto-install-cli-extensions?tabs=linux).
+- This article assumes that you've installed the Azure command line interface & the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - The target bare metal machine is on and has readyState set to True.
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 
