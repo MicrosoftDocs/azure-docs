@@ -7,7 +7,7 @@ ms.date: 05/01/2023
 ms.custom: template-concept
 ---
 
-# Agentless Containers Posture (Preview)
+# Agentless Container Posture (Preview)
 
 You can identify security risks that exist in containers and Kubernetes realms with the agentless discovery and visibility capability across SDLC and runtime.
 
