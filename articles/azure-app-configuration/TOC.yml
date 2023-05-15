@@ -215,9 +215,7 @@
     - name: Feature management
       items:
         - name: .NET Core/.NET Standard
-          href: https://www.nuget.org/packages/Microsoft.FeatureManagement/
-        - name: .NET built-in feature filters
-          href: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
+          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
           href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Control plane
