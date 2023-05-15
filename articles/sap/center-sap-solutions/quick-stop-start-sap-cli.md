@@ -43,16 +43,16 @@ Option 1:
 
 Use the Virtual Instance for SAP solutions resource Name and ResourceGroupName to identify the system you intend to start.
 
-     ```azurecli-interactive
+```azurecli-interactive
      az workloads sap-virtual-instance start -g <Resource-group-name> -n <ResourceName>
-     ```
+```
 Option 2:
 
 Use the id parameter and pass the resource ID of the Virtual Instance for SAP solutions resource you intend to start.
      
-     ```azurecli-interactive
+```azurecli-interactive
      az workloads sap-virtual-instance start --id <ResourceID>
-     ```
+```
 
 ## Stop SAP system
 
@@ -64,16 +64,16 @@ Option 1:
 
 Use the Virtual Instance for SAP solutions resource Name and ResourceGroupName to identify the system you intend to stop.
 
-     ```azurecli-interactive
+```azurecli-interactive
      az workloads sap-virtual-instance stop -g <Resource-group-name> -n <ResourceName>
-     ```
+```
 Option 2:
 
 Use the InputObject parameter and pass the resource ID of the Virtual Instance for SAP solutions resource you intend to stop.
      
-     ```azurecli-interactive
+```azurecli-interactive
      az workloads sap-virtual-instance stop --id <ResourceID>
-     ```
+```
  
  ## Next steps
 - [Monitor SAP system from the Azure portal](monitor-portal.md)
