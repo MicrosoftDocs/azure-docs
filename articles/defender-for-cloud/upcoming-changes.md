@@ -23,6 +23,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm) | June 2023
+| [Release of runtime recommendation for MDVM (Microsoft Defender Vulnerability Management)](#release-of-runtime-recommendation-for-mdvm-microsoft-defender-vulnerability-management) | June 2023
 
 ### Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -82,6 +83,19 @@ Customers will have until June 30, 2023 to resolve this issue. After this date, 
 **Estimated date for change: June 2023**
 
 With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are set to be retired in June 2023. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](concept-agentless-containers.md#enable-extension-for-agentless-container-posture-for-cspm) are enabled before this date to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory.
+
+### Release of runtime recommendation for MDVM (Microsoft Defender Vulnerability Management)
+
+**Estimated date for change: June 2023**
+
+ A new container recommendation in Defender for Containers powered by MDVM is set to be released: 
+
+
+|Recommendation | Description | Assessment Key|
+|--|--|--| 
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5
+
+This new recommendation will replace the current recommendation of the same name,  powered by Qualys (assessment key 41503391-efa5-47ee-9282-4eff6131462c).
 
 ## Next steps
 
