@@ -117,7 +117,7 @@ Configure the file:
 
 1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
-1. In `integration`, under `googleFonts`, set the value of `apiKey` to a Google API key. This key is needed to add Google fonts in the developer portal editor. If you don't already have a key, use the following steps to obtain one using the Google Cloud console. 
+1. In `integration`, under `googleFonts`, set the value of `apiKey` to a Google API key that allows access to the Web Fonts Developer API. This key is needed to add Google fonts in the developer portal editor. If you don't already have a key, use the following steps to obtain one using the Google Cloud console. 
     1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
     1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
     1. Select **Create credentials** > **API key**.
