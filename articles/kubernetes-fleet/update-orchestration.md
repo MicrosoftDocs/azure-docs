@@ -10,13 +10,13 @@ ms.service: kubernetes-fleet
 
 # Orchestrate updates across multiple clusters using Azure Kubernetes Fleet Manager (Preview)
 
-Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates across multiple clusters in a safe and predictable way. To address this pain point, Kubernetes Fleet Manager (Fleet) provides the ability to orchestrate updates across multiple clusters using update runs, stages, and groups.
+Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates across multiple clusters in a safe and predictable way. To address this pain point, Kubernetes Fleet Manager (Fleet) allows you to orchestrate updates across multiple clusters using update runs, stages, and groups.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-* You have a Fleet resource with one or more member clusters. If not, follow the [quickstart][fleet-quickstart] to create a Fleet resource and join Azure Kubernetes Service (AKS) clusters as members. This walkthrough demonstrates a Fleet resource with 5 AKS member clusters as an example.
+* You have a Fleet resource with one or more member clusters. If not, follow the [quickstart][fleet-quickstart] to create a Fleet resource and join Azure Kubernetes Service (AKS) clusters as members. This walkthrough demonstrates a Fleet resource with five AKS member clusters as an example.
 
 * Set the following environment variables:
 
@@ -25,7 +25,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
     export FLEET=<fleet-name>
     ```
 
-* If you are following the Azure CLI instructions on this page, you need * Azure CLI version 2.48.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli]. You'll also need the `fleet` Azure CLI extension, which can be installed by running the following command:
+* If you're following the Azure CLI instructions on this page, you need * Azure CLI version 2.48.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli]. You'll also need the `fleet` Azure CLI extension, which can be installed by running the following command:
 
     ```azurecli-interactive
     az extension add --name fleet
@@ -36,6 +36,8 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
     ```azurecli-interactive
     az extension update --name fleet
     ```
+
+* Follow the [conceptual overview of this feature](./architectural-overview.md#update-orchestration-across-multiple-clusters), which provides an explanation of update runs, stages, groups and their characteristics.
 
 ## Update all clusters one-by-one
 
