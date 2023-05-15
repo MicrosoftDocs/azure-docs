@@ -442,7 +442,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-devkit-nxp-mimxrt1050-evkb.md",
-      "redirect_url": "/azure/iot-develop/quickstart-devkit-nxp-mimxrt1060-evkb",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-nxp-mimxrt1060-evk",
       "redirect_document_id": true      
     },
     {
