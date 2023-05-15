@@ -64,7 +64,7 @@ Select an instance name to see all recommendations, including which action to ta
 :::image type="content" source="media/get-quality-checks-insights/recommendation-detail.png" lightbox="media/get-quality-checks-insights/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
 ### Set Alerts for Quality check recommendations
-As the Quality checks recommendations in Azure Centr for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal)
+As the Quality checks recommendations in Azure Center for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal)
 
 > [!NOTE]
 > These quality checks run on all VIS instances at a regular frequency of once every 1 hour. The corresponding recommendations in Azure Advisor also refresh at the same 1-hour frequency.If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
