@@ -26,7 +26,7 @@ In the support table, **NA** indicates that the feature isn't available.
 [Automatic component/agent/extension provisioning](monitoring-components.md) | GA | GA | GA
 **FOUNDATIONAL CSPM FEATURES (FREE)** | | |  
 [Asset inventory](asset-inventory.md) | GA | GA | GA
-[Security recommendations](security-policy-concept.md) based on the [Microsoft Cloud Security Benchmark recommendations](concept-regulatory-compliance.md)  | GA | GA | GA
+[Security recommendations](security-policy-concept.md) based on the [Microsoft Cloud Security Benchmark](concept-regulatory-compliance.md)  | GA | GA | GA
 [Recommendation exemptions](exempt-resource.md) | Preview | NA | NA
 [Secure score](secure-score-security-controls.md) | GA | GA | GA
 **DEFENDER FOR CLOUD PLANS** | | |
