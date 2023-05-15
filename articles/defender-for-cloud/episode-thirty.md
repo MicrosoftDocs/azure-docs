@@ -36,4 +36,4 @@ ms.date: 05/14/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Understanding data aware security posture capability](episode-thirty-one.md)
