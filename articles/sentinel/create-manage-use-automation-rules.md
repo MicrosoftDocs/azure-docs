@@ -79,7 +79,7 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
-#### Other conditions
+#### Other conditions (incidents only)
 
 Add any other conditions you want this automation rule's activation to depend on. You now have two ways to add conditions:
 
