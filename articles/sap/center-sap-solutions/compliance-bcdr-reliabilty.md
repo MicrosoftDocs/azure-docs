@@ -52,10 +52,10 @@ This section explains how you can deploy an SAP system with Zone redundancy from
 3. There are no more input fields in the rest of the process that affects zone redundancy. You can proceed with creating the system as per the [deployment guide](/azure/sap/center-sap-solutions/deploy-s4hana).
 
 ### Zone down experience
-If you deploy the SAP system infrastrucutre with Zone-redundancy, the SAP workload will failover to the secondary virtual machine and you will be able to access the system without any interruptions in case of a zone outage.
+If you deploy the SAP system infrastructure with Zone-redundancy, the SAP workload will failover to the secondary virtual machine and you will be able to access the system without any interruptions in case of a zone outage.
 
-## Disaster recovery: cross-region failover
-Azure Center for SAP solutions service is a zone redundant service. So, service may experience downtime because no paired region exists. There will be no Microsoft initiated failover in the event of a region outage. This article explains some of the strategies that you can use to achieve cross-region resiliency for Virtual Instance for SAP solutions resources with customer enabled disaster recovery. It has detailed steps for you to follow when a region in which your Virtual Instance for SAP solutions resource exists is down. 
+## Disaster recovery: cross-region fail over
+Azure Center for SAP solutions service is a zone redundant service. So, service may experience downtime because no paired region exists. There will be no Microsoft initiated fail over in the event of a region outage. This article explains some of the strategies that you can use to achieve cross-region resiliency for Virtual Instance for SAP solutions resources with customer enabled disaster recovery. It has detailed steps for you to follow when a region in which your Virtual Instance for SAP solutions resource exists is down. 
 
 | Case # | ACSS Service Region  | SAP Workload Region  | Scenario                 | Mitigation Steps       |
 |--------|-----------------|------------------|--------------------------|------------------------|
@@ -64,7 +64,7 @@ Azure Center for SAP solutions service is a zone redundant service. So, service 
 | Case 3 | A (Down)        | B (Down)         | ACSS Service and SAP workload regions are down   | 1. Customers should perform workload failover to DR region (outside of ACSS). <br> 2. Register the failed over workload with ACSS service available in another region using PowerShell or CLI which allow to select an available service location.
 
 ### Outage detection, notification, and management
-When service goes down in a region customers will be notified through AZCOM. Customer also can check the service health page in Azure portal, and can also configure the notifications on service health by following [steps to create a service health alert](/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json).
+When service goes down in a region customer will be notified through *Azure Communications*. Customer also can check the service health page in Azure portal, and can also configure the notifications on service health by following [steps to create a service health alert](/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json).
 
 ### Capacity and proactive disaster recovery resiliency
 You need to plan the capacity for your workload in the DR region.
