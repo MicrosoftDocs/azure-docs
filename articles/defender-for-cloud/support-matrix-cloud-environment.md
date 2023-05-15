@@ -5,7 +5,7 @@ ms.topic: limits-and-quotas
 ms.date: 05/01/2023
 ---
 
-# Defender for Cloud support for commercial/government clouds
+# Defender for Cloud support for Azure commercial/other clouds
 
 This article indicates which Defender for Cloud features are supported in Azure commercial and government clouds. 
 
@@ -35,7 +35,7 @@ In the support table, **NA** indicates that the feature isn't available.
 [Defender for APIs](defender-for-apis-introduction.md). [Review support preview regions](defender-for-apis-prepare.md#cloud-and-region-support). | Preview | NA | NA
 [Defender for App Service](defender-for-app-service-introduction.md) | GA | NA | NA
 [Defender for Azure Cosmos DB](concept-defender-for-cosmos.md) | Preview | NA | NA
-[Defender for Azure SQL database servers](defender-for-sql-introduction.md)<br/>Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
+[Defender for Azure SQL database servers](defender-for-sql-introduction.md) | GA | GA | GA<br/><br/>A subset of alerts/vulnerability assessments is available.<br/>Behavioral threat protection isn't available.
 [Defender for Containers](defender-for-containers-introduction.md)<br/>[Review detailed feature support](support-matrix-defender-for-containers.md) | GA | GA | GA
 [Defender for DevOps](defender-for-devops-introduction.md) |Preview | NA | NA
 [Defender for DNS](defender-for-dns-introduction.md) | GA | GA | GA
