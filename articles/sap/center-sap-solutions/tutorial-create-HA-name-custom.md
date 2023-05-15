@@ -81,9 +81,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
     10. Shared Storage Account Name
     11. Shared Storage Account Private End Point Name
 
-Below is the sample view of the json file:
-
-:::code language="json" source="<sample_payload_custom_name_ha.json>":::
+You can download the [sample payload](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) and replace the resource names and any other parameter as needed
 
 ## Deploy infrastructure for your SAP system
 
