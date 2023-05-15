@@ -4,7 +4,7 @@ description:
 
 ms.service: network-access
 ms.subservice: 
-ms.topic: 
+ms.topic: how-to
 ms.date: 05/03/2023
 
 ms.author: joflore
@@ -16,11 +16,11 @@ ms.reviewer: mamkumar
 
 Using Global Secure Access traffic profiles in Conditional Access policy configuration provides administrators with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy at the first attempt of access to the network. Targeting these traffic profiles allows consistent application of policy no matter if the application supports Conditional Access natively or not. For example, applications that may only support basic authentication can now be targeted behind a traffic profile.
 
-This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](LINK-TBD), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 with these policies. Users can acquire a token to access these configured endpoints or traffic profiles only when they satisfy the required Conditional Access policies. 
+This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](how-to-configure-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 with these policies. Users can acquire a token to access these configured endpoints or traffic profiles only when they satisfy the required Conditional Access policies. 
 
 ## Prerequisites
-
-* A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[
+* A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies.
@@ -45,7 +45,7 @@ The following example policy targets all users except for your break-glass accou
    1. **For multiple controls** select **Require one of the selected controls**.
    1. Select **Select**.
 
-After administrators confirm the policy settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Try your Conditional Access policy targeting the Microsoft 365 traffic profile
 

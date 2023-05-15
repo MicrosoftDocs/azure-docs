@@ -1,10 +1,10 @@
 ---
-title: 
+title: Global Secure Access and universal tenant restrictions
 description: 
 
 ms.service: network-access
 ms.subservice: 
-ms.topic: 
+ms.topic: how-to
 ms.date: 04/25/2023
 
 ms.author: joflore

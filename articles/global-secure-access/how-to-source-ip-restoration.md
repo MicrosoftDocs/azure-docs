@@ -4,7 +4,7 @@ description: Learn how to enable source IP restoration to ensure source IP match
 
 ms.service: network-access
 ms.subservice: 
-ms.topic: 
+ms.topic: how-to
 ms.date: 05/11/2023
 
 ms.author: joflore
@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 With a cloud based network proxy between users and their resources, the source IP address that the resources see doesn't always match the actual source IP address. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP address. Customers that use IP-based location information as a control in Conditional Access typically can't use this with these traditional SASE solutions. 
 
-Microsoft’s existing solutions such as Conditional Access (CA) and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. Organizations can continue using IP location-based Conditional Access policies, including [CAE strict location enforcement](NEEDLINKTOSTRICTDOC).
+Microsoft’s existing solutions such as Conditional Access (CA) and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. Organizations can continue using IP location-based Conditional Access policies, including CAE strict location enforcement.
 
 Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 
@@ -24,7 +24,7 @@ INSERT A SCREENSHOT SIGN IN LOGS SHOWING ENTRIES WITH ENABLED AND DISABLED SOURC
 
 ## Prerequisites
 
-* A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * Conditional Access Administrator or Security Administrator

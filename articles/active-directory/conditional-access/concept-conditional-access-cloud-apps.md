@@ -187,9 +187,9 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 ## Traffic profiles
 
-Traffic management profiles in Global Secure Access enable administrators to define and control how traffic is routed. Traffic management profiles can be assigned to devices and branches. There are three default traffic profiles M365, Private, and Internet. For an example of how to configure these traffic profiles in Conditional Access policy, see the article [target resource](/azure/global-secure-access/how-to-compliant-network)
+Traffic management profiles in Global Secure Access enable administrators to define and control how traffic is routed. Traffic management profiles can be assigned to devices and branches. There are three default traffic profiles M365, Private, and Internet. For an example of how to configure these traffic profiles in Conditional Access policy, see the article [target resource](../../global-secure-access/how-to-compliant-network.md)
 
-For more information about these profiles, see the article [Global Secure Access Traffic management profiles](/azure/global-secure-access/how-to-configure-traffic-forwarding).
+For more information about these profiles, see the article [Global Secure Access Traffic management profiles](../../global-secure-access/how-to-configure-traffic-forwarding).
 
 ## Authentication context
 

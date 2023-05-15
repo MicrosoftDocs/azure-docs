@@ -4,7 +4,7 @@ description: Require known compliant network locations with Conditional Access.
 
 ms.service: network-access
 ms.subservice: 
-ms.topic: 
+ms.topic: how-to
 ms.date: 05/03/2023
 
 ms.author: joflore
@@ -30,11 +30,11 @@ Further this compliant network check removes the need to hairpin traffic through
 
 ## Prerequisites
 
-* A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](NEED-LINK-TO-DOC).
+* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md).
 
 ### Known limitations
@@ -82,14 +82,14 @@ The follwoing example shows a Conditional Access policy that requires Exchange O
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After administrators confirm the policy settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Try your compliant network policy
 
 1. On an end-user device with the [NaaS client installed and running](how-to-install-windows-client.md)
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://yourcompanyname.sharepoint.com/](http://yourcompanyname.sharepoint.com/), this should allow you access to resources.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should allow you access to resources.
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://yourcompanyname.sharepoint.com/](http://yourcompanyname.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
 
 ADD A SCREENSHOT WITH THE BLOCK ERROR MESSAGE
 
