@@ -22,7 +22,7 @@ In this how-to guide, you'll learn how to configure an Azure virtual network so 
 
 Azure Functions is the data collection engine for Azure Monitor for SAP solutions. You'll need to create a new subnet to host Azure Functions.
 
-[Screenshot of creating a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/25** block or larger. Since we need atleast 100 IP addresses for monitoring resources.
+[Craete a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/25** block or larger. Since we need atleast 100 IP addresses for monitoring resources.
 After subnet creation is successful, verify the below steps to ensure connectivity between Azure Monitor for SAP solutions subnet to your SAP environment subnet.
 
 - If both the subnets are in different virtual networks, do a virtual network peering between the virtual networks.
@@ -36,8 +36,8 @@ For more information, see how to [integrate your app with an Azure virtual netwo
 
 This section only applies to if you are using Custom DNS for your Virtual Network. Add the IP Address 168.63.129.16 which points to Azure DNS Server. This will resolve the storage account and other resource urls which are required for proper functioning of Azure Monitor for SAP Solutions. see below reference image.
 
-[!div class="mx-imgBorder"]
-![Screenshot of Custom DNS Setting ]([../../media/set-up-network/adding-custom-dns.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Custom DNS Setting.]([../../media/set-up-network/adding-custom-dns.png)
 
 ## Configure outbound internet access
 
@@ -114,8 +114,9 @@ To create a private endpoint for Azure Monitor for SAP solutions:
 
 1. Create a Azure Private DNS zone which will contain the private endpoint records. You can follow the steps in [Create a private DNS zone](../../dns/private-dns-getstarted-portal.md) to create a private DNS zone. Make sure to link the private DNS zone to the virtual networks that contain you SAP System and Azure Monitor for SAP solutions resources.
 
-[!div class="mx-imgBorder"]
-![Screenshot of Adding Virtual Network Link to Private DNS Zone ]([../../media/set-up-network/dns-add-private-link.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot of Adding Virtual Network Link to Private DNS Zone.]([../../media/set-up-network/dns-add-private-link.png)
+
 1. Create a subnet in the virtual network, that will be used for the private endpoint. Note down the subnet ID and Private IP Address for these subnets.
 2. To find the resources in the Azure portal, go to your Azure Monitor for SAP solutions resource.
 3. On the **Overview** page for the Azure Monitor for SAP solutions resource, select the **Managed resource group**.
@@ -137,8 +138,9 @@ Repeat the following process for each type of storage subresource (table, queue,
 1. On the **Resource** tab, enter or select all required information. For the **Target sub-resource**, select one of the subresource types (table, queue, blob, or file).
 1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
 
-[!div class="mx-imgBorder"]
-![Screenshot of Creating Private Endpoint - Virtual Network]([../../media/set-up-network/private-endpoint-vnet-step.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot of Creating Private Endpoint - Virtual Network.]([../../media/set-up-network/private-endpoint-vnet-step.png)
+
 1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**.
 1. On the **Tags** tab, add tags if necessary.
 1. Select **Review + create** to create the private endpoint.
