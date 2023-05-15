@@ -74,10 +74,10 @@ The Web Application Routing add-on deploys the following components:
 
 ### Import certificate into Azure Key Vault
 
-- Import the SSL certificate into Azure Key Vault using the [`az keyvault certificate import`][az-keyvault-certificate-import] command.
+- Import the SSL certificate into Azure Key Vault using the [`az keyvault certificate import`][az-keyvault-certificate-import] command. If your certificate is password protected, you can pass the password through the `--password` flag.
 
     ```azurecli-interactive
-    az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
+    az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
     ```
 
 ### Create an Azure DNS zone
