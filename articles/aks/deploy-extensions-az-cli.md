@@ -130,7 +130,7 @@ If updating a Kubernetes application procured through Marketplace, the following
 |`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
 |`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
 
-### Optional parameters for update
+## Optional parameters for update
 
 | Parameter name | Description |
 |--------------|------------|
