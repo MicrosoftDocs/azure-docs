@@ -1,6 +1,6 @@
 ---
 title: Global Secure Access and universal tenant restrictions
-description: 
+description: What are universal tenant restrictions
 
 ms.service: network-access
 ms.subservice: 
@@ -18,7 +18,7 @@ Universal tenant restrictions enhances the functionality of [tenant restriction 
 
 Universal Tenant Restrictions enforces tenant restrictions v2 for all operating system and browser platforms. It does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Azure AD integrated applications like SharePoint Online and Exchange Online. TRv2 and NaaS work hand in hand to prevent data exfiltration universally across all devices and networks.  
 
-INSERT DIAGRAM HERE SHOWING TRV2 SCENARIO
+
 
 In the example depicted in the diagram 
 
@@ -39,9 +39,7 @@ To allow Global Secure Access to apply tagging for tenant restrictions v2, an ad
 1. Browse to **NEED THE ACTUAL PATH** > **Security **> **Tenant Restrictions**.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 
-Now 
-
-Where can we see Universal Tenant Restrictions? 
+## Where can we see Universal Tenant Restrictions? 
 
 In the ZTNA portal, for tenant-level configuration of Universal Tenant Restrictions. 
 
@@ -59,15 +57,15 @@ Full feature flag URL:
 
 (https://portal.azure.com/?Microsoft_Azure_Network_Access_assettypeoptions=%7B%22NetworkAccess%22%3A%7B%22options%22%3A%22ShowAssetType%22%7D%7D&microsoft_azure_compute=true&Microsoft_Azure_Network_Access_adaptiveAccess=true&feature.caNetworkAccess=true%20#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings) 
 
-Prerequisites 
+## Prerequisites 
 
-As an end-user, setup NaaS client. 
+As an end-user, set up NaaS client. 
 
 Make sure the NaaS client is running on your machine.  
 
-Configure cross-tenant access settings/ TRv2 policy in your tenant. There is only one cross tenant access settings/ TRv2 policy per tenant so all users in this tenant will be impacted by any modifications that you make.  
+Configure cross-tenant access settings/ TRv2 policy in your tenant. There's only one cross tenant access settings/ TRv2 policy per tenant so all users in this tenant will be impacted by any modifications that you make.  
 
-Once configured, a foreign tenant by default, i.e., if it’s not allow-listed, is blocked.  
+Once configured, a foreign tenant by default, that is, if it’s not allow-listed, is blocked.  
 
 External Identities - Microsoft Azure;  
 

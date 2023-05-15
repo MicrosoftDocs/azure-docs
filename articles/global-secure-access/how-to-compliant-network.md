@@ -56,7 +56,9 @@ To enable the required setting to allow the compliant network check an administr
 > [!CAUTION]
 > If your organization has active Conditional Access policies based on compliant network check, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first delete any corresponding Conditional Access policies. 
 
-## PLACEHOLDER FOR CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
+## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
+
+The PM will provide more detail here
 
 ## Protect Exchange and SharePoint Online behind the compliant network
 
@@ -91,16 +93,10 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
 
-ADD A SCREENSHOT WITH THE BLOCK ERROR MESSAGE
-
 ## Troubleshooting
 
 Verify the new named location was automatically created using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
 
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
 
-SCREENSHOT OF GRAPH EXPLORER
-
 ## Next steps
-
-TBD

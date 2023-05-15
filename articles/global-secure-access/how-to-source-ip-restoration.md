@@ -20,8 +20,6 @@ Microsoft’s existing solutions such as Conditional Access (CA) and continuous 
 
 Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 
-INSERT A SCREENSHOT SIGN IN LOGS SHOWING ENTRIES WITH ENABLED AND DISABLED SOURCE IP RESTORATION
-
 ## Prerequisites
 
 * A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -37,8 +35,6 @@ To enable the required setting to allow source IP restoration, an administrator 
 1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
 1. Browse to **NEED THE PATH** > **Security** > **Adaptive Access**.
 1. Select the toggle to **Enable Network Access signaling in Conditional Access**.
-
-INSERT A SCREENSHOT FOR TOGGLE SWITCH
 
 This functionality allows services like Microsoft Graph, Azure AD, SharePoint Online, and Exchange Online to see the actual source IP address.
 
@@ -57,5 +53,3 @@ To see source IP restoration in action, administrators can take the following st
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 
 ## Next steps
-
-TBD

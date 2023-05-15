@@ -1,6 +1,6 @@
 ---
 title: Global Secure Access as a Conditional Access target resource
-description: 
+description: How to use a traffic profile in a Conditional Access policy.
 
 ms.service: network-access
 ms.subservice: 
@@ -19,7 +19,7 @@ Using Global Secure Access traffic profiles in Conditional Access policy configu
 This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](how-to-configure-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 with these policies. Users can acquire a token to access these configured endpoints or traffic profiles only when they satisfy the required Conditional Access policies. 
 
 ## Prerequisites
-[
+
 * A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
@@ -49,6 +49,6 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 ## Try your Conditional Access policy targeting the Microsoft 365 traffic profile
 
-
+Sign in to a machine with the Global Secure Access client installed, configured, and running.
 
 ## Next steps
