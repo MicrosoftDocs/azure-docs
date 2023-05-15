@@ -64,7 +64,7 @@ Global requests from clients can be processed by action group services in any re
 
     1. Select if you want to enable the **Common alert schema**. The common alert schema is a single extensible and unified alert payload that can be used across all the alert services in Azure Monitor. For more information about the common schema, see [Common alert schema](./alerts-common-schema.md).
 
-    :::image type="content" source="./media/action-groups/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
+        :::image type="content" source="./media/action-groups/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
 
     1. Select **OK**.
 1. Configure actions. Select **Next: Actions**. or select the **Actions** tab at the top of the page.
@@ -340,8 +340,7 @@ When you use email notifications, you can send email to the members of a subscri
 
 A notification email is sent only to the primary email address.
 
-If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role
-:
+If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
 1. In the Azure portal, go to **Active Directory**.
 1. On the left, select **All users**. On the right, a list of users appears.
