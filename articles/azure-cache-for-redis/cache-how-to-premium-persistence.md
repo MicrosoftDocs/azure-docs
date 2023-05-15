@@ -336,7 +336,7 @@ When you use the Premium tier, data stored in AOF files is divided into multiple
 
 When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 24 page blobs (eight blobs per shard, with three shards).
 
-After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to stay in the soft delete state.
+After a rewrite, two sets of AOF files can exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the AOF rewrite, append to the second set. The second set is a backup that is temporarily stored during rewrites, in case there's a failure; this backup allows recovery from crashes during AOF rewrites. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and those backups will still exist in the soft-deleted state, considerably increasing the storage size requirement.
 
 ### Will having firewall exceptions on the storage account affect persistence?
 
