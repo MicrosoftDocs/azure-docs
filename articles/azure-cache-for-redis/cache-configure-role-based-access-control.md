@@ -14,7 +14,7 @@ ms.author: franlanglois
 
 # Configure role-based access control with Data Access Policy
 
-Managing access to your Azure Cache for Redis instance is critical to ensure that the right users have access to the right set of data and commands. In Redis version 1, the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL) was introduced. ACL limits which user can execute certain commands, and the keys that a user can be access. For example, you can prohibit specific users from deleting keys in the cache using [DEL](https://redis.io/commands/del/) command.
+Managing access to your Azure Cache for Redis instance is critical to ensure that the right users have access to the right set of data and commands. In Redis version 6, the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL) was introduced. ACL limits which user can execute certain commands, and the keys that a user can be access. For example, you can prohibit specific users from deleting keys in the cache using [DEL](https://redis.io/commands/del/) command.
 
 Azure Cache for Redis now integrates this ACL functionality with Azure Active Directory (Azure AD) to allow you to configure your Data Access Policies for your application's service principal and managed identity.
 
@@ -31,14 +31,14 @@ Azure Cache for Redis offers three built-in access policies: _Owner_, _Contribut
 
 ## Prerequisites and limitations
 
-- Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that run Redis version 1.
+- Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that run Redis version 4.
 - Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that depend on [Cloud Services](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
 - Azure AD authentication and authorization are supported for SSL connections only.
 - Some Redis commands are [blocked](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 ## Permissions for your data access policy
 
-As documented on [Redis Access Control List](https://redis.io/docs/management/security/acl/), ACL in Redis version 1.1 allows configuring access permissions for two areas:
+As documented on [Redis Access Control List](https://redis.io/docs/management/security/acl/), ACL in Redis version 6.0 allows configuring access permissions for three areas:
 
 ### Command categories
 
