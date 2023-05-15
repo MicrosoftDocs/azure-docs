@@ -9,33 +9,33 @@ ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 
 # Azure Functions Overview
 
-Azure Functions is an event-based, serverless compute experience that accelerates application development and provides up-to-date resources to keep your apps running.
+Azure Functions is an event-based, serverless compute experience that accelerates application development and provides up-to-date resources to keep your apps running. Compute tasks you can perform using Azure Functions can include: processing file uploads, responding in near real time to streams, performing machine learning model inference, running code as a schedule task, and building serverless workflows. For more information, see [Azure Functions Scenarios](functions-scenarios.md).
 
-Azure functions gives you the following benefits:
+Using Azure Functions provides the following benefits:
 
-- **[Integrated programming model and runtime](#integrated-programming-model-and-runtime)**: Use the Functions runtime host and available triggers and bindings to run your function app and react to events 
+- **[Integrated programming model and runtime](#integrated-programming-model-and-runtime)**: Use the Functions runtime host and available triggers and bindings to run your function app and react to events.
 
-- **[End-to-end development experience](#end-to-end-development-experience)**: Take advantage of a complete, end-to-end development experience — from building and debugging locally on major platforms like Windows, macOS, and Linux, to deploying and monitoring in the cloud
+- **[End-to-end development experience](#end-to-end-development-experience)**: Take advantage of a complete, end-to-end development experience—from building and debugging locally on major platforms like Windows, macOS, and Linux, to deploying and monitoring in the cloud.
 
-- **[Hosting options flexibility](#flexible-hosting-options)**: Choose the hosting model that better fits your business needs without compromising development experience
+- **[Hosting options flexibility](#flexible-hosting-options)**: Choose the hosting model that best fits your business needs, including containers, without compromising development experience.
 
-- **[Fully managed and cost-effective](#fully-managed-and-cost-effective)**: Automated and flexible scaling based on your workload volume, keeping the focus on adding value instead of managing infrastructure
+- **[Fully managed and cost-effective](#fully-managed-and-cost-effective)**: Automated and flexible scaling based on your workload volume, lets you focus on adding value in your code instead of managing infrastructure.
 
 ## Integrated programming model and runtime
 
-The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the functionality that's required to run your function app. A variety of [triggers and bindings](functions-triggers-bindings.md) mean you can connect to other services.
+The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the functionality that's required to run your function app. Various [triggers and bindings](functions-triggers-bindings.md) mean you can easily connect to other services with minimal code. 
 
 ![Integrated Programming Model with triggers, input binding, and output binding](./media/functions-overview/integrated-programming-model.png)
 
 ## End-to-end development experience
 
-Azure Functions offers a complete, end-to-end development experience — from developing and debugging in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md) or with a [custom handler](./functions-custom-handlers.md), to [deploying](functions-deployment-technologies.md) and [monitoring in the cloud](functions-monitoring.md).
+Azure Functions offers a complete, end-to-end development experience—from developing and debugging in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), and [other languages](./functions-custom-handlers.md), to [deploying](functions-deployment-technologies.md) and [monitoring in the cloud](functions-monitoring.md).
 
 ![End-to-end development experience, developing, and debugging locally then deploying to Azure](./media/functions-overview/end-to-end-development-experience.png)
 
 ## Flexible hosting options
 
-Choose the right Functions [hosting plan](functions-scale.md) for your business needs and application workload, from serverless and elastic scale options to plans that offer features for specialized needs.
+Choose the right Functions [hosting plan](functions-scale.md) for your business needs and application workload, from serverless and elastic scale options to plans that offer features for specialized needs, including containerized options.
 
 ![Hosting options flexibility, from Consumption, Premium and App Service tiers, to containers in Container Apps, Kubernetes, as well as IoT Edge and Azure Stack options](./media/functions-overview/hosting-options-flexibility.png)
 

@@ -22,7 +22,7 @@ For example, in a retail solution, a partner system can submit product catalog i
 
 ![Process file uploads](./media/functions-scenarios/process-file-uploads.png)
 
-The following tutorials uses an Event Grid trigger to process files in a blob container:
+The following tutorials use an Event Grid trigger to process files in a blob container:
 
 ::: zone pivot="programming-language-csharp" 
 + [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=dotnet)
@@ -57,10 +57,10 @@ Your functions can also use low-latency event triggers, like Event Grid, and rea
 ![Real-time stream processing](./media/functions-scenarios/real-time-stream-processing.png)
 
 ::: zone pivot="programming-language-csharp" 
-+ [Streaming at Scale with Azure Event Hubs, Functions and Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-azuresql)
-+ [Streaming at Scale with Azure Event Hubs, Functions and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-cosmosdb)
-+ [Streaming at Scale with Azure Event Hubs with Kafka producer, Functions with Kafka trigger and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubskafka-functions-cosmosdb)
-+ [Streaming at Scale with Azure IoT Hub, Functions and Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/iothub-functions-azuresql)
++ [Streaming at scale with Azure Event Hubs, Functions and Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-azuresql)
++ [Streaming at scale with Azure Event Hubs, Functions and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-cosmosdb)
++ [Streaming at scale with Azure Event Hubs with Kafka producer, Functions with Kafka trigger and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubskafka-functions-cosmosdb)
++ [Streaming at scale with Azure IoT Hub, Functions and Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/iothub-functions-azuresql)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-csharp)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp)
 ::: zone-end
@@ -81,9 +81,9 @@ Your functions can also use low-latency event triggers, like Event Grid, and rea
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ [Azure Functions Kafka Trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
-+ [Event Hub Trigger Functions examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/EventHubTriggerFunction.java)
-+ [Kafka Trigger Functions examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/KafkaTriggerFunction.java)
++ [Azure Functions Kafka trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
++ [Event Hubs trigger examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/EventHubTriggerFunction.java)
++ [Kafka triggered function examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/KafkaTriggerFunction.java)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
 ::: zone-end
@@ -99,7 +99,7 @@ Functions can also connect to other services to help process data and perform ot
 ![Machine learning and AI](./media/functions-scenarios/machine-learning-and-ai.png)
 
 ::: zone pivot="programming-language-csharp"
-+ Sample: [Text Summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
++ Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -154,7 +154,7 @@ For examples, see the following:
 ::: zone pivot="programming-language-csharp" 
 + Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
 + Training: [Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
-+ Sample: [Web Application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
++ Sample: [Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
 + [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 ::: zone-end
 
