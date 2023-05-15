@@ -83,7 +83,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
 
 Below is the sample view of the json file:
 
-:::code language="json" source="https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/edit/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json":::
+:::code language="json" source="<https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/edit/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json>":::
 
 ## Deploy infrastructure for your SAP system
 
