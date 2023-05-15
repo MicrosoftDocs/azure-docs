@@ -130,10 +130,10 @@ IP4Address             : 10.0.0.5
 # Different storage accounts, especially in different Azure environments, 
 # may have different suffixes than file.core.windows.net, so be sure to use the correct
 # suffix for your storage account.
-hostName="mystorageaccount.file.core.windows.net"
+HOSTNAME="mystorageaccount.file.core.windows.net"
 
 # Do the name resolution.
-nslookup $hostName
+nslookup $HOSTNAME
 ```
 
 The output returned by `nslookup` may be different depending on your environment and desired networking configuration. For example, if you are trying to access the public endpoint of the storage account that does not have a private endpoint configured, you would see a result that looks like the following, where `x.x.x.x` is the IP address of the cluster `file.phx10prdstf01a.store.core.windows.net` of the Azure storage platform that serves your storage account:
@@ -207,11 +207,11 @@ TcpTestSucceeded : True
 # Different storage accounts, especially in different Azure environments, 
 # may have different suffixes than file.core.windows.net, so be sure to use the correct
 # suffix for your storage account.
-hostName="mystorageaccount.file.core.windows.net"
+HOSTNAME="mystorageaccount.file.core.windows.net"
 
 # Do the TCP connection test - see the above protocol/port table to figure out which
 # port to use for your test. This test uses port 445, the port used by SMB.
-nc -zvw3 $hostName 445
+nc -zvw3 $HOSTNAME 445
 ```
 
 If the connection was successfully established, you should expect to see the following result:

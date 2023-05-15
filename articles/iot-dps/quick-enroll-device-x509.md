@@ -289,7 +289,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 1. From the location where you downloaded the repo, go to the sample folder:
 
     ```cmd\sh
-    cd azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample 
+    cd azure-iot-sdk-java\provisioning\provisioning-service-client-samples\service-enrollment-group-sample 
     ```
 
 1. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_* in an editor of your choice.
@@ -369,7 +369,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-java"
 
-1. From the *azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample* folder in your command prompt, run the following command to build the sample:
+1. From the *azure-iot-sdk-java\provisioning\provisioning-service-client-samples\service-enrollment-group-sample* folder in your command prompt, run the following command to build the sample:
 
     ```cmd\sh
     mvn install -DskipTests
@@ -390,27 +390,27 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 To verify that the enrollment group has been created:
 
-1. In the Azure portal, select your Device Provisioning Service.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Device Provisioning Service instance.
 
 2. In the **Settings** menu, select **Manage enrollments**.
 
-3. Select **Enrollment Groups**. You should see a new enrollment entry that corresponds to the enrollment group ID that you used in the sample.
+3. Select the **Enrollment groups** tab. You should see a new enrollment entry that corresponds to the enrollment group ID that you used in the sample.
 
 :::zone pivot="programming-language-csharp"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-nodejs.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-nodejs.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
@@ -426,9 +426,9 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 4. In the left-hand menu under **Settings**, select **Manage enrollments**.
 
-5. Select the **Enrollment Groups** tab.
+5. Select the **Enrollment groups** tab.
 
-6. Select the check box next to the *GROUP NAME* of the enrollment group you created in this article.
+6. Select the check box next to the group name of the enrollment group you created in this article.
 
 7. At the top of the page, select  **Delete**.
 
@@ -436,7 +436,7 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 9. Select the certificate you uploaded for this article.
 
-10. At the top of **Certificate Details**, select **Delete**.  
+10. At the top of **Certificate details**, select **Delete**.  
 
 ## Certificate tooling
 

@@ -38,7 +38,6 @@ To enroll in the preview for large volumes, use the [large volumes preview sign-
 * You can't create a large volume with application volume groups.
 * Large volumes aren't currently supported with cross-zone replication.
 * The SDK for large volumes isn't currently available. 
-* Large volumes aren't currently supported with cool access tier.
 * Currently, large volumes are not suited for database (HANA, Oracle, SQL Server, etc) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes.
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to 500 TiB with the throughput ceiling per the following table:
 

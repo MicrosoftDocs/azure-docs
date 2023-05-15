@@ -27,13 +27,13 @@ The `find-and-replace` policy finds a request or response substring and replaces
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|from|The string to search for.|Yes|N/A|
-|to|The replacement string. Specify a zero length replacement string to remove the search string.|Yes|N/A|
+|from|The string to search for. Policy expressions are allowed. |Yes|N/A|
+|to|The replacement string. Specify a zero length replacement string to remove the search string. Policy expressions are allowed. |Yes|N/A|
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

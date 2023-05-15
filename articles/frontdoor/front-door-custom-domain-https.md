@@ -90,12 +90,14 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires at least Application Administrator role permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * The application ID is assigned by Azure specifically for Azure Front Door (classic).
 > * Azure Front Door (classic) has a different *Application Id* than Azure Front Door Standard/Premium tier.
+> * The role assigned is only for the subscription selected unless you define a different scope.
 
 ##### Azure PowerShell
 
-1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-azure-powershell) in PowerShell on your local machine.
 
 2. In PowerShell, run the following command:
 

@@ -25,7 +25,7 @@ Emails tasks allow for the customization of the following aspects:
 - Email language
 
 > [!NOTE]
-> To avoid additional security disclaimers, you should opt in to using customized domain and organizational branding.
+> When customizing the subject or message body, we recommend that you also enable the custom sender domain and organizational branding, otherwise an additional security disclaimer will be added to your email.
 
 For more information on these customizable parameters, see: [Common email task parameters](lifecycle-workflow-tasks.md#common-email-task-parameters).
 
@@ -55,7 +55,7 @@ When customizing an email sent via Lifecycle workflows, you can choose to custom
 
 1. Select the **Email Customization** tab.
 
-1. On the email customization screen, enter a custom subject, message body, and the email language translation option that will be used to translate the message body of the email.
+1. On the email customization screen, enter a custom subject, message body, and the email language translation option that will be used to translate the message body of the email. The custom subject and message body will not be translated.
     :::image type="content" source="media/customize-workflow-email/customize-workflow-email-example.png" alt-text="Screenshot of an example of a customized email from a workflow.":::
 1. After making changes, select **save** to capture changes to the customized email.
 
@@ -93,6 +93,9 @@ Emails sent out using Lifecycle workflows can be customized to have your own com
 
 - A verified domain. To add a custom domain, see: [Managing custom domain names in your Azure Active Directory](../enterprise-users/domains-manage.md)
 - Custom Branding set within Azure AD if you want to have your custom branding used in emails. To set organizational branding within your Azure tenant, see: [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
+
+> [!NOTE]
+> The recommendation is to use a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX as this then complies with the [RFC compliance](https://www.ietf.org/rfc/rfc2142.txt) for sending and receiving email. Please see [Learn more about Exchange Online Email Routing](/exchange/mail-flow-best-practices/mail-flow-best-practices) for more information.
 
 After these prerequisites are satisfied, you'd follow these steps:
 

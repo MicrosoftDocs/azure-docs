@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: sample
 ms.date: 05/02/2022
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
 ---
 
 # Use Azure CLI to create a API for Gremlin account, database, and graph with autoscale

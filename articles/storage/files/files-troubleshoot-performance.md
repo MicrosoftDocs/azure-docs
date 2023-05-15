@@ -56,7 +56,7 @@ An I/O depth of greater than 1 isn't supported on older versions of CentOS Linux
 
 #### Workaround
 
-- Upgrade to CentOS Linux 8.2+ or RHEL 8.2+.
+- Upgrade to CentOS Linux 8.6+ or RHEL 8.6+.
 - Change to Ubuntu.
 - For other Linux VMs, upgrade the kernel to 5.0 or later.
 
@@ -248,7 +248,7 @@ Lack of support for directory leases.
 ### Workaround
 
 - If possible, avoid using an excessive opening/closing handle on the same directory within a short period of time.
-- For Linux VMs, increase the directory entry cache timeout by specifying `actimeo=<sec>` as a mount option. By default, the timeout is 1 second, so a larger value, such as 3 or 5 seconds, might help.
+- For Linux VMs, increase the directory entry cache timeout by specifying `actimeo=<sec>` as a mount option. By default, the timeout is 1 second, so a larger value, such as 30 seconds, might help.
 - For CentOS Linux or Red Hat Enterprise Linux (RHEL) VMs, upgrade the system to CentOS Linux 8.2 or RHEL 8.2. For other Linux distros, upgrade the kernel to 5.0 or later.
 
 

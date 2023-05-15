@@ -10,12 +10,11 @@ ms.date: 11/18/2022
 
 vRealize Operations is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Most VMware administrators have used vRealize Operations to monitor and manage the VMware private cloud components – vCenter Server, ESXi, NSX-T Data Center, vSAN, and VMware HCX. Each provisioned Azure VMware Solution private cloud includes a dedicated vCenter Server, NSX-T Data Center, vSAN, and HCX deployment.
 
-Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the three typical deployment topologies:
+Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the two typical deployment topologies:
 
 > [!div class="checklist"]
 > * [On-premises vRealize Operations managing Azure VMware Solution deployment](#on-premises-vrealize-operations-managing-azure-vmware-solution-deployment)
 > * [vRealize Operations Cloud managing Azure VMware Solution deployment](#vrealize-operations-cloud-managing-azure-vmware-solution-deployment)
-> * [vRealize Operations running on Azure VMware Solution deployment](#vrealize-operations-running-on-azure-vmware-solution-deployment)
 
 ## Before you begin
 * Review the [vRealize Operations Manager product documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) to learn more about deploying vRealize Operations.
@@ -42,17 +41,6 @@ VMware vRealize Operations Cloud supports the Azure VMware Solution, including t
 
 > [!IMPORTANT]
 > Refer to the [VMware documentation](https://docs.vmware.com/en/vRealize-Operations/Cloud/com.vmware.vcom.config.doc/GUID-6CDFEDDC-A72C-4AB4-B8E8-84542CC6CE27.html) for step-by-step guide for connecting vRealize Operations Cloud to Azure VMware Solution.
-
-## vRealize Operations running on Azure VMware Solution deployment
-
-Another option is to deploy an instance of vRealize Operations Manager on a vSphere cluster in the private cloud.
-
->[!IMPORTANT]
->This option isn't currently supported by VMware.
-
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Diagram showing the vRealize Operations running on Azure VMware Solution." border="false":::
-
-Once the instance has been deployed, you can configure vRealize Operations to collect data from vCenter Server, ESXi, NSX-T Data Center, vSAN, and HCX.
 
 ## Known limitations
 

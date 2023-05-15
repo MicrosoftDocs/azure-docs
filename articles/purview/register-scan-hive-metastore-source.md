@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage) | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No| [Yes*](#lineage) | No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
@@ -36,6 +36,10 @@ When scanning Hive metastore source, Microsoft Purview supports:
 - Fetching static lineage on assets relationships among tables and views.
 
 When setting up scan, you can choose to scan an entire Hive metastore database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -62,7 +66,10 @@ This section describes how to register a Hive Metastore database in Microsoft Pu
 
 The only supported authentication for a Hive Metastore database is Basic Authentication.
 
-1. Go to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
 1. Select **Data Map** on the left pane.
 
@@ -175,6 +182,9 @@ Use the following steps to scan Hive Metastore databases to automatically identi
         Usage of `NOT` and special characters isn't acceptable.
 
     1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
+
+        > [!Note]
+        > As a thumb rule, please provide 1GB memory for every 1000 tables.
 
     :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Screenshot that shows boxes for scan details." border="true":::
 

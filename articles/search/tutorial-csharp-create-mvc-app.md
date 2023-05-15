@@ -63,16 +63,20 @@ For the connection, the app presents a query API key to your fully qualified sea
 
 Modify `appsettings.json` to specify your search service and [query API key](search-security-api-keys.md).
 
-   ```json
-   {
-      "SearchServiceName": "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net",
-      "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-QUERY-API-KEY>"
-   }
-   ```
+```json
+{
+    "SearchServiceUri": "<YOUR-SEARCH-SERVICE-URL>",
+    "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-QUERY-API-KEY>"
+}
+```
+
+You can get the [service URL and API key](search-get-started-dotnet.md#copy-a-key-and-endpoint) from the portal. Because this code is querying an index and not creating one, you can use a query key instead of an admin key.
+
+Make sure to specify the search service that has the hotels-sample-index.
 
 ## Add models
 
-In this step, create models that represent the schema of the hotels-search-index.
+In this step, create models that represent the schema of the hotels-sample-index.
 
 1. In Solution explorer, right-select **Models** and add a new class named "Hotel" for the following code:
 

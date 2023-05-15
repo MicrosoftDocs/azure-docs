@@ -1,12 +1,12 @@
 ---
-title: User scenarios for Azure Deployment Environments
-description: Learn about scenarios enabled by Azure Deployment Environments.
+title: Usage scenarios for Azure Deployment Environments
+description: Learn how Azure Deployment Environments can be integrated into CI/CD pipelines, create sandboxes, and hackathon environments.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ---
 # Scenarios for using Azure Deployment Environments Preview
 
@@ -42,7 +42,7 @@ In this scenario, Azure Deployment Environments provides the following benefits:
 - Teams can access a fully configured environment when it's needed. 
 - Developers can test the latest version of an application by using reusable templates to quickly create new ad hoc environments.
 
-## Trainings, hands-on labs, and hackathons
+## Training, hands-on labs, and hackathons
 
 A project in Azure Deployment Environments acts as a container for transient activities like workshops, hands-on labs, trainings, or hackathons. You can create a project to provide custom templates to each user.
 

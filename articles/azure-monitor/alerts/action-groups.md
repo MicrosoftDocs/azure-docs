@@ -1,10 +1,8 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
-ms.author: jagummersall
 ms.reviewer: jagummersall
 ms.custom: references_regions
 
@@ -113,7 +111,7 @@ An action group is a *global* service, so there's no dependency on a specific Az
 >
 > When you configure an action to notify a person by email or SMS, they receive a confirmation that indicates they were added to the action group.
 
-### Test an action group in the Azure portal (preview)
+### Test an action group in the Azure portal
 
 When you create or update an action group in the Azure portal, you can test the action group.
 
@@ -361,13 +359,13 @@ The following sections provide information about the various actions and notific
 
 To check limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-You might have a limited number of runbook actions per action group.
+You are limited to 10 runbook actions per action group.
 
 ### Azure App Service push notifications
 
 To enable push notifications to the Azure mobile app, provide the email address that you use as your account ID when you configure the Azure mobile app. For more information about the Azure mobile app, see [Get the Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-You might have a limited number of Azure app actions per action group.
+You are limited to 10 Azure app actions per action group.
 
 ### Email
 
@@ -423,7 +421,7 @@ An action that uses Functions calls an existing HTTP trigger endpoint in Functio
 
 When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you must remove and re-create the function action in the action group.
 
-You might have a limited number of function actions per action group.
+You are limited to 10 function actions per action group.
 
    > [!NOTE]
    >
@@ -434,11 +432,11 @@ You might have a limited number of function actions per action group.
 
 An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md).
 
-You might have a limited number of ITSM actions per action group.
+You are limited to 10 ITSM actions per action group.
 
 ### Logic Apps
 
-You might have a limited number of Logic Apps actions per action group.
+You are limited to 10 Logic Apps actions per action group.
 
 ### Secure webhook
 
@@ -556,7 +554,7 @@ For information about rate limits, see [Rate limiting for voice, SMS, emails, Az
 
 For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
 
-You might have a limited number of SMS actions per action group.
+You are limited to 10 SMS actions per action group.
 
 > [!NOTE]
 >
@@ -609,7 +607,7 @@ You might have a limited number of SMS actions per action group.
 
 For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
 
-You might have a limited number of voice actions per action group.
+You are limited to 10 voice actions per action group.
 
 > [!NOTE]
 >
@@ -648,21 +646,21 @@ For information about pricing for supported countries/regions, see [Azure Monito
 
 > [!NOTE]
 >
-> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
+> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
 Webhook action groups use the following rules:
 
-- A webhook call is attempted at most three times.
-- The first call waits 10 seconds for a response.
-- Between the first and second call, it waits 20 seconds for a response.
-- Between the second and third call, it waits 40 seconds for a response.
-- The call is retried if any of the following conditions are met:
+The retry logic below assumes that the failure is retriable. The status codes: 408, 429, 503, 504, or HttpRequestException, WebException, `TaskCancellationException` are considered “retriable”.
 
-  - A response isn't received within the timeout period.
-  - One of the following HTTP status codes is returned: 408, 429, 503, 504, or `TaskCancellationException`.
-  - If any one of the preceding errors is encountered, wait an additional 5 seconds for the response.
+When a webhook is invoked, if the first call fails, it will be retried at least 1 more time (retry), and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
 
-- If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
+- The delay between 1st and 2nd attempt is 5 seconds
+- The delay between 2nd and 3rd attempt is 20 seconds
+- The delay between 3rd and 4th attempt is 5 seconds
+- The delay between 4th and 5th attempt is 40 seconds
+- The delay between 5th and 6th attempt is 5 seconds
+
+- After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
 
 For source IP address ranges, see [Action group IP addresses](../app/ip-addresses.md).
 

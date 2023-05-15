@@ -14,7 +14,7 @@ In this article, you use Visual Studio Code to create a TypeScript function that
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
 
-Note that completion will incur a small cost of a few USD cents or less in your Azure account.
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-typescript.md) of this article.
 
@@ -41,12 +41,12 @@ Before you get started, make sure you have the following requirements in place:
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ [Azure Functions Core Tools v4.0.5085 or above](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools v4.0.5095 or above](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you'll publish your function code to Azure. 
+In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you publish your function code to Azure. 
 
 1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
@@ -64,7 +64,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=typescript#generated-project-files).
 ::: zone-end
@@ -77,9 +77,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a TypeScript programming model**|Choose `Model V4 (Preview)`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
-    |**Select how you would like to open your project**|Choose `Add to workspace`|
+    |**Select how you would like to open your project**|Choose `Open in current window`|
 
-    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions TypeScript developer guide](functions-reference-node.md). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript). 
 ::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
