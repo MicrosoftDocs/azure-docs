@@ -20,11 +20,11 @@ keywords:
 ### Azure OpenAI Chat Completion General Availability (GA)
 
 - General availability support for:
-  - Chat Completion API version `5-15-2023`.
+  - Chat Completion API version `2023-05-15`.
   - GPT-35-Turbo models.
   - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
   
-If you are currently using the `2023-05-15` API, we recommend migrating to the GA `2023-15-05` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
+If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-15-05` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
 
 > [!IMPORTANT]
 > Using GPT-35-Turbo models with the completion endpoint remains in preview. We are providing this level of access for experimental purposes only and strongly recommend using the Chat Completion API/endpoint. Due to the potential for changes to the underlying ChatML syntax there are currently no plans to provide GA level support for this capability.
