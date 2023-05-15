@@ -43,7 +43,7 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings.":::
 
-1. Select the **Advanced** tab. If you're unfamiliar with an [Azure CDN](../cdn/cdn-overview.md), [Azure Front Door](../frontdoor/), or [Blob Storage](../storage/blobs/storage-blobs-overview.md), then clear the checkboxes . For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
+1. Select the **Advanced** tab. If you're unfamiliar with an [Azure CDN](../cdn/cdn-overview.md), [Azure Front Door](../frontdoor/front-door-overview.md), or [Blob Storage](../storage/blobs/storage-blobs-overview.md), then clear the checkboxes . For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
 
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings.":::
 
