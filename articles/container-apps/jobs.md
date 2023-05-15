@@ -337,10 +337,10 @@ Each Container Apps job maintains a history of recent job executions.
 
 # [Azure CLI](#tab/azure-cli)
 
-To get the statuses of job executions using the Azure CLI, use the `az containerapp job executionhistory` command. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+To get the statuses of job executions using the Azure CLI, use the `az containerapp job execution list` command. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```azurecli
-az containerapp job executionhistory --name "my-job" --resource-group "my-resource-group"
+az containerapp job execution list --name "my-job" --resource-group "my-resource-group"
 ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
