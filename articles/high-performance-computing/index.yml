@@ -149,7 +149,7 @@ additionalContent:
       items:
         # Card
         - title: HPC Business Strategy
-          summary: Getting to know Azure
+          #summary:
           links:
             - text: "Azure HPC+AI Platform Overview"
               url: https://www.youtube.com/watch?v=V0-laXwBI7I
@@ -161,7 +161,7 @@ additionalContent:
               url: https://aka.ms/HPCBusinessStrategy
         # Card
         - title: HPC Deep Dives
-          summary: Azure Infrastructure
+          #summary:
           links:
             - text: "Comparing cloud platform performance for HPC+AI workloads"
               url: https://www.youtube.com/watch?v=4-0TYA7Po2A
@@ -173,7 +173,7 @@ additionalContent:
               url: https://aka.ms/HPCDeepDives
           # Card
         - title: HPC Partners
-          summary: Azure Infrastructure
+          #summary:
           links:
             - text: "Deploying, Benchmarking & Visualising Workflows in a AMD HPC cluster in Azure"
               url: https://www.youtube.com/watch?v=qUQFWbVnbsU
@@ -185,7 +185,7 @@ additionalContent:
               url: https://aka.ms/HPCPartners
           # Card
         - title: HPC Events
-          summary: Azure Infrastructure
+          #summary:
           links:
             - text: "Azure HPC+Al Day Keynote"
               url: https://www.youtube.com/watch?v=YeCHFabuBMo
