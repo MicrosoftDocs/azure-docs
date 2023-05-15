@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 04/14/2023
-ms.custom: template-concept
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Configuring Azure Policy with network groups in Azure Virtual Network Manager
@@ -59,6 +59,26 @@ With network groups, your policy definition includes your conditional expression
 >
 >If you need to parameterize the network group, you can utilize an Azure Resource Manager template to create the policy definition and assignment.
 
+When Azure Policy is used with Azure Virtual Network Manager, the policy targets a [Resource Provider property](../governance/policy/concepts/definition-structure.md#resource-provider-modes) of `Microsoft.Network.Data`. Because of this, you need to specify a *policyType* of `Custom` in your policy definition. When you [create a policy to dynamically add members](how-to-exclude-elements.md) in Virtual Network Manager, this is applied automatically when the policy is created. You only need to choose `custom` when [creating a new policy definition](../governance/policy/tutorials/create-and-manage.md) through Azure Policy or other tooling outside of the Virtual Network Manager dashboard.
+
+Here's a sample of a policy definition with the `policyType` property set to `Custom`.
+
+```json
+
+"properties": {
+      "displayName": "myProdAVNM",
+      "policyType": "Custom",
+      "mode": "Microsoft.Network.Data",
+      "metadata": {
+        "category": "Azure Virtual Network Manager",
+        "createdBy": "-----------------------------",
+        "createdOn": "2023-04-10T15:35:35.9308987Z",
+        "updatedBy": null,
+        "updatedOn": null
+      }
+}
+
+```
 Learn more about [policy definition structure](../governance/policy/concepts/definition-structure.md).
 
 ## Policy assignments

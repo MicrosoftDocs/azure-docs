@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 03/17/2023
 ms.author: lajanuar
+ms.custom: references_regions
 recommendations: false
 ---
 
@@ -18,6 +19,24 @@ recommendations: false
 > Document Translation in Language Studio is currently in Public Preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
  Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a no-code user interface that lets you interactively translate documents from local or Azure blob storage.
+
+## Supported regions
+
+The Document Translation feature in the Language Studio is currently available in the following regions;
+
+|DisplayName|Name|
+|-----------|------|
+|East US |`eastus`|
+|East US 2 |`eastus2`|
+|West US 2 | `westus2`|
+|West US 3| `westus3`|
+|UK South| `uksouth`|
+|South Central US| `southcentralus` |
+|Australia East|`australiaeast` |
+|Central India| `centralindia` |
+|North Europe| `northeurope` |
+|West Europe|`westeurope`|
+|Switzerland North| `switzerlandnorth` |
 
 ## Prerequisites
 

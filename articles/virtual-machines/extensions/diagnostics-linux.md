@@ -40,19 +40,7 @@ This extension works with both Azure deployment models: Azure Resource Manager a
 
 ### Supported Linux distributions
 
-The following distributions and versions include only Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
-
-- Ubuntu 18.04, 16.04, 14.04
-- CentOS 8, 7, 6.5+
-- Oracle Linux 7, 6.4+
-- OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12 SP5
-- Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 7.9
-- Alma Linux 8
-- Rocky Linux 8
-
-A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
+See [Supported agent operating systems](../../azure-monitor/agents/agents-overview.md#linux).
 
 ### Python requirement
 

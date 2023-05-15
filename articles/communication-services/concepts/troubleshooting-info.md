@@ -13,11 +13,11 @@ ms.service: azure-communication-services
 
 # Troubleshooting in Azure Communication Services
 
-This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
+This document helps you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support. 
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this, we have a [dedicated support and help options page](../support.md) which lists your options for support. 
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
@@ -27,7 +27,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
-* **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
+* **Call logs**: These logs contain detailed information that are used to troubleshoot calling and network issues.
 
 Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
@@ -37,7 +37,7 @@ The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` o
 
 ### Client options example
 
-The following code snippets demonstrate diagnostics configuration. When the SDKs are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
+The following code snippets demonstrate diagnostics configuration. When the SDKs are used with diagnostics enabled, diagnostics details can be emitted to the configured event listener:
 
 # [C#](#tab/csharp)
 ```
@@ -78,7 +78,7 @@ chat_client = ChatClient(
 ---
 
 ## Access IDs required for Call Automation
-When troubleshooting issues with the Call Automation SDK, like call management or recording problems, you'll need to collect the IDs that help identify the failing call or operation. You can provide either of the two IDs mentioned here. 
+When troubleshooting issues with the Call Automation SDK, like call management or recording problems, you need to collect the IDs that help identify the failing call or operation. You can provide either of the two IDs mentioned here. 
 - From the header of API response, locate the field `X-Ms-Skype-Chain-Id`.
  
     ![Screenshot of response header showing X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png) 
@@ -90,7 +90,7 @@ In addition to one of these IDs, please provide the details on the failing use c
 
 ## Access your client call ID
 
-When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This can be accessed via the `id` property of the `call` object:
+When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This value can be accessed via the `id` property of the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
@@ -129,7 +129,7 @@ async function main() {
   }, {
     enableDeliveryReport: true // Optional parameter
   });
-console.log(result); // your message ID will be in the result
+console.log(result); // your message ID is in the result
 }
 ```
 ---
@@ -141,7 +141,7 @@ The program brief ID can be found on the [Azure portal](https://portal.azure.com
 ---
 
 ## Access your email operation ID
-When troubleshooting send email or email message status requests, you may be asked to provide an `operation ID`. This can be accessed in the response:
+When troubleshooting send email or email message status requests, you may be asked to provide an `operation ID`. This value can be accessed in the response:
 
 # [.NET](#tab/dotnet)
 ```csharp
@@ -171,7 +171,7 @@ const callClient = new CallClient();
 ```
 
 You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
-This may be useful if you want to redirect logs to a location other than console.
+This value may be useful if you want to redirect logs to a location other than console.
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
@@ -187,13 +187,13 @@ When developing for iOS, your logs are stored in `.blog` files. Note that you ca
 
 These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container".
 
-This will give you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
+This process gives you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
 
 # [Android](#tab/android)
 
 When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
-On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
+On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file is located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
 ---
 
@@ -201,7 +201,7 @@ On Android Studio, navigate to the Device File Explorer by selecting View > Tool
 
 When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
-These can be accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
+These are accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
 1. Open a Windows Command Prompt (Windows Key + R)
 2. Type `cmd.exe`
 3. Type `where /r %USERPROFILE%\AppData acs*.blog`
@@ -271,7 +271,7 @@ To verify your Teams License eligibility via Teams web client, follow the steps 
 1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://teams.live.com/v2/ domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
 
 #### Checking your current Teams license via Microsoft Graph API
-You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
+You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns the licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
 
 1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Sign in to Graph Explorer using the credentials.
@@ -342,7 +342,7 @@ The below error codes are exposed by Call Automation SDK.
 |--|--|--|
 | 400 | Bad request           | The input request is invalid. Look at the error message to determine which input is incorrect.
 | 400 | Play Failed           | Ensure your audio file is WAV, 16KHz, Mono and make sure the file url is publicly accessible. |
-| 400 | Recognize Failed      | Check the error message. The message will highlight if this is due to timeout being reached or if operation was canceled. For more information about the error codes and messages you can check our how-to guide for [gathering user input](../how-tos/call-automation/recognize-action.md#event-codes).
+| 400 | Recognize Failed      | Check the error message. The message highlights if this failure is due to timeout being reached or if operation was canceled. For more information about the error codes and messages you can check our how-to guide for [gathering user input](../how-tos/call-automation/recognize-action.md#event-codes).
 | 401 | Unauthorized          | HMAC authentication failed. Verify whether the connection string used to create CallAutomationClient is correct.
 | 403 | Forbidden             | Request is forbidden. Make sure that you can have access to the resource you are trying to access. 
 | 404 | Resource not found    | The call you are trying to act on doesn't exist. For example, transferring a call that has already disconnected.
@@ -353,7 +353,7 @@ The below error codes are exposed by Call Automation SDK.
 | 502 | Bad gateway           | Retry after a delay with a fresh http client.
 
 Consider the below tips when troubleshooting certain issues. 
-- Your application is not getting IncomingCall Event Grid event: Make sure the application endpoint has been [validated with Event Grid](../../event-grid/webhook-event-delivery.md) at the time of creating event subscription. The provisioning status for your event subscription will be marked as succeeded if the validation was successful. 
+- Your application is not getting IncomingCall Event Grid event: Make sure the application endpoint has been [validated with Event Grid](../../event-grid/webhook-event-delivery.md) at the time of creating event subscription. The provisioning status for your event subscription is marked as succeeded if the validation was successful. 
 - Getting the error 'The field CallbackUri is invalid': Call Automation does not support HTTP endpoints. Make sure the callback url you provide supports HTTPS.
 - PlayAudio action does not play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16KHz) sampling rate.
 - Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. Unless you are using Direct Routing, the source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. 
@@ -396,6 +396,6 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 
 
 ## Related information
-- [Logs and diagnostics](logging-and-diagnostics.md)
+- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](metrics.md)
 - [Service limits](service-limits.md)

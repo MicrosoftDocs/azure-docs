@@ -307,6 +307,10 @@
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer
           href: ../data-explorer.md
+    - name: Migrate data
+      items:
+        - name: Desktop data migration tool
+          href: ../how-to-migrate-desktop-tool.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account

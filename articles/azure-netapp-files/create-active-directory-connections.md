@@ -72,6 +72,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     For more information, refer to [Network security: Configure encryption types allowed for Kerberos](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) or [Windows Configurations for Kerberos Supported Encryption Types](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type)
 
+* LDAP queries take effect only in the domain specified in the Active Directory connections (the **AD DNS Domain Name** field). This behavior applies to NFS, SMB, and dual-protocol volumes.
+
 ## Create an Active Directory connection
 
 1. From your NetApp account, select **Active Directory connections**, then select **Join**.  

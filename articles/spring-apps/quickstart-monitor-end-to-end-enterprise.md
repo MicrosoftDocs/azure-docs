@@ -46,7 +46,7 @@ You must manually provide the Application Insights connection string to the Orde
 
    ```azurecli
    INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group=<resource-group-name>
+       --resource-group=<resource-group-name> \
        --app <app-insights-name> | jq -r '.connectionString')
 
    az keyvault secret set \

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/19/2022
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, not-enterprise-apps
 ---
 
 # Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization

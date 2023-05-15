@@ -24,7 +24,7 @@ In this article, you learn how to quantitatively measure and improve the accurac
 
 ## Create a test
 
-You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy a Microsoft speech-to-text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy with a Microsoft speech-to-text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
 
 ::: zone pivot="speech-studio"
 

@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 04/25/2023
 ---
 
 # Create and access an environment by using the Azure CLI

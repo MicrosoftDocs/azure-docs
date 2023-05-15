@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 10/13/2022
+ms.date: 04/27/2023
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other, engagement-fy23
@@ -14,7 +14,7 @@ ms.custom: mode-other, engagement-fy23
 
 # Quickstart: Send telemetry from a device to Azure IoT Central
 
-**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
+**Applies to**: [General device developers](about-iot-develop.md#general-device-development)
 
 :::zone pivot="programming-language-ansi-c"
 

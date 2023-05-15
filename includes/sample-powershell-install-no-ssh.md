@@ -4,7 +4,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 10/24/2022
 author: mikefrobbins
 ms.author: mirobb
-manager: mkluck
+ms.manager: jasongroce
 ---
 
 This sample requires Azure PowerShell Az 1.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.

@@ -80,7 +80,10 @@ Your new plan is listed under the relevant subscription in the **Plans** grid.
 
 Edit your Defender for IoT plans for OT networks if you need change your plan commitment or update the number of committed devices or sites.
 
-For example, you may have more devices that require monitoring if you're increasing existing site coverage, or there are network changes such as adding switches. If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, you may see a warning message reminding you to update the number of committed devices on the relevant subscription.
+For example, you may have more devices that require monitoring if you're increasing existing site coverage, or there are network changes such as adding switches.
+
+> [!NOTE]
+> If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, you may see a warning message that you have exceeded the maximum number of devices for your subscription. This indicates you need to update the number of committed devices on the relevant subscription to the actual number of devices being monitored. Click the link in the warning message to take you to the **Plans and pricing** page, with the **Edit plan** pane already open.
 
 **To edit a plan:**
 

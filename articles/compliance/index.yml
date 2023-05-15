@@ -458,14 +458,10 @@ additionalContent:
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
             - text: Japan security and privacy requirements
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
-            - text: Malaysian security and privacy requirements
-              url: https://www.microsoft.com/en-sg/apac/trustedcloud/malaysia.aspx
             - text: New Zealand security and privacy requirements
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
             - text: Navigating your way to the cloud in Europe 
               url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
-            - text: Navigating your way to the cloud in Asia
-              url: https://www.microsoft.com/en-sg/apac/trustedcloud/default.aspx
             - text: Navigating to the cloud in Middle East and Africa
               url: https://msmea-staging.azurewebsites.net/mea/trustedcloud/default.aspx
             - text: Cloud compliance guides for financial services

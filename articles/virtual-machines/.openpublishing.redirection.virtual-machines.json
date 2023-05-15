@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/extensions/symantec.md",
+            "redirect_url": "/azure/virtual-machines/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-availability-sets.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-availability-sets",
             "redirect_document_id": false
@@ -28,6 +33,41 @@
         {
             "source_path_from_root": "/articles/virtual-machines/windows/create-vm-specialized.md",
             "redirect_url": "/azure/virtual-machines/attach-os-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-manage.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-move-resource.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-planning.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-troubleshoot.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-deprovision.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-deploy.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
         },
         {
@@ -1648,6 +1688,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/linux/quick-create-cli-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/create-vm-rest-api.md",
+            "redirect_url": "/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication",
             "redirect_document_id": false
         },
         {
@@ -5053,6 +5098,6 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
             "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
             "redirect_document_id": false
-        }        
+        }     
     ]
 }

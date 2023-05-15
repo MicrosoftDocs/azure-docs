@@ -38,7 +38,9 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 ## Fabric Configuration
 
-The following table specifies parameters used to create Network Fabric
+The following table specifies parameters used to create Network Fabric,
+
+**$prefix:** /subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers
 
 | Parameter | Description | Example | Required |
 |-----------|-------------|---------|----------|
@@ -46,7 +48,7 @@ The following table specifies parameters used to create Network Fabric
 | location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
 |  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Two SKUs are supported (**M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**). | M4-A400-A100-C16-aa |True | String|
-|nfc-id|Network Fabric Controller ARM resource id|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName|True | 
+|nfc-id|Network Fabric Controller ARM resource id|**$prefix**/NFCName|True | 
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|Number of compute servers per rack. Possible values are 4, 8, 12 or 16|16|True | 
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True |
@@ -145,11 +147,11 @@ Expected output:
   "networkFabricSku": "NFSKU",
   "operationalState": null,
   "provisioningState": "Accepted",
-  "rackCount": 3,
+  "rackCount": 4,
   "racks": null,
   "resourceGroup": "NFResourceGroupName",
   "routerId": null,
-  "serverCountPerRack": 7,
+  "serverCountPerRack": 8,
   "systemData": {
     "createdAt": "2023-XX-X-6T12:52:11.769525+00:00",
     "createdBy": "email@address.com",
@@ -175,7 +177,7 @@ Expected output:
 ## show fabric 
 
 ```azurecli
-az nf fabric show --resourcegroup "NFResourceGroupName" --resource-name "NFName"
+az nf fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
 ```
 Expected output:
 
@@ -225,7 +227,7 @@ Expected output:
   "networkFabricSku": "NFSKU",
   "operationalState": null,
   "provisioningState": "Succeeded",
-  "rackCount": 3,
+  "rackCount": 4,
   "racks": [
     "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-aggrack",
     "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack1",
@@ -233,7 +235,7 @@ Expected output:
   ],
   "resourceGroup": "NFResourceGroup",
   "routerId": null,
-  "serverCountPerRack": 7,
+  "serverCountPerRack": 8,
   "systemData": {
     "createdAt": "2023-XX-XXT12:52:11.769525+00:00",
     "createdBy": "email@address.com",
@@ -311,7 +313,7 @@ Expected output:
     "networkFabricSku": "NFSKU",
     "operationalState": "Provisioned",
     "provisioningState": "Succeeded",
-    "rackCount": 3,
+    "rackCount": 4,
     "racks": [
       "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-aggrack",
       "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack1",
@@ -319,7 +321,7 @@ Expected output:
     ],
     "resourceGroup": "NFResourceGroup",
     "routerId": null,
-    "serverCountPerRack": 7,
+    "serverCountPerRack": 8,
     "systemData": {
       "createdAt": "2023-XX-XXT12:52:11.769525+00:00",
       "createdBy": "email@address.com",
@@ -355,7 +357,7 @@ The following table specifies parameters used to create Network to Network Inter
 ||
 |*layer2Configuration*| Layer 2 configuration ||
 ||
-|portCount| Number of ports that are part of the port-channel. Maximum value is based on Fabric SKU|2||
+|portCount| Number of ports that are part of the port-channel. Maximum value is based on Fabric SKU|3||
 |mtu| Maximum transmission unit between CE and PE. |1500||
 ||
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True

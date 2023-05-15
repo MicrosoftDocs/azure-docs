@@ -117,6 +117,9 @@ For situations in which older or archived logs must be intensively queried with 
 
 Because [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. For this reason, you can use all options of the Log Analytics pricing model, including [commitment tiers](#commitment-tiers), along with pay-as-you-go.
 
+> [!TIP]
+> Looking to adjust retention settings on your Application Insights tables? The table names have changed for workspace based components, see [Application Insights Table Structure](https://learn.microsoft.com/azure/azure-monitor/app/convert-classic-resource#table-structure)
+
 Data ingestion and data retention for a [classic Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) follow the same pay-as-you-go pricing as workspace-based resources, but they can't use commitment tiers.
 
 Telemetry from ping tests and multi-step tests is charged the same as data usage for other telemetry from your app. Use of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. There's no data volume charge for using [Live Metrics Stream](../app/live-stream.md).
@@ -152,9 +155,9 @@ The count of monitored servers is calculated on an hourly granularity. The daily
 Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019, and is still active, will continue to have access to use the following legacy pricing tiers:
 
 - Standalone (Per GB)
-- Per Node (Operations Management Suite [OMS])
+- Per Node (Operations Management Suite [OMS]) 
 
-Access to the legacy Free Trial pricing tier was limited on July 1, 2022.
+Access to the legacy Free Trial pricing tier was limited on July 1, 2022. Pricing information for the Standalone and Per Node pricing tiers is available [here](https://aka.ms/OMSpricing). 
 
 ### Free Trial pricing tier
 
@@ -169,7 +172,7 @@ Usage on the Standalone pricing tier is billed by the ingested data volume. It's
 
 ### Per Node pricing tier
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage.
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. The Per Node pricing tier should only be used by customers with active Operations Management Suite (OMS) licenses. 
 
 On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic Logs](basic-logs-configure.md). Usage is reported on three meters:
 

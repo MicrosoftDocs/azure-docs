@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Overview 
-description: Learn how Azure Functions can help build robust serverless apps.
+description: Learn how you can use Azure Functions to build robust serverless apps.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 05/15/2023

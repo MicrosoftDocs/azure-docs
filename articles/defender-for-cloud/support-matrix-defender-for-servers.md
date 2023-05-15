@@ -120,5 +120,5 @@ For information about when recommendations are generated for each of these solut
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
+- Learn how [Defender for Cloud collects data using the Log Analytics agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
