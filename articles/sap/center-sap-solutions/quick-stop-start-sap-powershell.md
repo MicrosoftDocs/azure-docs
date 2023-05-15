@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Start and stop SAP systems with PowerShell
+title: Quickstart - Start and stop SAP systems from Azure Center for SAP solutions with PowerShell
 description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -40,7 +40,7 @@ The following are prerequisites that you need to ensure before using the Start o
 
 To Start an SAP system represented as a *Virtual Instance for SAP solutions* resource:
 
-1. Use the [Start-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Start-AzWorkloadsSapVirtualInstance) command:
+Use the [Start-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Start-AzWorkloadsSapVirtualInstance) command:
 
 Option 1:
 
@@ -62,7 +62,7 @@ Use the InputObject parameter and pass the resource ID of the Virtual Instance f
 
 To stop an SAP system represented as a *Virtual Instance for SAP solutions* resource:
 
-1. Use the [Stop-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Stop-AzWorkloadsSapVirtualInstance) command:
+Use the [Stop-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Stop-AzWorkloadsSapVirtualInstance) command:
 
 Option 1:
 
