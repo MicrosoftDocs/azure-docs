@@ -21,7 +21,7 @@ Get started with Azure Monitor for SAP solutions by using the [Az.Workloads](/po
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 - If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module.Connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-Install **Az.Workloads** powershell module by running command.
+Install **Az.Workloads** PowerShell module by running command.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Workloads
@@ -37,8 +37,8 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 - Create or Use an existing Virtual Network for Azure Monitor for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network.
 - Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms".
 
-   [!div class="mx-imgBorder"]
-   ![Screenshot that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/subnet-creation.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/subnet-creation.png)
 
 ## Create a resource group
 
