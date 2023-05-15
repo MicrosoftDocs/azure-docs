@@ -1,5 +1,5 @@
 ---
-title: Configure SAP NetWeaver for Azure Monitor for SAP solutions (preview)
+title: Configure SAP NetWeaver for Azure Monitor for SAP solutions 
 description: Learn how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -11,16 +11,14 @@ ms.author: sujaj
 ---
 
 
-# Configure SAP NetWeaver for Azure Monitor for SAP solutions (preview)
+# Configure SAP NetWeaver for Azure Monitor for SAP solutions 
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
-
-In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*. You can use SAP NetWeaver with both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
+In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*.
 
 User can select between the two connection types when configuring SAP Netweaver provider to collect information from SAP system. Metrics are collected by using
 
 - **SAP Control** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAP Control**, which is a SOAP web service interface that exposes these capabilities. The **SAP Control** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
-- **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It's available only as part of Azure Monitor for SAP solution and not available in the classic version.
+- **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It's available only as part of Azure Monitor for SAP solution.
 
 You can collect below metric using SAP NetWeaver Provider
 
@@ -276,15 +274,6 @@ INTERFACE = XBP
 VERSION = 3.0
 EXTCOMPANY = TESTC
 EXTPRODUCT = TESTP
-
-## Configure NetWeaver for Azure Monitor for SAP solutions (classic)
-
-To configure the NetWeaver provider for the Azure Monitor for SAP solutions (classic) version:
-
-1. [Unprotect some methods](#unprotect-methods)
-1. [Restart the SAP start service](#restart-sap-start-service)
-1. [Check that your settings have been updated properly](#validate-changes)
-1. [Install the NetWeaver provider through the Azure portal](#install-netweaver-provider)
 
 ### Unprotect methods
 
