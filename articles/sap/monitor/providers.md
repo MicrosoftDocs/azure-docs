@@ -134,7 +134,7 @@ You can get the following data with the High-availability cluster provider:
 
 To configure a High-availability cluster provider, two primary steps are involved:
 
-1. Install [ha_cluster_exporter](ha_cluster_exporter.md) in *each* node within the Pacemaker cluster.
+1. Install [ha_cluster_exporter](provider-ha-pacemaker-cluster.md) in *each* node within the Pacemaker cluster.
 
    You have two options for installing ha_cluster_exporter:
 

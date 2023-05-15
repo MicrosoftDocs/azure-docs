@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for SAP solutions with the Azure portal 
+title: Deploy Azure Monitor for SAP solutions with the Azure portal
 description: Learn how to use a browser method for deploying Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.author: sakhare
@@ -57,11 +57,11 @@ Get started with Azure Monitor for SAP solutions by using the [Azure portal](htt
 Refer the following for each of the Provider instance creation
 
 - [SAP NetWeaver Provider Creation](provider-netweaver.md)
-- [SAP HANA Provider Creation](provider-hana)
-- [SAP Microsoft SQL Provider Creation](provider-sql-server)
-- [SAP IBM DB2 Provider Creation](provider-ibm-db2)
-- [SAP Operating System Provider Creation](provider-linux)
-- [SAP High Availability Provider Creation](provider-ha-pacemaker-cluster)
+- [SAP HANA Provider Creation](provider-hana.md)
+- [SAP Microsoft SQL Provider Creation](provider-sql-server.md)
+- [SAP IBM DB2 Provider Creation](provider-ibm-db2.md)
+- [SAP Operating System Provider Creation](provider-linux.md)
+- [SAP High Availability Provider Creation](provider-ha-pacemaker-cluster.md)
 
 ## Next steps
 
