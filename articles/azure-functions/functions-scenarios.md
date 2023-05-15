@@ -32,6 +32,7 @@ The following tutorials uses an Event Grid trigger to process files in a blob co
 
 ::: zone pivot="programming-language-python" 
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-python)
+::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
 + [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=nodejsv10)
@@ -80,7 +81,7 @@ Your functions can also use low-latency event triggers, like Event Grid, and rea
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ [Azure Functions Kafka Trigger Java Sample](samples/azure/azure-functions-kafka-extension/azure-functions-kafka-trigger-java-sample)
++ [Azure Functions Kafka Trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
 + [Event Hub Trigger Functions examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/EventHubTriggerFunction.java)
 + [Kafka Trigger Functions examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/KafkaTriggerFunction.java)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)

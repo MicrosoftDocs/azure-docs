@@ -13,7 +13,7 @@ This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.
 
 > [!div class="checklist"]
 > - [Workspace-based Application Insights resource](create-workspace-resource.md)
-> - Custom [Azure Functions app](../../azure-functions/functions-overview.md#introduction-to-azure-functions) running [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) with your own business logic
+> - Custom [Azure Functions app](../../azure-functions/functions-overview.md) running [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) with your own business logic
 
 ## Check availability
 
