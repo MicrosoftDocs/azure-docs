@@ -68,7 +68,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#w-2":::</br>
-    [🆕 **Insurance card**](#w-2) | Extract health </br>insurance coverage details.
+    [🆕 **Insurance card**](#w-2) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
@@ -76,9 +76,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
-    [**Business card**](#business-card) | Extract business </br>contact information.
-   :::column-end:::
-:::column span="":::
+    [**Business card**](#business-card) | Extract business contact information.
    :::column-end:::
 :::row-end:::
 
