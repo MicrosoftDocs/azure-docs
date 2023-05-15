@@ -41,7 +41,7 @@ You can use Language Studio to submit the custom text classification task and vi
 
 # [REST API](#tab/rest-api)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../includes/key-endpoint-page-azure-portal.md)]
 
@@ -58,7 +58,7 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/client-libraries)
 
-First you will need to get your resource key and endpoint:
+First you'll need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
 
