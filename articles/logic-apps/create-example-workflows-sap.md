@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 05/23/2023
 ---
 
 # Create example workflows for common SAP integration scenarios in Azure Logic Apps

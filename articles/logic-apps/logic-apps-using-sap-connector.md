@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/23/2023
 tags: connectors
 ---
 
@@ -15,7 +15,7 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use this connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
+This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use this connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
 
 > [!IMPORTANT]
 > For Standard logic app workflows, the SAP *built-in* connector is in preview and is subject to the 
@@ -924,4 +924,5 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 ## Next steps
 
-* [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps
+* [Create example SAP workflows](create-example-workflows-sap.md)
+* [Connect to on-premises systems  from Azure Logic Apps](logic-apps-gateway-connection.md)
