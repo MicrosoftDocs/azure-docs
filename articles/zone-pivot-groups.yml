@@ -2345,3 +2345,17 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+- id: azure-web-pubsub-samples-authenticate-and-connect
+  title: Authenticate and connect to your Web PubSub resource(s) using one of the methods
+  prompt: Choose an option
+  pivots: 
+  - id: method-rest-apis
+    title: REST APIs
+  - id: method-SDK-csharp
+    title: C# SDK
+  - id: method-SDK-javascript
+    title: JavaScript SDK
+  - id: method-SDK-java
+    title: Java SDK
+  - id: method-SDK-python
+    title: Python SDK
