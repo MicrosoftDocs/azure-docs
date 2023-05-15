@@ -25,7 +25,7 @@
   - name: Cluster Manager
     href: howto-cluster-manager.md
   - name: Troubleshoot Haks cluster
-    href: Troubleshoot-haks-cluster-provision-failures.md
+    href: Troubleshoot-haks-cluster.md
   - name: Before you start Operator Nexus platform deployment
     href: howto-platform-prerequisites.md
   - name: Network Fabric
