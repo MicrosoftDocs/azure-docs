@@ -4,9 +4,9 @@ description: Find out about reliability in Azure Center for SAP Solutions
 author: sushantyadav-msft
 ms.author: sushantyadav
 ms.topic: overview
-ms.custom: subject-reliability
+ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure
-ms.custom: references_regions
+
 ms.date: 05/15/2023
 ---
 
