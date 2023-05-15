@@ -18,14 +18,12 @@
     href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
-   - name: Before you start Operator Nexus NFC and CM deployment
+  - name: Before you start Operator Nexus NFC and CM deployment
     href: howto-azure-operator-nexus-prerequisites.md
   - name: Network Fabric Controller
     href: howto-configure-network-fabric-controller.md
   - name: Cluster Manager
     href: howto-cluster-manager.md
-  - name: Troubleshoot Haks cluster
-    href: Troubleshoot-haks-cluster.md
   - name: Before you start Operator Nexus platform deployment
     href: howto-platform-prerequisites.md
   - name: Network Fabric
