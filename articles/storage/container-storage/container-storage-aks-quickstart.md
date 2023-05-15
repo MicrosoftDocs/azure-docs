@@ -4,7 +4,7 @@ description: Learn how to install and configure Azure Container Storage Preview 
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/12/2023
+ms.date: 05/15/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -140,6 +140,23 @@ az aks nodepool update --resource-group <resource group> --cluster-name <cluster
 
 > [!TIP]
 > You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
+
+## Assign Contributor role to Azure Elastic SAN Preview subscription
+
+This step is only needed if you intend to use Azure Elastic SAN Preview for data storage. If you plan to use Azure Disks or Ephemeral Disk for data storage instead, proceed to [Assign Contributor role to AKS managed identity](#assign-contributor-role-to-aks-managed-identity).
+
+You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+
+1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN Preview resource that you want to use.
+1. Select **Access control (IAM)** from the left pane.
+1. Select **Add > Add role assignment**.
+1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
+1. Under **Assign access to**, select **Managed identity**.
+1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
+1. Under **Managed identity**, select **User-assigned managed identity**.
+1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
+1. Select **Review + assign**.
 
 ## Assign Contributor role to AKS managed identity
 
