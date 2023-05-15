@@ -74,11 +74,11 @@ To reset a user's password:
 For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
 
 
-## Exporting Consumer Users
+## Export consumer users
 
 1. In your Azure AD B2C directory, search for **Azure Active Directory**. 
 2. Select **Users**, and then select **Bulk Operations** and **Download Users**.
-3. Select **Start** and then select **File is ready! Click here to download**.
+3. Select **Start**, and then select **File is ready! Click here to download**.
  
 
 When downloading users via Bulk Operations option, the CSV file will bring users with their UPN attribute with the format *objectID@B2CDomain*. This is by design since that's the way the UPN information is stored in the B2C tenant.
