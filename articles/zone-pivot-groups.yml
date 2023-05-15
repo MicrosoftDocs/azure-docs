@@ -2351,11 +2351,11 @@ groups:
   pivots: 
   - id: method-rest-apis
     title: REST APIs
-  - id: method-SDK-csharp
+  - id: method-sdk-csharp
     title: C# SDK
-  - id: method-SDK-javascript
+  - id: method-sdk-javascript
     title: JavaScript SDK
-  - id: method-SDK-java
+  - id: method-sdk-java
     title: Java SDK
-  - id: method-SDK-python
+  - id: method-sdk-python
     title: Python SDK

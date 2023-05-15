@@ -23,7 +23,7 @@ I am a description. I am a description. I am a description. I am a description.
 | [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
-::: zone pivot="method-SDK-csharp"
+::: zone pivot="method-sdk-csharp"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
@@ -32,7 +32,7 @@ I am a description. I am a description. I am a description. I am a description.
 | [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
-::: zone pivot="method-SDK-javascript"
+::: zone pivot="method-sdk-javascript"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
@@ -41,7 +41,7 @@ I am a description. I am a description. I am a description. I am a description.
 | [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
-::: zone pivot="method-SDK-java"
+::: zone pivot="method-sdk-java"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
@@ -50,7 +50,7 @@ I am a description. I am a description. I am a description. I am a description.
 | [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
-::: zone pivot="method-SDK-python"
+::: zone pivot="method-sdk-python"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
