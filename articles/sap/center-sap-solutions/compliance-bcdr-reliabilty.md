@@ -34,14 +34,14 @@ When deploying SAP systems using Azure Center for SAP solutions, you can use Zon
 
 ### Prerequisites for ensuring Resiliency in Azure Center for SAP solutions
 - You are expected to choose Zone redundancy for SAP workload that you deploy using Azure Center for SAP solutions based on your requirements. 
-- Zone redundancy for the SAP system infrastructure that you deploy using Azure Center for SAP solutions can only be chosen when creating the Virtual Instance for SAP solutions (VIS) resource. Once the VIS resource is created and infrastructure is deployed, you will not be able to change the underlying infrastructure configuration to zone redundant.
+- Zone redundancy for the SAP system infrastructure that you deploy using Azure Center for SAP solutions can only be chosen when creating the Virtual Instance for SAP solutions (VIS) resource. Once the VIS resource is created and infrastructure is deployed, you cannot change the underlying infrastructure configuration to zone redundant.
 
 #### Deploy an SAP system with availability zone enabled
-This section explains how you can deploy an SAP system with Zone redundancy from the Azure Portal. You can also use PowerShell and CLI interfaces to do this. Learn more about [deploying a new SAP system using Azure Center for SAP solutions](/azure/sap/center-sap-solutions/deploy-s4hana).
+This section explains how you can deploy an SAP system with Zone redundancy from the Azure Portal. You can also use PowerShell and CLI interfaces to deploy a zone redundant SAP system with Azure Center for SAP solutions. Learn more about [deploying a new SAP system using Azure Center for SAP solutions](/azure/sap/center-sap-solutions/deploy-s4hana).
 
 1. Open the Azure portal and navigate to the **Azure Center for SAP solutions** page.
 
-2. In the **Basics** page, special attention to the fields in the table below (also highlighted in the screenshot below), which have specific requirements for zone redundancy.
+2. In the **Basics** page, special attention to the fields in the table (also highlighted in the screenshot), which have specific requirements for zone redundancy.
 
     | Setting      | Suggested value  | Notes for Zone Redundancy |
     | ------------ | ---------------- | ----------- |
@@ -52,7 +52,7 @@ This section explains how you can deploy an SAP system with Zone redundancy from
 3. There are no more input fields in the rest of the process that affects zone redundancy. You can proceed with creating the system as per the [deployment guide](/azure/sap/center-sap-solutions/deploy-s4hana).
 
 ### Zone down experience
-If the SAP system infrastrucutre is deployed with Zone-redundancy, and if the primary instance goes down because of a zone outage, the SAP workload will failover to the secondary virtual machine and you will be able to access the system without any interruptions.
+If you deploy the SAP system infrastrucutre with Zone-redundancy, the SAP workload will failover to the secondary virtual machine and you will be able to access the system without any interruptions in case of a zone outage.
 
 ## Disaster recovery: cross-region failover
 Azure Center for SAP solutions service is a zone redundant service. So, service may experience downtime because no paired region exists. There will be no Microsoft initiated failover in the event of a region outage. This article explains some of the strategies that you can use to achieve cross-region resiliency for Virtual Instance for SAP solutions resources with customer enabled disaster recovery. It has detailed steps for you to follow when a region in which your Virtual Instance for SAP solutions resource exists is down. 
