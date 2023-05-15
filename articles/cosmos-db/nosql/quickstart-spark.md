@@ -28,7 +28,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 
 This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
 
-Throughout this quick tutorial, we rely on [Azure Databricks Runtime 10.4 with Spark 3.2.1](/azure/databricks/release-notes/runtime/10.4) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
+Throughout this quick tutorial, we rely on [Azure Databricks Runtime 12.2 with Spark 3.3.2](/azure/databricks/release-notes/runtime/12.2) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
 
 You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
@@ -38,13 +38,13 @@ You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you s
 
   * No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 
-* [Azure Databricks](/azure/databricks/release-notes/runtime/10.4) runtime 10.4 with Spark 3.2.1
+* [Azure Databricks](/azure/databricks/release-notes/runtime/12.2) runtime 12.2 with Spark 3.3.2
 
 * (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 
 SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
 
-Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-2-download).
+Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-3-download).
 
 The getting started guide is based on PySpark/Scala and you can run the following code snippet in an Azure Databricks PySpark/Scala notebook.
 
