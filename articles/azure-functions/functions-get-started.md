@@ -125,7 +125,7 @@ To learn even more, see the [full listing of interactive tutorials](/training/br
 If you're already familiar with developing C# functions, consider reviewing one of the following language reference articles:
 
 + [In-process C# class library functions](./functions-dotnet-class-library.md)
-+ [Isolaged worker process C# class library functions](./dotnet-isolated-process-guide.md)
++ [Isolated worker process C# class library functions](./dotnet-isolated-process-guide.md)
 + [C# Script functions](./functions-reference-csharp.md)
 
 ::: zone-end
@@ -145,7 +145,7 @@ If you're already familiar with developing Python functions, consider reviewing 
 Consider reviewing the [custom handlers](functions-custom-handlers.md) documentation. 
 ::: zone-end
 
-You might also be interested in one of these more advanced topics:
+You might also be interested in one of these more advanced articles:
 
 + [Deploying Azure Functions](./functions-deployment-technologies.md)
 + [Monitoring Azure Functions](./functions-monitoring.md) 
