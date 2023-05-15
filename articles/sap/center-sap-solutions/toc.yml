@@ -13,8 +13,6 @@ items:
       href: quickstart_create_ha_namecustom.md
     - name: Install SAP software - Azure CLI
       href: quickstart-install-high-availability-namecustom-cli.md
-    - name: Deploy an SAP system with customized disk layout - Portal
-      href: quickstart-deploy-highly-available-system.md
     - name: Register an existing SAP system - Azure PowerShell
       href: quickstart-register-system-powershell.md
     - name: Register an existing SAP system - Azure CLI
