@@ -34,10 +34,11 @@ Install-Module -Name Az.Workloads
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-- Create or Use an existing Virtual Network for Azure Montior for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network.
+- Create or Use an existing Virtual Network for Azure Monitor for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network.
 - Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms".
 
-   ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/SubnetCreation.png)
+   [!div class="mx-imgBorder"]
+   ![Screenshot that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/subnet-creation.png)
 
 ## Create a resource group
 
@@ -81,10 +82,10 @@ To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-Note -
-
-- hostname is SAP WebDispatcher or application server hostname/IP address
-- SapHostFileEntry is IP,FQDN,Hostname of every instance that gets listed in [GetSystemInstanceList](./provider-netweaver.md#determine-all-hostname-associated-with-an-sap-system)
+> [!NOTE]
+>
+> - hostname is SAP WebDispatcher or application server hostname/IP address
+> - SapHostFileEntry is IP,FQDN,Hostname of every instance that gets listed in [GetSystemInstanceList](./provider-netweaver.md#determine-all-hostname-associated-with-an-sap-system)
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'

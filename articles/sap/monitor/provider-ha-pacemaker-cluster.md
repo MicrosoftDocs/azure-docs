@@ -1,5 +1,5 @@
 ---
-title: Create a High Availability Pacemaker cluster provider for Azure Monitor for SAP solutions 
+title: Create a High Availability Pacemaker cluster provider for Azure Monitor for SAP solutions
 description: Learn how to configure High Availability (HA) Pacemaker cluster providers for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -10,7 +10,7 @@ ms.author: sujaj
 #Customer intent: As a developer, I want to create a High Availability Pacemaker cluster so I can use the resource with Azure Monitor for SAP solutions.
 ---
 
-# Create High Availability cluster provider for Azure Monitor for SAP solutions 
+# Create High Availability cluster provider for Azure Monitor for SAP solutions
 
 In this how-to guide, you learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You install the HA agent, then create the provider for Azure Monitor for SAP solutions.
 
@@ -88,11 +88,11 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 
     1. For SUSE-based clusters, enter `http://<IP-address>:9664/metrics`.
 
-    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-suse.png)
+        ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-suse.png)
 
     1. For RHEL-based clusters, enter `http://<'IP address'>:44322/metrics?names=ha_cluster`.
 
-    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
+        ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
 
 1. Enter the system identifiers, host names, and cluster names. For the system identifier, enter a unique SAP system identifier for each cluster. For the hostname, the value refers to an actual hostname in the VM. Use `hostname -s` for SUSE- and RHEL-based clusters.
 
@@ -114,15 +114,15 @@ When the provider settings validation operation fails with the code ‘Prometheu
 
 1. Restart the HA cluster exporter agent.
 
-```bash
-sstemctl start pmproxy
-```
+    ```bash
+    sstemctl start pmproxy
+    ```
 
 1. Reenable the HA cluster exporter agent.
 
-```bash
-systemctl enable pmproxy
-```
+    ```bash
+    systemctl enable pmproxy
+    ```
 
 1. Verify that the Prometheus endpoint is reachable from the subnet that provided while creating the Azure Monitor for SAP solutions resource.
 

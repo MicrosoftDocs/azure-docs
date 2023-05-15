@@ -23,7 +23,8 @@ Get started with Azure Monitor for SAP solutions by using the [Azure portal](htt
 - Create or Use an existing Virtual Network for Azure Monitor for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network.
 - Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms" as shown.
 
-   ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/SubnetCreation.png)
+   [!div class="mx-imgBorder"]
+   ![Diagram that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-portal/subnet-creation.png)
 
 ## Create Azure Monitor for SAP solutions monitoring resource
 
@@ -45,6 +46,7 @@ Get started with Azure Monitor for SAP solutions by using the [Azure portal](htt
 
    <br/>
 
+    [!div class="mx-imgBorder"]
     ![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/quickstart-portal/azure-monitor-quickstart-2-new.png)
 
 4. On the **Providers** tab, you can start creating providers along with the monitoring resource. You can also create providers later by navigating to the **Providers** tab in the Azure Monitor for SAP solutions resource.
