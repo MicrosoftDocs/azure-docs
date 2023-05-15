@@ -124,7 +124,7 @@ This capability helps you get an overview regarding performance of your SAP syst
     :::image type="content" source="./media/enable-sap-insights/performance-azure-pane.png" alt-text="Screenshot of the infrastructure pane of performance insights.":::
 
     * Configuration drift - [Quality checks](../center-sap-solutions/get-quality-checks-insights.md) violations on the SAP system.
-> This capability with the set of metrics in context of the issue, helps you visually correlate trends of key metrics. This experience eases the root-causing process of performance degradations observed in SAP workloads on Azure.
+1. This capability with the set of metrics in context of the issue, helps you visually correlate trends of key metrics. This experience eases the root-causing process of performance degradations observed in SAP workloads on Azure.
 
 #### Scope of the preview
 We have insights only for a limited set of issues as part of the preview. We extend this capability to most of the issues supported by AMS alerts before this capability is Generally Available(GA). 
