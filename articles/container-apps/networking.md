@@ -163,7 +163,7 @@ Azure creates a default route table for your virtual networks upon create. By im
 
 #### Configuring UDR with Azure Firewall - preview:
 
-UDR is only supported on the workload profiles architecture. The following application and network rules must be added to the allowlist for your firewall depending on which resources you are using.
+UDR is only supported on the workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you are using.
 
 > [!Note] 
 > For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
