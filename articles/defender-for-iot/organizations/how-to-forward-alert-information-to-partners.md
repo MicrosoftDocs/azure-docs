@@ -152,8 +152,8 @@ The following sections describe the syslog output syntax for each format.
 
 | Name | Description |
 |--|--|
-| Date and Time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
+| Date and Time | Date and time that the syslog server machine received the information. |
 | Hostname | Sensor IP |
 | Message | Sensor name: The name of the appliance. <br /> Alert time: The time that the alert was detected: Can vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br /> Alert title: The title of the alert. <br /> Alert message: The message of the alert. <br /> Alert severity: The severity of the alert: **Warning**, **Minor**, **Major**, or **Critical**. <br /> Alert type: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br /> Protocol: The protocol of the alert.  <br /> **Source_MAC**: IP address, name, vendor, or OS of the source device. <br /> Destination_MAC: IP address, name, vendor, or OS of the destination. If data is missing, the value will be **N/A**. <br /> alert_group: The alert group associated with the alert. |
 
@@ -170,8 +170,8 @@ The following sections describe the syslog output syntax for each format.
 
 | Name | Description |
 |--|--|
-| Date and time | Date and time that the sensor sent the information, in UTC format |
 | Priority | User.Alert |
+| Date and time | Date and time that the sensor sent the information, in UTC format |
 | Hostname | Sensor IP |
 | Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />LEEF:1.0 <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine, and depends on the time-zone configuration. <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
 

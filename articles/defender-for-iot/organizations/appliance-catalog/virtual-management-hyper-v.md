@@ -50,7 +50,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
 1. Enter a name for the virtual machine and select **Next**.
 
-1. Select **Generation** and set it to **Generation 1** or **Generation 2**, and then select **Next**.
+1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
 
 1. Specify the [memory allocation for your organization's needs](../ot-appliance-sizing.md), and then select **Next**.
 

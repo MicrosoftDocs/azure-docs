@@ -1,12 +1,12 @@
 ---
 title: How to enable the MedTech service diagnostic settings - Azure Health Data Services
-description: This article explains how to enable the MedTech service diagnostic settings.
+description: Learn how to enable the MedTech service diagnostic settings.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -15,12 +15,12 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you'll learn how to enable diagnostic settings for the MedTech service to:
+In this article, learn how to enable diagnostic settings for the MedTech service to:
 
 > [!div class="checklist"]
-> - Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.
-> - Use the Azure Log Analytics workspace to view the MedTech service logs.
-> - Access the MedTech service pre-defined Azure Log Analytics queries.
+> * Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.
+> * Use the Azure Log Analytics workspace to view the MedTech service logs.
+> * Access the MedTech service pre-defined Azure Log Analytics queries.
 
 ## Create a diagnostic setting for the MedTech service
 

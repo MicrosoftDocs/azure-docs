@@ -33,10 +33,10 @@ Storage account scale targets apply at the storage account level. There are two 
 
 | Attribute | GPv2 storage accounts (standard) | FileStorage storage accounts (premium) |
 |-|-|-|
-| Number of storage accounts per region per subscription | 250 | 250 |
-| Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
+| Number of storage accounts per region per subscription | 250<sup>1</sup> | 250<sup>1</sup> |
+| Maximum storage account capacity | 5 PiB<sup>2</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
-| Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
+| Maximum concurrent request rate | 20,000 IOPS<sup>2</sup> | 100,000 IOPS |
 | Throughput (ingress + egress) for LRS/GRS<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Throughput (ingress + egress) for ZRS<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Throughput (ingress + egress) for redundancy/region combinations not listed in the previous row | <ul><li>Ingress: 2,980 MiB/sec</li><li>Egress: 5,960 MiB/sec</li></ul> | 10,340 MiB/sec |
@@ -46,7 +46,8 @@ Storage account scale targets apply at the storage account level. There are two 
 | Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour |
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
-<sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+<sup>2</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
 Azure file share scale targets apply at the file share level.

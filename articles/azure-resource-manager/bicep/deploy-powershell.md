@@ -18,7 +18,7 @@ You need a Bicep file to deploy. The file must be local.
 
 You need Azure PowerShell and to be connected to Azure:
 
-- **Install Azure PowerShell cmdlets on your local computer.** To deploy Bicep files, you need [Azure PowerShell](/powershell/azure/install-az-ps) version **5.6.0 or later**. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Install Azure PowerShell cmdlets on your local computer.** To deploy Bicep files, you need [Azure PowerShell](/powershell/azure/install-azure-powershell) version **5.6.0 or later**. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Install Bicep CLI.** Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [manually install the Bicep CLI](install.md#install-manually).
 - **Connect to Azure by using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
 

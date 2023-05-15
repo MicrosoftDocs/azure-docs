@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.date: 10/26/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Create SAS tokens for storage containers

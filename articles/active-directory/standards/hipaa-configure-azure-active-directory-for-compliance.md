@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft services such as Azure Active Directory (Azure AD) can help you meet identity-related requirements for the Health Insurance Portability and Accountability Act of 1996 (HIPAA).
 
-The HIPAA Security Rule (HSR) establishes national standards to protect individuals’ electronic personal health information that is created, received, used, or maintained by a covered entity. The HSR is managed by the U.S. Department of Health and Human Services (HHS) and requires appropriate administrative, physical, and technical safeguards to ensure the confidentiality, integrity, and security of electronic protected health information.
+The HIPAA Security Rule (HSR) establishes standards to protect individuals’ electronic personal health information that is created, received, used, or maintained by a covered entity. The HSR is managed by the U.S. Department of Health and Human Services (HHS) and requires appropriate administrative, physical, and technical safeguards to ensure the confidentiality, integrity, and security of electronic protected health information.
 
 Technical safeguards requirements and objectives are defined in Title 45 of the Code of Federal Regulations (CFRs). Part 160 of Title 45 provides the general administrative requirements, and Part 164’s subparts A and C describe the security and privacy requirements.
 

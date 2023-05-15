@@ -177,7 +177,7 @@ Expected output:
 ## show fabric 
 
 ```azurecli
-az nf fabric show --resourcegroup "NFResourceGroupName" --resource-name "NFName"
+az nf fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
 ```
 Expected output:
 

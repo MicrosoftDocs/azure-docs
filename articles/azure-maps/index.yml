@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: stevemunk
-  ms.author: v-munksteve
+  author: eriklindeman
+  ms.author: eriklind
   ms.date: 10/13/2021
 
 
@@ -210,18 +210,6 @@ landingContent:
             url: /rest/api/maps/traffic
           - text: Time Zones Service
             url: /rest/api/maps/timezone
-  
-    # Card
-  - title: Developing with Elevation service
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: How to retrieve and use elevation data
-            url: how-to-request-elevation-data.md
-      - linkListType: reference
-        links:
-          - text: Elevation Service
-            url: /rest/api/maps/elevation/
 
   # Card
   - title: Spatial Analytics

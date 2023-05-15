@@ -78,9 +78,16 @@ Multiple applications can send their requests to a single request queue, with a 
 ## Sequencing vs. sessions
 [Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires sessions. 
  
-Say, there are three messages in the queue and two consumers. Consumer 1 picks up message 1. Consumer 2 picks up message 2. Consumer 2 finishes processing message 2 and picks up message 3 while Consumer 1 isn't done with processing message 1 yet. Consumer 2 finishes processing message 3 but consumer 1 is still not done with processing message 1 yet. Finally, consumer 1 completes processing message 1. So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
+Say, there are three messages in the queue and two consumers. 
+1. Consumer 1 picks up message 1.
+1. Consumer 2 picks up message 2.
+1. Consumer 2 finishes processing message 2 and picks up message 3, while Consumer 1 isn't done with processing message 1 yet.
+1. Consumer 2 finishes processing message 3, but consumer 1 is still not done with processing message 1 yet.
+1. Finally, consumer 1 completes processing message 1. 
+ 
+So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
 
-So, if messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
+If messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
 
 ## Next steps
 You can enable message sessions while creating a queue using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md). 

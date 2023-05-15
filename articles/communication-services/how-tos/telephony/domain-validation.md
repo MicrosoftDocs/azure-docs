@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services direct routing domain validation
-description: A how-to page about domain validation for direct routing.
+description: Learn how to validate a domain for direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
 
@@ -12,54 +12,49 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-# Domain validation
+# Validate a domain for direct routing
 
-This page describes the process of domain name ownership validation. Fully Qualified Domain Name (FQDN) consists of two parts: host name and domain name. For example, if your session border controller (SBC) name is `sbc1.contoso.com`, then `sbc1` would be a host name, while `contoso.com` would be a domain name. If there's an SBC with FQDN of `acs.sbc1.testing.contoso.com`, `acs` would be a host name, and `sbc1.testing.contoso.com` would be a domain name. To use direct routing, you need to validate that you own a domain part of your FQDN.
+This article describes the process of validating domain name ownership by using the Azure portal.
 
-Azure Communication Services direct routing configuration consists of the following steps:
+A fully qualified domain name (FQDN) consists of two parts: host name and domain name. For example, if your session border controller (SBC) name is `sbc1.contoso.com`, then `sbc1` is the host name and `contoso.com` is the domain name. If an SBC has an FQDN of `acs.sbc1.testing.contoso.com`, then `acs` is the host name and `sbc1.testing.contoso.com` is the domain name.
 
-- Verify domain ownership for your SBC FQDN
-- Configure SBC FQDN and port number
-- Create voice routing rules
+To use direct routing in Azure Communication Services, you need to validate that you own the domain part of your SBC FQDN. After that, you can configure the SBC FQDN and port number and then create voice routing rules.
 
-## Domain ownership validation
+When you're verifying the domain name portion of the SBC FQDN, keep in mind that the `*.onmicrosoft.com` and `*.azure.com` domain names aren't supported. For example, if you have two domain names, `contoso.com` and `contoso.onmicrosoft.com`, use `sbc.contoso.com` as the SBC name.
 
-Make sure to add and verify domain name portion of the FQDN and keep in mind that the `*.onmicrosoft.com` and `*.azure.com` domain names aren't supported for the SBC FQDN domain name. For example, if you have two domain names, `contoso.com` and `contoso.onmicrosoft.com`, use `sbc.contoso.com` as the SBC name. If using a subdomain, make sure this subdomain is also added and verified. For example, if you want to use `sbc.acs.contoso.com`, then `acs.contoso.com` needs to be registered.
+If you're using a subdomain, make sure that this subdomain is also added and verified. For example, if you want to use `sbc.acs.contoso.com`, you need to register `acs.contoso.com`.
 
-### Domain verification using Azure portal
+## Add a new domain name
 
-#### Add new domain name
-
-1. Open Azure portal and navigate to your [Communication Service resource](../../quickstarts/create-communication-resource.md).
-1. In the left navigation pane, select Direct routing under Voice Calling - PSTN.
-1. Select Connect domain from the Domains tab.
-1. Enter the domain part of SBC’s fully qualified domain name.
+1. Open the Azure portal and go to your [Communication Services resource](../../quickstarts/create-communication-resource.md).
+1. On the left pane, under **Voice Calling - PSTN**, select **Direct routing**.
+1. On the **Domains** tab, select **Connect domain**.
+1. Enter the domain part of the SBC FQDN.
 1. Reenter the domain name.
-1. Select Confirm and then select Add.
+1. Select **Confirm**, and then select **Add**.
 
 [![Screenshot of adding a custom domain.](./media/direct-routing-add-domain.png)](./media/direct-routing-add-domain.png#lightbox)
 
-#### Verify domain ownership
+## Verify domain ownership
 
-1. Select Verify next to new domain that is now visible in Domain’s list.
-1. Azure portal generates a value for a TXT record, you need to add that record to
+1. On the **Domains** tab, select **Verify** next to the new domain that you created.
+1. The Azure portal generates a value for a TXT record. Add that record to your domain's registrar or DNS hosting provider with the provided value.
 
-[![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
+   [![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
 
->[!Note] 
->It might take up to 30 minutes for new DNS record to propagate on the Internet
+   It might take up to 30 minutes for a new DNS record to propagate on the internet.
 
-3. Select Next. If everything is set up correctly, you should see Domain status changed to *Verified* next to the added domain.
+1. Select **Next**. If you set up everything correctly, **Domain status** should change to **Verified** next to the added domain.
 
-[![Screenshot of a verified domain.](./media/direct-routing-domain-verified.png)](./media/direct-routing-domain-verified.png#lightbox)
+   [![Screenshot of a verified domain.](./media/direct-routing-domain-verified.png)](./media/direct-routing-domain-verified.png#lightbox)
 
-#### Remove domain from Azure Communication Services
+## Remove a domain from Azure Communication Services
 
-If you want to remove a domain from your Azure Communication Services direct routing configuration, select the checkbox fir a corresponding domain name, and select *Remove*.
+If you want to remove a domain from your Azure Communication Services direct routing configuration, select the checkbox for a corresponding domain name, and then select **Remove**.
 
 [![Screenshot of removing a custom domain.](./media/direct-routing-remove-domain.png)](./media/direct-routing-remove-domain.png#lightbox)
 
-## Next steps:
+## Next steps
 
 ### Conceptual documentation
 

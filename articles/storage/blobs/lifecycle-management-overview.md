@@ -1,11 +1,11 @@
 ---
 title: Optimize costs by automatically managing the data lifecycle
 titleSuffix: Azure Storage
-description: Use Azure Storage lifecycle management policies to create automated rules for moving data between hot, cool, and archive tiers.
+description: Use Azure Storage lifecycle management policies to create automated rules for moving data between hot, cool, cold, and archive tiers.
 author: normesta
 
 ms.author: normesta
-ms.date: 03/09/2023
+ms.date: 05/02/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -22,11 +22,16 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 
 With the lifecycle management policy, you can:
 
-- Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
-- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
+- Transition blobs from cool, or cold to hot immediately when they're accessed, to optimize for performance.
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost. 
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Define rules to be run once per day at the storage account level.
 - Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
+
+> [!IMPORTANT]
+> The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
 
 Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
 
@@ -155,6 +160,7 @@ Lifecycle management supports tiering and deletion of current versions, previous
 | Action                                  | Current Version                            | Snapshot      | Previous Versions |
 |-----------------------------------------|--------------------------------------------|---------------|-------------------|
 | tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| tierToCold                              | Supported for `blockBlob`                  | Supported     | Supported         |
 | enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
 | tierToArchive<sup>4</sup>               | Supported for `blockBlob`                  | Supported     | Supported         |
 | delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
@@ -454,7 +460,7 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 
 ### If I update an existing policy, how long does it take for the actions to run?
 
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob won't then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool or cold and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob won't then move from hot to cool or cold given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
 ### The run completes but doesn't move or delete some blobs
 
@@ -472,7 +478,7 @@ If there's a lifecycle management policy in effect for the storage account, then
 
 - Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
 
-- If the blob needs to stay in the hot or cool tier permanently, copy the blob to another location where the lifecycle manage policy isn't in effect.
+- If the blob needs to stay in the hot, cool, or cold tier permanently, copy the blob to another location where the lifecycle manage policy isn't in effect.
 
 ### The blob prefix match string didn't apply the policy to the expected blobs
 

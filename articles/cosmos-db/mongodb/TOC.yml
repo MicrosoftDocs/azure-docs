@@ -405,6 +405,8 @@
           items:
             - name: Options to migrate data into Azure Cosmos DB
               href: ../migration-choices.md
+            - name: Desktop data migration tool
+              href: ../how-to-migrate-desktop-tool.md
             - name: Estimate RU/s with capacity planner
               displayName: request units, RUs, RU, capacity
               href: estimate-ru-capacity-planner.md

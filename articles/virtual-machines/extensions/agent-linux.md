@@ -70,10 +70,11 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 
 | Distribution | x64 | ARM64 |
 |:-----|:-----:|:-----:|
-| Alma Linux | 9.x+ | .x+ |
+| Alma Linux | 9.x+ | 9.x+ |
 | CentOS | 7.x+,  8.x+ | 7.x+ |
 | Debian | 10+ | 11.x+ |
 | Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
+| Mariner | 2.x | 2.x |
 | openSUSE | 12.3+ | *Not supported* |
 | Oracle Linux | 6.4+, 7.x+, 8.x+ | *Not supported* |
 | Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |

@@ -1,6 +1,6 @@
 ---
-title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines | Microsoft Docs
-description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
+title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Services, and Virtual Machines | Microsoft Docs
+description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Azure Cloud Services, and Azure Virtual Machines.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
@@ -10,16 +10,15 @@ ms.date: 03/21/2023
 ms.custom: devdivchpfy22
 ---
 
-# Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
+# Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Services, and Virtual Machines
 
-If your ASP.NET or ASP.NET Core application runs in App Service and requires a customized Snapshot Debugger configuration, or a preview version of .NET Core, start with the [Enable Snapshot Debugger for App Services how-to guide](snapshot-debugger-app-service.md).
+If your ASP.NET or ASP.NET Core application runs in Azure App Service and requires a customized Snapshot Debugger configuration, or a preview version of .NET Core, start with [Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger-app-service.md).
 
-If your application runs in Azure Service Fabric, Cloud Service, Virtual Machines, or on-premises machines, you can skip enabling Snapshot Debugger on App Services and jump into following this guide.
+If your application runs in Azure Service Fabric, Azure Cloud Services, Azure Virtual Machines, or on-premises machines, you can skip enabling Snapshot Debugger on App Service and follow the guidance in this article.
 
 ## Before you begin
 
 - [Enable Application Insights in your web app](../app/asp-net.md).
-
 - Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above in your app.
 
 ## Configure snapshot collection for ASP.NET applications
@@ -60,9 +59,10 @@ The following example shows a configuration equivalent to the default configurat
 </TelemetryProcessors>
 ```
 
-Snapshots are collected _only_ on exceptions reported to Application Insights. In some cases (for example, older versions of the .NET platform), you may need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
+Snapshots are collected _only_ on exceptions reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
 
-## Configure snapshot collection for applications using ASP.NET Core LTS or above
+
+## Configure snapshot collection for applications using ASP.NET Core
 
 ### Prerequisites
 
@@ -124,7 +124,7 @@ If needed, customize the Snapshot Debugger configuration by adding a `SnapshotCo
 
 ## Configure snapshot collection for other .NET applications
 
-Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
+Snapshots are collected only on exceptions that are reported to Application Insights. You might need to modify your code to report them. The exception handling code depends on the structure of your application. Here's an example:
 
 ```csharp
 TelemetryClient _telemetryClient = new TelemetryClient();
@@ -147,6 +147,6 @@ void ExampleRequest()
 
 ## Next steps
 
-- Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
+- Generate traffic to your application that can trigger an exception. Then wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 - See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
 - For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
