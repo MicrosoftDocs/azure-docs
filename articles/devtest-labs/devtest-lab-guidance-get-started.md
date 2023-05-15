@@ -4,7 +4,7 @@ description: This article describes primary Azure DevTest Labs scenarios, and ho
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/03/2022
+ms.date: 05/12/2023
 ms.reviewer: christianreddington,anthdela,juselph
 ---
 
