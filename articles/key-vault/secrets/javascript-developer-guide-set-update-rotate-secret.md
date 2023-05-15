@@ -1,6 +1,6 @@
 ---
-title: Set, update, or rotate secrets with JavaScript
-description: 
+title: Crete or update, or rotate secrets with JavaScript
+description: Create or update with the set method, or rotate secrets with JavaScript. 
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.date: 05/10/2023
 ms.author: mbaldwin
-#Customer intent: As a JavaScript developer who is new to Azure, I want to set a secret to the Key Vault with the SDK.
+#Customer intent: As a JavaScript developer who is new to Azure, I want to create, update, or rotate a secret to the Key Vault with the SDK.
 ---
 
 # Set, update, and rotate a secret in Azure Key Vault with JavaScript

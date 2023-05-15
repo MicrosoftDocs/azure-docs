@@ -1,6 +1,6 @@
 ---
 title: Create JavaScript Key Vault secret client
-description: Create an authenticated Key Vault secret client using JavaScript.
+description: Create an authenticated Key Vault secret client using JavaScript and the @azure/keyvault-secrets and @azure/identity npm packages.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -21,7 +21,7 @@ This documentation provides guidance on how to programmatically authenticate to 
 ## Prerequisites  
   
 - An Azure subscription
-- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) instance with appropriate access policies configured
+- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) instance with appropriate access policies configured
 - Node.js version LTS  
 
 ## Set up authentication

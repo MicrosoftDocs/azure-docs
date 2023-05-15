@@ -1,6 +1,6 @@
 ---
-title: Create JavaScript Key Vault secret client
-description: Create an authenticated Key Vault secret client using JavaScript.
+title: Enable a JavaScript Key Vault secret
+description: Enable or disable a Key Vault secret using JavaScript.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.date: 05/10/2023
 ms.author: mbaldwin
-#Customer intent: As a JavaScript developer who is new to Azure, I want to get a secret from the Key Vault with the SDK.
+#Customer intent: As a JavaScript developer who is new to Azure, I want to enable a secret from the Key Vault with the SDK.
 ---
 
 # Enable and disable a secret in Azure Key Vault with JavaScript

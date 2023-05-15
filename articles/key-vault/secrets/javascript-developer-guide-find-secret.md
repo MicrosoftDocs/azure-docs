@@ -1,6 +1,6 @@
 ---
 title: Find or list JavaScript Key Vault secrets
-description: Find a Key Vault secret using JavaScript.
+description: Find a set of secrets or list secrets or secret version in a Key Vault JavaScript.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault

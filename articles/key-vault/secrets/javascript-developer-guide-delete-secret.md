@@ -11,7 +11,7 @@ ms.date: 05/10/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to delete a secret from the Key Vault with the SDK.
 ---
-# Delete a secret in Azure Key Vault with JavaScript
+# Delete, restore, or purge a secret in Azure Key Vault with JavaScript
 
 Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-sdk-client.md), then use the client to delete an existing secret from Azure Key Vault.
 
