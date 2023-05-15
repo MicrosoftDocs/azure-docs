@@ -69,7 +69,7 @@ az vm image terms accept --offer <plan-offerID> --plan <plan-name> --publisher <
 
 ## Deploy the application
 
-To deploy the application (extension) through Azure CLI, follow the steps outlined in [Deploy cluster extensions ](cluster-extensions.md).
+To deploy the application (extension) through Azure CLI, follow the steps outlined in [Deploy and manage cluster extensions by using Azure CLI](deploy-extensions-az-cli.md).
 
 ## Next steps
 
