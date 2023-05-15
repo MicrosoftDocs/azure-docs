@@ -33,7 +33,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 
 ## Windows machine support
 
-The following table show feature support for Windows machines in Azure, Azure Arc, and other clouds.
+The following table shows feature support for Windows machines in Azure, Azure Arc, and other clouds.
 
 | **Feature**                                                                                                                       | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
 | --------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------: | :-------------------------------------: |
@@ -58,7 +58,7 @@ The following table show feature support for Windows machines in Azure, Azure Ar
 
 ## Linux machine support
 
-The following table show feature support for Linux machines in Azure, Azure Arc, and other clouds.
+The following table shows feature support for Linux machines in Azure, Azure Arc, and other clouds.
 
 | **Feature**                                                                                                                       | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
 | --------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------: | :-------------------------------------: |
@@ -83,7 +83,7 @@ The following table show feature support for Linux machines in Azure, Azure Arc,
 
 ## Multicloud machines
 
-The following table show feature support for AWS and GCP machines.
+The following table shows feature support for AWS and GCP machines.
 
 | **Feature** | **Availability in AWS** | **Availability in GCP** |
 |--|:-:|
