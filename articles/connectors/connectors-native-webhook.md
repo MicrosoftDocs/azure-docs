@@ -27,13 +27,13 @@ A webhook trigger is event-based, which doesn't depend on checking or polling re
 * Change the trigger's parameter values.
 * Delete the trigger and then save your workflow.
 * Disable your logic app resource.
-* Change any webhook action parameter values that are used as inputs by a webhook trigger.
 
 Similar to the webhook trigger, a webhook action works is also event-based. After you add a webhook action to an existing workflow and then save the workflow, or after you re-enable a disabled logic app resource, the webhook action *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. When the workflow runs, the webhook action pauses the workflow and waits until the service endpoint calls the URL before the workflow resumes running. A webhook action *unsubscribes* from the service endpoint when the following conditions occur:
 
 * The webhook action successfully finishes.
 * The workflow run is canceled while waiting for a response.
 * Before a workflow run times out.
+* You change any webhook action parameter values that are used as inputs by a webhook trigger.
 
 For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
 
