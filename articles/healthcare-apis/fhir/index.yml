@@ -88,7 +88,7 @@ landingContent:
           - text: Configure settings for bulk-import
             url: configure-import-data.md
           - text: Convert data
-            url: overview-of-convert-data.md
+            url: convert-data.md
           - text: Copy data to Synapse
             url: copy-to-synapse.md
           - text: Export data
