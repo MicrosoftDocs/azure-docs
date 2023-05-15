@@ -1,5 +1,5 @@
 ---
-title: What are providers in Azure Monitor for SAP solutions? 
+title: What are providers in Azure Monitor for SAP solutions?
 description: This article provides answers to frequently asked questions about Azure Monitor for SAP solutions providers.
 author: rdeltcheva
 ms.service: sap-on-azure
@@ -10,7 +10,7 @@ ms.author: radeltch
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.
 ---
 
-# What are providers in Azure Monitor for SAP solutions? 
+# What are providers in Azure Monitor for SAP solutions?
 
 In the context of *Azure Monitor for SAP solutions*, a *provider* contains the connection information for a corresponding component and helps to collect data from there. There are multiple provider types. For example, an SAP HANA provider is configured for a specific component within the SAP landscape, like an SAP HANA database. You can configure an Azure Monitor for SAP solutions resource (also known as SAP monitor resource) with multiple providers of the same type or multiple providers of multiple types.
 
@@ -61,7 +61,7 @@ For SOAP+RFC:
    - SAP Client ID, HTTP port, SAP Username and Password for login.
    - Host file entries of all SAP application servers that get listed via SAPcontrol "GetSystemInstanceList" web method.
 
-Check [SAP NetWeaver provider](provider-netweaver) creation for more detail steps.
+Check [SAP NetWeaver provider](provider-netweaver.md) creation for more detail steps.
 
 ![Diagram showing the NetWeaver provider architecture.](./media/providers/netweaver-architecture.png)
 
@@ -94,7 +94,7 @@ Configuring the SAP HANA provider requires:
 
 It's recommended to configure the SAP HANA provider against **SYSTEMDB**. However, more providers can be configured against other database tenants.
 
-Check [SAP HANA provider](provider-hana) creation for more detail steps.
+Check [SAP HANA provider](provider-hana.md) creation for more detail steps.
 
 ![Diagram shows Azure Monitor for SAP solutions providers - SAP HANA architecture.](./media/providers/azure-monitor-providers-hana.png)
 
@@ -115,7 +115,7 @@ Configuring Microsoft SQL Server provider requires:
 - The SQL Server port number
 - The SQL Server username and password
 
-Check [SQL Database provider](provider-sql-server) creation for more detail steps.
+Check [SQL Database provider](provider-sql-server.md) creation for more detail steps.
 
 ![Diagram shows Azure Monitor for SAP solutions providers - SQL architecture.](./media/providers/azure-monitor-providers-sql.png)
 
@@ -134,7 +134,7 @@ You can get the following data with the High-availability cluster provider:
 
 To configure a High-availability cluster provider, two primary steps are involved:
 
-1. Install [ha_cluster_exporter](./ha_cluster_exporter) in *each* node within the Pacemaker cluster.
+1. Install [ha_cluster_exporter](ha_cluster_exporter.md) in *each* node within the Pacemaker cluster.
 
    You have two options for installing ha_cluster_exporter:
 
@@ -151,7 +151,7 @@ To configure a High-availability cluster provider, two primary steps are involve
    - **Cluster name**. The cluster name used when creating the cluster. The cluster name can be found in the cluster property `cluster-name`.
    - **Hostname**. The Linux hostname of the virtual machine (VM).
 
-  Check [High Availability Cluster provider](provider-ha-pacemaker-cluster) creation for more detail steps.
+  Check [High Availability Cluster provider](provider-ha-pacemaker-cluster.md) creation for more detail steps.
 
 ## Provider type: OS (Linux)
 
@@ -178,7 +178,7 @@ To configure an OS (Linux) provider, two primary steps are involved:
 
 Port 9100 is exposed for the **Node_Exporter** endpoint.
 
-Check [Operating System provider](provider-linux) creation for more detail steps.
+Check [Operating System provider](provider-linux.md) creation for more detail steps.
 
 > [!Warning]
 > Make sure **Node-Exporter** keeps running after the node reboot.
@@ -202,7 +202,7 @@ Configuring IBM Db2 provider requires:
 - The Port number of the DB2 Server to connect to
 - The Db2 Server username and password
 
-Check [IBM Db2 provider](provider-ibm-db2) creation for more detail steps.
+Check [IBM Db2 provider](provider-ibm-db2.md) creation for more detail steps.
 
 ![Diagram shows Azure Monitor for SAP solutions providers - IBM Db2 architecture.](./media/providers/azure-monitor-providers-db2.png)
 
