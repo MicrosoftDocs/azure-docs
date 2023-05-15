@@ -19,6 +19,8 @@
       href: quickstarts-kubernetes-cluster-deployment-cli.md
     - name: Use ARM template
       href: quickstarts-kubernetes-cluster-deployment-arm.md
+    - name: Use Bicep file
+      href: quickstarts-kubernetes-cluster-deployment-bicep.md
   - name: Before you start workload deployment
     href: quickstarts-tenant-workload-prerequisites.md
   - name: Tenant workload deployment

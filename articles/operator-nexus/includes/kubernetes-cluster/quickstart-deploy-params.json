@@ -10,7 +10,10 @@
         "00000000-0000-0000-0000-000000000000"
       ]
     },
-    "cniL3NetworkId": {
+    "cniNetworkId": {
+      "value": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+    },
+    "l3NetworkId": {
       "value": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
     },
     "cloudServicesNetworkId": {

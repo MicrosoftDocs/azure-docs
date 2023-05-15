@@ -15,16 +15,16 @@
           "description": "AAD admin group object ids who need to be added to the cluster as admin users."
         }
       },
-      "cniL3NetworkId": {
+      "cniNetworkId": {
         "type": "string",
         "metadata": {
-          "description": "Resource ID of the Nexus L3 Network."
+          "description": "The ARM id of the network to be used as the cni network."
         }
       },
       "cloudServicesNetworkId": {
         "type": "string",
         "metadata": {
-          "description": "Resource ID of the Nexus Cloud services network"
+          "description": "The ARM id of the cloud services network"
         }
       },
       "podCidrs": {
@@ -95,7 +95,7 @@
         "metadata": {
           "description": "Nexus Kubernetes Kubernetes Version to use"
         },
-        "defaultValue": "1.25.4"
+        "defaultValue": "1.24.9"
       },
       "location": {
         "type": "string",
@@ -180,7 +180,7 @@
           "kubernetesVersion": "[parameters('kubernetesVersion')]",
           "networkConfiguration": {
             "cloudServicesNetworkId": "[parameters('cloudServicesNetworkId')]",
-            "cniNetworkId": "[parameters('cniL3NetworkId')]",
+            "cniNetworkId": "[parameters('cniNetworkId')]",
             "podCidrs": "[parameters('podCidrs')]",
             "dnsServiceIp": "[parameters('dnsServiceIp')]",
             "serviceCidrs": "[parameters('serviceCidrs')]"

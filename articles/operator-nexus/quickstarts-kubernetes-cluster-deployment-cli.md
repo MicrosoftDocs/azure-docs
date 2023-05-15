@@ -23,7 +23,7 @@ The following example creates a cluster named *myNexusAKSCluster* in resource gr
 
 Before you run the commands, you need to set several variables to define the configuration for your cluster. Here are the variables you need to set, along with some default values you can use for certain variables:
 
-* **CUSTOM_LOCATION**: This argument specifies a custom location for the Kubernetes cluster. Azure Extended Locations allow you to use Azure services directly in your datacenter. Define this variable according to your own datacenter location.
+* **CUSTOM_LOCATION**: This argument specifies a custom location of the Nexus instance. Azure Extended Locations allow you to use Azure services directly in your datacenter. Define this variable according to your own datacenter location.
 * **CSN_ID**: CSN ID is the unique identifier for the cloud services network you want to use. You should replace it with your actual Cloud Services Network ID.
 * **CNI_ID**: CNI ID the unique identifier for the network interface to be used by the container runtime. You should replace it with your actual CNI Network ID.
 * **CLUSTER_NAME**: The name you want to give to your Kubernetes cluster. In this example, we're using ```myNexusAKSCluster```.
