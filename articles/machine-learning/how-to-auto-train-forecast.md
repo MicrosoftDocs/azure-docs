@@ -476,6 +476,10 @@ For more details on rolling evaluation, see our [forecasting model evaluation ar
  
 ## Forecasting at scale: many models
 
+The many models components in AutoML enable you to train and manage millions of models in parallel. For more information on many models concepts, see our [many models article](concept-automl-forecasting-at-scale.md#many-models).
+
+The following sample shows how to retrieve the many models components for training and inference, as well as a generic component for computing evaluation metrics:
+
 ```python
 # Get a many models training component
 mm_train_component = ml_client_registry.components.get(
@@ -496,6 +500,10 @@ compute_metrics_component = ml_client_registry.components.get(
 )
 ```
 
+### Many models training configuration
+The many models training component requires a JSON format configuration file that defines AutoML training settings. The component applies these settings to each AutoML instance it launches. 
+
+A sample configuration is shown in the following sample:
 ```json
 {
   "task": "forecasting",
@@ -517,18 +525,42 @@ compute_metrics_component = ml_client_registry.components.get(
   "track_child_runs": false,
   "verbosity": 20,
   "enable_early_stopping": true,
-  "max_cores_per_iteration": -1,
   "pipeline_fetch_max_batch_size": 15,
   "allow_multi_partitions": false
 }
 ```
+
+In subsequent examples, we assume that the configuation is stored at the path, `./automl_settings_mm.json`. 
+
+The following table shows property descriptions for the JSON configuration:
+
+Property|Description
+--|--
+| **task** | The AutoML task type. In this case, forecasting.
+| **partition_column_names** | Column names in the data that, when grouped, define the data partitions. Many models launches an independent training job on each partition.
+| **primary_metric**                 | Primary metric to optimize for each AutoML training job |
+| **blocked_models**                 | List of models to block. Blocked models won't be used by AutoML. |
+| **iteration_timeout_minutes**      | Maximum amount of time in minutes that each model can train. |
+| **iterations**                     | Number of models to train for each AutoML instance. |
+| **experiment_timeout_minutes**       | Maximum amount of time in minutes for the whole many models training job. |
+| **label_column_name**              | The name of the label, or target, column. |
+| **n_cross_validations**            | Number of cross validation splits. The default value is \"auto\", in which case AutoMl determines the number of cross-validations automatically, if a validation set is not provided. Or users could specify an integer value. Rolling Origin Validation is used to split time-series in a temporally consistent way. |
+| **cv_step_size**                   |Number of periods between two consecutive cross-validation folds. The default value is \"auto\", in which case AutoMl determines the cross-validation step size automatically, if a validation set is not provided. Or users could specify an integer value. |
+| **enable_early_stopping**          | Flag to enable early termination when the primary metric is not improving. |
+| **enable_engineered_explanations** | Engineered feature explanations will be downloaded if this flag is set to True. By default it is set to False to save storage space. |
+| **track_child_runs**               | Flag to disable tracking of child runs. Only best run is tracked if the flag is set to False (this includes the model and metrics of the run). |
+| **pipeline_fetch_max_batch_size**  | Determines how many pipelines (training algorithms) to fetch at a time for training. This helps reduce throttling when training at large scale. |
+
+### Many models pipeline
+
+Next, we define a factory function that creates pipelines orchestrating many models training, inference, and metric computation:
 
 ```python
 @pipeline(description="AutoML Many Models Forecasting Pipeline")
 def many_models_train_evaluate_factory(
     train_data_input,
     test_data_input,
-    automl_config,
+    automl_config_input,
     max_concurrency_per_instance=4,
     prs_step_timeout=3700,
     instance_count=4,
@@ -538,7 +570,7 @@ def many_models_train_evaluate_factory(
 ):
     mm_train_node = mm_train_component(
         raw_data=train_data_input,
-        automl_config=automl_config,
+        automl_config=automl_config_input,
         max_concurrency_per_instance=max_concurrency_per_instance,
         prs_step_timeout=prs_step_timeout,
         instance_count=instance_count,

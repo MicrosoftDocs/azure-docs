@@ -16,13 +16,13 @@ show_latex: true
 
 # Evaluation of forecasting models
 
-This article introduces best practices for evaluating forecasting models. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
+This article introduces concepts related to model evaluation in forecasting tasks. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-Once you've used AutoML to train and select a best model, the next step is to evaluate its accuracy on a test set held out from the training data. To see how to do forecasting model evaluation in automated machine learning, see our guide on [inference and evaluation components](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines). 
+Once you've used AutoML to train and select a best model, the next step is to evaluate its accuracy on a test set held out from the training data. To see how to setup and run forecasting model evaluation in automated machine learning, see our guide on [inference and evaluation components](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines). 
   
 ## Rolling evaluation
 
- A best practice procedure for evaluating a forecasting model is to roll the trained forecaster forward in time over the test set, averaging error metrics over several prediction windows. This procedure is sometimes called a **back test**, depending on the context. Ideally, the test set for the evaluation is long relative to the model's forecast horizon. Estimates of forecasting error may otherwise be statistically noisy and, therefore, less reliable.
+ A best practice procedure for evaluating a forecasting model is to roll the trained forecaster forward in time over the test set, averaging error metrics over several prediction windows. This procedure is sometimes called a **backtest**, depending on the context. Ideally, the test set for the evaluation is long relative to the model's forecast horizon. Estimates of forecasting error may otherwise be statistically noisy and, therefore, less reliable.
 
 The following diagram shows a simple example with three forecasting windows:
 
