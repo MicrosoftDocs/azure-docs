@@ -132,7 +132,7 @@ You can define an update run by using update stages to pool together update grou
 
 1. Under **Stages**, select **Create**. You can now specify the stage name and duration to wait after each stage.
 
-    :::image type="content" source="./media/update-orchestration/create-stage-basics.png" alt-text="A screenshot of the Azure portal page for creating a stage and defining wait time." lightbox=./media/update-orchestration/create-stage-basics.png":::
+    :::image type="content" source="./media/update-orchestration/create-stage-basics.png" alt-text="A screenshot of the Azure portal page for creating a stage and defining wait time." lightbox="./media/update-orchestration/create-stage-basics.png":::
 
 1. Choose the update groups you want to include in this stage.
 
