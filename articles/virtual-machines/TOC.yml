@@ -1365,7 +1365,7 @@
         href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
-    - name: Convert disk to another disk type
+    - name: Change disk types
       href: disks-convert-types.md
     - name: Migrate to the same or different subscription
       items:
