@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-This quickstart gets you started with Call Recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. Make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and/or [Call Automation](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) to build the end-user calling experience. 
+This quickstart gets you started with Call Recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. Make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and/or [Call Automation](../call-automation/callflows-for-customer-interactions.md#build-a-customer-interaction-workflow-using-call-automation) to build the end-user calling experience. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Test Call Recording with C#](./includes/call-recording-samples/call-recording-csharp.md)]
@@ -25,6 +25,7 @@ This quickstart gets you started with Call Recording for voice and video calls. 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Test Call Recording with Java](./includes/call-recording-samples/call-recording-java.md)]
 ::: zone-end
+
 
 ## Clean up resources
 
@@ -36,5 +37,5 @@ For more information, see the following articles:
 
 - Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording) and [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording) call recording sample apps 
 - Learn more about [Call Recording](../../concepts/voice-video-calling/call-recording.md)
-- Learn more about [Call Automation](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/call-automation)
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md)
 

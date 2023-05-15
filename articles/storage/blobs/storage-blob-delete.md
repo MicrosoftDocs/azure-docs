@@ -4,8 +4,9 @@ titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
 author: pauljewellmsft
+
 ms.author: pauljewell
-ms.date: 03/28/2022
+ms.date: 05/11/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -41,6 +42,11 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot. 
 
+How you restore a soft-deleted blob depends on whether or not your storage account has blob versioning enabled. For more information on blob versioning, see [Blob versioning](../../storage/blobs/versioning-overview.md). See one of the following sections, depending on your scenario:
+
+- [Blob versioning is not enabled](#restore-soft-deleted-objects-when-versioning-is-disabled)
+- [Blob versioning is enabled](#restore-soft-deleted-blobs-when-versioning-is-enabled)
+
 #### Restore soft-deleted objects when versioning is disabled
 
 To restore deleted blobs when versioning is not enabled, call either of the following methods:
@@ -51,7 +57,7 @@ To restore deleted blobs when versioning is not enabled, call either of the foll
 These methods restore soft-deleted blobs and any deleted snapshots associated with them. Calling either of these methods for a blob that has not been deleted has no effect. The following example restores  all soft-deleted blobs and their snapshots in a container:
 
 ```csharp
-public static async Task UnDeleteBlobs(BlobContainerClient container)
+public static async Task UndeleteBlobs(BlobContainerClient container)
 {
     foreach (BlobItem blob in container.GetBlobs(BlobTraits.None, BlobStates.Deleted))
     {

@@ -51,6 +51,9 @@ Based on these assumptions, we focus mostly on the products and services present
 > [!NOTE]
 > Most of the guidance here applies to [Azure Active Directory B2C](../../active-directory-b2c/overview.md) as well, but there are some important differences. See [Using Azure AD B2C as the Identity Provider](#using-azure-ad-b2c-as-the-identity-provider) for more information.
 
+> [!WARNING]
+> Be aware of the SAP SAML assertion limits and impact of the length of SAP Cloud Foundry role collection names and amount of collections proxied by groups in SAP Cloud Identity Service. See SAP note [2732890](https://launchpad.support.sap.com/?sap-support-cross-site-visitor-id=b73c7292f9a46d52#/notes/2732890) for more information. Exceeded limits result in authorization issues.
+
 ## Recommendations
 
 ### Summary
@@ -260,7 +263,9 @@ Consider building automation to execute the entire certificate rollover process.
 
 ## Using Azure AD B2C as the Identity Provider
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. There are a few important differences, however.
+[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. 
+
+There are a few important differences, however. Setting up Azure AD B2C as a corporate identity provider in IAS and configuring federation between both tenants is described in more detail in [this blog post](https://blogs.sap.com/2023/02/08/identity-federation-between-azure-ad-b2c-and-sap-cloud-identity-services-using-custom-policies/).
 
 ### Registering a SAML application in Azure AD B2C
 

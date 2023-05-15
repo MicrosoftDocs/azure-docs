@@ -27,7 +27,7 @@ The initial implementation of continuous access evaluation focuses on Exchange, 
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
-Continuous access evaluation isn't currently available in Azure Government GCC High tenants.
+Continuous access evaluation is available in Azure Government tenants (GCC High and DOD) for Exchange Online.
 
 ### Key benefits
 
@@ -45,7 +45,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
-- Multi-factor authentication is enabled for the user
+- Multifactor Authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
 - High user risk detected by Azure AD Identity Protection
 
@@ -107,7 +107,7 @@ Because risk and policy are evaluated in real time, clients that negotiate conti
 
 Token lifetime is increased to long lived, up to 28 hours, in CAE sessions. Revocation is driven by critical events and policy evaluation, not just an arbitrary time period. This change increases the stability of applications without affecting security posture. 
 
-If you aren't using CAE-capable clients, your default access token lifetime will remain 1 hour. The default only changes if you configured your access token lifetime with the [Configurable Token Lifetime (CTL)](../develop/active-directory-configurable-token-lifetimes.md) preview feature.
+If you aren't using CAE-capable clients, your default access token lifetime will remain 1 hour. The default only changes if you configured your access token lifetime with the [Configurable Token Lifetime (CTL)](../develop/configurable-token-lifetimes.md) preview feature.
 
 ## Example flow diagrams
 
@@ -206,10 +206,10 @@ Networks and network services used by clients connecting to identity and resourc
 
 ### Supported location policies
 
-CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ip-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
+CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ipv4-and-ipv6-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
 
 > [!IMPORTANT]
-> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country/region location conditions or the trusted ips feature that is available in Azure AD Multifactor Authentication's service settings page.
 
 ### Named location limitations
 

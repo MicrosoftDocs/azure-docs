@@ -3,7 +3,7 @@ title: 'Quickstart: Create Apache HBase cluster using template - Azure HDInsight
 description: This quickstart shows how to use Resource Manager template to create an Apache HBase cluster in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 12/28/2022
 #Customer intent: As a developer new to Apache HBase on Azure, I need to see how to create an HBase cluster.
 ---

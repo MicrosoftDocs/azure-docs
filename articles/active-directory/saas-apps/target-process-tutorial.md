@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with TargetProcess | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with TargetProcess'
 description: Learn how to configure single sign-on between Azure Active Directory and TargetProcess.
 services: active-directory
 author: jeevansd

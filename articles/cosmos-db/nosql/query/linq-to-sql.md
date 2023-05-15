@@ -1,24 +1,27 @@
 ---
-title: LINQ to SQL translation in Azure Cosmos DB
+title: LINQ to SQL translation
+titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
-ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 08/06/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
+ms.service: cosmos-db
+ms.subservice: nosql
+ms.topic: conceptual
+ms.date: 03/22/2023
+ms.custom: ignite-2022
 ---
-# LINQ to SQL translation
+
+# LINQ to SQL translation in Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with API for NoSQL.
+The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable` object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli), which works with API for NoSQL.
 
 > [!NOTE]
-> We recommend using the latest [.NET SDK version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
+> We recommend using the latest [.NET SDK (`Microsoft.Azure.Cosmos`) version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
 
-The query provider type system supports only the JSON primitive types: numeric, Boolean, string, and null.
+The query provider type system supports only the JSON primitive types: `numeric`, `Boolean`, `string`, and `null`.
 
 The query provider supports the following scalar expressions:
 
@@ -26,57 +29,69 @@ The query provider supports the following scalar expressions:
   
 - Property/array index expressions that refer to the property of an object or an array element. For example:
   
-  ```
+    ```csharp
     family.Id;
     family.children[0].familyName;
     family.children[0].grade;
-    family.children[n].grade; //n is an int variable
-  ```
+    ```
+
+    ```csharp
+    int n = 1;
+
+    family.children[n].grade;
+    ```
   
 - Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](aggregate-functions.md).
   
-  ```
+    ```csharp
     2 * family.children[0].grade;
     x + y;
-  ```
+    ```
   
 - String comparison expressions, which include comparing a string value to some constant string value.  
   
-  ```
-    mother.familyName == "Wakefield";
-    child.givenName == s; //s is a string variable
-  ```
+    ```csharp
+    mother.familyName.StringEquals("Wakefield");
+    ```
+
+    ```csharp
+    string s = "Rob";
+    string e = "in";
+    string c = "obi";
+    
+    child.givenName.StartsWith(s);
+    child.givenName.EndsWith(e);
+    child.givenName.Contains(c);
+    ```
   
 - Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. You can nest these values.
   
-  ```
+    ```csharp
     new Parent { familyName = "Wakefield", givenName = "Robin" };
     new { first = 1, second = 2 }; //an anonymous type with two fields  
     new int[] { 3, child.grade, 5 };
-  ```
+    ```
 
 ## Using LINQ
 
 You can create a LINQ query with `GetItemLinqQueryable`. This example shows LINQ query generation and asynchronous execution with a `FeedIterator`:
 
 ```csharp
-using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
-                      .Where(b => b.Title == "War and Peace")
-                      .ToFeedIterator<Book>())
- {
-     //Asynchronous query execution
-     while (setIterator.HasMoreResults)
-     {
-         foreach(var item in await setIterator.ReadNextAsync()){
-         {
-             Console.WriteLine(item.cost);
-         }
-       }
-     }
- }
+using FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
+    .Where(b => b.Title == "War and Peace")
+    .ToFeedIterator<Book>());
+
+//Asynchronous query execution
+while (setIterator.HasMoreResults)
+{
+    foreach(var item in await setIterator.ReadNextAsync()){
+    {
+        Console.WriteLine(item.cost);
+    }
+}
 ```
 
-## <a id="SupportedLinqOperators"></a>Supported LINQ operators
+## Supported LINQ operators
 
 The LINQ provider included with the SQL .NET SDK supports the following operators:
 
@@ -85,7 +100,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **SelectMany**: Allows unwinding of arrays to the [JOIN](join.md) clause. Use to chain or nest expressions to filter on array elements.
 - **OrderBy** and **OrderByDescending**: Translate to [ORDER BY](order-by.md) with ASC or DESC.
 - **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](aggregate-functions.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
-- **CompareTo**: Translates to range comparisons. Commonly used for strings, since they're not comparable in .NET.
+- **CompareTo**: Translates to range comparisons. This operator is commonly used for strings, since they're not comparable in .NET.
 - **Skip** and **Take**: Translates to [OFFSET and LIMIT](offset-limit.md) for limiting results from a query and doing pagination.
 - **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](mathematical-functions.md).
 - **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](string-functions.md).
@@ -106,51 +121,53 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression. The `
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Select(family => family.parents[0].familyName);
-  ```
+    ```csharp
+    input.Select(family => family.parents[0].familyName);
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT VALUE f.parents[0].familyName
-      FROM Families f
+    ```sql
+    SELECT VALUE f.parents[0].familyName
+    FROM Families f
     ```
   
 **Select operator, example 2:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Select(family => family.children[0].grade + c); // c is an int variable
-  ```
+    ```csharp
+    input.Select(family => family.children[0].grade + c); // c is an int variable
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT VALUE f.children[0].grade + c
-      FROM Families f
-  ```
+    ```sql
+    SELECT VALUE f.children[0].grade + c
+    FROM Families f
+    ```
   
 **Select operator, example 3:**
 
 - **LINQ lambda expression**
   
-  ```csharp
+    ```csharp
     input.Select(family => new
     {
         name = family.children[0].familyName,
         grade = family.children[0].grade + 3
     });
-  ```
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT VALUE {"name":f.children[0].familyName,
-                    "grade": f.children[0].grade + 3 }
-      FROM Families f
-  ```
+    ```sql
+    SELECT VALUE {
+        "name":f.children[0].familyName,
+        "grade": f.children[0].grade + 3 
+    }
+    FROM Families f
+    ```
 
 ### SelectMany operator
 
@@ -158,16 +175,16 @@ The syntax is `input.SelectMany(x => f(x))`, where `f` is a scalar expression th
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.SelectMany(family => family.children);
-  ```
+    ```csharp
+    input.SelectMany(family => family.children);
+    ```
   
 - **SQL**
 
-  ```sql
-      SELECT VALUE child
-      FROM child IN Families.children
-  ```
+    ```sql
+    SELECT VALUE child
+    FROM child IN Families.children
+    ```
 
 ### Where operator
 
@@ -177,36 +194,36 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Where(family=> family.parents[0].familyName == "Wakefield");
-  ```
+    ```csharp
+    input.Where(family=> family.parents[0].familyName == "Wakefield");
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM Families f
-      WHERE f.parents[0].familyName = "Wakefield"
-  ```
+    ```sql
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Wakefield"
+    ```
   
 **Where operator, example 2:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Where(
-          family => family.parents[0].familyName == "Wakefield" &&
-          family.children[0].grade < 3);
-  ```
+    ```csharp
+    input.Where(
+        family => family.parents[0].familyName == "Wakefield" &&
+        family.children[0].grade < 3);
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM Families f
-      WHERE f.parents[0].familyName = "Wakefield"
-      AND f.children[0].grade < 3
-  ```
+    ```sql
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Wakefield"
+    AND f.children[0].grade < 3
+    ```
 
 ## Composite SQL queries
 
@@ -220,69 +237,69 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Select(family => family.parents[0])
-          .Where(parent => parent.familyName == "Wakefield");
-  ```
+    ```csharp
+    input.Select(family => family.parents[0])
+        .Where(parent => parent.familyName == "Wakefield");
+    ```
 
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM Families f
-      WHERE f.parents[0].familyName = "Wakefield"
-  ```
+    ```sql
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Wakefield"
+    ```
 
 **Concatenation, example 2:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Where(family => family.children[0].grade > 3)
-          .Select(family => family.parents[0].familyName);
-  ```
+    ```csharp
+    input.Where(family => family.children[0].grade > 3)
+        .Select(family => family.parents[0].familyName);
+    ```
 
 - **SQL**
   
-  ```sql
-      SELECT VALUE f.parents[0].familyName
-      FROM Families f
-      WHERE f.children[0].grade > 3
-  ```
+    ```sql
+    SELECT VALUE f.parents[0].familyName
+    FROM Families f
+    WHERE f.children[0].grade > 3
+    ```
 
 **Concatenation, example 3:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.Select(family => new { grade=family.children[0].grade}).
-          Where(anon=> anon.grade < 3);
-  ```
+    ```csharp
+    input.Select(family => new { grade=family.children[0].grade}).
+        Where(anon=> anon.grade < 3);
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM Families f
-      WHERE ({grade: f.children[0].grade}.grade > 3)
-  ```
+    ```sql
+    SELECT *
+    FROM Families f
+    WHERE ({grade: f.children[0].grade}.grade > 3)
+    ```
 
 **Concatenation, example 4:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.SelectMany(family => family.parents)
-          .Where(parent => parents.familyName == "Wakefield");
-  ```
+    ```csharp
+    input.SelectMany(family => family.parents)
+        .Where(parent => parents.familyName == "Wakefield");
+    ```
   
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM p IN Families.parents
-      WHERE p.familyName = "Wakefield"
-  ```
+    ```sql
+    SELECT *
+    FROM p IN Families.parents
+    WHERE p.familyName = "Wakefield"
+    ```
 
 ### Nesting
 
@@ -294,56 +311,56 @@ A nested query applies the inner query to each element of the outer container. O
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.SelectMany(family=>
-          family.parents.Select(p => p.familyName));
-  ```
+    ```csharp
+    input.SelectMany(family=>
+        family.parents.Select(p => p.familyName));
+    ```
 
 - **SQL**
   
-  ```sql
-      SELECT VALUE p.familyName
-      FROM Families f
-      JOIN p IN f.parents
-  ```
+    ```sql
+    SELECT VALUE p.familyName
+    FROM Families f
+    JOIN p IN f.parents
+    ```
 
 **Nesting, example 2:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.SelectMany(family =>
-          family.children.Where(child => child.familyName == "Jeff"));
-  ```
+    ```csharp
+    input.SelectMany(family =>
+        family.children.Where(child => child.familyName == "Jeff"));
+    ```
 
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM Families f
-      JOIN c IN f.children
-      WHERE c.familyName = "Jeff"
-  ```
+    ```sql
+    SELECT *
+    FROM Families f
+    JOIN c IN f.children
+    WHERE c.familyName = "Jeff"
+    ```
 
 **Nesting, example 3:**
 
 - **LINQ lambda expression**
   
-  ```csharp
-      input.SelectMany(family => family.children.Where(
-          child => child.familyName == family.parents[0].familyName));
-  ```
+    ```csharp
+    input.SelectMany(family => family.children.Where(
+        child => child.familyName == family.parents[0].familyName));
+    ```
 
 - **SQL**
   
-  ```sql
-      SELECT *
-      FROM Families f
-      JOIN c IN f.children
-      WHERE c.familyName = f.parents[0].familyName
-  ```
+    ```sql
+    SELECT *
+    FROM Families f
+    JOIN c IN f.children
+    WHERE c.familyName = f.parents[0].familyName
+    ```
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Azure Cosmos DB for NoSQL .NET SDK developer guide](../how-to-dotnet-get-started.md)
 - [Model document data](../../modeling-data.md)

@@ -91,7 +91,7 @@ FunctionAppLogs
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
-If you're creating or running an application that run on Functions [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer other types of alerts.
+If you're creating or running an application that run on Functions [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) may offer other types of alerts.
 
 The following table lists common and recommended alert rules for Functions.
 
@@ -100,10 +100,10 @@ The following table lists common and recommended alert rules for Functions.
 | Metric | Average connections| When number of connections exceed a set value|
 | Metric | HTTP 404| When HTTP 404 responses exceed a set value|
 | Metric | HTTP Server Errors| When HTTP 5xx errors exceed a set value|
-| Activity Log | Create or Update Web App | When app is created or updated|
-| Activity Log | Delete Web App | When app is deleted|
-| Activity Log | Restart Web App| When app is restarted|
-| Activity Log | Stop Web App| When app is stopped|
+| Activity Log | Create or update function app | When app is created or updated|
+| Activity Log | Delete function app | When app is deleted|
+| Activity Log | Restart function app| When app is restarted|
+| Activity Log | Stop function app| When app is stopped|
 
 ## Next steps
 

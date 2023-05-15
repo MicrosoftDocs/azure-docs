@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
@@ -19,7 +19,7 @@ ms.date: 05/02/2022
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
 > * [v1](how-to-create-manage-compute-instance.md)
-> * [v2 (current version)](../how-to-create-manage-compute-instance.md)
+> * [v2 (current version)](../how-to-create-manage-compute-instance.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1.
 
@@ -201,7 +201,7 @@ In the examples below, the name of the compute instance is **instance**
 
 ---
 
-[Azure RBAC](../../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, RStudio, and Posit Workbench (formerly RStudio Workbench) on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio/Posit Workbench running on the instance. Compute instance will have single-user sign in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, RStudio, and Posit Workbench (formerly RStudio Workbench) on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio/Posit Workbench running on the instance. Compute instance will have single-user sign in and all actions will use that user's identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*

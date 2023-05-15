@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Securing service principals in Azure Active Directory 
 
-An Azure Active Directory (Azure AD) service principals are the local representation of an application object in a tenant or directory. It's the identity of the application instance. Service principals define application access, and resources the application accesses. A service principal is created in each tenant where the application is used, and references the globally unique application object. The tenant secures the service principal sign-in and access to resources. 
+An Azure Active Directory (Azure AD) service principal is the local representation of an application object in a tenant or directory. It's the identity of the application instance. Service principals define application access and resources the application accesses. A service principal is created in each tenant where the application is used and references the globally unique application object. The tenant secures the service principal sign-in and access to resources. 
 
 Learn more: [Application and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
 

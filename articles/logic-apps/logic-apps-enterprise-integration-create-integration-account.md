@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 08/23/2022
 ---
 
@@ -65,11 +66,11 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
       If you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option, which also means you don't have to upload maps and schemas to each logic app resource. Either way, you can use these artifacts across all child workflows within the *same logic app resource*.
 
-* Basic knowledge about how to create logic app workflows. For more information, review the following documentation:
+* Basic knowledge about how to create logic app workflows. For more information, see the following documentation:
 
-  * [Quickstart: Create your first Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md)
+  * [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
-  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 ## Create integration account
 

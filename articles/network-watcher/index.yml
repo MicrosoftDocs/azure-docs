@@ -81,7 +81,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: NSG flow Log overview
+          - text: NSG flow log overview
             url: network-watcher-nsg-flow-logging-overview.md
       - linkListType: tutorial  
         links:

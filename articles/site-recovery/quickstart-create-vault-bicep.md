@@ -6,7 +6,7 @@ ms.service: site-recovery
 ms.author: ankitadutta
 ms.date: 06/27/2022
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Recovery Services vault using Bicep

@@ -2,17 +2,14 @@
 title: Azure CDN POP locations by region | Microsoft Docs
 description: This article lists Azure CDN POP locations, sorted by region, for Azure CDN products.
 services: cdn
-documentationcenter: ''
-author: sohamnchatterjee
-manager: danielgi
-editor: sohamnchatterjee
-
+author: duongau
+manager: kumud
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/18/2021
+ms.date: 02/21/2023
 ms.author: duau
 ms.custom: references_regions
 
@@ -23,7 +20,6 @@ ms.custom: references_regions
 > * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
 > * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
 >
-
 
 This article lists current metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each metro may contain more than one POP. For example, Azure CDN from Microsoft has 118 POPs across 100 metro cities. 
 
@@ -49,7 +45,7 @@ This article lists current metros containing point-of-presence (POP) locations, 
 | Africa | Johannesburg, South Africa <br/> Nairobi, Kenya | South Africa |
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
+| Asia | Hong Kong SAR<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong SAR<br />Indonesia<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Türkiye<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 ## Next steps

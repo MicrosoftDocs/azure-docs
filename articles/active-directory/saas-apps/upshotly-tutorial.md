@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Upshotly | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Upshotly'
 description: Learn how to configure single sign-on between Azure Active Directory and Upshotly.
 services: active-directory
 author: jeevansd

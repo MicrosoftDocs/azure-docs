@@ -39,7 +39,7 @@ You can review the [REST APIs](/rest/api/searchservice/) to understand the full 
 At a minimum, all inbound requests must be authenticated:
 
 + Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted party.
-+ Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
++ Alternatively, you can use Azure Active Directory and role-based access control for data plane operations. 
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
@@ -86,7 +86,7 @@ A search service is provisioned with a public endpoint that allows access using 
 
 You can use the portal to [configure firewall access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2022-09-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Inbound connection to a private endpoint (network isolation, no Internet traffic)
 
@@ -100,7 +100,7 @@ While this solution is the most secure, using additional services is an added co
 
 ## Authentication
 
-Once a request is admitted, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
+Once a request is admitted to the search service, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
@@ -166,29 +166,13 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
+Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, resources, containers, and key vault store.
 
 Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
 + Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
 
-+ During support, this information may be used to make suggestions to the customer. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." 
-
-+ Microsoft might expose an object name in dashboards visible to the customer.
-
-Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, Microsoft won't have a full history of your service, which could impede troubleshooting of the object in question.
-
-To remove references to specific objects, or to change the data retention period, [file a support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md) for your search service.
-
-1. In **Problem details**, tag your request using the following selections:
-
-   + **Issue type**: Technical
-   + **Problem type**: Setup and configuration
-   + **Problem subtype**: Issue with security configuration of the service
-
-1. When you get to **Additional details** (the third tab), describe the object names you would like removed, or specify the retention period that you require.
-
-   :::image type="content" source="media/search-security-overview/support-request.png" alt-text="Screenshot of the first page of the support ticket with issue and problem types selected." border="true":::
++ During support, this information may be used to provide quick resolution to issues and escalate product team if needed
 
 <a name="encryption"></a>
 

@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 07/18/2022
 ms.author: duau
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Connect a virtual network to an ExpressRoute circuit using Azure CLI
 
@@ -209,4 +209,3 @@ To learn how to configure route filters for Microsoft peering using Azure CLI, a
 
 > [!div class="nextstepaction"]
 > [Configure route filters for Microsoft peering](how-to-routefilter-cli.md)
-

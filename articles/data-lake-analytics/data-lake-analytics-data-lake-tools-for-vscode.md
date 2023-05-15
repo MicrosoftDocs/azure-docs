@@ -13,7 +13,7 @@ ms.date: 10/17/2022
 
 In this article, learn how you can use Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test, and run U-SQL scripts. The information is also covered in the following video:
 
-![Video player: Azure Data Lake tools for VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azuredatalake&ep=azure-data-lake-tools-vscode]
 
 ## Prerequisites
 

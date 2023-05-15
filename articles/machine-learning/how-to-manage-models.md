@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cli-v2, sdk-v2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, cli-v2, sdk-v2, event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ---
 
 # Work with models in Azure Machine Learning
@@ -40,7 +40,7 @@ Additionally, you will need to:
 - Install the Azure Machine Learning SDK for Python
     
     ```bash
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ```
 ---
 
@@ -52,11 +52,11 @@ When you provide a model you want to register, you'll need to specify a `path` p
 |Location  | Examples  |
 |---------|---------|
 |A path on your local computer     | `mlflow-model/model.pkl`         |
-|A path on an AzureML Datastore   |   `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`      |
-|A path from an AzureML job   |   `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`      |
+|A path on an Azure Machine Learning Datastore   |   `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`      |
+|A path from an Azure Machine Learning job   |   `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`      |
 |A path from an MLflow job   |   `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`      |
-|A path from a Model Asset in AzureML Workspace  | `azureml:<model-name>:<version>`|
-|A path from a Model Asset in  AzureML Registry  | `azureml://registries/<registry-name>/models/<model-name>/versions/<version>`|
+|A path from a Model Asset in Azure Machine Learning Workspace  | `azureml:<model-name>:<version>`|
+|A path from a Model Asset in  Azure Machine Learning Registry  | `azureml://registries/<registry-name>/models/<model-name>/versions/<version>`|
 
 ## Supported modes
 
@@ -88,7 +88,7 @@ The code snippets in this section cover how to:
 
 These snippets use `custom` and `mlflow`.
 
-- `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by Azure ML.
+- `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by Azure Machine Learning.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained models are in a folder that contains the *MLmodel* file, the *model* file, the *conda dependencies* file, and the *requirements.txt* file.
 
 ### Connect to your workspace
@@ -278,7 +278,7 @@ To create a model in Machine Learning, from the UI, open the **Models** page. Se
 
 ## Manage models
 
-The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure ML model assets.
+The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure Machine Learning model assets.
 
 ### List
 
@@ -441,7 +441,7 @@ from azure.ai.ml import MLClient
 
 # Possible Paths for Model:
 # Local path: mlflow-model/model.pkl
-# AzureML Datastore: azureml://datastores/<datastore-name>/paths/<path_on_datastore>
+# Azure Machine Learning Datastore: azureml://datastores/<datastore-name>/paths/<path_on_datastore>
 # MLflow run: runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>
 # Job: azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>
 # Model Asset: azureml:<my_model>:<version>
@@ -497,7 +497,7 @@ from azure.ai.ml.constants import AssetTypes
 
 # Possible Paths for Model:
 # Local path: mlflow-model/model.pkl
-# AzureML Datastore: azureml://datastores/<datastore-name>/paths/<path_on_datastore>
+# Azure Machine Learning Datastore: azureml://datastores/<datastore-name>/paths/<path_on_datastore>
 # MLflow run: runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>
 # Job: azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>
 # Model Asset: azureml:<my_model>:<version>

@@ -14,7 +14,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # X.509 certificates
 
-X.509 certificates are digital documents that represent a user, computer, service, or device. They're issued by a certification authority (CA), subordinate CA, or registration authority and contain the public key of the certificate subject. They don't contain the subject's private key, which must be stored securely. Public key certificates are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). They're digitally signed and, in general, contain the following information:
+X.509 certificates are digital documents that represent a user, computer, service, or device. A certificate authority (CA), subordinate CA, or registration authority issues X.509 certificates. The certificates contain the public key of the certificate subject. They don't contain the subject's private key, which must be stored securely. [RFC 5280](https://tools.ietf.org/html/rfc5280) documents public key certificates, including their fields and extensions. Public key certificates are digitally signed and typically contain the following information:
 
 * Information about the certificate subject
 * The public key that corresponds to the subject's private key
@@ -42,7 +42,7 @@ The following table describes Version 1 certificate fields for X.509 certificate
 | [Serial Number](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.2) | An integer that represents the unique number for each certificate issued by a certificate authority (CA). |
 | [Signature](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.3) | The identifier for the cryptographic algorithm used by the CA to sign the certificate. The value includes both the identifier of the algorithm and any optional parameters used by that algorithm, if applicable. |
 | [Issuer](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.4) | The distinguished name (DN) of the certificate's issuing CA. |
-| [Validity](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.5) | The inclusive time period for which the certificate is considered valid. |
+| [Validity](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.5) | The inclusive time period for which the certificate is valid. |
 | [Subject](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.6) | The distinguished name (DN) of the certificate subject. |
 | [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7) | The public key owned by the certificate subject. |
 
@@ -69,7 +69,7 @@ Certificate extensions, introduced with Version 3, provide methods for associati
 
 ### Standard extensions
 
-The extensions included in this section are defined as part of the X.509 standard, for use in the Internet public key infrastructure (PKI). 
+The X.509 standard defines the extensions included in this section, for use in the Internet public key infrastructure (PKI). 
 
 | Name | Description |
 | --- | --- |
@@ -108,9 +108,136 @@ Certificates can be saved in various formats. Azure IoT Hub authentication typic
 | Binary certificate | A raw form binary certificate using Distinguished Encoding Rules (DER) ASN.1 encoding. |
 | ASCII PEM format | A PEM certificate (.pem) file contains a Base64-encoded certificate beginning with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`. One of the most common formats for X.509 certificates, PEM format is required by IoT Hub when uploading certain certificates, such as device certificates. |
 | ASCII PEM key | Contains a Base64-encoded DER key, optionally with more metadata about the algorithm used for password protection. |
-| PKCS #7 certificate | A format designed for the transport of signed or encrypted data. It can include the entire certificate chain. It's defined by [RFC 2315](https://tools.ietf.org/html/rfc2315). |
-| PKCS #8 key | The format for a private key store. It's defined by [RFC 5208](https://tools.ietf.org/html/rfc5208). |
-| PKCS #12 key and certificate | A complex format that can store and protect a key and the entire certificate chain. It's commonly used with a .p12 or .pfx extension. PKCS #12 is synonymous with the PFX format. It's defined by [RFC 7292](https://tools.ietf.org/html/rfc7292). |
+| PKCS #7 certificate | A format designed for the transport of signed or encrypted data. It can include the entire certificate chain. [RFC 2315](https://tools.ietf.org/html/rfc2315) defines this format. |
+| PKCS #8 key | The format for a private key store. [RFC 5208](https://tools.ietf.org/html/rfc5208) defines this format. |
+| PKCS #12 key and certificate | A complex format that can store and protect a key and the entire certificate chain. It's commonly used with a .p12 or .pfx extension. PKCS #12 is synonymous with the PFX format. [RFC 7292](https://tools.ietf.org/html/rfc7292) defines this format. |
+
+## Self-signed certificates
+
+You can authenticate a device to your IoT hub for testing purposes by using two self-signed certificates. This type of authentication is sometimes called *thumbprint authentication* because the certificates are identified by calculated hash values called *fingerprints* or *thumbprints*. These calculated hash values are used by IoT Hub to authenticate your devices.
+
+>[!IMPORTANT]
+>We recommend that you use certificates signed by an issuing Certificate Authority (CA), even for testing purposes. Never use self-signed certificates in production.
+
+### Create a self-signed certificate
+
+You can use [OpenSSL](https://www.openssl.org/) to create self-signed certificates. The following steps show you how to run OpenSSL commands in a bash shell to create a self-signed certificate and retrieve a certificate fingerprint that can be used for authenticating your device in IoT Hub. 
+
+>[!NOTE]
+>If you want to use self-signed certificates for testing, you must create two certificates for each device. 
+
+1. Run the following command to generate a private key and create a PEM-encoded private key (.key) file, replacing the following placeholders with their corresponding values. The private key generated by the following command uses the RSA algorithm with 2048-bit encryption.
+
+    *{KeyFile}*. The name of your private key file.
+
+    ```bash
+    openssl genpkey -out {KeyFile} -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+    ```
+
+1. Run the following command to generate a PKCS #10 certificate signing request (CSR) and create a CSR (.csr) file, replacing the following placeholders with their corresponding values. Make sure that you specify the device ID of the IoT device for your self-signed certificate when prompted.
+
+    *{KeyFile}*. The name of your private key file.
+
+    *{CsrFile}*. The name of your CSR file.
+
+    *{DeviceID}*. The name of your IoT device.
+
+    ```bash
+    openssl req -new -key {KeyFile} -out {CsrFile}
+    
+    Country Name (2 letter code) [XX]:.
+    State or Province Name (full name) []:.
+    Locality Name (eg, city) [Default City]:.
+    Organization Name (eg, company) [Default Company Ltd]:.
+    Organizational Unit Name (eg, section) []:.
+    Common Name (eg, your name or your server hostname) []:{DeviceID}
+    Email Address []:.
+    
+    Please enter the following 'extra' attributes
+    to be sent with your certificate request
+    A challenge password []:.
+    An optional company name []:.
+    ```
+
+1.  Run the following command to examine and verify your CSR, replacing the following placeholders with their corresponding values. 
+
+    *{CsrFile}*. The name of your certificate file.
+
+    ```bash
+    openssl req -text -in {CsrFile} -verify -noout
+    ```
+    
+1. Run the following command to generate a self-signed certificate and create a PEM-encoded certificate (.crt) file, replacing the following placeholders with their corresponding values. The command converts and signs your CSR with your private key, generating a self-signed certificate that expires in 365 days. 
+
+    *{KeyFile}*. The name of your private key file.
+
+    *{CsrFile}*. The name of your CSR file.
+
+    *{CrtFile}*. The name of your certificate file.
+
+    ```bash
+    openssl x509 -req -days 365 -in {CsrFile} -signkey {KeyFile} -out {CrtFile}
+    ```
+
+1. Run the following command to retrieve the fingerprint of the certificate, replacing the following placeholders with their corresponding values. The fingerprint of a certificate is a calculated hash value that is unique to that certificate. You need the fingerprint to configure your IoT device in IoT Hub for testing.
+
+    *{CrtFile}*. The name of your certificate file.
+
+    ```bash
+    openssl x509 -in {CrtFile} -noout -fingerprint
+    ```
+
+### Verify certificate manually after upload
+
+When you upload your root certificate authority (CA) certificate or subordinate CA certificate to your IoT hub, you can choose to automatically verify the certificate. If you didn't choose to automatically verify your certificate during upload, your certificate is shown with its status set to **Unverified**. You must perform the following steps to manually verify your certificate. 
+
+1. Select the certificate to view the **Certificate Details** dialog.
+ 
+1. Select **Generate Verification Code** in the dialog.
+
+    :::image type="content" source="media/reference-x509-certificates/certificate-details.png" alt-text="Screenshot showing the certificate details dialog.":::
+    
+1. Copy the verification code to the clipboard. You must use this verification code as the certificate subject in subsequent steps. For example, if the verification code is `75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3`, add that as the subject of your certificate as shown in the next step.
+
+1. There are three ways to generate a verification certificate:
+
+    - If you're using the PowerShell script supplied by Microsoft, run `New-CACertsVerificationCert "<verification code>"` to create a certificate named `VerifyCert4.cer`, replacing `<verification code>` with the previously generated verification code. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c).
+
+    - If you're using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named verification-code.cert.pem, replacing `<verification code>` with the previously generated verification code. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the Azure IoT Hub Device SDK for C.
+
+    - If you're using OpenSSL to generate your certificates, you must first generate a private key, then generate a certificate signing request (CSR) file. In the following example, replace `<verification code>` with the previously generated verification code:
+    
+    ```bash
+    openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+
+    openssl req -new -key pop.key -out pop.csr
+
+    -----
+    Country Name (2 letter code) [XX]:.
+    State or Province Name (full name) []:.
+    Locality Name (eg, city) [Default City]:.
+    Organization Name (eg, company) [Default Company Ltd]:.
+    Organizational Unit Name (eg, section) []:.
+    Common Name (eg, your name or your server hostname) []:<verification code>
+    Email Address []:
+    
+    Please enter the following 'extra' attributes
+    to be sent with your certificate request
+    A challenge password []:
+    An optional company name []:
+    ```
+
+    Then, create a certificate using the appropriate configuration file for either the root CA or the subordinate CA, and the CSR file. The following example demonstrates how to use OpenSSL to create the certificate from a root CA configuration file and the CSR file.
+
+    ```bash
+    openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
+    ```
+
+    For more information, see [Tutorial - Create and upload certificates for testing](tutorial-x509-test-certs.md).
+
+1. Select the new certificate in the **Certificate Details** view.
+
+1. After the certificate uploads, select **Verify**. The certificate status should change to **Verified**.
 
 ## For more information
 

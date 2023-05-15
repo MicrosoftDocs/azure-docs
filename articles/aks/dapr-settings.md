@@ -3,7 +3,6 @@ title: Configure the Dapr extension for your Azure Kubernetes Service (AKS) and 
 description: Learn how to configure the Dapr extension specifically for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-service
 ms.topic: article
 ms.date: 01/09/2023
 ---
@@ -199,7 +198,7 @@ az k8s-extension upgrade --cluster-type managedClusters \
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). 
+The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 

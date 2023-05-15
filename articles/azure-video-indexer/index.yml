@@ -8,11 +8,11 @@ metadata:
   description: Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
   services: azure-video-indexer
   ms.service: azure-video-indexer
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
   author: Juliako
   ms.author: juliako
-  ms.date: 01/24/2023 #Required; mm/dd/yyyy format.
+  ms.date: 03/03/2023
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -70,24 +70,8 @@ landingContent:
         links:
         - text: Limited access features
           url: limited-access-features.md   
-        - text: Audio effects detection
-          url: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: Faces detection
-          url: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: OCR
-          url: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: Keywords extraction
-          url: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
-        - text: Transcription, translation, language
-          url: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: Labels identification
-          url: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: Named entities
-          url: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: Observed people tracking & matched faces
-          url: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
-        - text: Topics inference
-          url: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
+        - text: Transparency note
+          url: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
   
 # Card
   - title: Customize content models

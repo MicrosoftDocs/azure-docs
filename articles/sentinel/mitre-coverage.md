@@ -19,9 +19,9 @@ Microsoft Sentinel analyzes ingested data, not only to [detect threats](detect-t
 
 This article describes how to use the **MITRE** page in Microsoft Sentinel to view the detections already active in your workspace, and those available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework.
 
-:::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
+:::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
-Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 9.
+Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 11.
 
 ##  View current MITRE coverage
 

@@ -4,6 +4,7 @@ description: Uninstall Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -192,10 +193,10 @@ kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-$mynam
 
 Optionally, also delete the namespace as follows:
 ```
-kubectl delete --namespace <name of namespace>
+kubectl delete namespace <name of namespace>
 
 ## Example:
-kubectl delete --namespace arc
+kubectl delete namespace arc
 ```
 
 ## Verify all objects are deleted

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Turn off per user MFA in Azure AD | Microsoft Docs
+title: Azure Active Directory recommendation - Turn off per user MFA in Azure AD
 description: Learn why you should turn off per user MFA in Azure AD
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/07/2023
+ms.date: 03/03/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -51,7 +51,8 @@ After all users have been migrated to CA MFA accounts, the recommendation status
 
 ## Next steps
 
-* [Learn about requiring MFA for all users using Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-* [View the MFA CA policy tutorial](../authentication/tutorial-enable-azure-mfa.md)
-* [Learn more about Microsoft Graph](/graph/overview)
-* [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
+- [Review the Azure AD recommendations overview](overview-recommendations.md)
+- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
+- [Learn about requiring MFA for all users using Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
+- [View the MFA CA policy tutorial](../authentication/tutorial-enable-azure-mfa.md)

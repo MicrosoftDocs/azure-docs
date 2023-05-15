@@ -46,7 +46,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 |:--- |:--- |
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that's being submitted. It can contain only letters, numbers, and the underscore (_) character, and it can't exceed 100 characters. |
-| x-ms-date |The date that the request was processed, in RFC 7234 format. |
+| x-ms-date |The date that the request was processed, in RFC [1123](/dotnet/api/system.globalization.datetimeformatinfo.rfc1123pattern) format. |
 | x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](manage-access.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
 | time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. The Time Generated value cannot be older than 2 days before received time or more than a day in the future. In such case, the time that the message is ingested will be used.|
 | | |
@@ -209,7 +209,7 @@ In this section are samples that demonstrate how to submit data to the Azure Mon
 For each sample, set the variables for the authorization header by doing the following:
 
 1. In the Azure portal, locate your Log Analytics workspace.
-2. Select **Agents management**.
+2. Select **Agents**.
 2. To the right of **Workspace ID**, select the **Copy** icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the **Copy** icon, and then paste the ID as the value of the **Shared Key** variable.
 

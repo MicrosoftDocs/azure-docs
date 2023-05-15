@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to connect Power Platform and Logic Apps to Azure Digital Twins using the connector
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/25/2023
+ms.date: 03/22/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -13,11 +13,15 @@ ms.service: digital-twins
 
 # Integrate with Power Platform and Logic Apps using the Azure Digital Twins connector
 
-You can integrate Azure Digital Twins into a [Microsoft Power Platform](/power-platform) or [Azure Logic Apps](../logic-apps/logic-apps-overview.md) flow, using the *Azure Digital Twins connector*. 
+You can integrate Azure Digital Twins into a [Microsoft Power Platform](/power-platform) or [Azure Logic Apps](../logic-apps/logic-apps-overview.md) flow, using the *Azure Digital Twins Power Platform connector*. 
 
 The connector is a wrapper around the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#data-plane-apis) for twin, model and query operations, which allows the underlying service to talk to [Microsoft Power Automate](/power-automate/getting-started), [Microsoft Power Apps](/power-apps/powerapps-overview), and [Azure Logic Apps](../logic-apps/logic-apps-overview.md). The connector provides a way for users to connect their accounts and leverage a set of prebuilt actions to build their apps and workflows.
 
-For more information about the Azure Digital Twins Power Platform connector, including a complete list of the connector's actions and their parameters, see the [Azure Digital Twins connector reference documentation](/connectors/azuredigitaltwins).
+For an introduction to the connector, including a quick demo, watch the following IoT show video:
+
+<iframe src="https://aka.ms/docs/player?id=d6c200c2-f622-4254-b61f-d5db613bbd11" width="1080" height="530"></iframe>
+
+You can also complete a basic walkthrough in the blog post [Simplify building automated workflows and apps powered by Azure Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things-blog/simplify-building-automated-workflows-and-apps-powered-by-azure/ba-p/3763051). For more information about the connector, including a complete list of the connector's actions and their parameters, see the [Azure Digital Twins connector reference documentation](/connectors/azuredigitaltwins).
 
 ## Prerequisites
 

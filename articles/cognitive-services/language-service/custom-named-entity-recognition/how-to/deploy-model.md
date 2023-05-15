@@ -1,14 +1,14 @@
 ---
-title: Submit a Custom Named Entity Recognition (NER) task
+title: How to deploy a custom NER model
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Custom Named Entity Recognition (NER).
+description: Learn how to deploy a model for custom NER.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 03/23/2023
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---

@@ -1,5 +1,5 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
+title: Properties of a B2B guest user
 description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
 
 services: active-directory
@@ -75,7 +75,7 @@ This property indicates the relationship of the user to the host tenancy. This p
 
 ### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
 > Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType

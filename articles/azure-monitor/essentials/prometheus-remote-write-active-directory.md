@@ -1,7 +1,7 @@
 ---
 title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory (preview)
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
-author: bwren 
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 11/01/2022
 ---
@@ -145,7 +145,25 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     ```yml
     prometheus:
       prometheusSpec:
-        cluster: <CLUSTER-NAME>
+        cluster: <CLUSTER-NAME>  
+  
+        ##	Azure Managed Prometheus currently exports some default mixins in Grafana.  
+        ##  These mixins are compatible with data scraped by Azure Monitor agent on your 
+        ##  Azure Kubernetes Service cluster. These mixins aren't compatible with Prometheus 
+        ##  metrics scraped by the Kube Prometheus stack. 
+        ##  To make these mixins compatible, uncomment the remote write relabel configuration below:
+
+	      ##	writeRelabelConfigs:
+	      ##	  - sourceLabels: [metrics_path]
+	      ##	    regex: /metrics/cadvisor
+	      ##	    targetLabel: job
+	      ##	    replacement: cadvisor
+	      ##	    action: replace
+	      ##	  - sourceLabels: [job]
+	      ##	    regex: 'node-exporter'
+	      ##	    targetLabel: job
+	      ##	    replacement: node
+	      ##	    action: replace  
 
         ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
         remoteWrite:
@@ -208,7 +226,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221103.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |

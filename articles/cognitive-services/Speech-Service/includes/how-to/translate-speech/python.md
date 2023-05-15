@@ -22,7 +22,7 @@ For more information on environment variables, see [Environment variables and ap
 
 ## Create a speech translation configuration
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechTranslationConfig`][config] instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service by using the Speech SDK, you need to create a [`SpeechTranslationConfig`][speechtranslationconfig] instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!TIP]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
@@ -80,7 +80,7 @@ With every call to [`add_target_language`][addlang], a new target translation la
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][config] instance, the next step is to initialize [`TranslationRecognizer`][recognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translation_config` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
+After you've created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translation_config` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
 
 If you're recognizing speech by using your device's default microphone, here's what `TranslationRecognizer` should look like:
 
@@ -92,7 +92,7 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
     translation_config.add_target_language(to_language)
 
-    recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_recognizer = speechsdk.translation.TranslationRecognizer(
             translation_config=translation_config)
 ```
 
@@ -113,7 +113,7 @@ def translate_speech_to_text():
         translation_config.add_target_language(lang)
 
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-    recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_recognizer = speechsdk.translation.TranslationRecognizer(
             translation_config=translation_config, audio_config=audio_config)
 ```
 
@@ -129,7 +129,7 @@ def translate_speech_to_text():
         translation_config.add_target_language(lang)
 
     audio_config = speechsdk.audio.AudioConfig(filename="path-to-file.wav")
-    recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_recognizer = speechsdk.translation.TranslationRecognizer(
             translation_config=translation_config, audio_config=audio_config)
 ```
 
@@ -151,11 +151,11 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
     translation_config.add_target_language(to_language)
 
-    recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_recognizer = speechsdk.translation.TranslationRecognizer(
             translation_config=translation_config)
     
     print('Say something...')
-    result = recognizer.recognize_once()
+    result = translation_recognizer.recognize_once()
     print(get_result_text(reason=result.reason, result=result))
 
 def get_result_text(reason, result):
@@ -172,7 +172,7 @@ def get_result_text(reason, result):
 translate_speech_to_text()
 ```
 
-For more information about speech-to-text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
+For more information about speech to text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
 
 ## Synthesize translations
 
@@ -204,7 +204,7 @@ def translate_speech_to_text():
     # See: https://aka.ms/speech/sdkregion#standard-and-neural-voices
     translation_config.voice_name = "de-DE-Hedda"
 
-    recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_recognizer = speechsdk.translation.TranslationRecognizer(
             translation_config=translation_config)
 
     def synthesis_callback(evt):
@@ -216,11 +216,11 @@ def translate_speech_to_text():
             file.write(evt.result.audio)
             file.close()
 
-    recognizer.synthesizing.connect(synthesis_callback)
+    translation_recognizer.synthesizing.connect(synthesis_callback)
 
     print(f'Say something in "{from_language}" and we\'ll translate into "{to_language}".')
 
-    result = recognizer.recognize_once()
+    result = translation_recognizer.recognize_once()
     print(get_result_text(reason=result.reason, result=result))
 
 def get_result_text(reason, result):
@@ -262,7 +262,7 @@ def translate_speech_to_text():
             translation_config=translation_config)
     
     print('Say something...')
-    result = recognizer.recognize_once()
+    result = translation_recognizer.recognize_once()
     synthesize_translations(result=result)
 
 def synthesize_translations(result):
@@ -291,9 +291,15 @@ translate_speech_to_text()
 
 For more information about speech synthesis, see [the basics of speech synthesis](../../../get-started-text-to-speech.md).
 
-[config]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig
+## Multi-lingual translation with language identification
+
+In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-python#speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
+
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-python#speech-translation).
+
+[speechtranslationconfig]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig
 [audioconfig]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig
-[recognizer]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.translationrecognizer
+[translationrecognizer]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.translationrecognizer
 [recognitionlang]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig
 [addlang]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig#add-target-language-language--str-
 [translations]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.translationrecognitionresult#translations

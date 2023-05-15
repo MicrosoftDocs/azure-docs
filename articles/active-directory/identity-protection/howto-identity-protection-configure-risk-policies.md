@@ -34,23 +34,23 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD multifactor authentication (MFA) and secure self-service password reset (SSPR).
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD multifactor authentication (MFA) and secure password change.
 
 > [!WARNING]
-> Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
+> Users must register for Azure AD MFA before they face a situation requiring remediation. For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
 > 
-> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
+> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password change.
 
 ### Microsoft's recommendation
 
 Microsoft recommends the below risk policy configurations to protect your organization:
 
 - User risk policy
-   - Require a secure password reset when user risk level is **High**. Azure AD MFA is required before the user can create a new password with SSPR to remediate their risk. 
+   - Require a secure password change when user risk level is **High**. Azure AD MFA is required before the user can create a new password with password writeback to remediate their risk. 
 - Sign-in risk policy
    - Require Azure AD MFA when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
-Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password reset and multifactor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
+Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password change and multifactor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
 
 ## Exclusions
 

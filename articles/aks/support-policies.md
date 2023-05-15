@@ -1,7 +1,6 @@
 ---
 title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
-services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 
@@ -75,7 +74,7 @@ Microsoft doesn't provide technical support for the following examples:
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Network customizations other than the ones listed in the [AKS documentation](./index.yml).
 * Custom or 3rd-party CNI plugins used in [BYOCNI](use-byo-cni.md) mode.
-
+* Stand-by and proactive scenarios. Microsoft Support provides reactive support to help solve active issues in a timely and professional manner. However, standby or proactive support to help you eliminate operational risks, increase availability, and optimize performance are not covered. [Eligible customers](https://www.microsoft.com/unifiedsupport) can contact their account team to get nominated for Azure Event Management service[https://devblogs.microsoft.com/premier-developer/proactively-plan-for-your-critical-event-in-azure-with-enhanced-support-and-engineering-services/]. It's a paid service delivered by Microsoft support engineers that includes a proactive solution risk assessment and coverage during the event.
 
 ## AKS support coverage for agent nodes
 
@@ -89,7 +88,7 @@ Microsoft and users share responsibility for Kubernetes agent nodes where:
   * `Kube-proxy`
   * Networking tunnels that provide communication paths to the Kubernetes master components
   * `Kubelet`
-  * Docker or `containerd`
+  * `containerd`
 
 > [!NOTE]
 > If an agent node is not operational, AKS might restart individual components or the entire agent node. These restart operations are automated and provide auto-remediation for common issues. If you want to know more about the auto-remediation mechanisms, see [Node Auto-Repair](node-auto-repair.md)

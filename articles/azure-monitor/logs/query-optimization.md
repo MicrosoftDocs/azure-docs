@@ -22,7 +22,7 @@ Optimized queries will:
 - Run faster and reduce overall duration of the query execution.
 - Have smaller chance of being throttled or rejected.
 
-Pay particular attention to queries that are used for recurrent and bursty usage, such as dashboards, alerts, Azure Logic Apps, and Power BI. The impact of an ineffective query in these cases is substantial.
+Pay particular attention to queries that are used for recurrent and simultaneous usage, such as dashboards, alerts, Azure Logic Apps, and Power BI. The impact of an ineffective query in these cases is substantial.
 
 Here's a detailed video walkthrough on optimizing queries.
 
@@ -454,7 +454,8 @@ Cross-region and cross-cluster execution of queries requires the system to seria
 A query that spans more than five workspaces is considered a query that consumes excessive resources. Queries can't span more than 100 workspaces.
 
 > [!IMPORTANT]
-> In some multi-workspace scenarios, the CPU and data measurements won't be accurate and will represent the measurement of only a few of the workspaces.
+> - In some multi-workspace scenarios, the CPU and data measurements won't be accurate and will represent the measurement of only a few of the workspaces.
+> - Cross workspace queries having an explicit identifier: workspace ID, or workspace Azure Resource ID, consume less resources and are more performant. See [Create a log query across multiple workspaces](./cross-workspace-query.md#identify-workspace-resources)
 
 ## Parallelism
 Azure Monitor Logs uses large clusters of Azure Data Explorer to run queries. These clusters vary in scale and potentially get up to dozens of compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.
@@ -463,7 +464,7 @@ To efficiently execute a query, it's partitioned and distributed to compute node
 
 Query behaviors that can reduce parallelism include:
 
-- Use of serialization and window functions, such as the [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction), and the [row](/azure/kusto/query/rowcumsumfunction) functions. Time series and user analytics functions can be used in some of these cases. Inefficient serialization might also happen if the following operators aren't used at the end of the query: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), and [getschema](/azure/kusto/query/getschemaoperator).
+- Use of serialization and window functions, such as the [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction), and the [row](/azure/kusto/query/rowcumsumfunction) functions. Time series and user analytics functions can be used in some of these cases. Inefficient serialization might also happen if the following operators aren't used at the end of the query: [range](/azure/kusto/query/rangeoperator), [sort](/azure/data-explorer/kusto/query/sort-operator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), and [getschema](/azure/kusto/query/getschemaoperator).
 - Use of the [dcount()](/azure/kusto/query/dcount-aggfunction) aggregation function forces the system to have a central copy of the distinct values. When the scale of data is high, consider using the `dcount` function optional parameters to reduce accuracy.
 - In many cases, the [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) operator lowers overall parallelism. Examine `shuffle join` as an alternative when performance is problematic.
 - In resource-scope queries, the pre-execution Kubernetes role-based access control (RBAC) or Azure RBAC checks might linger in situations where there's a large number of Azure role assignments. This situation might lead to longer checks that would result in lower parallelism. For example, a query might be executed on a subscription where there are thousands of resources and each resource has many role assignments on the resource level, not on the subscription or resource group.

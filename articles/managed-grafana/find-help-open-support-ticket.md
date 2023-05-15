@@ -1,11 +1,11 @@
 ---
 title: Find help or open a support ticket for Azure Managed Grafana
 description: Learn how to find help or open a support ticket for Azure Managed Grafana
-author: maud-lv
+author: mcleanbyron
 ms.service: managed-grafana
 ms.topic: troubleshooting
 ms.date: 01/23/2023
-ms.author: malev
+ms.author: mcleans
 ---
 
 # Find help or open a support ticket for Azure Managed Grafana
@@ -16,7 +16,7 @@ In the page below, find out how you can get technical information about Azure Ma
 
 Before creating a support ticket, check out the following resources for answers and information.
 
-* [Technical documentation for Azure Managed Grafana](/index.yml): find content such as how-to guides, tutorials and the [troubleshooting guide](troubleshoot-managed-grafana.md) for Azure Managed Grafana.
+* [Technical documentation for Azure Managed Grafana](./index.yml): find content such as how-to guides, tutorials and the [troubleshooting guide](troubleshoot-managed-grafana.md) for Azure Managed Grafana.
 * [Microsoft Q&A](/answers/tags/249/azure-managed-grafana): browse existing questions and answers, and ask your questions around Azure Managed Grafana.
 * [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for IT professionals and customers to collaborate, share, and learn. The website contains [Grafana-related content](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?q=grafana).
 

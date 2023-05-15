@@ -2,14 +2,14 @@
 title: Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to attach and manage Spark pools with Azure Synapse 
-author: ynpandey
+author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
 ms.date: 12/01/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)
@@ -639,7 +639,7 @@ ml_client.compute.begin_delete(name=synapse_name, action="Detach")
 
 ## Managed Synapse Spark Pool in Azure Machine Learning
 
-Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a Managed (Automatic) Spark compute experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the Managed (Automatic) Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
+Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a serverless Spark compute (preview) experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the serverless Spark compute (preview) experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 ## Next steps
 
