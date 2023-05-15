@@ -17,11 +17,6 @@ ms.subservice: calling
 
 # Use the End of Call Survey to collect user feedback
 
-
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
-
-
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
@@ -41,7 +36,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 <!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
 
 > [!IMPORTANT]
-> End of Call Survey is available starting on the version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Make sure to use that version or later when trying the instructions.
+> End of Call Survey is available starting on the version [1.13.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
 
 ## Sample of API usage
 
