@@ -115,7 +115,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure DDoS Protection](../ddos-protection/ddos-faq.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Disk Encryption](../virtual-machines/disks-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Event Grid](../event-grid/overview.md) | ![An icon that signifies this service is zone-redundant](media/icon-zone-redundant.svg) |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Functions](./reliability-functions.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure HDInsight](../hdinsight/hdinsight-use-availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
@@ -150,6 +150,8 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | Virtual WAN: [Azure ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Virtual WAN: [Point-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Virtual WAN: [Site-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+
+\*Azure Firewall can be placed in availability zones (or multiple zones for redundancy). If you are unable to select a zone, it is possible that your region does not yet support availability zones.\*
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
