@@ -28,7 +28,7 @@ items:
     - name: Deploy infrastructure for an SAP system with customized resource names
       href: tutorial-create-HA-name-custom.md
     - name: Deploy infrastructure for an SAP system with customized Database Disk Layout
-      href: tutotial-customize-disk.md    
+      href: tutorial-customize-disk.md    
   - name: Concepts
     items:
     - name: Manage resources with Azure RBAC
