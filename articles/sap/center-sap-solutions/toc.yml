@@ -22,7 +22,7 @@ items:
     - name: Start and Stop SAP System - Azure Powershell 
       href: quick-stop-start-sap-powershell.md
     - name: Start and Stop SAP System - Azure CLI
-      href: quick-stop-start-sap-powershell.md
+      href: quick-stop-start-sap-cli.md
   - name: Tutorial
     items:
     - name: Deploy infrastructure for an SAP system with customized resource names
