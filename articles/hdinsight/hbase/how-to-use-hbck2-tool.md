@@ -27,15 +27,15 @@ HBCK2 doesn't work the way HBCK1 used to, even in cases where commands are simil
 
 ## Obtain HBCK2
 
-You can find the release under the HBase distribution directory. For more information, see the [HBASE downloads page](https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1.2.0-bin.tar.gz).
+You can find the release under the HBase distribution directory. For more information, see the [HBase downloads page](https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1.2.0-bin.tar.gz).
 
 ### Master UI: The HBCK Report
 
 An HBCK Report page added to the Master in 2.1.6 at `/hbck.jsp` shows output from two inspections run by the Master on an interval. One is the output by the `CatalogJanitor` whenever it runs. If overlaps or holes are found in `hbase:meta`, the `CatalogJanitor` lists what it has found. Another background `chore` process compares the `hbase:meta` and file-system content. If an anomaly is found, it makes a note in its HBCK Report section.
 
-To run the `CatalogJanitor`, execute the command in the hbase shell: `catalogjanitor_run`
+To run the `CatalogJanitor`, execute the command in the hbase shell: `catalogjanitor_run`.
 
-To run the `hbck chore`, execute the command in the hbase shell: `hbck_chore_run`
+To run the `hbck chore`, execute the command in the hbase shell: `hbck_chore_run`.
 
 Both commands don't take any inputs.
 
@@ -146,10 +146,9 @@ Option:
 
 * `-i,--inputFiles`: Takes one or more input files of namespace table names to be used when regions are missing from `hbase:meta` but directories are still present in HDFS. *Needs `hbase:meta` to be online.*
 
-For each table name passed as a parameter, it performs a diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the `regioninfo` metadata file and re-creates a specific region in `hbase:meta`. Regions are re-created in the CLOSED state in the `hbase:meta` table, but not in the `Masters` cache. They aren't assigned either. To get these regions online, run the HBCK2 `assigns` command printed when this command run completes.
+For each table name passed as a parameter, it performs a diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the `regioninfo` metadata file and re-creates a specific region in `hbase:meta`. Regions are re-created in the CLOSED state in the `hbase:meta` table, but not in the `Masters` cache. They aren't assigned either. To get these regions online, run the HBCK2 `assigns` command printed when this command run finishes.
 
-> [!NOTE]
-> If you're using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of `assigns` output. This example adds missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from namespace `n2`:
+If you're using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of `assigns` output. This example adds missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from namespace `n2`:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
@@ -330,6 +329,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 This section helps you troubleshoot common issues.
 
 ### General principles
+
 When you make a repair, *make sure that `hbase:meta` is consistent first before you fix any other issue type*, such as a file-system deviance. Deviance in the file system or problems with assign should be addressed after the `hbase:meta` is put in order. If `hbase:meta` has issues, the Master can't make proper placements when it adopts orphan file-system data or makes region assignments.
 
 A region can't be assigned if it's in the CLOSING state (or the inverse, unassigned if in the OPENING state) without first transitioning via CLOSED. Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING and CLOSED.
@@ -354,7 +354,7 @@ The Master is unable to continue startup because there's no procedure to assign 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns -skip 1588230740
 ```
 
-In this example, **1588230740 is the encoded name of the** `hbase:meta` **region**. Pass the `-skip` option to stop HBCK2 from doing a version check against the remote Master. If the remote Master isn't up, the version check prompts a `Master is initializing response` or `PleaseHoldException` and drops the assign attempt. The `-skip` command avoids the version check and lands the scheduled assign.
+In this example, 1588230740 is the encoded name of the `hbase:meta` region. Pass the `-skip` option to stop HBCK2 from doing a version check against the remote Master. If the remote Master isn't up, the version check prompts a `Master is initializing response` or `PleaseHoldException` and drops the assign attempt. The `-skip` command avoids the version check and lands the scheduled assign.
 
 The same might happen to the `hbase:namespace` system table. Look for the encoded region name of the `hbase:namespace` region and take similar steps to what we did for `hbase:meta`. In this latter case, the Master actually prints a helpful message that looks like this example:
 
@@ -371,23 +371,26 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 Pass the encoded name for the namespace region. (The encoded name differs per deployment.)
 
 ### Missing regions in hbase:meta region/table restore/rebuild
+
 Some unusual cases had table regions removed from the `hbase:meta` table. Triage on these cases revealed that they were operator induced. Users ran the obsolete HBCK1 OfflineMetaRepair tool against an HBCK2 cluster. OfflineMetaRepair is a well-known tool for fixing `hbase:meta` table-related issues on HBase 1.x versions. The original version isn't compatible with HBase 2.x or higher versions, and it has undergone some adjustments. In extreme situations, it can now be run via HBCK2.
 
 In most of these cases, regions end up missing in `hbase:meta` at random, but hbase might still be operational. In such situations, the problem can be addressed with the Master online by using the `addFsRegionsMissingInMeta` command in HBCK2. This command is less disruptive to hbase than a full `hbase:meta` rebuild, which is covered later. It can be used even for recovering the namespace table region.
 
 ### Extra regions in hbase:meta region/table restore/rebuild
+
 There can also be situations where table regions were removed in the file system but still have related entries on the `hbase:meta` table. This scenario might happen because of problems on splitting, manual operation mistakes (like deleting or moving the region dir manually), or even meta info data loss issues such as HBASE-21843.
 
 Such problems can be addressed with the Master online by using the `extraRegionsInMeta --fix` command in HBCK2. This command is less disruptive to hbase than a full `hbase:meta` rebuild, which is covered later. It's also useful when this happens on versions that don't support the `fixMeta` HBCK2 option (any versions prior to 2.0.6, 2.1.6, 2.2.1, 2.3.0, or 3.0.0).
   
 ### Online hbase:meta rebuild recipe
+
 If `hbase:meta` corruption isn't too critical, hbase can still bring it online. Even if the namespace region is among the missing regions, it's possible to scan `hbase:meta` during the initialization period, where Master is waiting for the namespace to be assigned. To verify this situation, an `hbase:meta` scan command can be executed. If it doesn't time out or show any errors, the `hbase:meta` is online:
 
 ```
 echo "scan 'hbase:meta', {COLUMN=>'info:regioninfo'}" | hbase shell
 ```
 
-HBCK2 **addFsRegionsMissingInMeta** can be used if the message doesn't show any errors. It reads region metadata info available on the FS region directories to re-create regions in `hbase:meta`. Because it can run with hbase partially operational, it attempts to disable online tables that are affected by the reported problem and it's going to readd regions to `hbase:meta`. It can check for specific tables or namespaces, or all tables from all namespaces. This example shows adding missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from the namespace `n2`:
+HBCK2 `addFsRegionsMissingInMeta` can be used if the message doesn't show any errors. It reads region metadata info available on the FS region directories to re-create regions in `hbase:meta`. Because it can run with hbase partially operational, it attempts to disable online tables that are affected by the reported problem and it's going to readd regions to `hbase:meta`. It can check for specific tables or namespaces, or all tables from all namespaces. This example shows adding missing regions for tables `tbl_1` in the default namespace, `tbl_2` in namespace `n1`, and for all tables from the namespace `n2`:
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
@@ -395,8 +398,8 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 Because it operates independently from Master, after it finishes successfully, more steps are required to have the readded regions assigned. These messages are listed as follows:
 
-- **addFsRegionsMissingInMeta** outputs an assigns command with all regions that got readded. This command must be executed later, so copy and save it for convenience.
-- **For HBase versions prior to 2.3.0,** after `addFsRegionsMissingInMeta` finished successfully and output has been saved, restart all running HBase Masters.
+- `addFsRegionsMissingInMeta` outputs an assigns command with all regions that got readded. This command must be executed later, so copy and save it for convenience.
+- For HBase versions prior to 2.3.0, after `addFsRegionsMissingInMeta` finished successfully and output has been saved, restart all running HBase Masters.
 
 After Masters are restarted and `hbase:meta` is already online (check if the web UI is accessible), run the assigns command from `addFsRegionsMissingInMeta` output saved earlier.
 
