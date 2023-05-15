@@ -102,7 +102,7 @@ landingContent:
             url: single-server/connect-ruby.md
           - text: Connect using PHP
             url: single-server/connect-php.md
-          - text: Connect using .Net
+          - text: Connect using .NET
             url: single-server/connect-csharp.md
           - text: Connect using Go
             url: single-server/connect-go.md

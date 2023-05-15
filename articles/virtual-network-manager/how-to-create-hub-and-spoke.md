@@ -1,15 +1,15 @@
 ---
-title: 'Create a hub and spoke topology with Azure Virtual Network Manager'
-description: Learn how to create a hub and spoke network topology with Azure Virtual Network Manager.
+title: 'Create a hub and spoke topology in Azure - Portal'
+description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 05/01/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
-# Create a hub and spoke topology with Azure Virtual Network Manager
+# Create a hub and spoke topology in Azure - Portal
 
 In this article, you learn how to create a hub and spoke network topology with Azure Virtual Network Manager. With this configuration, you select a virtual network to act as a hub and all spoke virtual networks have bi-directional peering with only the hub by default. You also can enable direct connectivity between spoke virtual networks and enable the spoke virtual networks to use the virtual network gateway in the hub.
 
@@ -47,7 +47,7 @@ This section helps you create a network group containing the virtual networks yo
 
 Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. This how-to covers [manually adding membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [Define network group membership with Azure Policy](concept-network-groups.md#dynamic-membership).
 
-### Manually adding members
+### Manually adding virtual networks
 To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
 
 1. From the list of network groups, select your network group and select **Add virtual networks** under *Manually add members* on the network group page.
@@ -127,7 +127,10 @@ To have this configuration take effect in your environment, you need to deploy t
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
-## Confirm deployment
+> [!NOTE]
+> If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.
+
+## Confirm configuration deployment
 
 1. See [view applied configuration](how-to-view-applied-configurations.md).
 

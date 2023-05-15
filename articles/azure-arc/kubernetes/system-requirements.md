@@ -48,7 +48,7 @@ For Azure CLI:
 
 For Azure PowerShell:
 
-- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell).
 - Install the **Az.ConnectedKubernetes** PowerShell module:
 
     ```azurepowershell-interactive

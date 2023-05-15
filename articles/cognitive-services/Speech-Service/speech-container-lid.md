@@ -26,7 +26,7 @@ The Speech language identification container detects the language spoken in audi
 For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
 
 > [!TIP]
-> To get the most useful results, use the Speech language identification container with the [speech-to-text](speech-container-stt.md) or [custom speech-to-text](speech-container-cstt.md) containers.
+> To get the most useful results, use the Speech language identification container with the [speech to text](speech-container-stt.md) or [custom speech to text](speech-container-cstt.md) containers.
 
 ## Container images
 
@@ -107,9 +107,9 @@ This command:
 
 For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
 
-## Run with the speech-to-text container
+## Run with the speech to text container
 
-If you want to run the language identification container with the [speech-to-text](speech-container-stt.md) container, you can use this [docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this `docker run` command to execute `speech-to-text-with-languagedetection-client`:
+If you want to run the language identification container with the [speech to text](speech-container-stt.md) container, you can use this [docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this `docker run` command to execute `speech-to-text-with-languagedetection-client`:
 
 ```bash
 docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-text-with-languagedetection-client ./audio/LanguageDetection_en-us.wav --host localhost --lport 5003 --sport 5000
