@@ -64,27 +64,27 @@ To register an existing SAP system in Azure Center for SAP solutions:
        -IdentityType 'UserAssigned' `
        -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}} `
      ```
- - **Name** attribute is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
- - **Location** attribute is used to specify the Azure Center for SAP solutions service location. Following table has the mapping that enables you to choose the right service location based on where your SAP system infrastructure is located on Azure.
+   - **Name** attribute is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
+   - **Location** attribute is used to specify the Azure Center for SAP solutions service location. Following table has the mapping that enables you to choose the right service location based on where your SAP system infrastructure is located on Azure.
 
-| **SAP application location** | **Azure Center for SAP solutions service location** |
-| ------------------------| --------------------------------------------------- |
-| East US | East US |
-| East US 2 | East US 2|
-| South Central US | East US 2 |
-| Central US | East US 2|
-| West US 2 | West US 3 |
-| West US 3 | West US 3 |
-| West Europe | West Europe |
-| North Europe | North Europe |
-| Australia East | Australia East |
-| Australia Central | Australia East |
-| East Asia | East Asia |
-| Southeast Asia | East Asia |
-| Central India | Central India |
+   | **SAP application location** | **Azure Center for SAP solutions service location** |
+   | ------------------------| --------------------------------------------------- |
+   | East US | East US |
+   | East US 2 | East US 2|
+   | South Central US | East US 2 |
+   | Central US | East US 2|
+   | West US 2 | West US 3 |
+   | West US 3 | West US 3 |
+   | West Europe | West Europe |
+   | North Europe | North Europe |
+   | Australia East | Australia East |
+   | Australia Central | Australia East |
+   | East Asia | East Asia |
+   | Southeast Asia | East Asia |
+   | Central India | Central India |
 
- - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
- - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
+   - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
+   - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
 
 2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
 
