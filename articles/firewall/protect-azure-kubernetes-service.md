@@ -252,7 +252,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
-Use the [az aks get-credentials](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials) command to configure `kubectl` to connect to your newly created Kubernetes cluster.
+Use the [az aks get-credentials](https://learn.microsoft.com/cli/azure/aks#az-aks-get-credentials) command to configure `kubectl` to connect to your newly created Kubernetes cluster.
 
 ```azurecli
 az aks get-credentials -g $RG -n $AKSNAME
