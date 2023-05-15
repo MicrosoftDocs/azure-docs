@@ -1,17 +1,18 @@
 ---
-title: Lumenisity UoS Patent List
+title: Lumenisity UoS Patents
 description: List of Lumenisity UoS Patents as of April 19, 2023.
 author: duongau
 ms.topic: article
 ms.date: 05/15/2023
 ms.author: duau
-
 ---
 
-# Lumenisity UoS Patent List
+# Lumenisity UoS Patents
 
 > [!NOTE]
 > Microsoft Hollow Core Fiber products and manufacturing processes may be protected by one or more claims of the following patents or published patent applications.
+
+## Patent List
 
 | Grant number                  | Publication number                  | Country                      |
 |-------------------------------|-------------------------------------|------------------------------|
@@ -131,4 +132,4 @@ ms.author: duau
 
 ## Next Steps
 
-Learn more about [Microsoft acquisition of Lumenisity](https://blogs.microsoft.com/blog/2022/12/09/microsoft-acquires-lumenisity-an-innovator-in-hollow-core-fiber-hcf-cable/).
+Learn more about [Microsoft's acquisition of Lumenisity](https://blogs.microsoft.com/blog/2022/12/09/microsoft-acquires-lumenisity-an-innovator-in-hollow-core-fiber-hcf-cable/).
