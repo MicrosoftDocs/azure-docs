@@ -289,14 +289,14 @@ Retrieving metadata doesn't return attributes with the following value represent
 | OW      | Other Word             |
 | UN      | Unknown                |
 
-### Retrieve metadata cache validation for (study, series, or instance)
+### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
 * Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response is sent with no response body.
 * Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is also returned as part of the body.
 
-### Retrieve Rendered Image (For Instance or Frame)
+### Retrieve rendered image (for instance or frame)
 The following `Accept` header(s) are supported for retrieving a rendered image an instance or a frame:
 
 - `image/jpeg`
