@@ -68,7 +68,7 @@ You can set up the GCP environment in one of two ways:
 1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.  
 1. When asked if you want to create the resources listed, type *yes*.
 1. Save the resources parameters for later use. 	
-1. In a new folder, copy the Terraform `GCPAuditLogsSetup` script into a new file, and save it as a .tf file:
+1. In a new folder, copy the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) into a new file, and save it as a .tf file:
 
     ```
     cd {foldername} 
