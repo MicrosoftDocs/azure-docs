@@ -17,7 +17,7 @@ Azure functions gives you the following benefits:
 
 - **[End-to-end development experience](#end-to-end-development-experience)**: Take advantage of a complete, end-to-end development experience — from building and debugging locally on major platforms like Windows, macOS, and Linux, to deploying and monitoring in the cloud
 
-- **[Hosting options flexibility](#hosting-options-flexibility)**: Choose the hosting model that better fits your business needs without compromising development experience
+- **[Hosting options flexibility](#flexible-hosting-options)**: Choose the hosting model that better fits your business needs without compromising development experience
 
 - **[Fully managed and cost-effective](#fully-managed-and-cost-effective)**: Automated and flexible scaling based on your workload volume, keeping the focus on adding value instead of managing infrastructure
 
