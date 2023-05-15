@@ -9,7 +9,7 @@ ms.custom: engagement-fy23
 
 # What is Azure VMware Solution?
 
-Azure VMware Solution provides you with private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. Azure VMware Solution is available in Azure Commercial and in Public Preview in Azure Government.The minimum initial deployment is three hosts, but more hosts can be added, up to a maximum of 16 hosts per cluster. All provisioned private clouds have VMware vCenter Server, VMware vSAN, VMware vSphere, and VMware NSX-T Data Center. As a result, you can migrate workloads from your on-premises environments, deploy new virtual machines (VMs), and consume Azure services from your private clouds. For information about the SLA, see the [Azure service-level agreements](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) page.
+Azure VMware Solution provides you with private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. Azure VMware Solution is available in Azure Commercial and in Azure Government. The minimum initial deployment is three hosts, but more hosts can be added, up to a maximum of 16 hosts per cluster. All provisioned private clouds have VMware vCenter Server, VMware vSAN, VMware vSphere, and VMware NSX-T Data Center. As a result, you can migrate workloads from your on-premises environments, deploy new virtual machines (VMs), and consume Azure services from your private clouds. For information about the SLA, see the [Azure service-level agreements](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) page.
 
 Azure VMware Solution is a VMware validated solution with ongoing validation and testing of enhancements and upgrades. Microsoft manages and maintains the private cloud infrastructure and software. It allows you to focus on developing and running workloads in your private clouds to deliver business value.
 
@@ -109,5 +109,6 @@ The next step is to learn key [private cloud and cluster concepts](concepts-priv
 
 <!-- LINKS - external -->
 
-<!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

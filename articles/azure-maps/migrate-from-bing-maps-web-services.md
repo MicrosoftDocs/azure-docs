@@ -38,15 +38,11 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Spatial Data Services (SDS)           | [Search] + [Route] + other Azure Services |
 | Time Zone                             | [Time Zone]                               |
 | Traffic Incidents                     | [Traffic Incident Details]                |
-| Elevations                            | <sup>1</sup>                              |
-
-<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 The following service APIs aren't currently available in Azure Maps:
 
 * Optimized Itinerary Routes - Planned. Azure Maps Route API does support traveling salesmen optimization for a single vehicle.
 * Imagery Metadata – Primarily used for getting tile URLs in Bing Maps. Azure Maps has a standalone service for directly accessing map tiles.
-* Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md)
 
 Azure Maps also has these REST web services:
 
@@ -689,7 +685,6 @@ Learn more about the Azure Maps REST services.
 [POST Route directions]: /rest/api/maps/route/postroutedirections
 [Route]: /rest/api/maps/route
 [Time Zone]: /rest/api/maps/timezone
-[Elevation]: /rest/api/maps/elevation
 
 [Azure Maps Creator]: creator-indoor-maps.md
 [Spatial operations]: /rest/api/maps/spatial

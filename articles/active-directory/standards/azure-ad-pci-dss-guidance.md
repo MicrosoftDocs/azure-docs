@@ -57,7 +57,7 @@ CHD consists of:
 * **Primary account number (PAN)** - a unique payment card number (credit, debit, or prepaid cards, etc.)   that identifies the issuer and the cardholder account
 * **Cardholder name** – the card owner
 * **Card expiration date** – the day and month the card expires
-* **Service code** - a three- or four-digit value in the magnetic stripe that follows the expiration date of the payment card on the track data. It defines service attributes, differentiating between international and national interchange, or identifying usage restrictions.
+* **Service code** - a three- or four-digit value in the magnetic stripe that follows the expiration date of the payment card on the track data. It defines service attributes, differentiating between international and national/regional interchange, or identifying usage restrictions.
 
 SAD consists of security-related information used to authenticate cardholders and/or authorize payment card transactions. SAD includes, but isn't limited to:
 

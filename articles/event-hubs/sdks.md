@@ -2,7 +2,7 @@
 title: Azure Event Hubs - Client SDKs | Microsoft Docs
 description: This article provides information about client SDKs for Azure Event Hubs. 
 ms.topic: article
-ms.date: 12/01/2021
+ms.date: 05/05/2023
 ---
 
 # Azure Event Hubs - Client SDKs
@@ -28,7 +28,7 @@ The following table describes all the latest available Azure Event Hubs runtime 
 | Go | [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[GitHub location](https://github.com/Azure/azure-event-hubs-go)</li><li>[Tutorial](event-hubs-go-get-started-send.md)</li></ul> |
 | C | [azure-event-hubs-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[GitHub location](https://github.com/Azure/azure-event-hubs-c)</li><li>[Tutorial](event-hubs-c-getstarted-send.md)</li></ul> |
 
-The below table lists older Azure Event Hubs runtime clients. While these packages may receive critical bug fixes, they aren't in active development. We recommend using the latest SDKs listed in the above table instead.
+The following table lists older Azure Event Hubs runtime clients. While these packages may receive critical bug fixes, they aren't in active development. We recommend using the latest SDKs listed in the above table instead.
 
 | Language | Package | Reference | 
 | -------- | ------- | --------------- | 

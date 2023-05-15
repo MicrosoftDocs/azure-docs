@@ -1344,6 +1344,7 @@
         "exclude": [
           "articles/azure-netapp-files/azure-netapp-files-create-volumes.md",
           "articles/azure-netapp-files/faq-application-resilience.md",
+          "articles/azure-netapp-files/performance-oracle-multiple-volumes.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial.md",
           "articles/sap/large-instances/**/**.md",
