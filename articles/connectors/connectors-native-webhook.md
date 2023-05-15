@@ -22,13 +22,18 @@ This how-to guide shows how to use the HTTP Webhook trigger and Webhook action s
 
 ## How do webhooks work?
 
-A webhook trigger is event-based, which doesn't depend on checking or polling regularly for new data or events. After you add a webhook trigger to an empty workflow and then save the workflow, or after you reenable a disabled logic app resource, the webhook trigger *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. The trigger then waits for that service endpoint to call the URL, which fires the trigger and starts the workflow. Similar to the [Request trigger](connectors-native-reqres.md), a webhook trigger fires immediately. The webhook trigger also remains subscribed to the service endpoint unless you delete the trigger and then save your workflow, or if you disable your logic app resource.
+A webhook trigger is event-based, which doesn't depend on checking or polling regularly for new data or events. After you add a webhook trigger to an empty workflow and then save the workflow, or after you reenable a disabled logic app resource, the webhook trigger *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. The trigger then waits for that service endpoint to call the URL, which fires the trigger and starts the workflow. Similar to the [Request trigger](connectors-native-reqres.md), a webhook trigger fires immediately. The webhook trigger also remains subscribed to the service endpoint unless you manually take the following actions:
+
+* Change the trigger's parmeter values.
+* Delete the trigger and then save your workflow.
+* Disable your logic app resource.
+* Change any webhook action parameter values that a webhook trigger references as inputs.
 
 Similar to the webhook trigger, a webhook action works is also event-based. After you add a webhook action to an existing workflow and then save the workflow, or after you renable a disabled logic app resource, the webhook action *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. When the workflow runs, the webhook action pauses the workflow and waits until the service endpoint calls the URL before the workflow resumes running. A webhook action *unsubscribes* from the service endpoint when the following conditions occur:
 
-* When the webhook action successfully finishes
-* If the workflow run is canceled while waiting for a response
-* Before the workflow times out
+* The webhook action successfully finishes.
+* The workflow run is canceled while waiting for a response.
+* Before a workflow run times out.
 
 For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
 
@@ -51,7 +56,7 @@ For information about encryption, security, and authorization for inbound calls 
 
 This built-in trigger calls the subscribe endpoint on the target service and registers a callback URL with the target service. Your logic app then waits for the target service to send an `HTTP POST` request to the callback URL. When this event happens, the trigger fires and passes any data in the request along to the workflow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), pen your blank logic app workflow in the designer.
 
 1. In the designer's search box, enter `http webhook` as your filter. From the **Triggers** list, select the **HTTP Webhook** trigger.
 
