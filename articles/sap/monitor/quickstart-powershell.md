@@ -75,7 +75,7 @@ Get-AzWorkloadsMonitor -ResourceGroupName Contoso-AMS-RG -Name Contoso-AMS-Monit
 
 ### SAP NetWeaver Provider Creation
 
-To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloadsnew-azworkloadsproviderinstance) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
+To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -84,7 +84,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 Note -
 
 - hostname is SAP WebDispatcher or application server hostname/IP address
-- SapHostFileEntry is IP,FQDN,Hostname of every instance that gets listed in [GetSystemInstanceList](https://learn.microsoft.com/azure/sap/monitor/provider-netweaver#determine-all-hostname-associated-with-an-sap-system)
+- SapHostFileEntry is IP,FQDN,Hostname of every instance that gets listed in [GetSystemInstanceList](./provider-netweaver.md#determine-all-hostname-associated-with-an-sap-system)
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -108,7 +108,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 
 ### SAP HANA Provider Creation
 
-To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloadsnew-azworkloadsproviderinstance) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name.
+To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -129,7 +129,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 
 ### Operating System Provider Creation
 
-To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloadsnew-azworkloadsproviderinstance) cmdlet. The following example creates an OS provider for the specified subscription, resource group, and resource name.
+To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates an OS provider for the specified subscription, resource group, and resource name.
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
