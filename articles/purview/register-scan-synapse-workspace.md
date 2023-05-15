@@ -285,7 +285,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, you can choose the "Enter manually" option to specify the database names that you want to scan, and proceed.
+> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, you can choose the "Enter manually" option to specify the database names that you want to scan, and proceed. Learn more from [Create and run scan](#create-and-run-scan).
 
 ### Create and run scan
 
