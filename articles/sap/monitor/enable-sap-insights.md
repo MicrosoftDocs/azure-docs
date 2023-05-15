@@ -118,7 +118,7 @@ This capability helps you get an overview regarding performance of your SAP syst
     :::image type="content" source="./media/enable-sap-insights/performance-detail-pane.png" alt-text="Screenshot of the context pane of performance insights.":::
     
     * SAP application - Visualizations of the key SAP logs that pertain the issue type. 
-    :::image type="content" source="./media/enable-sap-insights/performance-sap-pane.png" alt-text="Screenshot of the SAP pane of performance insights.":::
+    :::image type="content" source="./media/enable-sap-insights/performance-sap-platform-pane.png" alt-text="Screenshot of the SAP pane of performance insights.":::
 
     * Azure platform - Key Azure platform metrics that present an overview of the virtual machine of the SAP system.
     :::image type="content" source="./media/enable-sap-insights/performance-azure-pane.png" alt-text="Screenshot of the infrastructure pane of performance insights.":::
