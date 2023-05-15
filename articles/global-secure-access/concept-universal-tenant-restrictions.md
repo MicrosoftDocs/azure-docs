@@ -14,20 +14,26 @@ ms.reviewer: mamkumar
 ---
 # Universal tenant restrictions
 
-Tenant restrictions v1 had a heavy reliance on your corporate proxy, tenant restrictions v2 integrates directly with Global Secure Access through universal tenant restrictions for policy application while users are on your network (clients or branches) or devices. For more information about tenant restrictions v2, the changes, and how to configure, see the article [Set up tenant restrictions V2 (Preview)](https://aka.ms/tenant-restrictions-enforcement).
+Universal tenant restrictions enhances the funtionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) by using Global Secure Access to tag all traffic no matter the operating system or device. It allows support for both branch locations and individual devices. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
-With the help of Global Secure Access, tenant restrictions v2 provides the following benefits in the form of universal tenant restrictions:
+Universal Tenant Restrictions enforces tenant restrictions v2 for all operating system and browser platforms. It does this by leveraging Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users leveraging external tenant identities for Azure AD integrated applications like SharePoint Online and Exchange Online. TRv2 and NaaS work hand in hand to prevent data exfiltration universally across all devices and networks.  
 
-1. Coverage for tagging all traffic no matter the browser or OS on the device.
-1. Support for [branch connectivity](BRANCHDOC) as well as direct from [device connectivity](DEVICESDOC).
-1. No need to manage proxy configurations and native integration with [Microsoft 365 frontdoor](/microsoft-365/enterprise/microsoft-365-networking-overview).
-1. Performance enhancements across both the Azure AD and Microsoft 365 datapath.
+INSERT DIAGRAM HERE SHOWING TRV2 SCENARIO
 
-Universal tenant restrictions helps organizations to prevent data exfiltration across browsers, devices, and networks.
+In the example depicted in the diagram 
+
+
+Universal tenant restrictions helps to prevent data exfiltration across browsers, devices, and networks in the following ways:
+
+- It injects the following attributes into the header of outbound HTTP traffic at the client level in both the authentication control and data sessions to Microsoft 365 endpoints:
+    - Cloud ID of the device tenant
+    - Tenant ID of the device tenant
+    - Tenant restrictions v2 policy ID of the device tenant
+- It enables Azure AD, Microsoft Accounts, and Microsoft 365 SaaS applications to interpret this special HTTP header enabling lookup and enforcement of the associated tenant restrictions v2 policy. This lookup enables consistent policy application. 
 
 ## Enable tagging for tenant restrictions v2
 
-To allow tagging for tenant restrictions v2 an administrator must take the following steps.
+To allow Global Secure Access to apply tagging for tenant restrictions v2, an administrator must take the following steps.
 
 1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
 1. Browse to **NEED THE ACTUAL PATH** > **Security **> **Tenant Restrictions**.
@@ -68,3 +74,5 @@ External Identities - Microsoft Azure;
 Full feature flag URL: 
 
 (https://portal.azure.com/?Microsoft_AAD_IAM_isXTAPTenantRestrictionEnabled=true#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings) 
+
+## Next steps
