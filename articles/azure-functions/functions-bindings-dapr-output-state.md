@@ -2,7 +2,7 @@
 title: Dapr State output binding for Azure Functions
 description: Learn how to provide Dapr State output binding data to an Azure Function.
 ms.topic: reference
-ms.date: 04/17/2023
+ms.date: 05/15/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -35,28 +35,53 @@ A C# function can be created using one of the following C# modes:
 
 # [In-process](#tab/in-process)
 
+The following example demonstrates using [Dapr service invocation trigger](./functions-bindings-dapr-trigger-svc-invoke.md) and the Dapr state output binding to persist a new state into the state store. 
+
 ```csharp
-[FunctionName("StateOutputBinding")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "post", Route = "state/{key}")] HttpRequest req,
-    [DaprState("statestore", Key = "{key}")] IAsyncCollector<string> state,
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Dapr;
+using Microsoft.Extensions.Logging;
+
+public static class DaprStateOutputBindingUserDefinedType
+{
+    /// <summary>
+    /// Example to use Dapr Service Invocation Trigger and Dapr State Output binding to persist a new state into statestore
+    /// </summary>
+    [FunctionName("DaprStateOutputBindingUserDefinedType")]
+
+public static Product Run(
+    [DaprServiceInvocationTrigger] Product payload,
+    [DaprState("%StateStoreName%", Key = "product")] out Product product,
     ILogger log)
 {
-    log.LogInformation("C# HTTP trigger function processed a request.");
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    await state.AddAsync(requestBody);
-    return new OkResult();
+    log.LogInformation("C# function processed a DaprStateOutputBindingUserDefinedType request from the Dapr Runtime.");
+
+        product = payload;
+
+        return payload;
+    }
+}
+
+public class Product
+{
+    [JsonPropertyName("Name")]
+    public string Name { get; set; }
+    [JsonPropertyName("Description")]
+    public string Description { get; set; }
+    [JsonPropertyName("Quantity")]
+    public int Quantity { get; set; }
 }
 ```
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows how the custom type is used in both the trigger and a Dapr State output binding.
+More samples for the Dapr output state binding are available in the [GitHub repository](todo).
 
-TODO: current example has in-proc, need to update with out-of-proc
 <!--
 
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/StateOutputBinding.cs" range="8-33"::: 
+:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/StateOutputBinding.cs" range="8-29"::: 
 -->
 
 ---

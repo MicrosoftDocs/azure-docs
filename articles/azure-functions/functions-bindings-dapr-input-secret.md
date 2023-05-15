@@ -2,7 +2,7 @@
 title: Dapr Secret input binding for Azure Functions
 description: Learn how to provide Dapr Secret input binding data to an Azure Function.
 ms.topic: reference
-ms.date: 04/17/2023
+ms.date: 05/15/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -46,12 +46,11 @@ public static void Run(
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows how the custom type is used in both the trigger and a Dapr state output binding.
+More samples for the Dapr input secret binding are available in the [GitHub repository](todo).
 
-TODO: current example has in-proc, need to update with out-of-proc
 <!--
 
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/RetrieveSecret.cs" range="8-35"::: 
+:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/RetrieveSecret.cs" range="8-36"::: 
 -->
 
 ---

@@ -34,6 +34,8 @@ A C# function can be created using one of the following C# modes:
 
 # [In-process](#tab/in-process)
 
+The following example demonstrates using a Dapr service invocation trigger and a Dapr output binding to read and process a binding request.
+
 ```csharp
 [FunctionName("SendMessageToKafka")]
 public static async Task Run(
@@ -48,13 +50,13 @@ public static async Task Run(
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows how the custom type is used in both the trigger and a Dapr state output binding.
+More samples for the Dapr output invoke binding are available in the [GitHub repository](todo).
 
-TODO: current example has in-proc, need to update with out-of-proc
 <!--
 
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/SendMessageToKafka.cs" range="8-26"::: 
+:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/SendMessageToKafka.cs" range="8-39"::: 
 -->
+
 ---
 
 ::: zone-end 

@@ -33,6 +33,8 @@ A C# function can be created using one of the following C# modes:
 
 # [In-process](#tab/in-process)
 
+The following example demonstrates using a Dapr invoke output binding to perform a Dapr service invocation operation hosted in another Dapr-ized application. In this example, the function acts like a proxy.
+
 ```csharp
 [FunctionName("InvokeOutputBinding")]
 public static async Task<IActionResult> Run(
@@ -41,25 +43,29 @@ public static async Task<IActionResult> Run(
     ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
+
     string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
     var outputContent = new InvokeMethodParameters
     {
         Body = requestBody
     };
+
     await output.AddAsync(outputContent);
+
     return new OkResult();
 }
 ```
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows how the custom type is used in both the trigger and a Dapr Invoke output binding.
+More samples for the Dapr output invoke binding are available in the [GitHub repository](todo).
 
-TODO: current example has in-proc, need to update with out-of-proc
 <!--
 
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/InvokeOutputBinding.cs" range="8-42"::: 
+:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/InvokeOutputBinding.cs" range="8-39"::: 
 -->
+
 ---
 
 ::: zone-end 
