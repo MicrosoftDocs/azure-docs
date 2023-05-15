@@ -18,7 +18,7 @@ ms.date: 05/11/2023
 
 ### Azure Active Directory-based authentication and authorization (preview)
 
-Azure Active Directory (Azure AD) based authentication and authorization is now available for public preview with Azure Cache for Redis. With this Azure AD integration, users can connect to their cache instance without an access key and use role-based access control to connect to their cache instance.
+Azure Active Directory (Azure AD) based [authentication and authorization](cache-azure-active-directory-for-authentication.md) is now available for public preview with Azure Cache for Redis. With this Azure AD integration, users can connect to their cache instance without an access key and use [role-based access control](cache-configure-role-based-access-control.md) to connect to their cache instance.
 
 > [!IMPORTANT]
 > The updates to Azure Cache for Redis that enable both  Azure Active Directory for authentication and role-based access control are available only in East US region.
