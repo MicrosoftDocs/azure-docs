@@ -14,16 +14,16 @@ ms.reviewer: mamkumar
 ---
 # Universal tenant restrictions
 
-Universal tenant restrictions enhances the funtionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) by using Global Secure Access to tag all traffic no matter the operating system or device. It allows support for both branch locations and individual devices. Administrators no longer have to manage proxy server configurations or complex network configurations.
+Universal tenant restrictions enhances the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access to tag all traffic no matter the operating system or device. It allows support for both branch locations and individual devices. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
-Universal Tenant Restrictions enforces tenant restrictions v2 for all operating system and browser platforms. It does this by leveraging Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users leveraging external tenant identities for Azure AD integrated applications like SharePoint Online and Exchange Online. TRv2 and NaaS work hand in hand to prevent data exfiltration universally across all devices and networks.  
+Universal Tenant Restrictions enforces tenant restrictions v2 for all operating system and browser platforms. It does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Azure AD integrated applications like SharePoint Online and Exchange Online. TRv2 and NaaS work hand in hand to prevent data exfiltration universally across all devices and networks.  
 
 INSERT DIAGRAM HERE SHOWING TRV2 SCENARIO
 
 In the example depicted in the diagram 
 
 
-Universal tenant restrictions helps to prevent data exfiltration across browsers, devices, and networks in the following ways:
+Universal tenant restrictions help to prevent data exfiltration across browsers, devices, and networks in the following ways:
 
 - It injects the following attributes into the header of outbound HTTP traffic at the client level in both the authentication control and data sessions to Microsoft 365 endpoints:
     - Cloud ID of the device tenant
@@ -59,7 +59,7 @@ Full feature flag URL:
 
 (https://portal.azure.com/?Microsoft_Azure_Network_Access_assettypeoptions=%7B%22NetworkAccess%22%3A%7B%22options%22%3A%22ShowAssetType%22%7D%7D&microsoft_azure_compute=true&Microsoft_Azure_Network_Access_adaptiveAccess=true&feature.caNetworkAccess=true%20#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings) 
 
-Pre-requisites 
+Prerequisites 
 
 As an end-user, setup NaaS client. 
 
