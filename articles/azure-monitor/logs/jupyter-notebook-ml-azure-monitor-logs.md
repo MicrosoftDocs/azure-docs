@@ -70,56 +70,36 @@ For this tutorial, you need:
 ||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool for Python. |
 ||[Plotly](https://plotly.com/python/)| An open source graphing library for Python. |
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
- ## Install required Python tools
+ ## Install required libraries
 
-1. Install the Azure Monitor Query client library for Python:
+Install the Azure Monitor Query, Azure Identity and Azure Monitor Ingestion client libraries along with the Pandas data analysis library, Plotly visualization library, and Scikit-learn machine learning library:
 
-    ```python
-    pip install azure-monitor-query
-    ``` 
-1. Install the Azure Identity client library for Python:
+```python
+import sys
 
-    ```python
-    pip install azure-identity
-    ``` 
-1. Install the Azure Monitor Ingestion client library for Python:
+!{sys.executable} -m pip install --upgrade azure-monitor-query azure-identity azure-monitor-ingestion
 
-    ```python
-    pip install azure-monitor-ingestion
-    ``` 
-
-1. Install Plotly:
-
-    ```python
-    pip install plotly
-    ``` 
-
-1. Install Pandas library:
-
-    ```python
-    pip install pandas
-    ``` 
-
-1. Scikit-learn:
-
-    ```python
-    pip install scikit-learn
-    ```
+!{sys.executable} -m pip install --upgrade pandas numpy plotly scikit-learn nbformat
+```
  ## Integrate your Log Analytics workspace with your notebook 
 
-To be able to query data in your Log Analytics workspace from your notebook:
-
-1. Set up authentication to your Log Analytics workspace using `DefaultAzureCredential` from the `azure-identity` package:
+1. Set the `LOGS_WORKSPACE_ID` variable below to the ID of your Log Analytics workspace. The variable is currently set to use the [Azure Monitor Demo workspace](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which you can use to demo the notebook.
 
     ```python
-    from azure.identity import DefaultAzureCredential
-    from azure.monitor.query import LogsQueryClient
-    
-    credential = DefaultAzureCredential()
-    logs_query_client = LogsQueryClient(credential)
+    LOGS_WORKSPACE_ID = "DEMO_WORKSPACE"
     ```
-1. Define the functions you'll use to call your Log Analytics workspace, query your data, and visualize the data in a graph.  
     
+1. Set up `LogsQueryClient` to authenticate and query Azure Monitor Logs. 
+
+    This code sets up `LogsQueryClient` to authenticate using `DefaultAzureCredential`.
+
+    `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass in a custom authentication policy to enable the use of API keys. This allows the client to query the [demo workspace](https://learn.microsoft.com/azure/azure-monitor/logs/api/access-api#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, and it is recommended to use your own Log Analytics workspace.
+
+1. Define helper functions that we'll use throughout the notebook.
+
+    - `query_logs_workspace` - Queries the Log Analytics workspace for a given query and returns the results as a Pandas DataFrame.
+    - `display_graph` - Displays a Plotly line graph showing hourly usage for various data types over time, based on a Pandas DataFrame.
+
 ## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
 Now that you've integrated your Log Analytics workspace with your notebook, let's look at some data in the workspace by running a query from the notebook:
