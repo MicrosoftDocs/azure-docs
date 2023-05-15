@@ -136,8 +136,8 @@ The following dimensions are available on the `Email Service Delivery Status Upd
 | SmtpStatusCode       | Smpt error code from for failed deliveriess. |
 | EnhancedSmtpStatusCode       | The EnhancedSmtpStatusCode status code will be emitted if it is available. This status code provides additional details not available with the SmtpStatusCode. |
 
-:::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Email DElivery Status Update Metric.":::
-:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Email DElivery Status Update Metric.":::
+:::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Email Delivery Status Update Metric - IsHardBounce.":::
+:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Email Delivery Status Update Metric - SmptStatusCode.":::
 
 ### Email Service API requests
 
