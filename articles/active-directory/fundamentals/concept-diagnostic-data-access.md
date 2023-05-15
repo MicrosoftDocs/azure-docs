@@ -29,7 +29,7 @@ Microsoft Support Access Requests (preview) enable you to manage Microsoft Suppo
 
 ## Support access role permissions
 
-To manage Microsoft Support Access Requests, you must be assigned to an Azure AD role that has full permission to manage Azure support tickets at tenant scope. This role permission is included in Azure AD built-in roles with the action `microsoft.azure.supportTickets/allEntities/allTasks`. You can see which Azure AD roles have this permission in the [Azure AD built-in roles](../roles/permissions-reference.md) article.
+To manage Microsoft Support Access Requests, you must be assigned to an Azure AD role that has full permission to manage Azure support tickets for the tenant. This role permission is included in Azure AD built-in roles with the action `microsoft.azure.supportTickets/allEntities/allTasks`. You can see which Azure AD roles have this permission in the [Azure AD built-in roles](../roles/permissions-reference.md) article.
 
 ## Next steps
 

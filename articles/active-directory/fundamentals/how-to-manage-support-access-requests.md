@@ -18,21 +18,19 @@ ms.collection: M365-identity-device-management
 
 You can use the Azure Active Directory (Azure AD) administration portal to manage Microsoft Support Access Requests (preview). Microsoft Support Access Requests enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft.
 
+## Prerequisites
+
 Only certain Azure AD roles are authorized to manage Microsoft Support Access Requests. To manage Microsoft Support Access Requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which Azure AD roles have this permission, search the [Azure AD built-in roles](../roles/permissions-reference.md) for the required permission.
 
 ## Microsoft Support Access Request workflow
 
-In many situations, enabling the collection **Advanced diagnostic information** during the creation of a support access request is sufficient for troubleshooting your issue. In some situations though, a separate approval may be needed to allow Microsoft support to access your identity diagnostic data.
+In many situations, enabling the collection of **Advanced diagnostic information** during the creation of a support access request is sufficient for troubleshooting your issue. In some situations though, a separate approval may be needed to allow Microsoft support to access your identity diagnostic data.
 
-If your scenario warrants this special approval, a Microsoft support engineer submits a Microsoft Support Access Request. A notification appears in the Azure portal for the tenant where the initial support request was filed. This notification appears in the Azure portal for the user who submitted the request. 
+If your scenario warrants this special approval, a Microsoft support engineer submits a Microsoft Support Access Request. A notification appears in the Azure portal for the tenant where the initial support request was filed *and* for the user who submitted the request. The user reviews the pending request and approves or rejects it. If the request is approved, Microsoft support can access the appropriate identity diagnostic data.
 
 ## Pending requests
 
-When the Microsoft support engineer assigned to your case tells you they have created a Microsoft Support Access Request, you need to approve that request in order for Microsoft Support to access your identity diagnostic data. 
-
-*ALT*
-
-When a notification for a Microsoft Support Access Request in your tenant, you need to approve that request in order for Microsoft Support to access your identity diagnostic data. 
+When you receive a notification for a Microsoft Support Access Request in your tenant, you need to approve that request in order for Microsoft Support to access your identity diagnostic data. 
 
 ### See your pending requests
 
