@@ -13,7 +13,7 @@ author: sagarkeswani
 
 The [Azure CLI](/cli/azure/) is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to Install SAP software for infrastructure deployed for an SAP system. In the [previous step](tutorial-create-ha-name-custom.md), you created infrastructure for an SAP system with highly available (HA) Distributed architecture on Azure with *Azure Center for SAP solutions* using Azure CLI. You also provided customized resource names for the deployed Azure resources. 
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to Install SAP software for infrastructure deployed for an SAP system. In the [previous step](tutorial-create-high-availability-name-custom.md), you created infrastructure for an SAP system with highly available (HA) Distributed architecture on Azure with *Azure Center for SAP solutions* using Azure CLI. You also provided customized resource names for the deployed Azure resources. 
 
 After you [deploy infrastructure](deploy-s4hana.md) and install SAP software with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the [Virtual Instance for SAP solutions](manage-virtual-instance.md). For example, you can:
 
@@ -35,7 +35,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - You should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
-- The *json* configuration file that you used to create infrastructure in the [previous step](tutorial-create-ha-name-custom.md) for SAP system using PowerShell or Azure CLI. 
+- The *json* configuration file that you used to create infrastructure in the [previous step](tutorial-create-high-availability-name-custom.md) for SAP system using PowerShell or Azure CLI. 
 - As you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
     - For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
     - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal.
