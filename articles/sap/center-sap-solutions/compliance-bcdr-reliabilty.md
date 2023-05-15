@@ -6,6 +6,7 @@ ms.author: sushantyadav
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: sap-on-azure
+ms.custom: references_regions
 ms.date: 05/15/2023
 ---
 
