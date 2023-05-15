@@ -964,7 +964,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.10 (Preview)<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.10<br/>3.9<br/> 3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
 | 2.x | 3.7 |
 
