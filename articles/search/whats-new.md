@@ -77,19 +77,6 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 |------------------------------|------|-------------|
 | [Index aliases](search-how-to-alias.md) | Feature | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. When index names change, for example if you version the index, instead of updating the references to an index name in your application, you can just update the mapping for your alias. |
 
-## 2021 announcements
-
-| Month | Feature | Description |
-|-------|---------|-------------|
-| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#2---create-a-semantic-configuration) | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries and Azure portal.|
-| November | [Azure Files indexer (preview)](./search-file-storage-integration.md) | Public preview in the portal and preview REST APIs.|
-| July | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Public preview announcement. |
-| July | [Role-based access control for data plane (preview)](search-security-rbac.md) | Public preview announcement. |
-| July | [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). Public preview announcement. |
-| May | [Power Query connector support (preview)](/previous-versions/azure/search/search-how-to-index-power-query-data-sources) | Public preview announcement. | 
-| May | [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md) | Generally available, using REST api-version=2020-06-30 and Azure portal. |
-| May | [Azure MySQL indexer (preview)](search-howto-index-mysql.md) | Public preview, REST api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
-
 ## Previous year's announcements
 
 + [2021 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2021)
