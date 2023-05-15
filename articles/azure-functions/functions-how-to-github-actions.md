@@ -596,7 +596,7 @@ To use the interactive method to retrieve a personal access token:
     az functionapp deployment github-actions add --repo "githubUser/githubRepo" -g MyResourceGroup -n MyFunctionapp --login-with-github
     ```
 
-1. In your terminal window, you'll see the message, "Please navigate to https://github.com/login/device and enter the user code 1234-ABCD to activate and retrieve your github personal access token." Your values will be `1234-ABDC` different. 
+1. In your terminal window, you'll see the message, "Please navigate to https://github.com/login/device and enter the user code 1234-ABCD to activate and retrieve your github personal access token." Your values will be different from `1234-ABDC`. 
 
 1. Go to <https://github.com/login/device> and enter your unique code. 
 
