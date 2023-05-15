@@ -1,0 +1,1 @@
+You can now deploy the CNFs either directly via Azure Operator Nexus APIs or via Azure Network Function Manager.

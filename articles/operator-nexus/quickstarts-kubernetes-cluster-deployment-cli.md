@@ -15,7 +15,7 @@ ms.date: 05/13/2023
 
 ## Before you begin
 
-[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster-prereq.md)]
+[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster/quickstart-prereq.md)]
 
 ## Create an Azure Nexus Kubernetes cluster
 
@@ -105,58 +105,16 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Review deployed resources
 
-After the deployment finishes, you can view the resources using the CLI or the Azure portal.
-
-```azurecli
-az networkcloud kubernetescluster show \
-  --name myNexusAKSCluster \
-  --resource-group myResourceGroup
-```
+[!INCLUDE [quickstart-review-deployment-cli](./includes/kubernetes-cluster/quickstart-review-deployment-cli.md)]
 
 ## Connect to the cluster
-Now that the Azure Nexus Kubernetes cluster has been successfully created and connected to Azure Arc, you can connect to it using ```kubectl```, the Kubernetes command-line client. To connect, you need to download the cluster's credentials and configure kubectl to use them.
 
-For the specific steps to connect to an Azure Arc-connected Kubernetes cluster, refer [how to connect to an Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/cluster-connect.md).
-
-This documentation provides a detailed, step-by-step guide to help you connect to your cluster. It includes instructions on how to install the necessary Azure CLI extensions, retrieve your cluster's credentials, and configure kubectl.
-
-Remember, whenever you interact with the cluster, you should make sure that you have the correct permissions and that the cluster is running. If you encounter any issues, refer to the troubleshooting section of the Azure Arc documentation or contact Azure support.
+[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Clean up resources
 
-When no longer needed, delete the resource group. The resource group and all the resources in the resource group are deleted.
-
-### [Azure CLI](#tab/azure-cli)
-
-Use the [az group delete][az-group-delete] command to remove the resource group, Kubernetes cluster, and all related resources except the Operator Nexus network resources.
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes --no-wait
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, Kubernetes cluster, and all related resources except the Operator Nexus network resources.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup
-```
----
+[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup.md)]
 
 ## Next steps
 
-You can now deploy the CNFs either directly via Azure Operator Nexus APIs or via Azure Network Function Manager.
-
-<!-- LINKS - internal -->
-[kubernetes-concepts]: ../concepts-clusters-workloads.md
-[import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-delete]: /cli/azure/group#az_group_delete
-[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[azure-cli-install]: /cli/azure/install-azure-cli
-[azure-portal]: https://portal.azure.com
-[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
-[ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
+[!INCLUDE [quickstart-nextsteps](./includes/kubernetes-cluster/quickstart-nextsteps.md)]
