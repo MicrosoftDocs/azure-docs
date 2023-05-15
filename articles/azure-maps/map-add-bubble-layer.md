@@ -1,9 +1,9 @@
 ---
 title: Add a Bubble layer to a map | Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps Web SDK to add and customize bubble layers for this purpose.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 07/29/2019
+author: dubiety
+ms.author: yuchungchen
+ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
 ms.custom: devx-track-js
@@ -59,7 +59,7 @@ map.events.add("load", function () {
 
 ## Show labels with a bubble layer
 
-This code shows you how to use a bubble layer to render a point on the map and  a symbol layer to render a label. To hide the icon of the symbol layer, set the `image` property of the icon options to `none`.
+This code shows you how to use a bubble layer to render a point on the map and a symbol layer to render a label. To hide the icon of the symbol layer, set the `image` property of the icon options to `none`.
 
 ```javascript
 //Create an instance of the map control and set some options.
@@ -110,7 +110,7 @@ This code shows you how to use a bubble layer to render a point on the map and  
 }
 ```
 
-:::image type="content" source="./media/map-add-bubble-layer/show-labels-with-a-bubble-layer.png" alt-text="Screenshot showing a map displaying six blue circles, or points in the specified locations.":::
+:::image type="content" source="./media/map-add-bubble-layer/show-labels-with-a-bubble-layer.png" alt-text="Screenshot showing a map displaying a point on the map with a label.":::
 
 <!---------------------------------------------------------------------
 <br/>
@@ -122,7 +122,7 @@ This code shows you how to use a bubble layer to render a point on the map and  
 
 The Bubble layer only has a few styling options. Use the [Bubble Layer Options] sample to try them out.
 
-:::image type="content" source="./media/map-add-bubble-layer/bubble-layer-options.png" alt-text="Screenshot showing a map displaying six blue circles, or points in the specified locations.":::
+:::image type="content" source="./media/map-add-bubble-layer/bubble-layer-options.png" alt-text="Screenshot showing a the Bubble Layer Options sample that shows a map with bubbles and selectable bubble layer options to the left of the map.":::
 
 <!-------------------------------------------------------------------
 <br/>
