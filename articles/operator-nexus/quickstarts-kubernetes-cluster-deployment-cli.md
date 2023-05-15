@@ -48,10 +48,10 @@ Once you've defined these variables, you can run the Azure CLI command to create
 Here are the set commands for defining these variables:
 
 ```bash
-CUSTOM_LOCATION=""
-CSN_ID=""
-CNI_ID=""
-AAD_ADMIN_GROUP_OBJECT_ID=""
+CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+CSN_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+CNI_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+AAD_ADMIN_GROUP_OBJECT_ID="00000000-0000-0000-0000-000000000000"
 CLUSTER_NAME="myNexusAKSCluster"
 RESOURCE_GROUP="myResourceGroup"
 SUBSCRIPTION_ID="$(az account show -o tsv --query id)"
