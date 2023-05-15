@@ -88,8 +88,7 @@ With Agentless Container Posture capabilities available in Defender CSPM, the a
 
 **Estimated date for change: June 2023**
 
- A new container recommendation  for vulnerability assessment runtime in Defender CSPM is set for release, where the recommendation is powered by MDVM (Microsoft Defender Vulnerability Management): 
-
+ A new container recommendation in Defender CSPM powered by MDVM is set to be released:
 
 |Recommendation | Description | Assessment Key|
 |--|--|--| 
