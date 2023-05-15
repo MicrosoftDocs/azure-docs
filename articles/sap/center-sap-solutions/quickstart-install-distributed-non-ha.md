@@ -45,7 +45,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
     - BOM URL: This is the BOM file path. Example: `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0010ms.yaml`
     - Software version: Azure Center for SAP solutions supports three SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00**
     - Storage account ID: This is the resource ID for the storage account where the BOM file is created
-- You can us the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/InstallPayloadDistributedNon-HA.json)
+- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/InstallPayloadDistributedNon-HA.json)
 
 ## Install SAP software 
 Use [New-AzWorkloadsSapVirtualInstance](powershell/module/az.workloads/new-azworkloadssapvirtualinstance) to install SAP software
@@ -54,7 +54,7 @@ New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Na
 ```
 
 ## Next steps
-In this quickstart, you installed SAP software on the deployed infrstructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to Manage your SAP system on Azure using [Virtual Instance for SAP solutions]()
+In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to Manage your SAP system on Azure using [Virtual Instance for SAP solutions]()
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
 
