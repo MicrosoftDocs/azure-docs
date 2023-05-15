@@ -159,6 +159,12 @@
         "source_path_from_root": "/articles/api-management/authorizations-reference.md",
         "redirect_url": "/azure/api-management/authorizations-configure-common-providers",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/use-google-as-oauth-token-provider.md",
+        "redirect_url": "/azure/api-management/policies",
+        "redirect_document_id": false
     }
+
   ]
 }
