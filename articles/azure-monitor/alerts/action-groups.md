@@ -51,9 +51,7 @@ Global requests from clients can be processed by action group services in any re
 
 1. Configure notifications. Select **Next: Notifications**, or select the **Notifications** tab at the top of the page.
 1. Define a list of notifications to send when an alert is triggered.
-1. For each notification,
-   1. Select the **Notification type**, and then fill in the appropriate fields for that notification. The available options are:
-
+1. For each notification, select the **Notification type**, and then fill in the appropriate fields for that notification. The available options are:
 
         |Notification type|Description  |Fields|
         |---------|---------|---------|
@@ -69,9 +67,9 @@ Global requests from clients can be processed by action group services in any re
 
    1. Select **OK**.
 1. Configure actions. Select **Next: Actions**. or select the **Actions** tab at the top of the page.
-1. Define a list of actions to trigger when an alert is triggered. Provide the following information for each action:
+1. Define a list of actions to trigger when an alert is triggered. Select an action type and enter a name for each action.
 
-   - **Action type**: Select from the following types of actions:
+    Select from the following types of actions:
 
         |Action type     |Details  |
         |---------|---------|
@@ -83,7 +81,7 @@ Global requests from clients can be processed by action group services in any re
         |Secure webhook|When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your endpoint, which is a protected web API. See [Configure authentication for Secure webhook](#configure-authentication-for-secure-webhook). Secure webhook doesn't support basic authentication. If you're using basic authentication, use the Webhook action.|
         |Webhook| If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit.<br>You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI.<br>If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the **Logic Apps** action type to manipulate the alert schema to meet the target webhook's expectations.<br> For information about the rules used for retrying webhook actions, see [Webhook](#webhook).|
 
-   :::image type="content" source="./media/action-groups/action-group-3-actions.png" alt-text="Screenshot that shows the Actions tab of the Create action group dialog. Several options are visible in the Action type list.":::
+       :::image type="content" source="./media/action-groups/action-group-3-actions.png" alt-text="Screenshot that shows the Actions tab of the Create action group dialog. Several options are visible in the Action type list.":::
 1. (Optional.) If you'd like to assign a key-value pair to the action group to categorize your Azure resources, select **Next: Tags** or the **Tags** tab. Otherwise, skip this step. 
 
    :::image type="content" source="./media/action-groups/action-group-4-tags.png" alt-text="Screenshot that shows the Tags tab of the Create action group dialog. Values are visible in the Name and Value boxes.":::
