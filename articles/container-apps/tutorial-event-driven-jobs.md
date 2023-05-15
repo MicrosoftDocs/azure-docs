@@ -96,7 +96,7 @@ To deploy the job, you must first build a container image for the job and push i
         --admin-enabled true
     ```
 
-1. The source code for the job is available on GitHub. Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
+1. The source code for the job is available on [GitHub](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
 
     ```azurecli
     az acr build \
@@ -121,7 +121,7 @@ To deploy the job, you must first build a container image for the job and push i
         --parallelism "1" \
         --min-executions "0" \
         --max-executions "10" \
-        --scale-polling-interval "60" \
+        --polling-interval "60" \
         --scale-rule-name "queue" \
         --scale-rule-type "azure-queue" \
         --scale-rule-metadata "accountName=$STORAGE_ACCOUNT_NAME" "queueName=$QUEUE_NAME" "queueLength=1" \
@@ -144,7 +144,7 @@ To deploy the job, you must first build a container image for the job and push i
     | `--parallelism` | The number of replicas to start per job execution. |
     | `--min-executions` | The minimum number of job executions to run per polling interval. |
     | `--max-executions` | The maximum number of job executions to run per polling interval. |
-    | `--scale-polling-interval` | The polling interval at which to evaluate the scale rule. |
+    | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
     | `--scale-rule-name` | The name of the scale rule. |
     | `--scale-rule-type` | The type of scale rule to use. |
     | `--scale-rule-metadata` | The metadata for the scale rule. |
@@ -175,7 +175,7 @@ To verify the job was configured correctly, you can send some messages to the qu
 1. List the executions of a job.
 
     ```azurecli
-    az containerapp job executionhistory \
+    az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --output json

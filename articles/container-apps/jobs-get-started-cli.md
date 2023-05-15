@@ -80,7 +80,7 @@ Container Apps jobs use cron expressions to define schedules. It supports the st
 Container Apps jobs maintain a history of recent executions. You can list the executions of a job.
 
 ```azurecli
-az containerapp job executionhistory \
+az containerapp job execution list \
     --name "$JOB_NAME" \
     --resource-group "$RESOURCE_GROUP" \
     --output table \
@@ -112,7 +112,7 @@ Job executions output logs to the logging provider that you configured for the C
 1. Save the name of the most recent job execution to a variable.
 
     ```azurecli
-    JOB_EXECUTION_NAME=`az containerapp job executionhistory \
+    JOB_EXECUTION_NAME=`az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --query "[0].name" \
@@ -129,7 +129,7 @@ Job executions output logs to the logging provider that you configured for the C
     ```
 
     > [!NOTE]
-    > Until the `ContainerAppConsoleLogs_CL` table is ready, the command returns an error: `BadArgumentError: The request had some invalid properties`. Wait a few minutes and try again.
+    > Until the `ContainerAppConsoleLogs_CL` table is ready, the command returns no results or with an error: `BadArgumentError: The request had some invalid properties`. Wait a few minutes and run the command again.
 
     The following output is an example of the logs printed by the job execution.
 
