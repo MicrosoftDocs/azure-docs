@@ -6,11 +6,11 @@ items:
   - name: Quickstarts
     items:
     - name: Deploy S/4HANA infrastructure - Azure PowerShell
-      href: quickstart-create-distributed-non-HA.md
+      href: quickstart-create-distributed-non-ha.md
     - name: Install SAP software - Azure PowerShell
-      href: quickstart-install-distributed-non-HA.md  
+      href: quickstart-install-distributed-non-ha.md  
     - name: Deploy S/4HANA infrastructure - Azure CLI
-      href: quickstart_create_HA_namecustom.md
+      href: quickstart_create_ha_namecustom.md
     - name: Install SAP software - Azure CLI
       href: quickstart-install-ha-namecustom-cli.md
     - name: Deploy an SAP system with customized disk layout - Portal
@@ -26,7 +26,7 @@ items:
   - name: Tutorial
     items:
     - name: Deploy infrastructure for an SAP system with customized resource names
-      href: tutorial-create-HA-name-custom.md
+      href: tutorial-create-ha-name-custom.md
     - name: Deploy infrastructure for an SAP system with customized Database Disk Layout
       href: tutorial-customize-disk.md    
   - name: Concepts
