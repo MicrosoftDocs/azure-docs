@@ -174,7 +174,7 @@ To configure those you follow these steps:
                             "title": "Workflow.Id",
                             "type": "string"
                           },
-                          "workflowVerson": {
+                          "workflowVersion": {
                             "description": "WorkflowVersion for Workflow Object",
                             "title": "Workflow.WorkflowVersion",
                             "type": "integer"

@@ -11,7 +11,7 @@ ms.date: 01/13/2023
 
 # Cloud feature availability for commercial and US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
+This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available** for the following security services:
 
 - [Azure Information Protection](#azure-information-protection)
 - [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
@@ -228,13 +228,13 @@ The following tables display the current Microsoft Sentinel feature availability
 |- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
 |- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
 | **Workspace Manager** | | |
-| - [Workspace manager](../../sentinel/workspace-manager.md) | Public preview | Public preview |
+| - [Workspace manager](../../sentinel/workspace-manager.md) | Public Preview | Public Preview |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
-| - [Hunts](../../sentinel/hunts.md) | Public preview | Not Available |
+| - [Hunts](../../sentinel/hunts.md) | Public Preview | Not Available |
 | **Content  and content management** | | |
-| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Public preview |
-| - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public preview | Not Available |
+| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public Preview | Public Preview |
+| - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public Preview | Not Available |
 | **Data collection** | | |
 | - [Advanced SIEM Information Model (ASIM)](../../sentinel/normalization.md) | Public Preview | Not Available |
 | **Threat intelligence support** | | |
