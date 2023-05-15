@@ -426,6 +426,9 @@ items:
         - name: Enable on AKS cluster
           displayName: Prometheus
           href: essentials/prometheus-metrics-enable.md
+        - name: Enable on Arc-enabled Kubernetes cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
         - name: Customize collection
           items:
           - name: Default configuration
@@ -446,9 +449,6 @@ items:
           - name: Send to multiple metric workspaces
             displayName: Prometheus
             href: essentials/prometheus-metrics-multiple-workspaces.md
-        - name: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
         - name: Troubleshoot collection
           displayName: Prometheus
           href: essentials/prometheus-metrics-troubleshoot.md

@@ -1,15 +1,15 @@
 ---
-title: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster.
-description: How to configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus.
+title: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview).
+description: How to configure your Azure Arc-enabled Kubernetes cluster (preview) to send data to Azure Monitor managed service for Prometheus.
 author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
 ms.date: 05/07/2023
 ---
 
-# Collect Prometheus metrics from an Arc-enabled Kubernetes cluster
+# Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview)
 
-This article describes how to configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus. When you configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the Azure Monitor agent is installed with a metrics extension. You  then specify the Azure Monitor workspace where the data should be sent.
+This article describes how to configure your Azure Arc-enabled Kubernetes cluster (preview) to send data to Azure Monitor managed service for Prometheus. When you configure your Azure Arc-enabled Kubernetes cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the Azure Monitor agent is installed with a metrics extension. You then specify the Azure Monitor workspace where the data should be sent.
 
 > [!NOTE]
 > The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster even though the Azure Monitor agent installed in this process is the same agent used by Container insights.
@@ -24,7 +24,10 @@ The following configurations are supported:
 + Moby
 + CRI compatible container runtimes such CRI-O
 
-Windows isn't currently supported.
+The following configurations are not supported:
+
++ Windows
++ Azure Red Hat OpenShift 4
 
 ## Prerequisites
 
@@ -121,12 +124,12 @@ az k8s-extension create\
 
 You can use the following optional parameters with the previous commands:
 
-`--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` is a comma-separated list of Kubernetes annotations keys used in the resource's labels metric. By default, the metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them.  
+`--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` is a comma-separated list of Kubernetes label keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional labels, provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'.
 
-`--configurationSettings. AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of more Kubernetes label keys that is used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them.  
+`--configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of Kubernetes annotations keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional annotations, provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'. A single `''` can be provided per resource instead to allow any annotations, but that has severe performance implications (Example: '=pods=[]').
 
 > [!NOTE]
-> A single asterisk `*` can be provided per resource to allow any labels instead of providing a list of resource names, but this has severe performance implications.  
+>  A single `''` can be provided per resource instead to allow any labels, but that has severe performance implications (Example: '=pods=[]').
 
 
 ```azurecli
