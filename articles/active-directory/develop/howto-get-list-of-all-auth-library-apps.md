@@ -40,17 +40,17 @@ Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor a
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**
    1. In the **Usage** section, open the **Sign-ins** workbook
 
-   :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure portal workbooks interface highlighting the sign-ins workbook.":::
+   :::image type="content" source="media/howto-get-list-of-all-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure portal workbooks interface highlighting the sign-ins workbook.":::
 
 ## Step 3: Identify apps that use ADAL
 
 The table at the bottom of the Sign-ins workbook page lists apps that recently used ADAL. You can also export a list of the apps. Update these apps to use MSAL.
     
-:::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/active-directory-auth-library-apps-present.png" alt-text="Screenshot of sign-ins workbook displaying apps that use Active Directory Authentication Library.":::
+:::image type="content" source="media/howto-get-list-of-all-auth-library-apps/auth-library-apps-present.png" alt-text="Screenshot of sign-ins workbook displaying apps that use Active Directory Authentication Library.":::
     
 If there are no apps using ADAL, the workbook will display a view as shown below. 
     
-:::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/no-active-directory-auth-library-apps.png" alt-text="Screenshot of sign-ins workbook when no app is using Active Directory Authentication Library.":::
+:::image type="content" source="media/howto-get-list-of-all-auth-library-apps/no-auth-library-apps.png" alt-text="Screenshot of sign-ins workbook when no app is using Active Directory Authentication Library.":::
 
 ## Step 4: Update your code
 
