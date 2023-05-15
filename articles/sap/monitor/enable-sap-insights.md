@@ -12,8 +12,7 @@ ms.author: akak
 
 # Enable Insights to troubleshoot SAP workload issues (preview)
 
-> [!Important]
->  The Insights feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-sap-insights.md)]
 
 The Insights capability in Azure Monitor for SAP Solutions helps you troubleshoot Availability and Performance issues on your SAP workloads. It helps you correlate key SAP components issues with SAP logs, Azure platform metrics and health events. 
 In this how-to-guide, learn to enable Insights in Azure Monitor for SAP solutions. You can use SAP Insights with only the latest version of the service, *Azure Monitor for SAP solutions* and not *Azure Monitor for SAP solutions (classic)*
@@ -41,10 +40,10 @@ To enable Insights for Azure Monitor for SAP solutions, you need to:
 > The intent of this step is to give the Azure Monitor for SAP solutions(AMS) instance access to the virtual machines that host the SAP systems you want to monitor. This will help your AMS instance correlate issues you face with Azure infrastructure telemetry, giving you an end-to-end troubleshooting experience. 
 This script gives your AMS instance Reader role permission over the subscriptions that hold the SAP systems. Feel free to modify the script to scope it down to a resource group or a set of virtual machines. 
 
-1. Download the onboarding script [from github](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/blob/main/Scripts/AMS_AIOPS_SETUP.ps1)
+1. Download the onboarding script [from GitHub](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/blob/main/Scripts/AMS_AIOPS_SETUP.ps1)
 1. Go to the Azure portal and select the Cloud Shell tab from the menu bar at the top. Refer [this guide](/articles/cloud-shell/quickstart.md) to get started with Cloud Shell. 
 1. Switch from Bash to PowerShell.
-![Screenshot that shows the upload button on Azure CLI](./media/enable-sap-insights/powershell-upload.png)
+:::image type="content" source="./media/enable-sap-insights/powershell-upload.png" alt-text="Screenshot that shows the upload button on Azure CLI.":::
 1. Upload the script downloaded in the first step.
 1. Navigate to the folder where the script is present using the command:
 ```PowerShell
@@ -81,8 +80,8 @@ Follow steps to unprotect methods from the [NetWeaver provider configuration pag
 
 ## Using Insights on Azure Monitor for SAP Solutions(AMS)
 We have two categories of issues we help you get insights for. 
-1. [Availability issues](#availability-insights)
-1. [Performance degradations](#performance-insights)
+* [Availability issues](#availability-insights)
+* [Performance degradations](#performance-insights)
 
 > [!Important]
 > As a user of the Insights capability, you will require reader access on all virtual machines on which the SAP systems are hosted that you're trying to monitor using AMS. This is to make sure that you're able to view Azure monitor metrics and Resource health events of these virtual machines in context of SAP issues. See [steps to assign Azure roles](../../role-based-access-control/role-assignments-steps.md).
@@ -92,17 +91,17 @@ This capability helps you get an overview regarding availability of your SAP sys
 
 #### Steps to use availability insights
 1.	Open the AMS instance of your choice and visit the insights tab under Monitoring on the left navigation pane. 
-![Screenshot that shows the landing page of Insights on AMS](./media/enable-sap-insights/visitInsights-tab.png)
+:::image type="content" source="./media/enable-sap-insights/visit-insights-tab.png" alt-text="Screenshot that shows the landing page of Insights on AMS.":::
 1. If you have followed all [the steps mentioned](#steps-to-enable-insights-in-azure-monitor-for-sap-solutions), you should see the above screen asking for context to be set up. You can set the Time range, SID and the provider (optional, All selected by default).
 1.	On the top, you're able to see all the fired alerts related to SAP system and instance availability on this screen. 
-![Screenshot of the overview page of availability insights](./media/enable-sap-insights/availability-overview.png)
+:::image type="content" source="./media/enable-sap-insights/availability-overview.png" alt-text="Screenshot of the overview page of availability insights.":::
 1.	If you're able to see SAP system availability trend, categorized by VM - SAP process list. If you have selected a fired alert in the previous step, you're able to see these trends in context with the fired alert. If not, these trends respect the time range you set on the main Time range filter. 
-![Screenshot of the availability trends of availability insights](./media/enable-sap-insights/availability-trends.png)
+:::image type="content" source="./media/enable-sap-insights/availability-trends.png" alt-text="Screenshot of the availability trends of availability insights.":::
 1.	You can see the Azure virtual machine on which the process is hosted and the corresponding availability trends for the combination. To view detailed insights, select the Investigate link.
 1.	It opens a context pane that shows you availability insights on the corresponding virtual machine and the SAP application.
 It has two categories of insights:
     * Azure platform: VM health events filtered by the time range set, either by the workbook filter or the selected alert. This pane also consists of VM availability metric trend for the chosen VM.
-    ![Screenshot of the VM health events of availability insights](./media/enable-sap-insights/availability-vm-health.png)
+    :::image type="content" source="./media/enable-sap-insights/availability-vm-health.png" alt-text="Screenshot of the VM health events of availability insights.":::
     * SAP Application: Process availability and contextual insights on the process like error messages (SM21), Lock entries (SM12) and Canceled jobs (SM37) which can help you find issues that might exist in parallel in the system, at the point in time. 
 
 ### Performance Insights
@@ -110,21 +109,28 @@ This capability helps you get an overview regarding performance of your SAP syst
 
 #### Steps to use performance insights
 1.	Open the AMS instance of your choice and visit the insights tab under Monitoring on the left navigation pane. 
-2.	On the top, you're able to see all the fired alerts related to SAP application performance degradations.
-    ![Screenshot of the overview page of performance insights](./media/enable-sap-insights/performance-overview.png)
-3.	Next you're able to see key metrics related to performance issues and its trend during the timerange you have chosen.
-4. To view detailed insights issues, you can either choose to investigate a fired alert or view insights for a key metric. 
-<br/><img alt="Screenshot of the context pane of performance insights" src="./media/enable-sap-insights/performance-detail-pane.png" width="32%">
-<img alt="Screenshot of the SAP pane of performance insights" src="./media/enable-sap-insights/performance-SAP-pane.png" width="33%">
-<img alt="Screenshot of the infra pane of performance insights" src="./media/enable-sap-insights/performance-azure-pane.png" width="32%">
-5. On investigating, you see a context pane, which shows you four categories of metrics in context of the issue/key metric chosen. 
-    * Issue/Key metric details
-    * SAP application
-    * Azure platform
-    * Configuration drift 
-6. This capability with the set of metrics in context of the issue, helps you visually correlate trends of key metrics. This experience eases the root-causing process of performance degradations observed in SAP workloads on Azure.
+1.	On the top, you're able to see all the fired alerts related to SAP application performance degradations.
+    :::image type="content" source="./media/enable-sap-insights/performance-overview.png" alt-text="Screenshot of the overview page of performance insights.":::
+1.	Next you're able to see key metrics related to performance issues and its trend during the timerange you have chosen.
+1. To view detailed insights issues, you can either choose to investigate a fired alert or view insights for a key metric. 
+1. On investigating, you see a context pane, which shows you four categories of metrics in context of the issue/key metric chosen. 
+    * Issue/Key metric details - Detailed visualizations of the key metric that defines the problem.
+    :::image type="content" source="./media/enable-sap-insights/performance-detail-pane.png" alt-text="Screenshot of the context pane of performance insights.":::
+    
+    * SAP application - Visualizations of the key SAP logs that pertain the issue type. 
+    :::image type="content" source="./media/enable-sap-insights/performance-sap-pane.png" alt-text="Screenshot of the SAP pane of performance insights.":::
+
+    * Azure platform - Key Azure platform metrics that present an overview of the virtual machine of the SAP system.
+    :::image type="content" source="./media/enable-sap-insights/performance-azure-pane.png" alt-text="Screenshot of the infrastructure pane of performance insights.":::
+
+    * Configuration drift - [Quality checks](../center-sap-solutions/get-quality-checks-insights.md) violations on the SAP system.
+> This capability with the set of metrics in context of the issue, helps you visually correlate trends of key metrics. This experience eases the root-causing process of performance degradations observed in SAP workloads on Azure.
 
 #### Scope of the preview
 We have insights only for a limited set of issues as part of the preview. We extend this capability to most of the issues supported by AMS alerts before this capability is Generally Available(GA). 
 * Availability insights let you detect and troubleshoot unavailability of Netweaver system, instance and HANA DB. 
 * Performance insights are provided for NetWeaver metrics - High response time(ST03) and Long running batch jobs. 
+
+## Next steps
+
+- For information on providers available for Azure Monitor for SAP solutions, see [Azure Monitor for SAP solutions providers](providers.md).
